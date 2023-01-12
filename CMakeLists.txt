@@ -15,9 +15,12 @@ find_package(sensor_msgs REQUIRED)
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
 
+file(GLOB FILES_H ${CMAKE_SOURCE_DIR}/include/*.h
+                    ${CMAKE_SOURCE_DIR}/include/imu_ros2/*.h)
 
+file(GLOB FILES_CPP ${CMAKE_SOURCE_DIR}/src/*.cpp)
 
-add_executable(imu-ros2-node src/imu_ros2_node.cpp)
+add_executable(imu-ros2-node ${FILES_H} ${FILES_CPP})
 
 target_include_directories(imu-ros2-node PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
