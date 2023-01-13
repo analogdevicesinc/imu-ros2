@@ -14,7 +14,7 @@ RosPublisher1::~RosPublisher1()
 
 void RosPublisher1::init(std::shared_ptr<rclcpp::Node> &node)
 {
-    m_publisher = node->create_publisher<std_msgs::msg::String>("/adi_imu/topicStr", 10);
+    m_publisher = node->create_publisher<std_msgs::msg::String>("topicStr", 10);
 }
 
 void RosPublisher1::setMessageProvider(DataProviderInterface *dataProvider)
