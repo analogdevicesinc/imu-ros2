@@ -24,7 +24,7 @@ file(GLOB FILES_CPP ${CMAKE_SOURCE_DIR}/src/*.cpp)
   #find_package(rostest REQUIRED)
   find_package(ament_lint_auto REQUIRED)
   find_package(ament_cmake_gtest REQUIRED)
-  ament_add_gtest(imu_ros2_test_node utest_launch.test src/utest.cpp src/subscriberteststring.cpp)
+  ament_add_gtest(imu_ros2_test_node utest_launch.test src/utest.cpp src/subscriber_test_string.cpp)
   #target_link_libraries(utest_node ${catkin_LIBRARIES})
 #endif()
 

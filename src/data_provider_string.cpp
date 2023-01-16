@@ -1,4 +1,4 @@
-#include "imu_ros2/dataproviderstring.h"
+#include "imu_ros2/data_provider_string.h"
 
 DataProviderString::DataProviderString()
 {

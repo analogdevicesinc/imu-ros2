@@ -1,5 +1,5 @@
-#ifndef ROSTASK_H
-#define ROSTASK_H
+#ifndef ROS_TASK_H
+#define ROS_TASK_H
 
 class RosTask {
 public:
@@ -9,4 +9,4 @@ public:
     virtual void run() = 0;
 };
 
-#endif // ROSTASK_H
+#endif // ROS_TASK_H

@@ -1,7 +1,7 @@
-#ifndef ROSPUBLISHERINTERFACE_H
-#define ROSPUBLISHERINTERFACE_H
+#ifndef ROS_PUBLISHER_INTERFACE_H
+#define ROS_PUBLISHER_INTERFACE_H
 
-#include "imu_ros2/rostask.h"
+#include "imu_ros2/ros_task.h"
 
 #include <rclcpp/rclcpp.hpp>
 #include <memory>
@@ -20,4 +20,4 @@ protected:
     std::shared_ptr<rclcpp::Node> m_node;
 };
 
-#endif // ROSPUBLISHERINTERFACE_H
+#endif // ROS_PUBLISHER_INTERFACE_H

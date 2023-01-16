@@ -1,7 +1,7 @@
-#include "imu_ros2/workerthread.h"
+#include "imu_ros2/worker_thread.h"
 
 WorkerThread::WorkerThread(RosTask* rosTask)
-    : std::thread ([this] {this->runTask (); })
+    : std::thread ([this] {this->runTask(); })
     , m_rosTask(rosTask)
 {
 
