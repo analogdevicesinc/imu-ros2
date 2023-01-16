@@ -1,7 +1,7 @@
-#ifndef DATAPROVIDERSTRING_H
-#define DATAPROVIDERSTRING_H
+#ifndef DATA_PROVIDER_STRING_H
+#define DATA_PROVIDER_STRING_H
 
-#include "imu_ros2/dataproviderinterface.h"
+#include "imu_ros2/data_provider_interface.h"
 
 class DataProviderString : public DataProviderInterface {
 
@@ -14,4 +14,4 @@ public:
     std_msgs::msg::String getData(int count) override;
 };
 
-#endif // DATAPROVIDERSTRING_H
+#endif // DATA_PROVIDER_STRING_H

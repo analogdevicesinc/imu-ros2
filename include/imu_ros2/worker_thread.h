@@ -1,7 +1,7 @@
-#ifndef WORKERTHREAD_H
-#define WORKERTHREAD_H
+#ifndef WORKER_THREAD_H
+#define WORKER_THREAD_H
 
-#include "imu_ros2/rostask.h"
+#include "imu_ros2/ros_task.h"
 #include <thread>
 
 class WorkerThread : public std::thread {
@@ -16,4 +16,4 @@ private:
 
 };
 
-#endif // WORKERTHREAD_H
+#endif // WORKER_THREAD_H

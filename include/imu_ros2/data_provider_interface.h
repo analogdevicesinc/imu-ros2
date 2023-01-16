@@ -1,5 +1,5 @@
-#ifndef DATAPROVIDERINTERFACE_H
-#define DATAPROVIDERINTERFACE_H
+#ifndef DATA_PROVIDER_INTERFACE_H
+#define DATA_PROVIDER_INTERFACE_H
 
 #include <std_msgs/msg/string.hpp>
 
@@ -13,4 +13,4 @@ public:
     virtual std_msgs::msg::String getData(int count) = 0;
 };
 
-#endif // DATAPROVIDERINTERFACE_H
+#endif // DATA_PROVIDER_INTERFACE_H

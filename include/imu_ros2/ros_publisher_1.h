@@ -1,8 +1,8 @@
-#ifndef ROSSUBSCRIBER1_H
-#define ROSSUBSCRIBER1_H
+#ifndef ROS_SUBSCRIBER_1_H
+#define ROS_SUBSCRIBER_1_H
 
-#include "imu_ros2/rospublisherinterface.h"
-#include "imu_ros2/dataproviderinterface.h"
+#include "imu_ros2/ros_publisher_interface.h"
+#include "imu_ros2/data_provider_interface.h"
 
 #include <rclcpp/rclcpp.hpp>
 
@@ -24,4 +24,4 @@ private:
      std_msgs::msg::String m_message;
 };
 
-#endif // ROSSUBSCRIBER1_H
+#endif // ROS_SUBSCRIBER_1_H

@@ -6,9 +6,9 @@
 #include "rclcpp/rclcpp.hpp"
 #include "std_msgs/msg/string.hpp"
 
-#include "imu_ros2/rospublisher1.h"
-#include "imu_ros2/workerthread.h"
-#include "imu_ros2/dataproviderstring.h"
+#include "imu_ros2/ros_publisher_1.h"
+#include "imu_ros2/worker_thread.h"
+#include "imu_ros2/data_provider_string.h"
 
 using namespace std::chrono_literals;
 
