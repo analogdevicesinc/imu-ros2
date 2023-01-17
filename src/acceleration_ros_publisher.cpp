@@ -14,7 +14,7 @@ AccelerationRosPublisher::~AccelerationRosPublisher()
 
 void AccelerationRosPublisher::init(std::shared_ptr<rclcpp::Node> &node)
 {
-    m_publisher = node->create_publisher<std_msgs::msg::UInt32>("acceleration", 10);
+    m_publisher = node->create_publisher<sensor_msgs::msg::Imu>("imuacceleration", 10);
 }
 
 void AccelerationRosPublisher::setMessageProvider(AccelerationDataProviderInterface *dataProvider)
@@ -38,7 +38,8 @@ void AccelerationRosPublisher::run()
         RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "running: '%d'", this_id);
 
         m_message = m_dataProvider->getData(count);
-        RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Publishing acceleration: '%d'", m_message.data);
+        RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Publishing acceleration x y z: '%f' '%f' '%f'",
+                    m_message.linear_acceleration.x, m_message.linear_acceleration.y, m_message.linear_acceleration.z);
 
         m_publisher->publish(m_message);
         count++;

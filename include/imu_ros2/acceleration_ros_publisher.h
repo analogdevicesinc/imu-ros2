@@ -5,6 +5,7 @@
 #include "imu_ros2/acceleration_data_provider_interface.h"
 
 #include <rclcpp/rclcpp.hpp>
+#include <sensor_msgs/msg/imu.hpp>
 
 class AccelerationRosPublisher : public AccelerationRosPublisherInterface {
 
@@ -20,8 +21,8 @@ public:
 private:
 
      AccelerationDataProviderInterface* m_dataProvider;
-     rclcpp::Publisher<std_msgs::msg::UInt32>::SharedPtr m_publisher;
-     std_msgs::msg::UInt32 m_message;
+     rclcpp::Publisher<sensor_msgs::msg::Imu>::SharedPtr m_publisher;
+     sensor_msgs::msg::Imu m_message;
 };
 
 #endif // ACCELERATION_ROS_SUBSCRIBER_H

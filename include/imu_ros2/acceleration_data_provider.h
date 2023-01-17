@@ -11,7 +11,7 @@ public:
     ~AccelerationDataProvider();
 
     void init() override;
-    std_msgs::msg::UInt32 getData(int count) override;
+    sensor_msgs::msg::Imu getData(int count) override;
 };
 
 #endif // ACCELERATION_DATA_PROVIDER_STRING_H
