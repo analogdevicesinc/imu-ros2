@@ -14,6 +14,9 @@
 #include "imu_ros2/acceleration_data_provider.h"
 #include "imu_ros2/acceleration_ros_publisher.h"
 
+#include "imu_ros2/static_data_provider.h"
+#include "imu_ros2/static_ros_publisher.h"
+
 using namespace std::chrono_literals;
 
 int main(int argc, char * argv[])
@@ -38,16 +41,22 @@ int main(int argc, char * argv[])
 
     RosTask* accRosTask = dynamic_cast<RosTask*>(accPublisher);
 
+    StaticDataProviderInterface* staDataProv = new StaticDataProvider();
+    StaticRosPublisherInterface * staPublisher = new StaticRosPublisher(node);
+    staPublisher->setMessageProvider(staDataProv);
+
+    RosTask* staRosTask = dynamic_cast<RosTask*>(staPublisher);
+
     WorkerThread wth(rosTask);
     WorkerThread accwth(accRosTask);
+    WorkerThread stawth(staRosTask);
     wth.join();
     accwth.join();
+    stawth.join();
 
     delete publisher1;
-    delete dataStr;
-
     delete accPublisher;
-    delete accDataProv;
+    delete staPublisher;
 
     return 0;
 }
