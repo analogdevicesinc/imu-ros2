@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.8)
-project(imu-ros2)
+project(imu_ros2)
 
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
@@ -11,6 +11,9 @@ find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(sensor_msgs REQUIRED)
 
+find_package(builtin_interfaces REQUIRED)
+find_package(rosidl_default_generators REQUIRED)
+
 # uncomment the following section in order to fill in
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
@@ -20,16 +23,18 @@ file(GLOB FILES_H ${CMAKE_SOURCE_DIR}/include/*.h
 
 file(GLOB FILES_CPP ${CMAKE_SOURCE_DIR}/src/*.cpp)
 
-add_executable(imu-ros2-node ${FILES_H} ${FILES_CPP})
 
-target_include_directories(imu-ros2-node PUBLIC
+
+add_executable(imu_ros2_node ${FILES_H} ${FILES_CPP})
+
+target_include_directories(imu_ros2_node PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:include>)
-target_compile_features(imu-ros2-node PUBLIC cxx_std_17)  # Require C++17
+target_compile_features(imu_ros2_node PUBLIC cxx_std_17)  # Require C++17
 
-ament_target_dependencies(imu-ros2-node rclcpp std_msgs sensor_msgs ament_cmake)
+ament_target_dependencies(imu_ros2_node rclcpp std_msgs sensor_msgs ament_cmake )
 
-install(TARGETS imu-ros2-node
+install(TARGETS imu_ros2_node
   DESTINATION lib/${PROJECT_NAME})
 
 if(BUILD_TESTING)
@@ -48,5 +53,15 @@ if(BUILD_TESTING)
 
   add_subdirectory(test)
 endif()
+
+rosidl_generate_interfaces(imu_ros2
+  "msg/StaticData.msg"
+  DEPENDENCIES builtin_interfaces
+)
+
+rosidl_target_interfaces(imu_ros2_node
+  ${PROJECT_NAME} "rosidl_typesupport_cpp")
+
+ament_export_dependencies(rosidl_default_runtime)
 
 ament_package()
