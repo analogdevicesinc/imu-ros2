@@ -11,7 +11,8 @@ find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(sensor_msgs REQUIRED)
 
-
+#find_package(builtin_interfaces REQUIRED)
+#find_package(rosidl_default_generators REQUIRED)
 
 file(GLOB FILES_H ${CMAKE_SOURCE_DIR}/include/*.h
                     ${CMAKE_SOURCE_DIR}/include/iio_ros2_package/*.h)
@@ -25,7 +26,8 @@ file(GLOB FILES_CPP ${CMAKE_SOURCE_DIR}/src/*.cpp)
   find_package(ament_lint_auto REQUIRED)
   find_package(ament_cmake_gtest REQUIRED)
   ament_add_gtest(imu_ros2_test_node utest_launch.test src/utest.cpp src/subscriber_test_string.cpp
-                                        src/acceleration_subscriber_test.cpp)
+                                        src/acceleration_subscriber_test.cpp
+                                        src/static_subscriber_test.cpp)
   #target_link_libraries(utest_node ${catkin_LIBRARIES})
 #endif()
 
@@ -39,6 +41,14 @@ ament_target_dependencies(imu_ros2_test_node rclcpp std_msgs sensor_msgs ament_c
 install(TARGETS imu_ros2_test_node
   DESTINATION lib/${PROJECT_NAME})
 
+#rosidl_generate_interfaces(imu_ros2
+#  "../msg/StaticData.msg"
+#  DEPENDENCIES builtin_interfaces
+#)
 
+rosidl_target_interfaces(imu_ros2_test_node
+  imu_ros2 "rosidl_typesupport_cpp")
 
-ament_package()
+#ament_export_dependencies(rosidl_default_runtime)
+
+#ament_package()

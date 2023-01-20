@@ -27,6 +27,7 @@ file(GLOB FILES_CPP ${CMAKE_SOURCE_DIR}/src/*.cpp)
 
 add_executable(imu_ros2_node ${FILES_H} ${FILES_CPP})
 
+
 target_include_directories(imu_ros2_node PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:include>)
@@ -36,6 +37,18 @@ ament_target_dependencies(imu_ros2_node rclcpp std_msgs sensor_msgs ament_cmake 
 
 install(TARGETS imu_ros2_node
   DESTINATION lib/${PROJECT_NAME})
+
+
+rosidl_generate_interfaces(imu_ros2
+  "msg/StaticData.msg"
+  DEPENDENCIES builtin_interfaces
+)
+
+rosidl_target_interfaces(imu_ros2_node
+  ${PROJECT_NAME} "rosidl_typesupport_cpp")
+
+ament_export_dependencies(rosidl_default_runtime)
+
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
@@ -54,14 +67,11 @@ if(BUILD_TESTING)
   add_subdirectory(test)
 endif()
 
-rosidl_generate_interfaces(imu_ros2
-  "msg/StaticData.msg"
-  DEPENDENCIES builtin_interfaces
-)
 
-rosidl_target_interfaces(imu_ros2_node
-  ${PROJECT_NAME} "rosidl_typesupport_cpp")
 
-ament_export_dependencies(rosidl_default_runtime)
+
+
+
+
 
 ament_package()
