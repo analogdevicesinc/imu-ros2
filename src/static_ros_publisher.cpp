@@ -14,6 +14,7 @@ StaticRosPublisher::~StaticRosPublisher()
 
 void StaticRosPublisher::init(std::shared_ptr<rclcpp::Node> &node)
 {
+    m_node = node;
     m_publisher = node->create_publisher<imu_ros2::msg::StaticData>("imudevicedata", 10);
 }
 

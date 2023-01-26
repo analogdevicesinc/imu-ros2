@@ -14,6 +14,7 @@ AccelerationRosPublisher::~AccelerationRosPublisher()
 
 void AccelerationRosPublisher::init(std::shared_ptr<rclcpp::Node> &node)
 {
+    m_node = node;
     m_publisher = node->create_publisher<sensor_msgs::msg::Imu>("imuacceleration", 10);
 }
 

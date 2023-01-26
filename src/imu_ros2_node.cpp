@@ -19,11 +19,18 @@
 
 using namespace std::chrono_literals;
 
+void declareParameters(std::shared_ptr<rclcpp::Node>& node)
+{
+    node->declare_parameter("my_parameter", "world");
+}
+
 int main(int argc, char * argv[])
 {
     rclcpp::init(argc, argv);
 
     std::shared_ptr<rclcpp::Node> node = rclcpp::Node::make_shared("imu_ros2_node");
+
+    declareParameters(node);
 
     DataProviderInterface* dataStr = new DataProviderString();
     RosPublisherInterface * publisher1 = new RosPublisher1(node);
