@@ -18,7 +18,12 @@ void DataProviderString::init()
 std_msgs::msg::String DataProviderString::getData(int count)
 {
     auto message = std_msgs::msg::String();
-    message.data = "Hello, world! " + std::to_string(count);
+    message.data = "Hello, world! " + std::to_string(count) + " " + m_parameter;
 
     return message;
+}
+
+void DataProviderString::setParameter(std::string param)
+{
+    m_parameter = param;
 }
