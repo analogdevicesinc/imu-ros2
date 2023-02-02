@@ -41,6 +41,7 @@ install(TARGETS imu_ros2_node
 
 rosidl_generate_interfaces(imu_ros2
   "msg/StaticData.msg"
+  "msg/GyroscopeData.msg"
   DEPENDENCIES builtin_interfaces
 )
 
