@@ -31,9 +31,11 @@ TEST(GyroscopeSubscriberTest,test_gyroscope_pozitive_values1)
     {
         ++counter;
 
-        RCLCPP_INFO(rclcpp::get_logger("rclcpp_test_gyroscope_data"), " gyroscope value : %f  \n",
-                    msg.gyroscope_value );
-        ASSERT_TRUE(msg.gyroscope_value >= 0);
+        RCLCPP_INFO(rclcpp::get_logger("rclcpp_test_gyroscope_data"), " gyroscope value : %f %f %f \n",
+                    msg.anglvel_x, msg.anglvel_y, msg.anglvel_z );
+        ASSERT_TRUE(msg.anglvel_x >= 0);
+        ASSERT_TRUE(msg.anglvel_y >= 0);
+        ASSERT_TRUE(msg.anglvel_z >= 0);
 
 
 

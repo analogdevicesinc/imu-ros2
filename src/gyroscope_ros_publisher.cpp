@@ -39,8 +39,8 @@ void GyroscopeRosPublisher::run()
         RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "running: '%d'", this_id);
 
         m_message = m_dataProvider->getData(count);
-        RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Publishing gyroscope data: '%f' ",
-                    m_message.gyroscope_value);
+        RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Publishing gyroscope data: '%f' '%f' '%f'",
+                    m_message.anglvel_x, m_message.anglvel_y, m_message.anglvel_z);
 
         m_publisher->publish(m_message);
         count++;

@@ -14,6 +14,11 @@ public:
     float getAccelerometerX();
     float getAccelerometerY();
     float getAccelerometerZ();
+
+    float getGyroscopeValue(std::string axa);
+    float getGyroscopeX();
+    float getGyroscopeY();
+    float getGyroscopeZ();
 };
 
 #endif // IIO_WRAPPER_H
