@@ -55,3 +55,27 @@ float IIOWrapper::getAccelerometerZ()
 {
     return getAccelerometerValue("accel_z");
 }
+
+float IIOWrapper::getGyroscopeValue(std::string axa)
+{
+    std::string command = "iio_attr -u ip:127.0.0.1 -c adis16505  " + axa + "  raw ";
+    std::string readerfile = "tmpfileoutput"+axa+".txt";
+    std::string output = ssystem(command.c_str(), readerfile.c_str());
+    float num_float = std::stof(output);
+    return num_float;
+}
+
+float IIOWrapper::getGyroscopeX()
+{
+    return getGyroscopeValue("anglvel_x");
+}
+
+float IIOWrapper::getGyroscopeY()
+{
+    return getGyroscopeValue("anglvel_y");
+}
+
+float IIOWrapper::getGyroscopeZ()
+{
+    return getGyroscopeValue("anglvel_z");
+}

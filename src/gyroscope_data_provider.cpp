@@ -19,7 +19,9 @@ imu_ros2::msg::GyroscopeData GyroscopeDataProvider::getData(int count)
 {
     (int)count;
     imu_ros2::msg::GyroscopeData message;
-    message.gyroscope_value = 10;
+    message.anglvel_x =m_iioWrapper.getGyroscopeX();
+    message.anglvel_y =m_iioWrapper.getGyroscopeY();
+    message.anglvel_z =m_iioWrapper.getGyroscopeZ();
 
 
     return message;
