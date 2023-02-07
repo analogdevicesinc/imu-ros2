@@ -14,6 +14,12 @@ find_package(sensor_msgs REQUIRED)
 find_package(builtin_interfaces REQUIRED)
 find_package(rosidl_default_generators REQUIRED)
 
+add_library(iio SHARED IMPORTED) # or STATIC instead of SHARED
+set_target_properties(iio PROPERTIES
+  IMPORTED_LOCATION "/usr/lib/x86_64-linux-gnu/libiio.so"
+  INTERFACE_INCLUDE_DIRECTORIES "/usr/include"
+)
+
 # uncomment the following section in order to fill in
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
@@ -33,7 +39,9 @@ target_include_directories(imu_ros2_node PUBLIC
   $<INSTALL_INTERFACE:include>)
 target_compile_features(imu_ros2_node PUBLIC cxx_std_17)  # Require C++17
 
-ament_target_dependencies(imu_ros2_node rclcpp std_msgs sensor_msgs ament_cmake )
+ament_target_dependencies(imu_ros2_node rclcpp std_msgs sensor_msgs ament_cmake)
+
+target_link_libraries(imu_ros2_node iio)
 
 install(TARGETS imu_ros2_node
   DESTINATION lib/${PROJECT_NAME})
@@ -49,6 +57,7 @@ rosidl_target_interfaces(imu_ros2_node
   ${PROJECT_NAME} "rosidl_typesupport_cpp")
 
 ament_export_dependencies(rosidl_default_runtime)
+
 
 
 if(BUILD_TESTING)

@@ -6,8 +6,27 @@
 #include <cstdlib>
 #include <sstream>
 
+struct iio_context* IIOWrapper::m_network_context = nullptr;
+
 IIOWrapper::IIOWrapper()
 {
+    if(m_network_context == nullptr)
+    {
+        m_network_context = iio_create_network_context("127.0.0.1");
+        m_object_context =  iio_context_clone(m_network_context);
+    }
+    else
+    {
+        m_object_context =  iio_context_clone(m_network_context);
+    }
+    m_dev = iio_context_find_device(m_object_context, "adis16505");
+    m_channel_accel_x = iio_device_find_channel(m_dev, "accel_x", false);
+    m_channel_accel_y = iio_device_find_channel(m_dev, "accel_y", false);
+    m_channel_accel_z = iio_device_find_channel(m_dev, "accel_z", false);
+
+    m_channel_anglvel_x = iio_device_find_channel(m_dev, "anglvel_x", false);
+    m_channel_anglvel_y = iio_device_find_channel(m_dev, "anglvel_y", false);
+    m_channel_anglvel_z = iio_device_find_channel(m_dev, "anglvel_z", false);
 
 }
 
@@ -16,66 +35,51 @@ IIOWrapper::~IIOWrapper()
 
 }
 
-std::string IIOWrapper::ssystem(const char *command,const char *filename)
-{
-
-    std::string scommand = command;
-    std::string cmd = scommand + " > " + filename;
-    std::system(cmd.c_str());
-    std::ifstream file(filename, std::ios::out | std::ios::binary );
-    std::string result;
-    if (file) {
-        while (!file.eof())
-            result.push_back(file.get());
-        file.close();
-    }
-    return result;
-}
-
-float IIOWrapper::getAccelerometerValue(std::string axa)
-{
-    std::string command = "iio_attr -u ip:127.0.0.1 -c adis16505  " + axa + "  raw ";
-    std::string readerfile = "tmpfileoutput"+axa+".txt";
-    std::string output = ssystem(command.c_str(), readerfile.c_str());
-    float num_float = std::stof(output);
-    return num_float;
-}
 
 float IIOWrapper::getAccelerometerX()
 {
-    return getAccelerometerValue("accel_x");
+    long long value;
+    iio_channel_attr_read_longlong(m_channel_accel_x, "raw", &value);
+    float fval = value;
+    return fval;
 }
 
 float IIOWrapper::getAccelerometerY()
 {
-    return getAccelerometerValue("accel_y");
+    long long value;
+    iio_channel_attr_read_longlong(m_channel_accel_y, "raw", &value);
+    float fval = value;
+    return fval;
 }
 
 float IIOWrapper::getAccelerometerZ()
 {
-    return getAccelerometerValue("accel_z");
-}
-
-float IIOWrapper::getGyroscopeValue(std::string axa)
-{
-    std::string command = "iio_attr -u ip:127.0.0.1 -c adis16505  " + axa + "  raw ";
-    std::string readerfile = "tmpfileoutput"+axa+".txt";
-    std::string output = ssystem(command.c_str(), readerfile.c_str());
-    float num_float = std::stof(output);
-    return num_float;
+    long long value;
+    iio_channel_attr_read_longlong(m_channel_accel_z, "raw", &value);
+    float fval = value;
+    return fval;
 }
 
 float IIOWrapper::getGyroscopeX()
 {
-    return getGyroscopeValue("anglvel_x");
+    long long value;
+    iio_channel_attr_read_longlong(m_channel_anglvel_x, "raw", &value);
+    float fval = value;
+    return fval;
 }
 
 float IIOWrapper::getGyroscopeY()
 {
-    return getGyroscopeValue("anglvel_y");
+    long long value;
+    iio_channel_attr_read_longlong(m_channel_anglvel_y, "raw", &value);
+    float fval = value;
+    return fval;
 }
 
 float IIOWrapper::getGyroscopeZ()
 {
-    return getGyroscopeValue("anglvel_z");
+    long long value;
+    iio_channel_attr_read_longlong(m_channel_anglvel_z, "raw", &value);
+    float fval = value;
+    return fval;
 }
