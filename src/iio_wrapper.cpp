@@ -32,6 +32,7 @@ IIOWrapper::IIOWrapper()
 
 IIOWrapper::~IIOWrapper()
 {
+    iio_context_destroy(m_object_context);
 
 }
 
