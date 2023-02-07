@@ -33,6 +33,11 @@ IIOWrapper::IIOWrapper()
 IIOWrapper::~IIOWrapper()
 {
     iio_context_destroy(m_object_context);
+    if(m_network_context != nullptr)
+    {
+        iio_context_destroy(m_network_context);
+        m_network_context = nullptr;
+    }
 
 }
 
