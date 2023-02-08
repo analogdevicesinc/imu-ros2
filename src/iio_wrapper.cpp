@@ -12,7 +12,12 @@ IIOWrapper::IIOWrapper()
 {
     if(m_network_context == nullptr)
     {
+        #ifdef __arm__
+        m_network_context = iio_create_local_context();
+        #else
         m_network_context = iio_create_network_context("127.0.0.1");
+        #endif
+
         m_object_context =  iio_context_clone(m_network_context);
     }
     else
