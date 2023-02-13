@@ -28,6 +28,11 @@ public:
   MinimalParam()
   : Node("imu_ros2_node")
   {
+      rcl_interfaces::msg::ParameterDescriptor descriptor;
+      descriptor.dynamic_typing = true;
+
+      declare_parameter("dynamically_typed_parameter", rclcpp::ParameterValue{}, descriptor);
+
       declare_parameter("my_parameter", "world");
       declare_parameter("diag_checksum_error_flag", "val");
       declare_parameter("diag_flash_memory_write_count_exceeded_error", "val");
