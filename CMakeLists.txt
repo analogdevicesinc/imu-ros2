@@ -53,11 +53,11 @@ rosidl_generate_interfaces(imu_ros2
   DEPENDENCIES builtin_interfaces
 )
 
-rosidl_target_interfaces(imu_ros2_node
+rosidl_get_typesupport_target(imu_ros2_node
   ${PROJECT_NAME} "rosidl_typesupport_cpp")
 
 ament_export_dependencies(rosidl_default_runtime)
-
+target_link_libraries(imu_ros2_node "${imu_ros2_node}")
 
 
 if(BUILD_TESTING)

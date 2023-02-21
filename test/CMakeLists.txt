@@ -47,8 +47,9 @@ install(TARGETS imu_ros2_test_node
 #  DEPENDENCIES builtin_interfaces
 #)
 
-rosidl_target_interfaces(imu_ros2_test_node
+rosidl_get_typesupport_target(imu_ros2_test_node
   imu_ros2 "rosidl_typesupport_cpp")
+target_link_libraries(imu_ros2_test_node "${imu_ros2_node}")
 
 #ament_export_dependencies(rosidl_default_runtime)
 
