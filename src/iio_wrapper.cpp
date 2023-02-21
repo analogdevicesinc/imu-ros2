@@ -67,48 +67,84 @@ IIOWrapper::~IIOWrapper()
 
 float IIOWrapper::getAccelerometerX()
 {
-    long long value;
-    iio_channel_attr_read_longlong(m_channel_accel_x, "raw", &value);
-    float fval = value;
-    return fval;
+    long long valueRaw;
+    iio_channel_attr_read_longlong(m_channel_accel_x, "raw", &valueRaw);
+    float fvalRaw = valueRaw;
+
+    long long valueScale;
+    iio_channel_attr_read_longlong(m_channel_accel_x, "scale", &valueScale);
+    float fvalScale = valueScale;
+
+    float result = fvalRaw * fvalScale;
+    return result;
 }
 
 float IIOWrapper::getAccelerometerY()
 {
-    long long value;
-    iio_channel_attr_read_longlong(m_channel_accel_y, "raw", &value);
-    float fval = value;
-    return fval;
+    long long valueRaw;
+    iio_channel_attr_read_longlong(m_channel_accel_y, "raw", &valueRaw);
+    float fvalRaw = valueRaw;
+
+    long long valueScale;
+    iio_channel_attr_read_longlong(m_channel_accel_y, "scale", &valueScale);
+    float fvalScale = valueScale;
+
+    float result = fvalRaw * fvalScale;
+    return result;
 }
 
 float IIOWrapper::getAccelerometerZ()
 {
-    long long value;
-    iio_channel_attr_read_longlong(m_channel_accel_z, "raw", &value);
-    float fval = value;
-    return fval;
+    long long valueRaw;
+    iio_channel_attr_read_longlong(m_channel_accel_z, "raw", &valueRaw);
+    float fvalRaw = valueRaw;
+
+    long long valueScale;
+    iio_channel_attr_read_longlong(m_channel_accel_z, "scale", &valueScale);
+    float fvalScale = valueScale;
+
+    float result = fvalRaw * fvalScale;
+    return result;
 }
 
 float IIOWrapper::getGyroscopeX()
 {
-    long long value;
-    iio_channel_attr_read_longlong(m_channel_anglvel_x, "raw", &value);
-    float fval = value;
-    return fval;
+    long long valueRaw;
+    iio_channel_attr_read_longlong(m_channel_anglvel_x, "raw", &valueRaw);
+    float fvalRaw = valueRaw;
+
+    long long valueScale;
+    iio_channel_attr_read_longlong(m_channel_anglvel_x, "scale", &valueScale);
+    float fvalScale = valueScale;
+
+    float result = fvalRaw * fvalScale;
+    return result;
 }
 
 float IIOWrapper::getGyroscopeY()
 {
-    long long value;
-    iio_channel_attr_read_longlong(m_channel_anglvel_y, "raw", &value);
-    float fval = value;
-    return fval;
+    long long valueRaw;
+    iio_channel_attr_read_longlong(m_channel_anglvel_y, "raw", &valueRaw);
+    float fvalRaw = valueRaw;
+
+    long long valueScale;
+    iio_channel_attr_read_longlong(m_channel_anglvel_y, "scale", &valueScale);
+    float fvalScale = valueScale;
+
+    float result = fvalRaw * fvalScale;
+    return result;
 }
 
 float IIOWrapper::getGyroscopeZ()
 {
-    long long value;
-    iio_channel_attr_read_longlong(m_channel_anglvel_z, "raw", &value);
-    float fval = value;
-    return fval;
+    long long valueRaw;
+    iio_channel_attr_read_longlong(m_channel_anglvel_z, "raw", &valueRaw);
+    float fvalRaw = valueRaw;
+
+    long long valueScale;
+    iio_channel_attr_read_longlong(m_channel_anglvel_z, "scale", &valueScale);
+    float fvalScale = valueScale;
+
+    float result = fvalRaw * fvalScale;
+    return result;
 }
