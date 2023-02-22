@@ -15,10 +15,20 @@ find_package(builtin_interfaces REQUIRED)
 find_package(rosidl_default_generators REQUIRED)
 
 add_library(iio SHARED IMPORTED) # or STATIC instead of SHARED
+
+if(${CMAKE_SYSTEM_PROCESSOR} MATCHES "arm")
+    set_target_properties(iio PROPERTIES
+      IMPORTED_LOCATION "/usr/lib/aarch64-linux-gnu/libiio.so"
+      INTERFACE_INCLUDE_DIRECTORIES "/usr/include"
+    )
+message(STATUS "Looking for /usr/lib/aarch64-linux-gnu/libiio.so")
+else()
 set_target_properties(iio PROPERTIES
   IMPORTED_LOCATION "/usr/lib/x86_64-linux-gnu/libiio.so"
   INTERFACE_INCLUDE_DIRECTORIES "/usr/include"
 )
+message(STATUS "Looking for /usr/lib/x86_64-linux-gnu/libiio.so")
+endif()
 
 # uncomment the following section in order to fill in
 # further dependencies manually.

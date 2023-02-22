@@ -71,8 +71,8 @@ float IIOWrapper::getAccelerometerX()
     iio_channel_attr_read_longlong(m_channel_accel_x, "raw", &valueRaw);
     float fvalRaw = valueRaw;
 
-    long long valueScale;
-    iio_channel_attr_read_longlong(m_channel_accel_x, "scale", &valueScale);
+    double valueScale;
+    iio_channel_attr_read_double(m_channel_accel_x, "scale", &valueScale);
     float fvalScale = valueScale;
 
     float result = fvalRaw * fvalScale;
@@ -85,8 +85,8 @@ float IIOWrapper::getAccelerometerY()
     iio_channel_attr_read_longlong(m_channel_accel_y, "raw", &valueRaw);
     float fvalRaw = valueRaw;
 
-    long long valueScale;
-    iio_channel_attr_read_longlong(m_channel_accel_y, "scale", &valueScale);
+    double valueScale;
+    iio_channel_attr_read_double(m_channel_accel_y, "scale", &valueScale);
     float fvalScale = valueScale;
 
     float result = fvalRaw * fvalScale;
@@ -99,8 +99,8 @@ float IIOWrapper::getAccelerometerZ()
     iio_channel_attr_read_longlong(m_channel_accel_z, "raw", &valueRaw);
     float fvalRaw = valueRaw;
 
-    long long valueScale;
-    iio_channel_attr_read_longlong(m_channel_accel_z, "scale", &valueScale);
+    double valueScale;
+    iio_channel_attr_read_double(m_channel_accel_z, "scale", &valueScale);
     float fvalScale = valueScale;
 
     float result = fvalRaw * fvalScale;
@@ -113,8 +113,8 @@ float IIOWrapper::getGyroscopeX()
     iio_channel_attr_read_longlong(m_channel_anglvel_x, "raw", &valueRaw);
     float fvalRaw = valueRaw;
 
-    long long valueScale;
-    iio_channel_attr_read_longlong(m_channel_anglvel_x, "scale", &valueScale);
+    double valueScale;
+    iio_channel_attr_read_double(m_channel_anglvel_x, "scale", &valueScale);
     float fvalScale = valueScale;
 
     float result = fvalRaw * fvalScale;
@@ -127,8 +127,8 @@ float IIOWrapper::getGyroscopeY()
     iio_channel_attr_read_longlong(m_channel_anglvel_y, "raw", &valueRaw);
     float fvalRaw = valueRaw;
 
-    long long valueScale;
-    iio_channel_attr_read_longlong(m_channel_anglvel_y, "scale", &valueScale);
+    double valueScale;
+    iio_channel_attr_read_double(m_channel_anglvel_y, "scale", &valueScale);
     float fvalScale = valueScale;
 
     float result = fvalRaw * fvalScale;
@@ -141,8 +141,8 @@ float IIOWrapper::getGyroscopeZ()
     iio_channel_attr_read_longlong(m_channel_anglvel_z, "raw", &valueRaw);
     float fvalRaw = valueRaw;
 
-    long long valueScale;
-    iio_channel_attr_read_longlong(m_channel_anglvel_z, "scale", &valueScale);
+    double valueScale;
+    iio_channel_attr_read_double(m_channel_anglvel_z, "scale", &valueScale);
     float fvalScale = valueScale;
 
     float result = fvalRaw * fvalScale;
