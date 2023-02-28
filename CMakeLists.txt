@@ -10,6 +10,7 @@ find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(sensor_msgs REQUIRED)
+find_package(geometry_msgs REQUIRED)
 
 find_package(builtin_interfaces REQUIRED)
 find_package(rosidl_default_generators REQUIRED)
@@ -33,7 +34,7 @@ target_include_directories(imu_ros2_node PUBLIC
   $<INSTALL_INTERFACE:include>)
 target_compile_features(imu_ros2_node PUBLIC cxx_std_17)  # Require C++17
 
-ament_target_dependencies(imu_ros2_node rclcpp std_msgs sensor_msgs ament_cmake)
+ament_target_dependencies(imu_ros2_node rclcpp geometry_msgs std_msgs sensor_msgs ament_cmake )
 
 target_link_libraries(imu_ros2_node iio)
 
@@ -44,7 +45,8 @@ install(TARGETS imu_ros2_node
 rosidl_generate_interfaces(imu_ros2
   "msg/StaticData.msg"
   "msg/GyroscopeData.msg"
-  DEPENDENCIES builtin_interfaces
+  "msg/AdiImuData.msg"
+  DEPENDENCIES builtin_interfaces geometry_msgs
 )
 
 rosidl_get_typesupport_target(imu_ros2_node

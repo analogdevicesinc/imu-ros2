@@ -40,6 +40,9 @@
 #include "imu_ros2/gyroscope_data_provider.h"
 #include "imu_ros2/gyroscope_ros_publisher.h"
 
+#include "imu_ros2/adiimu_data_provider.h"
+#include "imu_ros2/adiimu_ros_publisher.h"
+
 using namespace std::chrono_literals;
 
 void declareParameters(std::shared_ptr<rclcpp::Node>& node)
@@ -130,19 +133,28 @@ int main(int argc, char * argv[])
 
     RosTask* gyroRosTask = dynamic_cast<RosTask*>(gyroPublisher);
 
+    AdiImuDataProviderInterface* aiDataProv = new AdiImuDataProvider();
+    AdiImuRosPublisherInterface * aiPublisher = new AdiImuRosPublisher(node);
+    aiPublisher->setMessageProvider(aiDataProv);
+
+    RosTask* aiRosTask = dynamic_cast<RosTask*>(aiPublisher);
+
     WorkerThread wth(rosTask);
     WorkerThread accwth(accRosTask);
     WorkerThread stawth(staRosTask);
     WorkerThread gyrowth(gyroRosTask);
+    WorkerThread aiwth(aiRosTask);
     wth.join();
     accwth.join();
     stawth.join();
     gyrowth.join();
+    aiwth.join();
 
     delete publisher1;
     delete accPublisher;
     delete staPublisher;
     delete gyroPublisher;
+    delete aiPublisher;
 
     return 0;
 }
