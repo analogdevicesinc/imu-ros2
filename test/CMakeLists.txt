@@ -10,6 +10,7 @@ find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(sensor_msgs REQUIRED)
+find_package(geometry_msgs REQUIRED)
 
 #find_package(builtin_interfaces REQUIRED)
 #find_package(rosidl_default_generators REQUIRED)
@@ -28,7 +29,8 @@ file(GLOB FILES_CPP ${CMAKE_SOURCE_DIR}/src/*.cpp)
   ament_add_gtest(imu_ros2_test_node utest_launch.test src/utest.cpp src/subscriber_test_string.cpp
                                         src/acceleration_subscriber_test.cpp
                                         src/static_subscriber_test.cpp
-                                        src/gyroscope_subscriber_test.cpp)
+                                        src/gyroscope_subscriber_test.cpp
+                                        src/adiimu_subscriber_test.cpp)
   #target_link_libraries(utest_node ${catkin_LIBRARIES})
 #endif()
 
@@ -37,7 +39,7 @@ target_include_directories(imu_ros2_test_node PUBLIC
   $<INSTALL_INTERFACE:include>)
 target_compile_features(imu_ros2_test_node PUBLIC cxx_std_17)  # Require C++17
 
-ament_target_dependencies(imu_ros2_test_node rclcpp std_msgs sensor_msgs ament_cmake ament_cmake_gtest ament_lint_auto)
+ament_target_dependencies(imu_ros2_test_node rclcpp geometry_msgs std_msgs sensor_msgs ament_cmake ament_cmake_gtest ament_lint_auto)
 
 install(TARGETS imu_ros2_test_node
   DESTINATION lib/${PROJECT_NAME})
