@@ -37,6 +37,16 @@ public:
     float getGyroscopeY();
     float getGyroscopeZ();
 
+    float getRotX();
+    float getRotY();
+    float getRotZ();
+
+    float getVelocityX();
+    float getVelocityY();
+    float getVelocityZ();
+
+    float getTemperature();
+
 private:
     static struct iio_context * m_network_context;
     struct iio_context * m_object_context;
@@ -49,6 +59,16 @@ private:
     struct iio_channel *m_channel_anglvel_x;
     struct iio_channel *m_channel_anglvel_y;
     struct iio_channel *m_channel_anglvel_z;
+
+    struct iio_channel *m_channel_rot_x;
+    struct iio_channel *m_channel_rot_y;
+    struct iio_channel *m_channel_rot_z;
+
+    struct iio_channel *m_channel_velocity_x;
+    struct iio_channel *m_channel_velocity_y;
+    struct iio_channel *m_channel_velocity_z;
+
+    struct iio_channel *m_channel_temp;
 };
 
 #endif // IIO_WRAPPER_H
