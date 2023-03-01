@@ -48,15 +48,15 @@ imu_ros2::msg::AdiImuData AdiImuDataProvider::getData(int count)
     message.gyro.y = m_iioWrapper.getGyroscopeY();
     message.gyro.z = m_iioWrapper.getGyroscopeZ();
 
-    message.delta_vel.x = 0;
-    message.delta_vel.y = 0;
-    message.delta_vel.z = 0;
+    message.delta_vel.x = m_iioWrapper.getVelocityX();
+    message.delta_vel.y = m_iioWrapper.getVelocityY();
+    message.delta_vel.z = m_iioWrapper.getVelocityZ();
 
-    message.delta_angle.x = 0;
-    message.delta_angle.y = 0;
-    message.delta_angle.z = 0;
+//    message.delta_angle.x = m_iioWrapper.getRotX();
+//    message.delta_angle.y = m_iioWrapper.getRotY();
+//    message.delta_angle.z = m_iioWrapper.getRotZ();
 
-    message.temp = 0;
+    message.temp = m_iioWrapper.getTemperature();
 
 
     return message;
