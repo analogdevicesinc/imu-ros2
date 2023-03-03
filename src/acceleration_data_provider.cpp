@@ -43,5 +43,9 @@ sensor_msgs::msg::Imu AccelerationDataProvider::getData(int count)
     message.linear_acceleration.y = m_iioWrapper.getAccelerometerY();
     message.linear_acceleration.z = m_iioWrapper.getAccelerometerZ();
 
+    message.angular_velocity.x = m_iioWrapper.getGyroscopeX();
+    message.angular_velocity.y = m_iioWrapper.getGyroscopeY();
+    message.angular_velocity.z = m_iioWrapper.getGyroscopeZ();
+
     return message;
 }

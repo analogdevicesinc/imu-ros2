@@ -20,7 +20,7 @@
 
 #include "imu_ros2/acceleration_ros_publisher.h"
 #include <thread>
-
+#include <chrono>
 
 AccelerationRosPublisher::AccelerationRosPublisher(std::shared_ptr<rclcpp::Node>& node)
 {
@@ -49,23 +49,30 @@ void AccelerationRosPublisher::run()
     std::cout << "thread " << this_id << " started...\n";
     RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "startThread: '%d'", this_id);
 
-    rclcpp::WallRate loopRate(10);
+    rclcpp::WallRate loopRate(0.1);
 
     int count = 0;
     while (rclcpp::ok()) {
 
-       std::thread::id this_id = std::this_thread::get_id();
-        std::cout << "thread " << this_id << " running...\n";
-        RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "running: '%d'", this_id);
+        //std::thread::id this_id = std::this_thread::get_id();
+        //std::cout << "thread " << this_id << " running...\n";
+        //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "running: '%d'", this_id);
 
+        auto started = std::chrono::high_resolution_clock::now();
         m_message = m_dataProvider->getData(count);
-        RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Publishing acceleration x y z: '%f' '%f' '%f'",
-                    m_message.linear_acceleration.x, m_message.linear_acceleration.y, m_message.linear_acceleration.z);
+        auto done = std::chrono::high_resolution_clock::now();
+
+        RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Publishing acceleration x y z in time %d ms: '%f' '%f' '%f'",
+                    m_message.linear_acceleration.x, m_message.linear_acceleration.y, m_message.linear_acceleration.z ,
+                    std::chrono::duration_cast<std::chrono::milliseconds>(done-started).count());
+
+
 
         m_publisher->publish(m_message);
         count++;
+        rclcpp::spin_some(m_node);
         //rclcpp::spin_some(m_node);
-        loopRate.sleep();
+        //loopRate.sleep();
     }
     this_id = std::this_thread::get_id();
     std::cout << "thread " << this_id << " ended...\n";
