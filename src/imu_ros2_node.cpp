@@ -105,11 +105,11 @@ int main(int argc, char * argv[])
 
     declareParameters(node);
 
-    DataProviderInterface* dataStr = new DataProviderString();
-    RosPublisherInterface * publisher1 = new RosPublisher1(node);
-    publisher1->setMessageProvider(dataStr);
+    //DataProviderInterface* dataStr = new DataProviderString();
+    //RosPublisherInterface * publisher1 = new RosPublisher1(node);
+    //publisher1->setMessageProvider(dataStr);
 
-    RosTask* rosTask = dynamic_cast<RosTask*>(publisher1);
+    //RosTask* rosTask = dynamic_cast<RosTask*>(publisher1);
 
     std::thread::id this_id = std::this_thread::get_id();
     std::cout << "mainthread " << this_id << " running...\n";
@@ -139,18 +139,18 @@ int main(int argc, char * argv[])
 
     RosTask* aiRosTask = dynamic_cast<RosTask*>(aiPublisher);
 
-    WorkerThread wth(rosTask);
+    //WorkerThread wth(rosTask);
     WorkerThread accwth(accRosTask);
     WorkerThread stawth(staRosTask);
     WorkerThread gyrowth(gyroRosTask);
     WorkerThread aiwth(aiRosTask);
-    wth.join();
+    //wth.join();
     accwth.join();
     stawth.join();
     gyrowth.join();
     aiwth.join();
 
-    delete publisher1;
+    //delete publisher1;
     delete accPublisher;
     delete staPublisher;
     delete gyroPublisher;

@@ -54,13 +54,17 @@ void StaticRosPublisher::run()
     int count = 0;
     while (rclcpp::ok()) {
 
-       std::thread::id this_id = std::this_thread::get_id();
-        std::cout << "thread " << this_id << " running...\n";
-        RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "running: '%d'", this_id);
+      //std::thread::id this_id = std::this_thread::get_id();
+       // std::cout << "thread " << this_id << " running...\n";
+       // RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "running: '%d'", this_id);
 
+        //auto started = std::chrono::high_resolution_clock::now();
         m_message = m_dataProvider->getData(count);
-        RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Publishing static data: '%s' '%s' '%s'",
-                    m_message.firmware_revision.c_str(), m_message.firmware_date.c_str(), m_message.product_id.c_str());
+        //auto done = std::chrono::high_resolution_clock::now();
+
+        //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Publishing static data: '%s' '%s' '%s' in time %d ms",
+        //            m_message.firmware_revision.c_str(), m_message.firmware_date.c_str(), m_message.product_id.c_str(),
+        //            std::chrono::duration_cast<std::chrono::milliseconds>(done-started).count());
 
         m_publisher->publish(m_message);
         count++;

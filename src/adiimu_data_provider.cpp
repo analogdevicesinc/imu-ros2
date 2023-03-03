@@ -52,9 +52,9 @@ imu_ros2::msg::AdiImuData AdiImuDataProvider::getData(int count)
     message.delta_vel.y = m_iioWrapper.getVelocityY();
     message.delta_vel.z = m_iioWrapper.getVelocityZ();
 
-//    message.delta_angle.x = m_iioWrapper.getRotX();
-//    message.delta_angle.y = m_iioWrapper.getRotY();
-//    message.delta_angle.z = m_iioWrapper.getRotZ();
+    message.delta_angle.x = m_iioWrapper.getRotX();
+    message.delta_angle.y = m_iioWrapper.getRotY();
+    message.delta_angle.z = m_iioWrapper.getRotZ();
 
     message.temp = m_iioWrapper.getTemperature();
 

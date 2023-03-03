@@ -20,7 +20,7 @@
 
 #include "imu_ros2/adiimu_ros_publisher.h"
 #include <thread>
-
+#include <chrono>
 
 AdiImuRosPublisher::AdiImuRosPublisher(std::shared_ptr<rclcpp::Node>& node)
 {
@@ -49,16 +49,19 @@ void AdiImuRosPublisher::run()
     std::cout << "thread " << this_id << " started...\n";
     RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "startThread: '%d'", this_id);
 
-    rclcpp::WallRate loopRate(10);
+    rclcpp::WallRate loopRate(0.1);
 
     int count = 0;
     while (rclcpp::ok()) {
 
-       std::thread::id this_id = std::this_thread::get_id();
-        std::cout << "thread " << this_id << " running...\n";
-        RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "running: '%d'", this_id);
+       //std::thread::id this_id = std::this_thread::get_id();
+        //std::cout << "thread " << this_id << " running...\n";
+        //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "running: '%d'", this_id);
 
+        auto started = std::chrono::high_resolution_clock::now();
         m_message = m_dataProvider->getData(count);
+        auto done = std::chrono::high_resolution_clock::now();
+
         RCLCPP_INFO(rclcpp::get_logger("rclcpp_adiimu"), "Publishing adi imu acceleration data: '%f' '%f' '%f'",
                     m_message.accel.x, m_message.accel.y, m_message.accel.z);
         RCLCPP_INFO(rclcpp::get_logger("rclcpp_adiimu"), "Publishing adi imu gyroscope data: '%f' '%f' '%f'",
@@ -69,11 +72,13 @@ void AdiImuRosPublisher::run()
                     m_message.delta_angle.x, m_message.delta_angle.y, m_message.delta_angle.z);
         RCLCPP_INFO(rclcpp::get_logger("rclcpp_adiimu"), "Publishing adi imu temperature data: '%f' ",
                     m_message.temp);
+        RCLCPP_INFO(rclcpp::get_logger("rclcpp_adiimu"), "Publishing adi imu time %d ms ",
+                    std::chrono::duration_cast<std::chrono::milliseconds>(done-started).count());
 
         m_publisher->publish(m_message);
         count++;
         //rclcpp::spin_some(m_node);
-        loopRate.sleep();
+        //loopRate.sleep();
     }
     this_id = std::this_thread::get_id();
     std::cout << "thread " << this_id << " ended...\n";

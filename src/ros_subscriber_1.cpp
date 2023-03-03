@@ -49,14 +49,14 @@ void RosPublisher1::run()
     std::cout << "thread " << this_id << " started...\n";
     RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "startThread: '%d'", this_id);
 
-    rclcpp::WallRate loopRate(10);
+    rclcpp::WallRate loopRate(0.1);
 
     int count = 0;
     while (rclcpp::ok()) {
 
-       std::thread::id this_id = std::this_thread::get_id();
-        std::cout << "thread " << this_id << " running...\n";
-        RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "running: '%d'", this_id);
+        //std::thread::id this_id = std::this_thread::get_id();
+        //std::cout << "thread " << this_id << " running...\n";
+        //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "running: '%d'", this_id);
 
         std::string my_param =
              m_node->get_parameter("my_parameter").get_parameter_value().get<std::string>();
@@ -64,13 +64,13 @@ void RosPublisher1::run()
         m_dataProvider->setParameter(my_param);
 
         m_message = m_dataProvider->getData(count);
-        RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Publishing: '%s'", m_message.data.c_str());
+        //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Publishing: '%s'", m_message.data.c_str());
 
         m_publisher->publish(m_message);
         count++;
-        rclcpp::spin_some(m_node);
+        //rclcpp::spin_some(m_node);
 
-        loopRate.sleep();
+        //loopRate.sleep();
     }
     this_id = std::this_thread::get_id();
     std::cout << "thread " << this_id << " ended...\n";
