@@ -72,8 +72,8 @@ void AdiImuRosPublisher::run()
                     m_message.delta_angle.x, m_message.delta_angle.y, m_message.delta_angle.z);
         RCLCPP_INFO(rclcpp::get_logger("rclcpp_adiimu"), "Publishing adi imu temperature data: '%f' ",
                     m_message.temp);
-        RCLCPP_INFO(rclcpp::get_logger("rclcpp_adiimu"), "Publishing adi imu time %d ms ",
-                    std::chrono::duration_cast<std::chrono::milliseconds>(done-started).count());
+        RCLCPP_INFO(rclcpp::get_logger("rclcpp_adiimu"), "Publishing adi imu time %d us ",
+                    std::chrono::duration_cast<std::chrono::microseconds>(done-started).count());
 
         m_publisher->publish(m_message);
         count++;
