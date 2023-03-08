@@ -69,6 +69,24 @@ private:
     struct iio_channel *m_channel_velocity_z;
 
     struct iio_channel *m_channel_temp;
+
+    float m_fvalScaleAccel_x;
+    float m_fvalScaleAccel_y;
+    float m_fvalScaleAccel_z;
+
+    float m_fvalScaleAngvel_x;
+    float m_fvalScaleAngvel_y;
+    float m_fvalScaleAngvel_z;
+
+    float m_fvalScaleRot_x;
+    float m_fvalScaleRot_y;
+    float m_fvalScaleRot_z;
+
+    float m_fvalScaleVelocity_x;
+    float m_fvalScaleVelocity_y;
+    float m_fvalScaleVelocity_z;
+
+    float m_fvalScaleTemp;
 };
 
 #endif // IIO_WRAPPER_H
