@@ -252,6 +252,6 @@ float IIOWrapper::getTemperature()
     iio_channel_attr_read_longlong(m_channel_temp, "raw", &valueRaw);
     float fvalRaw = valueRaw;
 
-    float result = fvalRaw * m_fvalScaleTemp;
+    float result = fvalRaw * m_fvalScaleTemp / 1000.0;
     return result;
 }
