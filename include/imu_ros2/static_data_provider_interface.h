@@ -32,7 +32,7 @@
 //    int32_t m_flashMemoryWriteCounter;
 //};
 
-#include "imu_ros2/msg/static_data.hpp"
+#include "imu_ros2/msg/imu_identification_data.hpp"
 
 class StaticDataProviderInterface {
 
@@ -41,7 +41,7 @@ public:
     virtual ~StaticDataProviderInterface(){}
 
     virtual void init() = 0;
-    virtual imu_ros2::msg::StaticData getData(int count) = 0;
+    virtual imu_ros2::msg::ImuIdentificationData getData(int count) = 0;
 };
 
 #endif // STATICN_DATA_PROVIDER_INTERFACE_H

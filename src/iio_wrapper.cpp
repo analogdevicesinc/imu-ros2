@@ -47,6 +47,8 @@ IIOWrapper::IIOWrapper()
     m_channel_accel_y = iio_device_find_channel(m_dev, "accel_y", false);
     m_channel_accel_z = iio_device_find_channel(m_dev, "accel_z", false);
 
+
+
     m_channel_anglvel_x = iio_device_find_channel(m_dev, "anglvel_x", false);
     m_channel_anglvel_y = iio_device_find_channel(m_dev, "anglvel_y", false);
     m_channel_anglvel_z = iio_device_find_channel(m_dev, "anglvel_z", false);
@@ -254,4 +256,18 @@ float IIOWrapper::getTemperature()
 
     float result = fvalRaw * m_fvalScaleTemp / 1000.0;
     return result;
+}
+
+int IIOWrapper::lost_samples_count()
+{
+   const char* result = iio_context_get_attr_value(m_object_context, "lost_samples_count");
+   if(result)
+   {
+       int resulti = atoi( result );
+       return resulti;
+   }
+   else
+   {
+       return -1;
+   }
 }

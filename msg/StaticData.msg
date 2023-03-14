@@ -1,5 +1,0 @@
-string firmware_revision
-string firmware_date
-string product_id
-string serial_number
-int32 flash_memory_write_counter

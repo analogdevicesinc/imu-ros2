@@ -47,6 +47,8 @@ public:
 
     float getTemperature();
 
+    int lost_samples_count();
+
 private:
     static struct iio_context * m_network_context;
     struct iio_context * m_object_context;

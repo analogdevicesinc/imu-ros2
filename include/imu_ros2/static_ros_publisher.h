@@ -41,8 +41,8 @@ public:
 private:
 
      StaticDataProviderInterface* m_dataProvider;
-     rclcpp::Publisher<imu_ros2::msg::StaticData>::SharedPtr m_publisher;
-     imu_ros2::msg::StaticData m_message;
+     rclcpp::Publisher<imu_ros2::msg::ImuIdentificationData>::SharedPtr m_publisher;
+     imu_ros2::msg::ImuIdentificationData m_message;
 };
 
 #endif // STATIC_ROS_SUBSCRIBER_H
