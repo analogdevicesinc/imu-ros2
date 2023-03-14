@@ -25,6 +25,7 @@
 #include <string>
 #include <cstdlib>
 #include <sstream>
+#include <rclcpp/rclcpp.hpp>
 
 struct iio_context* IIOWrapper::m_network_context = nullptr;
 
@@ -260,8 +261,17 @@ float IIOWrapper::getTemperature()
 
 int IIOWrapper::lost_samples_count()
 {
-   const char* result = iio_context_get_attr_value(m_object_context, "lost_samples_count");
-   if(result)
+   //const char* result = iio_context_get_attr_value(m_object_context, "lost_samples_count");
+   const char* result = iio_device_get_attr(m_dev,39);
+
+   int count = iio_device_get_attrs_count(m_dev);
+
+   long long valuel;
+   iio_device_debug_attr_read_longlong(m_dev,"flash_counter", &valuel);
+
+    RCLCPP_INFO(rclcpp::get_logger("rclcpp_devcount"), "valuel: '%lld'", valuel);
+
+    if(result)
    {
        int resulti = atoi( result );
        return resulti;
