@@ -35,15 +35,16 @@ void StaticDataProvider::init()
     // initialize a library
 }
 
-imu_ros2::msg::StaticData StaticDataProvider::getData(int count)
+imu_ros2::msg::ImuIdentificationData StaticDataProvider::getData(int count)
 {
     (int)count;
-    imu_ros2::msg::StaticData message;
+    imu_ros2::msg::ImuIdentificationData message;
     message.firmware_revision = "FIRMWARE_REVISION_1";
     message.firmware_date = "19-01-2023";
-    message.product_id = "PRODUCT_ID_1";
-    message.serial_number = "SERIAL_NUMBER_1";
+    message.product_id = 1;
+    message.serial_number = 1;
     message.flash_memory_write_counter = 1;
+    message.lost_samples_count = m_iioWrapper.lost_samples_count();
 
     return message;
 }

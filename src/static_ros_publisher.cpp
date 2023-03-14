@@ -35,7 +35,7 @@ StaticRosPublisher::~StaticRosPublisher()
 void StaticRosPublisher::init(std::shared_ptr<rclcpp::Node> &node)
 {
     m_node = node;
-    m_publisher = node->create_publisher<imu_ros2::msg::StaticData>("imudevicedata", 10);
+    m_publisher = node->create_publisher<imu_ros2::msg::ImuIdentificationData>("imudevicedata", 10);
 }
 
 void StaticRosPublisher::setMessageProvider(StaticDataProviderInterface *dataProvider)
@@ -62,9 +62,8 @@ void StaticRosPublisher::run()
         m_message = m_dataProvider->getData(count);
         //auto done = std::chrono::high_resolution_clock::now();
 
-        //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Publishing static data: '%s' '%s' '%s' in time %d ms",
-        //            m_message.firmware_revision.c_str(), m_message.firmware_date.c_str(), m_message.product_id.c_str(),
-        //            std::chrono::duration_cast<std::chrono::milliseconds>(done-started).count());
+        RCLCPP_INFO(rclcpp::get_logger("rclcpp_imu_identification_data"), "Publishing static data: '%s' '%s' lost_samples_count = '%d' ",
+                    m_message.firmware_revision.c_str(), m_message.firmware_date.c_str(), m_message.lost_samples_count);
 
         m_publisher->publish(m_message);
         count++;
