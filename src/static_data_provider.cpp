@@ -39,12 +39,26 @@ imu_ros2::msg::ImuIdentificationData StaticDataProvider::getData(int count)
 {
     (int)count;
     imu_ros2::msg::ImuIdentificationData message;
-    message.firmware_revision = "FIRMWARE_REVISION_1";
-    message.firmware_date = "19-01-2023";
-    message.product_id = 1;
-    message.serial_number = 1;
-    message.flash_memory_write_counter = 1;
+    message.firmware_revision = m_iioWrapper.firmware_revision();
+    message.firmware_date = m_iioWrapper.firmware_date();
+    message.product_id = m_iioWrapper.product_id();
+    message.serial_number = m_iioWrapper.serial_number();
+    message.flash_memory_write_counter = 0;
     message.lost_samples_count = m_iioWrapper.lost_samples_count();
+    message.gyroscope_measurement_range = m_iioWrapper.gyroscope_measurement_range();
+    message.diag_checksum_error_flag = m_iioWrapper.diag_checksum_error_flag();
+    message.diag_flash_memory_write_count_exceeded_error = m_iioWrapper.diag_flash_memory_write_count_exceeded_error();
+    message.diag_acceleration_self_test_error = m_iioWrapper.diag_acceleration_self_test_error();
+    message.diag_gyroscope2_self_test_error = m_iioWrapper.diag_gyroscope2_self_test_error();
+    message.diag_gyroscope1_self_test_error = m_iioWrapper.diag_gyroscope1_self_test_error();
+    message.diag_clock_error = m_iioWrapper.diag_clock_error();
+    message.diag_flash_memory_test_error = m_iioWrapper.diag_flash_memory_test_error();
+    message.diag_sensor_self_test_error = m_iioWrapper.diag_sensor_self_test_error();
+    message.diag_standby_mode = m_iioWrapper.diag_standby_mode();
+    message.diag_spi_communication_error = m_iioWrapper.diag_spi_communication_error();
+    message.diag_flash_memory_update_error = m_iioWrapper.diag_flash_memory_update_error();
+    message.diag_data_path_overrun = m_iioWrapper.diag_data_path_overrun();
+    message.flash_counter = m_iioWrapper.flash_counter();
 
     return message;
 }

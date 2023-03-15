@@ -49,6 +49,26 @@ public:
 
     int lost_samples_count();
 
+    std::string firmware_revision();
+    std::string firmware_date();
+
+    int product_id();
+    int serial_number();
+    std::string gyroscope_measurement_range();
+    int diag_checksum_error_flag();
+    int diag_flash_memory_write_count_exceeded_error();
+    int diag_acceleration_self_test_error();
+    int diag_gyroscope2_self_test_error();
+    int diag_gyroscope1_self_test_error();
+    int diag_clock_error();
+    int diag_flash_memory_test_error();
+    int diag_sensor_self_test_error();
+    int diag_standby_mode();
+    int diag_spi_communication_error();
+    int diag_flash_memory_update_error();
+    int diag_data_path_overrun();
+    int flash_counter();
+
 private:
     static struct iio_context * m_network_context;
     struct iio_context * m_object_context;

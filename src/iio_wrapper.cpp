@@ -261,23 +261,158 @@ float IIOWrapper::getTemperature()
 
 int IIOWrapper::lost_samples_count()
 {
-   //const char* result = iio_context_get_attr_value(m_object_context, "lost_samples_count");
-   const char* result = iio_device_get_attr(m_dev,39);
-
-   int count = iio_device_get_attrs_count(m_dev);
-
    long long valuel;
-   iio_device_debug_attr_read_longlong(m_dev,"flash_counter", &valuel);
+   iio_device_debug_attr_read_longlong(m_dev,"lost_samples_count", &valuel);
 
-    RCLCPP_INFO(rclcpp::get_logger("rclcpp_devcount"), "valuel: '%lld'", valuel);
+   return valuel;
+}
 
-    if(result)
-   {
-       int resulti = atoi( result );
-       return resulti;
-   }
-   else
-   {
-       return -1;
-   }
+std::string IIOWrapper::firmware_revision()
+{
+    char valuec[1024];
+    iio_device_debug_attr_read(m_dev,"firmware_revision", valuec, 1024);
+
+    std::string str(valuec);
+
+    return str;
+}
+
+std::string IIOWrapper::firmware_date()
+{
+    char valuec[1024];
+    iio_device_debug_attr_read(m_dev,"firmware_date", valuec, 1024);
+
+    std::string str(valuec);
+
+    return str;
+}
+
+int IIOWrapper::product_id()
+{
+    long long valuel;
+    iio_device_debug_attr_read_longlong(m_dev,"product_id", &valuel);
+
+    return valuel;
+}
+
+int IIOWrapper::serial_number()
+{
+    long long valuel;
+    iio_device_debug_attr_read_longlong(m_dev,"serial_number", &valuel);
+
+    return valuel;
+}
+
+std::string IIOWrapper::gyroscope_measurement_range()
+{
+    char valuec[1024];
+    iio_device_debug_attr_read(m_dev,"gyroscope_measurement_range", valuec, 1024);
+
+    std::string str(valuec);
+
+    return str;
+}
+
+int IIOWrapper::diag_checksum_error_flag()
+{
+    long long valuel;
+    iio_device_debug_attr_read_longlong(m_dev,"diag_checksum_error_flag", &valuel);
+
+    return valuel;
+}
+
+int IIOWrapper::diag_flash_memory_write_count_exceeded_error()
+{
+    long long valuel;
+    iio_device_debug_attr_read_longlong(m_dev,"diag_flash_memory_write_count_exceeded_error", &valuel);
+
+    return valuel;
+}
+
+int IIOWrapper::diag_acceleration_self_test_error()
+{
+    long long valuel;
+    iio_device_debug_attr_read_longlong(m_dev,"diag_acceleration_self_test_error", &valuel);
+
+    return valuel;
+}
+
+int IIOWrapper::diag_gyroscope2_self_test_error()
+{
+    long long valuel;
+    iio_device_debug_attr_read_longlong(m_dev,"diag_gyroscope2_self_test_error", &valuel);
+
+    return valuel;
+}
+
+int IIOWrapper::diag_gyroscope1_self_test_error()
+{
+    long long valuel;
+    iio_device_debug_attr_read_longlong(m_dev,"diag_gyroscope1_self_test_error", &valuel);
+
+    return valuel;
+}
+
+int IIOWrapper::diag_clock_error()
+{
+    long long valuel;
+    iio_device_debug_attr_read_longlong(m_dev,"diag_clock_error", &valuel);
+
+    return valuel;
+}
+
+int IIOWrapper::diag_flash_memory_test_error()
+{
+    long long valuel;
+    iio_device_debug_attr_read_longlong(m_dev,"diag_flash_memory_test_error", &valuel);
+
+    return valuel;
+}
+
+int IIOWrapper::diag_sensor_self_test_error()
+{
+    long long valuel;
+    iio_device_debug_attr_read_longlong(m_dev,"diag_sensor_self_test_error", &valuel);
+
+    return valuel;
+}
+
+int IIOWrapper::diag_standby_mode()
+{
+    long long valuel;
+    iio_device_debug_attr_read_longlong(m_dev,"diag_standby_mode", &valuel);
+
+    return valuel;
+}
+
+int IIOWrapper::diag_spi_communication_error()
+{
+    long long valuel;
+    iio_device_debug_attr_read_longlong(m_dev,"diag_spi_communication_error", &valuel);
+
+    return valuel;
+}
+
+int IIOWrapper::diag_flash_memory_update_error()
+{
+    long long valuel;
+    iio_device_debug_attr_read_longlong(m_dev,"diag_flash_memory_update_error", &valuel);
+
+    return valuel;
+}
+
+int IIOWrapper::diag_data_path_overrun()
+{
+    long long valuel;
+    iio_device_debug_attr_read_longlong(m_dev,"diag_data_path_overrun", &valuel);
+
+    return valuel;
+}
+
+int IIOWrapper::flash_counter()
+{
+    long long valuel;
+    iio_device_debug_attr_read_longlong(m_dev,"flash_counter", &valuel);
+
+    return valuel;
 }

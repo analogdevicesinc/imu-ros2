@@ -156,5 +156,7 @@ int main(int argc, char * argv[])
     delete gyroPublisher;
     delete aiPublisher;
 
+    rclcpp::shutdown();
+
     return 0;
 }

@@ -37,7 +37,7 @@ public:
     }
 };
 
-TEST(StaticSubscriberTest,test_acceleration_pozitive_values1)
+TEST(StaticSubscriberTest,test_static_data_values1)
 {
     auto node = rclcpp::Node::make_shared("imudevicedata");
 
@@ -53,9 +53,9 @@ TEST(StaticSubscriberTest,test_acceleration_pozitive_values1)
 
         RCLCPP_INFO(rclcpp::get_logger("rclcpp_test_static_data"), " device info: %s %s %d  \n",
                     msg.firmware_revision.c_str(), msg.firmware_date.c_str(), msg.product_id );
-        ASSERT_TRUE(msg.firmware_revision == "FIRMWARE_REVISION_1");
-        ASSERT_TRUE(msg.firmware_date == "19-01-2023");
-        ASSERT_TRUE(msg.product_id == 1);
+        ASSERT_TRUE(msg.firmware_revision == "1.6");
+        ASSERT_TRUE(msg.firmware_date == "06-27-2019");
+        ASSERT_TRUE(msg.product_id == 16505);
 
 
     };

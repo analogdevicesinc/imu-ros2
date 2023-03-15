@@ -49,10 +49,11 @@ void StaticRosPublisher::run()
     std::cout << "thread " << this_id << " started...\n";
     RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "startThread: '%d'", this_id);
 
-    rclcpp::WallRate loopRate(10);
+    rclcpp::WallRate loopRate(0.01);
 
     int count = 0;
-    while (rclcpp::ok()) {
+    while (rclcpp::ok())
+    {
 
       //std::thread::id this_id = std::this_thread::get_id();
        // std::cout << "thread " << this_id << " running...\n";
@@ -62,8 +63,8 @@ void StaticRosPublisher::run()
         m_message = m_dataProvider->getData(count);
         //auto done = std::chrono::high_resolution_clock::now();
 
-        RCLCPP_INFO(rclcpp::get_logger("rclcpp_imu_identification_data"), "Publishing static data: '%s' '%s' lost_samples_count = '%d' ",
-                    m_message.firmware_revision.c_str(), m_message.firmware_date.c_str(), m_message.lost_samples_count);
+        RCLCPP_INFO(rclcpp::get_logger("rclcpp_imu_identification_data"), "Publishing static data: '%s' '%s' flash_counter = '%d' ",
+                    m_message.firmware_revision.c_str(), m_message.firmware_date.c_str(), m_message.flash_counter);
 
         m_publisher->publish(m_message);
         count++;
