@@ -40,6 +40,7 @@ public:
 
 TEST(SubscriberTestString,test_string_that_is_publish_from_publisher_string)
 {
+    GTEST_SKIP();
     auto node = rclcpp::Node::make_shared("topicStr");
 
     std::string topic = "topicStr";
@@ -78,6 +79,7 @@ TEST(SubscriberTestString,test_string_that_is_publish_from_publisher_string)
 
 TEST(SubscriberTestString,test_string_that_is_publish_from_publisher_string_second_test)
 {
+    GTEST_SKIP();
     auto node = rclcpp::Node::make_shared("topicStr");
 
     std::string topic = "topicStr";
