@@ -30,7 +30,8 @@ file(GLOB FILES_CPP ${CMAKE_SOURCE_DIR}/src/*.cpp)
                                         src/acceleration_subscriber_test.cpp
                                         src/static_subscriber_test.cpp
                                         src/gyroscope_subscriber_test.cpp
-                                        src/adiimu_subscriber_test.cpp)
+                                        src/adiimu_subscriber_test.cpp
+                                        src/imu_diag_subscriber_test.cpp)
   #target_link_libraries(utest_node ${catkin_LIBRARIES})
 #endif()
 
