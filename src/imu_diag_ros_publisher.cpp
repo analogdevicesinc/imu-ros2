@@ -1,6 +1,6 @@
 /***************************************************************************//**
-*   @file   static_ros_publisher.cpp
-*   @brief  Implementation for static publisher
+*   @file   imu_diag_ros_publisher.cpp
+*   @brief  Implementation for imu diag publisher
 *   @author Vasile Holonec (Vasile.Holonec@analog.com)
 ********************************************************************************
 * Copyright 2023(c) Analog Devices, Inc.
@@ -18,32 +18,32 @@
 * limitations under the License.
 *******************************************************************************/
 
-#include "imu_ros2/static_ros_publisher.h"
+#include "imu_ros2/imu_diag_ros_publisher.h"
 #include <thread>
 
 
-StaticRosPublisher::StaticRosPublisher(std::shared_ptr<rclcpp::Node>& node)
+ImuDiagRosPublisher::ImuDiagRosPublisher(std::shared_ptr<rclcpp::Node>& node)
 {
     init(node);
 }
 
-StaticRosPublisher::~StaticRosPublisher()
+ImuDiagRosPublisher::~ImuDiagRosPublisher()
 {
     delete m_dataProvider;
 }
 
-void StaticRosPublisher::init(std::shared_ptr<rclcpp::Node> &node)
+void ImuDiagRosPublisher::init(std::shared_ptr<rclcpp::Node> &node)
 {
     m_node = node;
-    m_publisher = node->create_publisher<imu_ros2::msg::ImuIdentificationData>("imuidentificationdata", 10);
+    m_publisher = node->create_publisher<imu_ros2::msg::ImuDiagData>("imudiagdata", 10);
 }
 
-void StaticRosPublisher::setMessageProvider(StaticDataProviderInterface *dataProvider)
+void ImuDiagRosPublisher::setMessageProvider(ImuDiagDataProviderInterface *dataProvider)
 {
     m_dataProvider = dataProvider;
 }
 
-void StaticRosPublisher::run()
+void ImuDiagRosPublisher::run()
 {
     std::thread::id this_id = std::this_thread::get_id();
     std::cout << "thread " << this_id << " started...\n";
@@ -63,8 +63,8 @@ void StaticRosPublisher::run()
         m_message = m_dataProvider->getData(count);
         //auto done = std::chrono::high_resolution_clock::now();
 
-        RCLCPP_INFO(rclcpp::get_logger("rclcpp_imu_identification_data"), "Publishing static data: '%s' '%s' flash_counter = '%d' ",
-                    m_message.firmware_revision.c_str(), m_message.firmware_date.c_str(), m_message.serial_number);
+        RCLCPP_INFO(rclcpp::get_logger("rclcpp_imu_diag_data"), "Publishing imu diag data: lost_samples_count = '%d' diag_checksum_error_flag= '%d' flash_counter = '%d' ",
+                    m_message.lost_samples_count, m_message.diag_checksum_error_flag, m_message.flash_counter);
 
         m_publisher->publish(m_message);
         count++;

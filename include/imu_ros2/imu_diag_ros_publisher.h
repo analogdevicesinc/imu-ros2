@@ -1,6 +1,6 @@
 /***************************************************************************//**
-*   @file   static_data_provider.cpp
-*   @brief  Implementation for static data
+*   @file   imu_diag_ros_publisher.h
+*   @brief  Publish imu diag data on topic
 *   @author Vasile Holonec (Vasile.Holonec@analog.com)
 ********************************************************************************
 * Copyright 2023(c) Analog Devices, Inc.
@@ -18,33 +18,31 @@
 * limitations under the License.
 *******************************************************************************/
 
-#include "imu_ros2/static_data_provider.h"
+#ifndef IMU_DIAG_ROS_SUBSCRIBER_H
+#define IMU_DIAG_ROS_SUBSCRIBER_H
 
-StaticDataProvider::StaticDataProvider()
-{
-    init();
-}
+#include "imu_ros2/imu_diag_ros_publisher_interface.h"
+#include "imu_ros2/imu_diag_data_provider_interface.h"
 
-StaticDataProvider::~StaticDataProvider()
-{
+#include <rclcpp/rclcpp.hpp>
+#include <std_msgs/msg/string.hpp>
 
-}
+class ImuDiagRosPublisher : public ImuDiagRosPublisherInterface {
 
-void StaticDataProvider::init()
-{
-    // initialize a library
-}
+public:
+    ImuDiagRosPublisher(std::shared_ptr<rclcpp::Node>& node);
+    ~ImuDiagRosPublisher();
 
-imu_ros2::msg::ImuIdentificationData StaticDataProvider::getData(int count)
-{
-    (int)count;
-    imu_ros2::msg::ImuIdentificationData message;
-    message.firmware_revision = m_iioWrapper.firmware_revision();
-    message.firmware_date = m_iioWrapper.firmware_date();
-    message.product_id = m_iioWrapper.product_id();
-    message.serial_number = m_iioWrapper.serial_number();
-    message.gyroscope_measurement_range = m_iioWrapper.gyroscope_measurement_range();
+     void init(std::shared_ptr<rclcpp::Node>& node) override;
+     void setMessageProvider(ImuDiagDataProviderInterface* dataProvider) override;
 
+     void run() override;
 
-    return message;
-}
+private:
+
+     ImuDiagDataProviderInterface* m_dataProvider;
+     rclcpp::Publisher<imu_ros2::msg::ImuDiagData>::SharedPtr m_publisher;
+     imu_ros2::msg::ImuDiagData m_message;
+};
+
+#endif // IMU_DIAG_ROS_SUBSCRIBER_H

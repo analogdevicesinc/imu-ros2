@@ -1,0 +1,14 @@
+int32 lost_samples_count
+int32 diag_checksum_error_flag
+int32 diag_flash_memory_write_count_exceeded_error
+int32 diag_acceleration_self_test_error
+int32 diag_gyroscope2_self_test_error
+int32 diag_gyroscope1_self_test_error
+int32 diag_clock_error
+int32 diag_flash_memory_test_error
+int32 diag_sensor_self_test_error
+int32 diag_standby_mode
+int32 diag_spi_communication_error
+int32 diag_flash_memory_update_error
+int32 diag_data_path_overrun
+int32 flash_counter

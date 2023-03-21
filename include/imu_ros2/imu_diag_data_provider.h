@@ -1,6 +1,6 @@
 /***************************************************************************//**
-*   @file   static_data_provider.cpp
-*   @brief  Implementation for static data
+*   @file   imu_diag_data_provider.h
+*   @brief  Provide imu diag data like diag_checksum_error_flag
 *   @author Vasile Holonec (Vasile.Holonec@analog.com)
 ********************************************************************************
 * Copyright 2023(c) Analog Devices, Inc.
@@ -18,33 +18,23 @@
 * limitations under the License.
 *******************************************************************************/
 
-#include "imu_ros2/static_data_provider.h"
+#ifndef IMU_DIAG_DATA_PROVIDER_H
+#define IMU_DIAG_DATA_PROVIDER_H
 
-StaticDataProvider::StaticDataProvider()
-{
-    init();
-}
+#include "imu_ros2/imu_diag_data_provider_interface.h"
+#include "imu_ros2/iio_wrapper.h"
 
-StaticDataProvider::~StaticDataProvider()
-{
-
-}
-
-void StaticDataProvider::init()
-{
-    // initialize a library
-}
-
-imu_ros2::msg::ImuIdentificationData StaticDataProvider::getData(int count)
-{
-    (int)count;
-    imu_ros2::msg::ImuIdentificationData message;
-    message.firmware_revision = m_iioWrapper.firmware_revision();
-    message.firmware_date = m_iioWrapper.firmware_date();
-    message.product_id = m_iioWrapper.product_id();
-    message.serial_number = m_iioWrapper.serial_number();
-    message.gyroscope_measurement_range = m_iioWrapper.gyroscope_measurement_range();
+class ImuDiagDataProvider : public ImuDiagDataProviderInterface {
 
 
-    return message;
-}
+public:
+    ImuDiagDataProvider();
+    ~ImuDiagDataProvider();
+
+    void init() override;
+    imu_ros2::msg::ImuDiagData getData(int count) override;
+private:
+    IIOWrapper m_iioWrapper;
+};
+
+#endif // IMU_DIAG_DATA_PROVIDER_H
