@@ -39,9 +39,9 @@ public:
 
 TEST(StaticSubscriberTest,test_static_data_values1)
 {
-    auto node = rclcpp::Node::make_shared("imudevicedata");
+    auto node = rclcpp::Node::make_shared("imuidentificationdata");
 
-    std::string topic = "imudevicedata";
+    std::string topic = "imuidentificationdata";
 
     int counter = 0;
 
@@ -51,7 +51,7 @@ TEST(StaticSubscriberTest,test_static_data_values1)
     {
         ++counter;
 
-        RCLCPP_INFO(rclcpp::get_logger("rclcpp_test_static_data"), " device info: %s %s %d  \n",
+        RCLCPP_INFO(rclcpp::get_logger("rclcpp_imu_identification_data"), " device info: %s %s %d  \n",
                     msg.firmware_revision.c_str(), msg.firmware_date.c_str(), msg.product_id );
         ASSERT_TRUE(msg.firmware_revision == "1.6");
         ASSERT_TRUE(msg.firmware_date == "06-27-2019");
