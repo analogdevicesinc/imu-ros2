@@ -1,6 +1,6 @@
 /***************************************************************************//**
-*   @file   static_data_provider_interface.h
-*   @brief  Interface for providing static data
+*   @file   imu_identification_ros_publisher_interface.h
+*   @brief  Interface for imu identification publisher
 *   @author Vasile Holonec (Vasile.Holonec@analog.com)
 ********************************************************************************
 * Copyright 2023(c) Analog Devices, Inc.
@@ -18,30 +18,26 @@
 * limitations under the License.
 *******************************************************************************/
 
-#ifndef STATIC_DATA_PROVIDER_INTERFACE_H
-#define STATIC_DATA_PROVIDER_INTERFACE_H
+#ifndef IMU_IDENTIFICATION_ROS_PUBLISHER_INTERFACE_H
+#define IMU_IDENTIFICATION_ROS_PUBLISHER_INTERFACE_H
 
-#include <string>
+#include "imu_ros2/ros_task.h"
 
-//firmware revision, firmware date, product id, serial number, flash memory write counter
-//struct StaticData {
-//    std::string m_firmwareRevision;
-//    std::string m_firmwareDate;
-//    std::string m_productId;
-//    std::string m_serialNumber;
-//    int32_t m_flashMemoryWriteCounter;
-//};
+#include <rclcpp/rclcpp.hpp>
+#include <memory>
 
-#include "imu_ros2/msg/imu_identification_data.hpp"
+class ImuIdentificationDataProviderInterface;
 
-class StaticDataProviderInterface {
-
+class ImuIdentificationRosPublisherInterface : public RosTask {
 public:
-    StaticDataProviderInterface(){}
-    virtual ~StaticDataProviderInterface(){}
+    ImuIdentificationRosPublisherInterface(){}
+    virtual ~ImuIdentificationRosPublisherInterface(){}
 
-    virtual void init() = 0;
-    virtual imu_ros2::msg::ImuIdentificationData getData(int count) = 0;
+    virtual void init(std::shared_ptr<rclcpp::Node>& node) = 0;
+    virtual void setMessageProvider(ImuIdentificationDataProviderInterface* dataProvider) = 0;
+
+protected:
+    std::shared_ptr<rclcpp::Node> m_node;
 };
 
-#endif // STATICN_DATA_PROVIDER_INTERFACE_H
+#endif // IMU_IDENTIFICATION_ROS_PUBLISHER_INTERFACE_H

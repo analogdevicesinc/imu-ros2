@@ -1,6 +1,6 @@
 /***************************************************************************//**
-*   @file   static_ros_publisher.h
-*   @brief  Publish static data on topic
+*   @file   imu_identification_ros_publisher.h
+*   @brief  Publish imu identification data on topic
 *   @author Vasile Holonec (Vasile.Holonec@analog.com)
 ********************************************************************************
 * Copyright 2023(c) Analog Devices, Inc.
@@ -18,31 +18,31 @@
 * limitations under the License.
 *******************************************************************************/
 
-#ifndef STATIC_ROS_SUBSCRIBER_H
-#define STATIC_ROS_SUBSCRIBER_H
+#ifndef IMU_IDENTIFICATION_ROS_SUBSCRIBER_H
+#define IMU_IDENTIFICATION_ROS_SUBSCRIBER_H
 
-#include "imu_ros2/static_ros_publisher_interface.h"
-#include "imu_ros2/static_data_provider_interface.h"
+#include "imu_ros2/imu_identification_ros_publisher_interface.h"
+#include "imu_ros2/imu_identification_data_provider_interface.h"
 
 #include <rclcpp/rclcpp.hpp>
 #include <std_msgs/msg/string.hpp>
 
-class StaticRosPublisher : public StaticRosPublisherInterface {
+class ImuIdentificationRosPublisher : public ImuIdentificationRosPublisherInterface {
 
 public:
-    StaticRosPublisher(std::shared_ptr<rclcpp::Node>& node);
-    ~StaticRosPublisher();
+    ImuIdentificationRosPublisher(std::shared_ptr<rclcpp::Node>& node);
+    ~ImuIdentificationRosPublisher();
 
      void init(std::shared_ptr<rclcpp::Node>& node) override;
-     void setMessageProvider(StaticDataProviderInterface* dataProvider) override;
+     void setMessageProvider(ImuIdentificationDataProviderInterface* dataProvider) override;
 
      void run() override;
 
 private:
 
-     StaticDataProviderInterface* m_dataProvider;
+     ImuIdentificationDataProviderInterface* m_dataProvider;
      rclcpp::Publisher<imu_ros2::msg::ImuIdentificationData>::SharedPtr m_publisher;
      imu_ros2::msg::ImuIdentificationData m_message;
 };
 
-#endif // STATIC_ROS_SUBSCRIBER_H
+#endif // IMU_IDENTIFICATION_ROS_SUBSCRIBER_H

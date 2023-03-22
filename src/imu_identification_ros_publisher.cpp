@@ -1,6 +1,6 @@
 /***************************************************************************//**
-*   @file   static_ros_publisher.cpp
-*   @brief  Implementation for static publisher
+*   @file   imu_identification_ros_publisher.cpp
+*   @brief  Implementation for imu identification publisher
 *   @author Vasile Holonec (Vasile.Holonec@analog.com)
 ********************************************************************************
 * Copyright 2023(c) Analog Devices, Inc.
@@ -18,32 +18,32 @@
 * limitations under the License.
 *******************************************************************************/
 
-#include "imu_ros2/static_ros_publisher.h"
+#include "imu_ros2/imu_identification_ros_publisher.h"
 #include <thread>
 
 
-StaticRosPublisher::StaticRosPublisher(std::shared_ptr<rclcpp::Node>& node)
+ImuIdentificationRosPublisher::ImuIdentificationRosPublisher(std::shared_ptr<rclcpp::Node>& node)
 {
     init(node);
 }
 
-StaticRosPublisher::~StaticRosPublisher()
+ImuIdentificationRosPublisher::~ImuIdentificationRosPublisher()
 {
     delete m_dataProvider;
 }
 
-void StaticRosPublisher::init(std::shared_ptr<rclcpp::Node> &node)
+void ImuIdentificationRosPublisher::init(std::shared_ptr<rclcpp::Node> &node)
 {
     m_node = node;
     m_publisher = node->create_publisher<imu_ros2::msg::ImuIdentificationData>("imuidentificationdata", 10);
 }
 
-void StaticRosPublisher::setMessageProvider(StaticDataProviderInterface *dataProvider)
+void ImuIdentificationRosPublisher::setMessageProvider(ImuIdentificationDataProviderInterface *dataProvider)
 {
     m_dataProvider = dataProvider;
 }
 
-void StaticRosPublisher::run()
+void ImuIdentificationRosPublisher::run()
 {
     std::thread::id this_id = std::this_thread::get_id();
     std::cout << "thread " << this_id << " started...\n";
@@ -51,23 +51,16 @@ void StaticRosPublisher::run()
 
     rclcpp::WallRate loopRate(0.01);
 
-    int count = 0;
     while (rclcpp::ok())
     {
+        m_message = m_dataProvider->getData();
 
-      //std::thread::id this_id = std::this_thread::get_id();
-       // std::cout << "thread " << this_id << " running...\n";
-       // RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "running: '%d'", this_id);
-
-        //auto started = std::chrono::high_resolution_clock::now();
-        m_message = m_dataProvider->getData(count);
-        //auto done = std::chrono::high_resolution_clock::now();
-
-        RCLCPP_INFO(rclcpp::get_logger("rclcpp_imu_identification_data"), "Publishing static data: '%s' '%s' flash_counter = '%d' ",
-                    m_message.firmware_revision.c_str(), m_message.firmware_date.c_str(), m_message.serial_number);
+        RCLCPP_INFO(rclcpp::get_logger("rclcpp_imu_identification_data"),
+                    "Publishing IMU identification data: \nserial number: '%d'\nproduct id: '%d'\nfirmware data: '%s'\nfirmware revision: '%s'\ngyroscope measurement range: '%s'",
+                    m_message.serial_number, m_message.product_id ,m_message.firmware_date.c_str(), m_message.firmware_revision.c_str(), m_message.gyroscope_measurement_range.c_str() );
 
         m_publisher->publish(m_message);
-        count++;
+
         //rclcpp::spin_some(m_node);
         loopRate.sleep();
     }

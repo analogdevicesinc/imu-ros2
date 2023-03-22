@@ -1,6 +1,6 @@
 /***************************************************************************//**
-*   @file   static_ros_publisher_interface.h
-*   @brief  Interface for static publisher
+*   @file   imu_identification_data_provider_interface.h
+*   @brief  Interface for providing imu identification data
 *   @author Vasile Holonec (Vasile.Holonec@analog.com)
 ********************************************************************************
 * Copyright 2023(c) Analog Devices, Inc.
@@ -18,26 +18,21 @@
 * limitations under the License.
 *******************************************************************************/
 
-#ifndef STATIC_ROS_PUBLISHER_INTERFACE_H
-#define STATIC_ROS_PUBLISHER_INTERFACE_H
+#ifndef IMU_IDENTIFICATION_DATA_PROVIDER_INTERFACE_H
+#define IMU_IDENTIFICATION_DATA_PROVIDER_INTERFACE_H
 
-#include "imu_ros2/ros_task.h"
+#include <string>
 
-#include <rclcpp/rclcpp.hpp>
-#include <memory>
+#include "imu_ros2/msg/imu_identification_data.hpp"
 
-class StaticDataProviderInterface;
+class ImuIdentificationDataProviderInterface {
 
-class StaticRosPublisherInterface : public RosTask {
 public:
-    StaticRosPublisherInterface(){}
-    virtual ~StaticRosPublisherInterface(){}
+    ImuIdentificationDataProviderInterface(){}
+    virtual ~ImuIdentificationDataProviderInterface(){}
 
-    virtual void init(std::shared_ptr<rclcpp::Node>& node) = 0;
-    virtual void setMessageProvider(StaticDataProviderInterface* dataProvider) = 0;
-
-protected:
-    std::shared_ptr<rclcpp::Node> m_node;
+    virtual void init() = 0;
+    virtual imu_ros2::msg::ImuIdentificationData getData() = 0;
 };
 
-#endif // STATIC_ROS_PUBLISHER_INTERFACE_H
+#endif // IMU_IDENTIFICATION_DATA_PROVIDER_INTERFACE_H
