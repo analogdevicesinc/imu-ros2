@@ -1,6 +1,6 @@
 /***************************************************************************//**
-*   @file   static_data_provider.h
-*   @brief  Provide static data like product id
+*   @file   imu_identification_data_provider.cpp
+*   @brief  Implementation for imu identification data
 *   @author Vasile Holonec (Vasile.Holonec@analog.com)
 ********************************************************************************
 * Copyright 2023(c) Analog Devices, Inc.
@@ -18,23 +18,31 @@
 * limitations under the License.
 *******************************************************************************/
 
-#ifndef STATIC_DATA_PROVIDER_H
-#define STATIC_DATA_PROVIDER_H
+#include "imu_ros2/imu_identification_data_provider.h"
 
-#include "imu_ros2/static_data_provider_interface.h"
-#include "imu_ros2/iio_wrapper.h"
+ImuIdentificationDataProvider::ImuIdentificationDataProvider()
+{
+    init();
+}
 
-class StaticDataProvider : public StaticDataProviderInterface {
+ImuIdentificationDataProvider::~ImuIdentificationDataProvider()
+{
 
+}
 
-public:
-    StaticDataProvider();
-    ~StaticDataProvider();
+void ImuIdentificationDataProvider::init()
+{
+    // initialize a library
+}
 
-    void init() override;
-    imu_ros2::msg::ImuIdentificationData getData(int count) override;
-private:
-    IIOWrapper m_iioWrapper;
-};
+imu_ros2::msg::ImuIdentificationData ImuIdentificationDataProvider::getData()
+{
+    imu_ros2::msg::ImuIdentificationData message;
+    message.firmware_revision = m_iioWrapper.firmware_revision();
+    message.firmware_date = m_iioWrapper.firmware_date();
+    message.product_id = m_iioWrapper.product_id();
+    message.serial_number = m_iioWrapper.serial_number();
+    message.gyroscope_measurement_range = m_iioWrapper.gyroscope_measurement_range();
 
-#endif // STATIC_DATA_PROVIDER_STRING_H
+    return message;
+}

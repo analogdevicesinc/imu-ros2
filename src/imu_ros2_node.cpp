@@ -34,8 +34,8 @@
 #include "imu_ros2/acceleration_data_provider.h"
 #include "imu_ros2/acceleration_ros_publisher.h"
 
-#include "imu_ros2/static_data_provider.h"
-#include "imu_ros2/static_ros_publisher.h"
+#include "imu_ros2/imu_identification_data_provider.h"
+#include "imu_ros2/imu_identification_ros_publisher.h"
 
 #include "imu_ros2/gyroscope_data_provider.h"
 #include "imu_ros2/gyroscope_ros_publisher.h"
@@ -124,11 +124,11 @@ int main(int argc, char * argv[])
 
     RosTask* accRosTask = dynamic_cast<RosTask*>(accPublisher);
 
-    StaticDataProviderInterface* staDataProv = new StaticDataProvider();
-    StaticRosPublisherInterface * staPublisher = new StaticRosPublisher(node);
-    staPublisher->setMessageProvider(staDataProv);
+    ImuIdentificationDataProviderInterface* idenDataProv = new ImuIdentificationDataProvider();
+    ImuIdentificationRosPublisherInterface * idenPublisher = new ImuIdentificationRosPublisher(node);
+    idenPublisher->setMessageProvider(idenDataProv);
 
-    RosTask* staRosTask = dynamic_cast<RosTask*>(staPublisher);
+    RosTask* idenRosTask = dynamic_cast<RosTask*>(idenPublisher);
 
     GyroscopeDataProviderInterface* gyroDataProv = new GyroscopeDataProvider();
     GyroscopeRosPublisherInterface * gyroPublisher = new GyroscopeRosPublisher(node);
@@ -150,21 +150,21 @@ int main(int argc, char * argv[])
 
     //WorkerThread wth(rosTask);
     WorkerThread accwth(accRosTask);
-    WorkerThread stawth(staRosTask);
+    WorkerThread idenwth(idenRosTask);
     WorkerThread gyrowth(gyroRosTask);
     WorkerThread aiwth(aiRosTask);
 
     WorkerThread diagwth(diagRosTask);
     //wth.join();
     accwth.join();
-    stawth.join();
+    idenwth.join();
     gyrowth.join();
     aiwth.join();
     diagwth.join();
 
     //delete publisher1;
     delete accPublisher;
-    delete staPublisher;
+    delete idenPublisher;
     delete gyroPublisher;
     delete aiPublisher;
     delete diagPublisher;
