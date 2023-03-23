@@ -46,6 +46,9 @@
 #include "imu_ros2/imu_diag_data_provider.h"
 #include "imu_ros2/imu_diag_ros_publisher.h"
 
+#include "imu_ros2/imu_control_data_provider.h"
+#include "imu_ros2/imu_control_ros_publisher.h"
+
 using namespace std::chrono_literals;
 
 void declareParameters(std::shared_ptr<rclcpp::Node>& node)
@@ -65,7 +68,7 @@ void declareParameters(std::shared_ptr<rclcpp::Node>& node)
     node->declare_parameter("diag_data_path_overrun", "val");
     node->declare_parameter("time_stamp", "val");
     node->declare_parameter("data_counter", "val");
-    node->declare_parameter("filter_size", "val");
+    node->declare_parameter("filter_size", 0);
     node->declare_parameter("gyroscope_measurement_range", "val");
     node->declare_parameter("burst_size_selection", "val");
     node->declare_parameter("burst_data_selection", "val");
@@ -148,6 +151,13 @@ int main(int argc, char * argv[])
 
     RosTask* diagRosTask = dynamic_cast<RosTask*>(diagPublisher);
 
+
+    ImuControlDataProviderInterface* controlDataProv = new ImuControlDataProvider();
+    ImuControlRosPublisherInterface * controlPublisher = new ImuControlRosPublisher(node);
+    controlPublisher->setMessageProvider(controlDataProv);
+
+    RosTask* controlRosTask = dynamic_cast<RosTask*>(controlPublisher);
+
     //WorkerThread wth(rosTask);
     WorkerThread accwth(accRosTask);
     WorkerThread idenwth(idenRosTask);
@@ -155,12 +165,14 @@ int main(int argc, char * argv[])
     WorkerThread aiwth(aiRosTask);
 
     WorkerThread diagwth(diagRosTask);
+    WorkerThread controlwth(controlRosTask);
     //wth.join();
     accwth.join();
     idenwth.join();
     gyrowth.join();
     aiwth.join();
     diagwth.join();
+    controlwth.join();
 
     //delete publisher1;
     delete accPublisher;
@@ -168,6 +180,7 @@ int main(int argc, char * argv[])
     delete gyroPublisher;
     delete aiPublisher;
     delete diagPublisher;
+    delete controlPublisher;
 
     rclcpp::shutdown();
 

@@ -47,6 +47,7 @@ rosidl_generate_interfaces(imu_ros2
   "msg/GyroscopeData.msg"
   "msg/AdiImuData.msg"
   "msg/ImuDiagData.msg"
+  "msg/ImuControlData.msg"
   DEPENDENCIES builtin_interfaces geometry_msgs
 )
 
