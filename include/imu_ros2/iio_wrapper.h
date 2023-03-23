@@ -69,6 +69,9 @@ public:
     int diag_data_path_overrun();
     int flash_counter();
 
+    int32_t filter_size();
+    void set_filter_size(int32_t val);
+
 private:
     static struct iio_context * m_network_context;
     struct iio_context * m_object_context;

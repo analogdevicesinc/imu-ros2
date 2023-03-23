@@ -416,3 +416,19 @@ int IIOWrapper::flash_counter()
 
     return valuel;
 }
+
+//----------------------------------------------------------------------
+
+int32_t IIOWrapper::filter_size()
+{
+    long long valuel;
+    iio_device_debug_attr_read_longlong(m_dev,"filter_size", &valuel);
+
+    return valuel;
+}
+
+void IIOWrapper::set_filter_size(int32_t val)
+{
+    long long valuel = val;
+    iio_device_debug_attr_write_longlong(m_dev,"filter_size", valuel);
+}
