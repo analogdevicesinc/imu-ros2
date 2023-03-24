@@ -48,7 +48,7 @@ void ImuControlRosPublisher::run()
     std::cout << "thread " << this_id << " started...\n";
     RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "startThread: '%d'", this_id);
 
-    rclcpp::WallRate loopRate(0.1);
+    rclcpp::WallRate loopRate(0.01);
 
 
     while (rclcpp::ok()) {
