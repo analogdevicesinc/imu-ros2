@@ -71,6 +71,22 @@ public:
 
     int32_t filter_size();
     void set_filter_size(int32_t val);
+    int32_t anglvel_x_calibbias();
+    int32_t anglvel_y_calibbias();
+    int32_t anglvel_z_calibbias();
+    int32_t accel_x_calibbias();
+    int32_t accel_y_calibbias();
+    int32_t accel_z_calibbias();
+    int32_t burst_size_selection();
+    int32_t burst_data_selection();
+    int32_t linear_acceleration_compensation();
+    int32_t point_of_percussion_alignment();
+    int32_t internal_sensor_bandwidth();
+    int32_t sync_mode_select();
+    int32_t sync_polarity();
+    int32_t data_ready_polarity();
+    int32_t sync_signal_scale();
+    int32_t decimation_filter();
 
 private:
     static struct iio_context * m_network_context;

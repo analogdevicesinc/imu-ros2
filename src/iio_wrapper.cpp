@@ -432,3 +432,125 @@ void IIOWrapper::set_filter_size(int32_t val)
     long long valuel = val;
     iio_device_debug_attr_write_longlong(m_dev,"filter_size", valuel);
 }
+
+int32_t IIOWrapper::anglvel_x_calibbias()
+{
+    long long valueC;
+    iio_channel_attr_read_longlong(m_channel_anglvel_x, "calibbias", &valueC);
+    return valueC;
+}
+
+int32_t IIOWrapper::anglvel_y_calibbias()
+{
+    long long valueC;
+    iio_channel_attr_read_longlong(m_channel_anglvel_y, "calibbias", &valueC);
+    return valueC;
+}
+
+int32_t IIOWrapper::anglvel_z_calibbias()
+{
+    long long valueC;
+    iio_channel_attr_read_longlong(m_channel_anglvel_z, "calibbias", &valueC);
+    return valueC;
+}
+
+int32_t IIOWrapper::accel_x_calibbias()
+{
+    long long valueC;
+    iio_channel_attr_read_longlong(m_channel_accel_x, "calibbias", &valueC);
+    return valueC;
+}
+
+int32_t IIOWrapper::accel_y_calibbias()
+{
+    long long valueC;
+    iio_channel_attr_read_longlong(m_channel_accel_y, "calibbias", &valueC);
+    return valueC;
+}
+
+int32_t IIOWrapper::accel_z_calibbias()
+{
+    long long valueC;
+    iio_channel_attr_read_longlong(m_channel_accel_z, "calibbias", &valueC);
+    return valueC;
+}
+
+int32_t IIOWrapper::burst_size_selection()
+{
+    long long valuel;
+    iio_device_debug_attr_read_longlong(m_dev,"burst_size_selection", &valuel);
+
+    return valuel;
+}
+
+int32_t IIOWrapper::burst_data_selection()
+{
+    long long valuel;
+    iio_device_debug_attr_read_longlong(m_dev,"burst_data_selection", &valuel);
+
+    return valuel;
+}
+
+int32_t IIOWrapper::linear_acceleration_compensation()
+{
+    long long valuel;
+    iio_device_debug_attr_read_longlong(m_dev,"linear_acceleration_compensation", &valuel);
+
+    return valuel;
+}
+
+int32_t IIOWrapper::point_of_percussion_alignment()
+{
+    long long valuel;
+    iio_device_debug_attr_read_longlong(m_dev,"point_of_percussion_alignment", &valuel);
+
+    return valuel;
+}
+
+int32_t IIOWrapper::internal_sensor_bandwidth()
+{
+    long long valuel;
+    iio_device_debug_attr_read_longlong(m_dev,"internal_sensor_bandwidth", &valuel);
+
+    return valuel;
+}
+
+int32_t IIOWrapper::sync_mode_select()
+{
+    long long valuel;
+    iio_device_debug_attr_read_longlong(m_dev,"sync_mode_select", &valuel);
+
+    return valuel;
+}
+
+int32_t IIOWrapper::sync_polarity()
+{
+    long long valuel;
+    iio_device_debug_attr_read_longlong(m_dev,"sync_polarity", &valuel);
+
+    return valuel;
+}
+
+int32_t IIOWrapper::data_ready_polarity()
+{
+    long long valuel;
+    iio_device_debug_attr_read_longlong(m_dev,"data_ready_polarity", &valuel);
+
+    return valuel;
+}
+
+int32_t IIOWrapper::sync_signal_scale()
+{
+    long long valuel;
+    iio_device_debug_attr_read_longlong(m_dev,"sync_signal_scale", &valuel);
+
+    return valuel;
+}
+
+int32_t IIOWrapper::decimation_filter()
+{
+    long long valuel;
+    iio_device_debug_attr_read_longlong(m_dev,"decimation_filter", &valuel);
+
+    return valuel;
+}
