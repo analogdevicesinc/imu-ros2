@@ -48,7 +48,25 @@ void ImuControlDataProvider::set_filter_size(int32_t val)
 imu_ros2::msg::ImuControlData ImuControlDataProvider::getData()
 {
     imu_ros2::msg::ImuControlData message;
+    message.anglvel_x_calibbias = m_iioWrapper.anglvel_x_calibbias();
+    message.anglvel_y_calibbias = m_iioWrapper.anglvel_y_calibbias();
+    message.anglvel_z_calibbias = m_iioWrapper.anglvel_z_calibbias();
+    message.accel_x_calibbias = m_iioWrapper.accel_x_calibbias();
+    message.accel_y_calibbias = m_iioWrapper.accel_y_calibbias();
+    message.accel_z_calibbias = m_iioWrapper.accel_z_calibbias();
     message.filter_size = m_iioWrapper.filter_size();
+    message.burst_size_selection = m_iioWrapper.burst_size_selection();
+    message.burst_data_selection = m_iioWrapper.burst_data_selection();
+    message.linear_acceleration_compensation = m_iioWrapper.linear_acceleration_compensation();
+    message.point_of_percussion_alignment = m_iioWrapper.point_of_percussion_alignment();
+    message.internal_sensor_bandwidth = m_iioWrapper.internal_sensor_bandwidth();
+    message.sync_mode_select = m_iioWrapper.sync_mode_select();
+    message.sync_polarity = m_iioWrapper.sync_polarity();
+    message.data_ready_polarity = m_iioWrapper.data_ready_polarity();
+    message.sync_signal_scale = m_iioWrapper.sync_signal_scale();
+    message.decimation_filter = m_iioWrapper.decimation_filter();
+
+
 
     return message;
 }
