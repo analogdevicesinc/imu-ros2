@@ -1,2 +1,3 @@
 # Ignore all txtuser files
 *.txt.user
+*.cpp.orig
