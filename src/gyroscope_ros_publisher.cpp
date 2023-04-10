@@ -54,22 +54,10 @@ void GyroscopeRosPublisher::run()
     int count = 0;
     while (rclcpp::ok()) {
 
-       //std::thread::id this_id = std::this_thread::get_id();
-        //std::cout << "thread " << this_id << " running...\n";
-        //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "running: '%d'", this_id);
-
-        auto started = std::chrono::high_resolution_clock::now();
         m_message = m_dataProvider->getData(count);
-        auto done = std::chrono::high_resolution_clock::now();
-
-        RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Publishing gyroscope data: '%f' '%f' '%f' in time %d ms",
-                    m_message.anglvel_x, m_message.anglvel_y, m_message.anglvel_z,
-                    std::chrono::duration_cast<std::chrono::milliseconds>(done-started).count());
 
         m_publisher->publish(m_message);
         count++;
-        //rclcpp::spin_some(m_node);
-        //loopRate.sleep();
     }
     this_id = std::this_thread::get_id();
     std::cout << "thread " << this_id << " ended...\n";
