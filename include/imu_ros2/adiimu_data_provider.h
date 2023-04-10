@@ -33,7 +33,7 @@ public:
     ~AdiImuDataProvider();
 
     void init() override;
-    imu_ros2::msg::AdiImuData getData(int count) override;
+    imu_ros2::msg::AdiImuData getData(bool& success) override;
 
 private:
     IIOWrapper m_iioWrapper;

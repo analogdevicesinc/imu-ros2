@@ -16,3 +16,5 @@ geometry_msgs/Vector3 delta_vel
 # delta angle output [rad/s]
 
 geometry_msgs/Vector3 delta_angle
+
+int32 count

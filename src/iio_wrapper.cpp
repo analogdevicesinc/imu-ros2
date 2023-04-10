@@ -26,43 +26,148 @@
 #include <cstdlib>
 #include <sstream>
 #include <rclcpp/rclcpp.hpp>
+#include <unistd.h>
 
-struct iio_context* IIOWrapper::m_network_context = nullptr;
+struct iio_context* IIOWrapper::m_local_context = nullptr;
+
+struct iio_device* IIOWrapper::m_dev = nullptr;
+struct iio_device* IIOWrapper::m_devtrigger = nullptr;
+struct iio_buffer* IIOWrapper::m_device_buffer = nullptr;
+
+struct iio_channel *IIOWrapper::m_channel_accel_x = nullptr;
+struct iio_channel *IIOWrapper::m_channel_accel_y = nullptr;
+struct iio_channel *IIOWrapper::m_channel_accel_z = nullptr;
+
+struct iio_channel *IIOWrapper::m_channel_anglvel_x = nullptr;
+struct iio_channel *IIOWrapper::m_channel_anglvel_y = nullptr;
+struct iio_channel *IIOWrapper::m_channel_anglvel_z = nullptr;
+
+struct iio_channel *IIOWrapper::m_channel_rot_x = nullptr;
+struct iio_channel *IIOWrapper::m_channel_rot_y = nullptr;
+struct iio_channel *IIOWrapper::m_channel_rot_z = nullptr;
+
+struct iio_channel *IIOWrapper::m_channel_velocity_x = nullptr;
+struct iio_channel *IIOWrapper::m_channel_velocity_y = nullptr;
+struct iio_channel *IIOWrapper::m_channel_velocity_z = nullptr;
+
+struct iio_channel *IIOWrapper::m_channel_temp = nullptr;
+struct iio_channel *IIOWrapper::m_channel_count = nullptr;
+
+float IIOWrapper::m_fvalScaleAccel_x = 0;
+float IIOWrapper::m_fvalScaleAccel_y = 0;
+float IIOWrapper::m_fvalScaleAccel_z = 0;
+
+float IIOWrapper::m_fvalScaleAngvel_x = 0;
+float IIOWrapper::m_fvalScaleAngvel_y = 0;
+float IIOWrapper::m_fvalScaleAngvel_z = 0;
+
+float IIOWrapper::m_fvalScaleRot_x = 0;
+float IIOWrapper::m_fvalScaleRot_y = 0;
+float IIOWrapper::m_fvalScaleRot_z = 0;
+
+float IIOWrapper::m_fvalScaleVelocity_x = 0;
+float IIOWrapper::m_fvalScaleVelocity_y = 0;
+float IIOWrapper::m_fvalScaleVelocity_z = 0;
+
+float IIOWrapper::m_fvalScaleTemp = 0;
+
+// device sensors data member
+float IIOWrapper::m_accelerometer_x = 0;
+float IIOWrapper::m_accelerometer_y = 0;
+float IIOWrapper::m_accelerometer_z = 0;
+float IIOWrapper::m_gyroscope_x = 0;
+float IIOWrapper::m_gyroscope_y = 0;
+float IIOWrapper::m_gyroscope_z = 0;
+float IIOWrapper::m_rot_x = 0;
+float IIOWrapper::m_rot_y = 0;
+float IIOWrapper::m_rot_z = 0;
+float IIOWrapper::m_velocity_x = 0;
+float IIOWrapper::m_velocity_y = 0;
+float IIOWrapper::m_velocity_z = 0;
+float IIOWrapper::m_temperature = 0;
+int32_t IIOWrapper::m_count = 0;
+
+std::mutex IIOWrapper::m_mutex;
 
 IIOWrapper::IIOWrapper()
 {
-    if(m_network_context == nullptr)
+    if(m_local_context == nullptr)
     {
-        std::string uri = "ip:127.0.0.1"; // TODO: pass uri from cmd line
-
-        m_network_context = iio_create_context_from_uri(uri.c_str());
-
-        m_object_context =  iio_context_clone(m_network_context);
+        m_local_context = iio_create_local_context();
+        if(!m_local_context)
+        {
+            throw std::runtime_error("Exception: local context is null");
+        }
     }
-    else
+
+    if(m_dev == nullptr)
     {
-        m_object_context =  iio_context_clone(m_network_context);
+        m_dev = iio_context_find_device(m_local_context, "adis16505");
+        if(!m_dev)
+        {
+            throw std::runtime_error("Exception: device data is null");
+        }
     }
-    m_dev = iio_context_find_device(m_object_context, "adis16505");
-    m_channel_accel_x = iio_device_find_channel(m_dev, "accel_x", false);
-    m_channel_accel_y = iio_device_find_channel(m_dev, "accel_y", false);
-    m_channel_accel_z = iio_device_find_channel(m_dev, "accel_z", false);
 
+    if(m_devtrigger == nullptr)
+    {
+        m_devtrigger = iio_context_find_device(m_local_context, "adis16505-dev0");
+        if(!m_devtrigger)
+        {
+            throw std::runtime_error("Exception: device trigger data is null");
+        }
+    }
 
+    iio_device_set_trigger(m_dev, m_devtrigger);
 
-    m_channel_anglvel_x = iio_device_find_channel(m_dev, "anglvel_x", false);
-    m_channel_anglvel_y = iio_device_find_channel(m_dev, "anglvel_y", false);
-    m_channel_anglvel_z = iio_device_find_channel(m_dev, "anglvel_z", false);
+    if(m_channel_accel_x == nullptr)
+        m_channel_accel_x = iio_device_find_channel(m_dev, "accel_x", false);
+    if(m_channel_accel_y == nullptr)
+        m_channel_accel_y = iio_device_find_channel(m_dev, "accel_y", false);
+    if(m_channel_accel_z == nullptr)
+        m_channel_accel_z = iio_device_find_channel(m_dev, "accel_z", false);
 
-    m_channel_rot_x = iio_device_find_channel(m_dev, "rot_x", false);
-    m_channel_rot_y = iio_device_find_channel(m_dev, "rot_y", false);
-    m_channel_rot_z = iio_device_find_channel(m_dev, "rot_z", false);
+    if(m_channel_anglvel_x == nullptr)
+        m_channel_anglvel_x = iio_device_find_channel(m_dev, "anglvel_x", false);
+    if(m_channel_anglvel_y == nullptr)
+        m_channel_anglvel_y = iio_device_find_channel(m_dev, "anglvel_y", false);
+    if(m_channel_anglvel_z == nullptr)
+        m_channel_anglvel_z = iio_device_find_channel(m_dev, "anglvel_z", false);
 
-    m_channel_velocity_x = iio_device_find_channel(m_dev, "velocity_x", false);
-    m_channel_velocity_y = iio_device_find_channel(m_dev, "velocity_y", false);
-    m_channel_velocity_z = iio_device_find_channel(m_dev, "velocity_z", false);
+    if(m_channel_rot_x == nullptr)
+        m_channel_rot_x = iio_device_find_channel(m_dev, "rot_x", false);
+    if(m_channel_rot_y == nullptr)
+        m_channel_rot_y = iio_device_find_channel(m_dev, "rot_y", false);
+    if(m_channel_rot_z == nullptr)
+        m_channel_rot_z = iio_device_find_channel(m_dev, "rot_z", false);
 
-    m_channel_temp = iio_device_find_channel(m_dev, "temp", false);
+    if(m_channel_velocity_x == nullptr)
+        m_channel_velocity_x = iio_device_find_channel(m_dev, "velocity_x", false);
+    if(m_channel_velocity_y == nullptr)
+        m_channel_velocity_y = iio_device_find_channel(m_dev, "velocity_y", false);
+    if(m_channel_velocity_z == nullptr)
+        m_channel_velocity_z = iio_device_find_channel(m_dev, "velocity_z", false);
+
+    if(m_channel_temp == nullptr)
+        m_channel_temp = iio_device_find_channel(m_dev, "temp", false);
+
+    if(m_channel_count == nullptr)
+        m_channel_count = iio_device_find_channel(m_dev, "count", false);
+
+    iio_channel_enable(m_channel_accel_x);
+    iio_channel_enable(m_channel_accel_y);
+    iio_channel_enable(m_channel_accel_z);
+    iio_channel_enable(m_channel_anglvel_x);
+    iio_channel_enable(m_channel_anglvel_y);
+    iio_channel_enable(m_channel_anglvel_z);
+    iio_channel_enable(m_channel_rot_x);
+    iio_channel_enable(m_channel_rot_y);
+    iio_channel_enable(m_channel_rot_z);
+    iio_channel_enable(m_channel_velocity_x);
+    iio_channel_enable(m_channel_velocity_y);
+    iio_channel_enable(m_channel_velocity_z);
+    iio_channel_enable(m_channel_temp);
+    iio_channel_enable(m_channel_count);
 
     double valueScaleAccel_x;
     iio_channel_attr_read_double(m_channel_accel_x, "scale", &valueScaleAccel_x);
@@ -115,148 +220,182 @@ IIOWrapper::IIOWrapper()
     double valueScaleTemp;
     iio_channel_attr_read_double(m_channel_temp, "scale", &valueScaleTemp);
     m_fvalScaleTemp = valueScaleTemp;
+
+    if(m_device_buffer == nullptr)
+    {
+        m_device_buffer = iio_device_create_buffer(m_dev, 1, false);
+        if(!m_device_buffer)
+        {
+            throw std::runtime_error("Exception: device buffer is null");
+        }
+        iio_buffer_set_blocking_mode(m_device_buffer, true);
+    }
 }
 
 IIOWrapper::~IIOWrapper()
 {
-    iio_context_destroy(m_object_context);
-    if(m_network_context != nullptr)
+    if(m_device_buffer != nullptr)
     {
-        iio_context_destroy(m_network_context);
-        m_network_context = nullptr;
+        iio_buffer_destroy(m_device_buffer);
+        m_device_buffer = nullptr;
     }
-
+    if(m_local_context != nullptr)
+    {
+        iio_context_destroy(m_local_context);
+        m_local_context = nullptr;
+    }  
 }
 
+void IIOWrapper::update_buffer(bool& success)
+{
+    std::lock_guard<std::mutex> guard(m_mutex);
+    ssize_t ret =  iio_buffer_refill(m_device_buffer);
+    if(ret == 0)
+    {
+        success = false;
+    }
+    else
+    {
+        int32_t valueRaw = 0;
+        iio_channel_read(m_channel_accel_x, m_device_buffer, &valueRaw, 4);
+        float fvalRaw = valueRaw;
+        m_accelerometer_x = fvalRaw * m_fvalScaleAccel_x;
+
+        valueRaw = 0;
+        iio_channel_read(m_channel_accel_y, m_device_buffer, &valueRaw, 4);
+        fvalRaw = valueRaw;
+        m_accelerometer_y = fvalRaw * m_fvalScaleAccel_y;
+
+        valueRaw = 0;
+        iio_channel_read(m_channel_accel_z, m_device_buffer, &valueRaw, 4);
+        fvalRaw = valueRaw;
+        m_accelerometer_z = fvalRaw * m_fvalScaleAccel_z;
+
+        valueRaw = 0;
+        iio_channel_read(m_channel_anglvel_x, m_device_buffer, &valueRaw, 4);
+        fvalRaw = valueRaw;
+        m_gyroscope_x = fvalRaw * m_fvalScaleAngvel_x;
+
+        valueRaw = 0;
+        iio_channel_read(m_channel_anglvel_y, m_device_buffer, &valueRaw, 4);
+        fvalRaw = valueRaw;
+        m_gyroscope_y = fvalRaw * m_fvalScaleAngvel_y;
+
+        valueRaw = 0;
+        iio_channel_read(m_channel_anglvel_z, m_device_buffer, &valueRaw, 4);
+        fvalRaw = valueRaw;
+        m_gyroscope_z = fvalRaw * m_fvalScaleAngvel_z;
+
+        valueRaw = 0;
+        iio_channel_read(m_channel_rot_x, m_device_buffer, &valueRaw, 4);
+        fvalRaw = valueRaw;
+        m_rot_x = fvalRaw * m_fvalScaleRot_x;
+
+        valueRaw = 0;
+        iio_channel_read(m_channel_rot_y, m_device_buffer, &valueRaw, 4);
+        fvalRaw = valueRaw;
+        m_rot_y = fvalRaw * m_fvalScaleRot_y;
+
+        valueRaw = 0;
+        iio_channel_read(m_channel_rot_z, m_device_buffer, &valueRaw, 4);
+        fvalRaw = valueRaw;
+        m_rot_z = fvalRaw * m_fvalScaleRot_z;
+
+        valueRaw = 0;
+        iio_channel_read(m_channel_velocity_x, m_device_buffer, &valueRaw, 4);
+        fvalRaw = valueRaw;
+        m_velocity_x = fvalRaw * m_fvalScaleVelocity_x;
+
+        valueRaw = 0;
+        iio_channel_read(m_channel_velocity_y, m_device_buffer, &valueRaw, 4);
+        fvalRaw = valueRaw;
+        m_velocity_y = fvalRaw * m_fvalScaleVelocity_y;
+
+        valueRaw = 0;
+        iio_channel_read(m_channel_velocity_z, m_device_buffer, &valueRaw, 4);
+        fvalRaw = valueRaw;
+        m_velocity_z = fvalRaw * m_fvalScaleVelocity_z;
+
+        valueRaw = 0;
+        iio_channel_read(m_channel_temp, m_device_buffer, &valueRaw, 4);
+        fvalRaw = valueRaw;
+        m_temperature = fvalRaw * m_fvalScaleTemp / 1000.0;
+
+        valueRaw = 0;
+        iio_channel_read(m_channel_count, m_device_buffer, &valueRaw, 4);
+        m_count = valueRaw;
+        success = true;
+    }
+}
+
+int32_t IIOWrapper::count()
+{
+    return m_count;
+}
 
 float IIOWrapper::getAccelerometerX()
 {
-    long long valueRaw;
-    iio_channel_attr_read_longlong(m_channel_accel_x, "raw", &valueRaw);
-    float fvalRaw = valueRaw;
-
-    float result = fvalRaw * m_fvalScaleAccel_x;
-    return result;
+    return m_accelerometer_x;
 }
 
 float IIOWrapper::getAccelerometerY()
 {
-    long long valueRaw;
-    iio_channel_attr_read_longlong(m_channel_accel_y, "raw", &valueRaw);
-    float fvalRaw = valueRaw;
-
-    float result = fvalRaw * m_fvalScaleAccel_y;
-    return result;
+    return m_accelerometer_y;
 }
 
 float IIOWrapper::getAccelerometerZ()
 {
-    long long valueRaw;
-    iio_channel_attr_read_longlong(m_channel_accel_z, "raw", &valueRaw);
-    float fvalRaw = valueRaw;
-
-    float result = fvalRaw * m_fvalScaleAccel_z;
-    return result;
+    return m_accelerometer_z;
 }
 
 float IIOWrapper::getGyroscopeX()
 {
-    long long valueRaw;
-    iio_channel_attr_read_longlong(m_channel_anglvel_x, "raw", &valueRaw);
-    float fvalRaw = valueRaw;
-
-    float result = fvalRaw * m_fvalScaleAngvel_x;
-    return result;
+    return m_gyroscope_x;
 }
 
 float IIOWrapper::getGyroscopeY()
 {
-    long long valueRaw;
-    iio_channel_attr_read_longlong(m_channel_anglvel_y, "raw", &valueRaw);
-    float fvalRaw = valueRaw;
-
-    float result = fvalRaw * m_fvalScaleAngvel_y;
-    return result;
+    return m_gyroscope_y;
 }
 
 float IIOWrapper::getGyroscopeZ()
 {
-    long long valueRaw;
-    iio_channel_attr_read_longlong(m_channel_anglvel_z, "raw", &valueRaw);
-    float fvalRaw = valueRaw;
-
-    float result = fvalRaw * m_fvalScaleAngvel_z;
-    return result;
+    return m_gyroscope_z;
 }
 
 float IIOWrapper::getRotX()
 {
-    long long valueRaw;
-    iio_channel_attr_read_longlong(m_channel_rot_x, "raw", &valueRaw);
-    float fvalRaw = valueRaw;
-
-    float result = fvalRaw * m_fvalScaleRot_x;
-    return result;
+    return m_rot_x;
 }
 
 float IIOWrapper::getRotY()
 {
-    long long valueRaw;
-    iio_channel_attr_read_longlong(m_channel_rot_y, "raw", &valueRaw);
-    float fvalRaw = valueRaw;
-
-    float result = fvalRaw * m_fvalScaleRot_y;
-    return result;
+    return m_rot_y;
 }
 
 float IIOWrapper::getRotZ()
 {
-    long long valueRaw;
-    iio_channel_attr_read_longlong(m_channel_rot_z, "raw", &valueRaw);
-    float fvalRaw = valueRaw;
-
-    float result = fvalRaw * m_fvalScaleRot_z;
-    return result;
+    return m_rot_z;
 }
 
 float IIOWrapper::getVelocityX()
 {
-    long long valueRaw;
-    iio_channel_attr_read_longlong(m_channel_velocity_x, "raw", &valueRaw);
-    float fvalRaw = valueRaw;
-
-    float result = fvalRaw * m_fvalScaleVelocity_x;
-    return result;
+    return m_velocity_x;
 }
 
 float IIOWrapper::getVelocityY()
 {
-    long long valueRaw;
-    iio_channel_attr_read_longlong(m_channel_velocity_y, "raw", &valueRaw);
-    float fvalRaw = valueRaw;
-
-    float result = fvalRaw * m_fvalScaleVelocity_y;
-    return result;
+    return m_velocity_y;
 }
 
 float IIOWrapper::getVelocityZ()
 {
-    long long valueRaw;
-    iio_channel_attr_read_longlong(m_channel_velocity_z, "raw", &valueRaw);
-    float fvalRaw = valueRaw;
-
-    float result = fvalRaw * m_fvalScaleVelocity_z;
-    return result;
+    return m_velocity_z;
 }
 
 float IIOWrapper::getTemperature()
 {
-    long long valueRaw;
-    iio_channel_attr_read_longlong(m_channel_temp, "raw", &valueRaw);
-    float fvalRaw = valueRaw;
-
-    float result = fvalRaw * m_fvalScaleTemp / 1000.0;
-    return result;
+    return m_temperature;
 }
 
 int IIOWrapper::lost_samples_count()

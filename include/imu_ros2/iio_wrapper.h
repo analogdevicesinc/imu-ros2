@@ -23,11 +23,14 @@
 
 #include<string>
 #include <iio.h>
+#include <mutex>
 
 class IIOWrapper {
 public:
     IIOWrapper();
     ~IIOWrapper();
+
+    void update_buffer(bool& success);
 
     float getAccelerometerX();
     float getAccelerometerY();
@@ -88,46 +91,70 @@ public:
     int32_t sync_signal_scale();
     int32_t decimation_filter();
 
+    int32_t count();
+
 private:
-    static struct iio_context * m_network_context;
-    struct iio_context * m_object_context;
-    struct iio_device *m_dev;
+    static   std::mutex m_mutex;
 
-    struct iio_channel *m_channel_accel_x;
-    struct iio_channel *m_channel_accel_y;
-    struct iio_channel *m_channel_accel_z;
+    static struct iio_context * m_local_context;
+    static struct iio_device *m_dev;
+    static struct iio_device *m_devtrigger;
 
-    struct iio_channel *m_channel_anglvel_x;
-    struct iio_channel *m_channel_anglvel_y;
-    struct iio_channel *m_channel_anglvel_z;
+    static struct iio_buffer *m_device_buffer;
 
-    struct iio_channel *m_channel_rot_x;
-    struct iio_channel *m_channel_rot_y;
-    struct iio_channel *m_channel_rot_z;
+    static struct iio_channel *m_channel_accel_x;
+    static struct iio_channel *m_channel_accel_y;
+    static struct iio_channel *m_channel_accel_z;
 
-    struct iio_channel *m_channel_velocity_x;
-    struct iio_channel *m_channel_velocity_y;
-    struct iio_channel *m_channel_velocity_z;
+    static struct iio_channel *m_channel_anglvel_x;
+    static struct iio_channel *m_channel_anglvel_y;
+    static struct iio_channel *m_channel_anglvel_z;
 
-    struct iio_channel *m_channel_temp;
+    static struct iio_channel *m_channel_rot_x;
+    static struct iio_channel *m_channel_rot_y;
+    static struct iio_channel *m_channel_rot_z;
 
-    float m_fvalScaleAccel_x;
-    float m_fvalScaleAccel_y;
-    float m_fvalScaleAccel_z;
+    static struct iio_channel *m_channel_velocity_x;
+    static struct iio_channel *m_channel_velocity_y;
+    static struct iio_channel *m_channel_velocity_z;
 
-    float m_fvalScaleAngvel_x;
-    float m_fvalScaleAngvel_y;
-    float m_fvalScaleAngvel_z;
+    static struct iio_channel *m_channel_temp;
+    static struct iio_channel *m_channel_count;
 
-    float m_fvalScaleRot_x;
-    float m_fvalScaleRot_y;
-    float m_fvalScaleRot_z;
+    static float m_fvalScaleAccel_x;
+    static float m_fvalScaleAccel_y;
+    static float m_fvalScaleAccel_z;
 
-    float m_fvalScaleVelocity_x;
-    float m_fvalScaleVelocity_y;
-    float m_fvalScaleVelocity_z;
+    static float m_fvalScaleAngvel_x;
+    static float m_fvalScaleAngvel_y;
+    static float m_fvalScaleAngvel_z;
 
-    float m_fvalScaleTemp;
+    static float m_fvalScaleRot_x;
+    static float m_fvalScaleRot_y;
+    static float m_fvalScaleRot_z;
+
+    static float m_fvalScaleVelocity_x;
+    static float m_fvalScaleVelocity_y;
+    static float m_fvalScaleVelocity_z;
+
+    static float m_fvalScaleTemp;
+
+    // device sensors data member
+    static float m_accelerometer_x;
+    static float m_accelerometer_y;
+    static float m_accelerometer_z;
+    static float m_gyroscope_x;
+    static float m_gyroscope_y;
+    static float m_gyroscope_z;
+    static float m_rot_x;
+    static float m_rot_y;
+    static float m_rot_z;
+    static float m_velocity_x;
+    static float m_velocity_y;
+    static float m_velocity_z;
+    static float m_temperature;
+    static int32_t m_count;
+
 };
 
 #endif // IIO_WRAPPER_H
