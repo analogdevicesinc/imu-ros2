@@ -59,7 +59,8 @@ void AccelerationRosPublisher::run()
         //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "running: '%d'", this_id);
 
         auto started = std::chrono::high_resolution_clock::now();
-        m_message = m_dataProvider->getData(count);
+        bool success = false;
+        m_message = m_dataProvider->getData(success);
         auto done = std::chrono::high_resolution_clock::now();
 
         RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Publishing acceleration x y z in time %d ms: '%f' '%f' '%f'",
@@ -67,8 +68,8 @@ void AccelerationRosPublisher::run()
                     std::chrono::duration_cast<std::chrono::milliseconds>(done-started).count());
 
 
-
-        m_publisher->publish(m_message);
+        if(success)
+            m_publisher->publish(m_message);
         count++;
         rclcpp::spin_some(m_node);
         //rclcpp::spin_some(m_node);

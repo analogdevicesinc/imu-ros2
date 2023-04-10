@@ -59,7 +59,8 @@ void AdiImuRosPublisher::run()
         //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "running: '%d'", this_id);
 
         auto started = std::chrono::high_resolution_clock::now();
-        m_message = m_dataProvider->getData(count);
+        bool success = false;
+        m_message = m_dataProvider->getData(success);
         auto done = std::chrono::high_resolution_clock::now();
 
         RCLCPP_INFO(rclcpp::get_logger("rclcpp_adiimu"), "Publishing adi imu acceleration data: '%f' '%f' '%f'",
@@ -75,7 +76,8 @@ void AdiImuRosPublisher::run()
         RCLCPP_INFO(rclcpp::get_logger("rclcpp_adiimu"), "Publishing adi imu time %d us ",
                     std::chrono::duration_cast<std::chrono::microseconds>(done-started).count());
 
-        m_publisher->publish(m_message);
+        if(success)
+            m_publisher->publish(m_message);
         count++;
         //rclcpp::spin_some(m_node);
         //loopRate.sleep();

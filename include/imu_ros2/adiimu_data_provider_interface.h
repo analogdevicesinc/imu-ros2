@@ -32,7 +32,7 @@ public:
     virtual ~AdiImuDataProviderInterface(){}
 
     virtual void init() = 0;
-    virtual imu_ros2::msg::AdiImuData getData(int count) = 0;
+    virtual imu_ros2::msg::AdiImuData getData(bool& success) = 0;
 };
 
 #endif // ADIIMU_DATA_PROVIDER_INTERFACE_H

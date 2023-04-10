@@ -35,29 +35,34 @@ void AdiImuDataProvider::init()
     // initialize a library
 }
 
-imu_ros2::msg::AdiImuData AdiImuDataProvider::getData(int count)
+imu_ros2::msg::AdiImuData AdiImuDataProvider::getData(bool& success)
 {
-    (int)count;
     imu_ros2::msg::AdiImuData message;
 
-    message.accel.x = m_iioWrapper.getAccelerometerX();
-    message.accel.y = m_iioWrapper.getAccelerometerY();
-    message.accel.z = m_iioWrapper.getAccelerometerZ();
+    m_iioWrapper.update_buffer(success);
 
-    message.gyro.x = m_iioWrapper.getGyroscopeX();
-    message.gyro.y = m_iioWrapper.getGyroscopeY();
-    message.gyro.z = m_iioWrapper.getGyroscopeZ();
+    if(success)
+    {
+        message.accel.x = m_iioWrapper.getAccelerometerX();
+        message.accel.y = m_iioWrapper.getAccelerometerY();
+        message.accel.z = m_iioWrapper.getAccelerometerZ();
 
-    message.delta_vel.x = m_iioWrapper.getVelocityX();
-    message.delta_vel.y = m_iioWrapper.getVelocityY();
-    message.delta_vel.z = m_iioWrapper.getVelocityZ();
+        message.gyro.x = m_iioWrapper.getGyroscopeX();
+        message.gyro.y = m_iioWrapper.getGyroscopeY();
+        message.gyro.z = m_iioWrapper.getGyroscopeZ();
 
-    message.delta_angle.x = m_iioWrapper.getRotX();
-    message.delta_angle.y = m_iioWrapper.getRotY();
-    message.delta_angle.z = m_iioWrapper.getRotZ();
+        message.delta_vel.x = m_iioWrapper.getVelocityX();
+        message.delta_vel.y = m_iioWrapper.getVelocityY();
+        message.delta_vel.z = m_iioWrapper.getVelocityZ();
 
-    message.temp = m_iioWrapper.getTemperature();
+        message.delta_angle.x = m_iioWrapper.getRotX();
+        message.delta_angle.y = m_iioWrapper.getRotY();
+        message.delta_angle.z = m_iioWrapper.getRotZ();
 
+        message.temp = m_iioWrapper.getTemperature();
+
+        message.count = m_iioWrapper.count();
+    }
 
     return message;
 }

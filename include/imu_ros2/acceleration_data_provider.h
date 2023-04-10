@@ -32,7 +32,7 @@ public:
     ~AccelerationDataProvider();
 
     void init() override;
-    sensor_msgs::msg::Imu getData(int count) override;
+    sensor_msgs::msg::Imu getData(bool& success) override;
 
 private:
     IIOWrapper m_iioWrapper;
