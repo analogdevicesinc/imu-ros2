@@ -40,9 +40,6 @@
 #include "imu_ros2/imu_diag_data_provider.h"
 #include "imu_ros2/imu_diag_ros_publisher.h"
 
-#include "imu_ros2/imu_control_data_provider.h"
-#include "imu_ros2/imu_control_ros_publisher.h"
-
 using namespace std::chrono_literals;
 
 void declareParameters(std::shared_ptr<rclcpp::Node>& node)
@@ -133,31 +130,20 @@ int main(int argc, char * argv[])
 
     RosTask* diagRosTask = dynamic_cast<RosTask*>(diagPublisher);
 
-
-    ImuControlDataProviderInterface* controlDataProv = new ImuControlDataProvider();
-    ImuControlRosPublisherInterface * controlPublisher = new ImuControlRosPublisher(node);
-    controlPublisher->setMessageProvider(controlDataProv);
-
-    RosTask* controlRosTask = dynamic_cast<RosTask*>(controlPublisher);
-
     WorkerThread accwth(accRosTask);
     WorkerThread idenwth(idenRosTask);
     WorkerThread aiwth(aiRosTask);
-
     WorkerThread diagwth(diagRosTask);
-    WorkerThread controlwth(controlRosTask);
 
     accwth.join();
     idenwth.join();
     aiwth.join();
     diagwth.join();
-    controlwth.join();
 
     delete accPublisher;
     delete idenPublisher;
     delete aiPublisher;
     delete diagPublisher;
-    delete controlPublisher;
 
     rclcpp::shutdown();
 
