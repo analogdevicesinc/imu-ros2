@@ -44,7 +44,6 @@ install(TARGETS imu_ros2_node
 
 rosidl_generate_interfaces(imu_ros2
   "msg/ImuIdentificationData.msg"
-  "msg/GyroscopeData.msg"
   "msg/AdiImuData.msg"
   "msg/ImuDiagData.msg"
   "msg/ImuControlData.msg"

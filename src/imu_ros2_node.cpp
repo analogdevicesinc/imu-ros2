@@ -34,9 +34,6 @@
 #include "imu_ros2/imu_identification_data_provider.h"
 #include "imu_ros2/imu_identification_ros_publisher.h"
 
-#include "imu_ros2/gyroscope_data_provider.h"
-#include "imu_ros2/gyroscope_ros_publisher.h"
-
 #include "imu_ros2/adiimu_data_provider.h"
 #include "imu_ros2/adiimu_ros_publisher.h"
 
@@ -124,12 +121,6 @@ int main(int argc, char * argv[])
 
     RosTask* idenRosTask = dynamic_cast<RosTask*>(idenPublisher);
 
-    GyroscopeDataProviderInterface* gyroDataProv = new GyroscopeDataProvider();
-    GyroscopeRosPublisherInterface * gyroPublisher = new GyroscopeRosPublisher(node);
-    gyroPublisher->setMessageProvider(gyroDataProv);
-
-    RosTask* gyroRosTask = dynamic_cast<RosTask*>(gyroPublisher);
-
     AdiImuDataProviderInterface* aiDataProv = new AdiImuDataProvider();
     AdiImuRosPublisherInterface * aiPublisher = new AdiImuRosPublisher(node);
     aiPublisher->setMessageProvider(aiDataProv);
@@ -151,7 +142,6 @@ int main(int argc, char * argv[])
 
     WorkerThread accwth(accRosTask);
     WorkerThread idenwth(idenRosTask);
-    WorkerThread gyrowth(gyroRosTask);
     WorkerThread aiwth(aiRosTask);
 
     WorkerThread diagwth(diagRosTask);
@@ -159,14 +149,12 @@ int main(int argc, char * argv[])
 
     accwth.join();
     idenwth.join();
-    gyrowth.join();
     aiwth.join();
     diagwth.join();
     controlwth.join();
 
     delete accPublisher;
     delete idenPublisher;
-    delete gyroPublisher;
     delete aiPublisher;
     delete diagPublisher;
     delete controlPublisher;
