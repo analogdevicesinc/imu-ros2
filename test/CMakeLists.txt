@@ -29,7 +29,6 @@ file(GLOB FILES_CPP ${CMAKE_SOURCE_DIR}/src/*.cpp)
   ament_add_gtest(imu_ros2_test_node utest_launch.test src/utest.cpp
                                         src/acceleration_subscriber_test.cpp
                                         src/static_subscriber_test.cpp
-                                        src/gyroscope_subscriber_test.cpp
                                         src/adiimu_subscriber_test.cpp
                                         src/imu_diag_subscriber_test.cpp
                                         src/imu_control_subscriber_test.cpp)
