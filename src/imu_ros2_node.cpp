@@ -28,9 +28,6 @@
 
 #include "imu_ros2/worker_thread.h"
 
-#include "imu_ros2/data_provider_string.h"
-#include "imu_ros2/ros_publisher_1.h"
-
 #include "imu_ros2/acceleration_data_provider.h"
 #include "imu_ros2/acceleration_ros_publisher.h"
 
@@ -111,12 +108,6 @@ int main(int argc, char * argv[])
 
     declareParameters(node);
 
-    //DataProviderInterface* dataStr = new DataProviderString();
-    //RosPublisherInterface * publisher1 = new RosPublisher1(node);
-    //publisher1->setMessageProvider(dataStr);
-
-    //RosTask* rosTask = dynamic_cast<RosTask*>(publisher1);
-
     std::thread::id this_id = std::this_thread::get_id();
     std::cout << "mainthread " << this_id << " running...\n";
     RCLCPP_INFO(rclcpp::get_logger("rclcpp_main"), "running: '%d'", this_id);
@@ -158,7 +149,6 @@ int main(int argc, char * argv[])
 
     RosTask* controlRosTask = dynamic_cast<RosTask*>(controlPublisher);
 
-    //WorkerThread wth(rosTask);
     WorkerThread accwth(accRosTask);
     WorkerThread idenwth(idenRosTask);
     WorkerThread gyrowth(gyroRosTask);
@@ -166,7 +156,7 @@ int main(int argc, char * argv[])
 
     WorkerThread diagwth(diagRosTask);
     WorkerThread controlwth(controlRosTask);
-    //wth.join();
+
     accwth.join();
     idenwth.join();
     gyrowth.join();
@@ -174,7 +164,6 @@ int main(int argc, char * argv[])
     diagwth.join();
     controlwth.join();
 
-    //delete publisher1;
     delete accPublisher;
     delete idenPublisher;
     delete gyroPublisher;
