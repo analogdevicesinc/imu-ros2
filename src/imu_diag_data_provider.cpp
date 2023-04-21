@@ -35,10 +35,12 @@ void ImuDiagDataProvider::init()
     // initialize a library
 }
 
-imu_ros2::msg::ImuDiagData ImuDiagDataProvider::getData(int count)
+imu_ros2::msg::ImuDiagData ImuDiagDataProvider::getData()
 {
-    (int)count;
     imu_ros2::msg::ImuDiagData message;
+
+    if(m_iioWrapper.isBufferLoaded() == false)
+        return message;
 
     message.lost_samples_count = m_iioWrapper.lost_samples_count();
     message.diag_checksum_error_flag = m_iioWrapper.diag_checksum_error_flag();

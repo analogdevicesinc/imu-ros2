@@ -51,7 +51,6 @@ void ImuDiagRosPublisher::run()
 
     rclcpp::WallRate loopRate(0.01);
 
-    int count = 0;
     while (rclcpp::ok())
     {
 
@@ -59,16 +58,22 @@ void ImuDiagRosPublisher::run()
        // std::cout << "thread " << this_id << " running...\n";
        // RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "running: '%d'", this_id);
 
-        //auto started = std::chrono::high_resolution_clock::now();
-        m_message = m_dataProvider->getData(count);
-        //auto done = std::chrono::high_resolution_clock::now();
+        int32_t operation_mode = m_node->get_parameter("operation_mode").get_parameter_value().get<int32_t>();
 
-        RCLCPP_INFO(rclcpp::get_logger("rclcpp_imu_diag_data"), "Publishing imu diag data: lost_samples_count = '%d' diag_checksum_error_flag= '%d' flash_counter = '%d' ",
-                    m_message.lost_samples_count, m_message.diag_checksum_error_flag, m_message.flash_counter);
+        switch(operation_mode) {
+        case DEVICE_CONTINUOUS_SAMPLING_MODE:
+            m_message = m_dataProvider->getData();
 
-        m_publisher->publish(m_message);
-        count++;
-        //rclcpp::spin_some(m_node);
+            RCLCPP_INFO(rclcpp::get_logger("rclcpp_imu_diag_data"), "Publishing imu diag data: lost_samples_count = '%d' diag_checksum_error_flag= '%d' flash_counter = '%d' ",
+                        m_message.lost_samples_count, m_message.diag_checksum_error_flag, m_message.flash_counter);
+
+            m_publisher->publish(m_message);
+            break;
+        default:
+        {
+            break;
+        }
+        }
         loopRate.sleep();
     }
     this_id = std::this_thread::get_id();

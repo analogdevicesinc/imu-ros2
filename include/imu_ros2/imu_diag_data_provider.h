@@ -32,7 +32,7 @@ public:
     ~ImuDiagDataProvider();
 
     void init() override;
-    imu_ros2::msg::ImuDiagData getData(int count) override;
+    imu_ros2::msg::ImuDiagData getData() override;
 private:
     IIOWrapper m_iioWrapper;
 };

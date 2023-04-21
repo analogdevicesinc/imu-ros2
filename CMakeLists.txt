@@ -74,7 +74,7 @@ if(BUILD_TESTING)
 endif()
 
 
-
+install(FILES config/imu_config.yaml DESTINATION config)
 
 
 

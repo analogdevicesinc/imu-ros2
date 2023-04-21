@@ -49,38 +49,51 @@ void AdiImuRosPublisher::run()
     std::cout << "thread " << this_id << " started...\n";
     RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "startThread: '%d'", this_id);
 
+    typedef std::chrono::system_clock::time_point timenow;
+    timenow started;
+    timenow done;
+    bool success = false;
+
     rclcpp::WallRate loopRate(0.1);
 
-    int count = 0;
     while (rclcpp::ok()) {
 
        //std::thread::id this_id = std::this_thread::get_id();
         //std::cout << "thread " << this_id << " running...\n";
         //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "running: '%d'", this_id);
 
-        auto started = std::chrono::high_resolution_clock::now();
-        bool success = false;
-        m_message = m_dataProvider->getData(success);
-        auto done = std::chrono::high_resolution_clock::now();
+        int32_t operation_mode = m_node->get_parameter("operation_mode").get_parameter_value().get<int32_t>();
 
-        RCLCPP_INFO(rclcpp::get_logger("rclcpp_adiimu"), "Publishing adi imu acceleration data: '%f' '%f' '%f'",
-                    m_message.accel.x, m_message.accel.y, m_message.accel.z);
-        RCLCPP_INFO(rclcpp::get_logger("rclcpp_adiimu"), "Publishing adi imu gyroscope data: '%f' '%f' '%f'",
-                    m_message.gyro.x, m_message.gyro.y, m_message.gyro.z);
-        RCLCPP_INFO(rclcpp::get_logger("rclcpp_adiimu"), "Publishing adi imu delta velocity data: '%f' '%f' '%f'",
-                    m_message.delta_vel.x, m_message.delta_vel.y, m_message.delta_vel.z);
-        RCLCPP_INFO(rclcpp::get_logger("rclcpp_adiimu"), "Publishing adi imu delta angle data: '%f' '%f' '%f'",
-                    m_message.delta_angle.x, m_message.delta_angle.y, m_message.delta_angle.z);
-        RCLCPP_INFO(rclcpp::get_logger("rclcpp_adiimu"), "Publishing adi imu temperature data: '%f' ",
-                    m_message.temp);
-        RCLCPP_INFO(rclcpp::get_logger("rclcpp_adiimu"), "Publishing adi imu time %d us ",
-                    std::chrono::duration_cast<std::chrono::microseconds>(done-started).count());
+        switch(operation_mode) {
+        case DEVICE_CONTINUOUS_SAMPLING_MODE:
+            started = std::chrono::high_resolution_clock::now();
+            success = false;
+            m_message = m_dataProvider->getData(success);
+            done = std::chrono::high_resolution_clock::now();
 
-        if(success)
-            m_publisher->publish(m_message);
-        count++;
-        //rclcpp::spin_some(m_node);
-        //loopRate.sleep();
+            RCLCPP_INFO(rclcpp::get_logger("rclcpp_adiimu"), "Publishing adi imu acceleration data: '%f' '%f' '%f'",
+                        m_message.accel.x, m_message.accel.y, m_message.accel.z);
+            RCLCPP_INFO(rclcpp::get_logger("rclcpp_adiimu"), "Publishing adi imu gyroscope data: '%f' '%f' '%f'",
+                        m_message.gyro.x, m_message.gyro.y, m_message.gyro.z);
+            RCLCPP_INFO(rclcpp::get_logger("rclcpp_adiimu"), "Publishing adi imu delta velocity data: '%f' '%f' '%f'",
+                        m_message.delta_vel.x, m_message.delta_vel.y, m_message.delta_vel.z);
+            RCLCPP_INFO(rclcpp::get_logger("rclcpp_adiimu"), "Publishing adi imu delta angle data: '%f' '%f' '%f'",
+                        m_message.delta_angle.x, m_message.delta_angle.y, m_message.delta_angle.z);
+            RCLCPP_INFO(rclcpp::get_logger("rclcpp_adiimu"), "Publishing adi imu temperature data: '%f' ",
+                        m_message.temp);
+            RCLCPP_INFO(rclcpp::get_logger("rclcpp_adiimu"), "Publishing adi imu time %d us ",
+                        std::chrono::duration_cast<std::chrono::microseconds>(done-started).count());
+
+            if(success)
+                m_publisher->publish(m_message);
+            break;
+        default:
+        {
+             loopRate.sleep();
+             break;
+        }
+        }
+
     }
     this_id = std::this_thread::get_id();
     std::cout << "thread " << this_id << " ended...\n";

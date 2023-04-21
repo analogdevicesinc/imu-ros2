@@ -95,27 +95,21 @@ IIOWrapper::IIOWrapper()
     {
         m_local_context = iio_create_local_context();
         if(!m_local_context)
-        {
             throw std::runtime_error("Exception: local context is null");
-        }
     }
 
     if(m_dev == nullptr)
     {
         m_dev = iio_context_find_device(m_local_context, "adis16505");
         if(!m_dev)
-        {
             throw std::runtime_error("Exception: device data is null");
-        }
     }
 
     if(m_devtrigger == nullptr)
     {
         m_devtrigger = iio_context_find_device(m_local_context, "adis16505-dev0");
         if(!m_devtrigger)
-        {
             throw std::runtime_error("Exception: device trigger data is null");
-        }
     }
 
     iio_device_set_trigger(m_dev, m_devtrigger);
@@ -225,9 +219,7 @@ IIOWrapper::IIOWrapper()
     {
         m_device_buffer = iio_device_create_buffer(m_dev, 1, false);
         if(!m_device_buffer)
-        {
             throw std::runtime_error("Exception: device buffer is null");
-        }
         iio_buffer_set_blocking_mode(m_device_buffer, true);
     }
 }
@@ -246,8 +238,40 @@ IIOWrapper::~IIOWrapper()
     }  
 }
 
+void IIOWrapper::unload()
+{
+    if(m_device_buffer != nullptr)
+    {
+        std::lock_guard<std::mutex> guard(m_mutex);
+        iio_buffer_destroy(m_device_buffer);
+        m_device_buffer = nullptr;
+    }
+}
+
+void IIOWrapper::load()
+{
+    if(m_device_buffer == nullptr)
+    {
+        std::lock_guard<std::mutex> guard(m_mutex);
+        m_device_buffer = iio_device_create_buffer(m_dev, 1, false);
+        if(!m_device_buffer)
+            throw std::runtime_error("Exception: device buffer is null");
+        iio_buffer_set_blocking_mode(m_device_buffer, true);
+    }
+}
+
+bool IIOWrapper::isBufferLoaded()
+{
+    return (m_device_buffer != nullptr);
+}
+
 void IIOWrapper::update_buffer(bool& success)
 {
+    if(m_device_buffer == nullptr)
+    {
+        success = false;
+        return;
+    }
     std::lock_guard<std::mutex> guard(m_mutex);
     ssize_t ret =  iio_buffer_refill(m_device_buffer);
     if(ret == 0)
@@ -566,10 +590,10 @@ int32_t IIOWrapper::filter_size()
     return valuel;
 }
 
-void IIOWrapper::set_filter_size(int32_t val)
+int IIOWrapper::update_filter_size(int32_t val)
 {
     long long valuel = val;
-    iio_device_debug_attr_write_longlong(m_dev,"filter_size", valuel);
+    return iio_device_debug_attr_write_longlong(m_dev,"filter_size", valuel);
 }
 
 int32_t IIOWrapper::anglvel_x_calibbias()
@@ -692,4 +716,140 @@ int32_t IIOWrapper::decimation_filter()
     iio_device_debug_attr_read_longlong(m_dev,"decimation_filter", &valuel);
 
     return valuel;
+}
+
+// --------------------------------------------------------------------------
+
+int IIOWrapper::update_burst_size_selection(int32_t val)
+{
+    long long valuel = val;
+    return iio_device_debug_attr_write_longlong(m_dev,"burst_size_selection", valuel);
+}
+
+int IIOWrapper::update_burst_data_selection(int32_t val)
+{
+    long long valuel = val;
+    return iio_device_debug_attr_write_longlong(m_dev,"burst_data_selection", valuel);
+}
+
+int IIOWrapper::update_linear_acceleration_compensation(int32_t val)
+{
+    long long valuel = val;
+    return iio_device_debug_attr_write_longlong(m_dev,"linear_acceleration_compensation", valuel);
+}
+
+int IIOWrapper::update_point_of_percussion_alignment(int32_t val)
+{
+    long long valuel = val;
+    return iio_device_debug_attr_write_longlong(m_dev,"point_of_percussion_alignment", valuel);
+}
+
+int IIOWrapper::update_internal_sensor_bandwidth(int32_t val)
+{
+    long long valuel = val;
+    return iio_device_debug_attr_write_longlong(m_dev,"internal_sensor_bandwidth", valuel);
+}
+
+int IIOWrapper::update_sync_mode_select(int32_t val)
+{
+    long long valuel = val;
+    return iio_device_debug_attr_write_longlong(m_dev,"sync_mode_select", valuel);
+}
+
+int IIOWrapper::update_sync_polarity(int32_t val)
+{
+    long long valuel = val;
+    return iio_device_debug_attr_write_longlong(m_dev,"sync_polarity", valuel);
+}
+
+int IIOWrapper::update_data_ready_polarity(int32_t val)
+{
+    long long valuel = val;
+    return iio_device_debug_attr_write_longlong(m_dev,"data_ready_polarity", valuel);
+}
+
+int IIOWrapper::update_sync_signal_scale(int32_t val)
+{
+    long long valuel = val;
+    return iio_device_debug_attr_write_longlong(m_dev,"sync_signal_scale", valuel);
+}
+
+int IIOWrapper::update_decimation_filter(int32_t val)
+{
+    long long valuel = val;
+    return iio_device_debug_attr_write_longlong(m_dev,"decimation_filter", valuel);
+}
+
+int IIOWrapper::update_accel_calibbias_x(int32_t val)
+{
+    long long valuel = val;
+    return iio_channel_attr_write_longlong(m_channel_accel_x, "calibbias", valuel);
+}
+
+int IIOWrapper::update_accel_calibbias_y(int32_t val)
+{
+    long long valuel = val;
+    return iio_channel_attr_write_longlong(m_channel_accel_y, "calibbias", valuel);
+}
+
+int IIOWrapper::update_accel_calibbias_z(int32_t val)
+{
+    long long valuel = val;
+    return iio_channel_attr_write_longlong(m_channel_accel_z, "calibbias", valuel);
+}
+
+int IIOWrapper::update_anglvel_calibbias_x(int32_t val)
+{
+    long long valuel = val;
+    return iio_channel_attr_write_longlong(m_channel_anglvel_x, "calibbias", valuel);
+}
+
+int IIOWrapper::update_anglvel_calibbias_y(int32_t val)
+{
+    long long valuel = val;
+    return iio_channel_attr_write_longlong(m_channel_anglvel_y, "calibbias", valuel);
+}
+
+int IIOWrapper::update_anglvel_calibbias_z(int32_t val)
+{
+    long long valuel = val;
+    return iio_channel_attr_write_longlong(m_channel_anglvel_z, "calibbias", valuel);
+}
+
+int IIOWrapper::update_sampling_frequency(int32_t val)
+{
+    long long valuel = val;
+    return iio_device_attr_write_longlong(m_dev, "sampling_frequency", valuel);
+}
+
+int32_t IIOWrapper::sampling_frequency()
+{
+    long long valuel;
+    iio_device_attr_read_longlong(m_dev,"sampling_frequency", &valuel);
+    return valuel;
+}
+
+int IIOWrapper::software_reset()
+{
+    return iio_device_debug_attr_write_longlong(m_dev,"software_reset", 1);
+}
+
+int IIOWrapper::flash_memory_test()
+{
+    return iio_device_debug_attr_write_longlong(m_dev,"flash_memory_test", 1);
+}
+
+int IIOWrapper::flash_memory_update()
+{
+    return iio_device_debug_attr_write_longlong(m_dev,"flash_memory_update", 1);
+}
+
+int IIOWrapper::sensor_self_test()
+{
+    return iio_device_debug_attr_write_longlong(m_dev,"sensor_self_test", 1);
+}
+
+int IIOWrapper::factory_calibration_restore()
+{
+    return iio_device_debug_attr_write_longlong(m_dev,"factory_calibration_restore", 1);
 }
