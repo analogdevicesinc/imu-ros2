@@ -34,6 +34,9 @@ public:
     void init() override;
     sensor_msgs::msg::Imu getData(bool& success) override;
 
+    void load() override;
+    void unload() override;
+
 private:
     IIOWrapper m_iioWrapper;
 };

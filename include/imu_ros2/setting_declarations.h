@@ -1,6 +1,6 @@
 /***************************************************************************//**
-*   @file   imu_diag_data_provider_interface.h
-*   @brief  Interface for providing imu diag data
+*   @file   setting_declarations.h
+*   @brief  Declare state for configuration mode
 *   @author Vasile Holonec (Vasile.Holonec@analog.com)
 ********************************************************************************
 * Copyright 2023(c) Analog Devices, Inc.
@@ -18,21 +18,11 @@
 * limitations under the License.
 *******************************************************************************/
 
-#ifndef IMU_DIAG_DATA_PROVIDER_INTERFACE_H
-#define IMU_DIAG_DATA_PROVIDER_INTERFACE_H
+#ifndef SETTING_DECLARATIONS_H
+#define SETTING_DECLARATIONS_H
 
-#include <string>
+#define USER_PARAM_SETTING_MODE 0
+#define DEVICE_PARAM_SETTING_MODE 1
+#define DEVICE_CONTINUOUS_SAMPLING_MODE 2
 
-#include "imu_ros2/msg/imu_diag_data.hpp"
-
-class ImuDiagDataProviderInterface {
-
-public:
-    ImuDiagDataProviderInterface(){}
-    virtual ~ImuDiagDataProviderInterface(){}
-
-    virtual void init() = 0;
-    virtual imu_ros2::msg::ImuDiagData getData() = 0;
-};
-
-#endif // IMU_DIAG_DATA_PROVIDER_INTERFACE_H
+#endif // SETTING_DECLARATIONS_H

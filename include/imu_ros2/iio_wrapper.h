@@ -73,7 +73,7 @@ public:
     int flash_counter();
 
     int32_t filter_size();
-    void set_filter_size(int32_t val);
+
     int32_t anglvel_x_calibbias();
     int32_t anglvel_y_calibbias();
     int32_t anglvel_z_calibbias();
@@ -92,6 +92,37 @@ public:
     int32_t decimation_filter();
 
     int32_t count();
+
+    int update_filter_size(int32_t val);
+    int update_burst_size_selection(int32_t val);
+    int update_burst_data_selection(int32_t val);
+    int update_linear_acceleration_compensation(int32_t val);
+    int update_point_of_percussion_alignment(int32_t val);
+    int update_internal_sensor_bandwidth(int32_t val);
+    int update_sync_mode_select(int32_t val);
+    int update_sync_polarity(int32_t val);
+    int update_data_ready_polarity(int32_t val);
+    int update_sync_signal_scale(int32_t val);
+    int update_decimation_filter(int32_t val);
+    int update_accel_calibbias_x(int32_t val);
+    int update_accel_calibbias_y(int32_t val);
+    int update_accel_calibbias_z(int32_t val);
+    int update_anglvel_calibbias_x(int32_t val);
+    int update_anglvel_calibbias_y(int32_t val);
+    int update_anglvel_calibbias_z(int32_t val);
+
+    int update_sampling_frequency(int32_t val);
+    int32_t sampling_frequency();
+
+    int software_reset();
+    int flash_memory_test();
+    int flash_memory_update();
+    int sensor_self_test();
+    int factory_calibration_restore();
+
+    void load();
+    void unload();
+    bool isBufferLoaded();
 
 private:
     static   std::mutex m_mutex;

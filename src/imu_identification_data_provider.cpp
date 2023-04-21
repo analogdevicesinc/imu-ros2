@@ -38,6 +38,10 @@ void ImuIdentificationDataProvider::init()
 imu_ros2::msg::ImuIdentificationData ImuIdentificationDataProvider::getData()
 {
     imu_ros2::msg::ImuIdentificationData message;
+
+    if(m_iioWrapper.isBufferLoaded() == false)
+        return message;
+
     message.firmware_revision = m_iioWrapper.firmware_revision();
     message.firmware_date = m_iioWrapper.firmware_date();
     message.product_id = m_iioWrapper.product_id();

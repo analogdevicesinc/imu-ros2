@@ -41,6 +41,9 @@ imu_ros2::msg::AdiImuData AdiImuDataProvider::getData(bool& success)
 
     m_iioWrapper.update_buffer(success);
 
+    if(m_iioWrapper.isBufferLoaded() == false)
+        return message;
+
     if(success)
     {
         message.accel.x = m_iioWrapper.getAccelerometerX();

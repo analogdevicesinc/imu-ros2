@@ -1,0 +1,26 @@
+/imu_ros2_node:
+  ros__parameters:
+    operation_mode: 0
+    filter_size: 0
+    burst_size_selection: 0
+    burst_data_selection: 0
+    linear_acceleration_compensation: 1
+    point_of_percussion_alignment: 1
+    internal_sensor_bandwidth: 0
+    sync_mode_select: 3
+    sync_polarity: 0
+    data_ready_polarity: 1
+    sync_signal_scale: 2000
+    accel_calibbias_x: 0
+    accel_calibbias_y: 0
+    accel_calibbias_z: 0
+    anglvel_calibbias_x: 0
+    anglvel_calibbias_y: 0
+    anglvel_calibbias_z: 0
+    sampling_frequency: 2000
+    software_reset: 0
+    flash_memory_test: 0
+    flash_memory_update: 0
+    sensor_self_test: 0
+    factory_calibration_restore: 0
+    command_to_execute: "no_command"

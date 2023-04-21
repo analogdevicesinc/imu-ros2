@@ -49,31 +49,45 @@ void AccelerationRosPublisher::run()
     std::cout << "thread " << this_id << " started...\n";
     RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "startThread: '%d'", this_id);
 
+    typedef std::chrono::system_clock::time_point timenow;
+    timenow started;
+    timenow done;
     rclcpp::WallRate loopRate(0.1);
+    bool success = false;
 
-    int count = 0;
     while (rclcpp::ok()) {
 
         //std::thread::id this_id = std::this_thread::get_id();
         //std::cout << "thread " << this_id << " running...\n";
         //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "running: '%d'", this_id);
 
-        auto started = std::chrono::high_resolution_clock::now();
-        bool success = false;
-        m_message = m_dataProvider->getData(success);
-        auto done = std::chrono::high_resolution_clock::now();
+        int32_t operation_mode = m_node->get_parameter("operation_mode").get_parameter_value().get<int32_t>();
 
-        RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Publishing acceleration x y z in time %d ms: '%f' '%f' '%f'",
-                    m_message.linear_acceleration.x, m_message.linear_acceleration.y, m_message.linear_acceleration.z ,
-                    std::chrono::duration_cast<std::chrono::milliseconds>(done-started).count());
+        switch(operation_mode) {
+        case DEVICE_CONTINUOUS_SAMPLING_MODE:
+            m_dataProvider->load();
+            started = std::chrono::high_resolution_clock::now();
+            success = false;
+            m_message = m_dataProvider->getData(success);
+            done = std::chrono::high_resolution_clock::now();
 
+            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Publishing acceleration x y z in time %d ms: '%f' '%f' '%f'",
+                        m_message.linear_acceleration.x, m_message.linear_acceleration.y, m_message.linear_acceleration.z ,
+                        std::chrono::duration_cast<std::chrono::milliseconds>(done-started).count());
 
-        if(success)
-            m_publisher->publish(m_message);
-        count++;
+            if(success)
+                m_publisher->publish(m_message);
+            break;
+        case USER_PARAM_SETTING_MODE:
+            m_dataProvider->unload();
+            break;
+        default:
+        {
+            loopRate.sleep();
+            break;
+        }
+        }
         rclcpp::spin_some(m_node);
-        //rclcpp::spin_some(m_node);
-        //loopRate.sleep();
     }
     this_id = std::this_thread::get_id();
     std::cout << "thread " << this_id << " ended...\n";

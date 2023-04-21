@@ -36,11 +36,24 @@ void AccelerationDataProvider::init()
     // initialize a library
 }
 
+void AccelerationDataProvider::load()
+{
+    m_iioWrapper.load();
+}
+
+void AccelerationDataProvider::unload()
+{
+    m_iioWrapper.unload();
+}
+
 sensor_msgs::msg::Imu AccelerationDataProvider::getData(bool& success)
 {
     sensor_msgs::msg::Imu message;
 
     m_iioWrapper.update_buffer(success);
+
+    if(m_iioWrapper.isBufferLoaded() == false)
+        return message;
 
     if(success)
     {

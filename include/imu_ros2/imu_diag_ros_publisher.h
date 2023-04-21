@@ -26,6 +26,7 @@
 
 #include <rclcpp/rclcpp.hpp>
 #include <std_msgs/msg/string.hpp>
+#include "setting_declarations.h"
 
 class ImuDiagRosPublisher : public ImuDiagRosPublisherInterface {
 
