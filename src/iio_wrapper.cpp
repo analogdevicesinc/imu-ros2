@@ -89,6 +89,11 @@ int32_t IIOWrapper::m_count = 0;
 
 std::mutex IIOWrapper::m_mutex;
 
+std::string IIOWrapper::s_device_name;
+std::string IIOWrapper::s_device_trigger_name;
+IIODeviceName IIOWrapper::s_device_name_enum = IIODeviceName::ADIS1657X;
+
+
 IIOWrapper::IIOWrapper()
 {
     if(m_local_context == nullptr)
@@ -100,14 +105,14 @@ IIOWrapper::IIOWrapper()
 
     if(m_dev == nullptr)
     {
-        m_dev = iio_context_find_device(m_local_context, "adis16505");
+        m_dev = iio_context_find_device(m_local_context, IIOWrapper::s_device_name.c_str());
         if(!m_dev)
             throw std::runtime_error("Exception: device data is null");
     }
 
     if(m_devtrigger == nullptr)
     {
-        m_devtrigger = iio_context_find_device(m_local_context, "adis16505-dev0");
+        m_devtrigger = iio_context_find_device(m_local_context, IIOWrapper::s_device_trigger_name.c_str());
         if(!m_devtrigger)
             throw std::runtime_error("Exception: device trigger data is null");
     }
@@ -816,16 +821,15 @@ int IIOWrapper::update_anglvel_calibbias_z(int32_t val)
     return iio_channel_attr_write_longlong(m_channel_anglvel_z, "calibbias", valuel);
 }
 
-int IIOWrapper::update_sampling_frequency(int32_t val)
+int IIOWrapper::update_sampling_frequency(double val)
 {
-    long long valuel = val;
-    return iio_device_attr_write_longlong(m_dev, "sampling_frequency", valuel);
+    return iio_device_attr_write_double(m_dev, "sampling_frequency", val);
 }
 
-int32_t IIOWrapper::sampling_frequency()
+double IIOWrapper::sampling_frequency()
 {
-    long long valuel;
-    iio_device_attr_read_longlong(m_dev,"sampling_frequency", &valuel);
+    double valuel;
+    iio_device_attr_read_double(m_dev,"sampling_frequency", &valuel);
     return valuel;
 }
 
@@ -852,4 +856,202 @@ int IIOWrapper::sensor_self_test()
 int IIOWrapper::factory_calibration_restore()
 {
     return iio_device_debug_attr_write_longlong(m_dev,"factory_calibration_restore", 1);
+}
+
+//-------------------------------------------
+
+int32_t IIOWrapper::z_axis_accelerometer_bias_correction_enable()
+{
+    long long valuel;
+    iio_device_debug_attr_read_longlong(m_dev,"z_axis_accelerometer_bias_correction_enable", &valuel);
+
+    return valuel;
+}
+
+int32_t IIOWrapper::y_axis_accelerometer_bias_correction_enable()
+{
+    long long valuel;
+    iio_device_debug_attr_read_longlong(m_dev,"y_axis_accelerometer_bias_correction_enable", &valuel);
+
+    return valuel;
+}
+
+int32_t IIOWrapper::x_axis_accelerometer_bias_correction_enable()
+{
+    long long valuel;
+    iio_device_debug_attr_read_longlong(m_dev,"x_axis_accelerometer_bias_correction_enable", &valuel);
+
+    return valuel;
+}
+
+int32_t IIOWrapper::z_axis_gyroscope_bias_correction_enable()
+{
+    long long valuel;
+    iio_device_debug_attr_read_longlong(m_dev,"z_axis_gyroscope_bias_correction_enable", &valuel);
+
+    return valuel;
+}
+
+int32_t IIOWrapper::y_axis_gyroscope_bias_correction_enable()
+{
+    long long valuel;
+    iio_device_debug_attr_read_longlong(m_dev,"y_axis_gyroscope_bias_correction_enable", &valuel);
+
+    return valuel;
+}
+
+int32_t IIOWrapper::x_axis_gyroscope_bias_correction_enable()
+{
+    long long valuel;
+    iio_device_debug_attr_read_longlong(m_dev,"x_axis_gyroscope_bias_correction_enable", &valuel);
+
+    return valuel;
+}
+
+int32_t IIOWrapper::internal_sync_enable_4khz()
+{
+    long long valuel;
+    iio_device_debug_attr_read_longlong(m_dev,"internal_sync_enable_4khz", &valuel);
+
+    return valuel;
+}
+
+int32_t IIOWrapper::timestamp32()
+{
+    long long valuel;
+    iio_device_debug_attr_read_longlong(m_dev,"timestamp32", &valuel);
+
+    return valuel;
+}
+
+int32_t IIOWrapper::fifo_watermark_interrupt_polarity()
+{
+    long long valuel;
+    iio_device_debug_attr_read_longlong(m_dev,"fifo_watermark_interrupt_polarity", &valuel);
+
+    return valuel;
+}
+
+int32_t IIOWrapper::fifo_watermark_interrupt_enable()
+{
+    long long valuel;
+    iio_device_debug_attr_read_longlong(m_dev,"fifo_watermark_interrupt_enable", &valuel);
+
+    return valuel;
+}
+
+int32_t IIOWrapper::fifo_overflow_behavior()
+{
+    long long valuel;
+    iio_device_debug_attr_read_longlong(m_dev,"fifo_overflow_behavior", &valuel);
+
+    return valuel;
+}
+
+int32_t IIOWrapper::fifo_enable()
+{
+    long long valuel;
+    iio_device_debug_attr_read_longlong(m_dev,"fifo_enable", &valuel);
+
+    return valuel;
+}
+
+int32_t IIOWrapper::bias_correction_time_base_control()
+{
+    long long valuel;
+    iio_device_debug_attr_read_longlong(m_dev,"bias_correction_time_base_control", &valuel);
+
+    return valuel;
+}
+
+int32_t IIOWrapper::fifo_watermark_threshold_level()
+{
+    long long valuel;
+    iio_device_debug_attr_read_longlong(m_dev,"fifo_watermark_threshold_level", &valuel);
+
+    return valuel;
+}
+
+int IIOWrapper::update_z_axis_accelerometer_bias_correction_enable(int32_t val)
+{
+    long long valuel = val;
+    return iio_device_debug_attr_write_longlong(m_dev,"z_axis_accelerometer_bias_correction_enable", valuel);
+}
+
+int IIOWrapper::update_y_axis_accelerometer_bias_correction_enable(int32_t val)
+{
+    long long valuel = val;
+    return iio_device_debug_attr_write_longlong(m_dev,"y_axis_accelerometer_bias_correction_enable", valuel);
+}
+
+int IIOWrapper::update_x_axis_accelerometer_bias_correction_enable(int32_t val)
+{
+    long long valuel = val;
+    return iio_device_debug_attr_write_longlong(m_dev,"x_axis_accelerometer_bias_correction_enable", valuel);
+}
+
+int IIOWrapper::update_z_axis_gyroscope_bias_correction_enable(int32_t val)
+{
+    long long valuel = val;
+    return iio_device_debug_attr_write_longlong(m_dev,"z_axis_gyroscope_bias_correction_enable", valuel);
+}
+
+int IIOWrapper::update_y_axis_gyroscope_bias_correction_enable(int32_t val)
+{
+    long long valuel = val;
+    return iio_device_debug_attr_write_longlong(m_dev,"y_axis_gyroscope_bias_correction_enable", valuel);
+}
+
+int IIOWrapper::update_x_axis_gyroscope_bias_correction_enable(int32_t val)
+{
+    long long valuel = val;
+    return iio_device_debug_attr_write_longlong(m_dev,"x_axis_gyroscope_bias_correction_enable", valuel);
+}
+
+int IIOWrapper::update_internal_sync_enable_4khz(int32_t val)
+{
+    long long valuel = val;
+    return iio_device_debug_attr_write_longlong(m_dev,"internal_sync_enable_4khz", valuel);
+}
+
+int IIOWrapper::update_timestamp32(int32_t val)
+{
+    long long valuel = val;
+    return iio_device_debug_attr_write_longlong(m_dev,"timestamp32", valuel);
+}
+
+int IIOWrapper::update_fifo_watermark_interrupt_polarity(int32_t val)
+{
+    long long valuel = val;
+    return iio_device_debug_attr_write_longlong(m_dev,"fifo_watermark_interrupt_polarity", valuel);
+}
+
+int IIOWrapper::update_fifo_watermark_interrupt_enable(int32_t val)
+{
+    long long valuel = val;
+    return iio_device_debug_attr_write_longlong(m_dev,"fifo_watermark_interrupt_enable", valuel);
+}
+
+int IIOWrapper::update_fifo_overflow_behavior(int32_t val)
+{
+    long long valuel = val;
+    return iio_device_debug_attr_write_longlong(m_dev,"fifo_overflow_behavior", valuel);
+}
+
+int IIOWrapper::update_fifo_enable(int32_t val)
+{
+    long long valuel = val;
+    return iio_device_debug_attr_write_longlong(m_dev,"fifo_enable", valuel);
+}
+
+int IIOWrapper::update_bias_correction_time_base_control(int32_t val)
+{
+    long long valuel = val;
+    return iio_device_debug_attr_write_longlong(m_dev,"bias_correction_time_base_control", valuel);
+}
+
+int IIOWrapper::update_fifo_watermark_threshold_level(int32_t val)
+{
+    long long valuel = val;
+    return iio_device_debug_attr_write_longlong(m_dev,"fifo_watermark_threshold_level", valuel);
 }
