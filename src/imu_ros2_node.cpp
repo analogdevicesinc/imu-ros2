@@ -50,6 +50,23 @@ void declareParameters(std::shared_ptr<rclcpp::Node>& node)
     node->declare_parameter("operation_mode", USER_PARAM_SETTING_MODE);
 }
 
+void parseArgs(int argc, char * argv[], std::string& device_name, std::string& device_trigger_name)
+{
+    if(argc < 3)
+    {
+        device_name = "adis16505";
+        device_trigger_name = "adis16505-dev0";
+        IIOWrapper::s_device_name_enum = IIODeviceName::ADIS16505;
+    }
+    else
+    if(argc >= 3)
+    {
+        device_name = std::string(argv[1]);
+        device_trigger_name = std::string(argv[2]);
+        IIOWrapper::s_device_name_enum = IIODeviceName::ADIS1657X;
+    }
+}
+
 int main(int argc, char * argv[])
 {
     rclcpp::init(argc, argv);
@@ -58,9 +75,20 @@ int main(int argc, char * argv[])
 
     declareParameters(node);
 
+    // TODO: make find device name automatically
+    std::string device_name, device_trigger_name;
+    parseArgs(argc, argv, device_name, device_trigger_name);
+    IIOWrapper::s_device_name = device_name;
+    IIOWrapper::s_device_trigger_name = device_trigger_name;
+
+    RCLCPP_INFO(rclcpp::get_logger("rclcpp_main"), "device name %s and device trigger name %s", device_name.c_str(), device_trigger_name.c_str());
+
     std::thread::id this_id = std::this_thread::get_id();
     std::cout << "mainthread " << this_id << " running...\n";
     RCLCPP_INFO(rclcpp::get_logger("rclcpp_main"), "running: '%d'", this_id);
+
+    ImuControlParameters * ctrlParam = new ImuControlParameters(node);
+    RosTask* ctrlParamTask = dynamic_cast<RosTask*>(ctrlParam);
 
     AccelerationDataProviderInterface* accDataProv = new AccelerationDataProvider();
     AccelerationRosPublisherInterface * accPublisher = new AccelerationRosPublisher(node);
@@ -86,20 +114,17 @@ int main(int argc, char * argv[])
 
     RosTask* diagRosTask = dynamic_cast<RosTask*>(diagPublisher);
 
-    ImuControlParameters * ctrlParam = new ImuControlParameters(node);
-    RosTask* ctrlParamTask = dynamic_cast<RosTask*>(ctrlParam);
-
+    WorkerThread ctrlParamwth(ctrlParamTask);
     WorkerThread accwth(accRosTask);
     WorkerThread idenwth(idenRosTask);
     WorkerThread aiwth(aiRosTask);
     WorkerThread diagwth(diagRosTask);
-    WorkerThread ctrlParamwth(ctrlParamTask);
 
+    ctrlParamwth.join();
     accwth.join();
     idenwth.join();
     aiwth.join();
     diagwth.join();
-    ctrlParamwth.join();
 
     delete accPublisher;
     delete idenPublisher;

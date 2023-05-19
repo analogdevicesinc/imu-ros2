@@ -34,16 +34,22 @@ public:
     ImuControlParameters(std::shared_ptr<rclcpp::Node>& node);
     ~ImuControlParameters();
 
+    void declareFunctions();
+
      void init(std::shared_ptr<rclcpp::Node>& node);
 
-     bool setParameters(std::map<std::string, int32_t>& valueMap);
+     bool setParameters(std::map<std::string, int32_t>& valueMap,
+                        std::map<std::string, double> &valueMapD);
+
      bool triggerCommand(std::string& command_to_execute, bool hasError);
 
      void userParamSettingMode(std::map<std::string, int32_t>& valueMap,
+                               std::map<std::string, double>& valueMapD,
                                                      int& lastOperationMode,
                                                      bool& wasConfMode);
 
     void deviceParamSettingMode(std::map<std::string, int32_t>& valueMap,
+                                std::map<std::string, double>& valueMapD,
                                                        int& lastOperationMode,
                                                        bool& wasConfMode,
                                                        bool& hasError);
@@ -70,7 +76,19 @@ private:
     typedef std::map<std::string, runFunctionDeclaration2> FunctionMapType2;
     FunctionMapType2 m_funcMap2;
 
+    typedef int(IIOWrapper::*runFunctionDeclarationDouble)(double);
+    typedef std::map<std::string, runFunctionDeclarationDouble> FunctionMapTypeDouble;
+    FunctionMapTypeDouble m_funcMapD;
+
+    typedef double(IIOWrapper::*runFunctionDeclarationGetDouble)();
+    typedef std::map<std::string, runFunctionDeclarationGetDouble> FunctionMapTypeGetDouble;
+    FunctionMapTypeGetDouble m_funcMapGetD;
+
     std::map<std::string, int32_t> m_memberMap;
+
+    std::list<std::string> m_attr_adis16505;
+    std::list<std::string> m_attr_adis1657x;
+    std::list<std::string> m_attr_current_device;
 };
 
 #endif // IMU_CONTROL_PARAMETERS_H

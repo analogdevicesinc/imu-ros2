@@ -26,6 +26,7 @@
 
 ImuControlParameters::ImuControlParameters(std::shared_ptr<rclcpp::Node>& node)
 {
+    declareFunctions();
     init(node);
 }
 
@@ -34,30 +35,8 @@ ImuControlParameters::~ImuControlParameters()
 
 }
 
-void ImuControlParameters::init(std::shared_ptr<rclcpp::Node> &node)
+void ImuControlParameters::declareFunctions()
 {
-    m_node = node;
-
-    m_node->declare_parameter("filter_size", m_iioWrapper.filter_size());
-    m_node->declare_parameter("burst_size_selection", m_iioWrapper.burst_size_selection());
-    m_node->declare_parameter("burst_data_selection", m_iioWrapper.burst_data_selection());
-    m_node->declare_parameter("linear_acceleration_compensation", m_iioWrapper.linear_acceleration_compensation());
-    m_node->declare_parameter("point_of_percussion_alignment", m_iioWrapper.point_of_percussion_alignment());
-    m_node->declare_parameter("internal_sensor_bandwidth", m_iioWrapper.internal_sensor_bandwidth());
-    m_node->declare_parameter("sync_mode_select", m_iioWrapper.sync_mode_select());
-    m_node->declare_parameter("sync_polarity", m_iioWrapper.sync_polarity());
-    m_node->declare_parameter("data_ready_polarity", m_iioWrapper.data_ready_polarity());
-    m_node->declare_parameter("sync_signal_scale", m_iioWrapper.sync_signal_scale());
-    m_node->declare_parameter("decimation_filter", m_iioWrapper.decimation_filter());
-    m_node->declare_parameter("accel_calibbias_x", m_iioWrapper.accel_x_calibbias());
-    m_node->declare_parameter("accel_calibbias_y", m_iioWrapper.accel_y_calibbias());
-    m_node->declare_parameter("accel_calibbias_z", m_iioWrapper.accel_z_calibbias());
-    m_node->declare_parameter("anglvel_calibbias_x", m_iioWrapper.anglvel_x_calibbias());
-    m_node->declare_parameter("anglvel_calibbias_y", m_iioWrapper.anglvel_y_calibbias());
-    m_node->declare_parameter("anglvel_calibbias_z", m_iioWrapper.anglvel_z_calibbias());
-    m_node->declare_parameter("sampling_frequency", m_iioWrapper.sampling_frequency());
-    m_node->declare_parameter("command_to_execute", "no_command");
-
     m_funcMap["filter_size"] = &IIOWrapper::update_filter_size;
     m_funcMap["burst_size_selection"] = &IIOWrapper::update_burst_size_selection;
     m_funcMap["burst_data_selection"] = &IIOWrapper::update_burst_data_selection;
@@ -75,14 +54,23 @@ void ImuControlParameters::init(std::shared_ptr<rclcpp::Node> &node)
     m_funcMap["anglvel_calibbias_x"] = &IIOWrapper::update_anglvel_calibbias_x;
     m_funcMap["anglvel_calibbias_y"] = &IIOWrapper::update_anglvel_calibbias_y;
     m_funcMap["anglvel_calibbias_z"] = &IIOWrapper::update_anglvel_calibbias_z;
-    m_funcMap["sampling_frequency"] = &IIOWrapper::update_sampling_frequency;
 
-    m_funcMap2["software_reset"] = &IIOWrapper::software_reset;
-    m_funcMap2["flash_memory_test"] = &IIOWrapper::flash_memory_test;
-    m_funcMap2["flash_memory_update"] = &IIOWrapper::flash_memory_update;
-    m_funcMap2["sensor_self_test"] = &IIOWrapper::sensor_self_test;
-    m_funcMap2["factory_calibration_restore"] = &IIOWrapper::factory_calibration_restore;
+    m_funcMap["z_axis_accelerometer_bias_correction_enable"] = &IIOWrapper::update_z_axis_accelerometer_bias_correction_enable;
+    m_funcMap["y_axis_accelerometer_bias_correction_enable"] = &IIOWrapper::update_y_axis_accelerometer_bias_correction_enable;
+    m_funcMap["x_axis_accelerometer_bias_correction_enable"] = &IIOWrapper::update_x_axis_accelerometer_bias_correction_enable;
+    m_funcMap["z_axis_gyroscope_bias_correction_enable"] = &IIOWrapper::update_z_axis_gyroscope_bias_correction_enable;
+    m_funcMap["y_axis_gyroscope_bias_correction_enable"] = &IIOWrapper::update_y_axis_gyroscope_bias_correction_enable;
+    m_funcMap["x_axis_gyroscope_bias_correction_enable"] = &IIOWrapper::update_x_axis_gyroscope_bias_correction_enable;
+    m_funcMap["internal_sync_enable_4khz"] = &IIOWrapper::update_internal_sync_enable_4khz;
+    m_funcMap["timestamp32"] = &IIOWrapper::update_timestamp32;
+    m_funcMap["fifo_watermark_interrupt_polarity"] = &IIOWrapper::update_fifo_watermark_interrupt_polarity;
+    m_funcMap["fifo_watermark_interrupt_enable"] = &IIOWrapper::update_fifo_watermark_interrupt_enable;
+    m_funcMap["fifo_overflow_behavior"] = &IIOWrapper::update_fifo_overflow_behavior;
+    m_funcMap["fifo_enable"] = &IIOWrapper::update_fifo_enable;
+    m_funcMap["bias_correction_time_base_control"] = &IIOWrapper::update_bias_correction_time_base_control;
+    m_funcMap["fifo_watermark_threshold_level"] = &IIOWrapper::update_fifo_watermark_threshold_level;
 
+    // for update functions
     m_funcMapGet["filter_size"] = &IIOWrapper::filter_size;
     m_funcMapGet["burst_size_selection"] = &IIOWrapper::burst_size_selection;
     m_funcMapGet["burst_data_selection"] = &IIOWrapper::burst_data_selection;
@@ -100,18 +88,119 @@ void ImuControlParameters::init(std::shared_ptr<rclcpp::Node> &node)
     m_funcMapGet["anglvel_calibbias_x"] = &IIOWrapper::anglvel_x_calibbias;
     m_funcMapGet["anglvel_calibbias_y"] = &IIOWrapper::anglvel_y_calibbias;
     m_funcMapGet["anglvel_calibbias_z"] = &IIOWrapper::anglvel_z_calibbias;
-    m_funcMapGet["sampling_frequency"] = &IIOWrapper::sampling_frequency;
+
+    m_funcMapGet["z_axis_accelerometer_bias_correction_enable"] = &IIOWrapper::z_axis_accelerometer_bias_correction_enable;
+    m_funcMapGet["y_axis_accelerometer_bias_correction_enable"] = &IIOWrapper::y_axis_accelerometer_bias_correction_enable;
+    m_funcMapGet["x_axis_accelerometer_bias_correction_enable"] = &IIOWrapper::x_axis_accelerometer_bias_correction_enable;
+    m_funcMapGet["z_axis_gyroscope_bias_correction_enable"] = &IIOWrapper::z_axis_gyroscope_bias_correction_enable;
+    m_funcMapGet["y_axis_gyroscope_bias_correction_enable"] = &IIOWrapper::y_axis_gyroscope_bias_correction_enable;
+    m_funcMapGet["x_axis_gyroscope_bias_correction_enable"] = &IIOWrapper::x_axis_gyroscope_bias_correction_enable;
+    m_funcMapGet["internal_sync_enable_4khz"] = &IIOWrapper::internal_sync_enable_4khz;
+    m_funcMapGet["timestamp32"] = &IIOWrapper::timestamp32;
+    m_funcMapGet["fifo_watermark_interrupt_polarity"] = &IIOWrapper::fifo_watermark_interrupt_polarity;
+    m_funcMapGet["fifo_watermark_interrupt_enable"] = &IIOWrapper::fifo_watermark_interrupt_enable;
+    m_funcMapGet["fifo_overflow_behavior"] = &IIOWrapper::fifo_overflow_behavior;
+    m_funcMapGet["fifo_enable"] = &IIOWrapper::fifo_enable;
+    m_funcMapGet["bias_correction_time_base_control"] = &IIOWrapper::bias_correction_time_base_control;
+    m_funcMapGet["fifo_watermark_threshold_level"] = &IIOWrapper::fifo_watermark_threshold_level;
+
+    // declare atributes for adis16505
+    m_attr_adis16505.push_back("filter_size");
+    m_attr_adis16505.push_back("burst_size_selection");
+    m_attr_adis16505.push_back("burst_data_selection");
+    m_attr_adis16505.push_back("linear_acceleration_compensation");
+    m_attr_adis16505.push_back("point_of_percussion_alignment");
+    m_attr_adis16505.push_back("internal_sensor_bandwidth");
+    m_attr_adis16505.push_back("sync_mode_select");
+    m_attr_adis16505.push_back("sync_polarity");
+    m_attr_adis16505.push_back("data_ready_polarity");
+    m_attr_adis16505.push_back("sync_signal_scale");
+    m_attr_adis16505.push_back("decimation_filter");
+    m_attr_adis16505.push_back("accel_calibbias_x");
+    m_attr_adis16505.push_back("accel_calibbias_y");
+    m_attr_adis16505.push_back("accel_calibbias_z");
+    m_attr_adis16505.push_back("anglvel_calibbias_x");
+    m_attr_adis16505.push_back("anglvel_calibbias_y");
+    m_attr_adis16505.push_back("anglvel_calibbias_z");
+
+    // declare atributes for adis16577_3
+    m_attr_adis1657x.push_back("filter_size");
+    m_attr_adis1657x.push_back("burst_size_selection");
+    m_attr_adis1657x.push_back("burst_data_selection");
+    m_attr_adis1657x.push_back("linear_acceleration_compensation");
+    m_attr_adis1657x.push_back("point_of_percussion_alignment");
+    m_attr_adis1657x.push_back("internal_sensor_bandwidth");
+    m_attr_adis1657x.push_back("sync_mode_select");
+    m_attr_adis1657x.push_back("sync_polarity");
+    m_attr_adis1657x.push_back("data_ready_polarity");
+    m_attr_adis1657x.push_back("sync_signal_scale");
+    m_attr_adis1657x.push_back("decimation_filter");
+    m_attr_adis1657x.push_back("accel_calibbias_x");
+    m_attr_adis1657x.push_back("accel_calibbias_y");
+    m_attr_adis1657x.push_back("accel_calibbias_z");
+    m_attr_adis1657x.push_back("anglvel_calibbias_x");
+    m_attr_adis1657x.push_back("anglvel_calibbias_y");
+    m_attr_adis1657x.push_back("anglvel_calibbias_z");
+    m_attr_adis1657x.push_back("z_axis_accelerometer_bias_correction_enable");
+    m_attr_adis1657x.push_back("y_axis_accelerometer_bias_correction_enable");
+    m_attr_adis1657x.push_back("x_axis_accelerometer_bias_correction_enable");
+    m_attr_adis1657x.push_back("z_axis_gyroscope_bias_correction_enable");
+    m_attr_adis1657x.push_back("y_axis_gyroscope_bias_correction_enable");
+    m_attr_adis1657x.push_back("x_axis_gyroscope_bias_correction_enable");
+    m_attr_adis1657x.push_back("internal_sync_enable_4khz");
+    m_attr_adis1657x.push_back("timestamp32");
+    m_attr_adis1657x.push_back("fifo_watermark_interrupt_polarity");
+    m_attr_adis1657x.push_back("fifo_watermark_interrupt_enable");
+    m_attr_adis1657x.push_back("fifo_overflow_behavior");
+    m_attr_adis1657x.push_back("fifo_enable");
+    m_attr_adis1657x.push_back("bias_correction_time_base_control");
+    m_attr_adis1657x.push_back("fifo_watermark_threshold_level");
+
+    switch (IIOWrapper::s_device_name_enum) {
+    case IIODeviceName::ADIS16505:
+        m_attr_current_device = m_attr_adis16505;
+        break;
+    case IIODeviceName::ADIS1657X:
+        m_attr_current_device = m_attr_adis1657x;
+        break;
+    default:
+    {
+        RCLCPP_INFO(rclcpp::get_logger("rclcpp_device_error"), "Device is not supported");
+        break;
+    }
+    }
 }
 
-bool ImuControlParameters::setParameters(std::map<std::string, int32_t>& valueMap)
+void ImuControlParameters::init(std::shared_ptr<rclcpp::Node> &node)
+{
+    m_node = node;
+
+    for (const std::string &key: m_attr_current_device)
+    {
+        int deviceParamValue = (m_iioWrapper.*(m_funcMapGet[key]))();
+        m_node->declare_parameter(key, deviceParamValue);
+    }
+
+    m_funcMapGetD["sampling_frequency"] = &IIOWrapper::sampling_frequency;
+    m_funcMapD["sampling_frequency"] = &IIOWrapper::update_sampling_frequency;
+
+    double deviceParamValued = (m_iioWrapper.*(m_funcMapGetD["sampling_frequency"]))();
+    m_node->declare_parameter("sampling_frequency", deviceParamValued);
+    m_node->declare_parameter("command_to_execute", "no_command");
+
+    m_funcMap2["software_reset"] = &IIOWrapper::software_reset;
+    m_funcMap2["flash_memory_test"] = &IIOWrapper::flash_memory_test;
+    m_funcMap2["flash_memory_update"] = &IIOWrapper::flash_memory_update;
+    m_funcMap2["sensor_self_test"] = &IIOWrapper::sensor_self_test;
+    m_funcMap2["factory_calibration_restore"] = &IIOWrapper::factory_calibration_restore;
+
+}
+
+bool ImuControlParameters::setParameters(std::map<std::string, int32_t>& valueMap, std::map<std::string, double>& valueMapD)
 {
     bool hasError = false;
 
-    std::vector<std::string> keys;
-    for (auto it = m_funcMap.begin(); it != m_funcMap.end(); it++)
-        keys.push_back(it->first);
-
-    for (const std::string &key: keys)
+    for (const std::string &key: m_attr_current_device)
     {
         int deviceParamValue = (m_iioWrapper.*(m_funcMapGet[key]))();
 
@@ -134,6 +223,31 @@ bool ImuControlParameters::setParameters(std::map<std::string, int32_t>& valueMa
             }
         }
     }
+
+    // for sampling_frequency
+    {
+        double deviceParamValue = (m_iioWrapper.*(m_funcMapGetD["sampling_frequency"]))();
+
+        if(deviceParamValue != valueMapD["sampling_frequency"])
+        {
+            const char * ckey = "sampling_frequency";
+
+            RCLCPP_INFO(rclcpp::get_logger("rclcpp_parameter_before_set"), "%s: '%f'", ckey , deviceParamValue);
+
+            int ret = (m_iioWrapper.*(m_funcMapD[ckey]))(valueMapD[ckey]);
+
+            if(ret == 0)
+            {
+                RCLCPP_INFO(rclcpp::get_logger("rclcpp_set_parameter"), "%s: '%f'", ckey , valueMapD["sampling_frequency"]);
+            }
+            else
+            {
+                RCLCPP_INFO(rclcpp::get_logger("rclcpp_set_parameter_error"), "error on set parameter %s: '%f' ", ckey , valueMapD["sampling_frequency"]);
+                hasError = true;
+            }
+        }
+    }
+
     return hasError;
 }
 
@@ -168,19 +282,16 @@ bool ImuControlParameters::triggerCommand(std::string& command_to_execute, bool 
 }
 
 void ImuControlParameters::userParamSettingMode(std::map<std::string, int32_t>& valueMap,
+                                                std::map<std::string, double>& valueMapD,
                                                 int& lastOperationMode,
                                                 bool& wasConfMode)
 {
     RCLCPP_INFO(rclcpp::get_logger("rclcpp_configuration_mode"), "Set ros parameters");
 
-    std::vector<std::string> keys;
-    for (auto it = m_funcMap.begin(); it != m_funcMap.end(); it++)
-        keys.push_back(it->first);
-
-    for (const std::string &key: keys)
+    for (const std::string &key: m_attr_current_device)
         valueMap[key] =  m_node->get_parameter(key).get_parameter_value().get<int32_t>();
 
-    for (const std::string &key: keys)
+    for (const std::string &key: m_attr_current_device)
     {
         int deviceParamValue = (m_iioWrapper.*(m_funcMapGet[key]))();
         int userParamValue = valueMap[key];
@@ -193,6 +304,16 @@ void ImuControlParameters::userParamSettingMode(std::map<std::string, int32_t>& 
 
     }
 
+    // for sampling_frequency
+    {
+        valueMapD["sampling_frequency"] =  m_node->get_parameter("sampling_frequency").get_parameter_value().get<double>();
+        double deviceParamValue = (m_iioWrapper.*(m_funcMapGetD["sampling_frequency"]))();
+        double userParamValue = valueMapD["sampling_frequency"];
+        const char * ckey = "sampling_frequency";
+        RCLCPP_INFO(rclcpp::get_logger("rclcpp_configuration_mode"),
+                    "Current user %s value = %f and current device setting value %f", ckey, userParamValue, deviceParamValue);
+    }
+
     // if user set a command then reset the comand
     std::string command_to_execute = m_node->get_parameter("command_to_execute").get_parameter_value().get<std::string>();
     if(command_to_execute != "no_command")
@@ -203,6 +324,7 @@ void ImuControlParameters::userParamSettingMode(std::map<std::string, int32_t>& 
 }
 
 void ImuControlParameters::deviceParamSettingMode(std::map<std::string, int32_t>& valueMap,
+                                                  std::map<std::string, double>& valueMapD,
                                                   int& lastOperationMode,
                                                   bool& wasConfMode,
                                                   bool& hasError)
@@ -216,16 +338,12 @@ void ImuControlParameters::deviceParamSettingMode(std::map<std::string, int32_t>
     RCLCPP_INFO(rclcpp::get_logger("rclcpp_write_mode"), "Writting values");
 
     if(wasConfMode == true)
-        hasError = setParameters(valueMap);
+        hasError = setParameters(valueMap, valueMapD);
 
     if(hasError == false)
         RCLCPP_INFO(rclcpp::get_logger("rclcpp_write_mode"), "Written values with success");
 
-    std::vector<std::string> keys;
-    for (auto it = m_funcMap.begin(); it != m_funcMap.end(); it++)
-        keys.push_back(it->first);
-
-    for (const std::string &key: keys)
+    for (const std::string &key: m_attr_current_device)
     {
         int deviceParamValue = (m_iioWrapper.*(m_funcMapGet[key]))();
 
@@ -234,6 +352,14 @@ void ImuControlParameters::deviceParamSettingMode(std::map<std::string, int32_t>
         RCLCPP_INFO(rclcpp::get_logger("rclcpp_write_mode"),
                     "Current %s device setting value %d", ckey, deviceParamValue);
 
+    }
+
+    // for sampling_frequency
+    {
+        double deviceParamValue = (m_iioWrapper.*(m_funcMapGetD["sampling_frequency"]))();
+        const char * ckey = "sampling_frequency";
+        RCLCPP_INFO(rclcpp::get_logger("rclcpp_write_mode"),
+                    "Current %s device setting value %f", ckey, deviceParamValue);
     }
 
     std::string command_to_execute = m_node->get_parameter("command_to_execute").get_parameter_value().get<std::string>();
@@ -255,6 +381,7 @@ void ImuControlParameters::run()
     bool hasError = false;
 
     std::map<std::string, int32_t> valueMap;
+    std::map<std::string, double> valueMapD;
 
     int lastOperationMode = 0;
 
@@ -266,10 +393,10 @@ void ImuControlParameters::run()
 
         switch(operation_mode) {
         case USER_PARAM_SETTING_MODE:
-            userParamSettingMode(valueMap, lastOperationMode, wasConfMode);
+            userParamSettingMode(valueMap, valueMapD, lastOperationMode, wasConfMode);
             break;
         case DEVICE_PARAM_SETTING_MODE:
-            deviceParamSettingMode(valueMap, lastOperationMode, wasConfMode, hasError);
+            deviceParamSettingMode(valueMap, valueMapD, lastOperationMode, wasConfMode, hasError);
             break;
         case DEVICE_CONTINUOUS_SAMPLING_MODE:
             lastOperationMode = DEVICE_CONTINUOUS_SAMPLING_MODE;

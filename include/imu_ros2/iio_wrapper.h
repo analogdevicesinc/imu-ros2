@@ -24,6 +24,7 @@
 #include<string>
 #include <iio.h>
 #include <mutex>
+#include "setting_declarations.h"
 
 class IIOWrapper {
 public:
@@ -111,8 +112,8 @@ public:
     int update_anglvel_calibbias_y(int32_t val);
     int update_anglvel_calibbias_z(int32_t val);
 
-    int update_sampling_frequency(int32_t val);
-    int32_t sampling_frequency();
+    int update_sampling_frequency(double val);
+    double sampling_frequency();
 
     int software_reset();
     int flash_memory_test();
@@ -123,6 +124,36 @@ public:
     void load();
     void unload();
     bool isBufferLoaded();
+
+    int32_t z_axis_accelerometer_bias_correction_enable();
+    int32_t y_axis_accelerometer_bias_correction_enable();
+    int32_t x_axis_accelerometer_bias_correction_enable();
+    int32_t z_axis_gyroscope_bias_correction_enable();
+    int32_t y_axis_gyroscope_bias_correction_enable();
+    int32_t x_axis_gyroscope_bias_correction_enable();
+    int32_t internal_sync_enable_4khz();
+    int32_t timestamp32();
+    int32_t fifo_watermark_interrupt_polarity();
+    int32_t fifo_watermark_interrupt_enable();
+    int32_t fifo_overflow_behavior();
+    int32_t fifo_enable();
+    int32_t bias_correction_time_base_control();
+    int32_t fifo_watermark_threshold_level();
+
+    int update_z_axis_accelerometer_bias_correction_enable(int32_t val);
+    int update_y_axis_accelerometer_bias_correction_enable(int32_t val);
+    int update_x_axis_accelerometer_bias_correction_enable(int32_t val);
+    int update_z_axis_gyroscope_bias_correction_enable(int32_t val);
+    int update_y_axis_gyroscope_bias_correction_enable(int32_t val);
+    int update_x_axis_gyroscope_bias_correction_enable(int32_t val);
+    int update_internal_sync_enable_4khz(int32_t val);
+    int update_timestamp32(int32_t val);
+    int update_fifo_watermark_interrupt_polarity(int32_t val);
+    int update_fifo_watermark_interrupt_enable(int32_t val);
+    int update_fifo_overflow_behavior(int32_t val);
+    int update_fifo_enable(int32_t val);
+    int update_bias_correction_time_base_control(int32_t val);
+    int update_fifo_watermark_threshold_level(int32_t val);
 
 private:
     static   std::mutex m_mutex;
@@ -186,6 +217,10 @@ private:
     static float m_temperature;
     static int32_t m_count;
 
+public:
+    static std::string s_device_name;
+    static std::string s_device_trigger_name;
+    static IIODeviceName s_device_name_enum;
 };
 
 #endif // IIO_WRAPPER_H
