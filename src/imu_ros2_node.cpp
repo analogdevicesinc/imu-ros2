@@ -43,6 +43,9 @@
 #include "imu_ros2/imu_control_parameters.h"
 #include "imu_ros2/setting_declarations.h"
 
+#include "imu_ros2/imu_full_measured_data_provider.h"
+#include "imu_ros2/imu_full_measured_data_ros_publisher.h"
+
 using namespace std::chrono_literals;
 
 void declareParameters(std::shared_ptr<rclcpp::Node>& node)
@@ -114,23 +117,32 @@ int main(int argc, char * argv[])
 
     RosTask* diagRosTask = dynamic_cast<RosTask*>(diagPublisher);
 
+    ImuFullMeasuredDataProviderInterface* imuFullMeasuredDataProv = new ImuFullMeasuredDataProvider();
+    ImuFullMeasuredDataRosPublisherInterface * imuFullMeasuredDataPublisher = new ImuFullMeasuredDataRosPublisher(node);
+    imuFullMeasuredDataPublisher->setMessageProvider(imuFullMeasuredDataProv);
+
+    RosTask* imuFullMeasuredDataRosTask = dynamic_cast<RosTask*>(imuFullMeasuredDataPublisher);
+
     WorkerThread ctrlParamwth(ctrlParamTask);
     WorkerThread accwth(accRosTask);
     WorkerThread idenwth(idenRosTask);
     WorkerThread aiwth(aiRosTask);
     WorkerThread diagwth(diagRosTask);
+    WorkerThread imuFullMeasuredDatawth(imuFullMeasuredDataRosTask);
 
     ctrlParamwth.join();
     accwth.join();
     idenwth.join();
     aiwth.join();
     diagwth.join();
+    imuFullMeasuredDatawth.join();
 
     delete accPublisher;
     delete idenPublisher;
     delete aiPublisher;
     delete diagPublisher;
     delete ctrlParam;
+    delete imuFullMeasuredDataPublisher;
 
     rclcpp::shutdown();
 
