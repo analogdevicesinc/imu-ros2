@@ -51,6 +51,24 @@ public:
 
     float getTemperature();
 
+    bool getRegAccelerometerX(double& result);
+    bool getRegAccelerometerY(double& result);
+    bool getRegAccelerometerZ(double& result);
+
+    bool getRegGyroscopeX(double& result);
+    bool getRegGyroscopeY(double& result);
+    bool getRegGyroscopeZ(double& result);
+
+    bool getRegRotX(double& result);
+    bool getRegRotY(double& result);
+    bool getRegRotZ(double& result);
+
+    bool getRegVelocityX(double& result);
+    bool getRegVelocityY(double& result);
+    bool getRegVelocityZ(double& result);
+
+    bool getRegTemperature(double& result);
+
     int lost_samples_count();
 
     std::string firmware_revision();

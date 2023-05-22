@@ -93,7 +93,6 @@ std::string IIOWrapper::s_device_name;
 std::string IIOWrapper::s_device_trigger_name;
 IIODeviceName IIOWrapper::s_device_name_enum = IIODeviceName::ADIS1657X;
 
-
 IIOWrapper::IIOWrapper()
 {
     if(m_local_context == nullptr)
@@ -425,6 +424,123 @@ float IIOWrapper::getVelocityZ()
 float IIOWrapper::getTemperature()
 {
     return m_temperature;
+}
+
+bool IIOWrapper::getRegAccelerometerX(double& result)
+{
+    long long valueRaw;
+    int ret = iio_channel_attr_read_longlong(m_channel_accel_x, "raw", &valueRaw);
+
+    result = valueRaw * m_fvalScaleAccel_x;
+    return (ret == 0);
+}
+
+bool IIOWrapper::getRegAccelerometerY(double& result)
+{
+    long long valueRaw;
+    int ret = iio_channel_attr_read_longlong(m_channel_accel_y, "raw", &valueRaw);
+
+    result = valueRaw * m_fvalScaleAccel_y;
+    return (ret == 0);
+}
+
+bool IIOWrapper::getRegAccelerometerZ(double& result)
+{
+    long long valueRaw;
+    int ret = iio_channel_attr_read_longlong(m_channel_accel_z, "raw", &valueRaw);
+
+    result = valueRaw * m_fvalScaleAccel_z;
+    return (ret == 0);
+}
+
+bool IIOWrapper::getRegGyroscopeX(double& result)
+{
+    long long valueRaw;
+    int ret = iio_channel_attr_read_longlong(m_channel_anglvel_x, "raw", &valueRaw);
+
+    result = valueRaw * m_fvalScaleAngvel_x;
+    return (ret == 0);
+}
+
+bool IIOWrapper::getRegGyroscopeY(double& result)
+{
+    long long valueRaw;
+    int ret = iio_channel_attr_read_longlong(m_channel_anglvel_y, "raw", &valueRaw);
+
+    result = valueRaw * m_fvalScaleAngvel_y;
+    return (ret == 0);
+}
+
+bool IIOWrapper::getRegGyroscopeZ(double& result)
+{
+    long long valueRaw;
+    int ret = iio_channel_attr_read_longlong(m_channel_anglvel_z, "raw", &valueRaw);
+
+    result = valueRaw * m_fvalScaleAngvel_z;
+    return (ret == 0);
+}
+
+bool IIOWrapper::getRegRotX(double& result)
+{
+    long long valueRaw;
+    int ret = iio_channel_attr_read_longlong(m_channel_rot_x, "raw", &valueRaw);
+
+    result = valueRaw * m_fvalScaleRot_x;
+    return (ret == 0);
+}
+
+bool IIOWrapper::getRegRotY(double& result)
+{
+    long long valueRaw;
+    int ret = iio_channel_attr_read_longlong(m_channel_rot_y, "raw", &valueRaw);
+
+    result = valueRaw * m_fvalScaleRot_y;
+    return (ret == 0);
+}
+
+bool IIOWrapper::getRegRotZ(double& result)
+{
+    long long valueRaw;
+    int ret = iio_channel_attr_read_longlong(m_channel_rot_z, "raw", &valueRaw);
+
+    result = valueRaw * m_fvalScaleRot_z;
+    return (ret == 0);
+}
+
+bool IIOWrapper::getRegVelocityX(double& result)
+{
+    long long valueRaw;
+    int ret = iio_channel_attr_read_longlong(m_channel_velocity_x, "raw", &valueRaw);
+
+    result = valueRaw * m_fvalScaleVelocity_x;
+    return (ret == 0);
+}
+
+bool IIOWrapper::getRegVelocityY(double& result)
+{
+    long long valueRaw;
+    int ret = iio_channel_attr_read_longlong(m_channel_velocity_y, "raw", &valueRaw);
+
+    result = valueRaw * m_fvalScaleVelocity_y;
+    return (ret == 0);
+}
+
+bool IIOWrapper::getRegVelocityZ(double& result)
+{
+    long long valueRaw;
+    int ret = iio_channel_attr_read_longlong(m_channel_velocity_z, "raw", &valueRaw);
+
+    result = valueRaw * m_fvalScaleVelocity_z;
+    return (ret == 0);
+}
+
+bool IIOWrapper::getRegTemperature(double& result)
+{
+    long long valueRaw;
+    int ret = iio_channel_attr_read_longlong(m_channel_temp, "raw", &valueRaw);
+
+    result = valueRaw * m_fvalScaleTemp / 1000.0;
+    return (ret == 0);
 }
 
 int IIOWrapper::lost_samples_count()
