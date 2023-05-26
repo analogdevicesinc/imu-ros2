@@ -46,6 +46,9 @@
 #include "imu_ros2/imu_full_measured_data_provider.h"
 #include "imu_ros2/imu_full_measured_data_ros_publisher.h"
 
+#include "imu_ros2/accelgyrotemp_data_provider.h"
+#include "imu_ros2/accelgyrotemp_ros_publisher.h"
+
 using namespace std::chrono_literals;
 
 void declareParameters(std::shared_ptr<rclcpp::Node>& node)
@@ -111,6 +114,12 @@ int main(int argc, char * argv[])
 
     RosTask* aiRosTask = dynamic_cast<RosTask*>(aiPublisher);
 
+    AccelGyroTempDataProviderInterface* accelgyrotempDataProv = new AccelGyroTempDataProvider();
+    AccelGyroTempRosPublisherInterface * accelgyrotempPublisher = new AccelGyroTempRosPublisher(node);
+    accelgyrotempPublisher->setMessageProvider(accelgyrotempDataProv);
+
+    RosTask* accelgyrotempRosTask = dynamic_cast<RosTask*>(accelgyrotempPublisher);
+
     ImuDiagDataProviderInterface* diagDataProv = new ImuDiagDataProvider();
     ImuDiagRosPublisherInterface * diagPublisher = new ImuDiagRosPublisher(node);
     diagPublisher->setMessageProvider(diagDataProv);
@@ -127,6 +136,7 @@ int main(int argc, char * argv[])
     WorkerThread accwth(accRosTask);
     WorkerThread idenwth(idenRosTask);
     WorkerThread aiwth(aiRosTask);
+    WorkerThread accelgyrotempwth(accelgyrotempRosTask);
     WorkerThread diagwth(diagRosTask);
     WorkerThread imuFullMeasuredDatawth(imuFullMeasuredDataRosTask);
 
@@ -134,12 +144,14 @@ int main(int argc, char * argv[])
     accwth.join();
     idenwth.join();
     aiwth.join();
+    accelgyrotempwth.join();
     diagwth.join();
     imuFullMeasuredDatawth.join();
 
     delete accPublisher;
     delete idenPublisher;
     delete aiPublisher;
+    delete accelgyrotempPublisher;
     delete diagPublisher;
     delete ctrlParam;
     delete imuFullMeasuredDataPublisher;

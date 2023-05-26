@@ -47,6 +47,7 @@ rosidl_generate_interfaces(imu_ros2
   "msg/AdiImuData.msg"
   "msg/ImuDiagData.msg"
   "msg/ImuFullMeasuredData.msg"
+  "msg/AccelGyroTempData.msg"
   DEPENDENCIES builtin_interfaces geometry_msgs
 )
 
