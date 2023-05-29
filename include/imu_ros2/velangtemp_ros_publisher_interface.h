@@ -1,7 +1,6 @@
 /***************************************************************************//**
-*   @file   adiimu_data_provider_interface.h
-*   @brief  Interface for providing acceleration, gyroscope,
-*           temperature, delta velocity and delta angle data
+*   @file   velangletemp_ros_publisher_interface.h
+*   @brief  Interface for vel ang temp publisher
 *   @author Vasile Holonec (Vasile.Holonec@analog.com)
 ********************************************************************************
 * Copyright 2023(c) Analog Devices, Inc.
@@ -19,20 +18,26 @@
 * limitations under the License.
 *******************************************************************************/
 
-#ifndef ADIIMU_DATA_PROVIDER_INTERFACE_H
-#define ADIIMU_DATA_PROVIDER_INTERFACE_H
+#ifndef VELANGTEMP_ROS_PUBLISHER_INTERFACE_H
+#define VELANGTEMP_ROS_PUBLISHER_INTERFACE_H
 
-#include <string>
-#include "imu_ros2/msg/adi_imu_data.hpp"
+#include "imu_ros2/ros_task.h"
 
-class AdiImuDataProviderInterface {
+#include <rclcpp/rclcpp.hpp>
+#include <memory>
 
+class VelAngTempDataProviderInterface;
+
+class VelAngTempRosPublisherInterface : public RosTask {
 public:
-    AdiImuDataProviderInterface(){}
-    virtual ~AdiImuDataProviderInterface(){}
+    VelAngTempRosPublisherInterface(){}
+    virtual ~VelAngTempRosPublisherInterface(){}
 
-    virtual void init() = 0;
-    virtual imu_ros2::msg::AdiImuData getData(bool& success) = 0;
+    virtual void init(std::shared_ptr<rclcpp::Node>& node) = 0;
+    virtual void setMessageProvider(VelAngTempDataProviderInterface* dataProvider) = 0;
+
+protected:
+    std::shared_ptr<rclcpp::Node> m_node;
 };
 
-#endif // ADIIMU_DATA_PROVIDER_INTERFACE_H
+#endif // VELANGTEMP_ROS_PUBLISHER_INTERFACE_H

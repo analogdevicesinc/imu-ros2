@@ -1,6 +1,6 @@
 /***************************************************************************//**
-*   @file   adiimu_data_provider.h
-*   @brief  Provide acceleration, gyroscope, temperature, delta velocity
+*   @file   velangtemp_data_provider.h
+*   @brief  Provide temperature, delta velocity
 *           and delta angle data
 *   @author Vasile Holonec (Vasile.Holonec@analog.com)
 ********************************************************************************
@@ -19,24 +19,24 @@
 * limitations under the License.
 *******************************************************************************/
 
-#ifndef ADIIMU_DATA_PROVIDER_H
-#define ADIIMU_DATA_PROVIDER_H
+#ifndef VELANGTEMP_DATA_PROVIDER_STRING_H
+#define VELANGTEMP_DATA_PROVIDER_STRING_H
 
-#include "imu_ros2/adiimu_data_provider_interface.h"
+#include "imu_ros2/velangtemp_data_provider_interface.h"
 #include "imu_ros2/iio_wrapper.h"
 
-class AdiImuDataProvider : public AdiImuDataProviderInterface {
+class VelAngTempDataProvider : public VelAngTempDataProviderInterface {
 
 
 public:
-    AdiImuDataProvider();
-    ~AdiImuDataProvider();
+    VelAngTempDataProvider();
+    ~VelAngTempDataProvider();
 
     void init() override;
-    imu_ros2::msg::AdiImuData getData(bool& success) override;
+    imu_ros2::msg::VelAngTempData getData(bool& success) override;
 
 private:
     IIOWrapper m_iioWrapper;
 };
 
-#endif // ADIIMU_DATA_PROVIDER_STRING_H
+#endif // VELANGTEMP_DATA_PROVIDER_STRING_H

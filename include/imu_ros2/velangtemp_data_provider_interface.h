@@ -1,6 +1,7 @@
 /***************************************************************************//**
-*   @file   adiimu_ros_publisher.h
-*   @brief  Publish adi imu data on topic
+*   @file   velangtemp_data_provider_interface.h
+*   @brief  Interface for providing temperature, delta velocity and
+*           delta angle data
 *   @author Vasile Holonec (Vasile.Holonec@analog.com)
 ********************************************************************************
 * Copyright 2023(c) Analog Devices, Inc.
@@ -18,32 +19,20 @@
 * limitations under the License.
 *******************************************************************************/
 
-#ifndef ADIIMU_ROS_SUBSCRIBER_H
-#define ADIIMU_ROS_SUBSCRIBER_H
+#ifndef VELANGTEMP_DATA_PROVIDER_INTERFACE_H
+#define VELANGTEMP_DATA_PROVIDER_INTERFACE_H
 
-#include "imu_ros2/adiimu_ros_publisher_interface.h"
-#include "imu_ros2/adiimu_data_provider_interface.h"
+#include <string>
+#include "imu_ros2/msg/vel_ang_temp_data.hpp"
 
-#include <rclcpp/rclcpp.hpp>
-#include <std_msgs/msg/string.hpp>
-#include "setting_declarations.h"
-
-class AdiImuRosPublisher : public AdiImuRosPublisherInterface {
+class VelAngTempDataProviderInterface {
 
 public:
-    AdiImuRosPublisher(std::shared_ptr<rclcpp::Node>& node);
-    ~AdiImuRosPublisher();
+    VelAngTempDataProviderInterface(){}
+    virtual ~VelAngTempDataProviderInterface(){}
 
-     void init(std::shared_ptr<rclcpp::Node>& node) override;
-     void setMessageProvider(AdiImuDataProviderInterface* dataProvider) override;
-
-     void run() override;
-
-private:
-
-     AdiImuDataProviderInterface* m_dataProvider;
-     rclcpp::Publisher<imu_ros2::msg::AdiImuData>::SharedPtr m_publisher;
-     imu_ros2::msg::AdiImuData m_message;
+    virtual void init() = 0;
+    virtual imu_ros2::msg::VelAngTempData getData(bool& success) = 0;
 };
 
-#endif // ADIIMU_ROS_PUBLISHER_H
+#endif // VELANGTEMP_DATA_PROVIDER_INTERFACE_H
