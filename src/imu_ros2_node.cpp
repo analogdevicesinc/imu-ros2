@@ -34,8 +34,8 @@
 #include "imu_ros2/imu_identification_data_provider.h"
 #include "imu_ros2/imu_identification_ros_publisher.h"
 
-#include "imu_ros2/adiimu_data_provider.h"
-#include "imu_ros2/adiimu_ros_publisher.h"
+#include "imu_ros2/velangtemp_data_provider.h"
+#include "imu_ros2/velangtemp_ros_publisher.h"
 
 #include "imu_ros2/imu_diag_data_provider.h"
 #include "imu_ros2/imu_diag_ros_publisher.h"
@@ -108,11 +108,11 @@ int main(int argc, char * argv[])
 
     RosTask* idenRosTask = dynamic_cast<RosTask*>(idenPublisher);
 
-    AdiImuDataProviderInterface* aiDataProv = new AdiImuDataProvider();
-    AdiImuRosPublisherInterface * aiPublisher = new AdiImuRosPublisher(node);
-    aiPublisher->setMessageProvider(aiDataProv);
+    VelAngTempDataProviderInterface* vatDataProv = new VelAngTempDataProvider();
+    VelAngTempRosPublisherInterface * vatPublisher = new VelAngTempRosPublisher(node);
+    vatPublisher->setMessageProvider(vatDataProv);
 
-    RosTask* aiRosTask = dynamic_cast<RosTask*>(aiPublisher);
+    RosTask* vatRosTask = dynamic_cast<RosTask*>(vatPublisher);
 
     AccelGyroTempDataProviderInterface* accelgyrotempDataProv = new AccelGyroTempDataProvider();
     AccelGyroTempRosPublisherInterface * accelgyrotempPublisher = new AccelGyroTempRosPublisher(node);
@@ -135,7 +135,7 @@ int main(int argc, char * argv[])
     WorkerThread ctrlParamwth(ctrlParamTask);
     WorkerThread accwth(accRosTask);
     WorkerThread idenwth(idenRosTask);
-    WorkerThread aiwth(aiRosTask);
+    WorkerThread vatwth(vatRosTask);
     WorkerThread accelgyrotempwth(accelgyrotempRosTask);
     WorkerThread diagwth(diagRosTask);
     WorkerThread imuFullMeasuredDatawth(imuFullMeasuredDataRosTask);
@@ -143,14 +143,14 @@ int main(int argc, char * argv[])
     ctrlParamwth.join();
     accwth.join();
     idenwth.join();
-    aiwth.join();
+    vatwth.join();
     accelgyrotempwth.join();
     diagwth.join();
     imuFullMeasuredDatawth.join();
 
     delete accPublisher;
     delete idenPublisher;
-    delete aiPublisher;
+    delete vatPublisher;
     delete accelgyrotempPublisher;
     delete diagPublisher;
     delete ctrlParam;

@@ -1,6 +1,6 @@
 /***************************************************************************//**
-*   @file   adiimu_data_provider.cpp
-*   @brief  Implementation for adi imu data
+*   @file   velangtemp_data_provider.cpp
+*   @brief  Implementation for vel ang temp data
 *   @author Vasile Holonec (Vasile.Holonec@analog.com)
 ********************************************************************************
 * Copyright 2023(c) Analog Devices, Inc.
@@ -18,26 +18,26 @@
 * limitations under the License.
 *******************************************************************************/
 
-#include "imu_ros2/adiimu_data_provider.h"
+#include "imu_ros2/velangtemp_data_provider.h"
 
-AdiImuDataProvider::AdiImuDataProvider()
+VelAngTempDataProvider::VelAngTempDataProvider()
 {
     init();
 }
 
-AdiImuDataProvider::~AdiImuDataProvider()
+VelAngTempDataProvider::~VelAngTempDataProvider()
 {
 
 }
 
-void AdiImuDataProvider::init()
+void VelAngTempDataProvider::init()
 {
     // initialize a library
 }
 
-imu_ros2::msg::AdiImuData AdiImuDataProvider::getData(bool& success)
+imu_ros2::msg::VelAngTempData VelAngTempDataProvider::getData(bool& success)
 {
-    imu_ros2::msg::AdiImuData message;
+    imu_ros2::msg::VelAngTempData message;
 
     m_iioWrapper.update_buffer(success);
 
@@ -46,14 +46,6 @@ imu_ros2::msg::AdiImuData AdiImuDataProvider::getData(bool& success)
 
     if(success)
     {
-        message.accel.x = m_iioWrapper.getAccelerometerX();
-        message.accel.y = m_iioWrapper.getAccelerometerY();
-        message.accel.z = m_iioWrapper.getAccelerometerZ();
-
-        message.gyro.x = m_iioWrapper.getGyroscopeX();
-        message.gyro.y = m_iioWrapper.getGyroscopeY();
-        message.gyro.z = m_iioWrapper.getGyroscopeZ();
-
         message.delta_vel.x = m_iioWrapper.getVelocityX();
         message.delta_vel.y = m_iioWrapper.getVelocityY();
         message.delta_vel.z = m_iioWrapper.getVelocityZ();

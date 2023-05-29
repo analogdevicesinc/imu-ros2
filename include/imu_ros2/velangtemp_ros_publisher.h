@@ -1,6 +1,6 @@
 /***************************************************************************//**
-*   @file   adiimu_ros_publisher_interface.h
-*   @brief  Interface for adi imu publisher
+*   @file   velangtemp_ros_publisher.h
+*   @brief  Publish vel ang temp data on topic
 *   @author Vasile Holonec (Vasile.Holonec@analog.com)
 ********************************************************************************
 * Copyright 2023(c) Analog Devices, Inc.
@@ -18,26 +18,32 @@
 * limitations under the License.
 *******************************************************************************/
 
-#ifndef ADIIMU_ROS_PUBLISHER_INTERFACE_H
-#define ADIIMU_ROS_PUBLISHER_INTERFACE_H
+#ifndef VELANGTEMP_ROS_PUBLISHER_H
+#define VELANGTEMP_ROS_PUBLISHER_H
 
-#include "imu_ros2/ros_task.h"
+#include "imu_ros2/velangtemp_ros_publisher_interface.h"
+#include "imu_ros2/velangtemp_data_provider_interface.h"
 
 #include <rclcpp/rclcpp.hpp>
-#include <memory>
+#include <std_msgs/msg/string.hpp>
+#include "setting_declarations.h"
 
-class AdiImuDataProviderInterface;
+class VelAngTempRosPublisher : public VelAngTempRosPublisherInterface {
 
-class AdiImuRosPublisherInterface : public RosTask {
 public:
-    AdiImuRosPublisherInterface(){}
-    virtual ~AdiImuRosPublisherInterface(){}
+    VelAngTempRosPublisher(std::shared_ptr<rclcpp::Node>& node);
+    ~VelAngTempRosPublisher();
 
-    virtual void init(std::shared_ptr<rclcpp::Node>& node) = 0;
-    virtual void setMessageProvider(AdiImuDataProviderInterface* dataProvider) = 0;
+     void init(std::shared_ptr<rclcpp::Node>& node) override;
+     void setMessageProvider(VelAngTempDataProviderInterface* dataProvider) override;
 
-protected:
-    std::shared_ptr<rclcpp::Node> m_node;
+     void run() override;
+
+private:
+
+     VelAngTempDataProviderInterface* m_dataProvider;
+     rclcpp::Publisher<imu_ros2::msg::VelAngTempData>::SharedPtr m_publisher;
+     imu_ros2::msg::VelAngTempData m_message;
 };
 
-#endif // ADIIMU_ROS_PUBLISHER_INTERFACE_H
+#endif // VELANGTEMP_ROS_PUBLISHER_H
