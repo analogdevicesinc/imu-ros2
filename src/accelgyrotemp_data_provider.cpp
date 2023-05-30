@@ -35,6 +35,11 @@ void AccelGyroTempDataProvider::init()
     // initialize a library
 }
 
+bool AccelGyroTempDataProvider::enableBufferedDataOutput()
+{
+    return (m_iioWrapper.update_burst_data_selection(0) == 0);
+}
+
 bool AccelGyroTempDataProvider::getData(imu_ros2::msg::AccelGyroTempData& message)
 {
     bool success;

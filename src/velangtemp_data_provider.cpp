@@ -35,6 +35,11 @@ void VelAngTempDataProvider::init()
     // initialize a library
 }
 
+bool VelAngTempDataProvider::enableBufferedDataOutput()
+{
+    return (m_iioWrapper.update_burst_data_selection(1) == 0);
+}
+
 imu_ros2::msg::VelAngTempData VelAngTempDataProvider::getData(bool& success)
 {
     imu_ros2::msg::VelAngTempData message;
