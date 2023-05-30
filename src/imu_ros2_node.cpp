@@ -54,6 +54,7 @@ using namespace std::chrono_literals;
 void declareParameters(std::shared_ptr<rclcpp::Node>& node)
 {  
     node->declare_parameter("operation_mode", USER_PARAM_SETTING_MODE);
+    node->declare_parameter("buffered_data_selection", ACCEL_GYRO_BUFFERED_DATA);
 }
 
 void parseArgs(int argc, char * argv[], std::string& device_name, std::string& device_trigger_name)

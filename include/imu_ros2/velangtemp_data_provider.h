@@ -34,6 +34,7 @@ public:
 
     void init() override;
     imu_ros2::msg::VelAngTempData getData(bool& success) override;
+    bool enableBufferedDataOutput() override;
 
 private:
     IIOWrapper m_iioWrapper;

@@ -50,6 +50,8 @@ void AccelGyroTempRosPublisher::run()
     RCLCPP_INFO(rclcpp::get_logger("rclcpp_accelgyrotemp"), "startThread: '%d'", this_id);
 
     bool success = false;
+    bool bufferedDataEnabled  = false;
+    int32_t bufferedDataSelection = 0;
 
     rclcpp::WallRate loopRate(0.1);
 
@@ -60,13 +62,41 @@ void AccelGyroTempRosPublisher::run()
         switch(operation_mode) {
         case DEVICE_CONTINUOUS_SAMPLING_MODE:
             success = false;
-            success = m_dataProvider->getData(m_message);
 
-            RCLCPP_INFO(rclcpp::get_logger("rclcpp_accelgyrotemp"), "Publishing acceleration data: '%f' '%f' '%f'",
-                        m_message.accel.x, m_message.accel.y, m_message.accel.z);
+            bufferedDataSelection = m_node->get_parameter("buffered_data_selection").get_parameter_value().get<int32_t>();
 
-            if(success)
-                m_publisher->publish(m_message);
+            switch(bufferedDataSelection) {
+            case ACCEL_GYRO_BUFFERED_DATA:
+                if(!bufferedDataEnabled)
+                {
+                    if(m_dataProvider->enableBufferedDataOutput())
+                        bufferedDataEnabled  = true;
+                    else
+                        loopRate.sleep();
+                }
+                else
+                {
+                    if(m_dataProvider->getData(m_message))
+                    {
+
+                        RCLCPP_INFO(rclcpp::get_logger("rclcpp_accelgyrotemp"), "Publishing acceleration data: '%f' '%f' '%f'",
+                                    m_message.accel.x, m_message.accel.y, m_message.accel.z);
+
+                        m_publisher->publish(m_message);
+                    }
+                }
+                break;
+
+            case DELTAVEL_DELTAANG_BUFFERED_DATA:
+                bufferedDataEnabled = false;
+                loopRate.sleep();
+                break;
+            default:
+            {
+                loopRate.sleep();
+                break;
+            }
+            }
             break;
         default:
         {

@@ -50,6 +50,8 @@ void VelAngTempRosPublisher::run()
     RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "startThread: '%d'", this_id);
 
     bool success = false;
+    bool bufferedDataEnabled  = false;
+    int32_t bufferedDataSelection = 0;
 
     rclcpp::WallRate loopRate(0.1);
 
@@ -60,18 +62,44 @@ void VelAngTempRosPublisher::run()
         switch(operation_mode) {
         case DEVICE_CONTINUOUS_SAMPLING_MODE:
             success = false;
-            m_message = m_dataProvider->getData(success);
 
-            if(success)
+            bufferedDataSelection = m_node->get_parameter("buffered_data_selection").get_parameter_value().get<int32_t>();
+
+            switch(bufferedDataSelection) {
+            case DELTAVEL_DELTAANG_BUFFERED_DATA:
+                if(!bufferedDataEnabled)
+                {
+                    if(m_dataProvider->enableBufferedDataOutput())
+                        bufferedDataEnabled  = true;
+                    else
+                        loopRate.sleep();
+                }
+                else
+                {
+                    m_message = m_dataProvider->getData(success);
+                    if(success)
+                    {
+                        RCLCPP_INFO(rclcpp::get_logger("rclcpp_velangtemp"), "Publishing delta velocity data: '%f' '%f' '%f'",
+                                    m_message.delta_vel.x, m_message.delta_vel.y, m_message.delta_vel.z);
+                        RCLCPP_INFO(rclcpp::get_logger("rclcpp_velangtemp"), "Publishing delta angle data: '%f' '%f' '%f'",
+                                    m_message.delta_angle.x, m_message.delta_angle.y, m_message.delta_angle.z);
+                        RCLCPP_INFO(rclcpp::get_logger("rclcpp_velangtemp"), "Publishing temperature data: '%f' ",
+                                    m_message.temp);
+
+                        m_publisher->publish(m_message);
+                    }
+                }
+                break;
+
+            case ACCEL_GYRO_BUFFERED_DATA:
+                bufferedDataEnabled = false;
+                loopRate.sleep();
+                break;
+            default:
             {
-                RCLCPP_INFO(rclcpp::get_logger("rclcpp_velangtemp"), "Publishing delta velocity data: '%f' '%f' '%f'",
-                            m_message.delta_vel.x, m_message.delta_vel.y, m_message.delta_vel.z);
-                RCLCPP_INFO(rclcpp::get_logger("rclcpp_velangtemp"), "Publishing delta angle data: '%f' '%f' '%f'",
-                            m_message.delta_angle.x, m_message.delta_angle.y, m_message.delta_angle.z);
-                RCLCPP_INFO(rclcpp::get_logger("rclcpp_velangtemp"), "Publishing temperature data: '%f' ",
-                            m_message.temp);
-
-                m_publisher->publish(m_message);
+                loopRate.sleep();
+                break;
+            }
             }
             break;
         default:

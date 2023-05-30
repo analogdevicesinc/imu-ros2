@@ -33,6 +33,7 @@ public:
 
     void init() override;
     bool getData(imu_ros2::msg::AccelGyroTempData& message) override;
+    bool enableBufferedDataOutput() override;
 
 private:
     IIOWrapper m_iioWrapper;

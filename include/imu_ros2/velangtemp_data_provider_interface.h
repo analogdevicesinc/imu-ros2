@@ -33,6 +33,7 @@ public:
 
     virtual void init() = 0;
     virtual imu_ros2::msg::VelAngTempData getData(bool& success) = 0;
+    virtual bool enableBufferedDataOutput() = 0;
 };
 
 #endif // VELANGTEMP_DATA_PROVIDER_INTERFACE_H
