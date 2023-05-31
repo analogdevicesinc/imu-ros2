@@ -100,6 +100,40 @@ IIOWrapper::IIOWrapper()
         m_local_context = iio_create_local_context();
         if(!m_local_context)
             throw std::runtime_error("Exception: local context is null");
+
+        int count = iio_context_get_devices_count(m_local_context);
+        if(count > 0)
+        {
+            struct iio_device *dev = iio_context_get_device(m_local_context, 0);
+            const char *name = iio_device_get_name(dev);
+            RCLCPP_INFO(rclcpp::get_logger("rclcpp_device_name"), "device name: %s", name);
+
+            IIOWrapper::s_device_name = std::string(name);
+
+            std::list<std::string> adis16505_x {"adis16505", "adis16505-1", "adis16505-2", "adis16505-3"};
+
+            bool found = (std::find(adis16505_x.begin(), adis16505_x.end(),
+                                    IIOWrapper::s_device_name) != adis16505_x.end());
+            if(found)
+            {
+                IIOWrapper::s_device_name_enum = IIODeviceName::ADIS16505;
+            }
+
+            std::list<std::string> adis1657x {"adis16577", "adis16577-1", "adis16577-2", "adis16577-3"};
+
+            bool found7x = (std::find(adis1657x.begin(), adis1657x.end(),
+                                      IIOWrapper::s_device_name) != adis1657x.end());
+            if(found7x)
+            {
+                IIOWrapper::s_device_name_enum = IIODeviceName::ADIS1657X;
+            }
+
+            if(!found && !found7x)
+                RCLCPP_INFO(rclcpp::get_logger("rclcpp_device"), "device not found");
+        }
+        else
+            throw std::runtime_error("Exception: no device found");
+
     }
 
     if(m_dev == nullptr)
@@ -111,7 +145,8 @@ IIOWrapper::IIOWrapper()
 
     if(m_devtrigger == nullptr)
     {
-        m_devtrigger = iio_context_find_device(m_local_context, IIOWrapper::s_device_trigger_name.c_str());
+        std::string triggnerName = IIOWrapper::s_device_name + "-dev0";
+        m_devtrigger = iio_context_find_device(m_local_context, triggnerName.c_str());
         if(!m_devtrigger)
             throw std::runtime_error("Exception: device trigger data is null");
     }

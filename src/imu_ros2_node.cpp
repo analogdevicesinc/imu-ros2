@@ -57,23 +57,6 @@ void declareParameters(std::shared_ptr<rclcpp::Node>& node)
     node->declare_parameter("buffered_data_selection", ACCEL_GYRO_BUFFERED_DATA);
 }
 
-void parseArgs(int argc, char * argv[], std::string& device_name, std::string& device_trigger_name)
-{
-    if(argc < 3)
-    {
-        device_name = "adis16505";
-        device_trigger_name = "adis16505-dev0";
-        IIOWrapper::s_device_name_enum = IIODeviceName::ADIS16505;
-    }
-    else
-    if(argc >= 3)
-    {
-        device_name = std::string(argv[1]);
-        device_trigger_name = std::string(argv[2]);
-        IIOWrapper::s_device_name_enum = IIODeviceName::ADIS1657X;
-    }
-}
-
 int main(int argc, char * argv[])
 {
     rclcpp::init(argc, argv);
@@ -81,14 +64,6 @@ int main(int argc, char * argv[])
     std::shared_ptr<rclcpp::Node> node = rclcpp::Node::make_shared("imu_ros2_node");
 
     declareParameters(node);
-
-    // TODO: make find device name automatically
-    std::string device_name, device_trigger_name;
-    parseArgs(argc, argv, device_name, device_trigger_name);
-    IIOWrapper::s_device_name = device_name;
-    IIOWrapper::s_device_trigger_name = device_trigger_name;
-
-    RCLCPP_INFO(rclcpp::get_logger("rclcpp_main"), "device name %s and device trigger name %s", device_name.c_str(), device_trigger_name.c_str());
 
     std::thread::id this_id = std::this_thread::get_id();
     std::cout << "mainthread " << this_id << " running...\n";
