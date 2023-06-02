@@ -194,6 +194,15 @@ void ImuControlParameters::init(std::shared_ptr<rclcpp::Node> &node)
     m_funcMap2["sensor_self_test"] = &IIOWrapper::sensor_self_test;
     m_funcMap2["factory_calibration_restore"] = &IIOWrapper::factory_calibration_restore;
 
+    switch (IIOWrapper::s_device_name_enum) {
+    case IIODeviceName::ADIS1657X:
+        m_funcMap2["fifo_flush"] = &IIOWrapper::fifo_flush;
+        m_funcMap2["bias_correction_update"] = &IIOWrapper::bias_correction_update;
+        break;
+    default:
+        break;
+    }
+
 }
 
 bool ImuControlParameters::setParameters(std::map<std::string, int32_t>& valueMap, std::map<std::string, double>& valueMapD)

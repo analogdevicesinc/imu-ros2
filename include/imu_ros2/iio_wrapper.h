@@ -139,6 +139,9 @@ public:
     int sensor_self_test();
     int factory_calibration_restore();
 
+    int fifo_flush();
+    int bias_correction_update();
+
     void load();
     void unload();
     bool isBufferLoaded();
