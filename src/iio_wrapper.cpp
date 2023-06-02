@@ -1009,6 +1009,16 @@ int IIOWrapper::factory_calibration_restore()
     return iio_device_debug_attr_write_longlong(m_dev,"factory_calibration_restore", 1);
 }
 
+int IIOWrapper::fifo_flush()
+{
+    return iio_device_debug_attr_write_longlong(m_dev,"fifo_flush", 1);
+}
+
+int IIOWrapper::bias_correction_update()
+{
+    return iio_device_debug_attr_write_longlong(m_dev,"bias_correction_update", 1);
+}
+
 //-------------------------------------------
 
 int32_t IIOWrapper::z_axis_accelerometer_bias_correction_enable()
