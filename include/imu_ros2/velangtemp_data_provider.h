@@ -33,7 +33,7 @@ public:
     ~VelAngTempDataProvider();
 
     void init() override;
-    imu_ros2::msg::VelAngTempData getData(bool& success) override;
+    bool getData(imu_ros2::msg::VelAngTempData& message) override;
     bool enableBufferedDataOutput() override;
 
 private:

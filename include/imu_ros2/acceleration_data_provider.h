@@ -32,7 +32,7 @@ public:
     ~AccelerationDataProvider();
 
     void init() override;
-    sensor_msgs::msg::Imu getData(bool& success) override;
+    bool getData(sensor_msgs::msg::Imu& message) override;
 
     void load() override;
     void unload() override;

@@ -62,12 +62,13 @@ void ImuDiagRosPublisher::run()
 
         switch(operation_mode) {
         case DEVICE_CONTINUOUS_SAMPLING_MODE:
-            m_message = m_dataProvider->getData();
+            if(m_dataProvider->getData(m_message))
+            {
+                RCLCPP_INFO(rclcpp::get_logger("rclcpp_imu_diag_data"), "Publishing imu diag data: lost_samples_count = '%d' diag_checksum_error_flag= '%d' flash_counter = '%d' ",
+                            m_message.lost_samples_count, m_message.diag_checksum_error_flag, m_message.flash_counter);
 
-            RCLCPP_INFO(rclcpp::get_logger("rclcpp_imu_diag_data"), "Publishing imu diag data: lost_samples_count = '%d' diag_checksum_error_flag= '%d' flash_counter = '%d' ",
-                        m_message.lost_samples_count, m_message.diag_checksum_error_flag, m_message.flash_counter);
-
-            m_publisher->publish(m_message);
+                m_publisher->publish(m_message);
+            }
             break;
         default:
         {

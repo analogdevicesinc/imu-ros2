@@ -49,7 +49,6 @@ void VelAngTempRosPublisher::run()
     std::cout << "thread " << this_id << " started...\n";
     RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "startThread: '%d'", this_id);
 
-    bool success = false;
     bool bufferedDataEnabled  = false;
     int32_t bufferedDataSelection = 0;
 
@@ -61,7 +60,6 @@ void VelAngTempRosPublisher::run()
 
         switch(operation_mode) {
         case DEVICE_CONTINUOUS_SAMPLING_MODE:
-            success = false;
 
             bufferedDataSelection = m_node->get_parameter("buffered_data_selection").get_parameter_value().get<int32_t>();
 
@@ -76,8 +74,7 @@ void VelAngTempRosPublisher::run()
                 }
                 else
                 {
-                    m_message = m_dataProvider->getData(success);
-                    if(success)
+                    if(m_dataProvider->getData(m_message))
                     {
                         RCLCPP_INFO(rclcpp::get_logger("rclcpp_velangtemp"), "Publishing delta velocity data: '%f' '%f' '%f'",
                                     m_message.delta_vel.x, m_message.delta_vel.y, m_message.delta_vel.z);

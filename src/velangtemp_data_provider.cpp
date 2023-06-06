@@ -40,14 +40,13 @@ bool VelAngTempDataProvider::enableBufferedDataOutput()
     return (m_iioWrapper.update_burst_data_selection(1) == 0);
 }
 
-imu_ros2::msg::VelAngTempData VelAngTempDataProvider::getData(bool& success)
+bool VelAngTempDataProvider::getData(imu_ros2::msg::VelAngTempData& message)
 {
-    imu_ros2::msg::VelAngTempData message;
-
+    bool success;
     m_iioWrapper.update_buffer(success);
 
     if(m_iioWrapper.isBufferLoaded() == false)
-        return message;
+        return false;
 
     if(success)
     {
@@ -64,5 +63,5 @@ imu_ros2::msg::VelAngTempData VelAngTempDataProvider::getData(bool& success)
         message.count = m_iioWrapper.count();
     }
 
-    return message;
+    return success;
 }
