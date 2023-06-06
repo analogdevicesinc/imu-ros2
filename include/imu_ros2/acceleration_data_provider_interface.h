@@ -30,7 +30,7 @@ public:
     virtual ~AccelerationDataProviderInterface(){}
 
     virtual void init() = 0;
-    virtual sensor_msgs::msg::Imu getData(bool& success) = 0;
+    virtual bool getData(sensor_msgs::msg::Imu& message) = 0;
 
     virtual void load() = 0;
     virtual void unload() = 0;

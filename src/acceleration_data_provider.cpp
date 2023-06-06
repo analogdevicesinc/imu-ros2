@@ -46,14 +46,13 @@ void AccelerationDataProvider::unload()
     m_iioWrapper.unload();
 }
 
-sensor_msgs::msg::Imu AccelerationDataProvider::getData(bool& success)
+bool AccelerationDataProvider::getData(sensor_msgs::msg::Imu &message)
 {
-    sensor_msgs::msg::Imu message;
-
+    bool success;
     m_iioWrapper.update_buffer(success);
 
     if(m_iioWrapper.isBufferLoaded() == false)
-        return message;
+        return false;
 
     if(success)
     {
@@ -66,5 +65,5 @@ sensor_msgs::msg::Imu AccelerationDataProvider::getData(bool& success)
         message.angular_velocity.z = m_iioWrapper.getGyroscopeZ();
     }
 
-    return message;
+    return success;
 }

@@ -49,34 +49,23 @@ void AccelerationRosPublisher::run()
     std::cout << "thread " << this_id << " started...\n";
     RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "startThread: '%d'", this_id);
 
-    typedef std::chrono::system_clock::time_point timenow;
-    timenow started;
-    timenow done;
     rclcpp::WallRate loopRate(0.1);
-    bool success = false;
 
     while (rclcpp::ok()) {
-
-        //std::thread::id this_id = std::this_thread::get_id();
-        //std::cout << "thread " << this_id << " running...\n";
-        //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "running: '%d'", this_id);
 
         int32_t operation_mode = m_node->get_parameter("operation_mode").get_parameter_value().get<int32_t>();
 
         switch(operation_mode) {
         case DEVICE_CONTINUOUS_SAMPLING_MODE:
             m_dataProvider->load();
-            started = std::chrono::high_resolution_clock::now();
-            success = false;
-            m_message = m_dataProvider->getData(success);
-            done = std::chrono::high_resolution_clock::now();
 
-            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Publishing acceleration x y z in time %d ms: '%f' '%f' '%f'",
-                        m_message.linear_acceleration.x, m_message.linear_acceleration.y, m_message.linear_acceleration.z ,
-                        std::chrono::duration_cast<std::chrono::milliseconds>(done-started).count());
+            if(m_dataProvider->getData(m_message))
+            {
+                RCLCPP_INFO(rclcpp::get_logger("rclcpp_imu"), "Publishing acceleration x y z: '%f' '%f' '%f'",
+                            m_message.linear_acceleration.x, m_message.linear_acceleration.y, m_message.linear_acceleration.z);
 
-            if(success)
                 m_publisher->publish(m_message);
+            }
             break;
         case USER_PARAM_SETTING_MODE:
             m_dataProvider->unload();

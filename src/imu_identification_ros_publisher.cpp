@@ -57,13 +57,14 @@ void ImuIdentificationRosPublisher::run()
 
         switch(operation_mode) {
         case DEVICE_CONTINUOUS_SAMPLING_MODE:
-            m_message = m_dataProvider->getData();
+            if(m_dataProvider->getData(m_message))
+            {
+                RCLCPP_INFO(rclcpp::get_logger("rclcpp_imu_identification_data"),
+                            "Publishing IMU identification data: \nserial number: '%d'\nproduct id: '%d'\nfirmware data: '%s'\nfirmware revision: '%s'\ngyroscope measurement range: '%s'",
+                            m_message.serial_number, m_message.product_id ,m_message.firmware_date.c_str(), m_message.firmware_revision.c_str(), m_message.gyroscope_measurement_range.c_str() );
 
-            RCLCPP_INFO(rclcpp::get_logger("rclcpp_imu_identification_data"),
-                        "Publishing IMU identification data: \nserial number: '%d'\nproduct id: '%d'\nfirmware data: '%s'\nfirmware revision: '%s'\ngyroscope measurement range: '%s'",
-                        m_message.serial_number, m_message.product_id ,m_message.firmware_date.c_str(), m_message.firmware_revision.c_str(), m_message.gyroscope_measurement_range.c_str() );
-
-            m_publisher->publish(m_message);
+                m_publisher->publish(m_message);
+            }
             break;
         default:
         {

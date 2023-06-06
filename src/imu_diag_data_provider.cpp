@@ -35,12 +35,10 @@ void ImuDiagDataProvider::init()
     // initialize a library
 }
 
-imu_ros2::msg::ImuDiagData ImuDiagDataProvider::getData()
+bool ImuDiagDataProvider::getData(imu_ros2::msg::ImuDiagData& message)
 {
-    imu_ros2::msg::ImuDiagData message;
-
     if(m_iioWrapper.isBufferLoaded() == false)
-        return message;
+        return false;
 
     message.lost_samples_count = m_iioWrapper.lost_samples_count();
     message.diag_checksum_error_flag = m_iioWrapper.diag_checksum_error_flag();
@@ -57,5 +55,5 @@ imu_ros2::msg::ImuDiagData ImuDiagDataProvider::getData()
     message.diag_data_path_overrun = m_iioWrapper.diag_data_path_overrun();
     message.flash_counter = m_iioWrapper.flash_counter();
 
-    return message;
+    return true;
 }

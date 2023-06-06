@@ -32,7 +32,7 @@ public:
     ~ImuIdentificationDataProvider();
 
     void init() override;
-    imu_ros2::msg::ImuIdentificationData getData() override;
+    bool getData(imu_ros2::msg::ImuIdentificationData& message) override;
 private:
     IIOWrapper m_iioWrapper;
 };

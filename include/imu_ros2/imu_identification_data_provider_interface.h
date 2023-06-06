@@ -32,7 +32,7 @@ public:
     virtual ~ImuIdentificationDataProviderInterface(){}
 
     virtual void init() = 0;
-    virtual imu_ros2::msg::ImuIdentificationData getData() = 0;
+    virtual bool getData(imu_ros2::msg::ImuIdentificationData& message) = 0;
 };
 
 #endif // IMU_IDENTIFICATION_DATA_PROVIDER_INTERFACE_H

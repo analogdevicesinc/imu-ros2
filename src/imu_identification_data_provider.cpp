@@ -35,12 +35,10 @@ void ImuIdentificationDataProvider::init()
     // initialize a library
 }
 
-imu_ros2::msg::ImuIdentificationData ImuIdentificationDataProvider::getData()
+bool ImuIdentificationDataProvider::getData(imu_ros2::msg::ImuIdentificationData& message)
 {
-    imu_ros2::msg::ImuIdentificationData message;
-
     if(m_iioWrapper.isBufferLoaded() == false)
-        return message;
+        return false;
 
     message.firmware_revision = m_iioWrapper.firmware_revision();
     message.firmware_date = m_iioWrapper.firmware_date();
@@ -48,5 +46,5 @@ imu_ros2::msg::ImuIdentificationData ImuIdentificationDataProvider::getData()
     message.serial_number = m_iioWrapper.serial_number();
     message.gyroscope_measurement_range = m_iioWrapper.gyroscope_measurement_range();
 
-    return message;
+    return true;
 }
