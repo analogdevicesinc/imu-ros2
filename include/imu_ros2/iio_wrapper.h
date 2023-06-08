@@ -33,23 +33,23 @@ public:
 
     void update_buffer(bool& success);
 
-    float getAccelerometerX();
-    float getAccelerometerY();
-    float getAccelerometerZ();
+    double getAccelerometerX();
+    double getAccelerometerY();
+    double getAccelerometerZ();
 
-    float getGyroscopeX();
-    float getGyroscopeY();
-    float getGyroscopeZ();
+    double getGyroscopeX();
+    double getGyroscopeY();
+    double getGyroscopeZ();
 
-    float getRotX();
-    float getRotY();
-    float getRotZ();
+    double getRotX();
+    double getRotY();
+    double getRotZ();
 
-    float getVelocityX();
-    float getVelocityY();
-    float getVelocityZ();
+    double getVelocityX();
+    double getVelocityY();
+    double getVelocityZ();
 
-    float getTemperature();
+    double getTemperature();
 
     bool getRegAccelerometerX(double& result);
     bool getRegAccelerometerY(double& result);
@@ -204,38 +204,38 @@ private:
     static struct iio_channel *m_channel_temp;
     static struct iio_channel *m_channel_count;
 
-    static float m_fvalScaleAccel_x;
-    static float m_fvalScaleAccel_y;
-    static float m_fvalScaleAccel_z;
+    static double m_scale_accel_x;
+    static double m_scale_accel_y;
+    static double m_scale_accel_z;
 
-    static float m_fvalScaleAngvel_x;
-    static float m_fvalScaleAngvel_y;
-    static float m_fvalScaleAngvel_z;
+    static double m_scale_angvel_x;
+    static double m_scale_angvel_y;
+    static double m_scale_angvel_z;
 
-    static float m_fvalScaleRot_x;
-    static float m_fvalScaleRot_y;
-    static float m_fvalScaleRot_z;
+    static double m_scale_rot_x;
+    static double m_scale_rot_y;
+    static double m_scale_rot_z;
 
-    static float m_fvalScaleVelocity_x;
-    static float m_fvalScaleVelocity_y;
-    static float m_fvalScaleVelocity_z;
+    static double m_scale_velocity_x;
+    static double m_scale_velocity_y;
+    static double m_scale_velocity_z;
 
-    static float m_fvalScaleTemp;
+    static double m_scale_temp;
 
     // device sensors data member
-    static float m_accelerometer_x;
-    static float m_accelerometer_y;
-    static float m_accelerometer_z;
-    static float m_gyroscope_x;
-    static float m_gyroscope_y;
-    static float m_gyroscope_z;
-    static float m_rot_x;
-    static float m_rot_y;
-    static float m_rot_z;
-    static float m_velocity_x;
-    static float m_velocity_y;
-    static float m_velocity_z;
-    static float m_temperature;
+    static double m_accelerometer_x;
+    static double m_accelerometer_y;
+    static double m_accelerometer_z;
+    static double m_gyroscope_x;
+    static double m_gyroscope_y;
+    static double m_gyroscope_z;
+    static double m_rot_x;
+    static double m_rot_y;
+    static double m_rot_z;
+    static double m_velocity_x;
+    static double m_velocity_y;
+    static double m_velocity_z;
+    static double m_temperature;
     static int32_t m_count;
 
 public:
