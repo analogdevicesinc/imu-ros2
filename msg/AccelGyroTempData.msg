@@ -5,6 +5,6 @@ geometry_msgs/Vector3 accel
 geometry_msgs/Vector3 gyro
 
 # Internal Temperature [°C]
-float32 temp
+float64 temp
 
 int32 count

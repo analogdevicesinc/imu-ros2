@@ -1,5 +1,5 @@
 # Internal Temperature [°C]
-float32 temp
+float64 temp
 
 # delta velocity output [m/s]
 geometry_msgs/Vector3 delta_vel

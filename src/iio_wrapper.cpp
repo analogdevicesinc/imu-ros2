@@ -53,38 +53,38 @@ struct iio_channel *IIOWrapper::m_channel_velocity_z = nullptr;
 struct iio_channel *IIOWrapper::m_channel_temp = nullptr;
 struct iio_channel *IIOWrapper::m_channel_count = nullptr;
 
-float IIOWrapper::m_fvalScaleAccel_x = 0;
-float IIOWrapper::m_fvalScaleAccel_y = 0;
-float IIOWrapper::m_fvalScaleAccel_z = 0;
+double IIOWrapper::m_scale_accel_x = 0;
+double IIOWrapper::m_scale_accel_y = 0;
+double IIOWrapper::m_scale_accel_z = 0;
 
-float IIOWrapper::m_fvalScaleAngvel_x = 0;
-float IIOWrapper::m_fvalScaleAngvel_y = 0;
-float IIOWrapper::m_fvalScaleAngvel_z = 0;
+double IIOWrapper::m_scale_angvel_x = 0;
+double IIOWrapper::m_scale_angvel_y = 0;
+double IIOWrapper::m_scale_angvel_z = 0;
 
-float IIOWrapper::m_fvalScaleRot_x = 0;
-float IIOWrapper::m_fvalScaleRot_y = 0;
-float IIOWrapper::m_fvalScaleRot_z = 0;
+double IIOWrapper::m_scale_rot_x = 0;
+double IIOWrapper::m_scale_rot_y = 0;
+double IIOWrapper::m_scale_rot_z = 0;
 
-float IIOWrapper::m_fvalScaleVelocity_x = 0;
-float IIOWrapper::m_fvalScaleVelocity_y = 0;
-float IIOWrapper::m_fvalScaleVelocity_z = 0;
+double IIOWrapper::m_scale_velocity_x = 0;
+double IIOWrapper::m_scale_velocity_y = 0;
+double IIOWrapper::m_scale_velocity_z = 0;
 
-float IIOWrapper::m_fvalScaleTemp = 0;
+double IIOWrapper::m_scale_temp = 0;
 
 // device sensors data member
-float IIOWrapper::m_accelerometer_x = 0;
-float IIOWrapper::m_accelerometer_y = 0;
-float IIOWrapper::m_accelerometer_z = 0;
-float IIOWrapper::m_gyroscope_x = 0;
-float IIOWrapper::m_gyroscope_y = 0;
-float IIOWrapper::m_gyroscope_z = 0;
-float IIOWrapper::m_rot_x = 0;
-float IIOWrapper::m_rot_y = 0;
-float IIOWrapper::m_rot_z = 0;
-float IIOWrapper::m_velocity_x = 0;
-float IIOWrapper::m_velocity_y = 0;
-float IIOWrapper::m_velocity_z = 0;
-float IIOWrapper::m_temperature = 0;
+double IIOWrapper::m_accelerometer_x = 0;
+double IIOWrapper::m_accelerometer_y = 0;
+double IIOWrapper::m_accelerometer_z = 0;
+double IIOWrapper::m_gyroscope_x = 0;
+double IIOWrapper::m_gyroscope_y = 0;
+double IIOWrapper::m_gyroscope_z = 0;
+double IIOWrapper::m_rot_x = 0;
+double IIOWrapper::m_rot_y = 0;
+double IIOWrapper::m_rot_z = 0;
+double IIOWrapper::m_velocity_x = 0;
+double IIOWrapper::m_velocity_y = 0;
+double IIOWrapper::m_velocity_z = 0;
+double IIOWrapper::m_temperature = 0;
 int32_t IIOWrapper::m_count = 0;
 
 std::mutex IIOWrapper::m_mutex;
@@ -202,57 +202,19 @@ IIOWrapper::IIOWrapper()
     iio_channel_enable(m_channel_temp);
     iio_channel_enable(m_channel_count);
 
-    double valueScaleAccel_x;
-    iio_channel_attr_read_double(m_channel_accel_x, "scale", &valueScaleAccel_x);
-    m_fvalScaleAccel_x = valueScaleAccel_x;
-
-    double valueScaleAccel_y;
-    iio_channel_attr_read_double(m_channel_accel_y, "scale", &valueScaleAccel_y);
-    m_fvalScaleAccel_y = valueScaleAccel_y;
-
-    double valueScaleAccel_z;
-    iio_channel_attr_read_double(m_channel_accel_z, "scale", &valueScaleAccel_z);
-    m_fvalScaleAccel_z = valueScaleAccel_z;
-
-    double valueScaleAngvel_x;
-    iio_channel_attr_read_double(m_channel_anglvel_x, "scale", &valueScaleAngvel_x);
-    m_fvalScaleAngvel_x = valueScaleAngvel_x;
-
-    double valueScaleAngvel_y;
-    iio_channel_attr_read_double(m_channel_anglvel_y, "scale", &valueScaleAngvel_y);
-    m_fvalScaleAngvel_y = valueScaleAngvel_y;
-
-    double valueScaleAngvel_z;
-    iio_channel_attr_read_double(m_channel_anglvel_z, "scale", &valueScaleAngvel_z);
-    m_fvalScaleAngvel_z = valueScaleAngvel_z;
-
-    double valueScaleRot_x;
-    iio_channel_attr_read_double(m_channel_rot_x, "scale", &valueScaleRot_x);
-    m_fvalScaleRot_x = valueScaleRot_x;
-
-    double valueScaleRot_y;
-    iio_channel_attr_read_double(m_channel_rot_y, "scale", &valueScaleRot_y);
-    m_fvalScaleRot_y = valueScaleRot_y;
-
-    double valueScaleRot_z;
-    iio_channel_attr_read_double(m_channel_rot_z, "scale", &valueScaleRot_z);
-    m_fvalScaleRot_z = valueScaleRot_z;
-
-    double valueScaleVelocity_x;
-    iio_channel_attr_read_double(m_channel_velocity_x, "scale", &valueScaleVelocity_x);
-    m_fvalScaleVelocity_x = valueScaleVelocity_x;
-
-    double valueScaleVelocity_y;
-    iio_channel_attr_read_double(m_channel_velocity_y, "scale", &valueScaleVelocity_y);
-    m_fvalScaleVelocity_y = valueScaleVelocity_y;
-
-    double valueScaleVelocity_z;
-    iio_channel_attr_read_double(m_channel_velocity_z, "scale", &valueScaleVelocity_z);
-    m_fvalScaleVelocity_z = valueScaleVelocity_z;
-
-    double valueScaleTemp;
-    iio_channel_attr_read_double(m_channel_temp, "scale", &valueScaleTemp);
-    m_fvalScaleTemp = valueScaleTemp;
+    iio_channel_attr_read_double(m_channel_accel_x, "scale", &m_scale_accel_x);
+    iio_channel_attr_read_double(m_channel_accel_y, "scale", &m_scale_accel_y);
+    iio_channel_attr_read_double(m_channel_accel_z, "scale", &m_scale_accel_z);
+    iio_channel_attr_read_double(m_channel_anglvel_x, "scale", &m_scale_angvel_x);
+    iio_channel_attr_read_double(m_channel_anglvel_y, "scale", &m_scale_angvel_y);
+    iio_channel_attr_read_double(m_channel_anglvel_z, "scale", &m_scale_angvel_z);
+    iio_channel_attr_read_double(m_channel_rot_x, "scale", &m_scale_rot_x);
+    iio_channel_attr_read_double(m_channel_rot_y, "scale", &m_scale_rot_y);
+    iio_channel_attr_read_double(m_channel_rot_z, "scale", &m_scale_rot_z);
+    iio_channel_attr_read_double(m_channel_velocity_x, "scale", &m_scale_velocity_x);
+    iio_channel_attr_read_double(m_channel_velocity_y, "scale", &m_scale_velocity_y);
+    iio_channel_attr_read_double(m_channel_velocity_z, "scale", &m_scale_velocity_z);
+    iio_channel_attr_read_double(m_channel_temp, "scale", &m_scale_temp);
 
     if(m_device_buffer == nullptr)
     {
@@ -321,68 +283,55 @@ void IIOWrapper::update_buffer(bool& success)
     {
         int32_t valueRaw = 0;
         iio_channel_read(m_channel_accel_x, m_device_buffer, &valueRaw, 4);
-        float fvalRaw = valueRaw;
-        m_accelerometer_x = fvalRaw * m_fvalScaleAccel_x;
+        m_accelerometer_x = valueRaw * m_scale_accel_x;
 
         valueRaw = 0;
         iio_channel_read(m_channel_accel_y, m_device_buffer, &valueRaw, 4);
-        fvalRaw = valueRaw;
-        m_accelerometer_y = fvalRaw * m_fvalScaleAccel_y;
+        m_accelerometer_y = valueRaw * m_scale_accel_y;
 
         valueRaw = 0;
         iio_channel_read(m_channel_accel_z, m_device_buffer, &valueRaw, 4);
-        fvalRaw = valueRaw;
-        m_accelerometer_z = fvalRaw * m_fvalScaleAccel_z;
+        m_accelerometer_z = valueRaw * m_scale_accel_z;
 
         valueRaw = 0;
         iio_channel_read(m_channel_anglvel_x, m_device_buffer, &valueRaw, 4);
-        fvalRaw = valueRaw;
-        m_gyroscope_x = fvalRaw * m_fvalScaleAngvel_x;
+        m_gyroscope_x = valueRaw * m_scale_angvel_x;
 
         valueRaw = 0;
         iio_channel_read(m_channel_anglvel_y, m_device_buffer, &valueRaw, 4);
-        fvalRaw = valueRaw;
-        m_gyroscope_y = fvalRaw * m_fvalScaleAngvel_y;
+        m_gyroscope_y = valueRaw * m_scale_angvel_y;
 
         valueRaw = 0;
         iio_channel_read(m_channel_anglvel_z, m_device_buffer, &valueRaw, 4);
-        fvalRaw = valueRaw;
-        m_gyroscope_z = fvalRaw * m_fvalScaleAngvel_z;
+        m_gyroscope_z = valueRaw * m_scale_angvel_z;
 
         valueRaw = 0;
         iio_channel_read(m_channel_rot_x, m_device_buffer, &valueRaw, 4);
-        fvalRaw = valueRaw;
-        m_rot_x = fvalRaw * m_fvalScaleRot_x;
+        m_rot_x = valueRaw * m_scale_rot_x;
 
         valueRaw = 0;
         iio_channel_read(m_channel_rot_y, m_device_buffer, &valueRaw, 4);
-        fvalRaw = valueRaw;
-        m_rot_y = fvalRaw * m_fvalScaleRot_y;
+        m_rot_y = valueRaw * m_scale_rot_y;
 
         valueRaw = 0;
         iio_channel_read(m_channel_rot_z, m_device_buffer, &valueRaw, 4);
-        fvalRaw = valueRaw;
-        m_rot_z = fvalRaw * m_fvalScaleRot_z;
+        m_rot_z = valueRaw * m_scale_rot_z;
 
         valueRaw = 0;
         iio_channel_read(m_channel_velocity_x, m_device_buffer, &valueRaw, 4);
-        fvalRaw = valueRaw;
-        m_velocity_x = fvalRaw * m_fvalScaleVelocity_x;
+        m_velocity_x = valueRaw * m_scale_velocity_x;
 
         valueRaw = 0;
         iio_channel_read(m_channel_velocity_y, m_device_buffer, &valueRaw, 4);
-        fvalRaw = valueRaw;
-        m_velocity_y = fvalRaw * m_fvalScaleVelocity_y;
+        m_velocity_y = valueRaw * m_scale_velocity_y;
 
         valueRaw = 0;
         iio_channel_read(m_channel_velocity_z, m_device_buffer, &valueRaw, 4);
-        fvalRaw = valueRaw;
-        m_velocity_z = fvalRaw * m_fvalScaleVelocity_z;
+        m_velocity_z = valueRaw * m_scale_velocity_z;
 
         valueRaw = 0;
         iio_channel_read(m_channel_temp, m_device_buffer, &valueRaw, 4);
-        fvalRaw = valueRaw;
-        m_temperature = fvalRaw * m_fvalScaleTemp / 1000.0;
+        m_temperature = valueRaw * m_scale_temp / 1000.0;
 
         valueRaw = 0;
         iio_channel_read(m_channel_count, m_device_buffer, &valueRaw, 4);
@@ -396,67 +345,67 @@ int32_t IIOWrapper::count()
     return m_count;
 }
 
-float IIOWrapper::getAccelerometerX()
+double IIOWrapper::getAccelerometerX()
 {
     return m_accelerometer_x;
 }
 
-float IIOWrapper::getAccelerometerY()
+double IIOWrapper::getAccelerometerY()
 {
     return m_accelerometer_y;
 }
 
-float IIOWrapper::getAccelerometerZ()
+double IIOWrapper::getAccelerometerZ()
 {
     return m_accelerometer_z;
 }
 
-float IIOWrapper::getGyroscopeX()
+double IIOWrapper::getGyroscopeX()
 {
     return m_gyroscope_x;
 }
 
-float IIOWrapper::getGyroscopeY()
+double IIOWrapper::getGyroscopeY()
 {
     return m_gyroscope_y;
 }
 
-float IIOWrapper::getGyroscopeZ()
+double IIOWrapper::getGyroscopeZ()
 {
     return m_gyroscope_z;
 }
 
-float IIOWrapper::getRotX()
+double IIOWrapper::getRotX()
 {
     return m_rot_x;
 }
 
-float IIOWrapper::getRotY()
+double IIOWrapper::getRotY()
 {
     return m_rot_y;
 }
 
-float IIOWrapper::getRotZ()
+double IIOWrapper::getRotZ()
 {
     return m_rot_z;
 }
 
-float IIOWrapper::getVelocityX()
+double IIOWrapper::getVelocityX()
 {
     return m_velocity_x;
 }
 
-float IIOWrapper::getVelocityY()
+double IIOWrapper::getVelocityY()
 {
     return m_velocity_y;
 }
 
-float IIOWrapper::getVelocityZ()
+double IIOWrapper::getVelocityZ()
 {
     return m_velocity_z;
 }
 
-float IIOWrapper::getTemperature()
+double IIOWrapper::getTemperature()
 {
     return m_temperature;
 }
@@ -466,7 +415,7 @@ bool IIOWrapper::getRegAccelerometerX(double& result)
     long long valueRaw;
     int ret = iio_channel_attr_read_longlong(m_channel_accel_x, "raw", &valueRaw);
 
-    result = valueRaw * m_fvalScaleAccel_x;
+    result = valueRaw * m_scale_accel_x;
     return (ret == 0);
 }
 
@@ -475,7 +424,7 @@ bool IIOWrapper::getRegAccelerometerY(double& result)
     long long valueRaw;
     int ret = iio_channel_attr_read_longlong(m_channel_accel_y, "raw", &valueRaw);
 
-    result = valueRaw * m_fvalScaleAccel_y;
+    result = valueRaw * m_scale_accel_y;
     return (ret == 0);
 }
 
@@ -484,7 +433,7 @@ bool IIOWrapper::getRegAccelerometerZ(double& result)
     long long valueRaw;
     int ret = iio_channel_attr_read_longlong(m_channel_accel_z, "raw", &valueRaw);
 
-    result = valueRaw * m_fvalScaleAccel_z;
+    result = valueRaw * m_scale_accel_z;
     return (ret == 0);
 }
 
@@ -493,7 +442,7 @@ bool IIOWrapper::getRegGyroscopeX(double& result)
     long long valueRaw;
     int ret = iio_channel_attr_read_longlong(m_channel_anglvel_x, "raw", &valueRaw);
 
-    result = valueRaw * m_fvalScaleAngvel_x;
+    result = valueRaw * m_scale_angvel_x;
     return (ret == 0);
 }
 
@@ -502,7 +451,7 @@ bool IIOWrapper::getRegGyroscopeY(double& result)
     long long valueRaw;
     int ret = iio_channel_attr_read_longlong(m_channel_anglvel_y, "raw", &valueRaw);
 
-    result = valueRaw * m_fvalScaleAngvel_y;
+    result = valueRaw * m_scale_angvel_y;
     return (ret == 0);
 }
 
@@ -511,7 +460,7 @@ bool IIOWrapper::getRegGyroscopeZ(double& result)
     long long valueRaw;
     int ret = iio_channel_attr_read_longlong(m_channel_anglvel_z, "raw", &valueRaw);
 
-    result = valueRaw * m_fvalScaleAngvel_z;
+    result = valueRaw * m_scale_angvel_z;
     return (ret == 0);
 }
 
@@ -520,7 +469,7 @@ bool IIOWrapper::getRegRotX(double& result)
     long long valueRaw;
     int ret = iio_channel_attr_read_longlong(m_channel_rot_x, "raw", &valueRaw);
 
-    result = valueRaw * m_fvalScaleRot_x;
+    result = valueRaw * m_scale_rot_x;
     return (ret == 0);
 }
 
@@ -529,7 +478,7 @@ bool IIOWrapper::getRegRotY(double& result)
     long long valueRaw;
     int ret = iio_channel_attr_read_longlong(m_channel_rot_y, "raw", &valueRaw);
 
-    result = valueRaw * m_fvalScaleRot_y;
+    result = valueRaw * m_scale_rot_y;
     return (ret == 0);
 }
 
@@ -538,7 +487,7 @@ bool IIOWrapper::getRegRotZ(double& result)
     long long valueRaw;
     int ret = iio_channel_attr_read_longlong(m_channel_rot_z, "raw", &valueRaw);
 
-    result = valueRaw * m_fvalScaleRot_z;
+    result = valueRaw * m_scale_rot_z;
     return (ret == 0);
 }
 
@@ -547,7 +496,7 @@ bool IIOWrapper::getRegVelocityX(double& result)
     long long valueRaw;
     int ret = iio_channel_attr_read_longlong(m_channel_velocity_x, "raw", &valueRaw);
 
-    result = valueRaw * m_fvalScaleVelocity_x;
+    result = valueRaw * m_scale_velocity_x;
     return (ret == 0);
 }
 
@@ -556,7 +505,7 @@ bool IIOWrapper::getRegVelocityY(double& result)
     long long valueRaw;
     int ret = iio_channel_attr_read_longlong(m_channel_velocity_y, "raw", &valueRaw);
 
-    result = valueRaw * m_fvalScaleVelocity_y;
+    result = valueRaw * m_scale_velocity_y;
     return (ret == 0);
 }
 
@@ -565,7 +514,7 @@ bool IIOWrapper::getRegVelocityZ(double& result)
     long long valueRaw;
     int ret = iio_channel_attr_read_longlong(m_channel_velocity_z, "raw", &valueRaw);
 
-    result = valueRaw * m_fvalScaleVelocity_z;
+    result = valueRaw * m_scale_velocity_z;
     return (ret == 0);
 }
 
@@ -574,7 +523,7 @@ bool IIOWrapper::getRegTemperature(double& result)
     long long valueRaw;
     int ret = iio_channel_attr_read_longlong(m_channel_temp, "raw", &valueRaw);
 
-    result = valueRaw * m_fvalScaleTemp / 1000.0;
+    result = valueRaw * m_scale_temp / 1000.0;
     return (ret == 0);
 }
 
