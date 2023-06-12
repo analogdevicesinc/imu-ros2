@@ -649,7 +649,50 @@ bool IIOWrapper::flash_counter(uint32_t& value)
     return (ret == 0);
 }
 
-//----------------------------------------------------------------------
+bool IIOWrapper::diag_aduc_mcu_fault(bool& value)
+{
+    return (iio_device_debug_attr_read_bool(m_dev,"diag_aduc_mcu_fault", &value) == 0);
+}
+
+bool IIOWrapper::diag_x_axis_accelerometer_failure(bool& value)
+{
+    return (iio_device_debug_attr_read_bool(m_dev,"diag_x_axis_accelerometer_failure", &value) == 0);
+}
+
+bool IIOWrapper::diag_y_axis_accelerometer_failure(bool& value)
+{
+    return (iio_device_debug_attr_read_bool(m_dev,"diag_y_axis_accelerometer_failure", &value) == 0);
+}
+
+bool IIOWrapper::diag_z_axis_accelerometer_failure(bool& value)
+{
+    return (iio_device_debug_attr_read_bool(m_dev,"diag_z_axis_accelerometer_failure", &value) == 0);
+}
+
+bool IIOWrapper::diag_x_axis_gyroscope_failure(bool& value)
+{
+    return (iio_device_debug_attr_read_bool(m_dev,"diag_x_axis_gyroscope_failure", &value) == 0);
+}
+
+bool IIOWrapper::diag_y_axis_gyroscope_failure(bool& value)
+{
+    return (iio_device_debug_attr_read_bool(m_dev,"diag_y_axis_gyroscope_failure", &value) == 0);
+}
+
+bool IIOWrapper::diag_z_axis_gyroscope_failure(bool& value)
+{
+    return (iio_device_debug_attr_read_bool(m_dev,"diag_z_axis_gyroscope_failure", &value) == 0);
+}
+
+bool IIOWrapper::diag_sensor_initialization_failure(bool& value)
+{
+    return (iio_device_debug_attr_read_bool(m_dev,"diag_sensor_initialization_failure", &value) == 0);
+}
+
+bool IIOWrapper::diag_clk_error(bool& value)
+{
+    return (iio_device_debug_attr_read_bool(m_dev,"diag_clk_error", &value) == 0);
+}
 
 int32_t IIOWrapper::filter_size()
 {
@@ -786,8 +829,6 @@ int32_t IIOWrapper::decimation_filter()
 
     return valuel;
 }
-
-// --------------------------------------------------------------------------
 
 int IIOWrapper::update_burst_size_selection(int32_t val)
 {
@@ -931,8 +972,6 @@ int IIOWrapper::bias_correction_update()
 {
     return iio_device_debug_attr_write_longlong(m_dev,"bias_correction_update", 1);
 }
-
-//-------------------------------------------
 
 int32_t IIOWrapper::z_axis_accelerometer_bias_correction_enable()
 {
