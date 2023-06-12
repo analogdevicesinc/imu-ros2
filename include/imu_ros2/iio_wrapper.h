@@ -69,7 +69,7 @@ public:
 
     bool getRegTemperature(double& result);
 
-    int lost_samples_count();
+    bool lost_samples_count(uint32_t& value);
 
     std::string firmware_revision();
     std::string firmware_date();
@@ -77,19 +77,19 @@ public:
     int product_id();
     int serial_number();
     std::string gyroscope_measurement_range();
-    int diag_checksum_error_flag();
-    int diag_flash_memory_write_count_exceeded_error();
-    int diag_acceleration_self_test_error();
-    int diag_gyroscope2_self_test_error();
-    int diag_gyroscope1_self_test_error();
-    int diag_clock_error();
-    int diag_flash_memory_test_error();
-    int diag_sensor_self_test_error();
-    int diag_standby_mode();
-    int diag_spi_communication_error();
-    int diag_flash_memory_update_error();
-    int diag_data_path_overrun();
-    int flash_counter();
+    bool diag_checksum_error_flag(bool& value);
+    bool diag_flash_memory_write_count_exceeded_error(bool& value);
+    bool diag_acceleration_self_test_error(bool& value);
+    bool diag_gyroscope2_self_test_error(bool& value);
+    bool diag_gyroscope1_self_test_error(bool& value);
+    bool diag_clock_error(bool& value);
+    bool diag_flash_memory_test_error(bool& value);
+    bool diag_sensor_self_test_error(bool& value);
+    bool diag_standby_mode(bool& value);
+    bool diag_spi_communication_error(bool& value);
+    bool diag_flash_memory_update_error(bool& value);
+    bool diag_data_path_overrun(bool& value);
+    bool flash_counter(uint32_t& value);
 
     int32_t filter_size();
 
