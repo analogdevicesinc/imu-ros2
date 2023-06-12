@@ -19,6 +19,7 @@
 *******************************************************************************/
 
 #include "imu_ros2/imu_diag_data_provider.h"
+#include <rclcpp/rclcpp.hpp>
 
 ImuDiagDataProvider::ImuDiagDataProvider()
 {
@@ -37,23 +38,59 @@ void ImuDiagDataProvider::init()
 
 bool ImuDiagDataProvider::getData(imu_ros2::msg::ImuDiagData& message)
 {
-    if(m_iioWrapper.isBufferLoaded() == false)
+    bool success;
+    success = m_iioWrapper.lost_samples_count(message.lost_samples_count);
+    if(!success)
         return false;
 
-    message.lost_samples_count = m_iioWrapper.lost_samples_count();
-    message.diag_checksum_error_flag = m_iioWrapper.diag_checksum_error_flag();
-    message.diag_flash_memory_write_count_exceeded_error = m_iioWrapper.diag_flash_memory_write_count_exceeded_error();
-    message.diag_acceleration_self_test_error = m_iioWrapper.diag_acceleration_self_test_error();
-    message.diag_gyroscope2_self_test_error = m_iioWrapper.diag_gyroscope2_self_test_error();
-    message.diag_gyroscope1_self_test_error = m_iioWrapper.diag_gyroscope1_self_test_error();
-    message.diag_clock_error = m_iioWrapper.diag_clock_error();
-    message.diag_flash_memory_test_error = m_iioWrapper.diag_flash_memory_test_error();
-    message.diag_sensor_self_test_error = m_iioWrapper.diag_sensor_self_test_error();
-    message.diag_standby_mode = m_iioWrapper.diag_standby_mode();
-    message.diag_spi_communication_error = m_iioWrapper.diag_spi_communication_error();
-    message.diag_flash_memory_update_error = m_iioWrapper.diag_flash_memory_update_error();
-    message.diag_data_path_overrun = m_iioWrapper.diag_data_path_overrun();
-    message.flash_counter = m_iioWrapper.flash_counter();
+    success = m_iioWrapper.diag_checksum_error_flag(message.diag_checksum_error_flag);
+    if(!success)
+        return false;
 
-    return true;
+    success = m_iioWrapper.diag_flash_memory_write_count_exceeded_error(
+                message.diag_flash_memory_write_count_exceeded_error);
+    if(!success)
+        return false;
+
+    success = m_iioWrapper.diag_acceleration_self_test_error(message.diag_acceleration_self_test_error);
+    if(!success)
+        return false;
+
+    success = m_iioWrapper.diag_gyroscope2_self_test_error(message.diag_gyroscope2_self_test_error);
+    if(!success)
+        return false;
+
+    success = m_iioWrapper.diag_gyroscope1_self_test_error(message.diag_gyroscope1_self_test_error);
+    if(!success)
+        return false;
+
+    success = m_iioWrapper.diag_clock_error(message.diag_clock_error);
+    if(!success)
+        return false;
+
+    success = m_iioWrapper.diag_flash_memory_test_error(message.diag_flash_memory_test_error);
+    if(!success)
+        return false;
+
+    success = m_iioWrapper.diag_sensor_self_test_error(message.diag_sensor_self_test_error);
+    if(!success)
+        return false;
+
+    success = m_iioWrapper.diag_standby_mode(message.diag_standby_mode);
+    if(!success)
+        return false;
+
+    success = m_iioWrapper.diag_spi_communication_error(message.diag_spi_communication_error);
+    if(!success)
+        return false;
+
+    success = m_iioWrapper.diag_flash_memory_update_error(message.diag_flash_memory_update_error);
+    if(!success)
+        return false;
+
+    success = m_iioWrapper.diag_data_path_overrun(message.diag_data_path_overrun);
+    if(!success)
+        return false;
+
+    return m_iioWrapper.flash_counter(message.flash_counter);
 }

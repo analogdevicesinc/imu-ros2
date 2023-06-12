@@ -527,12 +527,12 @@ bool IIOWrapper::getRegTemperature(double& result)
     return (ret == 0);
 }
 
-int IIOWrapper::lost_samples_count()
+bool IIOWrapper::lost_samples_count(uint32_t& value)
 {
    long long valuel;
-   iio_device_debug_attr_read_longlong(m_dev,"lost_samples_count", &valuel);
-
-   return valuel;
+   int ret = iio_device_debug_attr_read_longlong(m_dev,"lost_samples_count", &valuel);
+   value = valuel;
+   return (ret == 0);
 }
 
 std::string IIOWrapper::firmware_revision()
@@ -581,108 +581,72 @@ std::string IIOWrapper::gyroscope_measurement_range()
     return str;
 }
 
-int IIOWrapper::diag_checksum_error_flag()
+bool IIOWrapper::diag_checksum_error_flag(bool& value)
 {
-    long long valuel;
-    iio_device_debug_attr_read_longlong(m_dev,"diag_checksum_error_flag", &valuel);
-
-    return valuel;
+    return (iio_device_debug_attr_read_bool(m_dev,"diag_checksum_error_flag", &value) == 0);
 }
 
-int IIOWrapper::diag_flash_memory_write_count_exceeded_error()
+bool IIOWrapper::diag_flash_memory_write_count_exceeded_error(bool& value)
 {
-    long long valuel;
-    iio_device_debug_attr_read_longlong(m_dev,"diag_flash_memory_write_count_exceeded_error", &valuel);
-
-    return valuel;
+    return (iio_device_debug_attr_read_bool(m_dev,"diag_flash_memory_write_count_exceeded_error", &value) == 0);
 }
 
-int IIOWrapper::diag_acceleration_self_test_error()
+bool IIOWrapper::diag_acceleration_self_test_error(bool& value)
 {
-    long long valuel;
-    iio_device_debug_attr_read_longlong(m_dev,"diag_acceleration_self_test_error", &valuel);
-
-    return valuel;
+    return (iio_device_debug_attr_read_bool(m_dev,"diag_acceleration_self_test_error", &value) == 0);
 }
 
-int IIOWrapper::diag_gyroscope2_self_test_error()
+bool IIOWrapper::diag_gyroscope2_self_test_error(bool& value)
 {
-    long long valuel;
-    iio_device_debug_attr_read_longlong(m_dev,"diag_gyroscope2_self_test_error", &valuel);
-
-    return valuel;
+    return (iio_device_debug_attr_read_bool(m_dev,"diag_gyroscope2_self_test_error", &value) == 0);
 }
 
-int IIOWrapper::diag_gyroscope1_self_test_error()
+bool IIOWrapper::diag_gyroscope1_self_test_error(bool& value)
 {
-    long long valuel;
-    iio_device_debug_attr_read_longlong(m_dev,"diag_gyroscope1_self_test_error", &valuel);
-
-    return valuel;
+    return (iio_device_debug_attr_read_bool(m_dev,"diag_gyroscope1_self_test_error", &value) == 0);
 }
 
-int IIOWrapper::diag_clock_error()
+bool IIOWrapper::diag_clock_error(bool& value)
 {
-    long long valuel;
-    iio_device_debug_attr_read_longlong(m_dev,"diag_clock_error", &valuel);
-
-    return valuel;
+    return (iio_device_debug_attr_read_bool(m_dev,"diag_clk_error", &value) == 0);
 }
 
-int IIOWrapper::diag_flash_memory_test_error()
+bool IIOWrapper::diag_flash_memory_test_error(bool& value)
 {
-    long long valuel;
-    iio_device_debug_attr_read_longlong(m_dev,"diag_flash_memory_test_error", &valuel);
-
-    return valuel;
+    return (iio_device_debug_attr_read_bool(m_dev,"diag_flash_memory_test_error", &value) == 0);
 }
 
-int IIOWrapper::diag_sensor_self_test_error()
+bool IIOWrapper::diag_sensor_self_test_error(bool& value)
 {
-    long long valuel;
-    iio_device_debug_attr_read_longlong(m_dev,"diag_sensor_self_test_error", &valuel);
-
-    return valuel;
+    return (iio_device_debug_attr_read_bool(m_dev,"diag_sensor_self_test_error", &value) == 0);
 }
 
-int IIOWrapper::diag_standby_mode()
+bool IIOWrapper::diag_standby_mode(bool& value)
 {
-    long long valuel;
-    iio_device_debug_attr_read_longlong(m_dev,"diag_standby_mode", &valuel);
-
-    return valuel;
+    return (iio_device_debug_attr_read_bool(m_dev,"diag_standby_mode", &value) == 0);
 }
 
-int IIOWrapper::diag_spi_communication_error()
+bool IIOWrapper::diag_spi_communication_error(bool& value)
 {
-    long long valuel;
-    iio_device_debug_attr_read_longlong(m_dev,"diag_spi_communication_error", &valuel);
-
-    return valuel;
+    return (iio_device_debug_attr_read_bool(m_dev,"diag_spi_communication_error", &value) == 0);
 }
 
-int IIOWrapper::diag_flash_memory_update_error()
+bool IIOWrapper::diag_flash_memory_update_error(bool& value)
 {
-    long long valuel;
-    iio_device_debug_attr_read_longlong(m_dev,"diag_flash_memory_update_error", &valuel);
-
-    return valuel;
+    return (iio_device_debug_attr_read_bool(m_dev,"diag_flash_memory_update_error", &value) == 0);
 }
 
-int IIOWrapper::diag_data_path_overrun()
+bool IIOWrapper::diag_data_path_overrun(bool& value)
 {
-    long long valuel;
-    iio_device_debug_attr_read_longlong(m_dev,"diag_data_path_overrun", &valuel);
-
-    return valuel;
+    return (iio_device_debug_attr_read_bool(m_dev,"diag_data_path_overrun", &value) == 0);
 }
 
-int IIOWrapper::flash_counter()
+bool IIOWrapper::flash_counter(uint32_t& value)
 {
     long long valuel;
-    iio_device_debug_attr_read_longlong(m_dev,"flash_counter", &valuel);
-
-    return valuel;
+    int ret = iio_device_debug_attr_read_longlong(m_dev,"flash_counter", &valuel);
+    value = valuel;
+    return (ret == 0);
 }
 
 //----------------------------------------------------------------------
