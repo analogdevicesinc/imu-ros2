@@ -91,6 +91,16 @@ public:
     bool diag_data_path_overrun(bool& value);
     bool flash_counter(uint32_t& value);
 
+    bool diag_aduc_mcu_fault(bool& value);
+    bool diag_x_axis_accelerometer_failure(bool& value);
+    bool diag_y_axis_accelerometer_failure(bool& value);
+    bool diag_z_axis_accelerometer_failure(bool& value);
+    bool diag_x_axis_gyroscope_failure(bool& value);
+    bool diag_y_axis_gyroscope_failure(bool& value);
+    bool diag_z_axis_gyroscope_failure(bool& value);
+    bool diag_sensor_initialization_failure(bool& value);
+    bool diag_clk_error(bool& value);
+
     int32_t filter_size();
 
     int32_t anglvel_x_calibbias();
