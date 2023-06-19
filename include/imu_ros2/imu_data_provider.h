@@ -1,7 +1,6 @@
 /***************************************************************************//**
- *   @file   accelgyrotemp_data_provider.h
- *   @brief  Header for providing acceleration, gyroscope and
- *           temperature data provider.
+ *   @file   imu_ros_publisher.h
+ *   @brief  Header for providing IMU ros standard data.
  *   @author Vasile Holonec (Vasile.Holonec@analog.com)
  *******************************************************************************
  * Copyright 2023(c) Analog Devices, Inc.
@@ -19,24 +18,24 @@
  * limitations under the License.
  ******************************************************************************/
 
-#ifndef ACCELGYROTEMP_DATA_PROVIDER_H
-#define ACCELGYROTEMP_DATA_PROVIDER_H
+#ifndef IMU_DATA_PROVIDER_H
+#define IMU_DATA_PROVIDER_H
 
-#include "imu_ros2/accelgyrotemp_data_provider_interface.h"
+#include "imu_ros2/imu_data_provider_interface.h"
 #include "imu_ros2/iio_wrapper.h"
 
-class AccelGyroTempDataProvider : public AccelGyroTempDataProviderInterface
+class ImuDataProvider : public ImuDataProviderInterface
 {
 
 public:
-  AccelGyroTempDataProvider();
-  ~AccelGyroTempDataProvider();
+  ImuDataProvider();
+  ~ImuDataProvider();
 
-  bool getData(imu_ros2::msg::AccelGyroTempData &message) override;
   bool enableBufferedDataOutput() override;
+  bool getData(sensor_msgs::msg::Imu& message) override;
 
 private:
   IIOWrapper m_iio_wrapper;
 };
 
-#endif // ACCELGYROTEMP_DATA_PROVIDER_H
+#endif // IMU_DATA_PROVIDER_H

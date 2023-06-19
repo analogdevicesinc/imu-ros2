@@ -1,6 +1,6 @@
 /***************************************************************************//**
- *   @file   imu_identification_ros_publisher.cpp
- *   @brief  Implementation for imu identification publisher.
+ *   @file   imu_16505_diag_ros_publisher.cpp
+ *   @brief  Implementation for adis16505 diagnosis publisher.
  *   @author Vasile Holonec (Vasile.Holonec@analog.com)
  *******************************************************************************
  * Copyright 2023(c) Analog Devices, Inc.
@@ -18,48 +18,45 @@
  * limitations under the License.
  ******************************************************************************/
 
-#include "imu_ros2/imu_identification_ros_publisher.h"
-#include "imu_ros2/setting_declarations.h"
+#include "imu_ros2/imu_16505_diag_ros_publisher.h"
 #include <thread>
 
-ImuIdentificationRosPublisher::ImuIdentificationRosPublisher(std::shared_ptr<rclcpp::Node> &node)
+Imu16505DiagRosPublisher::Imu16505DiagRosPublisher(std::shared_ptr<rclcpp::Node> &node)
 {
   init(node);
 }
 
-ImuIdentificationRosPublisher::~ImuIdentificationRosPublisher()
+Imu16505DiagRosPublisher::~Imu16505DiagRosPublisher()
 {
   delete m_data_provider;
 }
 
-void ImuIdentificationRosPublisher::init(std::shared_ptr<rclcpp::Node> &node)
+void Imu16505DiagRosPublisher::init(std::shared_ptr<rclcpp::Node> &node)
 {
   m_node = node;
-  m_publisher = node->create_publisher<imu_ros2::msg::ImuIdentificationData>("imuidentificationdata",
-                10);
+  m_publisher = node->create_publisher<imu_ros2::msg::Imu16505DiagData>("Imu16505DiagData", 10);
 }
 
-void ImuIdentificationRosPublisher::setMessageProvider(ImuIdentificationDataProviderInterface
-    *dataProvider)
+void Imu16505DiagRosPublisher::setMessageProvider(Imu16505DiagDataProviderInterface *dataProvider)
 {
   m_data_provider = dataProvider;
 }
 
-void ImuIdentificationRosPublisher::run()
+void Imu16505DiagRosPublisher::run()
 {
   std::thread::id this_id = std::this_thread::get_id();
   std::cout << "thread " << this_id << " started...\n";
-  RCLCPP_INFO(rclcpp::get_logger("rclcpp_imuidentification"), "startThread: '%d'", this_id);
-
-  // read data only once
-  m_data_provider->getData(m_message);
+  RCLCPP_INFO(rclcpp::get_logger("rclcpp_imu16505diag"), "startThread: '%d'", this_id);
 
   while (rclcpp::ok())
   {
-    m_publisher->publish(m_message);
+    if (m_data_provider->getData(m_message))
+      m_publisher->publish(m_message);
+    else
+      RCLCPP_INFO(rclcpp::get_logger("rclcpp_imu16505diag"), "error reading diagnosis data");
   }
 
   this_id = std::this_thread::get_id();
   std::cout << "thread " << this_id << " ended...\n";
-  RCLCPP_INFO(rclcpp::get_logger("rclcpp_imuidentification"), "endThread: '%d'", this_id);
+  RCLCPP_INFO(rclcpp::get_logger("rclcpp_imu16505diag"), "endThread: '%d'", this_id);
 }

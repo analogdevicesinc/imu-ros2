@@ -27,7 +27,7 @@ file(GLOB FILES_CPP ${CMAKE_SOURCE_DIR}/src/*.cpp)
   find_package(ament_lint_auto REQUIRED)
   find_package(ament_cmake_gtest REQUIRED)
   ament_add_gtest(imu_ros2_test_node utest_launch.test src/utest.cpp
-                                        src/acceleration_subscriber_test.cpp
+                                        src/imu_subscriber_test.cpp
                                         src/static_subscriber_test.cpp
                                         src/velangtemp_subscriber_test.cpp
                                         src/imu_diag_subscriber_test.cpp)
@@ -49,7 +49,7 @@ install(TARGETS imu_ros2_test_node
 #  DEPENDENCIES builtin_interfaces
 #)
 
-rosidl_get_typesupport_target(imu_ros2_test_node
+rosidl_target_interfaces(imu_ros2_test_node
   imu_ros2 "rosidl_typesupport_cpp")
 target_link_libraries(imu_ros2_test_node "${imu_ros2_node}")
 

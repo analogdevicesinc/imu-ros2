@@ -1,0 +1,25 @@
+/imu_ros2_node:
+  ros__parameters:
+    accel_calibbias_x: 0
+    accel_calibbias_y: 0
+    accel_calibbias_z: 0
+    anglvel_calibbias_x: 0
+    anglvel_calibbias_y: 0
+    anglvel_calibbias_z: 0
+    filter_size: 0
+    internal_sensor_bandwidth: 0
+    point_of_percussion_alignment: 1
+    linear_acceleration_compensation: 1
+    burst_size_selection: 0
+    timestamp32: 0
+    internal_sync_enable_4khz: 0
+    bias_correction_time_base_control: 10
+    x_axis_gyroscope_bias_correction_enable: 0
+    y_axis_gyroscope_bias_correction_enable: 0
+    z_axis_gyroscope_bias_correction_enable: 0
+    x_axis_accelerometer_bias_correction_enable: 1
+    y_axis_accelerometer_bias_correction_enable: 1
+    z_axis_accelerometer_bias_correction_enable: 1
+    sampling_frequency: 2000.0
+    command_to_execute: no_command
+    measured_data_topic_selection: 3

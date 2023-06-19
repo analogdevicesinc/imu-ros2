@@ -1,10 +1,31 @@
-# Accelerometer [m/s^2]
-geometry_msgs/Vector3 accel
+################################################################################
+#   @file   AccelGyroTempData.msg
+#   @brief  Definition of AccelGyroTempData message
+#   @author RBolboac (ramona.bolboaca@analog.com)
+################################################################################
+# Copyright 2023(c) Analog Devices, Inc.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+################################################################################
 
-# Gyroscope [rad/s]
-geometry_msgs/Vector3 gyro
+# 3-axis acceleration [m/s^2]
+geometry_msgs/Vector3 linear_acceleration
 
-# Internal Temperature [°C]
-float64 temp
+# 3-axis angular velocity [rad/s]
+geometry_msgs/Vector3 angular_velocity
 
-int32 count
+# imu internal temperature [°C]
+float64 temperature
+
+# sample count
+uint32 sample_count

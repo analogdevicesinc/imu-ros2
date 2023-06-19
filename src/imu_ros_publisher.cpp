@@ -1,7 +1,6 @@
 /***************************************************************************//**
- *   @file   velangtemp_ros_publisher.cpp
- *   @brief  Implementation for temperature, delta velocity and delta angle
- *           publisher.
+ *   @file   imu_ros_publisher.cpp
+ *   @brief  Implementation for standard ros imu data publisher.
  *   @author Vasile Holonec (Vasile.Holonec@analog.com)
  *******************************************************************************
  * Copyright 2023(c) Analog Devices, Inc.
@@ -17,42 +16,42 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- *******************************************************************************/
+ ******************************************************************************/
 
-#include "imu_ros2/velangtemp_ros_publisher.h"
+#include "imu_ros2/imu_ros_publisher.h"
 #include "imu_ros2/setting_declarations.h"
 #include <thread>
 #include <chrono>
 
-VelAngTempRosPublisher::VelAngTempRosPublisher(std::shared_ptr<rclcpp::Node> &node)
+ImuRosPublisher::ImuRosPublisher(std::shared_ptr<rclcpp::Node> &node)
 {
   init(node);
 }
 
-VelAngTempRosPublisher::~VelAngTempRosPublisher()
+ImuRosPublisher::~ImuRosPublisher()
 {
   delete m_data_provider;
 }
 
-void VelAngTempRosPublisher::init(std::shared_ptr<rclcpp::Node> &node)
+void ImuRosPublisher::init(std::shared_ptr<rclcpp::Node> &node)
 {
   m_node = node;
-  m_publisher = node->create_publisher<imu_ros2::msg::VelAngTempData>("velangtempdata", 10);
+  m_publisher = node->create_publisher<sensor_msgs::msg::Imu>("imu", 10);
 }
 
-void VelAngTempRosPublisher::setMessageProvider(VelAngTempDataProviderInterface *dataProvider)
+void ImuRosPublisher::setMessageProvider(ImuDataProviderInterface *dataProvider)
 {
   m_data_provider = dataProvider;
 }
 
-void VelAngTempRosPublisher::run()
+void ImuRosPublisher::run()
 {
   bool bufferedDataEnabled = false;
-  int32_t measuredDataSelection = DELTAVEL_DELTAANG_BUFFERED_DATA;
+  int32_t measuredDataSelection = IMU_STD_MSG_DATA;
 
   std::thread::id this_id = std::this_thread::get_id();
   std::cout << "thread " << this_id << " started...\n";
-  RCLCPP_INFO(rclcpp::get_logger("rclcpp_velangtemp"), "startThread: '%d'", this_id);
+  RCLCPP_INFO(rclcpp::get_logger("rclcpp_imuros"), "startThread: '%d'", this_id);
 
   while (rclcpp::ok())
   {
@@ -61,7 +60,7 @@ void VelAngTempRosPublisher::run()
 
     switch (measuredDataSelection)
     {
-    case DELTAVEL_DELTAANG_BUFFERED_DATA:
+    case IMU_STD_MSG_DATA:
       if (!bufferedDataEnabled)
       {
         if (m_data_provider->enableBufferedDataOutput())
@@ -71,8 +70,7 @@ void VelAngTempRosPublisher::run()
       if (m_data_provider->getData(m_message))
         m_publisher->publish(m_message);
       else
-        RCLCPP_INFO(rclcpp::get_logger("rclcpp_velangtemp"),
-                    "error reading delta angle, delta velocity and temperature buffered data");
+        RCLCPP_INFO(rclcpp::get_logger("rclcpp_imuros"), "error reading standard imu buffered data");
 
       break;
 
@@ -86,5 +84,5 @@ void VelAngTempRosPublisher::run()
 
   this_id = std::this_thread::get_id();
   std::cout << "thread " << this_id << " ended...\n";
-  RCLCPP_INFO(rclcpp::get_logger("rclcpp_velangtemp"), "endThread: '%d'", this_id);
+  RCLCPP_INFO(rclcpp::get_logger("rclcpp_imuros"), "endThread: '%d'", this_id);
 }

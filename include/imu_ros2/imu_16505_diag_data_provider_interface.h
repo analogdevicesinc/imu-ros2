@@ -1,7 +1,6 @@
 /***************************************************************************//**
- *   @file   accelgyrotemp_data_provider.h
- *   @brief  Header for providing acceleration, gyroscope and
- *           temperature data provider.
+ *   @file   imu_16505_diag_data_provider_interface.h
+ *   @brief  Interface for adis1657x diagnosis publisher.
  *   @author Vasile Holonec (Vasile.Holonec@analog.com)
  *******************************************************************************
  * Copyright 2023(c) Analog Devices, Inc.
@@ -19,24 +18,19 @@
  * limitations under the License.
  ******************************************************************************/
 
-#ifndef ACCELGYROTEMP_DATA_PROVIDER_H
-#define ACCELGYROTEMP_DATA_PROVIDER_H
+#ifndef IMU_16505_DIAG_DATA_PROVIDER_INTERFACE_H
+#define IMU_16505_DIAG_DATA_PROVIDER_INTERFACE_H
 
-#include "imu_ros2/accelgyrotemp_data_provider_interface.h"
-#include "imu_ros2/iio_wrapper.h"
+#include "imu_ros2/msg/imu16505_diag_data.hpp"
 
-class AccelGyroTempDataProvider : public AccelGyroTempDataProviderInterface
+class Imu16505DiagDataProviderInterface
 {
 
 public:
-  AccelGyroTempDataProvider();
-  ~AccelGyroTempDataProvider();
+  Imu16505DiagDataProviderInterface() {}
+  virtual ~Imu16505DiagDataProviderInterface() {}
 
-  bool getData(imu_ros2::msg::AccelGyroTempData &message) override;
-  bool enableBufferedDataOutput() override;
-
-private:
-  IIOWrapper m_iio_wrapper;
+  virtual bool getData(imu_ros2::msg::Imu16505DiagData &message) = 0;
 };
 
-#endif // ACCELGYROTEMP_DATA_PROVIDER_H
+#endif // IMU_16505_DIAG_DATA_PROVIDER_INTERFACE_H

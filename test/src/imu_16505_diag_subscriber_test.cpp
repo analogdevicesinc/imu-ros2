@@ -21,9 +21,9 @@
 #include <rclcpp/rclcpp.hpp>
 #include <gtest/gtest.h>
 #include <chrono>
-#include "imu_ros2/msg/imu_diag_data.hpp"
+#include "imu_ros2/msg/imu16505_diag_data.hpp"
 
-class ImuDiagSubscriberTest  : public ::testing::Test
+class Imu16505DiagSubscriberTest  : public ::testing::Test
 {
 public:
     static void SetUpTestCase()
@@ -37,21 +37,21 @@ public:
     }
 };
 
-TEST(ImuDiagSubscriberTest,test_imu_diag_data_values1)
+TEST(Imu16505DiagSubscriberTest,test_imu_16505_diag_data_values1)
 {
-    auto node = rclcpp::Node::make_shared("imudiagdata");
+    auto node = rclcpp::Node::make_shared("Imu16505DiagData");
 
-    std::string topic = "imudiagdata";
+    std::string topic = "Imu16505DiagData";
 
     int counter = 0;
 
 
     auto callback =
-            [&counter]( imu_ros2::msg::ImuDiagData msg) -> void
+            [&counter]( imu_ros2::msg::Imu16505DiagData msg) -> void
     {
         ++counter;
 
-        RCLCPP_INFO(rclcpp::get_logger("rclcpp_imu_diag_data"), " diag data: %d %d %d  \n",
+        RCLCPP_INFO(rclcpp::get_logger("rclcpp_imu_16505_diag_data"), " diag data: %d %d %d  \n",
                     msg.lost_samples_count, msg.diag_checksum_error_flag, msg.flash_counter );
         ASSERT_TRUE(msg.lost_samples_count == 0);
         ASSERT_TRUE(msg.diag_checksum_error_flag == 0);
@@ -63,7 +63,7 @@ TEST(ImuDiagSubscriberTest,test_imu_diag_data_values1)
     rclcpp::executors::SingleThreadedExecutor executor;
     executor.add_node(node);
 
-    auto subscriber = node->create_subscription<imu_ros2::msg::ImuDiagData>(topic, 10, callback);
+    auto subscriber = node->create_subscription<imu_ros2::msg::Imu16505DiagData>(topic, 10, callback);
 
     std::chrono::seconds sec(1);
 

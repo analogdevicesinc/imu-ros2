@@ -1,7 +1,6 @@
 /***************************************************************************//**
- *   @file   accelgyrotemp_data_provider.h
- *   @brief  Header for providing acceleration, gyroscope and
- *           temperature data provider.
+ *   @file   imu_16505_diag_ros_publisher.h
+ *   @brief  Header for adis16505 diagnosis publisher.
  *   @author Vasile Holonec (Vasile.Holonec@analog.com)
  *******************************************************************************
  * Copyright 2023(c) Analog Devices, Inc.
@@ -19,24 +18,30 @@
  * limitations under the License.
  ******************************************************************************/
 
-#ifndef ACCELGYROTEMP_DATA_PROVIDER_H
-#define ACCELGYROTEMP_DATA_PROVIDER_H
+#ifndef IMU_16505_DIAG_ROS_SUBSCRIBER_H
+#define IMU_16505_DIAG_ROS_SUBSCRIBER_H
 
-#include "imu_ros2/accelgyrotemp_data_provider_interface.h"
-#include "imu_ros2/iio_wrapper.h"
+#include "imu_ros2/imu_16505_diag_ros_publisher_interface.h"
+#include "imu_ros2/imu_16505_diag_data_provider_interface.h"
 
-class AccelGyroTempDataProvider : public AccelGyroTempDataProviderInterface
+#include <rclcpp/rclcpp.hpp>
+
+class Imu16505DiagRosPublisher : public Imu16505DiagRosPublisherInterface
 {
 
 public:
-  AccelGyroTempDataProvider();
-  ~AccelGyroTempDataProvider();
+  Imu16505DiagRosPublisher(std::shared_ptr<rclcpp::Node>& node);
+  ~Imu16505DiagRosPublisher();
 
-  bool getData(imu_ros2::msg::AccelGyroTempData &message) override;
-  bool enableBufferedDataOutput() override;
+  void init(std::shared_ptr<rclcpp::Node>& node) override;
+  void setMessageProvider(Imu16505DiagDataProviderInterface* dataProvider) override;
+
+  void run() override;
 
 private:
-  IIOWrapper m_iio_wrapper;
+  Imu16505DiagDataProviderInterface* m_data_provider;
+  rclcpp::Publisher<imu_ros2::msg::Imu16505DiagData>::SharedPtr m_publisher;
+  imu_ros2::msg::Imu16505DiagData m_message;
 };
 
-#endif // ACCELGYROTEMP_DATA_PROVIDER_H
+#endif // IMU_16505_DIAG_ROS_SUBSCRIBER_H

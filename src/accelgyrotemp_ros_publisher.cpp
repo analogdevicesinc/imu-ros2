@@ -1,111 +1,90 @@
 /***************************************************************************//**
-*   @file   accelgyrotemp_ros_publisher.cpp
-*   @brief  Implementation for accel, gyro and temp publisher
-*   @author Vasile Holonec (Vasile.Holonec@analog.com)
-********************************************************************************
-* Copyright 2023(c) Analog Devices, Inc.
-
-* Licensed under the Apache License, Version 2.0 (the "License");
-* you may not use this file except in compliance with the License.
-* You may obtain a copy of the License at
-*
-*     http://www.apache.org/licenses/LICENSE-2.0
-*
-* Unless required by applicable law or agreed to in writing, software
-* distributed under the License is distributed on an "AS IS" BASIS,
-* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-* See the License for the specific language governing permissions and
-* limitations under the License.
-*******************************************************************************/
+ *   @file   accelgyrotemp_ros_publisher.cpp
+ *   @brief  Implementation for acceleration, gyroscope and temperature
+ *           publisher.
+ *   @author Vasile Holonec (Vasile.Holonec@analog.com)
+ *******************************************************************************
+ * Copyright 2023(c) Analog Devices, Inc.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ ******************************************************************************/
 
 #include "imu_ros2/accelgyrotemp_ros_publisher.h"
+#include "imu_ros2/setting_declarations.h"
 #include <thread>
 #include <chrono>
 
-AccelGyroTempRosPublisher::AccelGyroTempRosPublisher(std::shared_ptr<rclcpp::Node>& node)
+AccelGyroTempRosPublisher::AccelGyroTempRosPublisher(std::shared_ptr<rclcpp::Node> &node)
 {
-    init(node);
+  init(node);
 }
 
 AccelGyroTempRosPublisher::~AccelGyroTempRosPublisher()
 {
-    delete m_dataProvider;
+  delete m_data_provider;
 }
 
 void AccelGyroTempRosPublisher::init(std::shared_ptr<rclcpp::Node> &node)
 {
-    m_node = node;
-    m_publisher = node->create_publisher<imu_ros2::msg::AccelGyroTempData>("accelgyrotempdata", 10);
+  m_node = node;
+  m_publisher = node->create_publisher<imu_ros2::msg::AccelGyroTempData>("accelgyrotempdata", 10);
 }
 
 void AccelGyroTempRosPublisher::setMessageProvider(AccelGyroTempDataProviderInterface *dataProvider)
 {
-    m_dataProvider = dataProvider;
+  m_data_provider = dataProvider;
 }
 
 void AccelGyroTempRosPublisher::run()
 {
-    std::thread::id this_id = std::this_thread::get_id();
-    std::cout << "thread " << this_id << " started...\n";
-    RCLCPP_INFO(rclcpp::get_logger("rclcpp_accelgyrotemp"), "startThread: '%d'", this_id);
+  std::thread::id this_id = std::this_thread::get_id();
+  std::cout << "thread " << this_id << " started...\n";
+  RCLCPP_INFO(rclcpp::get_logger("rclcpp_accelgyrotemp"), "startThread: '%d'", this_id);
 
-    bool success = false;
-    bool bufferedDataEnabled  = false;
-    int32_t bufferedDataSelection = 0;
+  bool bufferedDataEnabled = false;
+  int32_t measuredDataSelection = ACCEL_GYRO_BUFFERED_DATA;
 
-    rclcpp::WallRate loopRate(0.1);
+  while (rclcpp::ok())
+  {
+    measuredDataSelection =
+      m_node->get_parameter("measured_data_topic_selection").get_parameter_value().get<int32_t>();
 
-    while (rclcpp::ok()) {
+    switch (measuredDataSelection)
+    {
+    case ACCEL_GYRO_BUFFERED_DATA:
+      if (!bufferedDataEnabled)
+      {
+        if (m_data_provider->enableBufferedDataOutput())
+          bufferedDataEnabled = true;
+      }
 
-        int32_t operation_mode = m_node->get_parameter("operation_mode").get_parameter_value().get<int32_t>();
+      if (m_data_provider->getData(m_message))
+        m_publisher->publish(m_message);
+      else
+        RCLCPP_INFO(rclcpp::get_logger("rclcpp_accelgyrotemp"),
+                    "error reading accelerometer, gyroscope and temperature buffered data");
 
-        switch(operation_mode) {
-        case DEVICE_CONTINUOUS_SAMPLING_MODE:
-            success = false;
+      break;
 
-            bufferedDataSelection = m_node->get_parameter("buffered_data_selection").get_parameter_value().get<int32_t>();
-
-            switch(bufferedDataSelection) {
-            case ACCEL_GYRO_BUFFERED_DATA:
-                if(!bufferedDataEnabled)
-                {
-                    if(m_dataProvider->enableBufferedDataOutput())
-                        bufferedDataEnabled  = true;
-                    else
-                        loopRate.sleep();
-                }
-                else
-                {
-                    if(m_dataProvider->getData(m_message))
-                    {
-
-                        RCLCPP_INFO(rclcpp::get_logger("rclcpp_accelgyrotemp"), "Publishing acceleration data: '%f' '%f' '%f'",
-                                    m_message.accel.x, m_message.accel.y, m_message.accel.z);
-
-                        m_publisher->publish(m_message);
-                    }
-                }
-                break;
-
-            case DELTAVEL_DELTAANG_BUFFERED_DATA:
-                bufferedDataEnabled = false;
-                loopRate.sleep();
-                break;
-            default:
-            {
-                loopRate.sleep();
-                break;
-            }
-            }
-            break;
-        default:
-        {
-             loopRate.sleep();
-             break;
-        }
-        }
+    default:
+    {
+      bufferedDataEnabled = false;
+      break;
     }
-    this_id = std::this_thread::get_id();
-    std::cout << "thread " << this_id << " ended...\n";
-    RCLCPP_INFO(rclcpp::get_logger("rclcpp_accelgyrotemp"), "endThread: '%d'", this_id);
+    }
+  }
+
+  this_id = std::this_thread::get_id();
+  std::cout << "thread " << this_id << " ended...\n";
+  RCLCPP_INFO(rclcpp::get_logger("rclcpp_accelgyrotemp"), "endThread: '%d'", this_id);
 }
