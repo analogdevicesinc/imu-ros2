@@ -1,4 +1,4 @@
-/***************************************************************************//**
+/*******************************************************************************
  *   @file   accelgyrotemp_ros_publisher.h
  *   @brief  Header for acceleration, gyroscope and temperature publisher.
  *   @author Vasile Holonec (Vasile.Holonec@analog.com)
@@ -21,27 +21,26 @@
 #ifndef ACCELGYROTEMP_ROS_SUBSCRIBER_H
 #define ACCELGYROTEMP_ROS_SUBSCRIBER_H
 
-#include "imu_ros2/accelgyrotemp_ros_publisher_interface.h"
-#include "imu_ros2/accelgyrotemp_data_provider_interface.h"
-
 #include <rclcpp/rclcpp.hpp>
+
+#include "imu_ros2/accelgyrotemp_data_provider_interface.h"
+#include "imu_ros2/accelgyrotemp_ros_publisher_interface.h"
 
 class AccelGyroTempRosPublisher : public AccelGyroTempRosPublisherInterface
 {
-
 public:
-  AccelGyroTempRosPublisher(std::shared_ptr<rclcpp::Node> &node);
+  AccelGyroTempRosPublisher(std::shared_ptr<rclcpp::Node> & node);
   ~AccelGyroTempRosPublisher();
 
-  void init(std::shared_ptr<rclcpp::Node> &node) override;
-  void setMessageProvider(AccelGyroTempDataProviderInterface *dataProvider) override;
+  void init(std::shared_ptr<rclcpp::Node> & node) override;
+  void setMessageProvider(AccelGyroTempDataProviderInterface * dataProvider) override;
 
   void run() override;
 
 private:
-  AccelGyroTempDataProviderInterface *m_data_provider;
+  AccelGyroTempDataProviderInterface * m_data_provider;
   rclcpp::Publisher<imu_ros2::msg::AccelGyroTempData>::SharedPtr m_publisher;
   imu_ros2::msg::AccelGyroTempData m_message;
 };
 
-#endif // ACCELGYROTEMP_ROS_SUBSCRIBER_H
+#endif  // ACCELGYROTEMP_ROS_SUBSCRIBER_H

@@ -1,4 +1,4 @@
-/***************************************************************************//**
+/*******************************************************************************
  *   @file   velangtemp_data_provider_interface.h
  *   @brief  Interface for providing temperature, delta velocity and
  *           delta angle data.
@@ -26,13 +26,12 @@
 
 class VelAngTempDataProviderInterface
 {
-
 public:
   VelAngTempDataProviderInterface() {}
   virtual ~VelAngTempDataProviderInterface() {}
 
-  virtual bool getData(imu_ros2::msg::VelAngTempData& message) = 0;
+  virtual bool getData(imu_ros2::msg::VelAngTempData & message) = 0;
   virtual bool enableBufferedDataOutput() = 0;
 };
 
-#endif // VELANGTEMP_DATA_PROVIDER_INTERFACE_H
+#endif  // VELANGTEMP_DATA_PROVIDER_INTERFACE_H

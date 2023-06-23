@@ -1,4 +1,4 @@
-/***************************************************************************//**
+/*******************************************************************************
  *   @file   imu_identification_ros_publisher.cpp
  *   @brief  Implementation for imu identification publisher.
  *   @author Vasile Holonec (Vasile.Holonec@analog.com)
@@ -19,28 +19,27 @@
  ******************************************************************************/
 
 #include "imu_ros2/imu_identification_ros_publisher.h"
-#include "imu_ros2/setting_declarations.h"
+
 #include <thread>
 
-ImuIdentificationRosPublisher::ImuIdentificationRosPublisher(std::shared_ptr<rclcpp::Node> &node)
+#include "imu_ros2/setting_declarations.h"
+
+ImuIdentificationRosPublisher::ImuIdentificationRosPublisher(std::shared_ptr<rclcpp::Node> & node)
 {
   init(node);
 }
 
-ImuIdentificationRosPublisher::~ImuIdentificationRosPublisher()
-{
-  delete m_data_provider;
-}
+ImuIdentificationRosPublisher::~ImuIdentificationRosPublisher() { delete m_data_provider; }
 
-void ImuIdentificationRosPublisher::init(std::shared_ptr<rclcpp::Node> &node)
+void ImuIdentificationRosPublisher::init(std::shared_ptr<rclcpp::Node> & node)
 {
   m_node = node;
-  m_publisher = node->create_publisher<imu_ros2::msg::ImuIdentificationData>("imuidentificationdata",
-                10);
+  m_publisher =
+    node->create_publisher<imu_ros2::msg::ImuIdentificationData>("imuidentificationdata", 10);
 }
 
-void ImuIdentificationRosPublisher::setMessageProvider(ImuIdentificationDataProviderInterface
-    *dataProvider)
+void ImuIdentificationRosPublisher::setMessageProvider(
+  ImuIdentificationDataProviderInterface * dataProvider)
 {
   m_data_provider = dataProvider;
 }
@@ -54,8 +53,7 @@ void ImuIdentificationRosPublisher::run()
   // read data only once
   m_data_provider->getData(m_message);
 
-  while (rclcpp::ok())
-  {
+  while (rclcpp::ok()) {
     m_publisher->publish(m_message);
   }
 

@@ -1,4 +1,4 @@
-/***************************************************************************//**
+/*******************************************************************************
  *   @file   ros_task.h
  *   @brief  Header for ros imu task.
  *   @author Vasile Holonec (Vasile.Holonec@analog.com)
@@ -23,7 +23,6 @@
 
 class RosTask
 {
-
 public:
   RosTask() {}
   virtual ~RosTask() {}
@@ -31,4 +30,4 @@ public:
   virtual void run() = 0;
 };
 
-#endif // ROS_TASK_H
+#endif  // ROS_TASK_H

@@ -1,4 +1,4 @@
-/***************************************************************************//**
+/*******************************************************************************
  *   @file   accelgyrotemp_ros_publisher_interface.h
  *   @brief  Interface for acceleration, gyroscope and temperature publisher.
  *   @author Vasile Holonec (Vasile.Holonec@analog.com)
@@ -21,25 +21,24 @@
 #ifndef ACCELGYROTEMP_ROS_PUBLISHER_INTERFACE_H
 #define ACCELGYROTEMP_ROS_PUBLISHER_INTERFACE_H
 
-#include "imu_ros2/ros_task.h"
-
-#include <rclcpp/rclcpp.hpp>
 #include <memory>
+#include <rclcpp/rclcpp.hpp>
+
+#include "imu_ros2/ros_task.h"
 
 class AccelGyroTempDataProviderInterface;
 
 class AccelGyroTempRosPublisherInterface : public RosTask
 {
-
 public:
   AccelGyroTempRosPublisherInterface() {}
   virtual ~AccelGyroTempRosPublisherInterface() {}
 
-  virtual void init(std::shared_ptr<rclcpp::Node> &node) = 0;
-  virtual void setMessageProvider(AccelGyroTempDataProviderInterface *dataProvider) = 0;
+  virtual void init(std::shared_ptr<rclcpp::Node> & node) = 0;
+  virtual void setMessageProvider(AccelGyroTempDataProviderInterface * dataProvider) = 0;
 
 protected:
   std::shared_ptr<rclcpp::Node> m_node;
 };
 
-#endif // ACCELGYROTEMP_ROS_PUBLISHER_INTERFACE_H
+#endif  // ACCELGYROTEMP_ROS_PUBLISHER_INTERFACE_H

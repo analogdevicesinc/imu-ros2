@@ -1,4 +1,4 @@
-/***************************************************************************//**
+/*******************************************************************************
  *   @file   imu_ros_publisher.h
  *   @brief  Header for providing IMU ros standard data.
  *   @author Vasile Holonec (Vasile.Holonec@analog.com)
@@ -21,21 +21,20 @@
 #ifndef IMU_DATA_PROVIDER_H
 #define IMU_DATA_PROVIDER_H
 
-#include "imu_ros2/imu_data_provider_interface.h"
 #include "imu_ros2/iio_wrapper.h"
+#include "imu_ros2/imu_data_provider_interface.h"
 
 class ImuDataProvider : public ImuDataProviderInterface
 {
-
 public:
   ImuDataProvider();
   ~ImuDataProvider();
 
   bool enableBufferedDataOutput() override;
-  bool getData(sensor_msgs::msg::Imu& message) override;
+  bool getData(sensor_msgs::msg::Imu & message) override;
 
 private:
   IIOWrapper m_iio_wrapper;
 };
 
-#endif // IMU_DATA_PROVIDER_H
+#endif  // IMU_DATA_PROVIDER_H

@@ -1,4 +1,4 @@
-/***************************************************************************//**
+/*******************************************************************************
  *   @file   imu_16505_diag_data_provider.h
  *   @brief  Header for providing diagnosis data for adis16505.
  *   @author Vasile Holonec (Vasile.Holonec@analog.com)
@@ -21,20 +21,19 @@
 #ifndef IMU_16505_DIAG_DATA_PROVIDER_H
 #define IMU_16505_DIAG_DATA_PROVIDER_H
 
-#include "imu_ros2/imu_16505_diag_data_provider_interface.h"
 #include "imu_ros2/iio_wrapper.h"
+#include "imu_ros2/imu_16505_diag_data_provider_interface.h"
 
 class Imu16505DiagDataProvider : public Imu16505DiagDataProviderInterface
 {
-
 public:
   Imu16505DiagDataProvider();
   ~Imu16505DiagDataProvider();
 
-  bool getData(imu_ros2::msg::Imu16505DiagData &message) override;
+  bool getData(imu_ros2::msg::Imu16505DiagData & message) override;
 
 private:
   IIOWrapper m_iio_wrapper;
 };
 
-#endif // IMU_16505_DIAG_DATA_PROVIDER_H
+#endif  // IMU_16505_DIAG_DATA_PROVIDER_H

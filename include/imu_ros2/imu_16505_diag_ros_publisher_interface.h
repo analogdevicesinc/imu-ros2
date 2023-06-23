@@ -1,4 +1,4 @@
-/***************************************************************************//**
+/*******************************************************************************
  *   @file   imu_16505_diag_ros_publisher_interface.h
  *   @brief  Interface for adis16505 diagnosis publisher.
  *   @author Vasile Holonec (Vasile.Holonec@analog.com)
@@ -21,25 +21,24 @@
 #ifndef IMU_16505_DIAG_ROS_PUBLISHER_INTERFACE_H
 #define IMU_16505_DIAG_ROS_PUBLISHER_INTERFACE_H
 
-#include "imu_ros2/ros_task.h"
-
-#include <rclcpp/rclcpp.hpp>
 #include <memory>
+#include <rclcpp/rclcpp.hpp>
+
+#include "imu_ros2/ros_task.h"
 
 class Imu16505DiagDataProviderInterface;
 
 class Imu16505DiagRosPublisherInterface : public RosTask
 {
-
 public:
   Imu16505DiagRosPublisherInterface() {}
   virtual ~Imu16505DiagRosPublisherInterface() {}
 
-  virtual void init(std::shared_ptr<rclcpp::Node>& node) = 0;
-  virtual void setMessageProvider(Imu16505DiagDataProviderInterface* dataProvider) = 0;
+  virtual void init(std::shared_ptr<rclcpp::Node> & node) = 0;
+  virtual void setMessageProvider(Imu16505DiagDataProviderInterface * dataProvider) = 0;
 
 protected:
   std::shared_ptr<rclcpp::Node> m_node;
 };
 
-#endif // IMU_16505_DIAG_ROS_PUBLISHER_INTERFACE_H
+#endif  // IMU_16505_DIAG_ROS_PUBLISHER_INTERFACE_H

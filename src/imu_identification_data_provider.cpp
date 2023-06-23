@@ -1,4 +1,4 @@
-/***************************************************************************//**
+/*******************************************************************************
  *   @file   imu_identification_data_provider.cpp
  *   @brief  Implementation for imu identification data provider.
  *   @author Vasile Holonec (Vasile.Holonec@analog.com)
@@ -20,27 +20,19 @@
 
 #include "imu_ros2/imu_identification_data_provider.h"
 
-ImuIdentificationDataProvider::ImuIdentificationDataProvider()
+ImuIdentificationDataProvider::ImuIdentificationDataProvider() {}
+
+ImuIdentificationDataProvider::~ImuIdentificationDataProvider() {}
+
+bool ImuIdentificationDataProvider::getData(imu_ros2::msg::ImuIdentificationData & message)
 {
-}
+  if (!m_iio_wrapper.firmware_revision(message.firmware_revision)) return false;
 
-ImuIdentificationDataProvider::~ImuIdentificationDataProvider()
-{
-}
+  if (!m_iio_wrapper.firmware_date(message.firmware_date)) return false;
 
-bool ImuIdentificationDataProvider::getData(imu_ros2::msg::ImuIdentificationData& message)
-{
-  if(!m_iio_wrapper.firmware_revision(message.firmware_revision))
-    return false;
+  if (!m_iio_wrapper.product_id(message.product_id)) return false;
 
-  if(!m_iio_wrapper.firmware_date(message.firmware_date))
-    return false;
-
-  if(!m_iio_wrapper.product_id(message.product_id))
-    return false;
-
-  if(!m_iio_wrapper.serial_number(message.serial_number))
-    return false;
+  if (!m_iio_wrapper.serial_number(message.serial_number)) return false;
 
   return m_iio_wrapper.gyroscope_measurement_range(message.gyroscope_measurement_range);
 }

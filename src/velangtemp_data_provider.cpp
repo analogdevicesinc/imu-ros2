@@ -1,4 +1,4 @@
-/***************************************************************************//**
+/*******************************************************************************
  *   @file   velangtemp_data_provider.cpp
  *   @brief  Implementation for temperature, delta velocity and delta angle
  *           data provider.
@@ -21,23 +21,18 @@
 
 #include "imu_ros2/velangtemp_data_provider.h"
 
-VelAngTempDataProvider::VelAngTempDataProvider()
-{
-}
+VelAngTempDataProvider::VelAngTempDataProvider() {}
 
-VelAngTempDataProvider::~VelAngTempDataProvider()
-{
-}
+VelAngTempDataProvider::~VelAngTempDataProvider() {}
 
 bool VelAngTempDataProvider::enableBufferedDataOutput()
 {
   return (m_iio_wrapper.update_burst_data_selection(1) == true);
 }
 
-bool VelAngTempDataProvider::getData(imu_ros2::msg::VelAngTempData &message)
+bool VelAngTempDataProvider::getData(imu_ros2::msg::VelAngTempData & message)
 {
-  if (!m_iio_wrapper.updateBuffer())
-    return false;
+  if (!m_iio_wrapper.updateBuffer()) return false;
 
   message.delta_angle.x = m_iio_wrapper.getBuffDeltaAngleX();
   message.delta_angle.y = m_iio_wrapper.getBuffDeltaAngleY();

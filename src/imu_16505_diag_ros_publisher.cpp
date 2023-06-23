@@ -1,4 +1,4 @@
-/***************************************************************************//**
+/*******************************************************************************
  *   @file   imu_16505_diag_ros_publisher.cpp
  *   @brief  Implementation for adis16505 diagnosis publisher.
  *   @author Vasile Holonec (Vasile.Holonec@analog.com)
@@ -19,25 +19,23 @@
  ******************************************************************************/
 
 #include "imu_ros2/imu_16505_diag_ros_publisher.h"
+
 #include <thread>
 
-Imu16505DiagRosPublisher::Imu16505DiagRosPublisher(std::shared_ptr<rclcpp::Node> &node)
+Imu16505DiagRosPublisher::Imu16505DiagRosPublisher(std::shared_ptr<rclcpp::Node> & node)
 {
   init(node);
 }
 
-Imu16505DiagRosPublisher::~Imu16505DiagRosPublisher()
-{
-  delete m_data_provider;
-}
+Imu16505DiagRosPublisher::~Imu16505DiagRosPublisher() { delete m_data_provider; }
 
-void Imu16505DiagRosPublisher::init(std::shared_ptr<rclcpp::Node> &node)
+void Imu16505DiagRosPublisher::init(std::shared_ptr<rclcpp::Node> & node)
 {
   m_node = node;
   m_publisher = node->create_publisher<imu_ros2::msg::Imu16505DiagData>("Imu16505DiagData", 10);
 }
 
-void Imu16505DiagRosPublisher::setMessageProvider(Imu16505DiagDataProviderInterface *dataProvider)
+void Imu16505DiagRosPublisher::setMessageProvider(Imu16505DiagDataProviderInterface * dataProvider)
 {
   m_data_provider = dataProvider;
 }
@@ -48,8 +46,7 @@ void Imu16505DiagRosPublisher::run()
   std::cout << "thread " << this_id << " started...\n";
   RCLCPP_INFO(rclcpp::get_logger("rclcpp_imu16505diag"), "startThread: '%d'", this_id);
 
-  while (rclcpp::ok())
-  {
+  while (rclcpp::ok()) {
     if (m_data_provider->getData(m_message))
       m_publisher->publish(m_message);
     else

@@ -1,9 +1,9 @@
-/***************************************************************************//**
+/*******************************************************************************
  *   @file   accelgyrotemp_data_provider.cpp
  *   @brief  Implementation for providing acceleration, gyroscope and
  *           temperature data provider.
  *   @author Vasile Holonec (Vasile.Holonec@analog.com)
- ********************************************************************************
+ *******************************************************************************
  * Copyright 2023(c) Analog Devices, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -21,23 +21,18 @@
 
 #include "imu_ros2/accelgyrotemp_data_provider.h"
 
-AccelGyroTempDataProvider::AccelGyroTempDataProvider()
-{
-}
+AccelGyroTempDataProvider::AccelGyroTempDataProvider() {}
 
-AccelGyroTempDataProvider::~AccelGyroTempDataProvider()
-{
-}
+AccelGyroTempDataProvider::~AccelGyroTempDataProvider() {}
 
 bool AccelGyroTempDataProvider::enableBufferedDataOutput()
 {
   return (m_iio_wrapper.update_burst_data_selection(0) == true);
 }
 
-bool AccelGyroTempDataProvider::getData(imu_ros2::msg::AccelGyroTempData &message)
+bool AccelGyroTempDataProvider::getData(imu_ros2::msg::AccelGyroTempData & message)
 {
-  if (!m_iio_wrapper.updateBuffer())
-    return false;
+  if (!m_iio_wrapper.updateBuffer()) return false;
 
   message.linear_acceleration.x = m_iio_wrapper.getBuffLinearAccelerationX();
   message.linear_acceleration.y = m_iio_wrapper.getBuffLinearAccelerationY();

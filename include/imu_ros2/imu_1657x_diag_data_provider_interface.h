@@ -1,4 +1,4 @@
-/***************************************************************************//**
+/*******************************************************************************
  *   @file   imu_1657x_diag_data_provider_interface.h
  *   @brief  Interface for providing diagnosis data for adis1657x.
  *   @author Vasile Holonec (Vasile.Holonec@analog.com)
@@ -25,12 +25,11 @@
 
 class Imu1657xDiagDataProviderInterface
 {
-
 public:
   Imu1657xDiagDataProviderInterface() {}
   virtual ~Imu1657xDiagDataProviderInterface() {}
 
-  virtual bool getData(imu_ros2::msg::Imu1657xDiagData &message) = 0;
+  virtual bool getData(imu_ros2::msg::Imu1657xDiagData & message) = 0;
 };
 
-#endif // IMU_1657X_DIAG_DATA_PROVIDER_INTERFACE_H
+#endif  // IMU_1657X_DIAG_DATA_PROVIDER_INTERFACE_H

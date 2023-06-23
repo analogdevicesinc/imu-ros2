@@ -1,4 +1,4 @@
-/***************************************************************************//**
+/*******************************************************************************
  *   @file   imu_identification_ros_publisher.h
  *   @brief  Header for imu identification publisher.
  *   @author Vasile Holonec (Vasile.Holonec@analog.com)
@@ -21,27 +21,26 @@
 #ifndef IMU_IDENTIFICATION_ROS_PUBLISHER_H
 #define IMU_IDENTIFICATION_ROS_PUBLISHER_H
 
-#include "imu_ros2/imu_identification_ros_publisher_interface.h"
-#include "imu_ros2/imu_identification_data_provider_interface.h"
-
 #include <rclcpp/rclcpp.hpp>
+
+#include "imu_ros2/imu_identification_data_provider_interface.h"
+#include "imu_ros2/imu_identification_ros_publisher_interface.h"
 
 class ImuIdentificationRosPublisher : public ImuIdentificationRosPublisherInterface
 {
-
 public:
-  ImuIdentificationRosPublisher(std::shared_ptr<rclcpp::Node>& node);
+  ImuIdentificationRosPublisher(std::shared_ptr<rclcpp::Node> & node);
   ~ImuIdentificationRosPublisher();
 
-  void init(std::shared_ptr<rclcpp::Node>& node) override;
-  void setMessageProvider(ImuIdentificationDataProviderInterface* dataProvider) override;
+  void init(std::shared_ptr<rclcpp::Node> & node) override;
+  void setMessageProvider(ImuIdentificationDataProviderInterface * dataProvider) override;
 
   void run() override;
 
 private:
-  ImuIdentificationDataProviderInterface* m_data_provider;
+  ImuIdentificationDataProviderInterface * m_data_provider;
   rclcpp::Publisher<imu_ros2::msg::ImuIdentificationData>::SharedPtr m_publisher;
   imu_ros2::msg::ImuIdentificationData m_message;
 };
 
-#endif // IMU_IDENTIFICATION_ROS_PUBLISHER_H
+#endif  // IMU_IDENTIFICATION_ROS_PUBLISHER_H

@@ -1,4 +1,4 @@
-/***************************************************************************//**
+/*******************************************************************************
  *   @file   setting_declarations.h
  *   @brief  Header for common declarations.
  *   @author Vasile Holonec (Vasile.Holonec@analog.com)
@@ -21,14 +21,15 @@
 #ifndef SETTING_DECLARATIONS_H
 #define SETTING_DECLARATIONS_H
 
-enum IIODeviceName {
+enum IIODeviceName
+{
   ADIS16505 = 0,
   ADIS1657X
 };
 
-#define ACCEL_GYRO_BUFFERED_DATA        0
+#define ACCEL_GYRO_BUFFERED_DATA 0
 #define DELTAVEL_DELTAANG_BUFFERED_DATA 1
 #define IMU_STD_MSG_DATA 2
 #define FULL_MEASURED_DATA 3
 
-#endif // SETTING_DECLARATIONS_H
+#endif  // SETTING_DECLARATIONS_H

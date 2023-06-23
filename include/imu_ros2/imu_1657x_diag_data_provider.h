@@ -1,4 +1,4 @@
-/***************************************************************************//**
+/*******************************************************************************
  *   @file   imu_1657x_diag_data_provider.h
  *   @brief  Header for providing diagnosis data for adis1657x.
  *   @author Vasile Holonec (Vasile.Holonec@analog.com)
@@ -21,20 +21,19 @@
 #ifndef IMU_1657X_DIAG_DATA_PROVIDER_H
 #define IMU_1657X_DIAG_DATA_PROVIDER_H
 
-#include "imu_ros2/imu_1657x_diag_data_provider_interface.h"
 #include "imu_ros2/iio_wrapper.h"
+#include "imu_ros2/imu_1657x_diag_data_provider_interface.h"
 
 class Imu1657xDiagDataProvider : public Imu1657xDiagDataProviderInterface
 {
-
 public:
   Imu1657xDiagDataProvider();
   ~Imu1657xDiagDataProvider();
 
-  bool getData(imu_ros2::msg::Imu1657xDiagData &message) override;
+  bool getData(imu_ros2::msg::Imu1657xDiagData & message) override;
 
 private:
   IIOWrapper m_iio_wrapper;
 };
 
-#endif // IMU_1657X_DIAG_DATA_PROVIDER_H
+#endif  // IMU_1657X_DIAG_DATA_PROVIDER_H

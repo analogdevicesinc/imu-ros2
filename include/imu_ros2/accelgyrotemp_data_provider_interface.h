@@ -1,4 +1,4 @@
-/***************************************************************************//**
+/*******************************************************************************
  *   @file   accelgyrotemp_data_provider_interface.h
  *   @brief  Interface for providing acceleration, gyroscope and
  *           temperature data provider.
@@ -26,13 +26,12 @@
 
 class AccelGyroTempDataProviderInterface
 {
-
 public:
   AccelGyroTempDataProviderInterface() {}
   virtual ~AccelGyroTempDataProviderInterface() {}
 
-  virtual bool getData(imu_ros2::msg::AccelGyroTempData &message) = 0;
+  virtual bool getData(imu_ros2::msg::AccelGyroTempData & message) = 0;
   virtual bool enableBufferedDataOutput() = 0;
 };
 
-#endif // ACCELGYROTEMP_DATA_PROVIDER_INTERFACE_H
+#endif  // ACCELGYROTEMP_DATA_PROVIDER_INTERFACE_H

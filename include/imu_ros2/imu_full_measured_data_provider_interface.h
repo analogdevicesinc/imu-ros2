@@ -1,4 +1,4 @@
-/***************************************************************************//**
+/*******************************************************************************
  *   @file   imu_full_measured_data_provider_interface.h
  *   @brief  Interface for providing acceleration, gyroscope, temperature,
  *           delta velocity, delta angle and temperature data.
@@ -26,12 +26,11 @@
 
 class ImuFullMeasuredDataProviderInterface
 {
-
 public:
   ImuFullMeasuredDataProviderInterface() {}
   virtual ~ImuFullMeasuredDataProviderInterface() {}
 
-  virtual bool getData(imu_ros2::msg::ImuFullMeasuredData& data) = 0;
+  virtual bool getData(imu_ros2::msg::ImuFullMeasuredData & data) = 0;
 };
 
-#endif // IMU_FULL_MEASURED_DATA_PROVIDER_INTERFACE_H
+#endif  // IMU_FULL_MEASURED_DATA_PROVIDER_INTERFACE_H

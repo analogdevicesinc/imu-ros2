@@ -1,4 +1,4 @@
-/***************************************************************************//**
+/*******************************************************************************
  *   @file   imu_full_measured_data_ros_publisher.h
  *   @brief  Header for acceleration, gyroscope, temperature, delta velocity,
  *           delta angle and temperature publisher.
@@ -22,28 +22,26 @@
 #ifndef IMU_FULL_MEASURED_DATA_ROS_PUBLISHER_H
 #define IMU_FULL_MEASURED_DATA_ROS_PUBLISHER_H
 
-#include "imu_ros2/imu_full_measured_data_ros_publisher_interface.h"
-#include "imu_ros2/imu_full_measured_data_provider_interface.h"
-
 #include <rclcpp/rclcpp.hpp>
+
+#include "imu_ros2/imu_full_measured_data_provider_interface.h"
+#include "imu_ros2/imu_full_measured_data_ros_publisher_interface.h"
 
 class ImuFullMeasuredDataRosPublisher : public ImuFullMeasuredDataRosPublisherInterface
 {
-
 public:
-  ImuFullMeasuredDataRosPublisher(std::shared_ptr<rclcpp::Node>& node);
+  ImuFullMeasuredDataRosPublisher(std::shared_ptr<rclcpp::Node> & node);
   ~ImuFullMeasuredDataRosPublisher();
 
-  void init(std::shared_ptr<rclcpp::Node>& node) override;
-  void setMessageProvider(ImuFullMeasuredDataProviderInterface* dataProvider) override;
+  void init(std::shared_ptr<rclcpp::Node> & node) override;
+  void setMessageProvider(ImuFullMeasuredDataProviderInterface * dataProvider) override;
 
   void run() override;
 
 private:
-
-  ImuFullMeasuredDataProviderInterface* m_data_provider;
+  ImuFullMeasuredDataProviderInterface * m_data_provider;
   rclcpp::Publisher<imu_ros2::msg::ImuFullMeasuredData>::SharedPtr m_publisher;
   imu_ros2::msg::ImuFullMeasuredData m_message;
 };
 
-#endif // IMU_FULL_MEASURED_DATA_ROS_PUBLISHER_H
+#endif  // IMU_FULL_MEASURED_DATA_ROS_PUBLISHER_H

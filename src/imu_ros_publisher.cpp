@@ -1,4 +1,4 @@
-/***************************************************************************//**
+/*******************************************************************************
  *   @file   imu_ros_publisher.cpp
  *   @brief  Implementation for standard ros imu data publisher.
  *   @author Vasile Holonec (Vasile.Holonec@analog.com)
@@ -19,27 +19,23 @@
  ******************************************************************************/
 
 #include "imu_ros2/imu_ros_publisher.h"
-#include "imu_ros2/setting_declarations.h"
-#include <thread>
+
 #include <chrono>
+#include <thread>
 
-ImuRosPublisher::ImuRosPublisher(std::shared_ptr<rclcpp::Node> &node)
-{
-  init(node);
-}
+#include "imu_ros2/setting_declarations.h"
 
-ImuRosPublisher::~ImuRosPublisher()
-{
-  delete m_data_provider;
-}
+ImuRosPublisher::ImuRosPublisher(std::shared_ptr<rclcpp::Node> & node) { init(node); }
 
-void ImuRosPublisher::init(std::shared_ptr<rclcpp::Node> &node)
+ImuRosPublisher::~ImuRosPublisher() { delete m_data_provider; }
+
+void ImuRosPublisher::init(std::shared_ptr<rclcpp::Node> & node)
 {
   m_node = node;
   m_publisher = node->create_publisher<sensor_msgs::msg::Imu>("imu", 10);
 }
 
-void ImuRosPublisher::setMessageProvider(ImuDataProviderInterface *dataProvider)
+void ImuRosPublisher::setMessageProvider(ImuDataProviderInterface * dataProvider)
 {
   m_data_provider = dataProvider;
 }
@@ -53,32 +49,28 @@ void ImuRosPublisher::run()
   std::cout << "thread " << this_id << " started...\n";
   RCLCPP_INFO(rclcpp::get_logger("rclcpp_imuros"), "startThread: '%d'", this_id);
 
-  while (rclcpp::ok())
-  {
+  while (rclcpp::ok()) {
     measuredDataSelection =
       m_node->get_parameter("measured_data_topic_selection").get_parameter_value().get<int32_t>();
 
-    switch (measuredDataSelection)
-    {
-    case IMU_STD_MSG_DATA:
-      if (!bufferedDataEnabled)
-      {
-        if (m_data_provider->enableBufferedDataOutput())
-          bufferedDataEnabled = true;
+    switch (measuredDataSelection) {
+      case IMU_STD_MSG_DATA:
+        if (!bufferedDataEnabled) {
+          if (m_data_provider->enableBufferedDataOutput()) bufferedDataEnabled = true;
+        }
+
+        if (m_data_provider->getData(m_message))
+          m_publisher->publish(m_message);
+        else
+          RCLCPP_INFO(
+            rclcpp::get_logger("rclcpp_imuros"), "error reading standard imu buffered data");
+
+        break;
+
+      default: {
+        bufferedDataEnabled = false;
+        break;
       }
-
-      if (m_data_provider->getData(m_message))
-        m_publisher->publish(m_message);
-      else
-        RCLCPP_INFO(rclcpp::get_logger("rclcpp_imuros"), "error reading standard imu buffered data");
-
-      break;
-
-    default:
-    {
-      bufferedDataEnabled = false;
-      break;
-    }
     }
   }
 

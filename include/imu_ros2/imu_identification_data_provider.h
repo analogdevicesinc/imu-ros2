@@ -21,20 +21,19 @@
 #ifndef IMU_IDENTIFICATION_DATA_PROVIDER_H
 #define IMU_IDENTIFICATION_DATA_PROVIDER_H
 
-#include "imu_ros2/imu_identification_data_provider_interface.h"
 #include "imu_ros2/iio_wrapper.h"
+#include "imu_ros2/imu_identification_data_provider_interface.h"
 
 class ImuIdentificationDataProvider : public ImuIdentificationDataProviderInterface
 {
-
 public:
   ImuIdentificationDataProvider();
   ~ImuIdentificationDataProvider();
 
-  bool getData(imu_ros2::msg::ImuIdentificationData &message) override;
+  bool getData(imu_ros2::msg::ImuIdentificationData & message) override;
 
 private:
   IIOWrapper m_iio_wrapper;
 };
 
-#endif // IMU_IDENTIFICATION_DATA_PROVIDER_STRING_H
+#endif  // IMU_IDENTIFICATION_DATA_PROVIDER_STRING_H

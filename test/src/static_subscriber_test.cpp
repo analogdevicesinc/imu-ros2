@@ -1,4 +1,4 @@
-/***************************************************************************//**
+/*******************************************************************************
 *   @file   static_subscriber_test.cpp
 *   @brief  Test static data
 *   @author Vasile Holonec (Vasile.Holonec@analog.com)
@@ -18,63 +18,53 @@
 * limitations under the License.
 *******************************************************************************/
 
-#include <rclcpp/rclcpp.hpp>
 #include <gtest/gtest.h>
+
 #include <chrono>
+#include <rclcpp/rclcpp.hpp>
+
 #include "imu_ros2/msg/imu_identification_data.hpp"
 
-class ImuIdentificationSubscriberTest  : public ::testing::Test
+class ImuIdentificationSubscriberTest : public ::testing::Test
 {
 public:
-    static void SetUpTestCase()
-    {
+  static void SetUpTestCase() {}
 
-    }
-
-    static void TearDownTestCase()
-    {
-        rclcpp::shutdown();
-    }
+  static void TearDownTestCase() { rclcpp::shutdown(); }
 };
 
-TEST(ImuIdentificationSubscriberTest,test_imu_identification_data_values1)
+TEST(ImuIdentificationSubscriberTest, test_imu_identification_data_values1)
 {
-    auto node = rclcpp::Node::make_shared("imuidentificationdata");
+  auto node = rclcpp::Node::make_shared("imuidentificationdata");
 
-    std::string topic = "imuidentificationdata";
+  std::string topic = "imuidentificationdata";
 
-    int counter = 0;
+  int counter = 0;
 
+  auto callback = [&counter](imu_ros2::msg::ImuIdentificationData msg) -> void {
+    ++counter;
 
-    auto callback =
-            [&counter]( imu_ros2::msg::ImuIdentificationData msg) -> void
-    {
-        ++counter;
+    RCLCPP_INFO(
+      rclcpp::get_logger("rclcpp_imu_identification_data"), " device info: %s %s %d  \n",
+      msg.firmware_revision.c_str(), msg.firmware_date.c_str(), msg.product_id);
+    ASSERT_TRUE(msg.firmware_revision == "1.6");
+    ASSERT_TRUE(msg.firmware_date == "06-27-2019");
+    ASSERT_TRUE(msg.product_id == 16505);
+  };
 
-        RCLCPP_INFO(rclcpp::get_logger("rclcpp_imu_identification_data"), " device info: %s %s %d  \n",
-                    msg.firmware_revision.c_str(), msg.firmware_date.c_str(), msg.product_id );
-        ASSERT_TRUE(msg.firmware_revision == "1.6");
-        ASSERT_TRUE(msg.firmware_date == "06-27-2019");
-        ASSERT_TRUE(msg.product_id == 16505);
+  rclcpp::executors::SingleThreadedExecutor executor;
+  executor.add_node(node);
 
+  auto subscriber =
+    node->create_subscription<imu_ros2::msg::ImuIdentificationData>(topic, 10, callback);
 
-    };
+  std::chrono::seconds sec(1);
 
-    rclcpp::executors::SingleThreadedExecutor executor;
-    executor.add_node(node);
-
-    auto subscriber = node->create_subscription<imu_ros2::msg::ImuIdentificationData>(topic, 10, callback);
-
-    std::chrono::seconds sec(1);
-
-
-    for(int i=0;i<100;i++)
-    {
+  for (int i = 0; i < 100; i++) {
     executor.spin_once(sec);
-    }
+  }
 
-    //executor.spin();
+  //executor.spin();
 
-    ASSERT_TRUE(true);
+  ASSERT_TRUE(true);
 }
-

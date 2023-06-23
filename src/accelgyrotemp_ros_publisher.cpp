@@ -1,4 +1,4 @@
-/***************************************************************************//**
+/*******************************************************************************
  *   @file   accelgyrotemp_ros_publisher.cpp
  *   @brief  Implementation for acceleration, gyroscope and temperature
  *           publisher.
@@ -20,27 +20,27 @@
  ******************************************************************************/
 
 #include "imu_ros2/accelgyrotemp_ros_publisher.h"
-#include "imu_ros2/setting_declarations.h"
-#include <thread>
-#include <chrono>
 
-AccelGyroTempRosPublisher::AccelGyroTempRosPublisher(std::shared_ptr<rclcpp::Node> &node)
+#include <chrono>
+#include <thread>
+
+#include "imu_ros2/setting_declarations.h"
+
+AccelGyroTempRosPublisher::AccelGyroTempRosPublisher(std::shared_ptr<rclcpp::Node> & node)
 {
   init(node);
 }
 
-AccelGyroTempRosPublisher::~AccelGyroTempRosPublisher()
-{
-  delete m_data_provider;
-}
+AccelGyroTempRosPublisher::~AccelGyroTempRosPublisher() { delete m_data_provider; }
 
-void AccelGyroTempRosPublisher::init(std::shared_ptr<rclcpp::Node> &node)
+void AccelGyroTempRosPublisher::init(std::shared_ptr<rclcpp::Node> & node)
 {
   m_node = node;
   m_publisher = node->create_publisher<imu_ros2::msg::AccelGyroTempData>("accelgyrotempdata", 10);
 }
 
-void AccelGyroTempRosPublisher::setMessageProvider(AccelGyroTempDataProviderInterface *dataProvider)
+void AccelGyroTempRosPublisher::setMessageProvider(
+  AccelGyroTempDataProviderInterface * dataProvider)
 {
   m_data_provider = dataProvider;
 }
@@ -54,33 +54,29 @@ void AccelGyroTempRosPublisher::run()
   bool bufferedDataEnabled = false;
   int32_t measuredDataSelection = ACCEL_GYRO_BUFFERED_DATA;
 
-  while (rclcpp::ok())
-  {
+  while (rclcpp::ok()) {
     measuredDataSelection =
       m_node->get_parameter("measured_data_topic_selection").get_parameter_value().get<int32_t>();
 
-    switch (measuredDataSelection)
-    {
-    case ACCEL_GYRO_BUFFERED_DATA:
-      if (!bufferedDataEnabled)
-      {
-        if (m_data_provider->enableBufferedDataOutput())
-          bufferedDataEnabled = true;
+    switch (measuredDataSelection) {
+      case ACCEL_GYRO_BUFFERED_DATA:
+        if (!bufferedDataEnabled) {
+          if (m_data_provider->enableBufferedDataOutput()) bufferedDataEnabled = true;
+        }
+
+        if (m_data_provider->getData(m_message))
+          m_publisher->publish(m_message);
+        else
+          RCLCPP_INFO(
+            rclcpp::get_logger("rclcpp_accelgyrotemp"),
+            "error reading accelerometer, gyroscope and temperature buffered data");
+
+        break;
+
+      default: {
+        bufferedDataEnabled = false;
+        break;
       }
-
-      if (m_data_provider->getData(m_message))
-        m_publisher->publish(m_message);
-      else
-        RCLCPP_INFO(rclcpp::get_logger("rclcpp_accelgyrotemp"),
-                    "error reading accelerometer, gyroscope and temperature buffered data");
-
-      break;
-
-    default:
-    {
-      bufferedDataEnabled = false;
-      break;
-    }
     }
   }
 

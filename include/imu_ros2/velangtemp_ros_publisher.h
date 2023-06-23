@@ -1,4 +1,4 @@
-/***************************************************************************//**
+/*******************************************************************************
  *   @file   velangtemp_ros_publisher.h
  *   @brief  Header temperature, delta velocity and delta angle publisher.
  *   @author Vasile Holonec (Vasile.Holonec@analog.com)
@@ -21,27 +21,26 @@
 #ifndef VELANGTEMP_ROS_PUBLISHER_H
 #define VELANGTEMP_ROS_PUBLISHER_H
 
-#include "imu_ros2/velangtemp_ros_publisher_interface.h"
-#include "imu_ros2/velangtemp_data_provider_interface.h"
-
 #include <rclcpp/rclcpp.hpp>
+
+#include "imu_ros2/velangtemp_data_provider_interface.h"
+#include "imu_ros2/velangtemp_ros_publisher_interface.h"
 
 class VelAngTempRosPublisher : public VelAngTempRosPublisherInterface
 {
-
 public:
-  VelAngTempRosPublisher(std::shared_ptr<rclcpp::Node>& node);
+  VelAngTempRosPublisher(std::shared_ptr<rclcpp::Node> & node);
   ~VelAngTempRosPublisher();
 
-  void init(std::shared_ptr<rclcpp::Node>& node) override;
-  void setMessageProvider(VelAngTempDataProviderInterface* dataProvider) override;
+  void init(std::shared_ptr<rclcpp::Node> & node) override;
+  void setMessageProvider(VelAngTempDataProviderInterface * dataProvider) override;
 
   void run() override;
 
 private:
-  VelAngTempDataProviderInterface* m_data_provider;
+  VelAngTempDataProviderInterface * m_data_provider;
   rclcpp::Publisher<imu_ros2::msg::VelAngTempData>::SharedPtr m_publisher;
   imu_ros2::msg::VelAngTempData m_message;
 };
 
-#endif // VELANGTEMP_ROS_PUBLISHER_H
+#endif  // VELANGTEMP_ROS_PUBLISHER_H

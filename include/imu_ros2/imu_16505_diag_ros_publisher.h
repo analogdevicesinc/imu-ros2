@@ -1,4 +1,4 @@
-/***************************************************************************//**
+/*******************************************************************************
  *   @file   imu_16505_diag_ros_publisher.h
  *   @brief  Header for adis16505 diagnosis publisher.
  *   @author Vasile Holonec (Vasile.Holonec@analog.com)
@@ -21,27 +21,26 @@
 #ifndef IMU_16505_DIAG_ROS_SUBSCRIBER_H
 #define IMU_16505_DIAG_ROS_SUBSCRIBER_H
 
-#include "imu_ros2/imu_16505_diag_ros_publisher_interface.h"
-#include "imu_ros2/imu_16505_diag_data_provider_interface.h"
-
 #include <rclcpp/rclcpp.hpp>
+
+#include "imu_ros2/imu_16505_diag_data_provider_interface.h"
+#include "imu_ros2/imu_16505_diag_ros_publisher_interface.h"
 
 class Imu16505DiagRosPublisher : public Imu16505DiagRosPublisherInterface
 {
-
 public:
-  Imu16505DiagRosPublisher(std::shared_ptr<rclcpp::Node>& node);
+  Imu16505DiagRosPublisher(std::shared_ptr<rclcpp::Node> & node);
   ~Imu16505DiagRosPublisher();
 
-  void init(std::shared_ptr<rclcpp::Node>& node) override;
-  void setMessageProvider(Imu16505DiagDataProviderInterface* dataProvider) override;
+  void init(std::shared_ptr<rclcpp::Node> & node) override;
+  void setMessageProvider(Imu16505DiagDataProviderInterface * dataProvider) override;
 
   void run() override;
 
 private:
-  Imu16505DiagDataProviderInterface* m_data_provider;
+  Imu16505DiagDataProviderInterface * m_data_provider;
   rclcpp::Publisher<imu_ros2::msg::Imu16505DiagData>::SharedPtr m_publisher;
   imu_ros2::msg::Imu16505DiagData m_message;
 };
 
-#endif // IMU_16505_DIAG_ROS_SUBSCRIBER_H
+#endif  // IMU_16505_DIAG_ROS_SUBSCRIBER_H

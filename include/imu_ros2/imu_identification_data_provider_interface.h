@@ -1,4 +1,4 @@
-/***************************************************************************//**
+/*******************************************************************************
  *   @file   imu_identification_data_provider_interface.h
  *   @brief  Interface for providing imu identification data.
  *   @author Vasile Holonec (Vasile.Holonec@analog.com)
@@ -25,12 +25,11 @@
 
 class ImuIdentificationDataProviderInterface
 {
-
 public:
   ImuIdentificationDataProviderInterface() {}
   virtual ~ImuIdentificationDataProviderInterface() {}
 
-  virtual bool getData(imu_ros2::msg::ImuIdentificationData& message) = 0;
+  virtual bool getData(imu_ros2::msg::ImuIdentificationData & message) = 0;
 };
 
-#endif // IMU_IDENTIFICATION_DATA_PROVIDER_INTERFACE_H
+#endif  // IMU_IDENTIFICATION_DATA_PROVIDER_INTERFACE_H

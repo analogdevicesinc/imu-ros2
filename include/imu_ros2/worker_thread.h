@@ -1,4 +1,4 @@
-/***************************************************************************//**
+/*******************************************************************************
  *   @file   worker_thread.h
  *   @brief  Header for ros imu threads.
  *   @author Vasile Holonec (Vasile.Holonec@analog.com)
@@ -21,20 +21,20 @@
 #ifndef WORKER_THREAD_H
 #define WORKER_THREAD_H
 
-#include "imu_ros2/ros_task.h"
 #include <thread>
+
+#include "imu_ros2/ros_task.h"
 
 class WorkerThread : public std::thread
 {
-
 public:
-  WorkerThread(RosTask* rosTask);
+  WorkerThread(RosTask * rosTask);
   ~WorkerThread();
 
   void runTask();
 
 private:
-  RosTask* m_rosTask;
+  RosTask * m_rosTask;
 };
 
-#endif // WORKER_THREAD_H
+#endif  // WORKER_THREAD_H

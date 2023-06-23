@@ -1,4 +1,4 @@
-/***************************************************************************//**
+/*******************************************************************************
  *   @file   imu_full_measured_data_ros_publisher.cpp
  *   @brief  Implementation for acceleration, gyroscope, temperature, delta
  *           velocity, delta angle and temperature publisher.
@@ -20,29 +20,29 @@
  *******************************************************************************/
 
 #include "imu_ros2/imu_full_measured_data_ros_publisher.h"
-#include "imu_ros2/setting_declarations.h"
-#include <thread>
-#include <chrono>
 
-ImuFullMeasuredDataRosPublisher::ImuFullMeasuredDataRosPublisher(std::shared_ptr<rclcpp::Node>
-    &node)
+#include <chrono>
+#include <thread>
+
+#include "imu_ros2/setting_declarations.h"
+
+ImuFullMeasuredDataRosPublisher::ImuFullMeasuredDataRosPublisher(
+  std::shared_ptr<rclcpp::Node> & node)
 {
   init(node);
 }
 
-ImuFullMeasuredDataRosPublisher::~ImuFullMeasuredDataRosPublisher()
-{
-  delete m_data_provider;
-}
+ImuFullMeasuredDataRosPublisher::~ImuFullMeasuredDataRosPublisher() { delete m_data_provider; }
 
-void ImuFullMeasuredDataRosPublisher::init(std::shared_ptr<rclcpp::Node> &node)
+void ImuFullMeasuredDataRosPublisher::init(std::shared_ptr<rclcpp::Node> & node)
 {
   m_node = node;
-  m_publisher = node->create_publisher<imu_ros2::msg::ImuFullMeasuredData>("imufullmeasureddata", 10);
+  m_publisher =
+    node->create_publisher<imu_ros2::msg::ImuFullMeasuredData>("imufullmeasureddata", 10);
 }
 
-void ImuFullMeasuredDataRosPublisher::setMessageProvider(ImuFullMeasuredDataProviderInterface
-    *dataProvider)
+void ImuFullMeasuredDataRosPublisher::setMessageProvider(
+  ImuFullMeasuredDataProviderInterface * dataProvider)
 {
   m_data_provider = dataProvider;
 }
@@ -55,25 +55,23 @@ void ImuFullMeasuredDataRosPublisher::run()
 
   int32_t measuredDataSelection = FULL_MEASURED_DATA;
 
-  while (rclcpp::ok())
-  {
+  while (rclcpp::ok()) {
     measuredDataSelection =
       m_node->get_parameter("measured_data_topic_selection").get_parameter_value().get<int32_t>();
 
-    switch (measuredDataSelection)
-    {
-    case FULL_MEASURED_DATA:
-      if (m_data_provider->getData(m_message))
-        m_publisher->publish(m_message);
-      else
-        RCLCPP_INFO(rclcpp::get_logger("rclcpp_imufullmeasureddata"), "error reading full measured data");
+    switch (measuredDataSelection) {
+      case FULL_MEASURED_DATA:
+        if (m_data_provider->getData(m_message))
+          m_publisher->publish(m_message);
+        else
+          RCLCPP_INFO(
+            rclcpp::get_logger("rclcpp_imufullmeasureddata"), "error reading full measured data");
 
-      break;
+        break;
 
-    default:
-    {
-      break;
-    }
+      default: {
+        break;
+      }
     }
   }
 

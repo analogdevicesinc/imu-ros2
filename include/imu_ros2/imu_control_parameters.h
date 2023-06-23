@@ -1,4 +1,4 @@
-/***************************************************************************//**
+/*******************************************************************************
  *   @file   imu_control_parameters.h
  *   @brief  Set ros parameter in libiio
  *   @author Vasile Holonec (Vasile.Holonec@analog.com)
@@ -21,23 +21,21 @@
 #ifndef IMU_CONTROL_PARAMETERS_H
 #define IMU_CONTROL_PARAMETERS_H
 
-#include "imu_ros2/ros_task.h"
-#include "iio_wrapper.h"
-
 #include <rclcpp/rclcpp.hpp>
+
+#include "iio_wrapper.h"
+#include "imu_ros2/ros_task.h"
 #include "rcl_interfaces/msg/set_parameters_result.hpp"
 
 class ImuControlParameters : public RosTask
 {
-
-
 public:
-  ImuControlParameters(std::shared_ptr<rclcpp::Node>& node);
+  ImuControlParameters(std::shared_ptr<rclcpp::Node> & node);
   ~ImuControlParameters();
 
   void declareFunctions();
 
-  void init(std::shared_ptr<rclcpp::Node>& node);
+  void init(std::shared_ptr<rclcpp::Node> & node);
 
   void setParametersDouble();
   void setParametersInt32();
@@ -54,32 +52,31 @@ private:
 
   std::string m_command_to_execute;
 
-  typedef bool(IIOWrapper::*UpdateUint32Params)(uint32_t);
+  typedef bool (IIOWrapper::*UpdateUint32Params)(uint32_t);
   typedef std::map<std::string, UpdateUint32Params> UpdateUint32ParamsMapType;
   UpdateUint32ParamsMapType m_func_map_update_uint32_params;
 
-  typedef bool(IIOWrapper::*GetUint32Params)(uint32_t&);
+  typedef bool (IIOWrapper::*GetUint32Params)(uint32_t &);
   typedef std::map<std::string, GetUint32Params> GetUint32ParamsMapType;
   GetUint32ParamsMapType m_func_map_get_uint32_params;
 
-
-  typedef bool(IIOWrapper::*UpdateInt32Params)(int32_t);
+  typedef bool (IIOWrapper::*UpdateInt32Params)(int32_t);
   typedef std::map<std::string, UpdateInt32Params> UpdateInt32ParamsMapType;
   UpdateInt32ParamsMapType m_func_map_update_int32_params;
 
-  typedef bool(IIOWrapper::*GetInt32Params)(int32_t&);
+  typedef bool (IIOWrapper::*GetInt32Params)(int32_t &);
   typedef std::map<std::string, GetInt32Params> GetInt32ParamsMapType;
   GetInt32ParamsMapType m_func_map_get_int32_params;
 
-  typedef bool(IIOWrapper::*UpdateDoubleParams)(double);
+  typedef bool (IIOWrapper::*UpdateDoubleParams)(double);
   typedef std::map<std::string, UpdateDoubleParams> UpdateDoubleParamsMapType;
   UpdateDoubleParamsMapType m_func_map_update_double_params;
 
-  typedef bool(IIOWrapper::*GetDoubleParams)(double*);
+  typedef bool (IIOWrapper::*GetDoubleParams)(double *);
   typedef std::map<std::string, GetDoubleParams> GetDoubleParamsMapType;
   GetDoubleParamsMapType m_func_map_get_double_params;
 
-  typedef bool(IIOWrapper::*ExecuteCommands)();
+  typedef bool (IIOWrapper::*ExecuteCommands)();
   typedef std::map<std::string, ExecuteCommands> ExecuteCommandsMapType;
   ExecuteCommandsMapType m_func_map_execute_commands;
 
@@ -91,4 +88,4 @@ private:
   std::map<std::string, double> m_double_current_params;
 };
 
-#endif // IMU_CONTROL_PARAMETERS_H
+#endif  // IMU_CONTROL_PARAMETERS_H

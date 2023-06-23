@@ -1,4 +1,4 @@
-/***************************************************************************//**
+/*******************************************************************************
  *   @file   velangtemp_data_provider.h
  *   @brief  Header for providing temperature, delta velocity and delta angle
  *           data.
@@ -22,21 +22,20 @@
 #ifndef VELANGTEMP_DATA_PROVIDER_H
 #define VELANGTEMP_DATA_PROVIDER_H
 
-#include "imu_ros2/velangtemp_data_provider_interface.h"
 #include "imu_ros2/iio_wrapper.h"
+#include "imu_ros2/velangtemp_data_provider_interface.h"
 
 class VelAngTempDataProvider : public VelAngTempDataProviderInterface
 {
-
 public:
   VelAngTempDataProvider();
   ~VelAngTempDataProvider();
 
-  bool getData(imu_ros2::msg::VelAngTempData& message) override;
+  bool getData(imu_ros2::msg::VelAngTempData & message) override;
   bool enableBufferedDataOutput() override;
 
 private:
   IIOWrapper m_iio_wrapper;
 };
 
-#endif // VELANGTEMP_DATA_PROVIDER_H
+#endif  // VELANGTEMP_DATA_PROVIDER_H

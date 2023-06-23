@@ -1,4 +1,4 @@
-/***************************************************************************//**
+/*******************************************************************************
  *   @file   worker_thread.cpp
  *   @brief  Implementatino for ros imu threads.
  *   @author Vasile Holonec (Vasile.Holonec@analog.com)
@@ -20,18 +20,11 @@
 
 #include "imu_ros2/worker_thread.h"
 
-WorkerThread::WorkerThread(RosTask* rosTask) : std::thread ([this]
-{
-  this->runTask();
-}), m_rosTask(rosTask)
+WorkerThread::WorkerThread(RosTask * rosTask)
+: std::thread([this] { this->runTask(); }), m_rosTask(rosTask)
 {
 }
 
-WorkerThread::~WorkerThread()
-{
-}
+WorkerThread::~WorkerThread() {}
 
-void WorkerThread::runTask()
-{
-  m_rosTask->run();
-}
+void WorkerThread::runTask() { m_rosTask->run(); }

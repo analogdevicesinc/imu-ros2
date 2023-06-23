@@ -1,4 +1,4 @@
-/***************************************************************************//**
+/*******************************************************************************
  *   @file   imu_full_measured_data_provider.h
  *   @brief  Header for providing acceleration, gyroscope, temperature,
  *           delta velocity, delta angle and temperature data.
@@ -22,20 +22,19 @@
 #ifndef IMU_FULL_MEASURED_DATA_PROVIDER_H
 #define IMU_FULL_MEASURED_DATA_PROVIDER_H
 
-#include "imu_ros2/imu_full_measured_data_provider_interface.h"
 #include "imu_ros2/iio_wrapper.h"
+#include "imu_ros2/imu_full_measured_data_provider_interface.h"
 
 class ImuFullMeasuredDataProvider : public ImuFullMeasuredDataProviderInterface
 {
-
 public:
   ImuFullMeasuredDataProvider();
   ~ImuFullMeasuredDataProvider();
 
-  bool getData(imu_ros2::msg::ImuFullMeasuredData& data) override;
+  bool getData(imu_ros2::msg::ImuFullMeasuredData & data) override;
 
 private:
   IIOWrapper m_iio_wrapper;
 };
 
-#endif // IMU_FULL_MEASURED_DATA_PROVIDER_H
+#endif  // IMU_FULL_MEASURED_DATA_PROVIDER_H

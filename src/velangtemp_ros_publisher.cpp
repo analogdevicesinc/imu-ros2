@@ -1,4 +1,4 @@
-/***************************************************************************//**
+/*******************************************************************************
  *   @file   velangtemp_ros_publisher.cpp
  *   @brief  Implementation for temperature, delta velocity and delta angle
  *           publisher.
@@ -20,27 +20,23 @@
  *******************************************************************************/
 
 #include "imu_ros2/velangtemp_ros_publisher.h"
-#include "imu_ros2/setting_declarations.h"
-#include <thread>
+
 #include <chrono>
+#include <thread>
 
-VelAngTempRosPublisher::VelAngTempRosPublisher(std::shared_ptr<rclcpp::Node> &node)
-{
-  init(node);
-}
+#include "imu_ros2/setting_declarations.h"
 
-VelAngTempRosPublisher::~VelAngTempRosPublisher()
-{
-  delete m_data_provider;
-}
+VelAngTempRosPublisher::VelAngTempRosPublisher(std::shared_ptr<rclcpp::Node> & node) { init(node); }
 
-void VelAngTempRosPublisher::init(std::shared_ptr<rclcpp::Node> &node)
+VelAngTempRosPublisher::~VelAngTempRosPublisher() { delete m_data_provider; }
+
+void VelAngTempRosPublisher::init(std::shared_ptr<rclcpp::Node> & node)
 {
   m_node = node;
   m_publisher = node->create_publisher<imu_ros2::msg::VelAngTempData>("velangtempdata", 10);
 }
 
-void VelAngTempRosPublisher::setMessageProvider(VelAngTempDataProviderInterface *dataProvider)
+void VelAngTempRosPublisher::setMessageProvider(VelAngTempDataProviderInterface * dataProvider)
 {
   m_data_provider = dataProvider;
 }
@@ -54,33 +50,29 @@ void VelAngTempRosPublisher::run()
   std::cout << "thread " << this_id << " started...\n";
   RCLCPP_INFO(rclcpp::get_logger("rclcpp_velangtemp"), "startThread: '%d'", this_id);
 
-  while (rclcpp::ok())
-  {
+  while (rclcpp::ok()) {
     measuredDataSelection =
       m_node->get_parameter("measured_data_topic_selection").get_parameter_value().get<int32_t>();
 
-    switch (measuredDataSelection)
-    {
-    case DELTAVEL_DELTAANG_BUFFERED_DATA:
-      if (!bufferedDataEnabled)
-      {
-        if (m_data_provider->enableBufferedDataOutput())
-          bufferedDataEnabled = true;
+    switch (measuredDataSelection) {
+      case DELTAVEL_DELTAANG_BUFFERED_DATA:
+        if (!bufferedDataEnabled) {
+          if (m_data_provider->enableBufferedDataOutput()) bufferedDataEnabled = true;
+        }
+
+        if (m_data_provider->getData(m_message))
+          m_publisher->publish(m_message);
+        else
+          RCLCPP_INFO(
+            rclcpp::get_logger("rclcpp_velangtemp"),
+            "error reading delta angle, delta velocity and temperature buffered data");
+
+        break;
+
+      default: {
+        bufferedDataEnabled = false;
+        break;
       }
-
-      if (m_data_provider->getData(m_message))
-        m_publisher->publish(m_message);
-      else
-        RCLCPP_INFO(rclcpp::get_logger("rclcpp_velangtemp"),
-                    "error reading delta angle, delta velocity and temperature buffered data");
-
-      break;
-
-    default:
-    {
-      bufferedDataEnabled = false;
-      break;
-    }
     }
   }
 

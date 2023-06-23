@@ -1,4 +1,4 @@
-/***************************************************************************//**
+/*******************************************************************************
  *   @file   accelgyrotemp_data_provider.h
  *   @brief  Header for providing acceleration, gyroscope and
  *           temperature data provider.
@@ -27,16 +27,15 @@
 
 class AccelGyroTempDataProvider : public AccelGyroTempDataProviderInterface
 {
-
 public:
   AccelGyroTempDataProvider();
   ~AccelGyroTempDataProvider();
 
-  bool getData(imu_ros2::msg::AccelGyroTempData &message) override;
+  bool getData(imu_ros2::msg::AccelGyroTempData & message) override;
   bool enableBufferedDataOutput() override;
 
 private:
   IIOWrapper m_iio_wrapper;
 };
 
-#endif // ACCELGYROTEMP_DATA_PROVIDER_H
+#endif  // ACCELGYROTEMP_DATA_PROVIDER_H

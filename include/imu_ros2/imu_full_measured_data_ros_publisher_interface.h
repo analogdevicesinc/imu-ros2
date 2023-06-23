@@ -1,4 +1,4 @@
-/***************************************************************************//**
+/*******************************************************************************
  *   @file   imu_full_measured_data_ros_publisher_interface.h
  *   @brief  Interface for acceleration, gyroscope, temperature, delta velocity,
  *           delta angle and temperature publisher.
@@ -22,25 +22,24 @@
 #ifndef IMU_FULL_MEASURED_DATA_ROS_PUBLISHER_INTERFACE_H
 #define IMU_FULL_MEASURED_DATA_ROS_PUBLISHER_INTERFACE_H
 
-#include "imu_ros2/ros_task.h"
-
-#include <rclcpp/rclcpp.hpp>
 #include <memory>
+#include <rclcpp/rclcpp.hpp>
+
+#include "imu_ros2/ros_task.h"
 
 class ImuFullMeasuredDataProviderInterface;
 
 class ImuFullMeasuredDataRosPublisherInterface : public RosTask
 {
-
 public:
   ImuFullMeasuredDataRosPublisherInterface() {}
   virtual ~ImuFullMeasuredDataRosPublisherInterface() {}
 
-  virtual void init(std::shared_ptr<rclcpp::Node>& node) = 0;
-  virtual void setMessageProvider(ImuFullMeasuredDataProviderInterface* dataProvider) = 0;
+  virtual void init(std::shared_ptr<rclcpp::Node> & node) = 0;
+  virtual void setMessageProvider(ImuFullMeasuredDataProviderInterface * dataProvider) = 0;
 
 protected:
   std::shared_ptr<rclcpp::Node> m_node;
 };
 
-#endif // IMU_FULL_MEASURED_DATA_ROS_PUBLISHER_INTERFACE_H
+#endif  // IMU_FULL_MEASURED_DATA_ROS_PUBLISHER_INTERFACE_H

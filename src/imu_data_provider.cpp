@@ -1,4 +1,4 @@
-/***************************************************************************//**
+/*******************************************************************************
  *   @file   imu_ros_publisher.cpp
  *   @brief  Implementation for providing IMU ros standard data.
  *   @author Vasile Holonec (Vasile.Holonec@analog.com)
@@ -19,25 +19,21 @@
  ******************************************************************************/
 
 #include "imu_ros2/imu_data_provider.h"
+
 #include <sensor_msgs/msg/imu.hpp>
 
-ImuDataProvider::ImuDataProvider()
-{
-}
+ImuDataProvider::ImuDataProvider() {}
 
-ImuDataProvider::~ImuDataProvider()
-{
-}
+ImuDataProvider::~ImuDataProvider() {}
 
 bool ImuDataProvider::enableBufferedDataOutput()
 {
   return (m_iio_wrapper.update_burst_data_selection(0) == true);
 }
 
-bool ImuDataProvider::getData(sensor_msgs::msg::Imu &message)
+bool ImuDataProvider::getData(sensor_msgs::msg::Imu & message)
 {
-  if (!m_iio_wrapper.updateBuffer())
-    return false;
+  if (!m_iio_wrapper.updateBuffer()) return false;
 
   message.linear_acceleration.x = m_iio_wrapper.getBuffLinearAccelerationX();
   message.linear_acceleration.y = m_iio_wrapper.getBuffLinearAccelerationY();

@@ -1,4 +1,4 @@
-/***************************************************************************//**
+/*******************************************************************************
  *   @file   imu_ros_publisher_interface.h
  *   @brief  Interface for providing IMU ros standard data.
  *   @author Vasile Holonec (Vasile.Holonec@analog.com)
@@ -25,13 +25,12 @@
 
 class ImuDataProviderInterface
 {
-
 public:
   ImuDataProviderInterface() {}
   virtual ~ImuDataProviderInterface() {}
 
   virtual bool enableBufferedDataOutput() = 0;
-  virtual bool getData(sensor_msgs::msg::Imu& message) = 0;
+  virtual bool getData(sensor_msgs::msg::Imu & message) = 0;
 };
 
-#endif // IMU_DATA_PROVIDER_INTERFACE_H
+#endif  // IMU_DATA_PROVIDER_INTERFACE_H
