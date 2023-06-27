@@ -1,6 +1,6 @@
 /*******************************************************************************
- *   @file   imu_1657x_diag_data_provider.h
- *   @brief  Header for providing diagnosis data for adis1657x.
+ *   @file   imu_ros_publisher.h
+ *   @brief  Header for providing IMU ros standard data.
  *   @author Vasile Holonec (Vasile.Holonec@analog.com)
  *******************************************************************************
  * Copyright 2023(c) Analog Devices, Inc.
@@ -18,22 +18,23 @@
  * limitations under the License.
  ******************************************************************************/
 
-#ifndef IMU_1657X_DIAG_DATA_PROVIDER_H
-#define IMU_1657X_DIAG_DATA_PROVIDER_H
+#ifndef IMU_DATA_PROVIDER_H
+#define IMU_DATA_PROVIDER_H
 
 #include "imu_ros2/iio_wrapper.h"
-#include "imu_ros2/imu_1657x_diag_data_provider_interface.h"
+#include "imu_ros2/imu_data_provider_interface.h"
 
-class Imu1657xDiagDataProvider : public Imu1657xDiagDataProviderInterface
+class ImuDataProvider : public ImuDataProviderInterface
 {
 public:
-  Imu1657xDiagDataProvider();
-  ~Imu1657xDiagDataProvider();
+  ImuDataProvider();
+  ~ImuDataProvider();
 
-  bool getData(imu_ros2::msg::Imu1657xDiagData & message) override;
+  bool enableBufferedDataOutput() override;
+  bool getData(sensor_msgs::msg::Imu & message) override;
 
 private:
   IIOWrapper m_iio_wrapper;
 };
 
-#endif  // IMU_1657X_DIAG_DATA_PROVIDER_H
+#endif  // IMU_DATA_PROVIDER_H

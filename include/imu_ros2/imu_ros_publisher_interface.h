@@ -1,6 +1,6 @@
 /*******************************************************************************
- *   @file   imu_1657x_diag_data_provider.h
- *   @brief  Header for providing diagnosis data for adis1657x.
+ *   @file   imu_ros_publisher_interface.h
+ *   @brief  Interface for IMU ros standard message publisher.
  *   @author Vasile Holonec (Vasile.Holonec@analog.com)
  *******************************************************************************
  * Copyright 2023(c) Analog Devices, Inc.
@@ -18,22 +18,27 @@
  * limitations under the License.
  ******************************************************************************/
 
-#ifndef IMU_1657X_DIAG_DATA_PROVIDER_H
-#define IMU_1657X_DIAG_DATA_PROVIDER_H
+#ifndef ACCELERATION_ROS_PUBLISHER_INTERFACE_H
+#define ACCELERATION_ROS_PUBLISHER_INTERFACE_H
 
-#include "imu_ros2/iio_wrapper.h"
-#include "imu_ros2/imu_1657x_diag_data_provider_interface.h"
+#include <memory>
+#include <rclcpp/rclcpp.hpp>
 
-class Imu1657xDiagDataProvider : public Imu1657xDiagDataProviderInterface
+#include "imu_ros2/ros_task.h"
+
+class ImuDataProviderInterface;
+
+class ImuRosPublisherInterface : public RosTask
 {
 public:
-  Imu1657xDiagDataProvider();
-  ~Imu1657xDiagDataProvider();
+  ImuRosPublisherInterface() {}
+  virtual ~ImuRosPublisherInterface() {}
 
-  bool getData(imu_ros2::msg::Imu1657xDiagData & message) override;
+  virtual void init(std::shared_ptr<rclcpp::Node> & node) = 0;
+  virtual void setMessageProvider(ImuDataProviderInterface * dataProvider) = 0;
 
-private:
-  IIOWrapper m_iio_wrapper;
+protected:
+  std::shared_ptr<rclcpp::Node> m_node;
 };
 
-#endif  // IMU_1657X_DIAG_DATA_PROVIDER_H
+#endif  // ACCELERATION_ROS_PUBLISHER_INTERFACE_H

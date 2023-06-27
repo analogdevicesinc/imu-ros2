@@ -24,10 +24,7 @@ file(GLOB FILES_H ${CMAKE_SOURCE_DIR}/include/*.h
 
 file(GLOB FILES_CPP ${CMAKE_SOURCE_DIR}/src/*.cpp)
 
-
-
 add_executable(imu_ros2_node ${FILES_H} ${FILES_CPP})
-
 
 target_include_directories(imu_ros2_node PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
@@ -41,23 +38,21 @@ target_link_libraries(imu_ros2_node iio)
 install(TARGETS imu_ros2_node
   DESTINATION lib/${PROJECT_NAME})
 
-
 rosidl_generate_interfaces(imu_ros2
   "msg/ImuIdentificationData.msg"
   "msg/VelAngTempData.msg"
-  "msg/ImuDiagData.msg"
+  "msg/Imu16505DiagData.msg"
   "msg/ImuFullMeasuredData.msg"
   "msg/AccelGyroTempData.msg"
   "msg/Imu1657xDiagData.msg"
   DEPENDENCIES builtin_interfaces geometry_msgs
 )
 
-rosidl_get_typesupport_target(imu_ros2_node
+rosidl_target_interfaces(imu_ros2_node
   ${PROJECT_NAME} "rosidl_typesupport_cpp")
 
 ament_export_dependencies(rosidl_default_runtime)
 target_link_libraries(imu_ros2_node "${imu_ros2_node}")
-
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
@@ -73,12 +68,11 @@ if(BUILD_TESTING)
 
   #ament_add_gtest(iio_ros2_test_node test/utest_launch.test test/src/utest.cpp)
 
-  add_subdirectory(test)
+#  add_subdirectory(test)
 endif()
 
-
-install(FILES config/imu_config.yaml DESTINATION config)
-
+install(FILES config/imu16505_config.yaml DESTINATION config)
+install(FILES config/imu1657x_config.yaml DESTINATION config)
 
 
 

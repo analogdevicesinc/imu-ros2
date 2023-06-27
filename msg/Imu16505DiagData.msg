@@ -1,6 +1,6 @@
 ################################################################################
-#   @file   Imu1657xDiagData.msg
-#   @brief  Definition of Imu1657xDiagData message
+#   @file   Imu16505DiagData.msg
+#   @brief  Definition of Imu16505DiagData message
 #   @author RBolboac (ramona.bolboaca@analog.com)
 ################################################################################
 # Copyright 2023(c) Analog Devices, Inc.
@@ -17,9 +17,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 ################################################################################
-
-# if true, the imu failed to initialize properly
-bool diag_sensor_initialization_failure
 
 # if true, one of the datapaths experienced an overrun condition
 bool diag_data_path_overrun
@@ -42,26 +39,14 @@ bool diag_flash_memory_test_error
 # if true, the internal data sampling clock does not synchronize with the external clock (only in scaled sync mode)
 bool diag_clock_error
 
-# if true, a failure occurred on x axis gyroscope
-bool diag_x_axis_gyroscope_failure
+# if true, a failure occurred on accelerometer
+bool diag_acceleration_self_test_error
 
-# if true, a failure occurred on y axis gyroscope
-bool diag_y_axis_gyroscope_failure
+# if true, a failure occurred on gyroscope 1
+bool diag_gyroscope1_self_test_error
 
-# if true, a failure occurred on z axis gyroscope
-bool diag_z_axis_gyroscope_failure
-
-# if true, a failure occurred on x axis accelerometer
-bool diag_x_axis_accelerometer_failure
-
-# if true, a failure occurred on y axis accelerometer
-bool diag_y_axis_accelerometer_failure
-
-# if true, a failure occurred on z axis accelerometer
-bool diag_z_axis_accelerometer_failure
-
-# if true, a fault occurred in the imu microcontroller
-bool diag_aduc_mcu_fault
+# if true, a failure occurred on gyroscope 2
+bool diag_gyroscope2_self_test_error
 
 # if true, a checksum error occurred in the previous SPI transaction
 bool diag_checksum_error_flag

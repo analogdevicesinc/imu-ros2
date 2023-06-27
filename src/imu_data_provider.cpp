@@ -1,7 +1,6 @@
 /*******************************************************************************
- *   @file   accelgyrotemp_data_provider.cpp
- *   @brief  Implementation for providing acceleration, gyroscope and
- *           temperature data provider.
+ *   @file   imu_ros_publisher.cpp
+ *   @brief  Implementation for providing IMU ros standard data.
  *   @author Vasile Holonec (Vasile.Holonec@analog.com)
  *******************************************************************************
  * Copyright 2023(c) Analog Devices, Inc.
@@ -19,18 +18,20 @@
  * limitations under the License.
  ******************************************************************************/
 
-#include "imu_ros2/accelgyrotemp_data_provider.h"
+#include "imu_ros2/imu_data_provider.h"
 
-AccelGyroTempDataProvider::AccelGyroTempDataProvider() {}
+#include <sensor_msgs/msg/imu.hpp>
 
-AccelGyroTempDataProvider::~AccelGyroTempDataProvider() {}
+ImuDataProvider::ImuDataProvider() {}
 
-bool AccelGyroTempDataProvider::enableBufferedDataOutput()
+ImuDataProvider::~ImuDataProvider() {}
+
+bool ImuDataProvider::enableBufferedDataOutput()
 {
   return (m_iio_wrapper.update_burst_data_selection(0) == true);
 }
 
-bool AccelGyroTempDataProvider::getData(imu_ros2::msg::AccelGyroTempData & message)
+bool ImuDataProvider::getData(sensor_msgs::msg::Imu & message)
 {
   if (!m_iio_wrapper.updateBuffer()) return false;
 
@@ -41,10 +42,6 @@ bool AccelGyroTempDataProvider::getData(imu_ros2::msg::AccelGyroTempData & messa
   message.angular_velocity.x = m_iio_wrapper.getBuffAngularVelocityX();
   message.angular_velocity.y = m_iio_wrapper.getBuffAngularVelocityY();
   message.angular_velocity.z = m_iio_wrapper.getBuffAngularVelocityZ();
-
-  message.temperature = m_iio_wrapper.getBuffTemperature();
-
-  message.sample_count = m_iio_wrapper.getBuffSampleCount();
 
   return true;
 }

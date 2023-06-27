@@ -1,4 +1,4 @@
-/***************************************************************************//**
+/*******************************************************************************
 *   @file   utest.cpp
 *   @brief  Main function for testing
 *   @author Vasile Holonec (Vasile.Holonec@analog.com)
@@ -18,17 +18,15 @@
 * limitations under the License.
 *******************************************************************************/
 
-#include <rclcpp/rclcpp.hpp>
 #include <gtest/gtest.h>
 
-TEST(TestSuite, myworkcell_core_framework)
-{
-  ASSERT_TRUE(true);
-}
+#include <rclcpp/rclcpp.hpp>
 
-int main(int argc, char **argv)
+TEST(TestSuite, myworkcell_core_framework) { ASSERT_TRUE(true); }
+
+int main(int argc, char ** argv)
 {
-    rclcpp::init(argc, argv);
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
+  rclcpp::init(argc, argv);
+  testing::InitGoogleTest(&argc, argv);
+  return RUN_ALL_TESTS();
 }

@@ -1,7 +1,6 @@
 /*******************************************************************************
- *   @file   accelgyrotemp_ros_publisher.cpp
- *   @brief  Implementation for acceleration, gyroscope and temperature
- *           publisher.
+ *   @file   imu_ros_publisher.cpp
+ *   @brief  Implementation for standard ros imu data publisher.
  *   @author Vasile Holonec (Vasile.Holonec@analog.com)
  *******************************************************************************
  * Copyright 2023(c) Analog Devices, Inc.
@@ -19,47 +18,43 @@
  * limitations under the License.
  ******************************************************************************/
 
-#include "imu_ros2/accelgyrotemp_ros_publisher.h"
+#include "imu_ros2/imu_ros_publisher.h"
 
 #include <chrono>
 #include <thread>
 
 #include "imu_ros2/setting_declarations.h"
 
-AccelGyroTempRosPublisher::AccelGyroTempRosPublisher(std::shared_ptr<rclcpp::Node> & node)
-{
-  init(node);
-}
+ImuRosPublisher::ImuRosPublisher(std::shared_ptr<rclcpp::Node> & node) { init(node); }
 
-AccelGyroTempRosPublisher::~AccelGyroTempRosPublisher() { delete m_data_provider; }
+ImuRosPublisher::~ImuRosPublisher() { delete m_data_provider; }
 
-void AccelGyroTempRosPublisher::init(std::shared_ptr<rclcpp::Node> & node)
+void ImuRosPublisher::init(std::shared_ptr<rclcpp::Node> & node)
 {
   m_node = node;
-  m_publisher = node->create_publisher<imu_ros2::msg::AccelGyroTempData>("accelgyrotempdata", 10);
+  m_publisher = node->create_publisher<sensor_msgs::msg::Imu>("imu", 10);
 }
 
-void AccelGyroTempRosPublisher::setMessageProvider(
-  AccelGyroTempDataProviderInterface * dataProvider)
+void ImuRosPublisher::setMessageProvider(ImuDataProviderInterface * dataProvider)
 {
   m_data_provider = dataProvider;
 }
 
-void AccelGyroTempRosPublisher::run()
+void ImuRosPublisher::run()
 {
+  bool bufferedDataEnabled = false;
+  int32_t measuredDataSelection = IMU_STD_MSG_DATA;
+
   std::thread::id this_id = std::this_thread::get_id();
   std::cout << "thread " << this_id << " started...\n";
-  RCLCPP_INFO(rclcpp::get_logger("rclcpp_accelgyrotemp"), "startThread: '%d'", this_id);
-
-  bool bufferedDataEnabled = false;
-  int32_t measuredDataSelection = ACCEL_GYRO_BUFFERED_DATA;
+  RCLCPP_INFO(rclcpp::get_logger("rclcpp_imuros"), "startThread: '%d'", this_id);
 
   while (rclcpp::ok()) {
     measuredDataSelection =
       m_node->get_parameter("measured_data_topic_selection").get_parameter_value().get<int32_t>();
 
     switch (measuredDataSelection) {
-      case ACCEL_GYRO_BUFFERED_DATA:
+      case IMU_STD_MSG_DATA:
         if (!bufferedDataEnabled) {
           if (m_data_provider->enableBufferedDataOutput()) bufferedDataEnabled = true;
         }
@@ -68,8 +63,7 @@ void AccelGyroTempRosPublisher::run()
           m_publisher->publish(m_message);
         else
           RCLCPP_INFO(
-            rclcpp::get_logger("rclcpp_accelgyrotemp"),
-            "error reading accelerometer, gyroscope and temperature buffered data");
+            rclcpp::get_logger("rclcpp_imuros"), "error reading standard imu buffered data");
 
         break;
 
@@ -82,5 +76,5 @@ void AccelGyroTempRosPublisher::run()
 
   this_id = std::this_thread::get_id();
   std::cout << "thread " << this_id << " ended...\n";
-  RCLCPP_INFO(rclcpp::get_logger("rclcpp_accelgyrotemp"), "endThread: '%d'", this_id);
+  RCLCPP_INFO(rclcpp::get_logger("rclcpp_imuros"), "endThread: '%d'", this_id);
 }

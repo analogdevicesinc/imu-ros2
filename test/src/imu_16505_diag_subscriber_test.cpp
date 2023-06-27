@@ -1,6 +1,6 @@
 /*******************************************************************************
-*   @file   static_subscriber_test.cpp
-*   @brief  Test static data
+*   @file   imu_diag_subscriber_test.cpp
+*   @brief  Test imu diag data
 *   @author Vasile Holonec (Vasile.Holonec@analog.com)
 ********************************************************************************
 * Copyright 2023(c) Analog Devices, Inc.
@@ -23,9 +23,9 @@
 #include <chrono>
 #include <rclcpp/rclcpp.hpp>
 
-#include "imu_ros2/msg/imu_identification_data.hpp"
+#include "imu_ros2/msg/imu16505_diag_data.hpp"
 
-class ImuIdentificationSubscriberTest : public ::testing::Test
+class Imu16505DiagSubscriberTest : public ::testing::Test
 {
 public:
   static void SetUpTestCase() {}
@@ -33,30 +33,29 @@ public:
   static void TearDownTestCase() { rclcpp::shutdown(); }
 };
 
-TEST(ImuIdentificationSubscriberTest, test_imu_identification_data_values1)
+TEST(Imu16505DiagSubscriberTest, test_imu_16505_diag_data_values1)
 {
-  auto node = rclcpp::Node::make_shared("imuidentificationdata");
+  auto node = rclcpp::Node::make_shared("Imu16505DiagData");
 
-  std::string topic = "imuidentificationdata";
+  std::string topic = "Imu16505DiagData";
 
   int counter = 0;
 
-  auto callback = [&counter](imu_ros2::msg::ImuIdentificationData msg) -> void {
+  auto callback = [&counter](imu_ros2::msg::Imu16505DiagData msg) -> void {
     ++counter;
 
     RCLCPP_INFO(
-      rclcpp::get_logger("rclcpp_imu_identification_data"), " device info: %s %s %d  \n",
-      msg.firmware_revision.c_str(), msg.firmware_date.c_str(), msg.product_id);
-    ASSERT_TRUE(msg.firmware_revision == "1.6");
-    ASSERT_TRUE(msg.firmware_date == "06-27-2019");
-    ASSERT_TRUE(msg.product_id == 16505);
+      rclcpp::get_logger("rclcpp_imu_16505_diag_data"), " diag data: %d %d %d  \n",
+      msg.lost_samples_count, msg.diag_checksum_error_flag, msg.flash_counter);
+    ASSERT_TRUE(msg.lost_samples_count == 0);
+    ASSERT_TRUE(msg.diag_checksum_error_flag == 0);
+    ASSERT_TRUE(msg.flash_counter == 0);
   };
 
   rclcpp::executors::SingleThreadedExecutor executor;
   executor.add_node(node);
 
-  auto subscriber =
-    node->create_subscription<imu_ros2::msg::ImuIdentificationData>(topic, 10, callback);
+  auto subscriber = node->create_subscription<imu_ros2::msg::Imu16505DiagData>(topic, 10, callback);
 
   std::chrono::seconds sec(1);
 
