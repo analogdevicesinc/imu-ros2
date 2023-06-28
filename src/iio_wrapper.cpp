@@ -1141,3 +1141,13 @@ bool IIOWrapper::flash_counter(uint32_t & value)
   value = valuel;
   return (ret == 0);
 }
+
+double IIOWrapper::get_scale_accel() { return m_scale_accel_x; }
+
+double IIOWrapper::get_scale_angvel() { return m_scale_angvel_x; }
+
+double IIOWrapper::get_scale_velocity() { return m_scale_velocity_x; }
+
+double IIOWrapper::get_scale_rot() { return m_scale_rot_x; }
+
+double IIOWrapper::get_scale_temp() { return m_scale_temp / 1000.0; }

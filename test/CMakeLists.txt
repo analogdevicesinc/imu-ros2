@@ -15,10 +15,15 @@ find_package(geometry_msgs REQUIRED)
 #find_package(builtin_interfaces REQUIRED)
 #find_package(rosidl_default_generators REQUIRED)
 
+find_library(LIBIIO_LIBRARIES iio)
+find_path(LIBIIO_INCLUDE_DIRS iio.h)
+
 file(GLOB FILES_H ${CMAKE_SOURCE_DIR}/include/*.h
                     ${CMAKE_SOURCE_DIR}/include/iio_ros2_package/*.h)
 
 file(GLOB FILES_CPP ${CMAKE_SOURCE_DIR}/src/*.cpp)
+
+include_directories(${CMAKE_SOURCE_DIR}/include)
 
 #add_executable(imu_ros2_node ${FILES_H} ${FILES_CPP})
 
@@ -29,8 +34,11 @@ file(GLOB FILES_CPP ${CMAKE_SOURCE_DIR}/src/*.cpp)
   ament_add_gtest(imu_ros2_test_node utest_launch.test src/utest.cpp
                                         src/imu_subscriber_test.cpp
                                         src/static_subscriber_test.cpp
+                                        src/imu_16505_diag_subscriber_test.cpp
                                         src/velangtemp_subscriber_test.cpp
-                                        src/imu_diag_subscriber_test.cpp)
+                                        ${CMAKE_SOURCE_DIR}/include/imu_ros2/iio_wrapper.h
+                                        ${CMAKE_SOURCE_DIR}/src/iio_wrapper.cpp
+                                    )
   #target_link_libraries(utest_node ${catkin_LIBRARIES})
 #endif()
 
@@ -51,7 +59,7 @@ install(TARGETS imu_ros2_test_node
 
 rosidl_target_interfaces(imu_ros2_test_node
   imu_ros2 "rosidl_typesupport_cpp")
-target_link_libraries(imu_ros2_test_node "${imu_ros2_node}")
+target_link_libraries(imu_ros2_test_node "${imu_ros2_node}" iio)
 
 #ament_export_dependencies(rosidl_default_runtime)
 

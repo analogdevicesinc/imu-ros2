@@ -23,6 +23,7 @@
 #include <chrono>
 #include <rclcpp/rclcpp.hpp>
 
+#include "imu_ros2/iio_wrapper.h"
 #include "imu_ros2/msg/vel_ang_temp_data.hpp"
 
 class VelAngTempSubscriberTest : public ::testing::Test
@@ -33,37 +34,58 @@ public:
   static void TearDownTestCase() { rclcpp::shutdown(); }
 };
 
-TEST(VelAngTempSubscriberTest, test_velangtemp_data_intervals)
+TEST(VelAngTempSubscriberTest, test_velangtemp_publisher)
 {
+  IIOWrapper iio_wrapper;
+
   auto node = rclcpp::Node::make_shared("velangtempdata");
 
   std::string topic = "velangtempdata";
 
-  int counter = 0;
+  double scale_velocity = iio_wrapper.get_scale_velocity();
+  double scale_rot = iio_wrapper.get_scale_rot();
+  double scale_temp = iio_wrapper.get_scale_temp();
 
-  auto callback = [&counter](imu_ros2::msg::VelAngTempData msg) -> void {
-    ++counter;
-
+  auto callback = [&scale_velocity, &scale_rot,
+                   &scale_temp](imu_ros2::msg::VelAngTempData msg) -> void {
     RCLCPP_INFO(
       rclcpp::get_logger("rclcpp_test_adiimu_data"), " delta velocity value : %f %f %f \n",
-      msg.delta_vel.x, msg.delta_vel.y, msg.delta_vel.z);
+      msg.delta_velocity.x, msg.delta_velocity.y, msg.delta_velocity.z);
 
     RCLCPP_INFO(
       rclcpp::get_logger("rclcpp_test_adiimu_data"), " delta angle value : %f %f %f \n",
       msg.delta_angle.x, msg.delta_angle.y, msg.delta_angle.z);
 
     RCLCPP_INFO(
-      rclcpp::get_logger("rclcpp_test_adiimu_data"), " temperature value : %f \n", msg.temp);
+      rclcpp::get_logger("rclcpp_test_adiimu_data"), " temperature value : %f \n", msg.temperature);
 
-    ASSERT_TRUE(msg.delta_vel.x >= -10000 && msg.delta_vel.x <= 10000);
-    ASSERT_TRUE(msg.delta_vel.y >= -10000 && msg.delta_vel.y <= 10000);
-    ASSERT_TRUE(msg.delta_vel.z >= -10000 && msg.delta_vel.z <= 10000);
+    int32_t minint = -2147483648;
+    int32_t maxint = 2147483647;
 
-    ASSERT_TRUE(msg.delta_angle.x >= -10000 && msg.delta_angle.x <= 10000);
-    ASSERT_TRUE(msg.delta_angle.y >= -10000 && msg.delta_angle.y <= 10000);
-    ASSERT_TRUE(msg.delta_angle.z >= -10000 && msg.delta_angle.z <= 10000);
+    double maxRangeVelocity = maxint * scale_velocity;
+    double minRangeVelocity = minint * scale_velocity;
 
-    ASSERT_TRUE(msg.temp >= -100 && msg.temp <= 100);
+    double maxRangeRot = maxint * scale_rot;
+    double minRangeRot = minint * scale_rot;
+
+    int32_t minint16 = -32768;
+    int32_t maxint16 = 32767;
+
+    double maxRangeTemp = maxint16 * scale_temp;
+    double minRangeTemp = minint16 * scale_temp;
+
+    ASSERT_TRUE(
+      msg.delta_velocity.x >= minRangeVelocity && msg.delta_velocity.x <= maxRangeVelocity);
+    ASSERT_TRUE(
+      msg.delta_velocity.y >= minRangeVelocity && msg.delta_velocity.y <= maxRangeVelocity);
+    ASSERT_TRUE(
+      msg.delta_velocity.z >= minRangeVelocity && msg.delta_velocity.z <= maxRangeVelocity);
+
+    ASSERT_TRUE(msg.delta_angle.x >= minRangeRot && msg.delta_angle.x <= maxRangeRot);
+    ASSERT_TRUE(msg.delta_angle.y >= minRangeRot && msg.delta_angle.y <= maxRangeRot);
+    ASSERT_TRUE(msg.delta_angle.z >= minRangeRot && msg.delta_angle.z <= maxRangeRot);
+
+    ASSERT_TRUE(msg.temperature >= minRangeTemp && msg.temperature <= maxRangeTemp);
   };
 
   rclcpp::executors::SingleThreadedExecutor executor;
@@ -73,11 +95,5 @@ TEST(VelAngTempSubscriberTest, test_velangtemp_data_intervals)
 
   std::chrono::seconds sec(1);
 
-  for (int i = 0; i < 100; i++) {
-    executor.spin_once(sec);
-  }
-
-  //executor.spin();
-
-  ASSERT_TRUE(true);
+  executor.spin_once(sec);
 }

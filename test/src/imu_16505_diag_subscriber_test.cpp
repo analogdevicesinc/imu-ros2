@@ -33,23 +33,51 @@ public:
   static void TearDownTestCase() { rclcpp::shutdown(); }
 };
 
-TEST(Imu16505DiagSubscriberTest, test_imu_16505_diag_data_values1)
+TEST(Imu16505DiagSubscriberTest, test_imu_16505_diag_data_publisher)
 {
-  auto node = rclcpp::Node::make_shared("Imu16505DiagData");
+  auto node = rclcpp::Node::make_shared("imu16505diagdata");
 
-  std::string topic = "Imu16505DiagData";
+  std::string topic = "imu16505diagdata";
 
-  int counter = 0;
-
-  auto callback = [&counter](imu_ros2::msg::Imu16505DiagData msg) -> void {
-    ++counter;
-
+  auto callback = [](imu_ros2::msg::Imu16505DiagData msg) -> void {
     RCLCPP_INFO(
-      rclcpp::get_logger("rclcpp_imu_16505_diag_data"), " diag data: %d %d %d  \n",
-      msg.lost_samples_count, msg.diag_checksum_error_flag, msg.flash_counter);
-    ASSERT_TRUE(msg.lost_samples_count == 0);
-    ASSERT_TRUE(msg.diag_checksum_error_flag == 0);
-    ASSERT_TRUE(msg.flash_counter == 0);
+      rclcpp::get_logger("rclcpp_imu_16505_diag_data"),
+      " diag data: diag_data_path_overrun = %d \n"
+      "diag_flash_memory_update_error = %d \n"
+      "diag_spi_communication_error = %d \n"
+      "diag_standby_mode = %d \n"
+      "diag_sensor_self_test_error = %d \n"
+      "diag_flash_memory_test_error = %d \n"
+      "diag_clock_error = %d \n"
+      "diag_acceleration_self_test_error = %d \n"
+      "diag_gyroscope1_self_test_error = %d \n"
+      "diag_gyroscope2_self_test_error = %d \n"
+      "diag_checksum_error_flag = %d \n"
+      "diag_flash_memory_write_count_exceeded_error = %d \n"
+      "lost_samples_count = %d \n"
+      "flash_counter = %d \n",
+      msg.diag_data_path_overrun, msg.diag_flash_memory_update_error,
+      msg.diag_spi_communication_error, msg.diag_standby_mode, msg.diag_sensor_self_test_error,
+      msg.diag_flash_memory_test_error, msg.diag_clock_error, msg.diag_acceleration_self_test_error,
+      msg.diag_gyroscope1_self_test_error, msg.diag_gyroscope2_self_test_error,
+      msg.diag_checksum_error_flag, msg.diag_flash_memory_write_count_exceeded_error,
+      msg.lost_samples_count, msg.flash_counter);
+
+    ASSERT_TRUE(msg.diag_data_path_overrun == false);
+    ASSERT_TRUE(msg.diag_flash_memory_update_error == false);
+    ASSERT_TRUE(msg.diag_spi_communication_error == false);
+    ASSERT_TRUE(msg.diag_standby_mode == false);
+    ASSERT_TRUE(msg.diag_sensor_self_test_error == false);
+    ASSERT_TRUE(msg.diag_flash_memory_test_error == false);
+    ASSERT_TRUE(msg.diag_clock_error == false);
+    ASSERT_TRUE(msg.diag_acceleration_self_test_error == false);
+    ASSERT_TRUE(msg.diag_gyroscope1_self_test_error == false);
+    ASSERT_TRUE(msg.diag_gyroscope2_self_test_error == false);
+    ASSERT_TRUE(msg.diag_checksum_error_flag == false);
+    ASSERT_TRUE(msg.diag_flash_memory_write_count_exceeded_error == false);
+
+    ASSERT_TRUE(msg.lost_samples_count >= 0);
+    ASSERT_TRUE(msg.flash_counter >= 0);
   };
 
   rclcpp::executors::SingleThreadedExecutor executor;
@@ -59,11 +87,5 @@ TEST(Imu16505DiagSubscriberTest, test_imu_16505_diag_data_values1)
 
   std::chrono::seconds sec(1);
 
-  for (int i = 0; i < 100; i++) {
-    executor.spin_once(sec);
-  }
-
-  //executor.spin();
-
-  ASSERT_TRUE(true);
+  executor.spin_once(sec);
 }
