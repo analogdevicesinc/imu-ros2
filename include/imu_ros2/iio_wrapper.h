@@ -180,6 +180,12 @@ public:
   bool serial_number(uint32_t & result);
   bool flash_counter(uint32_t & value);
 
+  double get_scale_accel();
+  double get_scale_angvel();
+  double get_scale_velocity();
+  double get_scale_rot();
+  double get_scale_temp();
+
 private:
   static struct iio_context * m_local_context;
   static struct iio_device * m_dev;

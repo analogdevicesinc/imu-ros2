@@ -32,7 +32,7 @@ Imu16505DiagRosPublisher::~Imu16505DiagRosPublisher() { delete m_data_provider; 
 void Imu16505DiagRosPublisher::init(std::shared_ptr<rclcpp::Node> & node)
 {
   m_node = node;
-  m_publisher = node->create_publisher<imu_ros2::msg::Imu16505DiagData>("Imu16505DiagData", 10);
+  m_publisher = node->create_publisher<imu_ros2::msg::Imu16505DiagData>("imu16505diagdata", 10);
 }
 
 void Imu16505DiagRosPublisher::setMessageProvider(Imu16505DiagDataProviderInterface * dataProvider)

@@ -68,7 +68,7 @@ if(BUILD_TESTING)
 
   #ament_add_gtest(iio_ros2_test_node test/utest_launch.test test/src/utest.cpp)
 
-#  add_subdirectory(test)
+  add_subdirectory(test)
 endif()
 
 install(FILES config/imu16505_config.yaml DESTINATION config)

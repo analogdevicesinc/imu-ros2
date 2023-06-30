@@ -24,6 +24,8 @@
 #include <rclcpp/rclcpp.hpp>
 #include <sensor_msgs/msg/imu.hpp>
 
+#include "imu_ros2/iio_wrapper.h"
+
 class ImuSubscriberTest : public ::testing::Test
 {
 public:
@@ -32,23 +34,47 @@ public:
   static void TearDownTestCase() { rclcpp::shutdown(); }
 };
 
-TEST(ImuSubscriberTest, test_acceleration_pozitive_values1)
+TEST(ImuSubscriberTest, test_imu_publisher)
 {
-  auto node = rclcpp::Node::make_shared("imuacceleration");
+  IIOWrapper iio_wrapper;
 
-  std::string topic = "imuacceleration";
+  auto node = rclcpp::Node::make_shared("imu");
 
-  int counter = 0;
+  std::string topic = "imu";
 
-  auto callback = [&counter](sensor_msgs::msg::Imu msg) -> void {
-    ++counter;
+  double scale_accel = iio_wrapper.get_scale_accel();
+  double scale_angvel = iio_wrapper.get_scale_angvel();
 
+  auto callback = [&scale_accel, &scale_angvel](sensor_msgs::msg::Imu msg) -> void {
     RCLCPP_INFO(
-      rclcpp::get_logger("rclcpp_test_acceleration"), " acceleration: %f %f %f  \n",
-      msg.linear_acceleration.x, msg.linear_acceleration.y, msg.linear_acceleration.z);
-    ASSERT_TRUE(msg.linear_acceleration.x >= 0);
-    ASSERT_TRUE(msg.linear_acceleration.y >= 0);
-    ASSERT_TRUE(msg.linear_acceleration.z >= 0);
+      rclcpp::get_logger("rclcpp_test_imu"), " acceleration: %f %f %f and gyroscope: %f %f %f \n",
+      msg.linear_acceleration.x, msg.linear_acceleration.y, msg.linear_acceleration.z,
+      msg.angular_velocity.x, msg.angular_velocity.y, msg.angular_velocity.z);
+
+    int32_t minint = -2147483648;
+    int32_t maxint = 2147483647;
+
+    double maxRangeAccel = maxint * scale_accel;
+    double minRangeAccel = minint * scale_accel;
+
+    double maxRangeAngvel = maxint * scale_angvel;
+    double minRangeAngvel = minint * scale_angvel;
+
+    ASSERT_TRUE(msg.linear_acceleration.x >= minRangeAccel);
+    ASSERT_TRUE(msg.linear_acceleration.y >= minRangeAccel);
+    ASSERT_TRUE(msg.linear_acceleration.z >= minRangeAccel);
+
+    ASSERT_TRUE(msg.linear_acceleration.x <= maxRangeAccel);
+    ASSERT_TRUE(msg.linear_acceleration.y <= maxRangeAccel);
+    ASSERT_TRUE(msg.linear_acceleration.z <= maxRangeAccel);
+
+    ASSERT_TRUE(msg.angular_velocity.x >= minRangeAngvel);
+    ASSERT_TRUE(msg.angular_velocity.y >= minRangeAngvel);
+    ASSERT_TRUE(msg.angular_velocity.z >= minRangeAngvel);
+
+    ASSERT_TRUE(msg.angular_velocity.x <= maxRangeAngvel);
+    ASSERT_TRUE(msg.angular_velocity.y <= maxRangeAngvel);
+    ASSERT_TRUE(msg.angular_velocity.z <= maxRangeAngvel);
   };
 
   rclcpp::executors::SingleThreadedExecutor executor;
@@ -58,46 +84,5 @@ TEST(ImuSubscriberTest, test_acceleration_pozitive_values1)
 
   std::chrono::seconds sec(1);
 
-  for (int i = 0; i < 100; i++) {
-    executor.spin_once(sec);
-  }
-
-  //executor.spin();
-
-  ASSERT_TRUE(true);
-}
-
-TEST(ImuSubscriberTest, test_acceleration_pozitive_values2)
-{
-  auto node = rclcpp::Node::make_shared("imuacceleration");
-
-  std::string topic = "imuacceleration";
-
-  int counter = 0;
-
-  auto callback = [&counter](sensor_msgs::msg::Imu msg) -> void {
-    ++counter;
-
-    RCLCPP_INFO(
-      rclcpp::get_logger("rclcpp_test_acceleration"), " acceleration: %f %f %f  \n",
-      msg.linear_acceleration.x, msg.linear_acceleration.y, msg.linear_acceleration.z);
-    ASSERT_TRUE(msg.linear_acceleration.x >= 0);
-    ASSERT_TRUE(msg.linear_acceleration.y >= 0);
-    ASSERT_TRUE(msg.linear_acceleration.z >= 0);
-  };
-
-  rclcpp::executors::SingleThreadedExecutor executor;
-  executor.add_node(node);
-
-  auto subscriber = node->create_subscription<sensor_msgs::msg::Imu>(topic, 10, callback);
-
-  std::chrono::seconds sec(1);
-
-  for (int i = 0; i < 100; i++) {
-    executor.spin_once(sec);
-  }
-
-  //executor.spin();
-
-  ASSERT_TRUE(true);
+  executor.spin_once(sec);
 }
