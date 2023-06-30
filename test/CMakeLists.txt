@@ -33,6 +33,7 @@ include_directories(${CMAKE_SOURCE_DIR}/include)
   find_package(ament_cmake_gtest REQUIRED)
   ament_add_gtest(imu_ros2_test_node utest_launch.test src/utest.cpp
                                         src/imu_subscriber_test.cpp
+                                        src/imu_full_measured_data_subscriber_test.cpp
                                         src/static_subscriber_test.cpp
                                         src/imu_16505_diag_subscriber_test.cpp
                                         src/velangtemp_subscriber_test.cpp

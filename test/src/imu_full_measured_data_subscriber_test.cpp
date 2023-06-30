@@ -1,6 +1,6 @@
 /*******************************************************************************
-*   @file   imu_subscriber_test.cpp
-*   @brief  Test acceleration
+*   @file   imu_full_measured_data_subscriber_test.cpp
+*   @brief  Test all sensors data
 *   @author Vasile Holonec (Vasile.Holonec@analog.com)
 ********************************************************************************
 * Copyright 2023(c) Analog Devices, Inc.
@@ -22,11 +22,11 @@
 
 #include <chrono>
 #include <rclcpp/rclcpp.hpp>
-#include <sensor_msgs/msg/imu.hpp>
 
 #include "imu_ros2/iio_wrapper.h"
+#include "imu_ros2/msg/imu_full_measured_data.hpp"
 
-class ImuSubscriberTest : public ::testing::Test
+class ImuFullMeasuredDataSubscriberTest : public ::testing::Test
 {
 public:
   static void SetUpTestCase() {}
@@ -34,24 +34,31 @@ public:
   static void TearDownTestCase() { rclcpp::shutdown(); }
 };
 
-TEST(ImuSubscriberTest, test_imu_publisher)
+TEST(ImuFullMeasuredDataSubscriberTest, test_imu_full_measured_data_publisher)
 {
   IIOWrapper iio_wrapper;
 
-  auto node = rclcpp::Node::make_shared("imu");
+  auto node = rclcpp::Node::make_shared("imufullmeasureddata");
 
-  std::string topic = "imu";
+  std::string topic = "imufullmeasureddata";
 
   double scale_accel = iio_wrapper.get_scale_accel();
   double scale_angvel = iio_wrapper.get_scale_angvel();
+  double scale_velocity = iio_wrapper.get_scale_velocity();
+  double scale_rot = iio_wrapper.get_scale_rot();
+  double scale_temp = iio_wrapper.get_scale_temp();
   bool callbackExecuted = false;
 
-  auto callback = [&scale_accel, &scale_angvel,
-                   &callbackExecuted](sensor_msgs::msg::Imu msg) -> void {
+  auto callback = [&scale_accel, &scale_angvel, &scale_velocity, &scale_rot, &scale_temp,
+                   &callbackExecuted](imu_ros2::msg::ImuFullMeasuredData msg) -> void {
     RCLCPP_INFO(
-      rclcpp::get_logger("rclcpp_test_imu"), " acceleration: %f %f %f and gyroscope: %f %f %f \n",
+      rclcpp::get_logger("rclcpp_test_imu_full_measured_data"),
+      " acceleration: %f %f %f and gyroscope: %f %f %f \n"
+      " delta_velocity: %f %f %f delta_angle: %f %f %f and temperature: %f",
       msg.linear_acceleration.x, msg.linear_acceleration.y, msg.linear_acceleration.z,
-      msg.angular_velocity.x, msg.angular_velocity.y, msg.angular_velocity.z);
+      msg.angular_velocity.x, msg.angular_velocity.y, msg.angular_velocity.z, msg.delta_velocity.x,
+      msg.delta_velocity.y, msg.delta_velocity.z, msg.delta_angle.x, msg.delta_angle.y,
+      msg.delta_angle.z, msg.temperature);
 
     int32_t minint = -2147483648;
     int32_t maxint = 2147483647;
@@ -61,6 +68,18 @@ TEST(ImuSubscriberTest, test_imu_publisher)
 
     double maxRangeAngvel = maxint * scale_angvel;
     double minRangeAngvel = minint * scale_angvel;
+
+    double maxRangeVelocity = maxint * scale_velocity;
+    double minRangeVelocity = minint * scale_velocity;
+
+    double maxRangeRot = maxint * scale_rot;
+    double minRangeRot = minint * scale_rot;
+
+    int32_t minint16 = -32768;
+    int32_t maxint16 = 32767;
+
+    double maxRangeTemp = maxint16 * scale_temp;
+    double minRangeTemp = minint16 * scale_temp;
 
     ASSERT_TRUE(msg.linear_acceleration.x >= minRangeAccel);
     ASSERT_TRUE(msg.linear_acceleration.y >= minRangeAccel);
@@ -77,13 +96,33 @@ TEST(ImuSubscriberTest, test_imu_publisher)
     ASSERT_TRUE(msg.angular_velocity.x <= maxRangeAngvel);
     ASSERT_TRUE(msg.angular_velocity.y <= maxRangeAngvel);
     ASSERT_TRUE(msg.angular_velocity.z <= maxRangeAngvel);
+
+    ASSERT_TRUE(msg.delta_velocity.x >= minRangeVelocity);
+    ASSERT_TRUE(msg.delta_velocity.y >= minRangeVelocity);
+    ASSERT_TRUE(msg.delta_velocity.z >= minRangeVelocity);
+
+    ASSERT_TRUE(msg.delta_velocity.x <= maxRangeVelocity);
+    ASSERT_TRUE(msg.delta_velocity.y <= maxRangeVelocity);
+    ASSERT_TRUE(msg.delta_velocity.z <= maxRangeVelocity);
+
+    ASSERT_TRUE(msg.delta_angle.x >= minRangeRot);
+    ASSERT_TRUE(msg.delta_angle.y >= minRangeRot);
+    ASSERT_TRUE(msg.delta_angle.z >= minRangeRot);
+
+    ASSERT_TRUE(msg.delta_angle.x <= maxRangeRot);
+    ASSERT_TRUE(msg.delta_angle.y <= maxRangeRot);
+    ASSERT_TRUE(msg.delta_angle.z <= maxRangeRot);
+
+    ASSERT_TRUE(msg.temperature >= minRangeTemp);
+    ASSERT_TRUE(msg.temperature <= maxRangeTemp);
     callbackExecuted = true;
   };
 
   rclcpp::executors::SingleThreadedExecutor executor;
   executor.add_node(node);
 
-  auto subscriber = node->create_subscription<sensor_msgs::msg::Imu>(topic, 10, callback);
+  auto subscriber =
+    node->create_subscription<imu_ros2::msg::ImuFullMeasuredData>(topic, 10, callback);
 
   std::chrono::seconds sec(1);
 

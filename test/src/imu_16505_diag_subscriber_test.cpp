@@ -38,8 +38,9 @@ TEST(Imu16505DiagSubscriberTest, test_imu_16505_diag_data_publisher)
   auto node = rclcpp::Node::make_shared("imu16505diagdata");
 
   std::string topic = "imu16505diagdata";
+  bool callbackExecuted = false;
 
-  auto callback = [](imu_ros2::msg::Imu16505DiagData msg) -> void {
+  auto callback = [&callbackExecuted](imu_ros2::msg::Imu16505DiagData msg) -> void {
     RCLCPP_INFO(
       rclcpp::get_logger("rclcpp_imu_16505_diag_data"),
       " diag data: diag_data_path_overrun = %d \n"
@@ -78,6 +79,7 @@ TEST(Imu16505DiagSubscriberTest, test_imu_16505_diag_data_publisher)
 
     ASSERT_TRUE(msg.lost_samples_count >= 0);
     ASSERT_TRUE(msg.flash_counter >= 0);
+    callbackExecuted = true;
   };
 
   rclcpp::executors::SingleThreadedExecutor executor;
@@ -87,5 +89,5 @@ TEST(Imu16505DiagSubscriberTest, test_imu_16505_diag_data_publisher)
 
   std::chrono::seconds sec(1);
 
-  executor.spin_once(sec);
+  while (!callbackExecuted) executor.spin_once(sec);
 }
