@@ -36,6 +36,7 @@ include_directories(${CMAKE_SOURCE_DIR}/include)
                                         src/imu_full_measured_data_subscriber_test.cpp
                                         src/static_subscriber_test.cpp
                                         src/imu_16505_diag_subscriber_test.cpp
+                                        src/imu_1657x_diag_subscriber_test.cpp
                                         src/velangtemp_subscriber_test.cpp
                                         ${CMAKE_SOURCE_DIR}/include/imu_ros2/iio_wrapper.h
                                         ${CMAKE_SOURCE_DIR}/src/iio_wrapper.cpp
