@@ -45,9 +45,10 @@ TEST(VelAngTempSubscriberTest, test_velangtemp_publisher)
   double scale_velocity = iio_wrapper.get_scale_velocity();
   double scale_rot = iio_wrapper.get_scale_rot();
   double scale_temp = iio_wrapper.get_scale_temp();
+  bool callbackExecuted = false;
 
-  auto callback = [&scale_velocity, &scale_rot,
-                   &scale_temp](imu_ros2::msg::VelAngTempData msg) -> void {
+  auto callback = [&scale_velocity, &scale_rot, &scale_temp,
+                   &callbackExecuted](imu_ros2::msg::VelAngTempData msg) -> void {
     RCLCPP_INFO(
       rclcpp::get_logger("rclcpp_test_adiimu_data"), " delta velocity value : %f %f %f \n",
       msg.delta_velocity.x, msg.delta_velocity.y, msg.delta_velocity.z);
@@ -86,6 +87,7 @@ TEST(VelAngTempSubscriberTest, test_velangtemp_publisher)
     ASSERT_TRUE(msg.delta_angle.z >= minRangeRot && msg.delta_angle.z <= maxRangeRot);
 
     ASSERT_TRUE(msg.temperature >= minRangeTemp && msg.temperature <= maxRangeTemp);
+    callbackExecuted = true;
   };
 
   rclcpp::executors::SingleThreadedExecutor executor;
@@ -95,5 +97,5 @@ TEST(VelAngTempSubscriberTest, test_velangtemp_publisher)
 
   std::chrono::seconds sec(1);
 
-  executor.spin_once(sec);
+  while (!callbackExecuted) executor.spin_once(sec);
 }
