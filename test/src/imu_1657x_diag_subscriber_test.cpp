@@ -62,25 +62,14 @@ TEST(Imu1657xDiagSubscriberTest, test_imu_1657x_diag_data_publisher)
       "diag_flash_memory_write_count_exceeded_error = %d \n"
       "flash_counter = %d \n"
       "lost_samples_count = %d \n",
-      msg.diag_sensor_initialization_failure,
-      msg.diag_data_path_overrun,
-      msg.diag_flash_memory_update_error,
-      msg.diag_spi_communication_error,
-      msg.diag_standby_mode,
-      msg.diag_sensor_self_test_error,
-      msg.diag_flash_memory_test_error,
-      msg.diag_clock_error,
-      msg.diag_x_axis_gyroscope_failure,
-      msg.diag_y_axis_gyroscope_failure,
-      msg.diag_z_axis_gyroscope_failure,
-      msg.diag_x_axis_accelerometer_failure,
-      msg.diag_y_axis_accelerometer_failure,
-      msg.diag_z_axis_accelerometer_failure,
-      msg.diag_aduc_mcu_fault,
-      msg.diag_checksum_error_flag,
-      msg.diag_flash_memory_write_count_exceeded_error,
-      msg.flash_counter,
-      msg.lost_samples_count);
+      msg.diag_sensor_initialization_failure, msg.diag_data_path_overrun,
+      msg.diag_flash_memory_update_error, msg.diag_spi_communication_error, msg.diag_standby_mode,
+      msg.diag_sensor_self_test_error, msg.diag_flash_memory_test_error, msg.diag_clock_error,
+      msg.diag_x_axis_gyroscope_failure, msg.diag_y_axis_gyroscope_failure,
+      msg.diag_z_axis_gyroscope_failure, msg.diag_x_axis_accelerometer_failure,
+      msg.diag_y_axis_accelerometer_failure, msg.diag_z_axis_accelerometer_failure,
+      msg.diag_aduc_mcu_fault, msg.diag_checksum_error_flag,
+      msg.diag_flash_memory_write_count_exceeded_error, msg.flash_counter, msg.lost_samples_count);
 
     ASSERT_TRUE(msg.diag_sensor_initialization_failure == false);
     ASSERT_TRUE(msg.diag_data_path_overrun == false);
