@@ -34,12 +34,11 @@ public:
   static void TearDownTestCase() { rclcpp::shutdown(); }
 };
 
-TEST(ImuIdentificationSubscriberTest, test_imu_identification_subscriber)
+TEST(ImuIdentificationSubscriberTest, test_imu_identification_publisher)
 {
   IIOWrapper iio_wrapper;
 
   auto node = rclcpp::Node::make_shared("imuidentificationdata");
-
   std::string topic = "imuidentificationdata";
 
   bool callbackExecuted = false;
