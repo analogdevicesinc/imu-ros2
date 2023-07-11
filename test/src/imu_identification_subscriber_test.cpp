@@ -26,14 +26,36 @@
 #include "imu_ros2/iio_wrapper.h"
 #include "imu_ros2/msg/imu_identification_data.hpp"
 
+/**
+ * \brief Class for testing the imu identification data
+ *
+ * This class instantiate a subscriber node and listen data
+ * from topic and compare with values from libiio.
+ */
 class ImuIdentificationSubscriberTest : public ::testing::Test
 {
 public:
+  /**
+   * \brief Set up the test case
+   *
+   * This class initialize variable before the tests
+   */
   static void SetUpTestCase() {}
 
+  /**
+   * \brief Tear down the test case
+   *
+   * This class dealocate the data after tests
+   */
   static void TearDownTestCase() { rclcpp::shutdown(); }
 };
 
+/**
+ * \brief ImuIdentificationSubscriberTest
+ *
+ * This test instantiate a subscriber node and listen data
+ * from topic and compare with values from libiio.
+ */
 TEST(ImuIdentificationSubscriberTest, test_imu_identification_publisher)
 {
   IIOWrapper iio_wrapper;

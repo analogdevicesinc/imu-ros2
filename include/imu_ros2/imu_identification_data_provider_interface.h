@@ -23,12 +23,43 @@
 
 #include "imu_ros2/msg/imu_identification_data.hpp"
 
+/**
+ * \brief Interface for product_id serial_number data provider.
+ *
+ * This interface provides data for the publisher.
+ * The type of data is ImuIdentificationData.
+ */
 class ImuIdentificationDataProviderInterface
 {
 public:
+  /**
+   * \brief Constructor for ImuIdentificationDataProviderInterface.
+   *
+   * This is the default constructor for interface
+   *  ImuIdentificationDataProviderInterface.
+   *
+   */
   ImuIdentificationDataProviderInterface() {}
+
+  /**
+   * \brief Destructor for ImuIdentificationDataProviderInterface.
+   *
+   * This is a virtual destructor for ImuIdentificationDataProviderInterface.
+   *
+   */
   virtual ~ImuIdentificationDataProviderInterface() {}
 
+  /**
+   * @brief Populate message variable with data.
+   *
+   * This function return by parameter a message variable
+   * with data like product id, serial number.
+   *
+   * @return Return true if the message variable is populated with
+   *  values and false if the message is not populated.
+   * @param message Populate message variable
+   * with data like product id, serial number.
+   */
   virtual bool getData(imu_ros2::msg::ImuIdentificationData & message) = 0;
 };
 

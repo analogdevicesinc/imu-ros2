@@ -27,21 +27,71 @@
 #include "imu_ros2/imu_full_measured_data_provider_interface.h"
 #include "imu_ros2/imu_full_measured_data_ros_publisher_interface.h"
 
+/**
+ * \brief Class for accel, gyro, temp, delta velocity,
+ *  delta angle ros publisher.
+ *
+ * This class initializes the ros Node class.
+ * It set message provider with a variable that is
+ * a type of ImuFullMeasuredDataProviderInterface.
+ * It also run on thread reading from data provider and
+ * write on a ros2 publisher.
+ */
 class ImuFullMeasuredDataRosPublisher : public ImuFullMeasuredDataRosPublisherInterface
 {
 public:
+  /**
+   * \brief Constructor for ImuFullMeasuredDataRosPublisher.
+   *
+   * This is the default constructor for class
+   *  ImuFullMeasuredDataRosPublisher.
+   *
+   * @param node The ros2 Node instance.
+   */
   ImuFullMeasuredDataRosPublisher(std::shared_ptr<rclcpp::Node> & node);
+
+  /**
+   * \brief Destructor for AccelGyroTempRosPublisher.
+   *
+   * This is a destructor for AccelGyroTempRosPublisher.
+   *
+   */
   ~ImuFullMeasuredDataRosPublisher();
 
+  /**
+   * @brief Initialize class with ros2 Node instance.
+   *
+   * This function initialize the class that inherit
+   * this interface wiht a ros2 Node instance.
+   *
+   * @param node The ros2 Node instance.
+   */
   void init(std::shared_ptr<rclcpp::Node> & node) override;
+
+  /**
+   * @brief Set message provider.
+   *
+   * This function set data message provider with a variable that
+   * inherit ImuFullMeasuredDataProviderInterface.
+   *
+   * @param dataProvider Data message provider.
+   */
   void setMessageProvider(ImuFullMeasuredDataProviderInterface * dataProvider) override;
 
+
+  /**
+   * @brief Read from message provider and write on topic
+   *
+   * Run on thread the reading from message provider and write
+   * on publisher the data.
+   *
+   */
   void run() override;
 
 private:
-  ImuFullMeasuredDataProviderInterface * m_data_provider;
-  rclcpp::Publisher<imu_ros2::msg::ImuFullMeasuredData>::SharedPtr m_publisher;
-  imu_ros2::msg::ImuFullMeasuredData m_message;
+  ImuFullMeasuredDataProviderInterface * m_data_provider; /**< This variable retain a message provider */
+  rclcpp::Publisher<imu_ros2::msg::ImuFullMeasuredData>::SharedPtr m_publisher;  /**< This variable retain a publisher instance */
+  imu_ros2::msg::ImuFullMeasuredData m_message; /**< This variable retain a message that is published on a topic */
 };
 
 #endif  // IMU_FULL_MEASURED_DATA_ROS_PUBLISHER_H

@@ -29,17 +29,56 @@
 
 class ImuFullMeasuredDataProviderInterface;
 
+/**
+ * \brief Interface for accel, gyro, temp, delta velocity,
+ *  delta angle ros publisher.
+ *
+ * This interface initializes the ros Node class.
+ * Also it set message provider with a variable that is
+ * a type of ImuFullMeasuredDataProviderInterface.
+ */
 class ImuFullMeasuredDataRosPublisherInterface : public RosTask
 {
 public:
+  /**
+   * \brief Constructor for ImuFullMeasuredDataRosPublisherInterface.
+   *
+   * This is the default constructor for interface
+   *  ImuFullMeasuredDataRosPublisherInterface.
+   *
+   */
   ImuFullMeasuredDataRosPublisherInterface() {}
+
+  /**
+   * \brief Destructor for ImuFullMeasuredDataRosPublisherInterface.
+   *
+   * This is a virtual destructor for ImuFullMeasuredDataRosPublisherInterface.
+   *
+   */
   virtual ~ImuFullMeasuredDataRosPublisherInterface() {}
 
+  /**
+   * @brief Initialize class with ros2 Node instance.
+   *
+   * This function initialize the class that inherit
+   * this interface wiht a ros2 Node instance.
+   *
+   * @param node The ros2 Node instance
+   */
   virtual void init(std::shared_ptr<rclcpp::Node> & node) = 0;
+
+  /**
+   * @brief Set message provider.
+   *
+   * This function set data message provider with a variable that
+   * inherit ImuFullMeasuredDataProviderInterface.
+   *
+   * @param dataProvider Data message provider.
+   */
   virtual void setMessageProvider(ImuFullMeasuredDataProviderInterface * dataProvider) = 0;
 
 protected:
-  std::shared_ptr<rclcpp::Node> m_node;
+  std::shared_ptr<rclcpp::Node> m_node; /**< The ros2 Node data member */
 };
 
 #endif  // IMU_FULL_MEASURED_DATA_ROS_PUBLISHER_INTERFACE_H

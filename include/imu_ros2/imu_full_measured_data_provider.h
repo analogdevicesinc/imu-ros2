@@ -25,16 +25,52 @@
 #include "imu_ros2/iio_wrapper.h"
 #include "imu_ros2/imu_full_measured_data_provider_interface.h"
 
+/**
+ * \brief Class implementation for accel, gyro, temp, delta velocity,
+ *  delta angle data provider.
+ *
+ * This class implements  ImuFullMeasuredDataProviderInterface interface.
+ * This class provide data for the publisher.
+ * The type of data is ImuFullMeasuredData.
+ */
 class ImuFullMeasuredDataProvider : public ImuFullMeasuredDataProviderInterface
 {
 public:
+  /**
+   * \brief Constructor for ImuFullMeasuredDataProvider.
+   *
+   * This is the default constructor for class
+   *  ImuFullMeasuredDataProvider.
+   *
+   */
   ImuFullMeasuredDataProvider();
+
+  /**
+   * \brief Destructor for ImuFullMeasuredDataProvider.
+   *
+   * This is the destructor for ImuFullMeasuredDataProvider.
+   *
+   */
   ~ImuFullMeasuredDataProvider();
 
+  /**
+   * @brief Populate message variable with data.
+   *
+   * This function return by parameter a message variable
+   * with data from the sensor like acceleration, gyroscope
+   * temperature, delta velocity and delta angle.
+   *  The reading from the libiio is with scale factor.
+   *
+   * @return Return true if the message variable is populated with
+   *  values and false if the message is not populated.
+   * @param data Populate data variable with data like
+   * acceleration, gyroscope, temperature, delta velocity,
+   * delta angle from the sensor.
+   */
   bool getData(imu_ros2::msg::ImuFullMeasuredData & data) override;
 
 private:
-  IIOWrapper m_iio_wrapper;
+  IIOWrapper m_iio_wrapper; /**< This data member access information from libiio */
 };
 
 #endif  // IMU_FULL_MEASURED_DATA_PROVIDER_H
