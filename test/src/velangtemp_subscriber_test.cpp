@@ -26,14 +26,36 @@
 #include "imu_ros2/iio_wrapper.h"
 #include "imu_ros2/msg/vel_ang_temp_data.hpp"
 
+/**
+ * \brief Class for testing the delta velocity, delta angle and temp data
+ *
+ * This class instantiate a subscriber node and listen data
+ * from topic and compare with a range of values.
+ */
 class VelAngTempSubscriberTest : public ::testing::Test
 {
 public:
+  /**
+   * \brief Set up the test case
+   *
+   * This class initialize variable before the tests
+   */
   static void SetUpTestCase() {}
 
+  /**
+   * \brief Tear down the test case
+   *
+   * This class dealocate the data after tests
+   */
   static void TearDownTestCase() { rclcpp::shutdown(); }
 };
 
+/**
+ * \brief VelAngTempSubscriberTest
+ *
+ * This test instantiate a subscriber node and listen data
+ * from topic and compare with a range of values.
+ */
 TEST(VelAngTempSubscriberTest, test_velangtemp_publisher)
 {
   IIOWrapper iio_wrapper;

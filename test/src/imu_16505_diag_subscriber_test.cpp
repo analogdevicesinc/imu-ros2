@@ -25,14 +25,36 @@
 
 #include "imu_ros2/msg/imu16505_diag_data.hpp"
 
+/**
+ * \brief Class for testing the imu 16505 diag data
+ *
+ * This class instantiate a subscriber node and listen data
+ * from topic and compare with default values.
+ */
 class Imu16505DiagSubscriberTest : public ::testing::Test
 {
 public:
+  /**
+   * \brief Set up the test case
+   *
+   * This class initialize variable before the tests
+   */
   static void SetUpTestCase() {}
 
+  /**
+   * \brief Tear down the test case
+   *
+   * This class dealocate the data after tests
+   */
   static void TearDownTestCase() { rclcpp::shutdown(); }
 };
 
+/**
+ * \brief Imu16505DiagSubscriberTest
+ *
+ * This test instantiate a subscriber node and listen data
+ * from topic and compare with default values.
+ */
 TEST(Imu16505DiagSubscriberTest, test_imu_16505_diag_data_publisher)
 {
   auto node = rclcpp::Node::make_shared("imu16505diagdata");

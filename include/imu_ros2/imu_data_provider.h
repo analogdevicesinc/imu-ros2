@@ -24,17 +24,61 @@
 #include "imu_ros2/iio_wrapper.h"
 #include "imu_ros2/imu_data_provider_interface.h"
 
+/**
+ * \brief Class implementation for accel and gyro data provider.
+ *
+ * This class implements  ImuDataProviderInterface interface.
+ * This class provides data for the publisher.
+ * The type of data is the standard sensor_msgs::msg::Imu.
+ */
 class ImuDataProvider : public ImuDataProviderInterface
 {
 public:
+  /**
+   * \brief Constructor for ImuDataProvider.
+   *
+   * This is the default constructor for class
+   *  ImuDataProvider.
+   *
+   */
   ImuDataProvider();
+
+  /**
+   * \brief Destructor for ImuDataProvider.
+   *
+   * This is the destructor for ImuDataProvider.
+   *
+   */
   ~ImuDataProvider();
 
+  /**
+   * \brief Enable buffer data reading.
+   *
+   * This function enable buffer variable from libiio
+   * to read very fast.
+   *
+   * \return Return true if the buffer was enabled and
+   * false if the buffer was not enabled.
+   */
   bool enableBufferedDataOutput() override;
+
+  /**
+   * @brief Populate message variable with data.
+   *
+   * This function return by parameter a message variable
+   * with data from the sensor like acceleration and gyroscope.
+   *  The reading from the libiio is with buffer.
+   *
+   * @return Return true if the message variable is populated with
+   *  values and false if the message is not populated.
+   * @param message Populate message variable
+   * with data like acceleration and gyroscope from
+   * the sensor.
+   */
   bool getData(sensor_msgs::msg::Imu & message) override;
 
 private:
-  IIOWrapper m_iio_wrapper;
+  IIOWrapper m_iio_wrapper;  /**< This data member access information from libiio */
 };
 
 #endif  // IMU_DATA_PROVIDER_H
