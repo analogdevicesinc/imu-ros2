@@ -1,6 +1,6 @@
 /*******************************************************************************
- *   @file   imu_16505_diag_data_provider.cpp
- *   @brief  Implementation for providing diagnosis data for adis16505.
+ *   @file   imu_1650x_diag_data_provider.cpp
+ *   @brief  Implementation for providing diagnosis data for adis1650x.
  *   @author Vasile Holonec (Vasile.Holonec@analog.com)
  *******************************************************************************
  * Copyright 2023(c) Analog Devices, Inc.
@@ -18,15 +18,15 @@
  * limitations under the License.
  ******************************************************************************/
 
-#include "imu_ros2/imu_16505_diag_data_provider.h"
+#include "imu_ros2/imu_1650x_diag_data_provider.h"
 
 #include <rclcpp/rclcpp.hpp>
 
-Imu16505DiagDataProvider::Imu16505DiagDataProvider() {}
+Imu1650xDiagDataProvider::Imu1650xDiagDataProvider() {}
 
-Imu16505DiagDataProvider::~Imu16505DiagDataProvider() {}
+Imu1650xDiagDataProvider::~Imu1650xDiagDataProvider() {}
 
-bool Imu16505DiagDataProvider::getData(imu_ros2::msg::Imu16505DiagData & message)
+bool Imu1650xDiagDataProvider::getData(imu_ros2::msg::Imu1650xDiagData & message)
 {
   if (!m_iio_wrapper.diag_data_path_overrun(message.diag_data_path_overrun)) return false;
 

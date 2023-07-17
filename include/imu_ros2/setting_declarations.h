@@ -23,7 +23,7 @@
 
 enum IIODeviceName
 {
-  ADIS16505 = 0,
+  ADIS1650X = 0,
   ADIS1657X
 };
 

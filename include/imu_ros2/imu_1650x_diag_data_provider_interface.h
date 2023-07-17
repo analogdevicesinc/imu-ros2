@@ -1,6 +1,6 @@
 /*******************************************************************************
- *   @file   imu_16505_diag_data_provider.h
- *   @brief  Header for providing diagnosis data for adis16505.
+ *   @file   imu_1650x_diag_data_provider_interface.h
+ *   @brief  Interface for adis1650x diagnosis publisher.
  *   @author Vasile Holonec (Vasile.Holonec@analog.com)
  *******************************************************************************
  * Copyright 2023(c) Analog Devices, Inc.
@@ -18,38 +18,37 @@
  * limitations under the License.
  ******************************************************************************/
 
-#ifndef IMU_16505_DIAG_DATA_PROVIDER_H
-#define IMU_16505_DIAG_DATA_PROVIDER_H
+#ifndef IMU_1650X_DIAG_DATA_PROVIDER_INTERFACE_H
+#define IMU_1650X_DIAG_DATA_PROVIDER_INTERFACE_H
 
-#include "imu_ros2/iio_wrapper.h"
-#include "imu_ros2/imu_16505_diag_data_provider_interface.h"
+#include "imu_ros2/msg/imu1650x_diag_data.hpp"
+
 
 /**
- * \brief Class implementation for diag data provider.
+ * \brief Interface for diagnosis data provider.
  *
- * This class implements  Imu16505DiagDataProviderInterface interface.
- * This class provides data for the publisher.
+ * This interface provides data for the publisher.
  * The type of data is Imu16505DiagData.
  */
-class Imu16505DiagDataProvider : public Imu16505DiagDataProviderInterface
+class Imu1650xDiagDataProviderInterface
 {
 public:
   /**
-   * \brief Constructor for Imu16505DiagDataProvider.
+   * \brief Constructor for Imu1650xDiagDataProviderInterface.
    *
-   * This is the default constructor for class
-   *  Imu16505DiagDataProvider.
+   * This is the default constructor for interface
+   *  Imu1650xDiagDataProviderInterface.
    *
    */
-  Imu16505DiagDataProvider();
+  Imu1650xDiagDataProviderInterface() {}
 
   /**
-   * \brief Destructor for Imu16505DiagDataProvider.
+   * \brief Destructor for Imu1650xDiagDataProviderInterface.
    *
-   * This is the destructor for Imu16505DiagDataProvider.
+   * This is a virtual destructor for Imu1650xDiagDataProviderInterface.
    *
    */
-  ~Imu16505DiagDataProvider();
+  virtual ~Imu1650xDiagDataProviderInterface() {}
 
   /**
    * @brief Populate message variable with data.
@@ -63,10 +62,7 @@ public:
    * with data like diag_data_path_overrun, diag_flash_memory_update_error,
    * diag_spi_communication_error, diag_standby_mode etc.
    */
-  bool getData(imu_ros2::msg::Imu16505DiagData & message) override;
-
-private:
-  IIOWrapper m_iio_wrapper; /**< This data member access information from libiio */
+  virtual bool getData(imu_ros2::msg::Imu1650xDiagData & message) = 0;
 };
 
-#endif  // IMU_16505_DIAG_DATA_PROVIDER_H
+#endif  // IMU_1650X_DIAG_DATA_PROVIDER_INTERFACE_H

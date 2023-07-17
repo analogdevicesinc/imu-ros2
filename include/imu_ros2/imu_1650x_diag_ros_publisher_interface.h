@@ -1,6 +1,6 @@
 /*******************************************************************************
- *   @file   imu_16505_diag_ros_publisher_interface.h
- *   @brief  Interface for adis16505 diagnosis publisher.
+ *   @file   imu_1650x_diag_ros_publisher_interface.h
+ *   @brief  Interface for adis1650x diagnosis publisher.
  *   @author Vasile Holonec (Vasile.Holonec@analog.com)
  *******************************************************************************
  * Copyright 2023(c) Analog Devices, Inc.
@@ -18,42 +18,42 @@
  * limitations under the License.
  ******************************************************************************/
 
-#ifndef IMU_16505_DIAG_ROS_PUBLISHER_INTERFACE_H
-#define IMU_16505_DIAG_ROS_PUBLISHER_INTERFACE_H
+#ifndef IMU_1650X_DIAG_ROS_PUBLISHER_INTERFACE_H
+#define IMU_1650X_DIAG_ROS_PUBLISHER_INTERFACE_H
 
 #include <memory>
 #include <rclcpp/rclcpp.hpp>
 
 #include "imu_ros2/ros_task.h"
 
-class Imu16505DiagDataProviderInterface;
+class Imu1650xDiagDataProviderInterface;
 
 /**
- * \brief Interface for adis16505 diag ros publisher.
+ * \brief Interface for adis1650x diag ros publisher.
  *
  * This interface initializes the ros Node class.
  * Also it set message provider with a variable that is
- * a type of Imu16505DiagDataProviderInterface.
+ * a type of Imu1650xDiagDataProviderInterface.
  */
-class Imu16505DiagRosPublisherInterface : public RosTask
+class Imu1650xDiagRosPublisherInterface : public RosTask
 {
 public:
   /**
-   * \brief Constructor for Imu16505DiagRosPublisherInterface.
+   * \brief Constructor for Imu1650xDiagRosPublisherInterface.
    *
    * This is the default constructor for interface
-   *  Imu16505DiagRosPublisherInterface.
+   *  Imu1650xDiagRosPublisherInterface.
    *
    */
-  Imu16505DiagRosPublisherInterface() {}
+  Imu1650xDiagRosPublisherInterface() {}
 
   /**
-   * \brief Destructor for Imu16505DiagRosPublisherInterface.
+   * \brief Destructor for Imu1650xDiagRosPublisherInterface.
    *
-   * This is a virtual destructor for Imu16505DiagRosPublisherInterface.
+   * This is a virtual destructor for Imu1650xDiagRosPublisherInterface.
    *
    */
-  virtual ~Imu16505DiagRosPublisherInterface() {}
+  virtual ~Imu1650xDiagRosPublisherInterface() {}
 
   /**
    * @brief Initialize class with ros2 Node instance.
@@ -69,14 +69,14 @@ public:
    * @brief Set message provider.
    *
    * This function set data message provider with a variable that
-   * inherit Imu16505DiagDataProviderInterface.
+   * inherit Imu1650xDiagDataProviderInterface.
    *
    * @param dataProvider Data message provider.
    */
-  virtual void setMessageProvider(Imu16505DiagDataProviderInterface * dataProvider) = 0;
+  virtual void setMessageProvider(Imu1650xDiagDataProviderInterface * dataProvider) = 0;
 
 protected:
   std::shared_ptr<rclcpp::Node> m_node; /**< The ros2 Node data member */
 };
 
-#endif  // IMU_16505_DIAG_ROS_PUBLISHER_INTERFACE_H
+#endif  // IMU_1650X_DIAG_ROS_PUBLISHER_INTERFACE_H

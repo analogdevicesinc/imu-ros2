@@ -113,20 +113,20 @@ void ImuControlParameters::declareFunctions()
   m_func_map_execute_commands["factory_calibration_restore"] =
     &IIOWrapper::factory_calibration_restore;
 
-  // declare atributes for adis16505
-  m_attr_adis16505.push_back("anglvel_calibbias_x");
-  m_attr_adis16505.push_back("anglvel_calibbias_y");
-  m_attr_adis16505.push_back("anglvel_calibbias_z");
-  m_attr_adis16505.push_back("accel_calibbias_x");
-  m_attr_adis16505.push_back("accel_calibbias_y");
-  m_attr_adis16505.push_back("accel_calibbias_z");
+  // declare atributes for adis1650x
+  m_attr_adis1650x.push_back("anglvel_calibbias_x");
+  m_attr_adis1650x.push_back("anglvel_calibbias_y");
+  m_attr_adis1650x.push_back("anglvel_calibbias_z");
+  m_attr_adis1650x.push_back("accel_calibbias_x");
+  m_attr_adis1650x.push_back("accel_calibbias_y");
+  m_attr_adis1650x.push_back("accel_calibbias_z");
 
-  m_attr_adis16505.push_back("filter_size");
-  m_attr_adis16505.push_back("internal_sensor_bandwidth");
-  m_attr_adis16505.push_back("point_of_percussion_alignment");
-  m_attr_adis16505.push_back("linear_acceleration_compensation");
-  m_attr_adis16505.push_back("burst_size_selection");
-  m_attr_adis16505.push_back("sampling_frequency");
+  m_attr_adis1650x.push_back("filter_size");
+  m_attr_adis1650x.push_back("internal_sensor_bandwidth");
+  m_attr_adis1650x.push_back("point_of_percussion_alignment");
+  m_attr_adis1650x.push_back("linear_acceleration_compensation");
+  m_attr_adis1650x.push_back("burst_size_selection");
+  m_attr_adis1650x.push_back("sampling_frequency");
 
   // declare atributes for adis1657x
   m_attr_adis1657x.push_back("anglvel_calibbias_x");
@@ -154,8 +154,8 @@ void ImuControlParameters::declareFunctions()
   m_attr_adis1657x.push_back("sampling_frequency");
 
   switch (IIOWrapper::s_device_name_enum) {
-    case IIODeviceName::ADIS16505:
-      m_attr_current_device = m_attr_adis16505;
+    case IIODeviceName::ADIS1650X:
+      m_attr_current_device = m_attr_adis1650x;
       break;
     case IIODeviceName::ADIS1657X:
       m_attr_current_device = m_attr_adis1657x;
@@ -205,7 +205,7 @@ void ImuControlParameters::init(std::shared_ptr<rclcpp::Node> & node)
     factory_calibration_restore: performs a factory calibration restore on the device";
 
   switch (IIOWrapper::s_device_name_enum) {
-    case IIODeviceName::ADIS16505:
+    case IIODeviceName::ADIS1650X:
 
       break;
     case IIODeviceName::ADIS1657X:

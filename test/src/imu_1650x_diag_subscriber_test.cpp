@@ -1,6 +1,6 @@
 /*******************************************************************************
-*   @file   imu_diag_subscriber_test.cpp
-*   @brief  Test imu diag data
+*   @file   imu_1650x_diag_subscriber_test.cpp
+*   @brief  Test imu 1650x diag data
 *   @author Vasile Holonec (Vasile.Holonec@analog.com)
 ********************************************************************************
 * Copyright 2023(c) Analog Devices, Inc.
@@ -23,15 +23,15 @@
 #include <chrono>
 #include <rclcpp/rclcpp.hpp>
 
-#include "imu_ros2/msg/imu16505_diag_data.hpp"
+#include "imu_ros2/msg/imu1650x_diag_data.hpp"
 
 /**
- * \brief Class for testing the imu 16505 diag data
+ * \brief Class for testing the imu 1650x diag data
  *
  * This class instantiate a subscriber node and listen data
  * from topic and compare with default values.
  */
-class Imu16505DiagSubscriberTest : public ::testing::Test
+class Imu1650xDiagSubscriberTest : public ::testing::Test
 {
 public:
   /**
@@ -50,21 +50,21 @@ public:
 };
 
 /**
- * \brief Imu16505DiagSubscriberTest
+ * \brief Imu1650xDiagSubscriberTest
  *
  * This test instantiate a subscriber node and listen data
  * from topic and compare with default values.
  */
-TEST(Imu16505DiagSubscriberTest, test_imu_16505_diag_data_publisher)
+TEST(Imu1650xDiagSubscriberTest, test_imu_1650x_diag_data_publisher)
 {
-  auto node = rclcpp::Node::make_shared("imu16505diagdata");
+  auto node = rclcpp::Node::make_shared("imu1650xdiagdata");
 
-  std::string topic = "imu16505diagdata";
+  std::string topic = "imu1650xdiagdata";
   bool callbackExecuted = false;
 
-  auto callback = [&callbackExecuted](imu_ros2::msg::Imu16505DiagData msg) -> void {
+  auto callback = [&callbackExecuted](imu_ros2::msg::Imu1650xDiagData msg) -> void {
     RCLCPP_INFO(
-      rclcpp::get_logger("rclcpp_imu_16505_diag_data"),
+      rclcpp::get_logger("rclcpp_imu_1650x_diag_data"),
       " diag data: diag_data_path_overrun = %d \n"
       "diag_flash_memory_update_error = %d \n"
       "diag_spi_communication_error = %d \n"
@@ -107,7 +107,7 @@ TEST(Imu16505DiagSubscriberTest, test_imu_16505_diag_data_publisher)
   rclcpp::executors::SingleThreadedExecutor executor;
   executor.add_node(node);
 
-  auto subscriber = node->create_subscription<imu_ros2::msg::Imu16505DiagData>(topic, 10, callback);
+  auto subscriber = node->create_subscription<imu_ros2::msg::Imu1650xDiagData>(topic, 10, callback);
 
   std::chrono::seconds sec(1);
 
