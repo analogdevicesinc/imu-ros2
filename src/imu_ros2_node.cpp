@@ -25,8 +25,8 @@
 
 #include "imu_ros2/accelgyrotemp_data_provider.h"
 #include "imu_ros2/accelgyrotemp_ros_publisher.h"
-#include "imu_ros2/imu_16505_diag_data_provider.h"
-#include "imu_ros2/imu_16505_diag_ros_publisher.h"
+#include "imu_ros2/imu_1650x_diag_data_provider.h"
+#include "imu_ros2/imu_1650x_diag_ros_publisher.h"
 #include "imu_ros2/imu_1657x_diag_data_provider.h"
 #include "imu_ros2/imu_1657x_diag_ros_publisher.h"
 #include "imu_ros2/imu_control_parameters.h"
@@ -100,20 +100,20 @@ int main(int argc, char * argv[])
   ident_publisher->setMessageProvider(ident_data_provider);
   RosTask * ident_task = dynamic_cast<RosTask *>(ident_publisher);
 
-  Imu16505DiagDataProviderInterface * diag16505_data_provider = nullptr;
-  Imu16505DiagRosPublisherInterface * diag16505_publisher = nullptr;
-  RosTask * diag16505_task = nullptr;
+  Imu1650xDiagDataProviderInterface * diag1650x_data_provider = nullptr;
+  Imu1650xDiagRosPublisherInterface * diag1650x_publisher = nullptr;
+  RosTask * diag1650x_task = nullptr;
 
   Imu1657xDiagDataProviderInterface * diag1657x_data_provider = nullptr;
   Imu1657xDiagRosPublisherInterface * diag1657x_publisher = nullptr;
   RosTask * diag1657x_task = nullptr;
   switch (IIOWrapper::s_device_name_enum) {
-    case IIODeviceName::ADIS16505:
-      diag16505_data_provider = new Imu16505DiagDataProvider();
-      diag16505_publisher = new Imu16505DiagRosPublisher(imu_node);
-      diag16505_publisher->setMessageProvider(diag16505_data_provider);
+    case IIODeviceName::ADIS1650X:
+      diag1650x_data_provider = new Imu1650xDiagDataProvider();
+      diag1650x_publisher = new Imu1650xDiagRosPublisher(imu_node);
+      diag1650x_publisher->setMessageProvider(diag1650x_data_provider);
 
-      diag16505_task = dynamic_cast<RosTask *>(diag16505_publisher);
+      diag1650x_task = dynamic_cast<RosTask *>(diag1650x_publisher);
       break;
     case IIODeviceName::ADIS1657X:
       diag1657x_data_provider = new Imu1657xDiagDataProvider();
@@ -133,9 +133,9 @@ int main(int argc, char * argv[])
   WorkerThread imu_std_thread(imu_std_task);
   WorkerThread full_data_thread(full_data_task);
   WorkerThread ident_thread(ident_task);
-  if (diag16505_task) {
-    WorkerThread diag16505_thread(diag16505_task);
-    diag16505_thread.join();
+  if (diag1650x_task) {
+    WorkerThread diag1650x_thread(diag1650x_task);
+    diag1650x_thread.join();
   }
 
   if (diag1657x_task) {
@@ -157,7 +157,7 @@ int main(int argc, char * argv[])
   delete full_data_publisher;
   delete ident_publisher;
 
-  if (diag16505_publisher) delete diag16505_publisher;
+  if (diag1650x_publisher) delete diag1650x_publisher;
   if (diag1657x_publisher) delete diag1657x_publisher;
 
   rclcpp::shutdown();

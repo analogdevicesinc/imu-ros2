@@ -110,13 +110,13 @@ IIOWrapper::IIOWrapper()
 
       IIOWrapper::s_device_name = std::string(name);
 
-      std::list<std::string> adis16505_x{"adis16505-1", "adis16505-2", "adis16505-3"};
+      std::list<std::string> adis1650x_x{"adis16505-1", "adis16505-2", "adis16505-3"};
 
       bool found =
-        (std::find(adis16505_x.begin(), adis16505_x.end(), IIOWrapper::s_device_name) !=
-         adis16505_x.end());
+        (std::find(adis1650x_x.begin(), adis1650x_x.end(), IIOWrapper::s_device_name) !=
+         adis1650x_x.end());
       if (found) {
-        IIOWrapper::s_device_name_enum = IIODeviceName::ADIS16505;
+        IIOWrapper::s_device_name_enum = IIODeviceName::ADIS1650X;
       }
 
       std::list<std::string> adis1657x{"adis16575-2", "adis16575-3", "adis16576-2",

@@ -1,6 +1,6 @@
 /*******************************************************************************
- *   @file   imu_16505_diag_ros_publisher.h
- *   @brief  Header for adis16505 diagnosis publisher.
+ *   @file   imu_1650x_diag_ros_publisher.h
+ *   @brief  Header for adis1650x diagnosis publisher.
  *   @author Vasile Holonec (Vasile.Holonec@analog.com)
  *******************************************************************************
  * Copyright 2023(c) Analog Devices, Inc.
@@ -18,43 +18,43 @@
  * limitations under the License.
  ******************************************************************************/
 
-#ifndef IMU_16505_DIAG_ROS_SUBSCRIBER_H
-#define IMU_16505_DIAG_ROS_SUBSCRIBER_H
+#ifndef IMU_1650X_DIAG_ROS_SUBSCRIBER_H
+#define IMU_1650X_DIAG_ROS_SUBSCRIBER_H
 
 #include <rclcpp/rclcpp.hpp>
 
-#include "imu_ros2/imu_16505_diag_data_provider_interface.h"
-#include "imu_ros2/imu_16505_diag_ros_publisher_interface.h"
+#include "imu_ros2/imu_1650x_diag_data_provider_interface.h"
+#include "imu_ros2/imu_1650x_diag_ros_publisher_interface.h"
 
 /**
- * \brief Class for adis16505 diag ros publisher.
+ * \brief Class for adis1650x diag ros publisher.
  *
  * This class initializes the ros Node class.
  * It set message provider with a variable that is
- * a type of Imu16505DiagDataProviderInterface.
+ * a type of Imu1650xDiagDataProviderInterface.
  * It also run on thread reading from data provider and
  * write on a ros2 publisher.
  */
-class Imu16505DiagRosPublisher : public Imu16505DiagRosPublisherInterface
+class Imu1650xDiagRosPublisher : public Imu1650xDiagRosPublisherInterface
 {
 public:
   /**
-   * \brief Constructor for Imu16505DiagRosPublisher.
+   * \brief Constructor for Imu1650xDiagRosPublisher.
    *
    * This is the default constructor for class
-   *  Imu16505DiagRosPublisher.
+   *  Imu1650xDiagRosPublisher.
    *
    * @param node The ros2 Node instance.
    */
-  Imu16505DiagRosPublisher(std::shared_ptr<rclcpp::Node> & node);
+  Imu1650xDiagRosPublisher(std::shared_ptr<rclcpp::Node> & node);
 
   /**
-   * \brief Destructor for Imu16505DiagRosPublisher.
+   * \brief Destructor for Imu1650xDiagRosPublisher.
    *
-   * This is a destructor for Imu16505DiagRosPublisher.
+   * This is a destructor for Imu1650xDiagRosPublisher.
    *
    */
-  ~Imu16505DiagRosPublisher();
+  ~Imu1650xDiagRosPublisher();
 
   /**
    * @brief Initialize class with ros2 Node instance.
@@ -70,11 +70,11 @@ public:
    * @brief Set message provider.
    *
    * This function set data message provider with a variable that
-   * inherit Imu16505DiagDataProviderInterface.
+   * inherit Imu1650xDiagDataProviderInterface.
    *
    * @param dataProvider Data message provider.
    */
-  void setMessageProvider(Imu16505DiagDataProviderInterface * dataProvider) override;
+  void setMessageProvider(Imu1650xDiagDataProviderInterface * dataProvider) override;
 
   /**
    * @brief Read from message provider and write on topic
@@ -86,9 +86,9 @@ public:
   void run() override;
 
 private:
-  Imu16505DiagDataProviderInterface * m_data_provider; /**< This variable retain a message provider */
-  rclcpp::Publisher<imu_ros2::msg::Imu16505DiagData>::SharedPtr m_publisher; /**< This variable retain a publisher instance */
-  imu_ros2::msg::Imu16505DiagData m_message; /**< This variable retain a message that is published on a topic */
+  Imu1650xDiagDataProviderInterface * m_data_provider; /**< This variable retain a message provider */
+  rclcpp::Publisher<imu_ros2::msg::Imu1650xDiagData>::SharedPtr m_publisher; /**< This variable retain a publisher instance */
+  imu_ros2::msg::Imu1650xDiagData m_message; /**< This variable retain a message that is published on a topic */
 };
 
-#endif  // IMU_16505_DIAG_ROS_SUBSCRIBER_H
+#endif  // IMU_1650X_DIAG_ROS_SUBSCRIBER_H

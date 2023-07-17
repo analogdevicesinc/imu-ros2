@@ -64,7 +64,7 @@ TEST(Imu1657xDiagSubscriberTest, test_imu_1657x_diag_data_publisher)
 
   auto callback = [&callbackExecuted](imu_ros2::msg::Imu1657xDiagData msg) -> void {
     RCLCPP_INFO(
-      rclcpp::get_logger("rclcpp_imu_16505_diag_data"),
+      rclcpp::get_logger("rclcpp_imu_1657x_diag_data"),
       "diag_sensor_initialization_failure= %d \n"
       "diag data: diag_data_path_overrun = %d \n"
       "diag_flash_memory_update_error = %d \n"

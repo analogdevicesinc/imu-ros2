@@ -163,12 +163,12 @@ private:
   typedef std::map<std::string, ExecuteCommands> ExecuteCommandsMapType; /**< Declare a map with ExecuteCommands functions */
   ExecuteCommandsMapType m_func_map_execute_commands; /**< Declare a variable of ExecuteCommandsMapType */
 
-  std::list<std::string> m_attr_adis16505; /**< Declare a variable with adis16505 attributes */
+  std::list<std::string> m_attr_adis1650x; /**< Declare a variable with adis1650x attributes */
   std::list<std::string> m_attr_adis1657x; /**< Declare a variable with adis1657x attributes */
-  std::list<std::string> m_attr_current_device; /**< Declare a variable current attributes, adis16505 or adis1657x */
-  std::map<std::string, int32_t> m_int32_current_params; /**< Declare a variable current int32_t parameters, adis16505 or adis1657x */
-  std::map<std::string, int64_t> m_uint32_current_params; /**< Declare a variable current int64_t parameters, adis16505 or adis1657x */
-  std::map<std::string, double> m_double_current_params;  /**< Declare a variable current double parameters, adis16505 or adis1657x */
+  std::list<std::string> m_attr_current_device; /**< Declare a variable current attributes, adis1650x or adis1657x */
+  std::map<std::string, int32_t> m_int32_current_params; /**< Declare a variable current int32_t parameters, adis1650x or adis1657x */
+  std::map<std::string, int64_t> m_uint32_current_params; /**< Declare a variable current int64_t parameters, adis1650x or adis1657x */
+  std::map<std::string, double> m_double_current_params;  /**< Declare a variable current double parameters, adis1650x or adis1657x */
 };
 
 #endif  // IMU_CONTROL_PARAMETERS_H
