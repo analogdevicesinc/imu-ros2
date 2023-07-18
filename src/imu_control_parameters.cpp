@@ -48,11 +48,7 @@ void ImuControlParameters::declareFunctions()
     &IIOWrapper::update_point_of_percussion_alignment;
   m_func_map_update_uint32_params["linear_acceleration_compensation"] =
     &IIOWrapper::update_linear_acceleration_compensation;
-  m_func_map_update_uint32_params["burst_size_selection"] =
-    &IIOWrapper::update_burst_size_selection;
   m_func_map_update_uint32_params["timestamp32"] = &IIOWrapper::update_timestamp32;
-  m_func_map_update_uint32_params["internal_sync_enable_4khz"] =
-    &IIOWrapper::update_internal_sync_enable_4khz;
 
   m_func_map_update_uint32_params["bias_correction_time_base_control"] =
     &IIOWrapper::update_bias_correction_time_base_control;
@@ -83,10 +79,7 @@ void ImuControlParameters::declareFunctions()
     &IIOWrapper::point_of_percussion_alignment;
   m_func_map_get_uint32_params["linear_acceleration_compensation"] =
     &IIOWrapper::linear_acceleration_compensation;
-  m_func_map_get_uint32_params["burst_size_selection"] = &IIOWrapper::burst_size_selection;
   m_func_map_get_uint32_params["timestamp32"] = &IIOWrapper::timestamp32;
-  m_func_map_get_uint32_params["internal_sync_enable_4khz"] =
-    &IIOWrapper::internal_sync_enable_4khz;
 
   m_func_map_get_uint32_params["bias_correction_time_base_control"] =
     &IIOWrapper::bias_correction_time_base_control;
@@ -125,7 +118,6 @@ void ImuControlParameters::declareFunctions()
   m_attr_adis1650x.push_back("internal_sensor_bandwidth");
   m_attr_adis1650x.push_back("point_of_percussion_alignment");
   m_attr_adis1650x.push_back("linear_acceleration_compensation");
-  m_attr_adis1650x.push_back("burst_size_selection");
   m_attr_adis1650x.push_back("sampling_frequency");
 
   // declare atributes for adis1657x
@@ -140,9 +132,7 @@ void ImuControlParameters::declareFunctions()
   m_attr_adis1657x.push_back("internal_sensor_bandwidth");
   m_attr_adis1657x.push_back("point_of_percussion_alignment");
   m_attr_adis1657x.push_back("linear_acceleration_compensation");
-  m_attr_adis1657x.push_back("burst_size_selection");
   m_attr_adis1657x.push_back("timestamp32");
-  m_attr_adis1657x.push_back("internal_sync_enable_4khz");
 
   m_attr_adis1657x.push_back("bias_correction_time_base_control");
   m_attr_adis1657x.push_back("x_axis_gyroscope_bias_correction_enable");
