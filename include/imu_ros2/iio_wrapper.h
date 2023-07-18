@@ -1611,44 +1611,108 @@ public:
   double get_scale_temp();
 
 private:
-  static struct iio_context * m_local_context; /**< This variable retains local context instance*/
-  static struct iio_device * m_dev; /**< This variable retains the device instance */
-  static struct iio_device * m_devtrigger; /**< This variable retains device trigger instance */
-  static struct iio_buffer * m_device_buffer; /**< This variable retains device buffer instance */
+  /*! This variable retains local context instance*/
+  static struct iio_context * m_local_context;
 
-  static struct iio_channel * m_channel_accel_x; /**< This variable retains accel x channel */
-  static struct iio_channel * m_channel_accel_y; /**< This variable retains accel y channel */
-  static struct iio_channel * m_channel_accel_z; /**< This variable retains accel z channel */
-  static struct iio_channel * m_channel_anglvel_x; /**< This variable retains angvel x channel */
-  static struct iio_channel * m_channel_anglvel_y; /**< This variable retains angvel y channel */
-  static struct iio_channel * m_channel_anglvel_z; /**< This variable retains angvel z channel */
-  static struct iio_channel * m_channel_rot_x; /**< This variable retains rot, delta angle x channel */
-  static struct iio_channel * m_channel_rot_y; /**< This variable retains rot, delta angle y channel */
-  static struct iio_channel * m_channel_rot_z; /**< This variable retains rot, delta angle z channel */
-  static struct iio_channel * m_channel_velocity_x; /**< This variable retains delta velocity x channel */
-  static struct iio_channel * m_channel_velocity_y; /**< This variable retains delta velocity y channel */
-  static struct iio_channel * m_channel_velocity_z; /**< This variable retains delta velocity x channel */
-  static struct iio_channel * m_channel_temp; /**< This variable retains temperature channel */
-  static struct iio_channel * m_channel_count; /**< This variable retains count channel */
+  /*! This variable retains the device instance */
+  static struct iio_device * m_dev;
 
-  static double m_scale_accel_x; /**< This variable retains scale accel x value */
-  static double m_scale_accel_y; /**< This variable retains scale accel y value */
-  static double m_scale_accel_z; /**< This variable retains scale accel z value */
-  static double m_scale_angvel_x; /**< This variable retains scale angvel x value */
-  static double m_scale_angvel_y; /**< This variable retains scale angvel y value */
-  static double m_scale_angvel_z; /**< This variable retains scale angvel z value */
-  static double m_scale_rot_x; /**< This variable retains scale rot, delta angle x value */
-  static double m_scale_rot_y; /**< This variable retains scale rot, delta angle y value */
-  static double m_scale_rot_z; /**< This variable retains scale rot, delta angle z value */
-  static double m_scale_velocity_x; /**< This variable retains scale delta velocity x value */
-  static double m_scale_velocity_y; /**< This variable retains scale delta velocity y value */
-  static double m_scale_velocity_z; /**< This variable retains scale delta velocity z value */
-  static double m_scale_temp; /**< This variable retains scale temperature value */
+  /*! This variable retains device trigger instance */
+  static struct iio_device * m_devtrigger;
+
+  /*! This variable retains device buffer instance */
+  static struct iio_buffer * m_device_buffer;
+
+  /*! This variable retains accel x channel */
+  static struct iio_channel * m_channel_accel_x;
+
+  /*! This variable retains accel y channel */
+  static struct iio_channel * m_channel_accel_y;
+
+  /*! This variable retains accel z channel */
+  static struct iio_channel * m_channel_accel_z;
+
+  /*! This variable retains angvel x channel */
+  static struct iio_channel * m_channel_anglvel_x;
+
+  /*! This variable retains angvel y channel */
+  static struct iio_channel * m_channel_anglvel_y;
+
+  /*! This variable retains angvel z channel */
+  static struct iio_channel * m_channel_anglvel_z;
+
+  /*! This variable retains rot, delta angle x channel */
+  static struct iio_channel * m_channel_rot_x;
+
+  /*! This variable retains rot, delta angle y channel */
+  static struct iio_channel * m_channel_rot_y;
+
+  /*! This variable retains rot, delta angle z channel */
+  static struct iio_channel * m_channel_rot_z;
+
+  /*! This variable retains delta velocity x channel */
+  static struct iio_channel * m_channel_velocity_x;
+
+  /*! This variable retains delta velocity y channel */
+  static struct iio_channel * m_channel_velocity_y;
+
+  /*! This variable retains delta velocity x channel */
+  static struct iio_channel * m_channel_velocity_z;
+
+  /*! This variable retains temperature channel */
+  static struct iio_channel * m_channel_temp;
+
+  /*! This variable retains count channel */
+  static struct iio_channel * m_channel_count;
+
+  /*! This variable retains scale accel x value */
+  static double m_scale_accel_x;
+
+  /*! This variable retains scale accel y value */
+  static double m_scale_accel_y;
+
+  /*! This variable retains scale accel z value */
+  static double m_scale_accel_z;
+
+  /*! This variable retains scale angvel x value */
+  static double m_scale_angvel_x;
+
+  /*! This variable retains scale angvel y value */
+  static double m_scale_angvel_y;
+
+  /*! This variable retains scale angvel z value */
+  static double m_scale_angvel_z;
+
+  /*! This variable retains scale rot, delta angle x value */
+  static double m_scale_rot_x;
+
+  /*! This variable retains scale rot, delta angle y value */
+  static double m_scale_rot_y;
+
+  /*! This variable retains scale rot, delta angle z value */
+  static double m_scale_rot_z;
+
+  /*! This variable retains scale delta velocity x value */
+  static double m_scale_velocity_x;
+
+  /*! This variable retains scale delta velocity y value */
+  static double m_scale_velocity_y;
+
+  /*! This variable retains scale delta velocity z value */
+  static double m_scale_velocity_z;
+
+  /*! This variable retains scale temperature value */
+  static double m_scale_temp;
 
 public:
-  static std::string s_device_name; /**< This variable retains device name */
-  static std::string s_device_trigger_name; /**< This variable retains device trigger name */
-  static IIODeviceName s_device_name_enum; /**< This variable retains device name enum*/
+  /*! This variable retains device name */
+  static std::string s_device_name;
+
+  /*! This variable retains device trigger name */
+  static std::string s_device_trigger_name;
+
+  /*! This variable retains device name enum*/
+  static IIODeviceName s_device_name_enum;
 };
 
 #endif  // IIO_WRAPPER_H

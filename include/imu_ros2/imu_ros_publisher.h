@@ -86,9 +86,14 @@ public:
   void run() override;
 
 private:
-  ImuDataProviderInterface * m_data_provider; /**< This variable retain a message provider */
-  rclcpp::Publisher<sensor_msgs::msg::Imu>::SharedPtr m_publisher; /**< This variable retain a publisher instance */
-  sensor_msgs::msg::Imu m_message; /**< This variable retain a message that is published on a topic */
+  /*! This variable retain a message provider */
+  ImuDataProviderInterface * m_data_provider;
+
+  /*! This variable retain a publisher instance */
+  rclcpp::Publisher<sensor_msgs::msg::Imu>::SharedPtr m_publisher;
+
+  /*! This variable retain a message that is published on a topic */
+  sensor_msgs::msg::Imu m_message;
 };
 
 #endif  // IMU_ROS_PUBLISHER_H

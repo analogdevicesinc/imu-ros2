@@ -36,7 +36,6 @@
 class ImuControlParameters : public RosTask
 {
 public:
-
   /**
    * \brief Constructor for ImuControlParameters.
    *
@@ -130,45 +129,95 @@ public:
   void run() override;
 
 private:
-  std::shared_ptr<rclcpp::Node> m_node; /**< The ros2 Node data member */
-  IIOWrapper m_iio_wrapper; /**< This data member access information from libiio */
+  /*! The ros2 Node data member */
+  std::shared_ptr<rclcpp::Node> m_node;
 
-  std::string m_command_to_execute; /**< This variable contain command to execute in libiio */
+  /*! This data member access information from libiio */
+  IIOWrapper m_iio_wrapper;
 
-  typedef bool (IIOWrapper::*UpdateUint32Params)(uint32_t); /**< Declare function with uint32_t parameter and return bool */
-  typedef std::map<std::string, UpdateUint32Params> UpdateUint32ParamsMapType; /**< Declare a map with UpdateUint32Params functions */
-  UpdateUint32ParamsMapType m_func_map_update_uint32_params; /**< Declare a variable of UpdateUint32ParamsMapType */
+  /*! This variable contain command to execute in libiio */
+  std::string m_command_to_execute;
 
-  typedef bool (IIOWrapper::*GetUint32Params)(uint32_t &); /**< Declare function with uint32_t& parameter and return bool */
-  typedef std::map<std::string, GetUint32Params> GetUint32ParamsMapType; /**< Declare a map with GetUint32Params functions */
-  GetUint32ParamsMapType m_func_map_get_uint32_params; /**< Declare a variable of GetUint32ParamsMapType */
+  /*! Declare function with uint32_t parameter and return bool */
+  typedef bool (IIOWrapper::*UpdateUint32Params)(uint32_t);
 
-  typedef bool (IIOWrapper::*UpdateInt32Params)(int32_t); /**< Declare function with int32_t parameter and return bool */
-  typedef std::map<std::string, UpdateInt32Params> UpdateInt32ParamsMapType; /**< Declare a map with UpdateInt32Params functions */
-  UpdateInt32ParamsMapType m_func_map_update_int32_params; /**< Declare a variable of UpdateInt32ParamsMapType */
+  /*! Declare a map with UpdateUint32Params functions */
+  typedef std::map<std::string, UpdateUint32Params> UpdateUint32ParamsMapType;
 
-  typedef bool (IIOWrapper::*GetInt32Params)(int32_t &); /**< Declare function with int32_t& parameter and return bool */
-  typedef std::map<std::string, GetInt32Params> GetInt32ParamsMapType; /**< Declare a map with GetInt32Params functions */
-  GetInt32ParamsMapType m_func_map_get_int32_params;  /**< Declare a variable of GetInt32ParamsMapType */
+  /*! Declare a variable of UpdateUint32ParamsMapType */
+  UpdateUint32ParamsMapType m_func_map_update_uint32_params;
 
-  typedef bool (IIOWrapper::*UpdateDoubleParams)(double); /**< Declare function with double parameter and return bool */
-  typedef std::map<std::string, UpdateDoubleParams> UpdateDoubleParamsMapType; /**< Declare a map with UpdateDoubleParams functions */
-  UpdateDoubleParamsMapType m_func_map_update_double_params; /**< Declare a variable of UpdateDoubleParamsMapType */
+  /*! Declare function with uint32_t& parameter and return bool */
+  typedef bool (IIOWrapper::*GetUint32Params)(uint32_t &);
 
-  typedef bool (IIOWrapper::*GetDoubleParams)(double *); /**< Declare function with double parameter and return bool */
-  typedef std::map<std::string, GetDoubleParams> GetDoubleParamsMapType; /**< Declare a map with GetDoubleParams functions */
-  GetDoubleParamsMapType m_func_map_get_double_params; /**< Declare a variable of GetDoubleParamsMapType */
+  /*! Declare a map with GetUint32Params functions */
+  typedef std::map<std::string, GetUint32Params> GetUint32ParamsMapType;
 
-  typedef bool (IIOWrapper::*ExecuteCommands)(); /**< Declare function that return bool */
-  typedef std::map<std::string, ExecuteCommands> ExecuteCommandsMapType; /**< Declare a map with ExecuteCommands functions */
-  ExecuteCommandsMapType m_func_map_execute_commands; /**< Declare a variable of ExecuteCommandsMapType */
+  /*! Declare a variable of GetUint32ParamsMapType */
+  GetUint32ParamsMapType m_func_map_get_uint32_params;
 
-  std::list<std::string> m_attr_adis1650x; /**< Declare a variable with adis1650x attributes */
-  std::list<std::string> m_attr_adis1657x; /**< Declare a variable with adis1657x attributes */
-  std::list<std::string> m_attr_current_device; /**< Declare a variable current attributes, adis1650x or adis1657x */
-  std::map<std::string, int32_t> m_int32_current_params; /**< Declare a variable current int32_t parameters, adis1650x or adis1657x */
-  std::map<std::string, int64_t> m_uint32_current_params; /**< Declare a variable current int64_t parameters, adis1650x or adis1657x */
-  std::map<std::string, double> m_double_current_params;  /**< Declare a variable current double parameters, adis1650x or adis1657x */
+  /*! Declare function with int32_t parameter and return bool */
+  typedef bool (IIOWrapper::*UpdateInt32Params)(int32_t);
+
+  /*! Declare a map with UpdateInt32Params functions */
+  typedef std::map<std::string, UpdateInt32Params> UpdateInt32ParamsMapType;
+
+  /*! Declare a variable of UpdateInt32ParamsMapType */
+  UpdateInt32ParamsMapType m_func_map_update_int32_params;
+
+  /*! Declare function with int32_t& parameter and return bool */
+  typedef bool (IIOWrapper::*GetInt32Params)(int32_t &);
+
+  /*! Declare a map with GetInt32Params functions */
+  typedef std::map<std::string, GetInt32Params> GetInt32ParamsMapType;
+
+  /*! Declare a variable of GetInt32ParamsMapType */
+  GetInt32ParamsMapType m_func_map_get_int32_params;
+
+  /*! Declare function with double parameter and return bool */
+  typedef bool (IIOWrapper::*UpdateDoubleParams)(double);
+
+  /*! Declare a map with UpdateDoubleParams functions */
+  typedef std::map<std::string, UpdateDoubleParams> UpdateDoubleParamsMapType;
+
+  /*! Declare a variable of UpdateDoubleParamsMapType */
+  UpdateDoubleParamsMapType m_func_map_update_double_params;
+
+  /*! Declare function with double parameter and return bool */
+  typedef bool (IIOWrapper::*GetDoubleParams)(double *);
+
+  /*! Declare a map with GetDoubleParams functions */
+  typedef std::map<std::string, GetDoubleParams> GetDoubleParamsMapType;
+
+  /*! Declare a variable of GetDoubleParamsMapType */
+  GetDoubleParamsMapType m_func_map_get_double_params;
+
+  /*! Declare function that return bool */
+  typedef bool (IIOWrapper::*ExecuteCommands)();
+
+  /*! Declare a map with ExecuteCommands functions */
+  typedef std::map<std::string, ExecuteCommands> ExecuteCommandsMapType;
+
+  /*! Declare a variable of ExecuteCommandsMapType */
+  ExecuteCommandsMapType m_func_map_execute_commands;
+
+  /*! Declare a variable with adis1650x attributes */
+  std::list<std::string> m_attr_adis1650x;
+
+  /*! Declare a variable with adis1657x attributes */
+  std::list<std::string> m_attr_adis1657x;
+
+  /*! Declare a variable current attributes, adis1650x or adis1657x */
+  std::list<std::string> m_attr_current_device;
+
+  /*! Declare a variable current int32_t parameters, adis1650x or adis1657x */
+  std::map<std::string, int32_t> m_int32_current_params;
+
+  /*! Declare a variable current int64_t parameters, adis1650x or adis1657x */
+  std::map<std::string, int64_t> m_uint32_current_params;
+
+  /*! Declare a variable current double parameters, adis1650x or adis1657x */
+  std::map<std::string, double> m_double_current_params;
 };
 
 #endif  // IMU_CONTROL_PARAMETERS_H

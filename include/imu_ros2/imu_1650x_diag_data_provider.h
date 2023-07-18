@@ -66,7 +66,8 @@ public:
   bool getData(imu_ros2::msg::Imu1650xDiagData & message) override;
 
 private:
-  IIOWrapper m_iio_wrapper; /**< This data member access information from libiio */
+  /*! This data member access information from libiio */
+  IIOWrapper m_iio_wrapper;
 };
 
 #endif  // IMU_1650X_DIAG_DATA_PROVIDER_H

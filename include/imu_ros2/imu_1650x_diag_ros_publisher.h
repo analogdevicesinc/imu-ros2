@@ -86,9 +86,14 @@ public:
   void run() override;
 
 private:
-  Imu1650xDiagDataProviderInterface * m_data_provider; /**< This variable retain a message provider */
-  rclcpp::Publisher<imu_ros2::msg::Imu1650xDiagData>::SharedPtr m_publisher; /**< This variable retain a publisher instance */
-  imu_ros2::msg::Imu1650xDiagData m_message; /**< This variable retain a message that is published on a topic */
+  /*! This variable retain a message provider */
+  Imu1650xDiagDataProviderInterface * m_data_provider;
+
+  /*! This variable retain a publisher instance */
+  rclcpp::Publisher<imu_ros2::msg::Imu1650xDiagData>::SharedPtr m_publisher;
+
+  /*! This variable retain a message that is published on a topic */
+  imu_ros2::msg::Imu1650xDiagData m_message;
 };
 
 #endif  // IMU_1650X_DIAG_ROS_SUBSCRIBER_H

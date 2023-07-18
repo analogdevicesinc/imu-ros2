@@ -79,7 +79,8 @@ public:
   bool enableBufferedDataOutput() override;
 
 private:
-  IIOWrapper m_iio_wrapper; /**< This data member access information from libiio */
+  /*! This data member access information from libiio */
+  IIOWrapper m_iio_wrapper;
 };
 
 #endif  // ACCELGYROTEMP_DATA_PROVIDER_H
