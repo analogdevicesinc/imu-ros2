@@ -256,8 +256,12 @@ bool IIOWrapper::updateBuffer()
   if (read_buffer_idx < no_of_samp) return true;
 
   ret = iio_buffer_refill(m_device_buffer);
-  if (ret <= 0) {
-    RCLCPP_INFO(rclcpp::get_logger("rclcpp_iiowrapper"), "buffer refill error");
+  if (ret == 0) {
+    RCLCPP_INFO(rclcpp::get_logger("rclcpp_iiowrapper"), "no samples available yet, retrying");
+    return false;
+  }
+  if (ret < 0) {
+    RCLCPP_INFO(rclcpp::get_logger("rclcpp_iiowrapper"), "buffer refill error status %d", ret);
     stopBufferAcquisition();
     return false;
   }
