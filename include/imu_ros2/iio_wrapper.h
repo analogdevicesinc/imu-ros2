@@ -206,14 +206,14 @@ public:
   double getBuffTemperature();
 
   /**
-   * \brief Get sample count.
+   * \brief Get sample timestamp.
    *
-   * This function gets the sample count.
+   * This function gets the sample timestamp.
    * The reading is with buffer.
    *
-   * \return Return the sample count.
+   * \return Return the sample timestamp.
    */
-  uint32_t getBuffSampleCount();
+  int64_t getBuffSampleTimestamp();
 
   /**
    * \brief Get linear acceleration on x axis.
@@ -1662,8 +1662,8 @@ private:
   /*! This variable retains temperature channel */
   static struct iio_channel * m_channel_temp;
 
-  /*! This variable retains count channel */
-  static struct iio_channel * m_channel_count;
+  /*! This variable retains timestamp channel */
+  static struct iio_channel * m_channel_timestamp;
 
   /*! This variable retains scale accel x value */
   static double m_scale_accel_x;
