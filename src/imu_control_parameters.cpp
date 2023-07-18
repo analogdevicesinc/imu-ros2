@@ -350,6 +350,7 @@ void ImuControlParameters::handleCommand()
     m_node->get_parameter("command_to_execute").get_parameter_value().get<std::string>();
 
   if (m_func_map_execute_commands.find(requestedCommand) != m_func_map_execute_commands.end()) {
+    m_iio_wrapper.stopBufferAcquisition();
     if (!(m_iio_wrapper.*(m_func_map_execute_commands[requestedCommand]))()) {
       RCLCPP_INFO(
         rclcpp::get_logger("rclcpp_imucontrolparameter"), "error on executing command %s",
