@@ -60,7 +60,8 @@ public:
   void runTask();
 
 private:
-  RosTask * m_rosTask; /**< This data member will run its method run on a thread */
+  /*! This data member will run its method run on a thread */
+  RosTask * m_rosTask;
 };
 
 #endif  // WORKER_THREAD_H

@@ -23,7 +23,6 @@
 
 #include "imu_ros2/msg/imu1650x_diag_data.hpp"
 
-
 /**
  * \brief Interface for diagnosis data provider.
  *

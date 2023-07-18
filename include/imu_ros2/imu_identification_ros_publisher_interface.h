@@ -76,7 +76,8 @@ public:
   virtual void setMessageProvider(ImuIdentificationDataProviderInterface * dataProvider) = 0;
 
 protected:
-  std::shared_ptr<rclcpp::Node> m_node; /**< The ros2 Node data member */
+  /*! The ros2 Node data member */
+  std::shared_ptr<rclcpp::Node> m_node;
 };
 
 #endif  // IMU_IDENTIFICATION_ROS_PUBLISHER_INTERFACE_H

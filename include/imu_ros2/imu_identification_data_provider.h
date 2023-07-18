@@ -65,7 +65,8 @@ public:
   bool getData(imu_ros2::msg::ImuIdentificationData & message) override;
 
 private:
-  IIOWrapper m_iio_wrapper; /**< This data member access information from libiio */
+  /*! This data member access information from libiio */
+  IIOWrapper m_iio_wrapper;
 };
 
 #endif  // IMU_IDENTIFICATION_DATA_PROVIDER_STRING_H

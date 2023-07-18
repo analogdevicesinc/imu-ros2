@@ -78,7 +78,8 @@ public:
   bool getData(sensor_msgs::msg::Imu & message) override;
 
 private:
-  IIOWrapper m_iio_wrapper;  /**< This data member access information from libiio */
+  /*! This data member access information from libiio */
+  IIOWrapper m_iio_wrapper;
 };
 
 #endif  // IMU_DATA_PROVIDER_H

@@ -35,7 +35,6 @@
 class AccelGyroTempSubscriberTest : public ::testing::Test
 {
 public:
-
   /**
    * \brief Set up the test case
    *
@@ -70,12 +69,13 @@ TEST(AccelGyroTempSubscriberTest, test_accelgyrotemp_publisher)
   double scale_temp = iio_wrapper.get_scale_temp();
   bool callbackExecuted = false;
 
-  auto callback = [&scale_accel, &scale_angvel,
-        &scale_temp, &callbackExecuted](imu_ros2::msg::AccelGyroTempData msg) -> void {
+  auto callback = [&scale_accel, &scale_angvel, &scale_temp,
+                   &callbackExecuted](imu_ros2::msg::AccelGyroTempData msg) -> void {
     RCLCPP_INFO(
-      rclcpp::get_logger("rclcpp_test_accel_gyro_temp"), " acceleration: %f %f %f and gyroscope: %f %f %f \n",
-      msg.linear_acceleration.x, msg.linear_acceleration.y, msg.linear_acceleration.z,
-      msg.angular_velocity.x, msg.angular_velocity.y, msg.angular_velocity.z);
+      rclcpp::get_logger("rclcpp_test_accel_gyro_temp"),
+      " acceleration: %f %f %f and gyroscope: %f %f %f \n", msg.linear_acceleration.x,
+      msg.linear_acceleration.y, msg.linear_acceleration.z, msg.angular_velocity.x,
+      msg.angular_velocity.y, msg.angular_velocity.z);
 
     int32_t minint = -2147483648;
     int32_t maxint = 2147483647;
@@ -117,7 +117,8 @@ TEST(AccelGyroTempSubscriberTest, test_accelgyrotemp_publisher)
   rclcpp::executors::SingleThreadedExecutor executor;
   executor.add_node(node);
 
-  auto subscriber = node->create_subscription<imu_ros2::msg::AccelGyroTempData>(topic, 10, callback);
+  auto subscriber =
+    node->create_subscription<imu_ros2::msg::AccelGyroTempData>(topic, 10, callback);
 
   std::chrono::seconds sec(1);
 

@@ -76,7 +76,8 @@ public:
   virtual void setMessageProvider(ImuDataProviderInterface * dataProvider) = 0;
 
 protected:
-  std::shared_ptr<rclcpp::Node> m_node; /**< The ros2 Node data member */
+  /*! The ros2 Node data member */
+  std::shared_ptr<rclcpp::Node> m_node;
 };
 
 #endif  // ACCELERATION_ROS_PUBLISHER_INTERFACE_H

@@ -86,9 +86,14 @@ public:
   void run() override;
 
 private:
-  VelAngTempDataProviderInterface * m_data_provider;  /**< This variable retain a message provider */
-  rclcpp::Publisher<imu_ros2::msg::VelAngTempData>::SharedPtr m_publisher; /**< This variable retain a publisher instance */
-  imu_ros2::msg::VelAngTempData m_message; /**< This variable retain a message that is published on a topic */
+  /*! This variable retain a message provider */
+  VelAngTempDataProviderInterface * m_data_provider;
+
+  /*! This variable retain a publisher instance */
+  rclcpp::Publisher<imu_ros2::msg::VelAngTempData>::SharedPtr m_publisher;
+
+  /*! This variable retain a message that is published on a topic */
+  imu_ros2::msg::VelAngTempData m_message;
 };
 
 #endif  // VELANGTEMP_ROS_PUBLISHER_H

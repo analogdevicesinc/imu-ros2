@@ -78,7 +78,6 @@ public:
    */
   void setMessageProvider(ImuFullMeasuredDataProviderInterface * dataProvider) override;
 
-
   /**
    * @brief Read from message provider and write on topic
    *
@@ -89,9 +88,14 @@ public:
   void run() override;
 
 private:
-  ImuFullMeasuredDataProviderInterface * m_data_provider; /**< This variable retain a message provider */
-  rclcpp::Publisher<imu_ros2::msg::ImuFullMeasuredData>::SharedPtr m_publisher;  /**< This variable retain a publisher instance */
-  imu_ros2::msg::ImuFullMeasuredData m_message; /**< This variable retain a message that is published on a topic */
+  /*! This variable retain a message provider */
+  ImuFullMeasuredDataProviderInterface * m_data_provider;
+
+  /*! This variable retain a publisher instance */
+  rclcpp::Publisher<imu_ros2::msg::ImuFullMeasuredData>::SharedPtr m_publisher;
+
+  /*! This variable retain a message that is published on a topic */
+  imu_ros2::msg::ImuFullMeasuredData m_message;
 };
 
 #endif  // IMU_FULL_MEASURED_DATA_ROS_PUBLISHER_H
