@@ -110,7 +110,8 @@ IIOWrapper::IIOWrapper()
 
       IIOWrapper::s_device_name = std::string(name);
 
-      std::list<std::string> adis1650x_x{"adis16505-1", "adis16505-2", "adis16505-3"};
+      std::list<std::string> adis1650x_x{"adis16505-1", "adis16505-2", "adis16505-3", "adis16500",
+                                         "adis16507-1", "adis16507-2", "adis16507-3"};
 
       bool found =
         (std::find(adis1650x_x.begin(), adis1650x_x.end(), IIOWrapper::s_device_name) !=
