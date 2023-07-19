@@ -10,9 +10,6 @@
     internal_sensor_bandwidth: 0
     point_of_percussion_alignment: 1
     linear_acceleration_compensation: 1
-    burst_size_selection: 0
-    timestamp32: 0
-    internal_sync_enable_4khz: 0
     bias_correction_time_base_control: 10
     x_axis_gyroscope_bias_correction_enable: 0
     y_axis_gyroscope_bias_correction_enable: 0
