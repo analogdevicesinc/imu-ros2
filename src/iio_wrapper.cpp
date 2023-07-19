@@ -46,7 +46,7 @@ enum
   CHAN_DELTA_VEL_X,
   CHAN_DELTA_VEL_Y,
   CHAN_DELTA_VEL_Z,
-  CHAN_DATA_COUNTER,
+  CHAN_DATA_TIMESTAMP,
   NO_OF_CHANS,
 };
 
@@ -69,7 +69,7 @@ struct iio_channel * IIOWrapper::m_channel_velocity_x = nullptr;
 struct iio_channel * IIOWrapper::m_channel_velocity_y = nullptr;
 struct iio_channel * IIOWrapper::m_channel_velocity_z = nullptr;
 struct iio_channel * IIOWrapper::m_channel_temp = nullptr;
-struct iio_channel * IIOWrapper::m_channel_count = nullptr;
+struct iio_channel * IIOWrapper::m_channel_timestamp = nullptr;
 
 double IIOWrapper::m_scale_accel_x = 0;
 double IIOWrapper::m_scale_accel_y = 0;
@@ -87,7 +87,7 @@ double IIOWrapper::m_scale_temp = 0;
 
 uint32_t write_buffer_idx = 0;
 uint32_t read_buffer_idx = MAX_NO_OF_SAMPLES;
-uint32_t buffered_data[NO_OF_CHANS][MAX_NO_OF_SAMPLES];
+uint32_t buffered_data[NO_OF_CHANS + 1][MAX_NO_OF_SAMPLES];
 double samp_freq = 2000.0;
 uint32_t no_of_samp = 2000;
 
@@ -175,7 +175,8 @@ IIOWrapper::IIOWrapper()
 
   if (m_channel_temp == nullptr) m_channel_temp = iio_device_find_channel(m_dev, "temp", false);
 
-  if (m_channel_count == nullptr) m_channel_count = iio_device_find_channel(m_dev, "count", false);
+  if (m_channel_timestamp == nullptr)
+    m_channel_timestamp = iio_device_find_channel(m_dev, "timestamp", false);
 
   iio_channel_enable(m_channel_accel_x);
   iio_channel_enable(m_channel_accel_y);
@@ -190,7 +191,7 @@ IIOWrapper::IIOWrapper()
   iio_channel_enable(m_channel_velocity_y);
   iio_channel_enable(m_channel_velocity_z);
   iio_channel_enable(m_channel_temp);
-  iio_channel_enable(m_channel_count);
+  iio_channel_enable(m_channel_timestamp);
 
   iio_channel_attr_read_double(m_channel_accel_x, "scale", &m_scale_accel_x);
   iio_channel_attr_read_double(m_channel_accel_y, "scale", &m_scale_accel_y);
@@ -229,12 +230,15 @@ void IIOWrapper::stopBufferAcquisition()
 
 static ssize_t demux_sample(const struct iio_channel * chn, void * sample, size_t size, void * d)
 {
-  uint32_t val;
+  uint64_t val;
   iio_channel_convert(chn, &val, sample);
 
   buffered_data[iio_channel_get_index(chn)][write_buffer_idx] = val;
 
-  if (iio_channel_get_index(chn) == CHAN_DATA_COUNTER) write_buffer_idx++;
+  if (iio_channel_get_index(chn) == CHAN_DATA_TIMESTAMP) {
+    buffered_data[CHAN_DATA_TIMESTAMP + 1][write_buffer_idx] = val >> 32;
+    write_buffer_idx++;
+  }
 
   if (write_buffer_idx == no_of_samp) write_buffer_idx = 0;
 
@@ -256,8 +260,12 @@ bool IIOWrapper::updateBuffer()
   if (read_buffer_idx < no_of_samp) return true;
 
   ret = iio_buffer_refill(m_device_buffer);
-  if (ret <= 0) {
-    RCLCPP_INFO(rclcpp::get_logger("rclcpp_iiowrapper"), "buffer refill error");
+  if (ret == 0) {
+    RCLCPP_INFO(rclcpp::get_logger("rclcpp_iiowrapper"), "no samples available yet, retrying");
+    return false;
+  }
+  if (ret < 0) {
+    RCLCPP_INFO(rclcpp::get_logger("rclcpp_iiowrapper"), "buffer refill error status %d", ret);
     stopBufferAcquisition();
     return false;
   }
@@ -334,9 +342,16 @@ double IIOWrapper::getBuffTemperature()
   return (int32_t)buffered_data[CHAN_TEMP][read_buffer_idx] * m_scale_temp / 1000.0;
 }
 
-uint32_t IIOWrapper::getBuffSampleCount()
+int64_t IIOWrapper::getBuffSampleTimestamp()
 {
-  return buffered_data[CHAN_DATA_COUNTER][read_buffer_idx];
+  uint16_t timestamp_0_15 = buffered_data[CHAN_DATA_TIMESTAMP][read_buffer_idx];
+  uint16_t timestamp_16_31 = buffered_data[CHAN_DATA_TIMESTAMP][read_buffer_idx] >> 16;
+  uint16_t timestamp_32_47 = buffered_data[CHAN_DATA_TIMESTAMP + 1][read_buffer_idx];
+  uint16_t timestamp_48_63 = buffered_data[CHAN_DATA_TIMESTAMP + 1][read_buffer_idx] >> 16;
+
+  uint64_t timestamp = ((uint64_t)timestamp_48_63 << 48) | ((uint64_t)timestamp_32_47 << 32) |
+                       ((uint64_t)timestamp_16_31 << 16) | timestamp_0_15;
+  return (int64_t)timestamp;
 }
 
 bool IIOWrapper::getRegLinearAccelerationX(double & result)

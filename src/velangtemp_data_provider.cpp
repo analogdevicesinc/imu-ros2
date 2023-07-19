@@ -44,7 +44,7 @@ bool VelAngTempDataProvider::getData(imu_ros2::msg::VelAngTempData & message)
 
   message.temperature = m_iio_wrapper.getBuffTemperature();
 
-  message.sample_count = m_iio_wrapper.getBuffSampleCount();
+  message.timestamp = m_iio_wrapper.getBuffSampleTimestamp();
 
   return true;
 }

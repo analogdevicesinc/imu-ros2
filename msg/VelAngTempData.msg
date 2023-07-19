@@ -27,5 +27,5 @@ geometry_msgs/Vector3 delta_angle
 # imu internal temperature [°C]
 float64 temperature
 
-# sample count
-uint32 sample_count
+# sample timestamp
+int64 timestamp
