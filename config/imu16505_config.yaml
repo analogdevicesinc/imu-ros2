@@ -10,7 +10,6 @@
     internal_sensor_bandwidth: 0
     point_of_percussion_alignment: 1
     linear_acceleration_compensation: 1
-    burst_size_selection: 0
     sampling_frequency: 2000.0
     command_to_execute: no_command
     measured_data_topic_selection: 3
