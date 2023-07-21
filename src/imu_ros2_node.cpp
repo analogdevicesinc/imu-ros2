@@ -45,24 +45,11 @@
 
 using namespace std::chrono_literals;
 
-void declareParameters(std::shared_ptr<rclcpp::Node> & node)
-{
-  auto param_desc = rcl_interfaces::msg::ParameterDescriptor{};
-  param_desc.description =
-    "measured_data_topic_selection values:\n \
-    0: measured data is published on /accelgyrotempdata topic \n \
-    1: measured data is published on /velangtempdata topic \n \
-    2: measured data is published on /imu topic \n \
-    3: measured data is published on /imufullmeasureddata topic (default)";
-  node->declare_parameter("measured_data_topic_selection", FULL_MEASURED_DATA, param_desc);
-}
-
 int main(int argc, char * argv[])
 {
   rclcpp::init(argc, argv);
 
   std::shared_ptr<rclcpp::Node> imu_node = rclcpp::Node::make_shared("imu_ros2_node");
-  declareParameters(imu_node);
 
   std::thread::id this_id = std::this_thread::get_id();
   std::cout << "mainthread " << this_id << " running...\n";
