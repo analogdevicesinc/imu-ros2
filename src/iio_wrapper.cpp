@@ -102,43 +102,26 @@ IIOWrapper::IIOWrapper()
     m_local_context = iio_create_local_context();
     if (!m_local_context) throw std::runtime_error("Exception: local context is null");
 
-    int count = iio_context_get_devices_count(m_local_context);
-    if (count > 0) {
-      struct iio_device * dev = iio_context_get_device(m_local_context, 0);
-      const char * name = iio_device_get_name(dev);
-      RCLCPP_INFO(rclcpp::get_logger("rclcpp_iiowrapper"), "device name: %s", name);
+    std::list<std::string> supported_devices{
+      "adis16500",   "adis16505-1", "adis16505-2", "adis16505-3", "adis16507-1",
+      "adis16507-2", "adis16507-3", "adis16575-2", "adis16575-3", "adis16576-2",
+      "adis16576-3", "adis16577-2", "adis16577-3"};
 
-      IIOWrapper::s_device_name = std::string(name);
+    for (std::string const & devname : supported_devices) {
+      m_dev = iio_context_find_device(m_local_context, devname.c_str());
+      if (m_dev) {
+        IIOWrapper::s_device_name = devname;
+        RCLCPP_INFO(rclcpp::get_logger("rclcpp_iiowrapper"), "Found device: %s", devname.c_str());
 
-      std::list<std::string> adis1650x_x{"adis16505-1", "adis16505-2", "adis16505-3", "adis16500",
-                                         "adis16507-1", "adis16507-2", "adis16507-3"};
-
-      bool found =
-        (std::find(adis1650x_x.begin(), adis1650x_x.end(), IIOWrapper::s_device_name) !=
-         adis1650x_x.end());
-      if (found) {
-        IIOWrapper::s_device_name_enum = IIODeviceName::ADIS1650X;
+        if (devname.find("adis1657") != std::string::npos)
+          IIOWrapper::s_device_name_enum = IIODeviceName::ADIS1657X;
+        else
+          IIOWrapper::s_device_name_enum = IIODeviceName::ADIS1650X;
+        break;
       }
+    }
 
-      std::list<std::string> adis1657x{"adis16575-2", "adis16575-3", "adis16576-2",
-                                       "adis16576-3", "adis16577-2", "adis16577-3"};
-
-      bool found7x =
-        (std::find(adis1657x.begin(), adis1657x.end(), IIOWrapper::s_device_name) !=
-         adis1657x.end());
-      if (found7x) {
-        IIOWrapper::s_device_name_enum = IIODeviceName::ADIS1657X;
-      }
-
-      if (!found && !found7x)
-        RCLCPP_INFO(rclcpp::get_logger("rclcpp_iiowrapper"), "device not found");
-    } else
-      throw std::runtime_error("Exception: no device found");
-  }
-
-  if (m_dev == nullptr) {
-    m_dev = iio_context_find_device(m_local_context, IIOWrapper::s_device_name.c_str());
-    if (!m_dev) throw std::runtime_error("Exception: device data is null");
+    if (!m_dev) throw std::runtime_error("Exception: no device found, m_dev is null");
   }
 
   if (m_devtrigger == nullptr) {
