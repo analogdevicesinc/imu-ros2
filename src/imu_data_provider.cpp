@@ -43,5 +43,7 @@ bool ImuDataProvider::getData(sensor_msgs::msg::Imu & message)
   message.angular_velocity.y = m_iio_wrapper.getBuffAngularVelocityY();
   message.angular_velocity.z = m_iio_wrapper.getBuffAngularVelocityZ();
 
+  message.orientation_covariance[0] = -1;
+
   return true;
 }
