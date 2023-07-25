@@ -218,6 +218,15 @@ private:
 
   /*! Declare a variable current double parameters, adis1650x or adis1657x */
   std::map<std::string, double> m_double_current_params;
+
+  /*! Declare a variable for parameter description */
+  std::map<std::string, std::string> m_param_description;
+
+  /*! Declare a IntegerRange variable for parameter constraints */
+  std::map<std::string, rcl_interfaces::msg::IntegerRange> m_param_constraints_integer;
+
+  /*! Declare a FloatingPointRange variable for parameter constraints */
+  std::map<std::string, rcl_interfaces::msg::FloatingPointRange> m_param_constraints_floating;
 };
 
 #endif  // IMU_CONTROL_PARAMETERS_H
