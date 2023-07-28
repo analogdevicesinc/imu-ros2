@@ -181,7 +181,7 @@ void ImuControlParameters::declareFunctions()
   m_param_constraints_integer["accel_calibbias_y"] = param_range_calibbias;
 
   m_param_description["accel_calibbias_z"] = "z-axis acceleration offset correction";
-  m_param_constraints_integer["accel_calibbias_x"] = param_range_calibbias;
+  m_param_constraints_integer["accel_calibbias_z"] = param_range_calibbias;
 
   m_param_description["filter_size"] = "Filter size variable B";
   m_param_constraints_integer["filter_size"] = param_range_06;
