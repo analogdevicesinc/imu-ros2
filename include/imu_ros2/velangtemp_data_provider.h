@@ -68,15 +68,13 @@ public:
   bool getData(imu_ros2::msg::VelAngTempData & message) override;
 
   /**
-   * \brief Enable buffer data reading.
+   * \brief Configures the type of data to be written in the buffer
    *
-   * This function enable buffer variable from libiio
-   * to read very fast.
+   * This function configures the type of data to be written in the buffer.
    *
-   * \return Return true if the buffer was enabled and
-   * false if the buffer was not enabled.
+   * \return Return true if the configures is successful, false otherwise.
    */
-  bool enableBufferedDataOutput() override;
+  bool configureBufferedDataOutput() override;
 
 private:
   /*! This data member access information from libiio */

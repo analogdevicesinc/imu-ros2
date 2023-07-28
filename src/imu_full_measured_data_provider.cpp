@@ -25,6 +25,13 @@ ImuFullMeasuredDataProvider::ImuFullMeasuredDataProvider() {}
 
 ImuFullMeasuredDataProvider::~ImuFullMeasuredDataProvider() {}
 
+bool ImuFullMeasuredDataProvider::configureBufferedDataOutput()
+{
+  /* Stop current buffer acquisition */
+  m_iio_wrapper.stopBufferAcquisition();
+  return true;
+}
+
 bool ImuFullMeasuredDataProvider::getData(imu_ros2::msg::ImuFullMeasuredData & data)
 {
   m_iio_wrapper.stopBufferAcquisition();

@@ -25,8 +25,10 @@ VelAngTempDataProvider::VelAngTempDataProvider() {}
 
 VelAngTempDataProvider::~VelAngTempDataProvider() {}
 
-bool VelAngTempDataProvider::enableBufferedDataOutput()
+bool VelAngTempDataProvider::configureBufferedDataOutput()
 {
+  /* Stop current buffer acquisition */
+  m_iio_wrapper.stopBufferAcquisition();
   return (m_iio_wrapper.update_burst_data_selection(1) == true);
 }
 

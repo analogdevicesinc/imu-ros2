@@ -66,6 +66,15 @@ public:
    * delta angle from the sensor.
    */
   virtual bool getData(imu_ros2::msg::ImuFullMeasuredData & data) = 0;
+
+  /**
+   * \brief Configures the type of data to be written in the buffer
+   *
+   * This function configures the type of data to be written in the buffer.
+   *
+   * \return Return true if the configures is successful, false otherwise.
+   */
+  virtual bool configureBufferedDataOutput() = 0;
 };
 
 #endif  // IMU_FULL_MEASURED_DATA_PROVIDER_INTERFACE_H

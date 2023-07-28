@@ -40,41 +40,15 @@ void ImuRosPublisher::setMessageProvider(ImuDataProviderInterface * dataProvider
   m_data_provider = dataProvider;
 }
 
+bool ImuRosPublisher::configureBufferedDataOutput()
+{
+  return m_data_provider->configureBufferedDataOutput();
+}
+
 void ImuRosPublisher::run()
 {
-  bool bufferedDataEnabled = false;
-  int32_t measuredDataSelection = IMU_STD_MSG_DATA;
-
-  std::thread::id this_id = std::this_thread::get_id();
-  std::cout << "thread " << this_id << " started...\n";
-  RCLCPP_INFO(rclcpp::get_logger("rclcpp_imuros"), "startThread: ImuRosPublisher");
-
-  while (rclcpp::ok()) {
-    measuredDataSelection =
-      m_node->get_parameter("measured_data_topic_selection").get_parameter_value().get<int32_t>();
-
-    switch (measuredDataSelection) {
-      case IMU_STD_MSG_DATA:
-        if (!bufferedDataEnabled) {
-          if (m_data_provider->enableBufferedDataOutput()) bufferedDataEnabled = true;
-        }
-
-        if (m_data_provider->getData(m_message))
-          m_publisher->publish(m_message);
-        else
-          RCLCPP_INFO(
-            rclcpp::get_logger("rclcpp_imuros"), "error reading standard imu buffered data");
-
-        break;
-
-      default: {
-        bufferedDataEnabled = false;
-        break;
-      }
-    }
-  }
-
-  this_id = std::this_thread::get_id();
-  std::cout << "thread " << this_id << " ended...\n";
-  RCLCPP_INFO(rclcpp::get_logger("rclcpp_imuros"), "endThread: ImuRosPublisher");
+  if (m_data_provider->getData(m_message))
+    m_publisher->publish(m_message);
+  else
+    RCLCPP_INFO(rclcpp::get_logger("rclcpp_imuros"), "error reading standard imu buffered data");
 }

@@ -50,15 +50,13 @@ public:
   virtual ~ImuDataProviderInterface() {}
 
   /**
-   * \brief Enable buffer data reading.
+   * \brief Configures the type of data to be written in the buffer
    *
-   * This function enable buffer variable from libiio
-   * to read very fast.
+   * This function configures the type of data to be written in the buffer.
    *
-   * \return Return true if the buffer was enabled and
-   * false if the buffer was not enabled.
+   * \return Return true if the configures is successful, false otherwise.
    */
-  virtual bool enableBufferedDataOutput() = 0;
+  virtual bool configureBufferedDataOutput() = 0;
 
   /**
    * @brief Populate message variable with data.
