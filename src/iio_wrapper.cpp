@@ -90,6 +90,7 @@ uint32_t read_buffer_idx = MAX_NO_OF_SAMPLES;
 uint32_t buffered_data[NO_OF_CHANS + 1][MAX_NO_OF_SAMPLES];
 double samp_freq = 2000.0;
 uint32_t no_of_samp = 2000;
+bool destroy_buffer_requested = false;
 
 std::string IIOWrapper::s_device_name;
 std::string IIOWrapper::s_device_trigger_name;
@@ -101,6 +102,8 @@ IIOWrapper::IIOWrapper()
   if (m_local_context == nullptr) {
     m_local_context = iio_create_local_context();
     if (!m_local_context) throw std::runtime_error("Exception: local context is null");
+
+    iio_context_set_timeout(m_local_context, 5000);
 
     std::list<std::string> supported_devices{
       "adis16500",   "adis16505-1", "adis16505-2", "adis16505-3", "adis16507-1",
@@ -206,10 +209,7 @@ IIOWrapper::~IIOWrapper()
 
 void IIOWrapper::stopBufferAcquisition()
 {
-  if (m_device_buffer != nullptr) {
-    iio_buffer_destroy(m_device_buffer);
-    m_device_buffer = nullptr;
-  }
+  destroy_buffer_requested = true;
 }
 
 static ssize_t demux_sample(const struct iio_channel * chn, void * sample, size_t size, void * d)
@@ -233,16 +233,27 @@ bool IIOWrapper::updateBuffer()
 {
   ssize_t ret;
 
+  if (samp_freq != no_of_samp) stopBufferAcquisition();
+
+  if (destroy_buffer_requested) {
+    if (m_device_buffer != nullptr) {
+      iio_buffer_destroy(m_device_buffer);
+      m_device_buffer = nullptr;
+    }
+    destroy_buffer_requested = false;
+  }
+
   if (m_device_buffer == nullptr) {
+    sampling_frequency(&samp_freq);
     no_of_samp = samp_freq;
     m_device_buffer = iio_device_create_buffer(m_dev, no_of_samp, false);
     if (!m_device_buffer) throw std::runtime_error("Exception: device buffer is null");
+    read_buffer_idx = 0;
+    write_buffer_idx = 0;
   }
 
   read_buffer_idx++;
-
   if (read_buffer_idx < no_of_samp) return true;
-
   ret = iio_buffer_refill(m_device_buffer);
   if (ret == 0) {
     RCLCPP_INFO(rclcpp::get_logger("rclcpp_iiowrapper"), "no samples available yet, retrying");
@@ -253,11 +264,8 @@ bool IIOWrapper::updateBuffer()
     stopBufferAcquisition();
     return false;
   }
-
   iio_buffer_foreach_sample(m_device_buffer, demux_sample, NULL);
-
   read_buffer_idx = 0;
-
   return true;
 }
 

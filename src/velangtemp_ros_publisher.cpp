@@ -41,42 +41,17 @@ void VelAngTempRosPublisher::setMessageProvider(VelAngTempDataProviderInterface 
   m_data_provider = dataProvider;
 }
 
+bool VelAngTempRosPublisher::enableBufferedDataOutput()
+{
+  return m_data_provider->enableBufferedDataOutput();
+}
+
 void VelAngTempRosPublisher::run()
 {
-  bool bufferedDataEnabled = false;
-  int32_t measuredDataSelection = DELTAVEL_DELTAANG_BUFFERED_DATA;
-
-  std::thread::id this_id = std::this_thread::get_id();
-  std::cout << "thread " << this_id << " started...\n";
-  RCLCPP_INFO(rclcpp::get_logger("rclcpp_velangtemp"), "startThread: '%d'", this_id);
-
-  while (rclcpp::ok()) {
-    measuredDataSelection =
-      m_node->get_parameter("measured_data_topic_selection").get_parameter_value().get<int32_t>();
-
-    switch (measuredDataSelection) {
-      case DELTAVEL_DELTAANG_BUFFERED_DATA:
-        if (!bufferedDataEnabled) {
-          if (m_data_provider->enableBufferedDataOutput()) bufferedDataEnabled = true;
-        }
-
-        if (m_data_provider->getData(m_message))
-          m_publisher->publish(m_message);
-        else
-          RCLCPP_INFO(
-            rclcpp::get_logger("rclcpp_velangtemp"),
-            "error reading delta angle, delta velocity and temperature buffered data");
-
-        break;
-
-      default: {
-        bufferedDataEnabled = false;
-        break;
-      }
-    }
-  }
-
-  this_id = std::this_thread::get_id();
-  std::cout << "thread " << this_id << " ended...\n";
-  RCLCPP_INFO(rclcpp::get_logger("rclcpp_velangtemp"), "endThread: '%d'", this_id);
+  if (m_data_provider->getData(m_message))
+    m_publisher->publish(m_message);
+  else
+    RCLCPP_INFO(
+      rclcpp::get_logger("rclcpp_velangtemp"),
+      "error reading delta angle, delta velocity and temperature buffered data");
 }

@@ -45,42 +45,17 @@ void AccelGyroTempRosPublisher::setMessageProvider(
   m_data_provider = dataProvider;
 }
 
+bool AccelGyroTempRosPublisher::enableBufferedDataOutput()
+{
+   return m_data_provider->enableBufferedDataOutput();
+}
+
 void AccelGyroTempRosPublisher::run()
 {
-  std::thread::id this_id = std::this_thread::get_id();
-  std::cout << "thread " << this_id << " started...\n";
-  RCLCPP_INFO(rclcpp::get_logger("rclcpp_accelgyrotemp"), "startThread: '%d'", this_id);
-
-  bool bufferedDataEnabled = false;
-  int32_t measuredDataSelection = ACCEL_GYRO_BUFFERED_DATA;
-
-  while (rclcpp::ok()) {
-    measuredDataSelection =
-      m_node->get_parameter("measured_data_topic_selection").get_parameter_value().get<int32_t>();
-
-    switch (measuredDataSelection) {
-      case ACCEL_GYRO_BUFFERED_DATA:
-        if (!bufferedDataEnabled) {
-          if (m_data_provider->enableBufferedDataOutput()) bufferedDataEnabled = true;
-        }
-
-        if (m_data_provider->getData(m_message))
-          m_publisher->publish(m_message);
-        else
-          RCLCPP_INFO(
-            rclcpp::get_logger("rclcpp_accelgyrotemp"),
-            "error reading accelerometer, gyroscope and temperature buffered data");
-
-        break;
-
-      default: {
-        bufferedDataEnabled = false;
-        break;
-      }
-    }
-  }
-
-  this_id = std::this_thread::get_id();
-  std::cout << "thread " << this_id << " ended...\n";
-  RCLCPP_INFO(rclcpp::get_logger("rclcpp_accelgyrotemp"), "endThread: '%d'", this_id);
+  if (m_data_provider->getData(m_message))
+    m_publisher->publish(m_message);
+  else
+    RCLCPP_INFO(
+      rclcpp::get_logger("rclcpp_accelgyrotemp"),
+      "error reading accelerometer, gyroscope and temperature buffered data");
 }

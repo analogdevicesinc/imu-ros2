@@ -75,6 +75,8 @@ public:
    */
   virtual void setMessageProvider(AccelGyroTempDataProviderInterface * dataProvider) = 0;
 
+  virtual bool enableBufferedDataOutput() = 0;
+
 protected:
   /*! The ros2 Node data member */
   std::shared_ptr<rclcpp::Node> m_node;

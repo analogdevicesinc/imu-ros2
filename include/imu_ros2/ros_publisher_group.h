@@ -1,6 +1,6 @@
 /*******************************************************************************
- *   @file   imu_ros_publisher.h
- *   @brief  Header for IMU ros standard message publisher.
+ *   @file   ros_publisher_group.h
+ *   @brief  Header for acceleration, gyroscope and temperature publisher.
  *   @author Vasile Holonec (Vasile.Holonec@analog.com)
  *******************************************************************************
  * Copyright 2023(c) Analog Devices, Inc.
@@ -18,43 +18,33 @@
  * limitations under the License.
  ******************************************************************************/
 
-#ifndef IMU_ROS_PUBLISHER_H
-#define IMU_ROS_PUBLISHER_H
+#ifndef ROS_PUBLISHER_GROUP_H
+#define ROS_PUBLISHER_GROUP_H
 
 #include <rclcpp/rclcpp.hpp>
 
-#include "imu_ros2/imu_data_provider_interface.h"
-#include "imu_ros2/imu_ros_publisher_interface.h"
+#include "imu_ros2/ros_publisher_group_interface.h"
 
-/**
- * \brief Class for accel and gyro ros publisher.
- *
- * This class initializes the ros Node class.
- * It set message provider with a variable that is
- * a standard type of sensor_msgs::msg::Imu.
- * It also run on thread reading from data provider and
- * write on a ros2 publisher.
- */
-class ImuRosPublisher : public ImuRosPublisherInterface
+class RosPublisherGroup : public RosPublisherGroupInterface
 {
 public:
   /**
-   * \brief Constructor for ImuRosPublisher.
+   * \brief Constructor for RosPublisherGroup.
    *
    * This is the default constructor for class
-   *  ImuRosPublisher.
+   *  RosPublisherGroup.
    *
    * @param node The ros2 Node instance.
    */
-  ImuRosPublisher(std::shared_ptr<rclcpp::Node> & node);
+  RosPublisherGroup(std::shared_ptr<rclcpp::Node> & node);
 
   /**
-   * \brief Destructor for ImuRosPublisher.
+   * \brief Destructor for RosPublisherGroup.
    *
-   * This is a destructor for ImuRosPublisher.
+   * This is a destructor for RosPublisherGroup.
    *
    */
-  ~ImuRosPublisher();
+  ~RosPublisherGroup();
 
   /**
    * @brief Initialize class with ros2 Node instance.
@@ -66,17 +56,13 @@ public:
    */
   void init(std::shared_ptr<rclcpp::Node> & node) override;
 
-  /**
-   * @brief Set message provider.
-   *
-   * This function set data message provider with a variable that
-   * inherit AccelGyroTempDataProviderInterface.
-   *
-   * @param dataProvider Data message provider.
-   */
-  void setMessageProvider(ImuDataProviderInterface * dataProvider) override;
+  void setAccelGyroTempRosPublisher(AccelGyroTempRosPublisherInterface * accelGyroTempRosPublisher) override;
 
-  bool enableBufferedDataOutput() override;
+  void setVelAngTempRosPublisher(VelAngTempRosPublisherInterface * velAngTempRosPublisher) override;
+
+  void setImuRosPublisher(ImuRosPublisherInterface * imuRosPublisher) override;
+
+  void setImuFullMeasuredDataRosPublisher(ImuFullMeasuredDataRosPublisherInterface * imuFullMeasuredDataRosPublisher)  override;
 
   /**
    * @brief Read from message provider and write on topic
@@ -89,13 +75,11 @@ public:
 
 private:
   /*! This variable retain a message provider */
-  ImuDataProviderInterface * m_data_provider;
+  AccelGyroTempRosPublisherInterface * m_accelGyroTempRosPublisher;
+  VelAngTempRosPublisherInterface * m_velAngTempRosPublisher;
+  ImuRosPublisherInterface * m_imuRosPublisher;
+  ImuFullMeasuredDataRosPublisherInterface * m_imuFullMeasuredDataRosPublisher;
 
-  /*! This variable retain a publisher instance */
-  rclcpp::Publisher<sensor_msgs::msg::Imu>::SharedPtr m_publisher;
-
-  /*! This variable retain a message that is published on a topic */
-  sensor_msgs::msg::Imu m_message;
 };
 
-#endif  // IMU_ROS_PUBLISHER_H
+#endif  // ROS_PUBLISHER_GROUP_H

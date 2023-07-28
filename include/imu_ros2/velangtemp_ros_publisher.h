@@ -76,6 +76,8 @@ public:
    */
   void setMessageProvider(VelAngTempDataProviderInterface * dataProvider) override;
 
+  bool enableBufferedDataOutput() override;
+
   /**
    * @brief Read from message provider and write on topic
    *

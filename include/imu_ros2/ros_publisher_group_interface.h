@@ -1,6 +1,6 @@
 /*******************************************************************************
- *   @file   imu_ros_publisher_interface.h
- *   @brief  Interface for IMU ros standard message publisher.
+ *   @file   ros_publisher_group_interface.h
+ *   @brief  Interface for a group of publishers.
  *   @author Vasile Holonec (Vasile.Holonec@analog.com)
  *******************************************************************************
  * Copyright 2023(c) Analog Devices, Inc.
@@ -18,42 +18,38 @@
  * limitations under the License.
  ******************************************************************************/
 
-#ifndef ACCELERATION_ROS_PUBLISHER_INTERFACE_H
-#define ACCELERATION_ROS_PUBLISHER_INTERFACE_H
+#ifndef ROS_PUBLISHER_GROUP_INTERFACE_H
+#define ROS_PUBLISHER_GROUP_INTERFACE_H
 
 #include <memory>
 #include <rclcpp/rclcpp.hpp>
 
 #include "imu_ros2/ros_task.h"
 
-class ImuDataProviderInterface;
+class AccelGyroTempRosPublisherInterface;
+class ImuRosPublisherInterface;
+class VelAngTempRosPublisherInterface;
+class ImuFullMeasuredDataRosPublisherInterface;
 
-/**
- * \brief Interface for accel and gyro ros publisher.
- *
- * This interface initializes the ros Node class.
- * Also it set message provider with a variable that is
- * a type of ImuDataProviderInterface.
- */
-class ImuRosPublisherInterface : public RosTask
+class RosPublisherGroupInterface : public RosTask
 {
 public:
   /**
-   * \brief Constructor for ImuRosPublisherInterface.
+   * \brief Constructor for RosPublisherGroupInterface.
    *
    * This is the default constructor for interface
-   *  ImuRosPublisherInterface.
+   *  RosPublisherGroupInterface.
    *
    */
-  ImuRosPublisherInterface() {}
+  RosPublisherGroupInterface() {}
 
   /**
-   * \brief Destructor for ImuRosPublisherInterface.
+   * \brief Destructor for RosPublisherGroupInterface.
    *
-   * This is a virtual destructor for ImuRosPublisherInterface.
+   * This is a virtual destructor for RosPublisherGroupInterface.
    *
    */
-  virtual ~ImuRosPublisherInterface() {}
+  virtual ~RosPublisherGroupInterface() {}
 
   /**
    * @brief Initialize class with ros2 Node instance.
@@ -65,21 +61,18 @@ public:
    */
   virtual void init(std::shared_ptr<rclcpp::Node> & node) = 0;
 
-  /**
-   * @brief Set message provider.
-   *
-   * This function set data message provider with a variable that
-   * inherit AccelGyroTempDataProviderInterface.
-   *
-   * @param dataProvider Data message provider.
-   */
-  virtual void setMessageProvider(ImuDataProviderInterface * dataProvider) = 0;
+  virtual void setAccelGyroTempRosPublisher(AccelGyroTempRosPublisherInterface * accelGyroTempRosPublisher) = 0;
 
-  virtual bool enableBufferedDataOutput() = 0;
+  virtual void setVelAngTempRosPublisher(VelAngTempRosPublisherInterface * velAngTempRosPublisher) = 0;
+
+  virtual void setImuRosPublisher(ImuRosPublisherInterface * imuRosPublisher) = 0;
+
+  virtual void setImuFullMeasuredDataRosPublisher(ImuFullMeasuredDataRosPublisherInterface * imuFullMeasuredDataRosPublisher) = 0;
+
 
 protected:
   /*! The ros2 Node data member */
   std::shared_ptr<rclcpp::Node> m_node;
 };
 
-#endif  // ACCELERATION_ROS_PUBLISHER_INTERFACE_H
+#endif  // ROS_PUBLISHER_GROUP_INTERFACE_H
