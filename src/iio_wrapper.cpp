@@ -751,18 +751,18 @@ bool IIOWrapper::update_fifo_watermark_threshold_level(uint32_t val)
   return (iio_device_debug_attr_write_longlong(m_dev, "fifo_watermark_threshold_level", val) == 0);
 }
 
-bool IIOWrapper::filter_size(uint32_t & result)
+bool IIOWrapper::filter_low_pass_3db_frequency(uint32_t & result)
 {
   long long valuel;
-  int ret = iio_device_debug_attr_read_longlong(m_dev, "filter_size", &valuel);
+  int ret = iio_device_attr_read_longlong(m_dev, "filter_low_pass_3db_frequency", &valuel);
 
   result = valuel;
   return (ret == 0);
 }
 
-bool IIOWrapper::update_filter_size(uint32_t val)
+bool IIOWrapper::update_filter_low_pass_3db_frequency(uint32_t val)
 {
-  return (iio_device_debug_attr_write_longlong(m_dev, "filter_size", val) == 0);
+  return (iio_device_attr_write_longlong(m_dev, "filter_low_pass_3db_frequency", val) == 0);
 }
 
 bool IIOWrapper::gyroscope_measurement_range(std::string & result)

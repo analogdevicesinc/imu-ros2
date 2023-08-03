@@ -6,7 +6,7 @@
     anglvel_calibbias_x: 0
     anglvel_calibbias_y: 0
     anglvel_calibbias_z: 0
-    filter_size: 0
+    filter_low_pass_3db_frequency: 720
     internal_sensor_bandwidth: 0
     point_of_percussion_alignment: 1
     linear_acceleration_compensation: 1

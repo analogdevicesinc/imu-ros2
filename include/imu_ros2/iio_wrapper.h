@@ -937,28 +937,28 @@ public:
   bool update_fifo_watermark_threshold_level(uint32_t val);
 
   /**
-   * \brief Get filter size data.
+   * \brief Get low pass 3db frequency data.
    *
-   * This function gets the filter size data.
+   * This function gets the low pass 3db frequency data.
    *
    * \return Return true if reading was with success and
    * false if not.
    *
    * @param result This variable will contain the read data
    */
-  bool filter_size(uint32_t & result);
+  bool filter_low_pass_3db_frequency(uint32_t & result);
 
   /**
-   * \brief Update filter size.
+   * \brief Update low pass 3db frequency.
    *
-   * This function updates the filter size.
+   * This function updates the low pass 3db frequency.
    *
    * \return Return true if writing was with success and
    * false if not.
    *
    * @param val The variable with which it will be modified
    */
-  bool update_filter_size(uint32_t val);
+  bool update_filter_low_pass_3db_frequency(uint32_t val);
 
   /**
    * \brief Get gyroscope measurement range data.
