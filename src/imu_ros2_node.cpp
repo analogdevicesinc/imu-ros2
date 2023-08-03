@@ -53,7 +53,7 @@ int main(int argc, char * argv[])
 
   std::thread::id this_id = std::this_thread::get_id();
   std::cout << "mainthread " << this_id << " running...\n";
-  RCLCPP_INFO(rclcpp::get_logger("rclcpp_main"), "running: '%d'", this_id);
+  RCLCPP_INFO(rclcpp::get_logger("rclcpp_main"), "running: main thread");
 
   ImuControlParameters * ctrl_params = new ImuControlParameters(imu_node);
   RosTask * ctrl_params_task = dynamic_cast<RosTask *>(ctrl_params);

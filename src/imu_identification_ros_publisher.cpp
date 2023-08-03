@@ -48,7 +48,8 @@ void ImuIdentificationRosPublisher::run()
 {
   std::thread::id this_id = std::this_thread::get_id();
   std::cout << "thread " << this_id << " started...\n";
-  RCLCPP_INFO(rclcpp::get_logger("rclcpp_imuidentification"), "startThread: '%d'", this_id);
+  RCLCPP_INFO(
+    rclcpp::get_logger("rclcpp_imuidentification"), "startThread: ImuIdentificationRosPublisher");
 
   // read data only once
   m_data_provider->getData(m_message);
@@ -59,5 +60,6 @@ void ImuIdentificationRosPublisher::run()
 
   this_id = std::this_thread::get_id();
   std::cout << "thread " << this_id << " ended...\n";
-  RCLCPP_INFO(rclcpp::get_logger("rclcpp_imuidentification"), "endThread: '%d'", this_id);
+  RCLCPP_INFO(
+    rclcpp::get_logger("rclcpp_imuidentification"), "endThread: ImuIdentificationRosPublisher");
 }

@@ -41,7 +41,8 @@ void ImuControlParameters::declareFunctions()
   m_func_map_update_int32_params["anglvel_calibbias_y"] = &IIOWrapper::update_anglvel_calibbias_y;
   m_func_map_update_int32_params["anglvel_calibbias_z"] = &IIOWrapper::update_anglvel_calibbias_z;
 
-  m_func_map_update_uint32_params["filter_size"] = &IIOWrapper::update_filter_size;
+  m_func_map_update_uint32_params["filter_low_pass_3db_frequency"] =
+    &IIOWrapper::update_filter_low_pass_3db_frequency;
   m_func_map_update_uint32_params["internal_sensor_bandwidth"] =
     &IIOWrapper::update_internal_sensor_bandwidth;
   m_func_map_update_uint32_params["point_of_percussion_alignment"] =
@@ -71,7 +72,8 @@ void ImuControlParameters::declareFunctions()
   m_func_map_get_int32_params["anglvel_calibbias_y"] = &IIOWrapper::anglvel_y_calibbias;
   m_func_map_get_int32_params["anglvel_calibbias_z"] = &IIOWrapper::anglvel_z_calibbias;
 
-  m_func_map_get_uint32_params["filter_size"] = &IIOWrapper::filter_size;
+  m_func_map_get_uint32_params["filter_low_pass_3db_frequency"] =
+    &IIOWrapper::filter_low_pass_3db_frequency;
   m_func_map_get_uint32_params["internal_sensor_bandwidth"] =
     &IIOWrapper::internal_sensor_bandwidth;
   m_func_map_get_uint32_params["point_of_percussion_alignment"] =
@@ -112,7 +114,7 @@ void ImuControlParameters::declareFunctions()
   m_attr_adis1650x.push_back("accel_calibbias_y");
   m_attr_adis1650x.push_back("accel_calibbias_z");
 
-  m_attr_adis1650x.push_back("filter_size");
+  m_attr_adis1650x.push_back("filter_low_pass_3db_frequency");
   m_attr_adis1650x.push_back("internal_sensor_bandwidth");
   m_attr_adis1650x.push_back("point_of_percussion_alignment");
   m_attr_adis1650x.push_back("linear_acceleration_compensation");
@@ -126,7 +128,7 @@ void ImuControlParameters::declareFunctions()
   m_attr_adis1657x.push_back("accel_calibbias_y");
   m_attr_adis1657x.push_back("accel_calibbias_z");
 
-  m_attr_adis1657x.push_back("filter_size");
+  m_attr_adis1657x.push_back("filter_low_pass_3db_frequency");
   m_attr_adis1657x.push_back("internal_sensor_bandwidth");
   m_attr_adis1657x.push_back("point_of_percussion_alignment");
   m_attr_adis1657x.push_back("linear_acceleration_compensation");
@@ -145,10 +147,10 @@ void ImuControlParameters::declareFunctions()
   param_range_calibbias.to_value = 2147483647;
   param_range_calibbias.step = 1;
 
-  auto param_range_06 = rcl_interfaces::msg::IntegerRange{};
-  param_range_06.from_value = 0;
-  param_range_06.to_value = 6;
-  param_range_06.step = 1;
+  auto param_range_0_720 = rcl_interfaces::msg::IntegerRange{};
+  param_range_0_720.from_value = 0;
+  param_range_0_720.to_value = 720;
+  param_range_0_720.step = 1;
 
   auto param_range_01 = rcl_interfaces::msg::IntegerRange{};
   param_range_01.from_value = 0;
@@ -183,8 +185,8 @@ void ImuControlParameters::declareFunctions()
   m_param_description["accel_calibbias_z"] = "z-axis acceleration offset correction";
   m_param_constraints_integer["accel_calibbias_z"] = param_range_calibbias;
 
-  m_param_description["filter_size"] = "Filter size variable B";
-  m_param_constraints_integer["filter_size"] = param_range_06;
+  m_param_description["filter_low_pass_3db_frequency"] = "Low pass 3db frequency";
+  m_param_constraints_integer["filter_low_pass_3db_frequency"] = param_range_0_720;
 
   m_param_description["internal_sensor_bandwidth"] =
     "0 for wide bandwidth  \n \
@@ -404,7 +406,7 @@ void ImuControlParameters::setParametersDouble()
           RCLCPP_INFO(
             rclcpp::get_logger("rclcpp_imucontrolparameter"),
             "error on set parameter %s with %f value; current value remained %f", ckey,
-            m_double_current_params[key], requestedValue);
+            requestedValue, m_double_current_params[key]);
         } else {
           RCLCPP_INFO(
             rclcpp::get_logger("rclcpp_imucontrolparameter"),
@@ -432,7 +434,7 @@ void ImuControlParameters::setParametersInt32()
           RCLCPP_INFO(
             rclcpp::get_logger("rclcpp_imucontrolparameter"),
             "error on set parameter %s with %d value; current value remained %d", ckey,
-            m_int32_current_params[key], requestedValue);
+            requestedValue, m_int32_current_params[key]);
         } else {
           RCLCPP_INFO(
             rclcpp::get_logger("rclcpp_imucontrolparameter"),
@@ -459,12 +461,12 @@ void ImuControlParameters::setParametersUint32()
         if (!(m_iio_wrapper.*(m_func_map_update_uint32_params[key]))(requestedValue)) {
           RCLCPP_INFO(
             rclcpp::get_logger("rclcpp_imucontrolparameter"),
-            "error on set parameter %s with %d value; current value remained %d", ckey,
-            m_uint32_current_params[key], requestedValue);
+            "error on set parameter %s with %ld value; current value remained %ld", ckey,
+            requestedValue, m_uint32_current_params[key]);
         } else {
           RCLCPP_INFO(
             rclcpp::get_logger("rclcpp_imucontrolparameter"),
-            "successfully set parameter %s: old value = %d new value = %d", ckey,
+            "successfully set parameter %s: old value = %ld new value = %ld", ckey,
             m_uint32_current_params[key], requestedValue);
           m_uint32_current_params[key] = requestedValue;
         }
@@ -499,7 +501,8 @@ void ImuControlParameters::run()
 {
   std::thread::id this_id = std::this_thread::get_id();
   std::cout << "thread parameter " << this_id << " started...\n";
-  RCLCPP_INFO(rclcpp::get_logger("rclcpp_imucontrolparameter"), "startThread: '%d'", this_id);
+  RCLCPP_INFO(
+    rclcpp::get_logger("rclcpp_imucontrolparameter"), "startThread: ImuControlParameters");
 
   while (rclcpp::ok()) {
     setParametersInt32();
@@ -511,5 +514,5 @@ void ImuControlParameters::run()
 
   this_id = std::this_thread::get_id();
   std::cout << "thread parameter " << this_id << " ended...\n";
-  RCLCPP_INFO(rclcpp::get_logger("rclcpp_imucontrolparameter"), "endThread: '%d'", this_id);
+  RCLCPP_INFO(rclcpp::get_logger("rclcpp_imucontrolparameter"), "endThread: ImuControlParameters");
 }

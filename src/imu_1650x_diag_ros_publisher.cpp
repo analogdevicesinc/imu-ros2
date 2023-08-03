@@ -44,7 +44,7 @@ void Imu1650xDiagRosPublisher::run()
 {
   std::thread::id this_id = std::this_thread::get_id();
   std::cout << "thread " << this_id << " started...\n";
-  RCLCPP_INFO(rclcpp::get_logger("rclcpp_imu1650xdiag"), "startThread: '%d'", this_id);
+  RCLCPP_INFO(rclcpp::get_logger("rclcpp_imu1650xdiag"), "startThread: Imu1650xDiagRosPublisher");
 
   while (rclcpp::ok()) {
     if (m_data_provider->getData(m_message))
@@ -55,5 +55,5 @@ void Imu1650xDiagRosPublisher::run()
 
   this_id = std::this_thread::get_id();
   std::cout << "thread " << this_id << " ended...\n";
-  RCLCPP_INFO(rclcpp::get_logger("rclcpp_imu1650xdiag"), "endThread: '%d'", this_id);
+  RCLCPP_INFO(rclcpp::get_logger("rclcpp_imu1650xdiag"), "endThread: Imu1650xDiagRosPublisher");
 }

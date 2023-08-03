@@ -212,7 +212,8 @@ void IIOWrapper::stopBufferAcquisition()
   }
 }
 
-static ssize_t demux_sample(const struct iio_channel * chn, void * sample, size_t size, void * d)
+static ssize_t demux_sample(
+  const struct iio_channel * chn, void * sample, size_t size, __attribute__((unused)) void * d)
 {
   uint64_t val;
   iio_channel_convert(chn, &val, sample);
@@ -249,7 +250,7 @@ bool IIOWrapper::updateBuffer()
     return false;
   }
   if (ret < 0) {
-    RCLCPP_INFO(rclcpp::get_logger("rclcpp_iiowrapper"), "buffer refill error status %d", ret);
+    RCLCPP_INFO(rclcpp::get_logger("rclcpp_iiowrapper"), "buffer refill error status %ld", ret);
     stopBufferAcquisition();
     return false;
   }
@@ -751,18 +752,18 @@ bool IIOWrapper::update_fifo_watermark_threshold_level(uint32_t val)
   return (iio_device_debug_attr_write_longlong(m_dev, "fifo_watermark_threshold_level", val) == 0);
 }
 
-bool IIOWrapper::filter_size(uint32_t & result)
+bool IIOWrapper::filter_low_pass_3db_frequency(uint32_t & result)
 {
   long long valuel;
-  int ret = iio_device_debug_attr_read_longlong(m_dev, "filter_size", &valuel);
+  int ret = iio_device_attr_read_longlong(m_dev, "filter_low_pass_3db_frequency", &valuel);
 
   result = valuel;
   return (ret == 0);
 }
 
-bool IIOWrapper::update_filter_size(uint32_t val)
+bool IIOWrapper::update_filter_low_pass_3db_frequency(uint32_t val)
 {
-  return (iio_device_debug_attr_write_longlong(m_dev, "filter_size", val) == 0);
+  return (iio_device_attr_write_longlong(m_dev, "filter_low_pass_3db_frequency", val) == 0);
 }
 
 bool IIOWrapper::gyroscope_measurement_range(std::string & result)

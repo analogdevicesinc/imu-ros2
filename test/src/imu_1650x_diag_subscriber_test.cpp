@@ -99,8 +99,8 @@ TEST(Imu1650xDiagSubscriberTest, test_imu_1650x_diag_data_publisher)
     ASSERT_TRUE(msg.diag_checksum_error_flag == false);
     ASSERT_TRUE(msg.diag_flash_memory_write_count_exceeded_error == false);
 
-    ASSERT_TRUE(msg.lost_samples_count >= 0);
-    ASSERT_TRUE(msg.flash_counter >= 0);
+    ASSERT_TRUE(msg.lost_samples_count == 0);
+    ASSERT_TRUE(msg.flash_counter < 10000);
     callbackExecuted = true;
   };
 

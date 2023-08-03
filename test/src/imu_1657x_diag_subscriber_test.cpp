@@ -110,8 +110,8 @@ TEST(Imu1657xDiagSubscriberTest, test_imu_1657x_diag_data_publisher)
     ASSERT_TRUE(msg.diag_aduc_mcu_fault == false);
     ASSERT_TRUE(msg.diag_checksum_error_flag == false);
     ASSERT_TRUE(msg.diag_flash_memory_write_count_exceeded_error == false);
-    ASSERT_TRUE(msg.flash_counter >= 0);
-    ASSERT_TRUE(msg.lost_samples_count >= 0);
+    ASSERT_TRUE(msg.flash_counter < 100000);
+    ASSERT_TRUE(msg.lost_samples_count == 0);
 
     callbackExecuted = true;
   };
