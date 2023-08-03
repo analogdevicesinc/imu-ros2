@@ -406,7 +406,7 @@ void ImuControlParameters::setParametersDouble()
           RCLCPP_INFO(
             rclcpp::get_logger("rclcpp_imucontrolparameter"),
             "error on set parameter %s with %f value; current value remained %f", ckey,
-            m_double_current_params[key], requestedValue);
+            requestedValue, m_double_current_params[key]);
         } else {
           RCLCPP_INFO(
             rclcpp::get_logger("rclcpp_imucontrolparameter"),
@@ -434,7 +434,7 @@ void ImuControlParameters::setParametersInt32()
           RCLCPP_INFO(
             rclcpp::get_logger("rclcpp_imucontrolparameter"),
             "error on set parameter %s with %d value; current value remained %d", ckey,
-            m_int32_current_params[key], requestedValue);
+            requestedValue, m_int32_current_params[key]);
         } else {
           RCLCPP_INFO(
             rclcpp::get_logger("rclcpp_imucontrolparameter"),
@@ -461,12 +461,12 @@ void ImuControlParameters::setParametersUint32()
         if (!(m_iio_wrapper.*(m_func_map_update_uint32_params[key]))(requestedValue)) {
           RCLCPP_INFO(
             rclcpp::get_logger("rclcpp_imucontrolparameter"),
-            "error on set parameter %s with %d value; current value remained %d", ckey,
-            m_uint32_current_params[key], requestedValue);
+            "error on set parameter %s with %ld value; current value remained %ld", ckey,
+            requestedValue, m_uint32_current_params[key]);
         } else {
           RCLCPP_INFO(
             rclcpp::get_logger("rclcpp_imucontrolparameter"),
-            "successfully set parameter %s: old value = %d new value = %d", ckey,
+            "successfully set parameter %s: old value = %ld new value = %ld", ckey,
             m_uint32_current_params[key], requestedValue);
           m_uint32_current_params[key] = requestedValue;
         }
@@ -501,7 +501,8 @@ void ImuControlParameters::run()
 {
   std::thread::id this_id = std::this_thread::get_id();
   std::cout << "thread parameter " << this_id << " started...\n";
-  RCLCPP_INFO(rclcpp::get_logger("rclcpp_imucontrolparameter"), "startThread: '%d'", this_id);
+  RCLCPP_INFO(
+    rclcpp::get_logger("rclcpp_imucontrolparameter"), "startThread: ImuControlParameters");
 
   while (rclcpp::ok()) {
     setParametersInt32();
@@ -513,5 +514,5 @@ void ImuControlParameters::run()
 
   this_id = std::this_thread::get_id();
   std::cout << "thread parameter " << this_id << " ended...\n";
-  RCLCPP_INFO(rclcpp::get_logger("rclcpp_imucontrolparameter"), "endThread: '%d'", this_id);
+  RCLCPP_INFO(rclcpp::get_logger("rclcpp_imucontrolparameter"), "endThread: ImuControlParameters");
 }

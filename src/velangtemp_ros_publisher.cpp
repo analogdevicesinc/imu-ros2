@@ -48,7 +48,7 @@ void VelAngTempRosPublisher::run()
 
   std::thread::id this_id = std::this_thread::get_id();
   std::cout << "thread " << this_id << " started...\n";
-  RCLCPP_INFO(rclcpp::get_logger("rclcpp_velangtemp"), "startThread: '%d'", this_id);
+  RCLCPP_INFO(rclcpp::get_logger("rclcpp_velangtemp"), "startThread: VelAngTempRosPublisher");
 
   while (rclcpp::ok()) {
     measuredDataSelection =
@@ -78,5 +78,5 @@ void VelAngTempRosPublisher::run()
 
   this_id = std::this_thread::get_id();
   std::cout << "thread " << this_id << " ended...\n";
-  RCLCPP_INFO(rclcpp::get_logger("rclcpp_velangtemp"), "endThread: '%d'", this_id);
+  RCLCPP_INFO(rclcpp::get_logger("rclcpp_velangtemp"), "endThread: VelAngTempRosPublisher");
 }

@@ -212,7 +212,8 @@ void IIOWrapper::stopBufferAcquisition()
   }
 }
 
-static ssize_t demux_sample(const struct iio_channel * chn, void * sample, size_t size, void * d)
+static ssize_t demux_sample(
+  const struct iio_channel * chn, void * sample, size_t size, __attribute__((unused)) void * d)
 {
   uint64_t val;
   iio_channel_convert(chn, &val, sample);
@@ -249,7 +250,7 @@ bool IIOWrapper::updateBuffer()
     return false;
   }
   if (ret < 0) {
-    RCLCPP_INFO(rclcpp::get_logger("rclcpp_iiowrapper"), "buffer refill error status %d", ret);
+    RCLCPP_INFO(rclcpp::get_logger("rclcpp_iiowrapper"), "buffer refill error status %ld", ret);
     stopBufferAcquisition();
     return false;
   }

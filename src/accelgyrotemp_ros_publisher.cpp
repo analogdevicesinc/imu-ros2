@@ -49,7 +49,7 @@ void AccelGyroTempRosPublisher::run()
 {
   std::thread::id this_id = std::this_thread::get_id();
   std::cout << "thread " << this_id << " started...\n";
-  RCLCPP_INFO(rclcpp::get_logger("rclcpp_accelgyrotemp"), "startThread: '%d'", this_id);
+  RCLCPP_INFO(rclcpp::get_logger("rclcpp_accelgyrotemp"), "startThread AccelGyroTempRosPublisher");
 
   bool bufferedDataEnabled = false;
   int32_t measuredDataSelection = ACCEL_GYRO_BUFFERED_DATA;
@@ -82,5 +82,5 @@ void AccelGyroTempRosPublisher::run()
 
   this_id = std::this_thread::get_id();
   std::cout << "thread " << this_id << " ended...\n";
-  RCLCPP_INFO(rclcpp::get_logger("rclcpp_accelgyrotemp"), "endThread: '%d'", this_id);
+  RCLCPP_INFO(rclcpp::get_logger("rclcpp_accelgyrotemp"), "endThread: AccelGyroTempRosPublisher");
 }

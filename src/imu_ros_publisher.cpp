@@ -47,7 +47,7 @@ void ImuRosPublisher::run()
 
   std::thread::id this_id = std::this_thread::get_id();
   std::cout << "thread " << this_id << " started...\n";
-  RCLCPP_INFO(rclcpp::get_logger("rclcpp_imuros"), "startThread: '%d'", this_id);
+  RCLCPP_INFO(rclcpp::get_logger("rclcpp_imuros"), "startThread: ImuRosPublisher");
 
   while (rclcpp::ok()) {
     measuredDataSelection =
@@ -76,5 +76,5 @@ void ImuRosPublisher::run()
 
   this_id = std::this_thread::get_id();
   std::cout << "thread " << this_id << " ended...\n";
-  RCLCPP_INFO(rclcpp::get_logger("rclcpp_imuros"), "endThread: '%d'", this_id);
+  RCLCPP_INFO(rclcpp::get_logger("rclcpp_imuros"), "endThread: ImuRosPublisher");
 }

@@ -51,7 +51,9 @@ void ImuFullMeasuredDataRosPublisher::run()
 {
   std::thread::id this_id = std::this_thread::get_id();
   std::cout << "thread " << this_id << " started...\n";
-  RCLCPP_INFO(rclcpp::get_logger("rclcpp_imufullmeasureddata"), "startThread: '%d'", this_id);
+  RCLCPP_INFO(
+    rclcpp::get_logger("rclcpp_imufullmeasureddata"),
+    "startThread: ImuFullMeasuredDataRosPublisher");
 
   int32_t measuredDataSelection = FULL_MEASURED_DATA;
 
@@ -77,5 +79,6 @@ void ImuFullMeasuredDataRosPublisher::run()
 
   this_id = std::this_thread::get_id();
   std::cout << "thread " << this_id << " ended...\n";
-  RCLCPP_INFO(rclcpp::get_logger("rclcpp_imufullmeasureddata"), "endThread: '%d'", this_id);
+  RCLCPP_INFO(
+    rclcpp::get_logger("rclcpp_imufullmeasureddata"), "endThread: ImuFullMeasuredDataRosPublisher");
 }
