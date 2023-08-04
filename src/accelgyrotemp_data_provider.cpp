@@ -25,8 +25,10 @@ AccelGyroTempDataProvider::AccelGyroTempDataProvider() {}
 
 AccelGyroTempDataProvider::~AccelGyroTempDataProvider() {}
 
-bool AccelGyroTempDataProvider::enableBufferedDataOutput()
+bool AccelGyroTempDataProvider::configureBufferedDataOutput()
 {
+  /* Stop current buffer acquisition */
+  m_iio_wrapper.stopBufferAcquisition();
   return (m_iio_wrapper.update_burst_data_selection(0) == true);
 }
 

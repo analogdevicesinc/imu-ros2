@@ -47,38 +47,16 @@ void ImuFullMeasuredDataRosPublisher::setMessageProvider(
   m_data_provider = dataProvider;
 }
 
+bool ImuFullMeasuredDataRosPublisher::configureBufferedDataOutput()
+{
+  return m_data_provider->configureBufferedDataOutput();
+}
+
 void ImuFullMeasuredDataRosPublisher::run()
 {
-  std::thread::id this_id = std::this_thread::get_id();
-  std::cout << "thread " << this_id << " started...\n";
-  RCLCPP_INFO(
-    rclcpp::get_logger("rclcpp_imufullmeasureddata"),
-    "startThread: ImuFullMeasuredDataRosPublisher");
-
-  int32_t measuredDataSelection = FULL_MEASURED_DATA;
-
-  while (rclcpp::ok()) {
-    measuredDataSelection =
-      m_node->get_parameter("measured_data_topic_selection").get_parameter_value().get<int32_t>();
-
-    switch (measuredDataSelection) {
-      case FULL_MEASURED_DATA:
-        if (m_data_provider->getData(m_message))
-          m_publisher->publish(m_message);
-        else
-          RCLCPP_INFO(
-            rclcpp::get_logger("rclcpp_imufullmeasureddata"), "error reading full measured data");
-
-        break;
-
-      default: {
-        break;
-      }
-    }
-  }
-
-  this_id = std::this_thread::get_id();
-  std::cout << "thread " << this_id << " ended...\n";
-  RCLCPP_INFO(
-    rclcpp::get_logger("rclcpp_imufullmeasureddata"), "endThread: ImuFullMeasuredDataRosPublisher");
+  if (m_data_provider->getData(m_message))
+    m_publisher->publish(m_message);
+  else
+    RCLCPP_INFO(
+      rclcpp::get_logger("rclcpp_imufullmeasureddata"), "error reading full measured data");
 }

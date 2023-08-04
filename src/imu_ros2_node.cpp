@@ -36,6 +36,8 @@
 #include "imu_ros2/imu_identification_data_provider.h"
 #include "imu_ros2/imu_identification_ros_publisher.h"
 #include "imu_ros2/imu_ros_publisher.h"
+#include "imu_ros2/ros_publisher_group.h"
+#include "imu_ros2/ros_publisher_group_interface.h"
 #include "imu_ros2/setting_declarations.h"
 #include "imu_ros2/velangtemp_data_provider.h"
 #include "imu_ros2/velangtemp_ros_publisher.h"
@@ -62,23 +64,27 @@ int main(int argc, char * argv[])
   AccelGyroTempRosPublisherInterface * accel_gyro_publisher =
     new AccelGyroTempRosPublisher(imu_node);
   accel_gyro_publisher->setMessageProvider(accel_gyro_data_provider);
-  RosTask * accel_gyro_task = dynamic_cast<RosTask *>(accel_gyro_publisher);
-
-  VelAngTempDataProviderInterface * vel_ang_data_provider = new VelAngTempDataProvider();
-  VelAngTempRosPublisherInterface * vel_ang_publisher = new VelAngTempRosPublisher(imu_node);
-  vel_ang_publisher->setMessageProvider(vel_ang_data_provider);
-  RosTask * vel_ang_task = dynamic_cast<RosTask *>(vel_ang_publisher);
 
   ImuDataProviderInterface * imu_std_data_provider = new ImuDataProvider();
   ImuRosPublisherInterface * imu_std_publisher = new ImuRosPublisher(imu_node);
   imu_std_publisher->setMessageProvider(imu_std_data_provider);
-  RosTask * imu_std_task = dynamic_cast<RosTask *>(imu_std_publisher);
+
+  VelAngTempDataProviderInterface * vel_ang_data_provider = new VelAngTempDataProvider();
+  VelAngTempRosPublisherInterface * vel_ang_publisher = new VelAngTempRosPublisher(imu_node);
+  vel_ang_publisher->setMessageProvider(vel_ang_data_provider);
 
   ImuFullMeasuredDataProviderInterface * full_data_provider = new ImuFullMeasuredDataProvider();
   ImuFullMeasuredDataRosPublisherInterface * full_data_publisher =
     new ImuFullMeasuredDataRosPublisher(imu_node);
   full_data_publisher->setMessageProvider(full_data_provider);
-  RosTask * full_data_task = dynamic_cast<RosTask *>(full_data_publisher);
+
+  RosPublisherGroupInterface * publisher_group = new RosPublisherGroup(imu_node);
+  publisher_group->setAccelGyroTempRosPublisher(accel_gyro_publisher);
+  publisher_group->setVelAngTempRosPublisher(vel_ang_publisher);
+  publisher_group->setImuRosPublisher(imu_std_publisher);
+  publisher_group->setImuFullMeasuredDataRosPublisher(full_data_publisher);
+
+  RosTask * publisher_group_task = dynamic_cast<RosTask *>(publisher_group);
 
   ImuIdentificationDataProviderInterface * ident_data_provider =
     new ImuIdentificationDataProvider();
@@ -115,10 +121,8 @@ int main(int argc, char * argv[])
   }
 
   WorkerThread ctrl_param_thread(ctrl_params_task);
-  WorkerThread accel_gyro_thread(accel_gyro_task);
-  WorkerThread vel_ang_thread(vel_ang_task);
-  WorkerThread imu_std_thread(imu_std_task);
-  WorkerThread full_data_thread(full_data_task);
+  WorkerThread publisher_group_thread(publisher_group_task);
+
   WorkerThread ident_thread(ident_task);
   if (diag1650x_task) {
     WorkerThread diag1650x_thread(diag1650x_task);
@@ -131,10 +135,7 @@ int main(int argc, char * argv[])
   }
 
   ctrl_param_thread.join();
-  accel_gyro_thread.join();
-  vel_ang_thread.join();
-  imu_std_thread.join();
-  full_data_thread.join();
+  publisher_group_thread.join();
   ident_thread.join();
 
   delete ctrl_params;

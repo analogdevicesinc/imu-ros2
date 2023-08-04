@@ -75,6 +75,15 @@ public:
    */
   virtual void setMessageProvider(ImuDataProviderInterface * dataProvider) = 0;
 
+  /**
+   * \brief Configures the type of data to be written in the buffer
+   *
+   * This function configures the type of data to be written in the buffer.
+   *
+   * \return Return true if the configures is successful, false otherwise.
+   */
+  virtual bool configureBufferedDataOutput() = 0;
+
 protected:
   /*! The ros2 Node data member */
   std::shared_ptr<rclcpp::Node> m_node;
