@@ -20,6 +20,8 @@
 
 #include "imu_ros2/imu_control_parameters.h"
 
+#include <inttypes.h>
+
 #include <map>
 #include <string>
 #include <thread>
@@ -394,6 +396,7 @@ void ImuControlParameters::updateRosParams()
 void ImuControlParameters::setParametersDouble()
 {
   double requestedValue;
+  double dDriverParam;
 
   for (const std::string & key : m_attr_current_device) {
     if (m_func_map_get_double_params.find(key) != m_func_map_get_double_params.end()) {
@@ -408,11 +411,30 @@ void ImuControlParameters::setParametersDouble()
             "error on set parameter %s with %f value; current value remained %f", ckey,
             requestedValue, m_double_current_params[key]);
         } else {
-          RCLCPP_INFO(
-            rclcpp::get_logger("rclcpp_imucontrolparameter"),
-            "successfully set parameter %s: old value = %f new value = %f", ckey,
-            m_double_current_params[key], requestedValue);
-          m_double_current_params[key] = requestedValue;
+          // readback value from hardware
+          if (!(m_iio_wrapper.*(m_func_map_get_double_params[key]))(&dDriverParam)) {
+            RCLCPP_INFO(
+              rclcpp::get_logger("rclcpp_imucontrolparameter"),
+              "error on read-back parameter %s, cannot validate if the parameter has been set \
+              successfully, please retry",
+              ckey);
+          } else {
+            if (dDriverParam != requestedValue) {
+              RCLCPP_INFO(
+                rclcpp::get_logger("rclcpp_imucontrolparameter"),
+                "Trying to set parameter %s: old value = %f requested value = %f. "
+                "Requested value could not be set in hardware, "
+                "instead the following value was set: %f",
+                ckey, m_double_current_params[key], requestedValue, dDriverParam);
+              m_node->set_parameter(rclcpp::Parameter(ckey, dDriverParam));
+            } else {
+              RCLCPP_INFO(
+                rclcpp::get_logger("rclcpp_imucontrolparameter"),
+                "successfully set parameter %s: old value = %f new value = %f", ckey,
+                m_double_current_params[key], requestedValue);
+            }
+            m_double_current_params[key] = dDriverParam;
+          }
         }
       }
     }
@@ -422,6 +444,7 @@ void ImuControlParameters::setParametersDouble()
 void ImuControlParameters::setParametersInt32()
 {
   int32_t requestedValue;
+  int32_t i32DriverParam;
 
   for (const std::string & key : m_attr_current_device) {
     if (m_func_map_get_int32_params.find(key) != m_func_map_get_int32_params.end()) {
@@ -436,11 +459,30 @@ void ImuControlParameters::setParametersInt32()
             "error on set parameter %s with %d value; current value remained %d", ckey,
             requestedValue, m_int32_current_params[key]);
         } else {
-          RCLCPP_INFO(
-            rclcpp::get_logger("rclcpp_imucontrolparameter"),
-            "successfully set parameter %s: old value = %d new value = %d", ckey,
-            m_int32_current_params[key], requestedValue);
-          m_int32_current_params[key] = requestedValue;
+          // readback value from hardware
+          if (!(m_iio_wrapper.*(m_func_map_get_int32_params[key]))(i32DriverParam)) {
+            RCLCPP_INFO(
+              rclcpp::get_logger("rclcpp_imucontrolparameter"),
+              "error on read-back parameter %s, cannot validate if the parameter has been set \
+              successfully, please retry",
+              ckey);
+          } else {
+            if (i32DriverParam != requestedValue) {
+              RCLCPP_INFO(
+                rclcpp::get_logger("rclcpp_imucontrolparameter"),
+                "Trying to set parameter %s: old value = %d requested value = %d. "
+                "Requested value could not be set in hardware, "
+                "instead the following value was set: %d",
+                ckey, m_int32_current_params[key], requestedValue, i32DriverParam);
+              m_node->set_parameter(rclcpp::Parameter(ckey, i32DriverParam));
+            } else {
+              RCLCPP_INFO(
+                rclcpp::get_logger("rclcpp_imucontrolparameter"),
+                "successfully set parameter %s: old value = %d new value = %d", ckey,
+                m_int32_current_params[key], requestedValue);
+            }
+            m_int32_current_params[key] = i32DriverParam;
+          }
         }
       }
     }
@@ -450,6 +492,8 @@ void ImuControlParameters::setParametersInt32()
 void ImuControlParameters::setParametersUint32()
 {
   int64_t requestedValue;
+  int64_t i64DriverParam;
+  uint32_t u32DriverParam;
 
   for (const std::string & key : m_attr_current_device) {
     if (m_func_map_get_uint32_params.find(key) != m_func_map_get_uint32_params.end()) {
@@ -461,14 +505,35 @@ void ImuControlParameters::setParametersUint32()
         if (!(m_iio_wrapper.*(m_func_map_update_uint32_params[key]))(requestedValue)) {
           RCLCPP_INFO(
             rclcpp::get_logger("rclcpp_imucontrolparameter"),
-            "error on set parameter %s with %ld value; current value remained %ld", ckey,
-            requestedValue, m_uint32_current_params[key]);
+            "error on set parameter %s with %" PRId64 " value; current value remained %" PRId64,
+            ckey, requestedValue, m_uint32_current_params[key]);
         } else {
-          RCLCPP_INFO(
-            rclcpp::get_logger("rclcpp_imucontrolparameter"),
-            "successfully set parameter %s: old value = %ld new value = %ld", ckey,
-            m_uint32_current_params[key], requestedValue);
-          m_uint32_current_params[key] = requestedValue;
+          // readback value from hardware
+          if (!(m_iio_wrapper.*(m_func_map_get_uint32_params[key]))(u32DriverParam)) {
+            RCLCPP_INFO(
+              rclcpp::get_logger("rclcpp_imucontrolparameter"),
+              "error on read-back parameter %s, cannot validate if the parameter has been set \
+              successfully, please retry",
+              ckey);
+          } else {
+            i64DriverParam = u32DriverParam;
+            if (i64DriverParam != requestedValue) {
+              RCLCPP_INFO(
+                rclcpp::get_logger("rclcpp_imucontrolparameter"),
+                "Trying to set parameter %s: old value = %" PRId64 " requested value = %" PRId64
+                ". "
+                "Requested value could not be set in hardware, "
+                "instead the following value was set: %" PRId64,
+                ckey, m_uint32_current_params[key], requestedValue, i64DriverParam);
+              m_node->set_parameter(rclcpp::Parameter(ckey, i64DriverParam));
+            } else {
+              RCLCPP_INFO(
+                rclcpp::get_logger("rclcpp_imucontrolparameter"),
+                "successfully set parameter %s: old value = %" PRId64 " new value = %" PRId64, ckey,
+                m_uint32_current_params[key], requestedValue);
+            }
+            m_uint32_current_params[key] = i64DriverParam;
+          }
         }
       }
     }
