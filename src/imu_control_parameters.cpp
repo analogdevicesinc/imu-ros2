@@ -559,6 +559,11 @@ void ImuControlParameters::handleCommand()
       updateRosParams();
       m_node->set_parameter(rclcpp::Parameter("command_to_execute", "no_command"));
     }
+  } else if (requestedCommand != "no_command") {
+    RCLCPP_INFO(
+      rclcpp::get_logger("rclcpp_imucontrolparameter"), "could not find command %s",
+      requestedCommand.c_str());
+    m_node->set_parameter(rclcpp::Parameter("command_to_execute", "no_command"));
   }
 }
 
