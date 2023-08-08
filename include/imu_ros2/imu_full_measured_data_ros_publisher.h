@@ -79,15 +79,6 @@ public:
   void setMessageProvider(ImuFullMeasuredDataProviderInterface * dataProvider) override;
 
   /**
-   * \brief Configures the type of data to be written in the buffer
-   *
-   * This function configures the type of data to be written in the buffer.
-   *
-   * \return Return true if the configures is successful, false otherwise.
-   */
-  bool configureBufferedDataOutput() override;
-
-  /**
    * @brief Read from message provider and write on topic
    *
    * Run on thread the reading from message provider and write

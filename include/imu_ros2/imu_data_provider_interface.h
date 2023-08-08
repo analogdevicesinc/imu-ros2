@@ -50,15 +50,6 @@ public:
   virtual ~ImuDataProviderInterface() {}
 
   /**
-   * \brief Configures the type of data to be written in the buffer
-   *
-   * This function configures the type of data to be written in the buffer.
-   *
-   * \return Return true if the configures is successful, false otherwise.
-   */
-  virtual bool configureBufferedDataOutput() = 0;
-
-  /**
    * @brief Populate message variable with data.
    *
    * This function return by parameter a message variable

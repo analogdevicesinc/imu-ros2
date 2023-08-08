@@ -40,11 +40,6 @@ void ImuRosPublisher::setMessageProvider(ImuDataProviderInterface * dataProvider
   m_data_provider = dataProvider;
 }
 
-bool ImuRosPublisher::configureBufferedDataOutput()
-{
-  return m_data_provider->configureBufferedDataOutput();
-}
-
 void ImuRosPublisher::run()
 {
   if (m_data_provider->getData(m_message))

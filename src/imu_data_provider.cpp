@@ -26,16 +26,9 @@ ImuDataProvider::ImuDataProvider() {}
 
 ImuDataProvider::~ImuDataProvider() {}
 
-bool ImuDataProvider::configureBufferedDataOutput()
-{
-  /* Stop current buffer acquisition */
-  m_iio_wrapper.stopBufferAcquisition();
-  return (m_iio_wrapper.update_burst_data_selection(0) == true);
-}
-
 bool ImuDataProvider::getData(sensor_msgs::msg::Imu & message)
 {
-  if (!m_iio_wrapper.updateBuffer()) return false;
+  if (!m_iio_wrapper.updateBuffer(ACCEL_GYRO_BUFFERED_DATA)) return false;
 
   message.linear_acceleration.x = m_iio_wrapper.getBuffLinearAccelerationX();
   message.linear_acceleration.y = m_iio_wrapper.getBuffLinearAccelerationY();
