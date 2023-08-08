@@ -24,6 +24,7 @@
 #include <thread>
 
 #include "imu_ros2/accelgyrotemp_ros_publisher_interface.h"
+#include "imu_ros2/imu_control_parameters.h"
 #include "imu_ros2/imu_full_measured_data_ros_publisher_interface.h"
 #include "imu_ros2/imu_ros_publisher_interface.h"
 #include "imu_ros2/setting_declarations.h"
@@ -56,6 +57,11 @@ void RosPublisherGroup::setImuFullMeasuredDataRosPublisher(
   ImuFullMeasuredDataRosPublisherInterface * imuFullMeasuredDataRosPublisher)
 {
   m_imuFullMeasuredDataRosPublisher = imuFullMeasuredDataRosPublisher;
+}
+
+void RosPublisherGroup::setImuControlParameters(ImuControlParameters * imuControlParameters)
+{
+  m_imuControlParameters = imuControlParameters;
 }
 
 void RosPublisherGroup::run()
@@ -100,6 +106,11 @@ void RosPublisherGroup::run()
         break;
       }
     }
+
+    // handling parameters
+    m_imuControlParameters->run();
+
+    rclcpp::spin_some(m_node);
   }
 
   this_id = std::this_thread::get_id();

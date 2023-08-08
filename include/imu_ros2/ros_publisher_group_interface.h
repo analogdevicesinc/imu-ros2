@@ -30,6 +30,7 @@ class AccelGyroTempRosPublisherInterface;
 class ImuRosPublisherInterface;
 class VelAngTempRosPublisherInterface;
 class ImuFullMeasuredDataRosPublisherInterface;
+class ImuControlParameters;
 
 class RosPublisherGroupInterface : public RosTask
 {
@@ -103,6 +104,16 @@ public:
    */
   virtual void setImuFullMeasuredDataRosPublisher(
     ImuFullMeasuredDataRosPublisherInterface * imuFullMeasuredDataRosPublisher) = 0;
+
+  /**
+   * @brief Sets the imuControlParameters instance in the publisher group.
+   *
+   * This function sets the imuControlParameters instance to be used in the
+   * publisher group.
+   *
+   * @param imuControlParameters The imuControlParameters instance to be set in the group.
+   */
+  virtual void setImuControlParameters(ImuControlParameters * imuControlParameters) = 0;
 
 protected:
   /*! The ros2 Node data member */

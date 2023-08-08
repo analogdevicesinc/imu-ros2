@@ -58,7 +58,6 @@ int main(int argc, char * argv[])
   RCLCPP_INFO(rclcpp::get_logger("rclcpp_main"), "running: main thread");
 
   ImuControlParameters * ctrl_params = new ImuControlParameters(imu_node);
-  RosTask * ctrl_params_task = dynamic_cast<RosTask *>(ctrl_params);
 
   AccelGyroTempDataProviderInterface * accel_gyro_data_provider = new AccelGyroTempDataProvider();
   AccelGyroTempRosPublisherInterface * accel_gyro_publisher =
@@ -83,6 +82,7 @@ int main(int argc, char * argv[])
   publisher_group->setVelAngTempRosPublisher(vel_ang_publisher);
   publisher_group->setImuRosPublisher(imu_std_publisher);
   publisher_group->setImuFullMeasuredDataRosPublisher(full_data_publisher);
+  publisher_group->setImuControlParameters(ctrl_params);
 
   RosTask * publisher_group_task = dynamic_cast<RosTask *>(publisher_group);
 
@@ -120,7 +120,6 @@ int main(int argc, char * argv[])
     }
   }
 
-  WorkerThread ctrl_param_thread(ctrl_params_task);
   WorkerThread publisher_group_thread(publisher_group_task);
 
   WorkerThread ident_thread(ident_task);
@@ -134,7 +133,6 @@ int main(int argc, char * argv[])
     diag1657x_thread.join();
   }
 
-  ctrl_param_thread.join();
   publisher_group_thread.join();
   ident_thread.join();
 
