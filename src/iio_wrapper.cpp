@@ -250,7 +250,7 @@ bool IIOWrapper::updateBuffer()
   read_buffer_idx++;
   if (read_buffer_idx < no_of_samp) return true;
   ret = iio_buffer_refill(m_device_buffer);
-  if (ret == 0) {
+  if ((ret == 0) || (ret == -110)) {
     RCLCPP_INFO(rclcpp::get_logger("rclcpp_iiowrapper"), "no samples available yet, retrying");
     return false;
   }

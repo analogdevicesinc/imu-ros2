@@ -559,25 +559,18 @@ void ImuControlParameters::handleCommand()
       updateRosParams();
       m_node->set_parameter(rclcpp::Parameter("command_to_execute", "no_command"));
     }
+  } else if (requestedCommand != "no_command") {
+    RCLCPP_INFO(
+      rclcpp::get_logger("rclcpp_imucontrolparameter"), "could not find command %s",
+      requestedCommand.c_str());
+    m_node->set_parameter(rclcpp::Parameter("command_to_execute", "no_command"));
   }
 }
 
 void ImuControlParameters::run()
 {
-  std::thread::id this_id = std::this_thread::get_id();
-  std::cout << "thread parameter " << this_id << " started...\n";
-  RCLCPP_INFO(
-    rclcpp::get_logger("rclcpp_imucontrolparameter"), "startThread: ImuControlParameters");
-
-  while (rclcpp::ok()) {
-    setParametersInt32();
-    setParametersUint32();
-    setParametersDouble();
-    handleCommand();
-    rclcpp::spin_some(m_node);
-  }
-
-  this_id = std::this_thread::get_id();
-  std::cout << "thread parameter " << this_id << " ended...\n";
-  RCLCPP_INFO(rclcpp::get_logger("rclcpp_imucontrolparameter"), "endThread: ImuControlParameters");
+  handleCommand();
+  setParametersInt32();
+  setParametersUint32();
+  setParametersDouble();
 }

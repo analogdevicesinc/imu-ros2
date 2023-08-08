@@ -98,6 +98,16 @@ public:
     ImuFullMeasuredDataRosPublisherInterface * imuFullMeasuredDataRosPublisher) override;
 
   /**
+   * @brief Sets the imuControlParameters instance in the publisher group.
+   *
+   * This function sets the imuControlParameters instance to be used in the
+   * publisher group.
+   *
+   * @param imuControlParameters The imuControlParameters instance to be set in the group.
+   */
+  void setImuControlParameters(ImuControlParameters * imuControlParameters) override;
+
+  /**
    * @brief Read from message provider and write on topic
    *
    * Thread for reading from message providers and writing the read data on
@@ -114,6 +124,8 @@ private:
   ImuRosPublisherInterface * m_imuRosPublisher;
   /*! Variable to retain ImuFullMeasuredData message provider. */
   ImuFullMeasuredDataRosPublisherInterface * m_imuFullMeasuredDataRosPublisher;
+  /*! Variable to retain m_imuControlParameters instance. */
+  ImuControlParameters * m_imuControlParameters;
 };
 
 #endif  // ROS_PUBLISHER_GROUP_H
