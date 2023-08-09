@@ -52,15 +52,6 @@ public:
   ~ImuDataProvider();
 
   /**
-   * \brief Configures the type of data to be written in the buffer
-   *
-   * This function configures the type of data to be written in the buffer.
-   *
-   * \return Return true if the configures is successful, false otherwise.
-   */
-  bool configureBufferedDataOutput() override;
-
-  /**
    * @brief Populate message variable with data.
    *
    * This function return by parameter a message variable

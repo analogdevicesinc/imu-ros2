@@ -64,15 +64,6 @@ public:
    * the sensor.
    */
   virtual bool getData(imu_ros2::msg::AccelGyroTempData & message) = 0;
-
-  /**
-   * \brief Configures the type of data to be written in the buffer
-   *
-   * This function configures the type of data to be written in the buffer.
-   *
-   * \return Return true if the configures is successful, false otherwise.
-   */
-  virtual bool configureBufferedDataOutput() = 0;
 };
 
 #endif  // ACCELGYROTEMP_DATA_PROVIDER_INTERFACE_H

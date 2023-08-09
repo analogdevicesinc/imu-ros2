@@ -68,15 +68,6 @@ public:
   virtual void init(std::shared_ptr<rclcpp::Node> & node) = 0;
 
   /**
-   * \brief Configures the type of data to be written in the buffer
-   *
-   * This function configures the type of data to be written in the buffer.
-   *
-   * \return Return true if the configures is successful, false otherwise.
-   */
-  virtual bool configureBufferedDataOutput() = 0;
-
-  /**
    * @brief Set message provider.
    *
    * This function set data message provider with a variable that

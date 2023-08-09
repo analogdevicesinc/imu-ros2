@@ -61,11 +61,12 @@ public:
    * If buffer not exists then it will be created,
    * and if buffer exists the call refill function
    * from libiio to receive the data.
-   *
+   * @param burst_data_selection: 0 for acceleration and gyroscope data, 1 for
+   * delta angle and delta velocity data.
    * \return Return true if the buffer was updated with success
    * and false if not.
    */
-  bool updateBuffer();
+  bool updateBuffer(uint32_t burst_data_selection);
 
   /**
    * \brief Stop buffer acquisition.

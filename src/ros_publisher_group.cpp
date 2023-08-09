@@ -71,7 +71,6 @@ void RosPublisherGroup::run()
   RCLCPP_INFO(rclcpp::get_logger("rclcpp_rosPublisherGroup"), "startThread: RosPublisherGroup");
 
   int32_t measuredDataSelection;
-  int32_t previousSelection = -1;
 
   while (rclcpp::ok()) {
     measuredDataSelection =
@@ -79,27 +78,15 @@ void RosPublisherGroup::run()
 
     switch (measuredDataSelection) {
       case ACCEL_GYRO_BUFFERED_DATA:
-        if (previousSelection != ACCEL_GYRO_BUFFERED_DATA)
-          if (m_imuRosPublisher->configureBufferedDataOutput())
-            previousSelection = ACCEL_GYRO_BUFFERED_DATA;
         m_accelGyroTempRosPublisher->run();
         break;
       case DELTAVEL_DELTAANG_BUFFERED_DATA:
-        if (previousSelection != DELTAVEL_DELTAANG_BUFFERED_DATA)
-          if (m_velAngTempRosPublisher->configureBufferedDataOutput())
-            previousSelection = DELTAVEL_DELTAANG_BUFFERED_DATA;
         m_velAngTempRosPublisher->run();
         break;
       case IMU_STD_MSG_DATA:
-        if (previousSelection != IMU_STD_MSG_DATA)
-          if (m_imuRosPublisher->configureBufferedDataOutput())
-            previousSelection = IMU_STD_MSG_DATA;
         m_imuRosPublisher->run();
         break;
       case FULL_MEASURED_DATA:
-        if (previousSelection != FULL_MEASURED_DATA)
-          if (m_imuFullMeasuredDataRosPublisher->configureBufferedDataOutput())
-            previousSelection = FULL_MEASURED_DATA;
         m_imuFullMeasuredDataRosPublisher->run();
         break;
       default: {

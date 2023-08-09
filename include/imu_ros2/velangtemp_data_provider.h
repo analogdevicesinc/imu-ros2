@@ -67,15 +67,6 @@ public:
    */
   bool getData(imu_ros2::msg::VelAngTempData & message) override;
 
-  /**
-   * \brief Configures the type of data to be written in the buffer
-   *
-   * This function configures the type of data to be written in the buffer.
-   *
-   * \return Return true if the configures is successful, false otherwise.
-   */
-  bool configureBufferedDataOutput() override;
-
 private:
   /*! This data member access information from libiio */
   IIOWrapper m_iio_wrapper;

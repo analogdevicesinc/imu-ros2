@@ -90,6 +90,7 @@ uint32_t read_buffer_idx = MAX_NO_OF_SAMPLES;
 uint32_t buffered_data[NO_OF_CHANS + 1][MAX_NO_OF_SAMPLES];
 double samp_freq = 2000.0;
 uint32_t no_of_samp = 2000;
+uint32_t current_burst_data_selection = ACCEL_GYRO_BUFFERED_DATA;
 
 std::string IIOWrapper::s_device_name;
 std::string IIOWrapper::s_device_trigger_name;
@@ -232,9 +233,20 @@ static ssize_t demux_sample(
   return size;
 }
 
-bool IIOWrapper::updateBuffer()
+bool IIOWrapper::updateBuffer(uint32_t burst_data_selection)
 {
   ssize_t ret;
+
+  if (current_burst_data_selection != burst_data_selection) {
+    stopBufferAcquisition();
+    if (update_burst_data_selection(burst_data_selection))
+      current_burst_data_selection = burst_data_selection;
+    else {
+      RCLCPP_INFO(
+        rclcpp::get_logger("rclcpp_iiowrapper"), "burst data selection could not be configured");
+      return false;
+    }
+  }
 
   if (samp_freq != no_of_samp) stopBufferAcquisition();
 

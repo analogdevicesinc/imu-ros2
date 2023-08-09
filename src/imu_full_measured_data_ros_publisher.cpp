@@ -47,11 +47,6 @@ void ImuFullMeasuredDataRosPublisher::setMessageProvider(
   m_data_provider = dataProvider;
 }
 
-bool ImuFullMeasuredDataRosPublisher::configureBufferedDataOutput()
-{
-  return m_data_provider->configureBufferedDataOutput();
-}
-
 void ImuFullMeasuredDataRosPublisher::run()
 {
   if (m_data_provider->getData(m_message))

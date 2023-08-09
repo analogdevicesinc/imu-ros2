@@ -41,11 +41,6 @@ void VelAngTempRosPublisher::setMessageProvider(VelAngTempDataProviderInterface 
   m_data_provider = dataProvider;
 }
 
-bool VelAngTempRosPublisher::configureBufferedDataOutput()
-{
-  return m_data_provider->configureBufferedDataOutput();
-}
-
 void VelAngTempRosPublisher::run()
 {
   if (m_data_provider->getData(m_message))
