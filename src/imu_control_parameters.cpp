@@ -28,13 +28,72 @@
 
 ImuControlParameters::ImuControlParameters(std::shared_ptr<rclcpp::Node> & node)
 {
-  declareFunctions();
-  init(node);
+  m_node = node;
+  switch (IIOWrapper::s_device_name_enum) {
+    case IIODeviceName::ADIS1650X:
+      declareAdis1650xAttributes();
+      break;
+    case IIODeviceName::ADIS1657X:
+      declareAdis1657xAttributes();
+      break;
+    default:
+      break;
+  }
+
+  mapIIOUpdateFunctionsInt32();
+  mapIIOGetFunctionsInt32();
+  mapIIOUpdateFunctionsUint32();
+  mapIIOGetFunctionsUint32();
+  mapIIOUpdateFunctionsDouble();
+  mapIIOGetFunctionsDouble();
+  mapIIOCommandFunctions();
+  declareParameterDescription();
+  declareParameters();
 }
 
 ImuControlParameters::~ImuControlParameters() {}
 
-void ImuControlParameters::declareFunctions()
+void ImuControlParameters::declareAdis1650xAttributes()
+{
+  m_attr_current_device.push_back("anglvel_calibbias_x");
+  m_attr_current_device.push_back("anglvel_calibbias_y");
+  m_attr_current_device.push_back("anglvel_calibbias_z");
+  m_attr_current_device.push_back("accel_calibbias_x");
+  m_attr_current_device.push_back("accel_calibbias_y");
+  m_attr_current_device.push_back("accel_calibbias_z");
+
+  m_attr_current_device.push_back("filter_low_pass_3db_frequency");
+  m_attr_current_device.push_back("internal_sensor_bandwidth");
+  m_attr_current_device.push_back("point_of_percussion_alignment");
+  m_attr_current_device.push_back("linear_acceleration_compensation");
+  m_attr_current_device.push_back("sampling_frequency");
+}
+
+void ImuControlParameters::declareAdis1657xAttributes()
+{
+  m_attr_current_device.push_back("anglvel_calibbias_x");
+  m_attr_current_device.push_back("anglvel_calibbias_y");
+  m_attr_current_device.push_back("anglvel_calibbias_z");
+  m_attr_current_device.push_back("accel_calibbias_x");
+  m_attr_current_device.push_back("accel_calibbias_y");
+  m_attr_current_device.push_back("accel_calibbias_z");
+
+  m_attr_current_device.push_back("filter_low_pass_3db_frequency");
+  m_attr_current_device.push_back("internal_sensor_bandwidth");
+  m_attr_current_device.push_back("point_of_percussion_alignment");
+  m_attr_current_device.push_back("linear_acceleration_compensation");
+
+  m_attr_current_device.push_back("bias_correction_time_base_control");
+  m_attr_current_device.push_back("x_axis_gyroscope_bias_correction_enable");
+  m_attr_current_device.push_back("y_axis_accelerometer_bias_correction_enable");
+  m_attr_current_device.push_back("z_axis_accelerometer_bias_correction_enable");
+  m_attr_current_device.push_back("x_axis_accelerometer_bias_correction_enable");
+  m_attr_current_device.push_back("y_axis_gyroscope_bias_correction_enable");
+  m_attr_current_device.push_back("z_axis_gyroscope_bias_correction_enable");
+  m_attr_current_device.push_back("sampling_frequency");
+}
+
+void ImuControlParameters::mapIIOUpdateFunctionsInt32()
 {
   m_func_map_update_int32_params["accel_calibbias_x"] = &IIOWrapper::update_accel_calibbias_x;
   m_func_map_update_int32_params["accel_calibbias_y"] = &IIOWrapper::update_accel_calibbias_y;
@@ -42,7 +101,20 @@ void ImuControlParameters::declareFunctions()
   m_func_map_update_int32_params["anglvel_calibbias_x"] = &IIOWrapper::update_anglvel_calibbias_x;
   m_func_map_update_int32_params["anglvel_calibbias_y"] = &IIOWrapper::update_anglvel_calibbias_y;
   m_func_map_update_int32_params["anglvel_calibbias_z"] = &IIOWrapper::update_anglvel_calibbias_z;
+}
 
+void ImuControlParameters::mapIIOGetFunctionsInt32()
+{
+  m_func_map_get_int32_params["accel_calibbias_x"] = &IIOWrapper::accel_x_calibbias;
+  m_func_map_get_int32_params["accel_calibbias_y"] = &IIOWrapper::accel_y_calibbias;
+  m_func_map_get_int32_params["accel_calibbias_z"] = &IIOWrapper::accel_z_calibbias;
+  m_func_map_get_int32_params["anglvel_calibbias_x"] = &IIOWrapper::anglvel_x_calibbias;
+  m_func_map_get_int32_params["anglvel_calibbias_y"] = &IIOWrapper::anglvel_y_calibbias;
+  m_func_map_get_int32_params["anglvel_calibbias_z"] = &IIOWrapper::anglvel_z_calibbias;
+}
+
+void ImuControlParameters::mapIIOUpdateFunctionsUint32()
+{
   m_func_map_update_uint32_params["filter_low_pass_3db_frequency"] =
     &IIOWrapper::update_filter_low_pass_3db_frequency;
   m_func_map_update_uint32_params["internal_sensor_bandwidth"] =
@@ -51,7 +123,6 @@ void ImuControlParameters::declareFunctions()
     &IIOWrapper::update_point_of_percussion_alignment;
   m_func_map_update_uint32_params["linear_acceleration_compensation"] =
     &IIOWrapper::update_linear_acceleration_compensation;
-
   m_func_map_update_uint32_params["bias_correction_time_base_control"] =
     &IIOWrapper::update_bias_correction_time_base_control;
   m_func_map_update_uint32_params["x_axis_gyroscope_bias_correction_enable"] =
@@ -66,14 +137,10 @@ void ImuControlParameters::declareFunctions()
     &IIOWrapper::update_y_axis_accelerometer_bias_correction_enable;
   m_func_map_update_uint32_params["z_axis_accelerometer_bias_correction_enable"] =
     &IIOWrapper::update_z_axis_accelerometer_bias_correction_enable;
+}
 
-  m_func_map_get_int32_params["accel_calibbias_x"] = &IIOWrapper::accel_x_calibbias;
-  m_func_map_get_int32_params["accel_calibbias_y"] = &IIOWrapper::accel_y_calibbias;
-  m_func_map_get_int32_params["accel_calibbias_z"] = &IIOWrapper::accel_z_calibbias;
-  m_func_map_get_int32_params["anglvel_calibbias_x"] = &IIOWrapper::anglvel_x_calibbias;
-  m_func_map_get_int32_params["anglvel_calibbias_y"] = &IIOWrapper::anglvel_y_calibbias;
-  m_func_map_get_int32_params["anglvel_calibbias_z"] = &IIOWrapper::anglvel_z_calibbias;
-
+void ImuControlParameters::mapIIOGetFunctionsUint32()
+{
   m_func_map_get_uint32_params["filter_low_pass_3db_frequency"] =
     &IIOWrapper::filter_low_pass_3db_frequency;
   m_func_map_get_uint32_params["internal_sensor_bandwidth"] =
@@ -82,7 +149,6 @@ void ImuControlParameters::declareFunctions()
     &IIOWrapper::point_of_percussion_alignment;
   m_func_map_get_uint32_params["linear_acceleration_compensation"] =
     &IIOWrapper::linear_acceleration_compensation;
-
   m_func_map_get_uint32_params["bias_correction_time_base_control"] =
     &IIOWrapper::bias_correction_time_base_control;
   m_func_map_get_uint32_params["x_axis_gyroscope_bias_correction_enable"] =
@@ -97,10 +163,20 @@ void ImuControlParameters::declareFunctions()
     &IIOWrapper::y_axis_accelerometer_bias_correction_enable;
   m_func_map_get_uint32_params["z_axis_accelerometer_bias_correction_enable"] =
     &IIOWrapper::z_axis_accelerometer_bias_correction_enable;
+}
 
-  m_func_map_get_double_params["sampling_frequency"] = &IIOWrapper::sampling_frequency;
+void ImuControlParameters::mapIIOUpdateFunctionsDouble()
+{
   m_func_map_update_double_params["sampling_frequency"] = &IIOWrapper::update_sampling_frequency;
+}
 
+void ImuControlParameters::mapIIOGetFunctionsDouble()
+{
+  m_func_map_get_double_params["sampling_frequency"] = &IIOWrapper::sampling_frequency;
+}
+
+void ImuControlParameters::mapIIOCommandFunctions()
+{
   m_func_map_execute_commands["software_reset"] = &IIOWrapper::software_reset;
   m_func_map_execute_commands["flash_memory_test"] = &IIOWrapper::flash_memory_test;
   m_func_map_execute_commands["flash_memory_update"] = &IIOWrapper::flash_memory_update;
@@ -108,42 +184,16 @@ void ImuControlParameters::declareFunctions()
   m_func_map_execute_commands["factory_calibration_restore"] =
     &IIOWrapper::factory_calibration_restore;
 
-  // declare atributes for adis1650x
-  m_attr_adis1650x.push_back("anglvel_calibbias_x");
-  m_attr_adis1650x.push_back("anglvel_calibbias_y");
-  m_attr_adis1650x.push_back("anglvel_calibbias_z");
-  m_attr_adis1650x.push_back("accel_calibbias_x");
-  m_attr_adis1650x.push_back("accel_calibbias_y");
-  m_attr_adis1650x.push_back("accel_calibbias_z");
+  switch (IIOWrapper::s_device_name_enum) {
+    case IIODeviceName::ADIS1657X:
+      m_func_map_execute_commands["bias_correction_update"] = &IIOWrapper::bias_correction_update;
+    default:
+      break;
+  }
+}
 
-  m_attr_adis1650x.push_back("filter_low_pass_3db_frequency");
-  m_attr_adis1650x.push_back("internal_sensor_bandwidth");
-  m_attr_adis1650x.push_back("point_of_percussion_alignment");
-  m_attr_adis1650x.push_back("linear_acceleration_compensation");
-  m_attr_adis1650x.push_back("sampling_frequency");
-
-  // declare atributes for adis1657x
-  m_attr_adis1657x.push_back("anglvel_calibbias_x");
-  m_attr_adis1657x.push_back("anglvel_calibbias_y");
-  m_attr_adis1657x.push_back("anglvel_calibbias_z");
-  m_attr_adis1657x.push_back("accel_calibbias_x");
-  m_attr_adis1657x.push_back("accel_calibbias_y");
-  m_attr_adis1657x.push_back("accel_calibbias_z");
-
-  m_attr_adis1657x.push_back("filter_low_pass_3db_frequency");
-  m_attr_adis1657x.push_back("internal_sensor_bandwidth");
-  m_attr_adis1657x.push_back("point_of_percussion_alignment");
-  m_attr_adis1657x.push_back("linear_acceleration_compensation");
-
-  m_attr_adis1657x.push_back("bias_correction_time_base_control");
-  m_attr_adis1657x.push_back("x_axis_gyroscope_bias_correction_enable");
-  m_attr_adis1657x.push_back("y_axis_accelerometer_bias_correction_enable");
-  m_attr_adis1657x.push_back("z_axis_accelerometer_bias_correction_enable");
-  m_attr_adis1657x.push_back("x_axis_accelerometer_bias_correction_enable");
-  m_attr_adis1657x.push_back("y_axis_gyroscope_bias_correction_enable");
-  m_attr_adis1657x.push_back("z_axis_gyroscope_bias_correction_enable");
-  m_attr_adis1657x.push_back("sampling_frequency");
-
+void ImuControlParameters::declareParameterDescription()
+{
   auto param_range_calibbias = rcl_interfaces::msg::IntegerRange{};
   param_range_calibbias.from_value = -2147483648;
   param_range_calibbias.to_value = 2147483647;
@@ -252,27 +302,21 @@ void ImuControlParameters::declareFunctions()
 
   switch (IIOWrapper::s_device_name_enum) {
     case IIODeviceName::ADIS1650X:
-      m_attr_current_device = m_attr_adis1650x;
       param_range_float.to_value = 2000.0;
       break;
     case IIODeviceName::ADIS1657X:
-      m_attr_current_device = m_attr_adis1657x;
-      m_func_map_execute_commands["bias_correction_update"] = &IIOWrapper::bias_correction_update;
       param_range_float.to_value = 4000.0;
       break;
-    default: {
-      RCLCPP_INFO(rclcpp::get_logger("rclcpp_device_error"), "Device is not supported");
+    default:
       break;
-    }
   }
 
   m_param_description["sampling_frequency"] = "Device sampling frequency";
   m_param_constraints_floating["sampling_frequency"] = param_range_float;
 }
 
-void ImuControlParameters::init(std::shared_ptr<rclcpp::Node> & node)
+void ImuControlParameters::declareParameters()
 {
-  m_node = node;
   uint32_t u32Param;
   int64_t i64Param;
   int32_t i32Param;
@@ -316,7 +360,7 @@ void ImuControlParameters::init(std::shared_ptr<rclcpp::Node> & node)
   param_desc_topic.description = m_param_description["measured_data_topic_selection"];
   param_desc_topic.integer_range.push_back(
     m_param_constraints_integer["measured_data_topic_selection"]);
-  node->declare_parameter("measured_data_topic_selection", FULL_MEASURED_DATA, param_desc_topic);
+  m_node->declare_parameter("measured_data_topic_selection", FULL_MEASURED_DATA, param_desc_topic);
 
   auto param_desc = rcl_interfaces::msg::ParameterDescriptor{};
   param_desc.description =
@@ -328,25 +372,19 @@ void ImuControlParameters::init(std::shared_ptr<rclcpp::Node> & node)
     factory_calibration_restore: performs a factory calibration restore on the device";
 
   switch (IIOWrapper::s_device_name_enum) {
-    case IIODeviceName::ADIS1650X:
-
-      break;
     case IIODeviceName::ADIS1657X:
       param_desc.description.append(
         "\n \
     bias_correction_update: triggers a bias correction, using the bias correction factors");
-      m_func_map_execute_commands["bias_correction_update"] = &IIOWrapper::bias_correction_update;
       break;
-    default: {
-      RCLCPP_INFO(rclcpp::get_logger("rclcpp_device_error"), "Device is not supported");
+    default:
       break;
-    }
   }
 
   m_node->declare_parameter("command_to_execute", "no_command", param_desc);
 }
 
-void ImuControlParameters::updateRosParams()
+void ImuControlParameters::updateParamsFromHardware()
 {
   double doubleDriverParam;
   double doubleCurrentParam;
@@ -393,7 +431,7 @@ void ImuControlParameters::updateRosParams()
   }
 }
 
-void ImuControlParameters::setParametersDouble()
+void ImuControlParameters::handleDoubleParamChange()
 {
   double requestedValue;
   double dDriverParam;
@@ -441,7 +479,7 @@ void ImuControlParameters::setParametersDouble()
   }
 }
 
-void ImuControlParameters::setParametersInt32()
+void ImuControlParameters::handleInt32ParamChange()
 {
   int32_t requestedValue;
   int32_t i32DriverParam;
@@ -489,7 +527,7 @@ void ImuControlParameters::setParametersInt32()
   }
 }
 
-void ImuControlParameters::setParametersUint32()
+void ImuControlParameters::handleUint32ParamChange()
 {
   int64_t requestedValue;
   int64_t i64DriverParam;
@@ -540,7 +578,7 @@ void ImuControlParameters::setParametersUint32()
   }
 }
 
-void ImuControlParameters::handleCommand()
+void ImuControlParameters::handleCommands()
 {
   std::string requestedCommand =
     m_node->get_parameter("command_to_execute").get_parameter_value().get<std::string>();
@@ -556,7 +594,7 @@ void ImuControlParameters::handleCommand()
         rclcpp::get_logger("rclcpp_imucontrolparameter"), "executed command %s",
         requestedCommand.c_str());
       // update the rest of parameters based on new changes in hardware
-      updateRosParams();
+      updateParamsFromHardware();
       m_node->set_parameter(rclcpp::Parameter("command_to_execute", "no_command"));
     }
   } else if (requestedCommand != "no_command") {
@@ -567,10 +605,10 @@ void ImuControlParameters::handleCommand()
   }
 }
 
-void ImuControlParameters::run()
+void ImuControlParameters::handleControlParams()
 {
-  handleCommand();
-  setParametersInt32();
-  setParametersUint32();
-  setParametersDouble();
+  handleCommands();
+  handleInt32ParamChange();
+  handleUint32ParamChange();
+  handleDoubleParamChange();
 }

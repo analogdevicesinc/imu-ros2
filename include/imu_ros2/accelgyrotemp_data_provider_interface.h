@@ -25,43 +25,27 @@
 #include "imu_ros2/msg/accel_gyro_temp_data.hpp"
 
 /**
- * \brief Interface for accel gyro temp data provider.
- *
- * This interface provides data for the publisher.
- * The type of data is AccelGyroTempData.
+ * @brief Interface for acceleration, angular velocity and temperature
+ * buffered data provider.
  */
 class AccelGyroTempDataProviderInterface
 {
 public:
   /**
-   * \brief Constructor for AccelGyroTempDataProviderInterface.
-   *
-   * This is the default constructor for interface
-   *  AccelGyroTempDataProviderInterface.
-   *
+   * @brief Constructor for AccelGyroTempDataProviderInterface.
    */
   AccelGyroTempDataProviderInterface() {}
 
   /**
-   * \brief Destructor for AccelGyroTempDataProviderInterface.
-   *
-   * This is a virtual destructor for AccelGyroTempDataProviderInterface.
-   *
+   * @brief Destructor for AccelGyroTempDataProviderInterface.
    */
   virtual ~AccelGyroTempDataProviderInterface() {}
 
   /**
-   * @brief Populate message variable with data.
-   *
-   * This function return by parameter a message variable
-   * with data from the sensor like acceleration, gyroscope
-   * and temperature. The reading from the libiio is with buffer.
-   *
-   * @return Return true if the message variable is populated with
-   *  values and false if the message is not populated.
-   * @param message Populate message variable
-   * with data like acceleration, gyroscope and temperature from
-   * the sensor.
+   * @brief Populate AccelGyroTempData message with measured data.
+   * @param message Message containing the measured data.
+   * @return Return true if the message parameter is successfully populated with
+   * measured data and false otherwise.
    */
   virtual bool getData(imu_ros2::msg::AccelGyroTempData & message) = 0;
 };

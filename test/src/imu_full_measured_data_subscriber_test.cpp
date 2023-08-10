@@ -27,34 +27,32 @@
 #include "imu_ros2/msg/imu_full_measured_data.hpp"
 
 /**
- * \brief Class for testing the all imu data
+ * @brief Class for testing ImuFullMeasuredData.
  *
- * This class instantiate a subscriber node and listen data
- * from topic and compare with a range of values.
+ * This class instantiates a subscriber node and listens to data on
+ * ImuFullMeasuredData topic and compares it against a range of expected
+ * values.
  */
 class ImuFullMeasuredDataSubscriberTest : public ::testing::Test
 {
 public:
   /**
-   * \brief Set up the test case
-   *
-   * This class initialize variable before the tests
+   * @brief Set up the test case.
    */
   static void SetUpTestCase() {}
 
   /**
-   * \brief Tear down the test case
-   *
-   * This class dealocate the data after tests
+   * @brief Tear down the test case.
    */
   static void TearDownTestCase() { rclcpp::shutdown(); }
 };
 
 /**
- * \brief ImuFullMeasuredDataSubscriberTest
+ * @brief ImuFullMeasuredDataSubscriberTest
  *
- * This test instantiate a subscriber node and listen data
- * from topic and compare with a range of values.
+ * This test instantiates a subscriber node and listens to data on
+ * ImuFullMeasuredData topic and compares it against a range of expected
+ * values.
  */
 TEST(ImuFullMeasuredDataSubscriberTest, test_imu_full_measured_data_publisher)
 {
@@ -65,18 +63,21 @@ TEST(ImuFullMeasuredDataSubscriberTest, test_imu_full_measured_data_publisher)
   std::string topic = "imufullmeasureddata";
 
   double scale_accel = iio_wrapper.get_scale_accel();
-  double scale_angvel = iio_wrapper.get_scale_angvel();
-  double scale_velocity = iio_wrapper.get_scale_velocity();
-  double scale_rot = iio_wrapper.get_scale_rot();
+  double scale_angvel = iio_wrapper.get_scale_anglvel();
+  double scale_velocity = iio_wrapper.get_scale_deltavelocity();
+  double scale_rot = iio_wrapper.get_scale_deltaangl();
   double scale_temp = iio_wrapper.get_scale_temp();
   bool callbackExecuted = false;
 
   auto callback = [&scale_accel, &scale_angvel, &scale_velocity, &scale_rot, &scale_temp,
                    &callbackExecuted](imu_ros2::msg::ImuFullMeasuredData msg) -> void {
     RCLCPP_INFO(
-      rclcpp::get_logger("rclcpp_test_imu_full_measured_data"),
-      " acceleration: %f %f %f and gyroscope: %f %f %f \n"
-      " delta_velocity: %f %f %f delta_angle: %f %f %f and temperature: %f",
+      rclcpp::get_logger("imu_full_measured_data_subscriber_test"),
+      "linear acceleration x axis: %f \nlinear acceleration y axis: %f\nlinear acceleration z "
+      "axis: %f\nangular velocity x axis: %f\nangular velocity y axis: %f\n"
+      "angular velocity z axis: %f\ndelta velocity x axis: %f \ndelta velocity y axis: %f\n"
+      "delta velocity z axis: %f\ndelta angle x axis: %f\ndelta angle y axis: %f\n"
+      "delta angle z axis: %f\ntemperature: %f\n",
       msg.linear_acceleration.x, msg.linear_acceleration.y, msg.linear_acceleration.z,
       msg.angular_velocity.x, msg.angular_velocity.y, msg.angular_velocity.z, msg.delta_velocity.x,
       msg.delta_velocity.y, msg.delta_velocity.z, msg.delta_angle.x, msg.delta_angle.y,

@@ -27,72 +27,41 @@
 #include "imu_ros2/imu_ros_publisher_interface.h"
 
 /**
- * \brief Class for accel and gyro ros publisher.
- *
- * This class initializes the ros Node class.
- * It set message provider with a variable that is
- * a standard type of sensor_msgs::msg::Imu.
- * It also run on thread reading from data provider and
- * write on a ros2 publisher.
+ * @brief Class for standard message sensor_msgs::msg::Imu publisher.
  */
 class ImuRosPublisher : public ImuRosPublisherInterface
 {
 public:
   /**
-   * \brief Constructor for ImuRosPublisher.
-   *
-   * This is the default constructor for class
-   *  ImuRosPublisher.
-   *
+   * @brief Constructor for ImuRosPublisher.
    * @param node The ros2 Node instance.
    */
   ImuRosPublisher(std::shared_ptr<rclcpp::Node> & node);
 
   /**
-   * \brief Destructor for ImuRosPublisher.
-   *
-   * This is a destructor for ImuRosPublisher.
-   *
+   * @brief Destructor for ImuRosPublisher.
    */
   ~ImuRosPublisher();
 
   /**
-   * @brief Initialize class with ros2 Node instance.
-   *
-   * This function initialize the class that inherit
-   * this interface wiht a ros2 Node instance.
-   *
-   * @param node The ros2 Node instance.
-   */
-  void init(std::shared_ptr<rclcpp::Node> & node) override;
-
-  /**
-   * @brief Set message provider.
-   *
-   * This function set data message provider with a variable that
-   * inherit AccelGyroTempDataProviderInterface.
-   *
-   * @param dataProvider Data message provider.
+   * @brief Set the message data provider.
+   * @param dataProvider Data provider.
    */
   void setMessageProvider(ImuDataProviderInterface * dataProvider) override;
 
   /**
-   * @brief Read from message provider and write on topic
-   *
-   * Run on thread the reading from message provider and write
-   * on publisher the data.
-   *
+   * @brief Publish the sensor_msgs::msg::Imu message.
    */
-  void run() override;
+  void publish() override;
 
 private:
-  /*! This variable retain a message provider */
+  /*! This variable retains the data provider instance. */
   ImuDataProviderInterface * m_data_provider;
 
-  /*! This variable retain a publisher instance */
+  /*! This variable retains the publisher instance. */
   rclcpp::Publisher<sensor_msgs::msg::Imu>::SharedPtr m_publisher;
 
-  /*! This variable retain a message that is published on a topic */
+  /*! This variable retains the message that is published. */
   sensor_msgs::msg::Imu m_message;
 };
 

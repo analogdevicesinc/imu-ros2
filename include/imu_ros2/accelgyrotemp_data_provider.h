@@ -26,49 +26,32 @@
 #include "imu_ros2/iio_wrapper.h"
 
 /**
- * \brief Class implementation for accel gyro temp data provider.
- *
- * This class implements  AccelGyroTempDataProviderInterface interface.
- * This class provides data for the publisher.
- * The type of data is AccelGyroTempData.
+ * @brief Class for acceleration, angular velocity and temperature
+ * buffered data provider.
  */
 class AccelGyroTempDataProvider : public AccelGyroTempDataProviderInterface
 {
 public:
   /**
-   * \brief Constructor for AccelGyroTempDataProvider.
-   *
-   * This is the default constructor for class
-   *  AccelGyroTempDataProvider.
-   *
+   * @brief Constructor for AccelGyroTempDataProvider.
    */
   AccelGyroTempDataProvider();
 
   /**
-   * \brief Destructor for AccelGyroTempDataProvider.
-   *
-   * This is the destructor for AccelGyroTempDataProvider.
-   *
+   * @brief Destructor for AccelGyroTempDataProvider.
    */
   ~AccelGyroTempDataProvider();
 
   /**
-   * @brief Populate message variable with data.
-   *
-   * This function return by parameter a message variable
-   * with data from the sensor like acceleration, gyroscope
-   * and temperature. The reading from the libiio is with buffer.
-   *
-   * @return Return true if the message variable is populated with
-   *  values and false if the message is not populated.
-   * @param message Populate message variable
-   * with data like acceleration, gyroscope and temperature from
-   * the sensor.
+   * @brief Populate AccelGyroTempData message with measured data.
+   * @param message Message containing the measured data.
+   * @return Return true if the message parameter is successfully populated with
+   * measured data and false otherwise.
    */
   bool getData(imu_ros2::msg::AccelGyroTempData & message) override;
 
 private:
-  /*! This data member access information from libiio */
+  /*! This data member is used to access sensor information via libiio. */
   IIOWrapper m_iio_wrapper;
 };
 

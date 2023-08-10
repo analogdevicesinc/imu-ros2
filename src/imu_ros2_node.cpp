@@ -47,6 +47,13 @@
 
 using namespace std::chrono_literals;
 
+/**
+   * @brief main function to run imu-ros2
+   * @param argc argument count
+   * @param argv arguments value array
+   * @return Should not return if successful (will run continuously), error code
+   * otherwise.
+   */
 int main(int argc, char * argv[])
 {
   rclcpp::init(argc, argv);

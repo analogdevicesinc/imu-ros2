@@ -29,54 +29,29 @@
 class Imu1657xDiagDataProviderInterface;
 
 /**
- * \brief Interface for adis1657x diag ros publisher.
- *
- * This interface initializes the ros Node class.
- * Also it set message provider with a variable that is
- * a type of Imu1657xDiagDataProviderInterface.
+ * @brief Interface for diagnosis publisher for adis1657x chips.
  */
 class Imu1657xDiagRosPublisherInterface : public RosTask
 {
 public:
   /**
-   * \brief Constructor for Imu1657xDiagRosPublisherInterface.
-   *
-   * This is the default constructor for interface
-   *  Imu1657xDiagRosPublisherInterface.
-   *
+   * @brief Constructor for Imu1657xDiagRosPublisherInterface.
    */
   Imu1657xDiagRosPublisherInterface() {}
 
   /**
-   * \brief Destructor for Imu1657xDiagRosPublisherInterface.
-   *
-   * This is a virtual destructor for Imu1657xDiagRosPublisherInterface.
-   *
+   * @brief Destructor for Imu1657xDiagRosPublisherInterface.
    */
   virtual ~Imu1657xDiagRosPublisherInterface() {}
 
   /**
-   * @brief Initialize class with ros2 Node instance.
-   *
-   * This function initialize the class that inherit
-   * this interface wiht a ros2 Node instance.
-   *
-   * @param node The ros2 Node instance
-   */
-  virtual void init(std::shared_ptr<rclcpp::Node> & node) = 0;
-
-  /**
-   * @brief Set message provider.
-   *
-   * This function set data message provider with a variable that
-   * inherit Imu1657xDiagDataProviderInterface.
-   *
-   * @param dataProvider Data message provider.
+   * @brief Set the message data provider.
+   * @param dataProvider Data provider.
    */
   virtual void setMessageProvider(Imu1657xDiagDataProviderInterface * dataProvider) = 0;
 
 protected:
-  /*! The ros2 Node data member */
+  /*! The ros2 Node data member. */
   std::shared_ptr<rclcpp::Node> m_node;
 };
 

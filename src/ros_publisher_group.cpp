@@ -30,11 +30,9 @@
 #include "imu_ros2/setting_declarations.h"
 #include "imu_ros2/velangtemp_ros_publisher_interface.h"
 
-RosPublisherGroup::RosPublisherGroup(std::shared_ptr<rclcpp::Node> & node) { init(node); }
+RosPublisherGroup::RosPublisherGroup(std::shared_ptr<rclcpp::Node> & node) { m_node = node; }
 
 RosPublisherGroup::~RosPublisherGroup() {}
-
-void RosPublisherGroup::init(std::shared_ptr<rclcpp::Node> & node) { m_node = node; }
 
 void RosPublisherGroup::setAccelGyroTempRosPublisher(
   AccelGyroTempRosPublisherInterface * accelGyroTempRosPublisher)
@@ -68,7 +66,7 @@ void RosPublisherGroup::run()
 {
   std::thread::id this_id = std::this_thread::get_id();
   std::cout << "thread " << this_id << " started...\n";
-  RCLCPP_INFO(rclcpp::get_logger("rclcpp_rosPublisherGroup"), "startThread: RosPublisherGroup");
+  RCLCPP_INFO(rclcpp::get_logger("ros_publisher_group"), "startThread: RosPublisherGroup");
 
   int32_t measuredDataSelection;
 
@@ -78,29 +76,28 @@ void RosPublisherGroup::run()
 
     switch (measuredDataSelection) {
       case ACCEL_GYRO_BUFFERED_DATA:
-        m_accelGyroTempRosPublisher->run();
+        m_accelGyroTempRosPublisher->publish();
         break;
       case DELTAVEL_DELTAANG_BUFFERED_DATA:
-        m_velAngTempRosPublisher->run();
+        m_velAngTempRosPublisher->publish();
         break;
       case IMU_STD_MSG_DATA:
-        m_imuRosPublisher->run();
+        m_imuRosPublisher->publish();
         break;
       case FULL_MEASURED_DATA:
-        m_imuFullMeasuredDataRosPublisher->run();
+        m_imuFullMeasuredDataRosPublisher->publish();
         break;
       default: {
         break;
       }
     }
 
-    // handling parameters
-    m_imuControlParameters->run();
+    m_imuControlParameters->handleControlParams();
 
     rclcpp::spin_some(m_node);
   }
 
   this_id = std::this_thread::get_id();
   std::cout << "thread " << this_id << " ended...\n";
-  RCLCPP_INFO(rclcpp::get_logger("rclcpp_rosPublisherGroup"), "endThread: RosPublisherGroup");
+  RCLCPP_INFO(rclcpp::get_logger("ros_publisher_group"), "endThread: RosPublisherGroup");
 }

@@ -24,59 +24,37 @@
 #include <memory>
 #include <rclcpp/rclcpp.hpp>
 
-#include "imu_ros2/ros_task.h"
-
 class ImuDataProviderInterface;
 
 /**
- * \brief Interface for accel and gyro ros publisher.
- *
- * This interface initializes the ros Node class.
- * Also it set message provider with a variable that is
- * a type of ImuDataProviderInterface.
+ * @brief Interface for standard message sensor_msgs::msg::Imu publisher.
  */
-class ImuRosPublisherInterface : public RosTask
+class ImuRosPublisherInterface
 {
 public:
   /**
-   * \brief Constructor for ImuRosPublisherInterface.
-   *
-   * This is the default constructor for interface
-   *  ImuRosPublisherInterface.
-   *
+   * @brief Constructor for ImuRosPublisherInterface.
    */
   ImuRosPublisherInterface() {}
 
   /**
-   * \brief Destructor for ImuRosPublisherInterface.
-   *
-   * This is a virtual destructor for ImuRosPublisherInterface.
-   *
+   * @brief Destructor for ImuRosPublisherInterface.
    */
   virtual ~ImuRosPublisherInterface() {}
 
   /**
-   * @brief Initialize class with ros2 Node instance.
-   *
-   * This function initialize the class that inherit
-   * this interface wiht a ros2 Node instance.
-   *
-   * @param node The ros2 Node instance
-   */
-  virtual void init(std::shared_ptr<rclcpp::Node> & node) = 0;
-
-  /**
-   * @brief Set message provider.
-   *
-   * This function set data message provider with a variable that
-   * inherit AccelGyroTempDataProviderInterface.
-   *
-   * @param dataProvider Data message provider.
+   * @brief Set the message data provider.
+   * @param dataProvider Data provider.
    */
   virtual void setMessageProvider(ImuDataProviderInterface * dataProvider) = 0;
 
+  /**
+   * @brief Publish the sensor_msgs::msg::Imu message.
+   */
+  virtual void publish() = 0;
+
 protected:
-  /*! The ros2 Node data member */
+  /*! The ros2 Node data member. */
   std::shared_ptr<rclcpp::Node> m_node;
 };
 

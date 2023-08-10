@@ -29,6 +29,7 @@
 #include <sstream>
 #include <string>
 
+/*! Maximum allowed number of samples in IIO buffer. */
 #define MAX_NO_OF_SAMPLES 4000
 
 enum
@@ -53,8 +54,8 @@ enum
 struct iio_context * IIOWrapper::m_local_context = nullptr;
 
 struct iio_device * IIOWrapper::m_dev = nullptr;
-struct iio_device * IIOWrapper::m_devtrigger = nullptr;
-struct iio_buffer * IIOWrapper::m_device_buffer = nullptr;
+struct iio_device * IIOWrapper::m_dev_trigger = nullptr;
+struct iio_buffer * IIOWrapper::m_dev_buffer = nullptr;
 
 struct iio_channel * IIOWrapper::m_channel_accel_x = nullptr;
 struct iio_channel * IIOWrapper::m_channel_accel_y = nullptr;
@@ -62,38 +63,43 @@ struct iio_channel * IIOWrapper::m_channel_accel_z = nullptr;
 struct iio_channel * IIOWrapper::m_channel_anglvel_x = nullptr;
 struct iio_channel * IIOWrapper::m_channel_anglvel_y = nullptr;
 struct iio_channel * IIOWrapper::m_channel_anglvel_z = nullptr;
-struct iio_channel * IIOWrapper::m_channel_rot_x = nullptr;
-struct iio_channel * IIOWrapper::m_channel_rot_y = nullptr;
-struct iio_channel * IIOWrapper::m_channel_rot_z = nullptr;
-struct iio_channel * IIOWrapper::m_channel_velocity_x = nullptr;
-struct iio_channel * IIOWrapper::m_channel_velocity_y = nullptr;
-struct iio_channel * IIOWrapper::m_channel_velocity_z = nullptr;
+struct iio_channel * IIOWrapper::m_channel_deltaangl_x = nullptr;
+struct iio_channel * IIOWrapper::m_channel_deltaangl_y = nullptr;
+struct iio_channel * IIOWrapper::m_channel_deltaangl_z = nullptr;
+struct iio_channel * IIOWrapper::m_channel_deltavelocity_x = nullptr;
+struct iio_channel * IIOWrapper::m_channel_deltavelocity_y = nullptr;
+struct iio_channel * IIOWrapper::m_channel_deltavelocity_z = nullptr;
 struct iio_channel * IIOWrapper::m_channel_temp = nullptr;
 struct iio_channel * IIOWrapper::m_channel_timestamp = nullptr;
 
 double IIOWrapper::m_scale_accel_x = 0;
 double IIOWrapper::m_scale_accel_y = 0;
 double IIOWrapper::m_scale_accel_z = 0;
-double IIOWrapper::m_scale_angvel_x = 0;
-double IIOWrapper::m_scale_angvel_y = 0;
-double IIOWrapper::m_scale_angvel_z = 0;
-double IIOWrapper::m_scale_rot_x = 0;
-double IIOWrapper::m_scale_rot_y = 0;
-double IIOWrapper::m_scale_rot_z = 0;
-double IIOWrapper::m_scale_velocity_x = 0;
-double IIOWrapper::m_scale_velocity_y = 0;
-double IIOWrapper::m_scale_velocity_z = 0;
+double IIOWrapper::m_scale_anglvel_x = 0;
+double IIOWrapper::m_scale_anglvel_y = 0;
+double IIOWrapper::m_scale_anglvel_z = 0;
+double IIOWrapper::m_scale_deltaangl_x = 0;
+double IIOWrapper::m_scale_deltaangl_y = 0;
+double IIOWrapper::m_scale_deltaangl_z = 0;
+double IIOWrapper::m_scale_deltavelocity_x = 0;
+double IIOWrapper::m_scale_deltavelocity_y = 0;
+double IIOWrapper::m_scale_deltavelocity_z = 0;
 double IIOWrapper::m_scale_temp = 0;
 
-uint32_t write_buffer_idx = 0;
-uint32_t read_buffer_idx = MAX_NO_OF_SAMPLES;
-uint32_t buffered_data[NO_OF_CHANS + 1][MAX_NO_OF_SAMPLES];
+/*! Buffer write index.  */
+uint32_t buff_write_idx = 0;
+/*! Buffer read index.  */
+uint32_t buff_read_idx = MAX_NO_OF_SAMPLES;
+/*! Buffer containing the read data. */
+uint32_t buff_data[NO_OF_CHANS + 1][MAX_NO_OF_SAMPLES];
+/*! Sampling frequency of the device. */
 double samp_freq = 2000.0;
+/*! Number of samples to be read at once. */
 uint32_t no_of_samp = 2000;
+/*! Current set burst data selection. */
 uint32_t current_burst_data_selection = ACCEL_GYRO_BUFFERED_DATA;
 
 std::string IIOWrapper::s_device_name;
-std::string IIOWrapper::s_device_trigger_name;
 IIODeviceName IIOWrapper::s_device_name_enum = IIODeviceName::ADIS1657X;
 
 IIOWrapper::IIOWrapper()
@@ -127,13 +133,13 @@ IIOWrapper::IIOWrapper()
     if (!m_dev) throw std::runtime_error("Exception: no device found, m_dev is null");
   }
 
-  if (m_devtrigger == nullptr) {
+  if (m_dev_trigger == nullptr) {
     std::string triggnerName = IIOWrapper::s_device_name + "-dev0";
-    m_devtrigger = iio_context_find_device(m_local_context, triggnerName.c_str());
-    if (!m_devtrigger) throw std::runtime_error("Exception: device trigger data is null");
+    m_dev_trigger = iio_context_find_device(m_local_context, triggnerName.c_str());
+    if (!m_dev_trigger) throw std::runtime_error("Exception: device trigger data is null");
   }
 
-  iio_device_set_trigger(m_dev, m_devtrigger);
+  iio_device_set_trigger(m_dev, m_dev_trigger);
 
   if (m_channel_accel_x == nullptr)
     m_channel_accel_x = iio_device_find_channel(m_dev, "accel_x", false);
@@ -149,16 +155,19 @@ IIOWrapper::IIOWrapper()
   if (m_channel_anglvel_z == nullptr)
     m_channel_anglvel_z = iio_device_find_channel(m_dev, "anglvel_z", false);
 
-  if (m_channel_rot_x == nullptr) m_channel_rot_x = iio_device_find_channel(m_dev, "rot_x", false);
-  if (m_channel_rot_y == nullptr) m_channel_rot_y = iio_device_find_channel(m_dev, "rot_y", false);
-  if (m_channel_rot_z == nullptr) m_channel_rot_z = iio_device_find_channel(m_dev, "rot_z", false);
+  if (m_channel_deltaangl_x == nullptr)
+    m_channel_deltaangl_x = iio_device_find_channel(m_dev, "rot_x", false);
+  if (m_channel_deltaangl_y == nullptr)
+    m_channel_deltaangl_y = iio_device_find_channel(m_dev, "rot_y", false);
+  if (m_channel_deltaangl_z == nullptr)
+    m_channel_deltaangl_z = iio_device_find_channel(m_dev, "rot_z", false);
 
-  if (m_channel_velocity_x == nullptr)
-    m_channel_velocity_x = iio_device_find_channel(m_dev, "velocity_x", false);
-  if (m_channel_velocity_y == nullptr)
-    m_channel_velocity_y = iio_device_find_channel(m_dev, "velocity_y", false);
-  if (m_channel_velocity_z == nullptr)
-    m_channel_velocity_z = iio_device_find_channel(m_dev, "velocity_z", false);
+  if (m_channel_deltavelocity_x == nullptr)
+    m_channel_deltavelocity_x = iio_device_find_channel(m_dev, "velocity_x", false);
+  if (m_channel_deltavelocity_y == nullptr)
+    m_channel_deltavelocity_y = iio_device_find_channel(m_dev, "velocity_y", false);
+  if (m_channel_deltavelocity_z == nullptr)
+    m_channel_deltavelocity_z = iio_device_find_channel(m_dev, "velocity_z", false);
 
   if (m_channel_temp == nullptr) m_channel_temp = iio_device_find_channel(m_dev, "temp", false);
 
@@ -171,35 +180,35 @@ IIOWrapper::IIOWrapper()
   iio_channel_enable(m_channel_anglvel_x);
   iio_channel_enable(m_channel_anglvel_y);
   iio_channel_enable(m_channel_anglvel_z);
-  iio_channel_enable(m_channel_rot_x);
-  iio_channel_enable(m_channel_rot_y);
-  iio_channel_enable(m_channel_rot_z);
-  iio_channel_enable(m_channel_velocity_x);
-  iio_channel_enable(m_channel_velocity_y);
-  iio_channel_enable(m_channel_velocity_z);
+  iio_channel_enable(m_channel_deltaangl_x);
+  iio_channel_enable(m_channel_deltaangl_y);
+  iio_channel_enable(m_channel_deltaangl_z);
+  iio_channel_enable(m_channel_deltavelocity_x);
+  iio_channel_enable(m_channel_deltavelocity_y);
+  iio_channel_enable(m_channel_deltavelocity_z);
   iio_channel_enable(m_channel_temp);
   iio_channel_enable(m_channel_timestamp);
 
   iio_channel_attr_read_double(m_channel_accel_x, "scale", &m_scale_accel_x);
   iio_channel_attr_read_double(m_channel_accel_y, "scale", &m_scale_accel_y);
   iio_channel_attr_read_double(m_channel_accel_z, "scale", &m_scale_accel_z);
-  iio_channel_attr_read_double(m_channel_anglvel_x, "scale", &m_scale_angvel_x);
-  iio_channel_attr_read_double(m_channel_anglvel_y, "scale", &m_scale_angvel_y);
-  iio_channel_attr_read_double(m_channel_anglvel_z, "scale", &m_scale_angvel_z);
-  iio_channel_attr_read_double(m_channel_rot_x, "scale", &m_scale_rot_x);
-  iio_channel_attr_read_double(m_channel_rot_y, "scale", &m_scale_rot_y);
-  iio_channel_attr_read_double(m_channel_rot_z, "scale", &m_scale_rot_z);
-  iio_channel_attr_read_double(m_channel_velocity_x, "scale", &m_scale_velocity_x);
-  iio_channel_attr_read_double(m_channel_velocity_y, "scale", &m_scale_velocity_y);
-  iio_channel_attr_read_double(m_channel_velocity_z, "scale", &m_scale_velocity_z);
+  iio_channel_attr_read_double(m_channel_anglvel_x, "scale", &m_scale_anglvel_x);
+  iio_channel_attr_read_double(m_channel_anglvel_y, "scale", &m_scale_anglvel_y);
+  iio_channel_attr_read_double(m_channel_anglvel_z, "scale", &m_scale_anglvel_z);
+  iio_channel_attr_read_double(m_channel_deltaangl_x, "scale", &m_scale_deltaangl_x);
+  iio_channel_attr_read_double(m_channel_deltaangl_y, "scale", &m_scale_deltaangl_y);
+  iio_channel_attr_read_double(m_channel_deltaangl_z, "scale", &m_scale_deltaangl_z);
+  iio_channel_attr_read_double(m_channel_deltavelocity_x, "scale", &m_scale_deltavelocity_x);
+  iio_channel_attr_read_double(m_channel_deltavelocity_y, "scale", &m_scale_deltavelocity_y);
+  iio_channel_attr_read_double(m_channel_deltavelocity_z, "scale", &m_scale_deltavelocity_z);
   iio_channel_attr_read_double(m_channel_temp, "scale", &m_scale_temp);
 }
 
 IIOWrapper::~IIOWrapper()
 {
-  if (m_device_buffer != nullptr) {
-    iio_buffer_destroy(m_device_buffer);
-    m_device_buffer = nullptr;
+  if (m_dev_buffer != nullptr) {
+    iio_buffer_destroy(m_dev_buffer);
+    m_dev_buffer = nullptr;
   }
   if (m_local_context != nullptr) {
     iio_context_destroy(m_local_context);
@@ -209,9 +218,9 @@ IIOWrapper::~IIOWrapper()
 
 void IIOWrapper::stopBufferAcquisition()
 {
-  if (m_device_buffer != nullptr) {
-    iio_buffer_destroy(m_device_buffer);
-    m_device_buffer = nullptr;
+  if (m_dev_buffer != nullptr) {
+    iio_buffer_destroy(m_dev_buffer);
+    m_dev_buffer = nullptr;
   }
 }
 
@@ -221,14 +230,14 @@ static ssize_t demux_sample(
   uint64_t val;
   iio_channel_convert(chn, &val, sample);
 
-  buffered_data[iio_channel_get_index(chn)][write_buffer_idx] = val;
+  buff_data[iio_channel_get_index(chn)][buff_write_idx] = val;
 
   if (iio_channel_get_index(chn) == CHAN_DATA_TIMESTAMP) {
-    buffered_data[CHAN_DATA_TIMESTAMP + 1][write_buffer_idx] = val >> 32;
-    write_buffer_idx++;
+    buff_data[CHAN_DATA_TIMESTAMP + 1][buff_write_idx] = val >> 32;
+    buff_write_idx++;
   }
 
-  if (write_buffer_idx == no_of_samp) write_buffer_idx = 0;
+  if (buff_write_idx == no_of_samp) buff_write_idx = 0;
 
   return size;
 }
@@ -250,18 +259,19 @@ bool IIOWrapper::updateBuffer(uint32_t burst_data_selection)
 
   if (samp_freq != no_of_samp) stopBufferAcquisition();
 
-  if (m_device_buffer == nullptr) {
+  if (m_dev_buffer == nullptr) {
     sampling_frequency(&samp_freq);
     no_of_samp = samp_freq;
-    m_device_buffer = iio_device_create_buffer(m_dev, no_of_samp, false);
-    if (!m_device_buffer) throw std::runtime_error("Exception: device buffer is null");
-    read_buffer_idx = 0;
-    write_buffer_idx = 0;
+    m_dev_buffer = iio_device_create_buffer(m_dev, no_of_samp, false);
+    if (!m_dev_buffer) throw std::runtime_error("Exception: device buffer is null");
+    buff_read_idx = 0;
+    buff_write_idx = 0;
+  } else {
+    buff_read_idx++;
+    if (buff_read_idx < no_of_samp) return true;
   }
 
-  read_buffer_idx++;
-  if (read_buffer_idx < no_of_samp) return true;
-  ret = iio_buffer_refill(m_device_buffer);
+  ret = iio_buffer_refill(m_dev_buffer);
   if ((ret == 0) || (ret == -110)) {
     RCLCPP_INFO(rclcpp::get_logger("rclcpp_iiowrapper"), "no samples available yet, retrying");
     return false;
@@ -271,82 +281,82 @@ bool IIOWrapper::updateBuffer(uint32_t burst_data_selection)
     stopBufferAcquisition();
     return false;
   }
-  iio_buffer_foreach_sample(m_device_buffer, demux_sample, NULL);
-  read_buffer_idx = 0;
+  iio_buffer_foreach_sample(m_dev_buffer, demux_sample, NULL);
+  buff_read_idx = 0;
   return true;
 }
 
 double IIOWrapper::getBuffLinearAccelerationX()
 {
-  return (int32_t)buffered_data[CHAN_ACCEL_X][read_buffer_idx] * m_scale_accel_x;
+  return (int32_t)buff_data[CHAN_ACCEL_X][buff_read_idx] * m_scale_accel_x;
 }
 
 double IIOWrapper::getBuffLinearAccelerationY()
 {
-  return (int32_t)buffered_data[CHAN_ACCEL_Y][read_buffer_idx] * m_scale_accel_y;
+  return (int32_t)buff_data[CHAN_ACCEL_Y][buff_read_idx] * m_scale_accel_y;
 }
 
 double IIOWrapper::getBuffLinearAccelerationZ()
 {
-  return (int32_t)buffered_data[CHAN_ACCEL_Z][read_buffer_idx] * m_scale_accel_z;
+  return (int32_t)buff_data[CHAN_ACCEL_Z][buff_read_idx] * m_scale_accel_z;
 }
 
 double IIOWrapper::getBuffAngularVelocityX()
 {
-  return (int32_t)buffered_data[CHAN_GYRO_X][read_buffer_idx] * m_scale_angvel_x;
+  return (int32_t)buff_data[CHAN_GYRO_X][buff_read_idx] * m_scale_anglvel_x;
 }
 
 double IIOWrapper::getBuffAngularVelocityY()
 {
-  return (int32_t)buffered_data[CHAN_GYRO_Y][read_buffer_idx] * m_scale_angvel_y;
+  return (int32_t)buff_data[CHAN_GYRO_Y][buff_read_idx] * m_scale_anglvel_y;
 }
 
 double IIOWrapper::getBuffAngularVelocityZ()
 {
-  return (int32_t)buffered_data[CHAN_GYRO_Z][read_buffer_idx] * m_scale_angvel_z;
+  return (int32_t)buff_data[CHAN_GYRO_Z][buff_read_idx] * m_scale_anglvel_z;
 }
 
 double IIOWrapper::getBuffDeltaAngleX()
 {
-  return (int32_t)buffered_data[CHAN_DELTA_ANGL_X][read_buffer_idx] * m_scale_rot_x;
+  return (int32_t)buff_data[CHAN_DELTA_ANGL_X][buff_read_idx] * m_scale_deltaangl_x;
 }
 
 double IIOWrapper::getBuffDeltaAngleY()
 {
-  return (int32_t)buffered_data[CHAN_DELTA_ANGL_Y][read_buffer_idx] * m_scale_rot_y;
+  return (int32_t)buff_data[CHAN_DELTA_ANGL_Y][buff_read_idx] * m_scale_deltaangl_y;
 }
 
 double IIOWrapper::getBuffDeltaAngleZ()
 {
-  return (int32_t)buffered_data[CHAN_DELTA_ANGL_Z][read_buffer_idx] * m_scale_rot_z;
+  return (int32_t)buff_data[CHAN_DELTA_ANGL_Z][buff_read_idx] * m_scale_deltaangl_z;
 }
 
 double IIOWrapper::getBuffDeltaVelocityX()
 {
-  return (int32_t)buffered_data[CHAN_DELTA_VEL_X][read_buffer_idx] * m_scale_velocity_x;
+  return (int32_t)buff_data[CHAN_DELTA_VEL_X][buff_read_idx] * m_scale_deltavelocity_x;
 }
 
 double IIOWrapper::getBuffDeltaVelocityY()
 {
-  return (int32_t)buffered_data[CHAN_DELTA_VEL_Y][read_buffer_idx] * m_scale_velocity_y;
+  return (int32_t)buff_data[CHAN_DELTA_VEL_Y][buff_read_idx] * m_scale_deltavelocity_y;
 }
 
 double IIOWrapper::getBuffDeltaVelocityZ()
 {
-  return (int32_t)buffered_data[CHAN_DELTA_VEL_Z][read_buffer_idx] * m_scale_velocity_z;
+  return (int32_t)buff_data[CHAN_DELTA_VEL_Z][buff_read_idx] * m_scale_deltavelocity_z;
 }
 
 double IIOWrapper::getBuffTemperature()
 {
-  return (int32_t)buffered_data[CHAN_TEMP][read_buffer_idx] * m_scale_temp / 1000.0;
+  return (int32_t)buff_data[CHAN_TEMP][buff_read_idx] * m_scale_temp / 1000.0;
 }
 
 int64_t IIOWrapper::getBuffSampleTimestamp()
 {
-  uint16_t timestamp_0_15 = buffered_data[CHAN_DATA_TIMESTAMP][read_buffer_idx];
-  uint16_t timestamp_16_31 = buffered_data[CHAN_DATA_TIMESTAMP][read_buffer_idx] >> 16;
-  uint16_t timestamp_32_47 = buffered_data[CHAN_DATA_TIMESTAMP + 1][read_buffer_idx];
-  uint16_t timestamp_48_63 = buffered_data[CHAN_DATA_TIMESTAMP + 1][read_buffer_idx] >> 16;
+  uint16_t timestamp_0_15 = buff_data[CHAN_DATA_TIMESTAMP][buff_read_idx];
+  uint16_t timestamp_16_31 = buff_data[CHAN_DATA_TIMESTAMP][buff_read_idx] >> 16;
+  uint16_t timestamp_32_47 = buff_data[CHAN_DATA_TIMESTAMP + 1][buff_read_idx];
+  uint16_t timestamp_48_63 = buff_data[CHAN_DATA_TIMESTAMP + 1][buff_read_idx] >> 16;
 
   uint64_t timestamp = ((uint64_t)timestamp_48_63 << 48) | ((uint64_t)timestamp_32_47 << 32) |
                        ((uint64_t)timestamp_16_31 << 16) | timestamp_0_15;
@@ -385,7 +395,7 @@ bool IIOWrapper::getRegAngularVelocityX(double & result)
   long long valueRaw;
   int ret = iio_channel_attr_read_longlong(m_channel_anglvel_x, "raw", &valueRaw);
 
-  result = valueRaw * m_scale_angvel_x;
+  result = valueRaw * m_scale_anglvel_x;
   return (ret == 0);
 }
 
@@ -394,7 +404,7 @@ bool IIOWrapper::getRegAngularVelocityY(double & result)
   long long valueRaw;
   int ret = iio_channel_attr_read_longlong(m_channel_anglvel_y, "raw", &valueRaw);
 
-  result = valueRaw * m_scale_angvel_y;
+  result = valueRaw * m_scale_anglvel_y;
   return (ret == 0);
 }
 
@@ -403,61 +413,61 @@ bool IIOWrapper::getRegAngularVelocityZ(double & result)
   long long valueRaw;
   int ret = iio_channel_attr_read_longlong(m_channel_anglvel_z, "raw", &valueRaw);
 
-  result = valueRaw * m_scale_angvel_z;
+  result = valueRaw * m_scale_anglvel_z;
   return (ret == 0);
 }
 
 bool IIOWrapper::getRegDeltaAngleX(double & result)
 {
   long long valueRaw;
-  int ret = iio_channel_attr_read_longlong(m_channel_rot_x, "raw", &valueRaw);
+  int ret = iio_channel_attr_read_longlong(m_channel_deltaangl_x, "raw", &valueRaw);
 
-  result = valueRaw * m_scale_rot_x;
+  result = valueRaw * m_scale_deltaangl_x;
   return (ret == 0);
 }
 
 bool IIOWrapper::getRegDeltaAngleY(double & result)
 {
   long long valueRaw;
-  int ret = iio_channel_attr_read_longlong(m_channel_rot_y, "raw", &valueRaw);
+  int ret = iio_channel_attr_read_longlong(m_channel_deltaangl_y, "raw", &valueRaw);
 
-  result = valueRaw * m_scale_rot_y;
+  result = valueRaw * m_scale_deltaangl_y;
   return (ret == 0);
 }
 
 bool IIOWrapper::getRegDeltaAngleZ(double & result)
 {
   long long valueRaw;
-  int ret = iio_channel_attr_read_longlong(m_channel_rot_z, "raw", &valueRaw);
+  int ret = iio_channel_attr_read_longlong(m_channel_deltaangl_z, "raw", &valueRaw);
 
-  result = valueRaw * m_scale_rot_z;
+  result = valueRaw * m_scale_deltaangl_z;
   return (ret == 0);
 }
 
 bool IIOWrapper::getRegDeltaVelocityX(double & result)
 {
   long long valueRaw;
-  int ret = iio_channel_attr_read_longlong(m_channel_velocity_x, "raw", &valueRaw);
+  int ret = iio_channel_attr_read_longlong(m_channel_deltavelocity_x, "raw", &valueRaw);
 
-  result = valueRaw * m_scale_velocity_x;
+  result = valueRaw * m_scale_deltavelocity_x;
   return (ret == 0);
 }
 
 bool IIOWrapper::getRegDeltaVelocityY(double & result)
 {
   long long valueRaw;
-  int ret = iio_channel_attr_read_longlong(m_channel_velocity_y, "raw", &valueRaw);
+  int ret = iio_channel_attr_read_longlong(m_channel_deltavelocity_y, "raw", &valueRaw);
 
-  result = valueRaw * m_scale_velocity_y;
+  result = valueRaw * m_scale_deltavelocity_y;
   return (ret == 0);
 }
 
 bool IIOWrapper::getRegDeltaVelocityZ(double & result)
 {
   long long valueRaw;
-  int ret = iio_channel_attr_read_longlong(m_channel_velocity_z, "raw", &valueRaw);
+  int ret = iio_channel_attr_read_longlong(m_channel_deltavelocity_z, "raw", &valueRaw);
 
-  result = valueRaw * m_scale_velocity_z;
+  result = valueRaw * m_scale_deltavelocity_z;
   return (ret == 0);
 }
 
@@ -694,78 +704,6 @@ bool IIOWrapper::lost_samples_count(uint32_t & result)
   return (ret == 0);
 }
 
-bool IIOWrapper::fifo_enable(uint32_t & result)
-{
-  long long valuel;
-  int ret = iio_device_debug_attr_read_longlong(m_dev, "fifo_enable", &valuel);
-
-  result = valuel;
-  return (ret == 0);
-}
-
-bool IIOWrapper::update_fifo_enable(uint32_t val)
-{
-  return (iio_device_debug_attr_write_longlong(m_dev, "fifo_enable", val) == 0);
-}
-
-bool IIOWrapper::fifo_overflow_behavior(uint32_t & result)
-{
-  long long valuel;
-  int ret = iio_device_debug_attr_read_longlong(m_dev, "fifo_overflow_behavior", &valuel);
-
-  result = valuel;
-  return (ret == 0);
-}
-
-bool IIOWrapper::update_fifo_overflow_behavior(uint32_t val)
-{
-  return (iio_device_debug_attr_write_longlong(m_dev, "fifo_overflow_behavior", val) == 0);
-}
-
-bool IIOWrapper::fifo_watermark_interrupt_enable(uint32_t & result)
-{
-  long long valuel;
-  int ret = iio_device_debug_attr_read_longlong(m_dev, "fifo_watermark_interrupt_enable", &valuel);
-
-  result = valuel;
-  return (ret == 0);
-}
-
-bool IIOWrapper::update_fifo_watermark_interrupt_enable(uint32_t val)
-{
-  return (iio_device_debug_attr_write_longlong(m_dev, "fifo_watermark_interrupt_enable", val) == 0);
-}
-
-bool IIOWrapper::fifo_watermark_interrupt_polarity(uint32_t & result)
-{
-  long long valuel;
-  int ret =
-    iio_device_debug_attr_read_longlong(m_dev, "fifo_watermark_interrupt_polarity", &valuel);
-
-  result = valuel;
-  return (ret == 0);
-}
-
-bool IIOWrapper::update_fifo_watermark_interrupt_polarity(uint32_t val)
-{
-  return (
-    iio_device_debug_attr_write_longlong(m_dev, "fifo_watermark_interrupt_polarity", val) == 0);
-}
-
-bool IIOWrapper::fifo_watermark_threshold_level(uint32_t & result)
-{
-  long long valuel;
-  int ret = iio_device_debug_attr_read_longlong(m_dev, "fifo_watermark_threshold_level", &valuel);
-
-  result = valuel;
-  return (ret == 0);
-}
-
-bool IIOWrapper::update_fifo_watermark_threshold_level(uint32_t val)
-{
-  return (iio_device_debug_attr_write_longlong(m_dev, "fifo_watermark_threshold_level", val) == 0);
-}
-
 bool IIOWrapper::filter_low_pass_3db_frequency(uint32_t & result)
 {
   long long valuel;
@@ -787,48 +725,6 @@ bool IIOWrapper::gyroscope_measurement_range(std::string & result)
 
   result = valuec;
   return (ret > 0);
-}
-
-bool IIOWrapper::data_ready_polarity(uint32_t & result)
-{
-  long long valuel;
-  int ret = iio_device_debug_attr_read_longlong(m_dev, "data_ready_polarity", &valuel);
-
-  result = valuel;
-  return (ret == 0);
-}
-
-bool IIOWrapper::update_data_ready_polarity(uint32_t val)
-{
-  return (iio_device_debug_attr_write_longlong(m_dev, "data_ready_polarity", val) == 0);
-}
-
-bool IIOWrapper::sync_polarity(uint32_t & result)
-{
-  long long valuel;
-  int ret = iio_device_debug_attr_read_longlong(m_dev, "sync_polarity", &valuel);
-
-  result = valuel;
-  return (ret == 0);
-}
-
-bool IIOWrapper::update_sync_polarity(uint32_t val)
-{
-  return (iio_device_debug_attr_write_longlong(m_dev, "sync_polarity", val) == 0);
-}
-
-bool IIOWrapper::sync_mode_select(uint32_t & result)
-{
-  long long valuel;
-  int ret = iio_device_debug_attr_read_longlong(m_dev, "sync_mode_select", &valuel);
-
-  result = valuel;
-  return (ret == 0);
-}
-
-bool IIOWrapper::update_sync_mode_select(uint32_t val)
-{
-  return (iio_device_debug_attr_write_longlong(m_dev, "sync_mode_select", val) == 0);
 }
 
 bool IIOWrapper::internal_sensor_bandwidth(uint32_t & result)
@@ -886,76 +782,6 @@ bool IIOWrapper::burst_data_selection(uint32_t & result)
 bool IIOWrapper::update_burst_data_selection(uint32_t val)
 {
   return (iio_device_debug_attr_write_longlong(m_dev, "burst_data_selection", val) == 0);
-}
-
-bool IIOWrapper::burst_size_selection(uint32_t & result)
-{
-  long long valuel;
-  int ret = iio_device_debug_attr_read_longlong(m_dev, "burst_size_selection", &valuel);
-
-  result = valuel;
-  return (ret == 0);
-}
-
-bool IIOWrapper::update_burst_size_selection(uint32_t val)
-{
-  return (iio_device_debug_attr_write_longlong(m_dev, "burst_size_selection", val) == 0);
-}
-
-bool IIOWrapper::timestamp32(uint32_t & result)
-{
-  long long valuel;
-  int ret = iio_device_debug_attr_read_longlong(m_dev, "timestamp32", &valuel);
-
-  result = valuel;
-  return (ret == 0);
-}
-
-bool IIOWrapper::update_timestamp32(uint32_t val)
-{
-  return (iio_device_debug_attr_write_longlong(m_dev, "timestamp32", val) == 0);
-}
-
-bool IIOWrapper::internal_sync_enable_4khz(uint32_t & result)
-{
-  long long valuel;
-  int ret = iio_device_debug_attr_read_longlong(m_dev, "internal_sync_enable_4khz", &valuel);
-
-  result = valuel;
-  return (ret == 0);
-}
-
-bool IIOWrapper::update_internal_sync_enable_4khz(uint32_t val)
-{
-  return (iio_device_debug_attr_write_longlong(m_dev, "internal_sync_enable_4khz", val) == 0);
-}
-
-bool IIOWrapper::sync_signal_scale(uint32_t & result)
-{
-  long long valuel;
-  int ret = iio_device_debug_attr_read_longlong(m_dev, "sync_signal_scale", &valuel);
-
-  result = valuel;
-  return (ret == 0);
-}
-
-bool IIOWrapper::update_sync_signal_scale(uint32_t val)
-{
-  return (iio_device_debug_attr_write_longlong(m_dev, "sync_signal_scale", val) == 0);
-}
-
-bool IIOWrapper::decimation_filter(uint32_t & result)
-{
-  long long valuel;
-  int ret = iio_device_debug_attr_read_longlong(m_dev, "decimation_filter", &valuel);
-
-  result = valuel;
-  return (ret == 0);
-}
-
-bool IIOWrapper::update_decimation_filter(uint32_t val)
-{
-  return (iio_device_debug_attr_write_longlong(m_dev, "decimation_filter", val) == 0);
 }
 
 bool IIOWrapper::bias_correction_time_base_control(uint32_t & result)
@@ -1101,11 +927,6 @@ bool IIOWrapper::flash_memory_test()
   return (iio_device_debug_attr_write_longlong(m_dev, "flash_memory_test", 1) == 0);
 }
 
-bool IIOWrapper::fifo_flush()
-{
-  return (iio_device_debug_attr_write_longlong(m_dev, "fifo_flush", 1) == 0);
-}
-
 bool IIOWrapper::software_reset()
 {
   return (iio_device_debug_attr_write_longlong(m_dev, "software_reset", 1) == 0);
@@ -1158,10 +979,10 @@ bool IIOWrapper::flash_counter(uint32_t & value)
 
 double IIOWrapper::get_scale_accel() { return m_scale_accel_x; }
 
-double IIOWrapper::get_scale_angvel() { return m_scale_angvel_x; }
+double IIOWrapper::get_scale_anglvel() { return m_scale_anglvel_x; }
 
-double IIOWrapper::get_scale_velocity() { return m_scale_velocity_x; }
+double IIOWrapper::get_scale_deltavelocity() { return m_scale_deltavelocity_x; }
 
-double IIOWrapper::get_scale_rot() { return m_scale_rot_x; }
+double IIOWrapper::get_scale_deltaangl() { return m_scale_deltaangl_x; }
 
 double IIOWrapper::get_scale_temp() { return m_scale_temp / 1000.0; }

@@ -27,34 +27,32 @@
 #include "imu_ros2/iio_wrapper.h"
 
 /**
- * \brief Class for testing the standard imu data
+ * @brief Class for testing sensor_msgs::msg::Imu.
  *
- * This class instantiate a subscriber node and listen data
- * from topic and compare with a range of values.
+ * This class instantiates a subscriber node and listens to data on
+ * sensor_msgs::msg::Imu topic and compares it against a range of expected
+ * values.
  */
 class ImuSubscriberTest : public ::testing::Test
 {
 public:
   /**
-   * \brief Set up the test case
-   *
-   * This class initialize variable before the tests
+   * @brief Set up the test case.
    */
   static void SetUpTestCase() {}
 
   /**
-   * \brief Tear down the test case
-   *
-   * This class dealocate the data after tests
+   * @brief Tear down the test case.
    */
   static void TearDownTestCase() { rclcpp::shutdown(); }
 };
 
 /**
- * \brief Class for testing the standard imu data
+ * @brief ImuSubscriberTest
  *
- * This test instantiate a subscriber node and listen data
- * from topic and compare with a range of values.
+ * This test instantiates a subscriber node and listens to data on
+ * sensor_msgs::msg::Imu topic and compares it against a range of expected
+ * values.
  */
 TEST(ImuSubscriberTest, test_imu_publisher)
 {
@@ -65,13 +63,16 @@ TEST(ImuSubscriberTest, test_imu_publisher)
   std::string topic = "imu";
 
   double scale_accel = iio_wrapper.get_scale_accel();
-  double scale_angvel = iio_wrapper.get_scale_angvel();
+  double scale_angvel = iio_wrapper.get_scale_anglvel();
   bool callbackExecuted = false;
 
   auto callback = [&scale_accel, &scale_angvel,
                    &callbackExecuted](sensor_msgs::msg::Imu msg) -> void {
     RCLCPP_INFO(
-      rclcpp::get_logger("rclcpp_test_imu"), " acceleration: %f %f %f and gyroscope: %f %f %f \n",
+      rclcpp::get_logger("imu_subscriber_test"),
+      "linear acceleration x axis: %f \nlinear acceleration y axis: %f\nlinear acceleration z "
+      "axis: %f\n"
+      "angular velocity x axis: %f\nangular velocity y axis: %f\nangular velocity z axis: %f\n",
       msg.linear_acceleration.x, msg.linear_acceleration.y, msg.linear_acceleration.z,
       msg.angular_velocity.x, msg.angular_velocity.y, msg.angular_velocity.z);
 

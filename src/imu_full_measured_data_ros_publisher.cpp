@@ -29,17 +29,12 @@
 ImuFullMeasuredDataRosPublisher::ImuFullMeasuredDataRosPublisher(
   std::shared_ptr<rclcpp::Node> & node)
 {
-  init(node);
-}
-
-ImuFullMeasuredDataRosPublisher::~ImuFullMeasuredDataRosPublisher() { delete m_data_provider; }
-
-void ImuFullMeasuredDataRosPublisher::init(std::shared_ptr<rclcpp::Node> & node)
-{
   m_node = node;
   m_publisher =
     node->create_publisher<imu_ros2::msg::ImuFullMeasuredData>("imufullmeasureddata", 10);
 }
+
+ImuFullMeasuredDataRosPublisher::~ImuFullMeasuredDataRosPublisher() { delete m_data_provider; }
 
 void ImuFullMeasuredDataRosPublisher::setMessageProvider(
   ImuFullMeasuredDataProviderInterface * dataProvider)
@@ -47,11 +42,12 @@ void ImuFullMeasuredDataRosPublisher::setMessageProvider(
   m_data_provider = dataProvider;
 }
 
-void ImuFullMeasuredDataRosPublisher::run()
+void ImuFullMeasuredDataRosPublisher::publish()
 {
   if (m_data_provider->getData(m_message))
     m_publisher->publish(m_message);
   else
     RCLCPP_INFO(
-      rclcpp::get_logger("rclcpp_imufullmeasureddata"), "error reading full measured data");
+      rclcpp::get_logger("imu_full_measured_data_ros_publisher"),
+      "error reading full measured data");
 }

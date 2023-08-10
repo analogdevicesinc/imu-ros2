@@ -26,34 +26,32 @@
 #include "imu_ros2/msg/imu1657x_diag_data.hpp"
 
 /**
- * \brief Class for testing the imu 1657x diag data
+ * @brief Class for testing Imu1650xDiagData.
  *
- * This class instantiate a subscriber node and listen data
- * from topic and compare with default values.
+ * This class instantiates a subscriber node and listens to data on
+ * Imu1657xDiagData topic and compares it against a range of expected
+ * values.
  */
 class Imu1657xDiagSubscriberTest : public ::testing::Test
 {
 public:
   /**
-   * \brief Set up the test case
-   *
-   * This class initialize variable before the tests
+   * @brief Set up the test case.
    */
   static void SetUpTestCase() {}
 
   /**
-   * \brief Tear down the test case
-   *
-   * This class dealocate the data after tests
+   * @brief Tear down the test case.
    */
   static void TearDownTestCase() { rclcpp::shutdown(); }
 };
 
 /**
- * \brief Imu1657xDiagSubscriberTest
+ * @brief Imu1657xDiagSubscriberTest
  *
- * This test instantiate a subscriber node and listen data
- * from topic and compare with default values.
+ * This test instantiates a subscriber node and listens to data on
+ * Imu1657xDiagData topic and compares it against a range of expected
+ * values.
  */
 TEST(Imu1657xDiagSubscriberTest, test_imu_1657x_diag_data_publisher)
 {
@@ -64,7 +62,7 @@ TEST(Imu1657xDiagSubscriberTest, test_imu_1657x_diag_data_publisher)
 
   auto callback = [&callbackExecuted](imu_ros2::msg::Imu1657xDiagData msg) -> void {
     RCLCPP_INFO(
-      rclcpp::get_logger("rclcpp_imu_1657x_diag_data"),
+      rclcpp::get_logger("imu_1657x_diag_subscriber_test"),
       "diag_sensor_initialization_failure= %d \n"
       "diag data: diag_data_path_overrun = %d \n"
       "diag_flash_memory_update_error = %d \n"

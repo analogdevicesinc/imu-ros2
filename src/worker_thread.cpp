@@ -1,6 +1,6 @@
 /*******************************************************************************
  *   @file   worker_thread.cpp
- *   @brief  Implementatino for ros imu threads.
+ *   @brief  Implementation for ros imu threads.
  *   @author Vasile Holonec (Vasile.Holonec@analog.com)
  *******************************************************************************
  * Copyright 2023(c) Analog Devices, Inc.

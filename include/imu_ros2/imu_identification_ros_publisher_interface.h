@@ -29,54 +29,29 @@
 class ImuIdentificationDataProviderInterface;
 
 /**
- * \brief Interface for product id, serial number ros publisher.
- *
- * This interface initializes the ros Node class.
- * Also it set message provider with a variable that is
- * a type of ImuIdentificationDataProviderInterface.
+ * @brief Interface for identification publisher.
  */
 class ImuIdentificationRosPublisherInterface : public RosTask
 {
 public:
   /**
-   * \brief Constructor for ImuIdentificationRosPublisherInterface.
-   *
-   * This is the default constructor for interface
-   *  ImuIdentificationRosPublisherInterface.
-   *
+   * @brief Constructor for ImuIdentificationRosPublisherInterface.
    */
   ImuIdentificationRosPublisherInterface() {}
 
   /**
-   * \brief Destructor for ImuIdentificationRosPublisherInterface.
-   *
-   * This is a virtual destructor for ImuIdentificationRosPublisherInterface.
-   *
+   * @brief Destructor for ImuIdentificationRosPublisherInterface.
    */
   virtual ~ImuIdentificationRosPublisherInterface() {}
 
   /**
-   * @brief Initialize class with ros2 Node instance.
-   *
-   * This function initialize the class that inherit
-   * this interface wiht a ros2 Node instance.
-   *
-   * @param node The ros2 Node instance
-   */
-  virtual void init(std::shared_ptr<rclcpp::Node> & node) = 0;
-
-  /**
-   * @brief Set message provider.
-   *
-   * This function set data message provider with a variable that
-   * inherit AccelGyroTempDataProviderInterface.
-   *
-   * @param dataProvider Data message provider.
+   * @brief Set the message data provider.
+   * @param dataProvider Data provider.
    */
   virtual void setMessageProvider(ImuIdentificationDataProviderInterface * dataProvider) = 0;
 
 protected:
-  /*! The ros2 Node data member */
+  /*! The ros2 Node data member. */
   std::shared_ptr<rclcpp::Node> m_node;
 };
 
