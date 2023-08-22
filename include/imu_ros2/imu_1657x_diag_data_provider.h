@@ -25,48 +25,31 @@
 #include "imu_ros2/imu_1657x_diag_data_provider_interface.h"
 
 /**
- * \brief Class implementation for diag data provider.
- *
- * This class implements Imu1657xDiagDataProviderInterface interface.
- * This class provide data for the publisher.
- * The type of data is Imu1657xDiagData.
+ * @brief Class for diagnosis data provider for adis1657x chips.
  */
 class Imu1657xDiagDataProvider : public Imu1657xDiagDataProviderInterface
 {
 public:
   /**
-   * \brief Constructor for Imu1657xDiagDataProvider.
-   *
-   * This is the default constructor for class
-   *  Imu1657xDiagDataProvider.
-   *
+   * @brief Constructor for Imu1657xDiagDataProvider.
    */
   Imu1657xDiagDataProvider();
 
   /**
-   * \brief Destructor for Imu1657xDiagDataProvider.
-   *
-   * This is the destructor for Imu1657xDiagDataProvider.
-   *
+   * @brief Destructor for Imu1657xDiagDataProvider.
    */
   ~Imu1657xDiagDataProvider();
 
   /**
-   * @brief Populate message variable with data.
-   *
-   * This function return by parameter a message variable
-   * with data from the sensor like diag_data_path_overrun.
-   *
-   * @return Return true if the message variable is populated with
-   *  values and false if the message is not populated.
-   * @param message Populate message variable
-   * with data like diag_data_path_overrun, diag_flash_memory_update_error,
-   * diag_spi_communication_error, diag_standby_mode etc.
+   * @brief Populate Imu1657xDiagData message with diagnosis data.
+   * @param message Message containing the diagnosis data.
+   * @return Return true if the message parameter is successfully populated with
+   * diagnosis data and false otherwise.
    */
   bool getData(imu_ros2::msg::Imu1657xDiagData & message) override;
 
 private:
-  /*! This data member access information from libiio */
+  /*! This data member is used to access sensor information via libiio. */
   IIOWrapper m_iio_wrapper;
 };
 

@@ -24,59 +24,37 @@
 #include <memory>
 #include <rclcpp/rclcpp.hpp>
 
-#include "imu_ros2/ros_task.h"
-
 class VelAngTempDataProviderInterface;
 
 /**
- * \brief Interface for delta velocity, delta angle and temp ros publisher.
- *
- * This interface initializes the ros Node class.
- * Also it set message provider with a variable that is
- * a type of VelAngTempDataProviderInterface.
+ * @brief Interface for delta velocity, delta angle and temperature publisher.
  */
-class VelAngTempRosPublisherInterface : public RosTask
+class VelAngTempRosPublisherInterface
 {
 public:
   /**
-   * \brief Constructor for VelAngTempRosPublisherInterface.
-   *
-   * This is the default constructor for interface
-   *  VelAngTempRosPublisherInterface.
-   *
+   * @brief Constructor for VelAngTempRosPublisherInterface.
    */
   VelAngTempRosPublisherInterface() {}
 
   /**
-   * \brief Destructor for VelAngTempRosPublisherInterface.
-   *
-   * This is a virtual destructor for VelAngTempRosPublisherInterface.
-   *
+   * @brief Destructor for VelAngTempRosPublisherInterface.
    */
   virtual ~VelAngTempRosPublisherInterface() {}
 
   /**
-   * @brief Initialize class with ros2 Node instance.
-   *
-   * This function initialize the class that inherit
-   * this interface wiht a ros2 Node instance.
-   *
-   * @param node The ros2 Node instance
-   */
-  virtual void init(std::shared_ptr<rclcpp::Node> & node) = 0;
-
-  /**
-   * @brief Set message provider.
-   *
-   * This function set data message provider with a variable that
-   * inherit AccelGyroTempDataProviderInterface.
-   *
-   * @param dataProvider Data message provider.
+   * @brief Set the message data provider.
+   * @param dataProvider Data provider.
    */
   virtual void setMessageProvider(VelAngTempDataProviderInterface * dataProvider) = 0;
 
+  /**
+   * @brief Publish the VelAngTempData message.
+   */
+  virtual void publish() = 0;
+
 protected:
-  /*! The ros2 Node data member */
+  /*! The ros2 Node data member. */
   std::shared_ptr<rclcpp::Node> m_node;
 };
 

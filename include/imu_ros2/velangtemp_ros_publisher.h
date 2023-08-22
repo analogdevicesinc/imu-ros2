@@ -27,72 +27,41 @@
 #include "imu_ros2/velangtemp_ros_publisher_interface.h"
 
 /**
- * \brief Class for delta velocity, delta angle and temp ros publisher.
- *
- * This class initializes the ros Node class.
- * It set message provider with a variable that is
- * a type of VelAngTempDataProviderInterface.
- * It also run on thread reading from data provider and
- * write on a ros2 publisher.
+ * @brief Class for delta velocity, delta angle and temperature publisher.
  */
 class VelAngTempRosPublisher : public VelAngTempRosPublisherInterface
 {
 public:
   /**
-   * \brief Constructor for VelAngTempRosPublisher.
-   *
-   * This is the default constructor for class
-   *  VelAngTempRosPublisher.
-   *
+   * @brief Constructor for VelAngTempRosPublisher.
    * @param node The ros2 Node instance.
    */
   VelAngTempRosPublisher(std::shared_ptr<rclcpp::Node> & node);
 
   /**
-   * \brief Destructor for VelAngTempRosPublisher.
-   *
-   * This is a destructor for VelAngTempRosPublisher.
-   *
+   * @brief Destructor for VelAngTempRosPublisher.
    */
   ~VelAngTempRosPublisher();
 
   /**
-   * @brief Initialize class with ros2 Node instance.
-   *
-   * This function initialize the class that inherit
-   * this interface wiht a ros2 Node instance.
-   *
-   * @param node The ros2 Node instance.
-   */
-  void init(std::shared_ptr<rclcpp::Node> & node) override;
-
-  /**
-   * @brief Set message provider.
-   *
-   * This function set data message provider with a variable that
-   * inherit AccelGyroTempDataProviderInterface.
-   *
-   * @param dataProvider Data message provider.
+   * @brief Set the message data provider.
+   * @param dataProvider Data provider.
    */
   void setMessageProvider(VelAngTempDataProviderInterface * dataProvider) override;
 
   /**
-   * @brief Read from message provider and write on topic
-   *
-   * Run on thread the reading from message provider and write
-   * on publisher the data.
-   *
+   * @brief Publish the VelAngTempData message.
    */
-  void run() override;
+  void publish() override;
 
 private:
-  /*! This variable retain a message provider */
+  /*! This variable retains the data provider instance. */
   VelAngTempDataProviderInterface * m_data_provider;
 
-  /*! This variable retain a publisher instance */
+  /*! This variable retains the publisher instance. */
   rclcpp::Publisher<imu_ros2::msg::VelAngTempData>::SharedPtr m_publisher;
 
-  /*! This variable retain a message that is published on a topic */
+  /*! This variable retains the message that is published. */
   imu_ros2::msg::VelAngTempData m_message;
 };
 

@@ -24,43 +24,26 @@
 #include <sensor_msgs/msg/imu.hpp>
 
 /**
- * \brief Interface for accel gyro data provider.
- *
- * This interface provides data for the publisher.
- * The type of data is the standard sensor_msgs::msg::Imu.
+ * @brief Interface for standard message sensor_msgs::msg::Imu data provider.
  */
 class ImuDataProviderInterface
 {
 public:
   /**
-   * \brief Constructor for ImuDataProviderInterface.
-   *
-   * This is the default constructor for interface
-   *  ImuDataProviderInterface.
-   *
+   * @brief Constructor for ImuDataProviderInterface.
    */
   ImuDataProviderInterface() {}
 
   /**
-   * \brief Destructor for ImuDataProviderInterface.
-   *
-   * This is a virtual destructor for ImuDataProviderInterface.
-   *
+   * @brief Destructor for ImuDataProviderInterface.
    */
   virtual ~ImuDataProviderInterface() {}
 
   /**
-   * @brief Populate message variable with data.
-   *
-   * This function return by parameter a message variable
-   * with data from the sensor like acceleration and gyroscope.
-   *  The reading from the libiio is with buffer.
-   *
-   * @return Return true if the message variable is populated with
-   *  values and false if the message is not populated.
-   * @param message Populate message variable
-   * with data like acceleration and gyroscope from
-   * the sensor.
+   * @brief Populate Imu message with measured data.
+   * @param message Message containing the measured data.
+   * @return Return true if the message parameter is successfully populated with
+   * measured data and false otherwise.
    */
   virtual bool getData(sensor_msgs::msg::Imu & message) = 0;
 };

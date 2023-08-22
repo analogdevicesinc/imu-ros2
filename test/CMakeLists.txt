@@ -12,9 +12,6 @@ find_package(std_msgs REQUIRED)
 find_package(sensor_msgs REQUIRED)
 find_package(geometry_msgs REQUIRED)
 
-#find_package(builtin_interfaces REQUIRED)
-#find_package(rosidl_default_generators REQUIRED)
-
 find_library(LIBIIO_LIBRARIES iio)
 find_path(LIBIIO_INCLUDE_DIRS iio.h)
 
@@ -25,25 +22,19 @@ file(GLOB FILES_CPP ${CMAKE_SOURCE_DIR}/src/*.cpp)
 
 include_directories(${CMAKE_SOURCE_DIR}/include)
 
-#add_executable(imu_ros2_node ${FILES_H} ${FILES_CPP})
-
-#if(CATKIN_ENABLE_TESTING)
-  #find_package(rostest REQUIRED)
-  find_package(ament_lint_auto REQUIRED)
-  find_package(ament_cmake_gtest REQUIRED)
-  ament_add_gtest(imu_ros2_test_node utest_launch.test src/utest.cpp
-                                        src/imu_subscriber_test.cpp
-                                        src/imu_full_measured_data_subscriber_test.cpp
-                                        src/imu_identification_subscriber_test.cpp
-                                        src/imu_1650x_diag_subscriber_test.cpp
-                                        src/imu_1657x_diag_subscriber_test.cpp
-                                        src/velangtemp_subscriber_test.cpp
-                                        src/accelgyrotemp_subscriber_test.cpp
-                                        ${CMAKE_SOURCE_DIR}/include/imu_ros2/iio_wrapper.h
-                                        ${CMAKE_SOURCE_DIR}/src/iio_wrapper.cpp
-                                    )
-  #target_link_libraries(utest_node ${catkin_LIBRARIES})
-#endif()
+find_package(ament_lint_auto REQUIRED)
+find_package(ament_cmake_gtest REQUIRED)
+ament_add_gtest(imu_ros2_test_node utest_launch.test src/utest.cpp
+                                      src/imu_subscriber_test.cpp
+                                      src/imu_full_measured_data_subscriber_test.cpp
+                                      src/imu_identification_subscriber_test.cpp
+                                      src/imu_1650x_diag_subscriber_test.cpp
+                                      src/imu_1657x_diag_subscriber_test.cpp
+                                      src/velangtemp_subscriber_test.cpp
+                                      src/accelgyrotemp_subscriber_test.cpp
+                                      ${CMAKE_SOURCE_DIR}/include/imu_ros2/iio_wrapper.h
+                                      ${CMAKE_SOURCE_DIR}/src/iio_wrapper.cpp
+                                  )
 
 target_include_directories(imu_ros2_test_node PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
@@ -55,15 +46,6 @@ ament_target_dependencies(imu_ros2_test_node rclcpp geometry_msgs std_msgs senso
 install(TARGETS imu_ros2_test_node
   DESTINATION lib/${PROJECT_NAME})
 
-#rosidl_generate_interfaces(imu_ros2
-#  "../msg/StaticData.msg"
-#  DEPENDENCIES builtin_interfaces
-#)
-
 rosidl_target_interfaces(imu_ros2_test_node
   imu_ros2 "rosidl_typesupport_cpp")
 target_link_libraries(imu_ros2_test_node "${imu_ros2_node}" iio)
-
-#ament_export_dependencies(rosidl_default_runtime)
-
-#ament_package()

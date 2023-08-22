@@ -25,25 +25,24 @@
 
 #include "imu_ros2/setting_declarations.h"
 
-ImuRosPublisher::ImuRosPublisher(std::shared_ptr<rclcpp::Node> & node) { init(node); }
-
-ImuRosPublisher::~ImuRosPublisher() { delete m_data_provider; }
-
-void ImuRosPublisher::init(std::shared_ptr<rclcpp::Node> & node)
+ImuRosPublisher::ImuRosPublisher(std::shared_ptr<rclcpp::Node> & node)
 {
   m_node = node;
   m_publisher = node->create_publisher<sensor_msgs::msg::Imu>("imu", 10);
 }
+
+ImuRosPublisher::~ImuRosPublisher() { delete m_data_provider; }
 
 void ImuRosPublisher::setMessageProvider(ImuDataProviderInterface * dataProvider)
 {
   m_data_provider = dataProvider;
 }
 
-void ImuRosPublisher::run()
+void ImuRosPublisher::publish()
 {
   if (m_data_provider->getData(m_message))
     m_publisher->publish(m_message);
   else
-    RCLCPP_INFO(rclcpp::get_logger("rclcpp_imuros"), "error reading standard imu buffered data");
+    RCLCPP_INFO(
+      rclcpp::get_logger("imu_ros_publisher"), "error reading standard imu buffered data");
 }

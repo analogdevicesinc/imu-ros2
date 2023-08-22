@@ -26,41 +26,29 @@
 #include "imu_ros2/ros_task.h"
 
 /**
- * \brief Class for running a task in a thread.
- *
- * This class declares a method that is run o a thread
+ * @brief Class for running a task in a thread.
  */
 class WorkerThread : public std::thread
 {
 public:
   /**
-   * \brief Constructor for WorkerThread.
-   *
-   * This is the default constructor for interface
-   *  WorkerThread.
-   *
-   * @param rosTask A class that implement RosTask interface
+   * @brief Constructor for WorkerThread.
+   * @param rosTask A class that implements RosTask interface.
    */
   WorkerThread(RosTask * rosTask);
 
   /**
-   * \brief Destructor for WorkerThread.
-   *
-   * This is a virtual destructor for WorkerThread.
-   *
+   * @brief Destructor for WorkerThread.
    */
   ~WorkerThread();
 
   /**
-   * @brief Method that run on a thread.
-   *
-   * This function will run on a thread.
-   *
+   * @brief Method that runs on a thread.
    */
   void runTask();
 
 private:
-  /*! This data member will run its method run on a thread */
+  /*! This data member will run the method run on a thread. */
   RosTask * m_rosTask;
 };
 

@@ -26,17 +26,12 @@
 
 ImuIdentificationRosPublisher::ImuIdentificationRosPublisher(std::shared_ptr<rclcpp::Node> & node)
 {
-  init(node);
-}
-
-ImuIdentificationRosPublisher::~ImuIdentificationRosPublisher() { delete m_data_provider; }
-
-void ImuIdentificationRosPublisher::init(std::shared_ptr<rclcpp::Node> & node)
-{
   m_node = node;
   m_publisher =
     node->create_publisher<imu_ros2::msg::ImuIdentificationData>("imuidentificationdata", 10);
 }
+
+ImuIdentificationRosPublisher::~ImuIdentificationRosPublisher() { delete m_data_provider; }
 
 void ImuIdentificationRosPublisher::setMessageProvider(
   ImuIdentificationDataProviderInterface * dataProvider)
@@ -49,7 +44,8 @@ void ImuIdentificationRosPublisher::run()
   std::thread::id this_id = std::this_thread::get_id();
   std::cout << "thread " << this_id << " started...\n";
   RCLCPP_INFO(
-    rclcpp::get_logger("rclcpp_imuidentification"), "startThread: ImuIdentificationRosPublisher");
+    rclcpp::get_logger("imu_identification_ros_publisher"),
+    "startThread: ImuIdentificationRosPublisher");
 
   // read data only once
   m_data_provider->getData(m_message);
@@ -61,5 +57,6 @@ void ImuIdentificationRosPublisher::run()
   this_id = std::this_thread::get_id();
   std::cout << "thread " << this_id << " ended...\n";
   RCLCPP_INFO(
-    rclcpp::get_logger("rclcpp_imuidentification"), "endThread: ImuIdentificationRosPublisher");
+    rclcpp::get_logger("imu_identification_ros_publisher"),
+    "endThread: ImuIdentificationRosPublisher");
 }

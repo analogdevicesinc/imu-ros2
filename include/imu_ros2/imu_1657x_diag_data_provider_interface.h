@@ -24,42 +24,26 @@
 #include "imu_ros2/msg/imu1657x_diag_data.hpp"
 
 /**
- * \brief Interface for diagnosis data provider.
- *
- * This interface provides data for the publisher.
- * The type of data is Imu1657xDiagData.
+ * @brief Interface for diagnosis data provider for adis1657x chips.
  */
 class Imu1657xDiagDataProviderInterface
 {
 public:
   /**
-   * \brief Constructor for Imu1657xDiagDataProviderInterface.
-   *
-   * This is the default constructor for interface
-   *  Imu1657xDiagDataProviderInterface.
-   *
+   * @brief Constructor for Imu1657xDiagDataProviderInterface.
    */
   Imu1657xDiagDataProviderInterface() {}
 
   /**
-   * \brief Destructor for Imu1657xDiagDataProviderInterface.
-   *
-   * This is a virtual destructor for Imu1657xDiagDataProviderInterface.
-   *
+   * @brief Destructor for Imu1657xDiagDataProviderInterface.
    */
   virtual ~Imu1657xDiagDataProviderInterface() {}
 
   /**
-   * @brief Populate message variable with data.
-   *
-   * This function return by parameter a message variable
-   * with data from the sensor like diag_data_path_overrun.
-   *
-   * @return Return true if the message variable is populated with
-   *  values and false if the message is not populated.
-   * @param message Populate message variable
-   * with data like diag_data_path_overrun, diag_flash_memory_update_error,
-   * diag_spi_communication_error, diag_standby_mode etc.
+   * @brief Populate Imu1657xDiagData message with diagnosis data.
+   * @param message Message containing the diagnosis data.
+   * @return Return true if the message parameter is successfully populated with
+   * diagnosis data and false otherwise.
    */
   virtual bool getData(imu_ros2::msg::Imu1657xDiagData & message) = 0;
 };

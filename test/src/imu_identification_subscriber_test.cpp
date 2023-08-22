@@ -27,34 +27,32 @@
 #include "imu_ros2/msg/imu_identification_data.hpp"
 
 /**
- * \brief Class for testing the imu identification data
+ * @brief Class for testing ImuIdentificationData.
  *
- * This class instantiate a subscriber node and listen data
- * from topic and compare with values from libiio.
+ * This class instantiates a subscriber node and listens to data on
+ * ImuIdentificationData topic and compares it against a range of expected
+ * values.
  */
 class ImuIdentificationSubscriberTest : public ::testing::Test
 {
 public:
   /**
-   * \brief Set up the test case
-   *
-   * This class initialize variable before the tests
+   * @brief Set up the test case.
    */
   static void SetUpTestCase() {}
 
   /**
-   * \brief Tear down the test case
-   *
-   * This class dealocate the data after tests
+   * @brief Tear down the test case.
    */
   static void TearDownTestCase() { rclcpp::shutdown(); }
 };
 
 /**
- * \brief ImuIdentificationSubscriberTest
+ * @brief ImuIdentificationSubscriberTest
  *
- * This test instantiate a subscriber node and listen data
- * from topic and compare with values from libiio.
+ * This test instantiates a subscriber node and listens to data on
+ * ImuIdentificationData topic and compares it against a range of expected
+ * values.
  */
 TEST(ImuIdentificationSubscriberTest, test_imu_identification_publisher)
 {
@@ -75,7 +73,7 @@ TEST(ImuIdentificationSubscriberTest, test_imu_identification_publisher)
   auto callback = [&imu_message,
                    &callbackExecuted](imu_ros2::msg::ImuIdentificationData msg) -> void {
     RCLCPP_INFO(
-      rclcpp::get_logger("rclcpp_imu_identification_data"), " device info: %s %s %d  \n",
+      rclcpp::get_logger("imu_identification_subscriber_test"), " device info: %s %s %d  \n",
       msg.firmware_revision.c_str(), msg.firmware_date.c_str(), msg.product_id);
     ASSERT_TRUE(msg.firmware_revision == imu_message.firmware_revision);
     ASSERT_TRUE(msg.firmware_date == imu_message.firmware_date);

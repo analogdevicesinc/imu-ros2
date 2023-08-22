@@ -27,72 +27,41 @@
 #include "imu_ros2/imu_1657x_diag_ros_publisher_interface.h"
 
 /**
- * \brief Class for adis1657x diag ros publisher.
- *
- * This class initializes the ros Node class.
- * It set message provider with a variable that is
- * a type of Imu1657xDiagDataProviderInterface.
- * It also run on thread reading from data provider and
- * write on a ros2 publisher.
+ * @brief Class for diagnosis publisher for adis1657x chips.
  */
 class Imu1657xDiagRosPublisher : public Imu1657xDiagRosPublisherInterface
 {
 public:
   /**
-   * \brief Constructor for Imu1657xDiagRosPublisher.
-   *
-   * This is the default constructor for class
-   *  Imu1657xDiagRosPublisher.
-   *
+   * @brief Constructor for Imu1657xDiagRosPublisher.
    * @param node The ros2 Node instance.
    */
   Imu1657xDiagRosPublisher(std::shared_ptr<rclcpp::Node> & node);
 
   /**
-   * \brief Destructor for Imu1657xDiagRosPublisher.
-   *
-   * This is a destructor for Imu1657xDiagRosPublisher.
-   *
+   * @brief Destructor for Imu1657xDiagRosPublisher.
    */
   ~Imu1657xDiagRosPublisher();
 
   /**
-   * @brief Initialize class with ros2 Node instance.
-   *
-   * This function initialize the class that inherit
-   * this interface wiht a ros2 Node instance.
-   *
-   * @param node The ros2 Node instance.
-   */
-  void init(std::shared_ptr<rclcpp::Node> & node) override;
-
-  /**
-   * @brief Set message provider.
-   *
-   * This function set data message provider with a variable that
-   * inherit Imu1657xDiagDataProviderInterface.
-   *
-   * @param dataProvider Data message provider.
+   * @brief Set the message data provider.
+   * @param dataProvider Data provider.
    */
   void setMessageProvider(Imu1657xDiagDataProviderInterface * dataProvider) override;
 
   /**
-   * @brief Read from message provider and write on topic
-   *
-   * Run on thread the reading from message provider and write
-   * on publisher the data.
-   *
+   * @brief Run the thread responsible for publishing Imu1657xDiagData message.
    */
   void run() override;
 
 private:
-  /*! This variable retain a message provider */
+  /*! This variable retains the data provider instance. */
   Imu1657xDiagDataProviderInterface * m_data_provider;
 
-  /*! This variable retain a publisher instance */
+  /*! This variable retains the publisher instance. */
   rclcpp::Publisher<imu_ros2::msg::Imu1657xDiagData>::SharedPtr m_publisher;
 
-  /*! This variable retain a message that is published on a topic */
+  /*! This variable retains the message that is published. */
   imu_ros2::msg::Imu1657xDiagData m_message;
 };
 

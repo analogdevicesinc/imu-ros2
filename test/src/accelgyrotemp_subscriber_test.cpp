@@ -27,34 +27,32 @@
 #include "imu_ros2/msg/accel_gyro_temp_data.hpp"
 
 /**
- * \brief Class for testing the accel gyro temp data
+ * @brief Class for testing AccelGyroTempData.
  *
- * This class instantiate a subscriber node and listen data
- * from topic and compare with a range of values.
+ * This class instantiates a subscriber node and listens to data on
+ * AccelGyroTempData topic and compares it against a range of expected
+ * values.
  */
 class AccelGyroTempSubscriberTest : public ::testing::Test
 {
 public:
   /**
-   * \brief Set up the test case
-   *
-   * This class initialize variable before the tests
+   * @brief Set up the test case.
    */
   static void SetUpTestCase() {}
 
   /**
-   * \brief Tear down the test case
-   *
-   * This class dealocate the data after tests
+   * @brief Tear down the test case.
    */
   static void TearDownTestCase() { rclcpp::shutdown(); }
 };
 
 /**
- * \brief AccelGyroTempSubscriberTest
+ * @brief AccelGyroTempSubscriberTest
  *
- * This test instantiate a subscriber node and listen data
- * from topic and compare with a range of values.
+ * This test instantiates a subscriber node and listens to data on
+ * AccelGyroTempData topic and compares it against a range of expected
+ * values.
  */
 TEST(AccelGyroTempSubscriberTest, test_accelgyrotemp_publisher)
 {
@@ -65,17 +63,19 @@ TEST(AccelGyroTempSubscriberTest, test_accelgyrotemp_publisher)
   std::string topic = "accelgyrotempdata";
 
   double scale_accel = iio_wrapper.get_scale_accel();
-  double scale_angvel = iio_wrapper.get_scale_angvel();
+  double scale_anglvel = iio_wrapper.get_scale_anglvel();
   double scale_temp = iio_wrapper.get_scale_temp();
   bool callbackExecuted = false;
 
-  auto callback = [&scale_accel, &scale_angvel, &scale_temp,
+  auto callback = [&scale_accel, &scale_anglvel, &scale_temp,
                    &callbackExecuted](imu_ros2::msg::AccelGyroTempData msg) -> void {
     RCLCPP_INFO(
-      rclcpp::get_logger("rclcpp_test_accel_gyro_temp"),
-      " acceleration: %f %f %f and gyroscope: %f %f %f \n", msg.linear_acceleration.x,
-      msg.linear_acceleration.y, msg.linear_acceleration.z, msg.angular_velocity.x,
-      msg.angular_velocity.y, msg.angular_velocity.z);
+      rclcpp::get_logger("accelgyrotemp_subscriber_test"),
+      "linear acceleration x axis: %f \nlinear acceleration y axis: %f\nlinear acceleration z "
+      "axis: %f\nangular velocity x axis: %f\nangular velocity y axis: %f\nangular velocity z "
+      "axis: %f\n temperature: %f\n ",
+      msg.linear_acceleration.x, msg.linear_acceleration.y, msg.linear_acceleration.z,
+      msg.angular_velocity.x, msg.angular_velocity.y, msg.angular_velocity.z, msg.temperature);
 
     int32_t minint = -2147483648;
     int32_t maxint = 2147483647;
@@ -83,8 +83,8 @@ TEST(AccelGyroTempSubscriberTest, test_accelgyrotemp_publisher)
     double maxRangeAccel = maxint * scale_accel;
     double minRangeAccel = minint * scale_accel;
 
-    double maxRangeAngvel = maxint * scale_angvel;
-    double minRangeAngvel = minint * scale_angvel;
+    double maxRangeAngvel = maxint * scale_anglvel;
+    double minRangeAngvel = minint * scale_anglvel;
 
     int32_t minint16 = -32768;
     int32_t maxint16 = 32767;

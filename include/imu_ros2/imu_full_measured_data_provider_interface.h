@@ -25,47 +25,29 @@
 #include "imu_ros2/msg/imu_full_measured_data.hpp"
 
 /**
- * \brief Interface for full measured data like
- * accel, gyro, temp, delta velocity, delta angle.
- *
- * This interface provides data for the publisher.
- * The type of data is ImuFullMeasuredData.
+ * @brief Interface for acceleration, angular velocity, delta angle, delta
+ * velocity and temperature data provider.
  */
 class ImuFullMeasuredDataProviderInterface
 {
 public:
   /**
-   * \brief Constructor for ImuFullMeasuredDataProviderInterface.
-   *
-   * This is the default constructor for interface
-   *  ImuFullMeasuredDataProviderInterface.
-   *
+   * @brief Constructor for ImuFullMeasuredDataProviderInterface.
    */
   ImuFullMeasuredDataProviderInterface() {}
 
   /**
-   * \brief Destructor for ImuFullMeasuredDataProviderInterface.
-   *
-   * This is a virtual destructor for ImuFullMeasuredDataProviderInterface.
-   *
+   * @brief Destructor for ImuFullMeasuredDataProviderInterface.
    */
   virtual ~ImuFullMeasuredDataProviderInterface() {}
 
   /**
-   * @brief Populate message variable with data.
-   *
-   * This function return by parameter a message variable
-   * with data from the sensor like acceleration, gyroscope
-   * temperature, delta velocity and delta angle.
-   *  The reading from the libiio is with scale factor.
-   *
-   * @return Return true if the message variable is populated with
-   *  values and false if the message is not populated.
-   * @param data Populate data variable with data like
-   * acceleration, gyroscope, temperature, delta velocity,
-   * delta angle from the sensor.
+   * @brief Populate ImuFullMeasuredData message with measured data.
+   * @param message Message containing the measured data.
+   * @return Return true if the message parameter is successfully populated with
+   * measured data and false otherwise.
    */
-  virtual bool getData(imu_ros2::msg::ImuFullMeasuredData & data) = 0;
+  virtual bool getData(imu_ros2::msg::ImuFullMeasuredData & message) = 0;
 };
 
 #endif  // IMU_FULL_MEASURED_DATA_PROVIDER_INTERFACE_H

@@ -25,47 +25,31 @@
 #include "imu_ros2/imu_identification_data_provider_interface.h"
 
 /**
- * \brief Class implementation for product id, serial number data provider.
- *
- * This class implements  ImuIdentificationDataProviderInterface interface.
- * This class provide data for the publisher.
- * The type of data is ImuIdentificationData.
+ * @brief Class for identification data provider.
  */
 class ImuIdentificationDataProvider : public ImuIdentificationDataProviderInterface
 {
 public:
   /**
-   * \brief Constructor for ImuIdentificationDataProvider.
-   *
-   * This is the default constructor for class
-   *  ImuIdentificationDataProvider.
-   *
+   * @brief Constructor for ImuIdentificationDataProvider.
    */
   ImuIdentificationDataProvider();
 
   /**
-   * \brief Destructor for ImuIdentificationDataProvider.
-   *
-   * This is the destructor for ImuIdentificationDataProvider.
-   *
+   * @brief Destructor for ImuIdentificationDataProvider.
    */
   ~ImuIdentificationDataProvider();
 
   /**
-   * @brief Populate message variable with data.
-   *
-   * This function return by parameter a message variable
-   * with data like product id, serial number.
-   *
-   * @return Return true if the message variable is populated with
-   *  values and false if the message is not populated.
-   * @param message Populate message variable
-   * with data like product id, serial number.
+   * @brief Populate ImuIdentificationData message with identification data.
+   * @param message Message containing the identification data.
+   * @return Return true if the message parameter is successfully populated with
+   * identification data and false otherwise.
    */
   bool getData(imu_ros2::msg::ImuIdentificationData & message) override;
 
 private:
-  /*! This data member access information from libiio */
+  /*! This data member is used to access sensor information via libiio. */
   IIOWrapper m_iio_wrapper;
 };
 

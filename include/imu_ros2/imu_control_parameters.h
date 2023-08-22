@@ -24,208 +24,223 @@
 #include <rclcpp/rclcpp.hpp>
 
 #include "iio_wrapper.h"
-#include "imu_ros2/ros_task.h"
 #include "rcl_interfaces/msg/set_parameters_result.hpp"
 
 /**
- * \brief Class for setting libiio parameters from ros2 paramenters.
- *
- * This class modifies libiio parameters with ros2 parameters
- * read from console.
+ * @brief Class for handling device parameters.
  */
-class ImuControlParameters : public RosTask
+class ImuControlParameters
 {
 public:
   /**
-   * \brief Constructor for ImuControlParameters.
-   *
-   * This is the default constructor for class
-   *  ImuControlParameters.
-   *
+   * @brief Constructor for ImuControlParameters.
    * @param node The ros2 Node instance.
    */
   ImuControlParameters(std::shared_ptr<rclcpp::Node> & node);
 
   /**
-   * \brief Destructor for ImuControlParameters.
-   *
-   * This is a destructor for ImuControlParameters.
-   *
+   * @brief Destructor for ImuControlParameters.
    */
   ~ImuControlParameters();
 
   /**
-   * @brief Declare iio wrapper functions
-   *
-   * This function create a map for accesing the functions from iio wrapper.
-   *
+   * @brief Handle ROS parameters and perform the necessary updated in the
+   * hardware.
    */
-  void declareFunctions();
-
-  /**
-   * @brief Initialize class with ros2 Node instance.
-   *
-   * This function initialize the the class that inherit
-   * this interface wiht a ros2 Node instance.
-   *
-   * @param node The ros2 Node instance.
-   */
-  void init(std::shared_ptr<rclcpp::Node> & node);
-
-  /**
-   * @brief Set parameters that have double value.
-   *
-   * This function set parameters in libiio that have double value.
-   *
-   */
-  void setParametersDouble();
-
-  /**
-   * @brief Set parameters that have int32 value.
-   *
-   * This function set parameters in libiio that have int32 value.
-   *
-   */
-  void setParametersInt32();
-
-  /**
-   * @brief Set parameters that have uint32 value.
-   *
-   * This function set parameters in libiio that have uint32 value.
-   *
-   */
-  void setParametersUint32();
-
-  /**
-   * @brief Trigger libiio command.
-   *
-   * This function trigger libiio commands when ros2 parameters is set.
-   *
-   */
-  void handleCommand();
-
-  /**
-   * @brief Update ros parameters.
-   *
-   * This function update ros parameters with new values from libiio.
-   *
-   */
-  void updateRosParams();
-
-  /**
-   * @brief Read driver parameters.
-   *
-   * This function read driver parameters.
-   *
-   */
-  void readDriverParams();
-
-  /**
-   * @brief Read ros2 parameters and update with values in libiio.
-   *
-   * This function read ros2 parameters and update with values in libiio
-   *
-   */
-  void run() override;
+  void handleControlParams();
 
 private:
+  /**
+   * @brief Add the list of adis1650x parameters to m_attr_current_device.
+   */
+  void declareAdis1650xAttributes();
+
+  /**
+   * @brief Add the list of adis1657x parameters to m_attr_current_device.
+   */
+  void declareAdis1657xAttributes();
+
+  /**
+   * @brief Add the list of IIO update functions to
+   * m_func_map_update_int32_params map. This map contains the update APIs for
+   * each int32 type parameter.
+   */
+  void mapIIOUpdateFunctionsInt32();
+
+  /**
+   * @brief Add the list of IIO read functions to
+   * m_func_map_get_int32_params map. This map contains the read APIs for
+   * each int32 type parameter.
+   */
+  void mapIIOGetFunctionsInt32();
+
+  /**
+   * @brief Add the list of IIO update functions to
+   * m_func_map_update_uint32_params map. This map contains the update APIs for
+   * each uint32 type parameter.
+   */
+  void mapIIOUpdateFunctionsUint32();
+
+  /**
+   * @brief Add the list of IIO read functions to
+   * m_func_map_get_uint32_params map. This map contains the read APIs for
+   * each uint32 type parameter.
+   */
+  void mapIIOGetFunctionsUint32();
+
+  /**
+   * @brief Add the list of IIO update functions to
+   * m_func_map_update_double_params map. This map contains the update APIs for
+   * each double type parameter.
+   */
+  void mapIIOUpdateFunctionsDouble();
+
+  /**
+   * @brief Add the list of IIO read functions to
+   * m_func_map_get_double_params map. This map contains the read APIs for
+   * each double type parameter.
+   */
+  void mapIIOGetFunctionsDouble();
+
+  /**
+   * @brief Add the list of IIO command functions to
+   * m_func_map_execute_commands map. This map contains the command APIs for
+   * which can be triggered in the hardware.
+   */
+  void mapIIOCommandFunctions();
+
+  /**
+   * @brief Add a parameter description for each parameter in
+   * m_param_description.
+   */
+  void declareParameterDescription();
+
+  /**
+   * @brief Declare the ros parameters and initialize their values with values
+   * read from hardware.
+   */
+  void declareParameters();
+
+  /**
+   * @brief Update all ros parameter values by reading them from hardware.
+   */
+  void updateParamsFromHardware();
+
+  /**
+   * @brief Handles a parameter change of type double. Performs the necessary
+   * updates in the hardware and logs the result.
+   */
+  void handleDoubleParamChange();
+
+  /**
+   * @brief Handles a parameter change of type int32. Performs the necessary
+   * updates in the hardware and logs the result.
+   */
+  void handleInt32ParamChange();
+
+  /**
+   * @brief Handles a parameter change of type uint32. Performs the necessary
+   * updates in the hardware and logs the result.
+   */
+  void handleUint32ParamChange();
+
+  /**
+   * @brief Handles a command. Trigger the command in the hardware if necessary
+   * and logs the result.
+   */
+  void handleCommands();
+
   /*! The ros2 Node data member */
   std::shared_ptr<rclcpp::Node> m_node;
 
-  /*! This data member access information from libiio */
+  /*! This data member is used to access sensor information via libiio. */
   IIOWrapper m_iio_wrapper;
 
-  /*! This variable contain command to execute in libiio */
+  /*! This variable contains the current value for the command to be executed. */
   std::string m_command_to_execute;
 
-  /*! Declare function with uint32_t parameter and return bool */
+  /*! Declare function type for parameter updating APIs of type uint32. */
   typedef bool (IIOWrapper::*UpdateUint32Params)(uint32_t);
 
-  /*! Declare a map with UpdateUint32Params functions */
+  /*! Declare map type for parameter updating APIs of type uint32. */
   typedef std::map<std::string, UpdateUint32Params> UpdateUint32ParamsMapType;
 
-  /*! Declare a variable of UpdateUint32ParamsMapType */
+  /*! Update parameter map which contains the update function call for each parameter of type uint32. */
   UpdateUint32ParamsMapType m_func_map_update_uint32_params;
 
-  /*! Declare function with uint32_t& parameter and return bool */
+  /*! Declare function type for parameter reading APIs of type uint32. */
   typedef bool (IIOWrapper::*GetUint32Params)(uint32_t &);
 
-  /*! Declare a map with GetUint32Params functions */
+  /*! Declare map type for parameter reading APIs of type uint32. */
   typedef std::map<std::string, GetUint32Params> GetUint32ParamsMapType;
 
-  /*! Declare a variable of GetUint32ParamsMapType */
+  /*! Read parameter map which contains the read function call for each parameter of type uint32. */
   GetUint32ParamsMapType m_func_map_get_uint32_params;
 
-  /*! Declare function with int32_t parameter and return bool */
+  /*! Declare function type for parameter updating APIs of type int32. */
   typedef bool (IIOWrapper::*UpdateInt32Params)(int32_t);
 
-  /*! Declare a map with UpdateInt32Params functions */
+  /*! Declare map type for parameter updating APIs of type int32. */
   typedef std::map<std::string, UpdateInt32Params> UpdateInt32ParamsMapType;
 
-  /*! Declare a variable of UpdateInt32ParamsMapType */
+  /*! Update parameter map which contains the update function call for each parameter of type int32. */
   UpdateInt32ParamsMapType m_func_map_update_int32_params;
 
-  /*! Declare function with int32_t& parameter and return bool */
+  /*! Declare function type for parameter reading APIs of type int32. */
   typedef bool (IIOWrapper::*GetInt32Params)(int32_t &);
 
-  /*! Declare a map with GetInt32Params functions */
+  /*! Declare map type for parameter reading APIs of type int32. */
   typedef std::map<std::string, GetInt32Params> GetInt32ParamsMapType;
 
-  /*! Declare a variable of GetInt32ParamsMapType */
+  /*! Read parameter map which contains the read function call for each parameter of type int32. */
   GetInt32ParamsMapType m_func_map_get_int32_params;
 
-  /*! Declare function with double parameter and return bool */
+  /*! Declare function type for parameter updating APIs of type double. */
   typedef bool (IIOWrapper::*UpdateDoubleParams)(double);
 
-  /*! Declare a map with UpdateDoubleParams functions */
+  /*! Declare map type for parameter updating APIs of type double. */
   typedef std::map<std::string, UpdateDoubleParams> UpdateDoubleParamsMapType;
 
-  /*! Declare a variable of UpdateDoubleParamsMapType */
+  /*! Update parameter map which contains the update function call for each parameter of type double. */
   UpdateDoubleParamsMapType m_func_map_update_double_params;
 
-  /*! Declare function with double parameter and return bool */
+  /*! Declare function type for parameter reading APIs of type double. */
   typedef bool (IIOWrapper::*GetDoubleParams)(double *);
 
-  /*! Declare a map with GetDoubleParams functions */
+  /*! Declare map type for parameter reading APIs of type double. */
   typedef std::map<std::string, GetDoubleParams> GetDoubleParamsMapType;
 
-  /*! Declare a variable of GetDoubleParamsMapType */
+  /*! Read parameter map which contains the read function call for each parameter of type double. */
   GetDoubleParamsMapType m_func_map_get_double_params;
 
-  /*! Declare function that return bool */
+  /*! Declare function type for command execution APIs. */
   typedef bool (IIOWrapper::*ExecuteCommands)();
 
-  /*! Declare a map with ExecuteCommands functions */
+  /*! Declare map type for command APIs. */
   typedef std::map<std::string, ExecuteCommands> ExecuteCommandsMapType;
 
-  /*! Declare a variable of ExecuteCommandsMapType */
+  /*! Command map which contains the trigger function call for each command. */
   ExecuteCommandsMapType m_func_map_execute_commands;
 
-  /*! Declare a variable with adis1650x attributes */
-  std::list<std::string> m_attr_adis1650x;
-
-  /*! Declare a variable with adis1657x attributes */
-  std::list<std::string> m_attr_adis1657x;
-
-  /*! Declare a variable current attributes, adis1650x or adis1657x */
+  /*! Attribute list which stores the current attribute names of the device. */
   std::list<std::string> m_attr_current_device;
 
-  /*! Declare a variable current int32_t parameters, adis1650x or adis1657x */
+  /*! Parameter map of type int32 which stores the current value of the parameter. */
   std::map<std::string, int32_t> m_int32_current_params;
 
-  /*! Declare a variable current int64_t parameters, adis1650x or adis1657x */
+  /*! Parameter map of type uint32 which stores the current value of the parameter. */
   std::map<std::string, int64_t> m_uint32_current_params;
 
-  /*! Declare a variable current double parameters, adis1650x or adis1657x */
+  /*! Parameter map of type double which stores the current value of the parameter. */
   std::map<std::string, double> m_double_current_params;
 
-  /*! Declare a variable for parameter description */
+  /*! Parameter map with parameter description. */
   std::map<std::string, std::string> m_param_description;
 
-  /*! Declare a IntegerRange variable for parameter constraints */
+  /*! Parameter map with IntegerRange for parameter constraints. */
   std::map<std::string, rcl_interfaces::msg::IntegerRange> m_param_constraints_integer;
 
-  /*! Declare a FloatingPointRange variable for parameter constraints */
+  /*! Parameter map with FloatingPointRange for parameter constraints. */
   std::map<std::string, rcl_interfaces::msg::FloatingPointRange> m_param_constraints_floating;
 };
 

@@ -26,51 +26,32 @@
 #include "imu_ros2/imu_full_measured_data_provider_interface.h"
 
 /**
- * \brief Class implementation for accel, gyro, temp, delta velocity,
- *  delta angle data provider.
- *
- * This class implements  ImuFullMeasuredDataProviderInterface interface.
- * This class provide data for the publisher.
- * The type of data is ImuFullMeasuredData.
+ * @brief Class for acceleration, angular velocity, delta angle, delta velocity
+ * and temperature data provider.
  */
 class ImuFullMeasuredDataProvider : public ImuFullMeasuredDataProviderInterface
 {
 public:
   /**
-   * \brief Constructor for ImuFullMeasuredDataProvider.
-   *
-   * This is the default constructor for class
-   *  ImuFullMeasuredDataProvider.
-   *
+   * @brief Constructor for ImuFullMeasuredDataProvider.
    */
   ImuFullMeasuredDataProvider();
 
   /**
-   * \brief Destructor for ImuFullMeasuredDataProvider.
-   *
-   * This is the destructor for ImuFullMeasuredDataProvider.
-   *
+   * @brief Destructor for ImuFullMeasuredDataProvider.
    */
   ~ImuFullMeasuredDataProvider();
 
   /**
-   * @brief Populate message variable with data.
-   *
-   * This function return by parameter a message variable
-   * with data from the sensor like acceleration, gyroscope
-   * temperature, delta velocity and delta angle.
-   *  The reading from the libiio is with scale factor.
-   *
-   * @return Return true if the message variable is populated with
-   *  values and false if the message is not populated.
-   * @param data Populate data variable with data like
-   * acceleration, gyroscope, temperature, delta velocity,
-   * delta angle from the sensor.
+   * @brief Populate ImuFullMeasuredData message with measured data.
+   * @param message Message containing the measured data.
+   * @return Return true if the message parameter is successfully populated with
+   * measured data and false otherwise.
    */
-  bool getData(imu_ros2::msg::ImuFullMeasuredData & data) override;
+  bool getData(imu_ros2::msg::ImuFullMeasuredData & message) override;
 
 private:
-  /*! This data member access information from libiio */
+  /*! This data member is used to access sensor information via libiio. */
   IIOWrapper m_iio_wrapper;
 };
 

@@ -25,42 +25,25 @@
 
 #include "imu_ros2/ros_publisher_group_interface.h"
 
+/**
+ * @brief Class ROS publisher group.
+ */
 class RosPublisherGroup : public RosPublisherGroupInterface
 {
 public:
   /**
-   * \brief Constructor for RosPublisherGroup.
-   *
-   * This is the default constructor for class
-   *  RosPublisherGroup.
-   *
+   * @brief Constructor for RosPublisherGroup.
    * @param node The ros2 Node instance.
    */
   RosPublisherGroup(std::shared_ptr<rclcpp::Node> & node);
 
   /**
-   * \brief Destructor for RosPublisherGroup.
-   *
-   * This is a destructor for RosPublisherGroup.
+   * @brief Destructor for RosPublisherGroup.
    */
   ~RosPublisherGroup();
 
   /**
-   * @brief Initialize class with ros2 Node instance.
-   *
-   * This function initializes the class that inherits
-   * this interface with a ros2 node instance.
-   *
-   * @param node The ros2 Node instance.
-   */
-  void init(std::shared_ptr<rclcpp::Node> & node) override;
-
-  /**
    * @brief Sets the accelGyroTempRosPublisher publisher in the publisher group.
-   *
-   * This function sets the accelGyroTempRosPublisher to be used in the
-   * publisher group.
-   *
    * @param accelGyroTempRosPublisher The publisher to be set in the group.
    */
   void setAccelGyroTempRosPublisher(
@@ -68,50 +51,35 @@ public:
 
   /**
    * @brief Sets the velAngTempRosPublisher publisher in the publisher group.
-   *
-   * This function sets the velAngTempRosPublisher to be used in the
-   * publisher group.
-   *
    * @param velAngTempRosPublisher The publisher to be set in the group.
    */
   void setVelAngTempRosPublisher(VelAngTempRosPublisherInterface * velAngTempRosPublisher) override;
 
   /**
    * @brief Sets the imuRosPublisher publisher in the publisher group.
-   *
-   * This function sets the imuRosPublisher to be used in the
-   * publisher group.
-   *
    * @param imuRosPublisher The publisher to be set in the group.
    */
   void setImuRosPublisher(ImuRosPublisherInterface * imuRosPublisher) override;
 
   /**
-   * @brief Sets the imuFullMeasuredDataRosPublisher publisher in the publisher group.
-   *
-   * This function sets the imuFullMeasuredDataRosPublisher to be used in the
-   * publisher group.
-   *
-   * @param imuRosPublisher The imuFullMeasuredDataRosPublisher to be set in the group.
+   * @brief Sets the imuFullMeasuredDataRosPublisher publisher in the publisher
+   * group.
+   * @param imuFullMeasuredDataRosPublisher The imuFullMeasuredDataRosPublisher
+   * to be set in the group.
    */
   void setImuFullMeasuredDataRosPublisher(
     ImuFullMeasuredDataRosPublisherInterface * imuFullMeasuredDataRosPublisher) override;
 
   /**
    * @brief Sets the imuControlParameters instance in the publisher group.
-   *
-   * This function sets the imuControlParameters instance to be used in the
-   * publisher group.
-   *
-   * @param imuControlParameters The imuControlParameters instance to be set in the group.
+   * @param imuControlParameters The imuControlParameters instance to be set in
+   * the group.
    */
   void setImuControlParameters(ImuControlParameters * imuControlParameters) override;
 
   /**
-   * @brief Read from message provider and write on topic
-   *
-   * Thread for reading from message providers and writing the read data on
-   * topics.
+   * @brief Run the thread responsible for publishing messages and for
+   * performing parameter configuration.
    */
   void run() override;
 

@@ -25,60 +25,38 @@
 #include <memory>
 #include <rclcpp/rclcpp.hpp>
 
-#include "imu_ros2/ros_task.h"
-
 class ImuFullMeasuredDataProviderInterface;
 
 /**
- * \brief Interface for accel, gyro, temp, delta velocity,
- *  delta angle ros publisher.
- *
- * This interface initializes the ros Node class.
- * Also it set message provider with a variable that is
- * a type of ImuFullMeasuredDataProviderInterface.
+ * @brief Interface for acceleration, angular velocity, delta angle, delta
+ * velocity and temperature publisher.
  */
-class ImuFullMeasuredDataRosPublisherInterface : public RosTask
+class ImuFullMeasuredDataRosPublisherInterface
 {
 public:
   /**
-   * \brief Constructor for ImuFullMeasuredDataRosPublisherInterface.
-   *
-   * This is the default constructor for interface
-   *  ImuFullMeasuredDataRosPublisherInterface.
-   *
+   * @brief Constructor for ImuFullMeasuredDataRosPublisherInterface.
    */
   ImuFullMeasuredDataRosPublisherInterface() {}
 
   /**
-   * \brief Destructor for ImuFullMeasuredDataRosPublisherInterface.
-   *
-   * This is a virtual destructor for ImuFullMeasuredDataRosPublisherInterface.
-   *
+   * @brief Destructor for ImuFullMeasuredDataRosPublisherInterface.
    */
   virtual ~ImuFullMeasuredDataRosPublisherInterface() {}
 
   /**
-   * @brief Initialize class with ros2 Node instance.
-   *
-   * This function initialize the class that inherit
-   * this interface wiht a ros2 Node instance.
-   *
-   * @param node The ros2 Node instance
-   */
-  virtual void init(std::shared_ptr<rclcpp::Node> & node) = 0;
-
-  /**
-   * @brief Set message provider.
-   *
-   * This function set data message provider with a variable that
-   * inherit ImuFullMeasuredDataProviderInterface.
-   *
-   * @param dataProvider Data message provider.
+   * @brief Set the message data provider.
+   * @param dataProvider Data provider.
    */
   virtual void setMessageProvider(ImuFullMeasuredDataProviderInterface * dataProvider) = 0;
 
+  /**
+   * @brief Publish the ImuFullMeasuredData message.
+   */
+  virtual void publish() = 0;
+
 protected:
-  /*! The ros2 Node data member */
+  /*! The ros2 Node data member. */
   std::shared_ptr<rclcpp::Node> m_node;
 };
 

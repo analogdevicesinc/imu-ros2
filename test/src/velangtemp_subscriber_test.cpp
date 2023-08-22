@@ -27,34 +27,32 @@
 #include "imu_ros2/msg/vel_ang_temp_data.hpp"
 
 /**
- * \brief Class for testing the delta velocity, delta angle and temp data
+ * @brief Class for testing VelAngTempData.
  *
- * This class instantiate a subscriber node and listen data
- * from topic and compare with a range of values.
+ * This class instantiates a subscriber node and listens to data on
+ * VelAngTempData topic and compares it against a range of expected
+ * values.
  */
 class VelAngTempSubscriberTest : public ::testing::Test
 {
 public:
   /**
-   * \brief Set up the test case
-   *
-   * This class initialize variable before the tests
+   * @brief Set up the test case.
    */
   static void SetUpTestCase() {}
 
   /**
-   * \brief Tear down the test case
-   *
-   * This class dealocate the data after tests
+   * @brief Tear down the test case.
    */
   static void TearDownTestCase() { rclcpp::shutdown(); }
 };
 
 /**
- * \brief VelAngTempSubscriberTest
+ * @brief VelAngTempSubscriberTest
  *
- * This test instantiate a subscriber node and listen data
- * from topic and compare with a range of values.
+ * This test instantiates a subscriber node and listens to data on
+ * VelAngTempData topic and compares it against a range of expected
+ * values.
  */
 TEST(VelAngTempSubscriberTest, test_velangtemp_publisher)
 {
@@ -64,32 +62,29 @@ TEST(VelAngTempSubscriberTest, test_velangtemp_publisher)
 
   std::string topic = "velangtempdata";
 
-  double scale_velocity = iio_wrapper.get_scale_velocity();
-  double scale_rot = iio_wrapper.get_scale_rot();
+  double scale_deltavelocity = iio_wrapper.get_scale_deltavelocity();
+  double scale_deltaangl = iio_wrapper.get_scale_deltaangl();
   double scale_temp = iio_wrapper.get_scale_temp();
   bool callbackExecuted = false;
 
-  auto callback = [&scale_velocity, &scale_rot, &scale_temp,
+  auto callback = [&scale_deltavelocity, &scale_deltaangl, &scale_temp,
                    &callbackExecuted](imu_ros2::msg::VelAngTempData msg) -> void {
     RCLCPP_INFO(
-      rclcpp::get_logger("rclcpp_test_adiimu_data"), " delta velocity value : %f %f %f \n",
-      msg.delta_velocity.x, msg.delta_velocity.y, msg.delta_velocity.z);
-
-    RCLCPP_INFO(
-      rclcpp::get_logger("rclcpp_test_adiimu_data"), " delta angle value : %f %f %f \n",
-      msg.delta_angle.x, msg.delta_angle.y, msg.delta_angle.z);
-
-    RCLCPP_INFO(
-      rclcpp::get_logger("rclcpp_test_adiimu_data"), " temperature value : %f \n", msg.temperature);
+      rclcpp::get_logger("velangtemp_subscriber_test"),
+      "delta velocity x axis: %f \ndelta velocity y axis: %f\ndelta velocity z axis: %f\n"
+      "delta angle x axis: %f\ndelta angle y axis: %f\ndelta angle z axis: %f\n"
+      "temperature: %f\n",
+      msg.delta_velocity.x, msg.delta_velocity.y, msg.delta_velocity.z, msg.delta_angle.x,
+      msg.delta_angle.y, msg.delta_angle.z, msg.temperature);
 
     int32_t minint = -2147483648;
     int32_t maxint = 2147483647;
 
-    double maxRangeVelocity = maxint * scale_velocity;
-    double minRangeVelocity = minint * scale_velocity;
+    double maxRangeVelocity = maxint * scale_deltavelocity;
+    double minRangeVelocity = minint * scale_deltavelocity;
 
-    double maxRangeRot = maxint * scale_rot;
-    double minRangeRot = minint * scale_rot;
+    double maxRangeRot = maxint * scale_deltaangl;
+    double minRangeRot = minint * scale_deltaangl;
 
     int32_t minint16 = -32768;
     int32_t maxint16 = 32767;
@@ -103,11 +98,9 @@ TEST(VelAngTempSubscriberTest, test_velangtemp_publisher)
       msg.delta_velocity.y >= minRangeVelocity && msg.delta_velocity.y <= maxRangeVelocity);
     ASSERT_TRUE(
       msg.delta_velocity.z >= minRangeVelocity && msg.delta_velocity.z <= maxRangeVelocity);
-
     ASSERT_TRUE(msg.delta_angle.x >= minRangeRot && msg.delta_angle.x <= maxRangeRot);
     ASSERT_TRUE(msg.delta_angle.y >= minRangeRot && msg.delta_angle.y <= maxRangeRot);
     ASSERT_TRUE(msg.delta_angle.z >= minRangeRot && msg.delta_angle.z <= maxRangeRot);
-
     ASSERT_TRUE(msg.temperature >= minRangeTemp && msg.temperature <= maxRangeTemp);
     callbackExecuted = true;
   };

@@ -24,16 +24,11 @@
 
 Imu1650xDiagRosPublisher::Imu1650xDiagRosPublisher(std::shared_ptr<rclcpp::Node> & node)
 {
-  init(node);
-}
-
-Imu1650xDiagRosPublisher::~Imu1650xDiagRosPublisher() { delete m_data_provider; }
-
-void Imu1650xDiagRosPublisher::init(std::shared_ptr<rclcpp::Node> & node)
-{
   m_node = node;
   m_publisher = node->create_publisher<imu_ros2::msg::Imu1650xDiagData>("imu1650xdiagdata", 10);
 }
+
+Imu1650xDiagRosPublisher::~Imu1650xDiagRosPublisher() { delete m_data_provider; }
 
 void Imu1650xDiagRosPublisher::setMessageProvider(Imu1650xDiagDataProviderInterface * dataProvider)
 {
@@ -44,16 +39,19 @@ void Imu1650xDiagRosPublisher::run()
 {
   std::thread::id this_id = std::this_thread::get_id();
   std::cout << "thread " << this_id << " started...\n";
-  RCLCPP_INFO(rclcpp::get_logger("rclcpp_imu1650xdiag"), "startThread: Imu1650xDiagRosPublisher");
+  RCLCPP_INFO(
+    rclcpp::get_logger("imu_1650x_diag_ros_publisher"), "startThread: Imu1650xDiagRosPublisher");
 
   while (rclcpp::ok()) {
     if (m_data_provider->getData(m_message))
       m_publisher->publish(m_message);
     else
-      RCLCPP_INFO(rclcpp::get_logger("rclcpp_imu1650xdiag"), "error reading diagnosis data");
+      RCLCPP_INFO(
+        rclcpp::get_logger("imu_1650x_diag_ros_publisher"), "error reading diagnosis data");
   }
 
   this_id = std::this_thread::get_id();
   std::cout << "thread " << this_id << " ended...\n";
-  RCLCPP_INFO(rclcpp::get_logger("rclcpp_imu1650xdiag"), "endThread: Imu1650xDiagRosPublisher");
+  RCLCPP_INFO(
+    rclcpp::get_logger("imu_1650x_diag_ros_publisher"), "endThread: Imu1650xDiagRosPublisher");
 }

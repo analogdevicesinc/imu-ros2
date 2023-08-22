@@ -24,59 +24,38 @@
 #include <memory>
 #include <rclcpp/rclcpp.hpp>
 
-#include "imu_ros2/ros_task.h"
-
 class AccelGyroTempDataProviderInterface;
 
 /**
- * \brief Interface for accel gyro temp ros publisher.
- *
- * This interface initializes the ros Node class.
- * Also it set message provider with a variable that is
- * a type of AccelGyroTempDataProviderInterface.
+ * @brief Interface for acceleration, angular velocity and temperature
+ * publisher.
  */
-class AccelGyroTempRosPublisherInterface : public RosTask
+class AccelGyroTempRosPublisherInterface
 {
 public:
   /**
-   * \brief Constructor for AccelGyroTempRosPublisherInterface.
-   *
-   * This is the default constructor for interface
-   *  AccelGyroTempRosPublisherInterface.
-   *
+   * @brief Constructor for AccelGyroTempRosPublisherInterface.
    */
   AccelGyroTempRosPublisherInterface() {}
 
   /**
-   * \brief Destructor for AccelGyroTempRosPublisherInterface.
-   *
-   * This is a virtual destructor for AccelGyroTempRosPublisherInterface.
-   *
+   * @brief Destructor for AccelGyroTempRosPublisherInterface.
    */
   virtual ~AccelGyroTempRosPublisherInterface() {}
 
   /**
-   * @brief Initialize class with ros2 Node instance.
-   *
-   * This function initialize the class that inherit
-   * this interface wiht a ros2 Node instance.
-   *
-   * @param node The ros2 Node instance
-   */
-  virtual void init(std::shared_ptr<rclcpp::Node> & node) = 0;
-
-  /**
-   * @brief Set message provider.
-   *
-   * This function set data message provider with a variable that
-   * inherit AccelGyroTempDataProviderInterface.
-   *
-   * @param dataProvider Data message provider.
+   * @brief Set the message data provider.
+   * @param dataProvider Data provider.
    */
   virtual void setMessageProvider(AccelGyroTempDataProviderInterface * dataProvider) = 0;
 
+  /**
+   * @brief Publish the AccelGyroTempData message.
+   */
+  virtual void publish() = 0;
+
 protected:
-  /*! The ros2 Node data member */
+  /*! The ros2 Node data member. */
   std::shared_ptr<rclcpp::Node> m_node;
 };
 

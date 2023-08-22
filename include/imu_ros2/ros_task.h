@@ -22,15 +22,13 @@
 #define ROS_TASK_H
 
 /**
- * \brief Interface for running a task in a thread.
- *
- * This interface declares a method that is run o a thread
+ * @brief Interface for running a task in a thread.
  */
 class RosTask
 {
 public:
   /**
-   * \brief Constructor for RosTask.
+   * @brief Constructor for RosTask.
    *
    * This is the default constructor for interface
    *  RosTask.
@@ -39,7 +37,7 @@ public:
   RosTask() {}
 
   /**
-   * \brief Destructor for RosTask.
+   * @brief Destructor for RosTask.
    *
    * This is a virtual destructor for RosTask.
    *

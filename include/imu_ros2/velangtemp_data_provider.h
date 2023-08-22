@@ -26,49 +26,32 @@
 #include "imu_ros2/velangtemp_data_provider_interface.h"
 
 /**
- * \brief Class implementation for delta velocity, delta angle temp data provider.
- *
- * This class implements  VelAngTempDataProviderInterface interface.
- * This class provides data for the publisher.
- * The type of data is VelAngTempData.
+ * @brief Class for delta angle, delta velocity and temperature buffered
+ * data provider.
  */
 class VelAngTempDataProvider : public VelAngTempDataProviderInterface
 {
 public:
   /**
-   * \brief Constructor for VelAngTempDataProvider.
-   *
-   * This is the default constructor for class
-   *  VelAngTempDataProvider.
-   *
+   * @brief Constructor for VelAngTempDataProvider.
    */
   VelAngTempDataProvider();
 
   /**
-   * \brief Destructor for VelAngTempDataProvider.
-   *
-   * This is the destructor for VelAngTempDataProvider.
-   *
+   * @brief Destructor for VelAngTempDataProvider.
    */
   ~VelAngTempDataProvider();
 
   /**
-   * @brief Populate message variable with data.
-   *
-   * This function return by parameter a message variable
-   * with data from the sensor like delta velocity, delta angle
-   * and temperature. The reading from the libiio is with buffer.
-   *
-   * @return Return true if the message variable is populated with
-   *  values and false if the message is not populated.
-   * @param message Populate message variable
-   * with data like like delta velocity, delta angle and temperature from
-   * the sensor.
+   * @brief Populate VelAngTempData message with measured data.
+   * @param message Message containing the measured data.
+   * @return Return true if the message parameter is successfully populated with
+   * measured data and false otherwise.
    */
   bool getData(imu_ros2::msg::VelAngTempData & message) override;
 
 private:
-  /*! This data member access information from libiio */
+  /*! This data member is used to access sensor information via libiio. */
   IIOWrapper m_iio_wrapper;
 };
 
