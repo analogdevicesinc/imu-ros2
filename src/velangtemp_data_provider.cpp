@@ -27,6 +27,7 @@ VelAngTempDataProvider::~VelAngTempDataProvider() {}
 
 bool VelAngTempDataProvider::getData(imu_ros2::msg::VelAngTempData & message)
 {
+#ifdef ADIS_HAS_DELTA_BURST
   if (!m_iio_wrapper.updateBuffer(DELTAVEL_DELTAANG_BUFFERED_DATA)) return false;
 
   message.delta_angle.x = m_iio_wrapper.getBuffDeltaAngleX();
@@ -39,7 +40,11 @@ bool VelAngTempDataProvider::getData(imu_ros2::msg::VelAngTempData & message)
 
   message.temperature = m_iio_wrapper.getBuffTemperature();
 
-  message.timestamp = m_iio_wrapper.getBuffSampleTimestamp();
+  message.header.frame_id = "velangtempdata";
+  m_iio_wrapper.getBuffSampleTimestamp(message.header.stamp.sec, message.header.stamp.nanosec);
 
   return true;
+#else
+  return false;
+#endif
 }

@@ -26,6 +26,8 @@ ImuIdentificationDataProvider::~ImuIdentificationDataProvider() {}
 
 bool ImuIdentificationDataProvider::getData(imu_ros2::msg::ImuIdentificationData & message)
 {
+  message.header.frame_id = "imuidentificationdata";
+
   if (!m_iio_wrapper.firmware_revision(message.firmware_revision)) return false;
 
   if (!m_iio_wrapper.firmware_date(message.firmware_date)) return false;

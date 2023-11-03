@@ -58,7 +58,14 @@ TEST(AccelGyroTempSubscriberTest, test_accelgyrotemp_publisher)
 {
   IIOWrapper iio_wrapper;
 
-  auto node = rclcpp::Node::make_shared("accelgyrotempdata");
+  auto node = rclcpp::Node::make_shared("test_accelgyrotempdata_publisher");
+
+  node->declare_parameter("iio_context_string", "local:");
+
+  std::string context =
+    node->get_parameter("iio_context_string").get_parameter_value().get<std::string>();
+  IIOWrapper m_iio_wrapper;
+  m_iio_wrapper.createContext(context.c_str());
 
   std::string topic = "accelgyrotempdata";
 
@@ -71,9 +78,10 @@ TEST(AccelGyroTempSubscriberTest, test_accelgyrotemp_publisher)
                    &callbackExecuted](imu_ros2::msg::AccelGyroTempData msg) -> void {
     RCLCPP_INFO(
       rclcpp::get_logger("accelgyrotemp_subscriber_test"),
-      "linear acceleration x axis: %f \nlinear acceleration y axis: %f\nlinear acceleration z "
+      "\nlinear acceleration x axis: %f \nlinear acceleration y axis: %f\nlinear acceleration z "
       "axis: %f\nangular velocity x axis: %f\nangular velocity y axis: %f\nangular velocity z "
-      "axis: %f\n temperature: %f\n ",
+      "axis: %f\n"
+      "temperature: %f\n ",
       msg.linear_acceleration.x, msg.linear_acceleration.y, msg.linear_acceleration.z,
       msg.angular_velocity.x, msg.angular_velocity.y, msg.angular_velocity.z, msg.temperature);
 

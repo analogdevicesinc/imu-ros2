@@ -22,8 +22,6 @@
 
 #include <thread>
 
-#include "imu_ros2/setting_declarations.h"
-
 ImuIdentificationRosPublisher::ImuIdentificationRosPublisher(std::shared_ptr<rclcpp::Node> & node)
 {
   m_node = node;
@@ -51,6 +49,8 @@ void ImuIdentificationRosPublisher::run()
   m_data_provider->getData(m_message);
 
   while (rclcpp::ok()) {
+    rclcpp::Time now = m_node->get_clock()->now();
+    m_message.header.stamp = now;
     m_publisher->publish(m_message);
   }
 

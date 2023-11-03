@@ -38,6 +38,9 @@ bool ImuDataProvider::getData(sensor_msgs::msg::Imu & message)
   message.angular_velocity.y = m_iio_wrapper.getBuffAngularVelocityY();
   message.angular_velocity.z = m_iio_wrapper.getBuffAngularVelocityZ();
 
+  message.header.frame_id = "imu";
+  m_iio_wrapper.getBuffSampleTimestamp(message.header.stamp.sec, message.header.stamp.nanosec);
+
   message.orientation_covariance[0] = -1;
 
   return true;

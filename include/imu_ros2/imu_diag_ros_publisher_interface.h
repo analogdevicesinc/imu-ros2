@@ -1,6 +1,6 @@
 /*******************************************************************************
- *   @file   imu_1650x_diag_data_provider_interface.h
- *   @brief  Interface for adis1650x diagnosis publisher.
+ *   @file   imu_diag_ros_publisher_interface.h
+ *   @brief  Interface for adis diagnosis publisher.
  *   @author Vasile Holonec (Vasile.Holonec@analog.com)
  *******************************************************************************
  * Copyright 2023(c) Analog Devices, Inc.
@@ -18,34 +18,41 @@
  * limitations under the License.
  ******************************************************************************/
 
-#ifndef IMU_1650X_DIAG_DATA_PROVIDER_INTERFACE_H
-#define IMU_1650X_DIAG_DATA_PROVIDER_INTERFACE_H
+#ifndef IMU_DIAG_ROS_PUBLISHER_INTERFACE_H
+#define IMU_DIAG_ROS_PUBLISHER_INTERFACE_H
 
-#include "imu_ros2/msg/imu1650x_diag_data.hpp"
+#include <memory>
+#include <rclcpp/rclcpp.hpp>
+
+#include "imu_ros2/ros_task.h"
+
+class ImuDiagDataProviderInterface;
 
 /**
- * @brief Interface for diagnosis data provider for adis1650x chips.
+ * @brief Interface for diagnosis publisher for adis chips.
  */
-class Imu1650xDiagDataProviderInterface
+class ImuDiagRosPublisherInterface : public RosTask
 {
 public:
   /**
-   * @brief Constructor for Imu1650xDiagDataProviderInterface.
+   * @brief Constructor for ImuDiagRosPublisherInterface.
    */
-  Imu1650xDiagDataProviderInterface() {}
+  ImuDiagRosPublisherInterface() {}
 
   /**
-   * @brief Destructor for Imu1650xDiagDataProviderInterface.
+   * @brief Destructor for ImuDiagRosPublisherInterface.
    */
-  virtual ~Imu1650xDiagDataProviderInterface() {}
+  virtual ~ImuDiagRosPublisherInterface() {}
 
   /**
-   * @brief Populate Imu1650xDiagData message with diagnosis data.
-   * @param message Message containing the diagnosis data.
-   * @return Return true if the message parameter is successfully populated with
-   * diagnosis data and false otherwise.
+   * @brief Set the message data provider.
+   * @param dataProvider Data provider.
    */
-  virtual bool getData(imu_ros2::msg::Imu1650xDiagData & message) = 0;
+  virtual void setMessageProvider(ImuDiagDataProviderInterface * dataProvider) = 0;
+
+protected:
+  /*! The ros2 Node data member. */
+  std::shared_ptr<rclcpp::Node> m_node;
 };
 
-#endif  // IMU_1650X_DIAG_DATA_PROVIDER_INTERFACE_H
+#endif  // IMU_DIAG_ROS_PUBLISHER_INTERFACE_H

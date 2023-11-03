@@ -2,21 +2,19 @@
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
   <name>imu_ros2_test</name>
-  <version>0.0.0</version>
-  <description>TODO: Package description</description>
-  <maintainer email="Vasile.Holonec@analog.com">vholonec</maintainer>
-  <license>TODO: License declaration</license>
+  <version>0.0.1</version>
+  <description>Tests for ADI IMUs Publisher</description>
+  <maintainer email="ramona.gradinariu@analog.com">rbolboac</maintainer>
+  <license>Apache License Version 2.0</license>
 
   <depend>ament_cmake</depend>
   <depend>rclcpp</depend>
   <depend>std_msgs</depend>
   <depend>sensor_msgs</depend>
 
-  <test_depend>ament_lint_auto</test_depend>
-  <test_depend>ament_lint_common</test_depend>
   <test_depend>ament_cmake_gtest</test_depend>
-  
-    <build_depend>builtin_interfaces</build_depend>
+
+  <build_depend>builtin_interfaces</build_depend>
   <build_depend>rosidl_default_generators</build_depend>
   <exec_depend>builtin_interfaces</exec_depend>
   <exec_depend>rosidl_default_runtime</exec_depend>

@@ -24,8 +24,6 @@
 #include <chrono>
 #include <thread>
 
-#include "imu_ros2/setting_declarations.h"
-
 AccelGyroTempRosPublisher::AccelGyroTempRosPublisher(std::shared_ptr<rclcpp::Node> & node)
 {
   m_node = node;

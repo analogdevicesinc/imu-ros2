@@ -25,7 +25,7 @@
 
 #include <string>
 
-#include "setting_declarations.h"
+#include "adis_data_access.h"
 
 /**
  * @brief Wrapper class for libiio library for IMU devices
@@ -44,14 +44,22 @@ public:
   ~IIOWrapper();
 
   /**
+   * @brief create IIO context based on the given context string and search for
+   * IIO ADIS device, enable trigger and map device attributes, device channels
+   * and channels attributes.
+   * @param context IIO context string
+   */
+  void createContext(const char * context);
+
+  /**
    * @brief Update buffer data. This function should be called before retrieving
    * data using getBuff** APIs.
-   * @param burst_data_selection: 0 for acceleration and gyroscope data, 1 for
+   * @param data_selection 0 for acceleration and gyroscope data, 1 for
    * delta angle and delta velocity data.
    * @return Return true if data was read successfully and can be retrieved,
    * false otherwise.
    */
-  bool updateBuffer(uint32_t burst_data_selection);
+  bool updateBuffer(uint32_t data_selection);
 
   /**
    * @brief Stops buffer acquisition.
@@ -106,6 +114,7 @@ public:
    */
   double getBuffAngularVelocityZ();
 
+#ifdef ADIS_HAS_DELTA_BURST
   /**
    * @brief Get delta velocity on x axis with buffer reads; in this case
    * the retrieved samples are continuous if the function is called fast enough
@@ -134,7 +143,7 @@ public:
    * @brief Get delta angle on x axis with buffer reads; in this case
    * the retrieved samples are continuous if the function is called fast enough
    * and samples are not overwritten.
-   * @return Return the delta angle on x axis in degrees.
+   * @return Return the delta angle on x axis in radians.
    */
   double getBuffDeltaAngleX();
 
@@ -142,7 +151,7 @@ public:
    * @brief Get delta angle on y axis with buffer reads; in this case
    * the retrieved samples are continuous if the function is called fast enough
    * and samples are not overwritten.
-   * @return Return the delta angle on y axis in degrees.
+   * @return Return the delta angle on y axis in radians.
    */
   double getBuffDeltaAngleY();
 
@@ -150,9 +159,10 @@ public:
    * @brief Get delta angle on z axis with buffer reads; in this case
    * the retrieved samples are continuous if the function is called fast enough
    * and samples are not overwritten.
-   * @return Return the delta angle on z axis in degrees.
+   * @return Return the delta angle on z axis in radians.
    */
   double getBuffDeltaAngleZ();
+#endif
 
   /**
    * @brief Get temperature with buffer reads; in this case
@@ -165,9 +175,10 @@ public:
   /**
    * @brief Get buffer timestamp when performing buffer reads; the timestamp
    * represent the time at which the samples from the devices were read over SPI.
-   * @return Return the sample timestamp in ticks.
+   * @param sec The second component of the timestamp
+   * @param nanosec The nanosecond component of the timestamp
    */
-  int64_t getBuffSampleTimestamp();
+  void getBuffSampleTimestamp(int32_t & sec, uint32_t & nanosec);
 
   /**
    * @brief Get linear acceleration on x axis with register reads; in this case
@@ -228,7 +239,7 @@ public:
    * the retrieved samples are not necessary continuous.
    * @return Return true if the reading was successful and result is valid,
    * false otherwise.
-   * @param result The delta angle on x axis in degrees.
+   * @param result The delta angle on x axis in radians.
    */
   bool getRegDeltaAngleX(double & result);
 
@@ -237,7 +248,7 @@ public:
    * the retrieved samples are not necessary continuous.
    * @return Return true if the reading was successful and result is valid,
    * false otherwise.
-   * @param result The delta angle on y axis in degrees.
+   * @param result The delta angle on y axis in radians.
    */
   bool getRegDeltaAngleY(double & result);
 
@@ -246,7 +257,7 @@ public:
    * the retrieved samples are not necessary continuous.
    * @return Return true if the reading was successful and result is valid,
    * false otherwise.
-   * @param result The delta angle on z axis in degrees.
+   * @param result The delta angle on z axis in radians.
    */
   bool getRegDeltaAngleZ(double & result);
 
@@ -543,28 +554,12 @@ public:
   bool diag_aduc_mcu_fault(bool & result);
 
   /**
-   * @brief Get diag checksum error flag data.
-   * @param result True if failure occurred, false otherwise.
-   * @return Return true if reading was successful and data is valid, false
-   * otherwise.
-   */
-  bool diag_checksum_error_flag(bool & result);
-
-  /**
    * @brief Get diag flash memory write count exceeded error data.
    * @param result True if write count exceeded allowed value, false otherwise.
    * @return Return true if reading was successful and data is valid, false
    * otherwise.
    */
   bool diag_flash_memory_write_count_exceeded_error(bool & result);
-
-  /**
-   * @brief Get lost samples count data.
-   * @param result lost samples count
-   * @return Return true if reading was successful and data is valid, false
-   * otherwise.
-   */
-  bool lost_samples_count(uint32_t & result);
 
   /**
    * @brief Get low pass 3db frequency data.
@@ -637,22 +632,6 @@ public:
    * false if not.
    */
   bool update_linear_acceleration_compensation(uint32_t val);
-
-  /**
-   * @brief Get burst data selection data.
-   * @param result burst data selection data.
-   * @return Return true if reading was successful and data is valid, false
-   * otherwise.
-   */
-  bool burst_data_selection(uint32_t & result);
-
-  /**
-   * @brief Update burst data selection.
-   * @param val value to update with.
-   * @return Return true if writing was with success and
-   * false if not.
-   */
-  bool update_burst_data_selection(uint32_t val);
 
   /**
    * @brief Get bias correction time base control data.
@@ -879,8 +858,17 @@ public:
   double get_scale_temp();
 
 private:
-  /*! This variable retains local context instance*/
-  static struct iio_context * m_local_context;
+  /**
+   * @brief Update a field in the register map.
+   * @param reg The register address where the field is located
+   * @param val The value to be written.
+   * @param mask The bitmask to change
+   * @return Return true if updated was successful, false otherwise.
+   */
+  bool updateField(uint32_t reg, uint32_t val, uint32_t mask);
+
+  /*! This variable retains the IIO context instance */
+  static struct iio_context * m_iio_context;
 
   /*! This variable retains the device instance */
   static struct iio_device * m_dev;
@@ -971,13 +959,6 @@ private:
 
   /*! This variable retains the scale for the temperature raw value */
   static double m_scale_temp;
-
-public:
-  /*! This variable retains device name */
-  static std::string s_device_name;
-
-  /*! This variable retains device name enum*/
-  static IIODeviceName s_device_name_enum;
 };
 
 #endif  // IIO_WRAPPER_H

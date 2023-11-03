@@ -58,7 +58,14 @@ TEST(ImuFullMeasuredDataSubscriberTest, test_imu_full_measured_data_publisher)
 {
   IIOWrapper iio_wrapper;
 
-  auto node = rclcpp::Node::make_shared("imufullmeasureddata");
+  auto node = rclcpp::Node::make_shared("test_imufullmeasureddata_publisher");
+
+  node->declare_parameter("iio_context_string", "local:");
+
+  std::string context =
+    node->get_parameter("iio_context_string").get_parameter_value().get<std::string>();
+  IIOWrapper m_iio_wrapper;
+  m_iio_wrapper.createContext(context.c_str());
 
   std::string topic = "imufullmeasureddata";
 
@@ -73,7 +80,7 @@ TEST(ImuFullMeasuredDataSubscriberTest, test_imu_full_measured_data_publisher)
                    &callbackExecuted](imu_ros2::msg::ImuFullMeasuredData msg) -> void {
     RCLCPP_INFO(
       rclcpp::get_logger("imu_full_measured_data_subscriber_test"),
-      "linear acceleration x axis: %f \nlinear acceleration y axis: %f\nlinear acceleration z "
+      "\nlinear acceleration x axis: %f \nlinear acceleration y axis: %f\nlinear acceleration z "
       "axis: %f\nangular velocity x axis: %f\nangular velocity y axis: %f\n"
       "angular velocity z axis: %f\ndelta velocity x axis: %f \ndelta velocity y axis: %f\n"
       "delta velocity z axis: %f\ndelta angle x axis: %f\ndelta angle y axis: %f\n"

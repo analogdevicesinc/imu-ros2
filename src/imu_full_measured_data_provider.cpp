@@ -29,6 +29,8 @@ bool ImuFullMeasuredDataProvider::getData(imu_ros2::msg::ImuFullMeasuredData & d
 {
   m_iio_wrapper.stopBufferAcquisition();
 
+  data.header.frame_id = "imufullmeasureddata";
+
   if (!m_iio_wrapper.getRegLinearAccelerationX(data.linear_acceleration.x)) return false;
 
   if (!m_iio_wrapper.getRegLinearAccelerationY(data.linear_acceleration.y)) return false;

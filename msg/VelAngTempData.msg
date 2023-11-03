@@ -18,14 +18,14 @@
 # limitations under the License.
 ################################################################################
 
+# message header
+std_msgs/Header header
+
 # 3-axis delta velocity (delta between two consecutive measurements) [m/s]
 geometry_msgs/Vector3 delta_velocity
 
-# 3-axis delta angle (delta between two consecutive measurements) [degrees]
+# 3-axis delta angle (delta between two consecutive measurements) [radians]
 geometry_msgs/Vector3 delta_angle
 
 # imu internal temperature [°C]
 float64 temperature
-
-# sample timestamp
-int64 timestamp
