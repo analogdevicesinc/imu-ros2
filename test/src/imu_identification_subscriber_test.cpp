@@ -58,7 +58,15 @@ TEST(ImuIdentificationSubscriberTest, test_imu_identification_publisher)
 {
   IIOWrapper iio_wrapper;
 
-  auto node = rclcpp::Node::make_shared("imuidentificationdata");
+  auto node = rclcpp::Node::make_shared("test_imuidentificationdata_publisher");
+
+  node->declare_parameter("iio_context_string", "local:");
+
+  std::string context =
+    node->get_parameter("iio_context_string").get_parameter_value().get<std::string>();
+  IIOWrapper m_iio_wrapper;
+  m_iio_wrapper.createContext(context.c_str());
+
   std::string topic = "imuidentificationdata";
 
   bool callbackExecuted = false;
@@ -73,8 +81,14 @@ TEST(ImuIdentificationSubscriberTest, test_imu_identification_publisher)
   auto callback = [&imu_message,
                    &callbackExecuted](imu_ros2::msg::ImuIdentificationData msg) -> void {
     RCLCPP_INFO(
-      rclcpp::get_logger("imu_identification_subscriber_test"), " device info: %s %s %d  \n",
-      msg.firmware_revision.c_str(), msg.firmware_date.c_str(), msg.product_id);
+      rclcpp::get_logger("imu_identification_subscriber_test"),
+      "\nproduct id: %d"
+      "\nserial number: %d"
+      "\nfirmware revision: %s"
+      "\nfirmare date: %s"
+      "\ngyroscope measurement range: %s",
+      msg.product_id, msg.serial_number, msg.firmware_revision.c_str(), msg.firmware_date.c_str(),
+      msg.gyroscope_measurement_range.c_str());
     ASSERT_TRUE(msg.firmware_revision == imu_message.firmware_revision);
     ASSERT_TRUE(msg.firmware_date == imu_message.firmware_date);
     ASSERT_TRUE(msg.product_id == imu_message.product_id);

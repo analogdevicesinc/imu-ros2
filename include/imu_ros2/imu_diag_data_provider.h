@@ -1,6 +1,6 @@
 /*******************************************************************************
- *   @file   imu_1650x_diag_data_provider.h
- *   @brief  Header for providing diagnosis data for adis1650x.
+ *   @file   imu_diag_data_provider.h
+ *   @brief  Header for providing diagnosis data for adis.
  *   @author Vasile Holonec (Vasile.Holonec@analog.com)
  *******************************************************************************
  * Copyright 2023(c) Analog Devices, Inc.
@@ -18,39 +18,39 @@
  * limitations under the License.
  ******************************************************************************/
 
-#ifndef IMU_1650X_DIAG_DATA_PROVIDER_H
-#define IMU_1650X_DIAG_DATA_PROVIDER_H
+#ifndef IMU_DIAG_DATA_PROVIDER_H
+#define IMU_DIAG_DATA_PROVIDER_H
 
+#include "imu_diag_data_provider_interface.h"
 #include "imu_ros2/iio_wrapper.h"
-#include "imu_ros2/imu_1650x_diag_data_provider_interface.h"
 
 /**
- * @brief Class for diagnosis data provider for adis1650x chips.
+ * @brief Class for diagnosis data provider for adis chips.
  */
-class Imu1650xDiagDataProvider : public Imu1650xDiagDataProviderInterface
+class ImuDiagDataProvider : public ImuDiagDataProviderInterface
 {
 public:
   /**
-   * @brief Constructor for Imu1650xDiagDataProvider.
+   * @brief Constructor for ImuDiagDataProvider.
    */
-  Imu1650xDiagDataProvider();
+  ImuDiagDataProvider();
 
   /**
-   * @brief Destructor for Imu1650xDiagDataProvider.
+   * @brief Destructor for ImuDiagDataProvider.
    */
-  ~Imu1650xDiagDataProvider();
+  ~ImuDiagDataProvider();
 
   /**
-   * @brief Populate Imu1650xDiagData message with diagnosis data.
+   * @brief Populate ImuDiagData message with diagnosis data.
    * @param message Message containing the diagnosis data.
    * @return Return true if the message parameter is successfully populated with
    * diagnosis data and false otherwise.
    */
-  bool getData(imu_ros2::msg::Imu1650xDiagData & message) override;
+  bool getData(imu_ros2::msg::ImuDiagData & message) override;
 
 private:
   /*! This data member is used to access sensor information via libiio. */
   IIOWrapper m_iio_wrapper;
 };
 
-#endif  // IMU_1650X_DIAG_DATA_PROVIDER_H
+#endif  // IMU_DIAG_DATA_PROVIDER_H

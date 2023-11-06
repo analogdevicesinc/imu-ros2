@@ -23,7 +23,7 @@
 
 #include <rclcpp/rclcpp.hpp>
 
-#include "iio_wrapper.h"
+#include "imu_ros2/iio_wrapper.h"
 #include "rcl_interfaces/msg/set_parameters_result.hpp"
 
 /**
@@ -51,14 +51,9 @@ public:
 
 private:
   /**
-   * @brief Add the list of adis1650x parameters to m_attr_current_device.
+   * @brief Add the list of adis parameters to m_attr_current_device.
    */
-  void declareAdis1650xAttributes();
-
-  /**
-   * @brief Add the list of adis1657x parameters to m_attr_current_device.
-   */
-  void declareAdis1657xAttributes();
+  void declareAdisAttributes();
 
   /**
    * @brief Add the list of IIO update functions to

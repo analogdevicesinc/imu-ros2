@@ -29,17 +29,7 @@
 ImuControlParameters::ImuControlParameters(std::shared_ptr<rclcpp::Node> & node)
 {
   m_node = node;
-  switch (IIOWrapper::s_device_name_enum) {
-    case IIODeviceName::ADIS1650X:
-      declareAdis1650xAttributes();
-      break;
-    case IIODeviceName::ADIS1657X:
-      declareAdis1657xAttributes();
-      break;
-    default:
-      break;
-  }
-
+  declareAdisAttributes();
   mapIIOUpdateFunctionsInt32();
   mapIIOGetFunctionsInt32();
   mapIIOUpdateFunctionsUint32();
@@ -53,7 +43,7 @@ ImuControlParameters::ImuControlParameters(std::shared_ptr<rclcpp::Node> & node)
 
 ImuControlParameters::~ImuControlParameters() {}
 
-void ImuControlParameters::declareAdis1650xAttributes()
+void ImuControlParameters::declareAdisAttributes()
 {
   m_attr_current_device.push_back("anglvel_calibbias_x");
   m_attr_current_device.push_back("anglvel_calibbias_y");
@@ -63,26 +53,13 @@ void ImuControlParameters::declareAdis1650xAttributes()
   m_attr_current_device.push_back("accel_calibbias_z");
 
   m_attr_current_device.push_back("filter_low_pass_3db_frequency");
+#ifdef ADIS_SENS_BW
   m_attr_current_device.push_back("internal_sensor_bandwidth");
-  m_attr_current_device.push_back("point_of_percussion_alignment");
-  m_attr_current_device.push_back("linear_acceleration_compensation");
-  m_attr_current_device.push_back("sampling_frequency");
-}
-
-void ImuControlParameters::declareAdis1657xAttributes()
-{
-  m_attr_current_device.push_back("anglvel_calibbias_x");
-  m_attr_current_device.push_back("anglvel_calibbias_y");
-  m_attr_current_device.push_back("anglvel_calibbias_z");
-  m_attr_current_device.push_back("accel_calibbias_x");
-  m_attr_current_device.push_back("accel_calibbias_y");
-  m_attr_current_device.push_back("accel_calibbias_z");
-
-  m_attr_current_device.push_back("filter_low_pass_3db_frequency");
-  m_attr_current_device.push_back("internal_sensor_bandwidth");
+#endif
   m_attr_current_device.push_back("point_of_percussion_alignment");
   m_attr_current_device.push_back("linear_acceleration_compensation");
 
+#ifdef ADIS_NULL_CNFG_ADDR
   m_attr_current_device.push_back("bias_correction_time_base_control");
   m_attr_current_device.push_back("x_axis_gyroscope_bias_correction_enable");
   m_attr_current_device.push_back("y_axis_accelerometer_bias_correction_enable");
@@ -90,6 +67,8 @@ void ImuControlParameters::declareAdis1657xAttributes()
   m_attr_current_device.push_back("x_axis_accelerometer_bias_correction_enable");
   m_attr_current_device.push_back("y_axis_gyroscope_bias_correction_enable");
   m_attr_current_device.push_back("z_axis_gyroscope_bias_correction_enable");
+#endif
+
   m_attr_current_device.push_back("sampling_frequency");
 }
 
@@ -117,12 +96,15 @@ void ImuControlParameters::mapIIOUpdateFunctionsUint32()
 {
   m_func_map_update_uint32_params["filter_low_pass_3db_frequency"] =
     &IIOWrapper::update_filter_low_pass_3db_frequency;
+#ifdef ADIS_SENS_BW
   m_func_map_update_uint32_params["internal_sensor_bandwidth"] =
     &IIOWrapper::update_internal_sensor_bandwidth;
+#endif
   m_func_map_update_uint32_params["point_of_percussion_alignment"] =
     &IIOWrapper::update_point_of_percussion_alignment;
   m_func_map_update_uint32_params["linear_acceleration_compensation"] =
     &IIOWrapper::update_linear_acceleration_compensation;
+#ifdef ADIS_NULL_CNFG_ADDR
   m_func_map_update_uint32_params["bias_correction_time_base_control"] =
     &IIOWrapper::update_bias_correction_time_base_control;
   m_func_map_update_uint32_params["x_axis_gyroscope_bias_correction_enable"] =
@@ -137,18 +119,22 @@ void ImuControlParameters::mapIIOUpdateFunctionsUint32()
     &IIOWrapper::update_y_axis_accelerometer_bias_correction_enable;
   m_func_map_update_uint32_params["z_axis_accelerometer_bias_correction_enable"] =
     &IIOWrapper::update_z_axis_accelerometer_bias_correction_enable;
+#endif
 }
 
 void ImuControlParameters::mapIIOGetFunctionsUint32()
 {
   m_func_map_get_uint32_params["filter_low_pass_3db_frequency"] =
     &IIOWrapper::filter_low_pass_3db_frequency;
+#ifdef ADIS_SENS_BW
   m_func_map_get_uint32_params["internal_sensor_bandwidth"] =
     &IIOWrapper::internal_sensor_bandwidth;
+#endif
   m_func_map_get_uint32_params["point_of_percussion_alignment"] =
     &IIOWrapper::point_of_percussion_alignment;
   m_func_map_get_uint32_params["linear_acceleration_compensation"] =
     &IIOWrapper::linear_acceleration_compensation;
+#ifdef ADIS_NULL_CNFG_ADDR
   m_func_map_get_uint32_params["bias_correction_time_base_control"] =
     &IIOWrapper::bias_correction_time_base_control;
   m_func_map_get_uint32_params["x_axis_gyroscope_bias_correction_enable"] =
@@ -163,6 +149,7 @@ void ImuControlParameters::mapIIOGetFunctionsUint32()
     &IIOWrapper::y_axis_accelerometer_bias_correction_enable;
   m_func_map_get_uint32_params["z_axis_accelerometer_bias_correction_enable"] =
     &IIOWrapper::z_axis_accelerometer_bias_correction_enable;
+#endif
 }
 
 void ImuControlParameters::mapIIOUpdateFunctionsDouble()
@@ -183,13 +170,9 @@ void ImuControlParameters::mapIIOCommandFunctions()
   m_func_map_execute_commands["sensor_self_test"] = &IIOWrapper::sensor_self_test;
   m_func_map_execute_commands["factory_calibration_restore"] =
     &IIOWrapper::factory_calibration_restore;
-
-  switch (IIOWrapper::s_device_name_enum) {
-    case IIODeviceName::ADIS1657X:
-      m_func_map_execute_commands["bias_correction_update"] = &IIOWrapper::bias_correction_update;
-    default:
-      break;
-  }
+#ifdef ADIS_BIAS_CORRECTION_UPDATE
+  m_func_map_execute_commands["bias_correction_update"] = &IIOWrapper::bias_correction_update;
+#endif
 }
 
 void ImuControlParameters::declareParameterDescription()
@@ -202,30 +185,28 @@ void ImuControlParameters::declareParameterDescription()
   auto param_range_0_720 = rcl_interfaces::msg::IntegerRange{};
   param_range_0_720.from_value = 0;
   param_range_0_720.to_value = 720;
-  param_range_0_720.step = 1;
 
   auto param_range_01 = rcl_interfaces::msg::IntegerRange{};
   param_range_01.from_value = 0;
   param_range_01.to_value = 1;
   param_range_01.step = 1;
 
-  auto param_range_0_12 = rcl_interfaces::msg::IntegerRange{};
-  param_range_0_12.from_value = 0;
-  param_range_0_12.to_value = 12;
-  param_range_0_12.step = 1;
-
   auto param_range_03 = rcl_interfaces::msg::IntegerRange{};
+#ifdef ADIS_HAS_DELTA_BURST
   param_range_03.from_value = 0;
+#else
+  param_range_03.from_value = 1;
+#endif
   param_range_03.to_value = 3;
   param_range_03.step = 1;
 
-  m_param_description["anglvel_calibbias_x"] = "x-axis acceleration offset correction";
+  m_param_description["anglvel_calibbias_x"] = "x-axis angular velocity offset correction";
   m_param_constraints_integer["anglvel_calibbias_x"] = param_range_calibbias;
 
-  m_param_description["anglvel_calibbias_y"] = "y-axis acceleration offset correction";
+  m_param_description["anglvel_calibbias_y"] = "y-axis angular velocity offset correction";
   m_param_constraints_integer["anglvel_calibbias_y"] = param_range_calibbias;
 
-  m_param_description["anglvel_calibbias_z"] = "z-axis acceleration offset correction";
+  m_param_description["anglvel_calibbias_z"] = "z-axis angular velocity offset correction";
   m_param_constraints_integer["anglvel_calibbias_z"] = param_range_calibbias;
 
   m_param_description["accel_calibbias_x"] = "x-axis acceleration offset correction";
@@ -240,77 +221,80 @@ void ImuControlParameters::declareParameterDescription()
   m_param_description["filter_low_pass_3db_frequency"] = "Low pass 3db frequency";
   m_param_constraints_integer["filter_low_pass_3db_frequency"] = param_range_0_720;
 
+#ifdef ADIS_SENS_BW
   m_param_description["internal_sensor_bandwidth"] =
-    "0 for wide bandwidth  \n \
-      1 for 370 Hz";
+    "\n0: wide bandwidth"
+    "\n1: 370 Hz";
   m_param_constraints_integer["internal_sensor_bandwidth"] = param_range_01;
+#endif
 
   m_param_description["point_of_percussion_alignment"] =
-    "0 for disabling point of percussion alignment  \n \
-      1 for enabling point of percussion alignment";
+    "\n0: point of percussion alignment disable"
+    "\n1: point of percussion alignment enable";
   m_param_constraints_integer["point_of_percussion_alignment"] = param_range_01;
 
   m_param_description["linear_acceleration_compensation"] =
-    "0 for disabling linear acceleration compensation  \n \
-      1 for enabling linear acceleration compensation";
+    "\n0: linear acceleration compensation disable"
+    "\n1: linear acceleration compensation enable";
   m_param_constraints_integer["linear_acceleration_compensation"] = param_range_01;
+
+#ifdef ADIS_NULL_CNFG_ADDR
+  auto param_range_0_12 = rcl_interfaces::msg::IntegerRange{};
+  param_range_0_12.from_value = 0;
+  param_range_0_12.to_value = 12;
+  param_range_0_12.step = 1;
 
   m_param_description["bias_correction_time_base_control"] = "Time base control";
   m_param_constraints_integer["bias_correction_time_base_control"] = param_range_0_12;
 
   m_param_description["x_axis_gyroscope_bias_correction_enable"] =
-    "0 x-axis gyroscope bias correction disabled  \n \
-      1 x-axis gyroscope bias correction enabled";
+    "\n0: x-axis gyroscope bias correction disabled"
+    "\n1: x-axis gyroscope bias correction enabled";
   m_param_constraints_integer["x_axis_gyroscope_bias_correction_enable"] = param_range_01;
 
   m_param_description["y_axis_gyroscope_bias_correction_enable"] =
-    "0 y-axis gyroscope bias correction disabled  \n \
-      1 y-axis gyroscope bias correction enabled";
+    "\n0: y-axis gyroscope bias correction disabled"
+    "\n1: y-axis gyroscope bias correction enabled";
   m_param_constraints_integer["y_axis_gyroscope_bias_correction_enable"] = param_range_01;
 
   m_param_description["z_axis_gyroscope_bias_correction_enable"] =
-    "0 z-axis gyroscope bias correction disabled  \n \
-      1 z-axis gyroscope bias correction enabled";
+    "\n0: z-axis gyroscope bias correction disabled"
+    "\n1: z-axis gyroscope bias correction enabled";
   m_param_constraints_integer["z_axis_gyroscope_bias_correction_enable"] = param_range_01;
 
   m_param_description["x_axis_accelerometer_bias_correction_enable"] =
-    "0 x-axis accelerometer bias correction disabled \n  \
-      1 x-axis accelerometer bias correction enabled";
+    "\n0: x-axis accelerometer bias correction disabled"
+    "\n1: x-axis accelerometer bias correction enabled";
   m_param_constraints_integer["x_axis_accelerometer_bias_correction_enable"] = param_range_01;
 
   m_param_description["y_axis_accelerometer_bias_correction_enable"] =
-    "0 y-axis accelerometer bias correction disabled  \n \
-      1 y-axis accelerometer bias correction enabled";
+    "\n0: y-axis accelerometer bias correction disabled"
+    "\n1: z-axis accelerometer bias correction enabled";
   m_param_constraints_integer["y_axis_accelerometer_bias_correction_enable"] = param_range_01;
 
   m_param_description["z_axis_accelerometer_bias_correction_enable"] =
-    "0 z-axis accelerometer bias correction disabled  \n \
-      1 z-axis accelerometer bias correction enabled";
+    "\n0: z-axis accelerometer bias correction disabled"
+    "\n1: z-axis accelerometer bias correction enabled";
   m_param_constraints_integer["z_axis_accelerometer_bias_correction_enable"] = param_range_01;
+#endif
 
-  m_param_description["measured_data_topic_selection"] =
-    "measured_data_topic_selection values:\n \
-      0: measured data is published on /accelgyrotempdata topic \n \
-      1: measured data is published on /velangtempdata topic \n \
-      2: measured data is published on /imu topic \n \
-      3: measured data is published on /imufullmeasureddata topic (default)";
+  m_param_description["measured_data_topic_selection"] = "\nmeasured_data_topic_selection values:";
+#ifdef ADIS_HAS_DELTA_BURST
+  m_param_description["measured_data_topic_selection"].append(
+    "\n0: measured data is published on /velangtempdata topic");
+#endif
+  m_param_description["measured_data_topic_selection"].append(
+    "\n1: measured data is published on /accelgyrotempdata topic");
+
+  m_param_description["measured_data_topic_selection"].append(
+    "\n2: measured data is published on /imu topic"
+    "\n3: measured data is published on /imufullmeasureddata topic (default)");
+
   m_param_constraints_integer["measured_data_topic_selection"] = param_range_03;
 
   auto param_range_float = rcl_interfaces::msg::FloatingPointRange{};
   param_range_float.from_value = 1.0;
-  param_range_float.step = 0.1;
-
-  switch (IIOWrapper::s_device_name_enum) {
-    case IIODeviceName::ADIS1650X:
-      param_range_float.to_value = 2000.0;
-      break;
-    case IIODeviceName::ADIS1657X:
-      param_range_float.to_value = 4000.0;
-      break;
-    default:
-      break;
-  }
-
+  param_range_float.to_value = ADIS_MAX_SAMP_FREQ;
   m_param_description["sampling_frequency"] = "Device sampling frequency";
   m_param_constraints_floating["sampling_frequency"] = param_range_float;
 }
@@ -364,22 +348,16 @@ void ImuControlParameters::declareParameters()
 
   auto param_desc = rcl_interfaces::msg::ParameterDescriptor{};
   param_desc.description =
-    "command_to_execute values:\n \
-    software_reset: performs a software reset on the device \n \
-    flash_memory_test: performs a flash memory test on the device \n \
-    flash_memory_update: performs a flash memory update on the device \n \
-    sensor_self_test: performs a sensor self test on the device \n \
-    factory_calibration_restore: performs a factory calibration restore on the device";
-
-  switch (IIOWrapper::s_device_name_enum) {
-    case IIODeviceName::ADIS1657X:
-      param_desc.description.append(
-        "\n \
-    bias_correction_update: triggers a bias correction, using the bias correction factors");
-      break;
-    default:
-      break;
-  }
+    "\ncommand_to_execute values:"
+    "\nsoftware_reset: performs a software reset on the device"
+    "\nflash_memory_test: performs a flash memory test on the device"
+    "\nflash_memory_update: performs a flash memory update on the device"
+    "\nsensor_self_test: performs a sensor self test on the device"
+    "\nfactory_calibration_restore: performs a factory calibration restore on the device";
+#ifdef ADIS_BIAS_CORRECTION_UPDATE
+  param_desc.description.append(
+    "\nbias_correction_update: triggers a bias correction, using the bias correction factors");
+#endif
 
   m_node->declare_parameter("command_to_execute", "no_command", param_desc);
 }

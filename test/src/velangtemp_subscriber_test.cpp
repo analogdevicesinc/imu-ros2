@@ -54,11 +54,19 @@ public:
  * VelAngTempData topic and compares it against a range of expected
  * values.
  */
+#ifdef ADIS_HAS_DELTA_BURST
 TEST(VelAngTempSubscriberTest, test_velangtemp_publisher)
 {
   IIOWrapper iio_wrapper;
 
-  auto node = rclcpp::Node::make_shared("velangtempdata");
+  auto node = rclcpp::Node::make_shared("test_velangtempdata_publisher");
+
+  node->declare_parameter("iio_context_string", "local:");
+
+  std::string context =
+    node->get_parameter("iio_context_string").get_parameter_value().get<std::string>();
+  IIOWrapper m_iio_wrapper;
+  m_iio_wrapper.createContext(context.c_str());
 
   std::string topic = "velangtempdata";
 
@@ -114,3 +122,4 @@ TEST(VelAngTempSubscriberTest, test_velangtemp_publisher)
 
   while (!callbackExecuted) executor.spin_once(sec);
 }
+#endif

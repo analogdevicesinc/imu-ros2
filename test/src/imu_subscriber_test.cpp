@@ -58,19 +58,27 @@ TEST(ImuSubscriberTest, test_imu_publisher)
 {
   IIOWrapper iio_wrapper;
 
-  auto node = rclcpp::Node::make_shared("imu");
+  auto node = rclcpp::Node::make_shared("test_imu_publisher");
+
+  node->declare_parameter("iio_context_string", "local:");
+
+  std::string context =
+    node->get_parameter("iio_context_string").get_parameter_value().get<std::string>();
+  IIOWrapper m_iio_wrapper;
+  m_iio_wrapper.createContext(context.c_str());
 
   std::string topic = "imu";
 
   double scale_accel = iio_wrapper.get_scale_accel();
   double scale_angvel = iio_wrapper.get_scale_anglvel();
+
   bool callbackExecuted = false;
 
   auto callback = [&scale_accel, &scale_angvel,
                    &callbackExecuted](sensor_msgs::msg::Imu msg) -> void {
     RCLCPP_INFO(
       rclcpp::get_logger("imu_subscriber_test"),
-      "linear acceleration x axis: %f \nlinear acceleration y axis: %f\nlinear acceleration z "
+      "\nlinear acceleration x axis: %f \nlinear acceleration y axis: %f\nlinear acceleration z "
       "axis: %f\n"
       "angular velocity x axis: %f\nangular velocity y axis: %f\nangular velocity z axis: %f\n",
       msg.linear_acceleration.x, msg.linear_acceleration.y, msg.linear_acceleration.z,

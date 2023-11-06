@@ -18,19 +18,12 @@
  * limitations under the License.
  *******************************************************************************/
 
-#include <chrono>
-#include <functional>
-#include <memory>
-#include <string>
-
 #include "imu_ros2/accelgyrotemp_data_provider.h"
 #include "imu_ros2/accelgyrotemp_ros_publisher.h"
-#include "imu_ros2/imu_1650x_diag_data_provider.h"
-#include "imu_ros2/imu_1650x_diag_ros_publisher.h"
-#include "imu_ros2/imu_1657x_diag_data_provider.h"
-#include "imu_ros2/imu_1657x_diag_ros_publisher.h"
 #include "imu_ros2/imu_control_parameters.h"
 #include "imu_ros2/imu_data_provider.h"
+#include "imu_ros2/imu_diag_data_provider.h"
+#include "imu_ros2/imu_diag_ros_publisher.h"
 #include "imu_ros2/imu_full_measured_data_provider.h"
 #include "imu_ros2/imu_full_measured_data_ros_publisher.h"
 #include "imu_ros2/imu_identification_data_provider.h"
@@ -38,14 +31,13 @@
 #include "imu_ros2/imu_ros_publisher.h"
 #include "imu_ros2/ros_publisher_group.h"
 #include "imu_ros2/ros_publisher_group_interface.h"
-#include "imu_ros2/setting_declarations.h"
+#ifdef ADIS_HAS_DELTA_BURST
 #include "imu_ros2/velangtemp_data_provider.h"
 #include "imu_ros2/velangtemp_ros_publisher.h"
+#endif
+
 #include "imu_ros2/worker_thread.h"
 #include "rclcpp/rclcpp.hpp"
-#include "std_msgs/msg/string.hpp"
-
-using namespace std::chrono_literals;
 
 /**
    * @brief main function to run imu-ros2
@@ -64,6 +56,19 @@ int main(int argc, char * argv[])
   std::cout << "mainthread " << this_id << " running...\n";
   RCLCPP_INFO(rclcpp::get_logger("rclcpp_main"), "running: main thread");
 
+  auto param_desc = rcl_interfaces::msg::ParameterDescriptor{};
+  param_desc.description =
+    "\nDefault value is \'local:\', to be used when the imu_ros2 node is running locally."
+    "\nIf the imu_ros2 node is running remotely, please use \'ip:rpi_ip_address\',";
+
+  imu_node->declare_parameter("iio_context_string", "local:", param_desc);
+
+  /* First make sure IIO context is available */
+  std::string context =
+    imu_node->get_parameter("iio_context_string").get_parameter_value().get<std::string>();
+  IIOWrapper m_iio_wrapper;
+  m_iio_wrapper.createContext(context.c_str());
+
   ImuControlParameters * ctrl_params = new ImuControlParameters(imu_node);
 
   AccelGyroTempDataProviderInterface * accel_gyro_data_provider = new AccelGyroTempDataProvider();
@@ -75,9 +80,11 @@ int main(int argc, char * argv[])
   ImuRosPublisherInterface * imu_std_publisher = new ImuRosPublisher(imu_node);
   imu_std_publisher->setMessageProvider(imu_std_data_provider);
 
+#ifdef ADIS_HAS_DELTA_BURST
   VelAngTempDataProviderInterface * vel_ang_data_provider = new VelAngTempDataProvider();
   VelAngTempRosPublisherInterface * vel_ang_publisher = new VelAngTempRosPublisher(imu_node);
   vel_ang_publisher->setMessageProvider(vel_ang_data_provider);
+#endif
 
   ImuFullMeasuredDataProviderInterface * full_data_provider = new ImuFullMeasuredDataProvider();
   ImuFullMeasuredDataRosPublisherInterface * full_data_publisher =
@@ -86,7 +93,9 @@ int main(int argc, char * argv[])
 
   RosPublisherGroupInterface * publisher_group = new RosPublisherGroup(imu_node);
   publisher_group->setAccelGyroTempRosPublisher(accel_gyro_publisher);
+#ifdef ADIS_HAS_DELTA_BURST
   publisher_group->setVelAngTempRosPublisher(vel_ang_publisher);
+#endif
   publisher_group->setImuRosPublisher(imu_std_publisher);
   publisher_group->setImuFullMeasuredDataRosPublisher(full_data_publisher);
   publisher_group->setImuControlParameters(ctrl_params);
@@ -100,58 +109,34 @@ int main(int argc, char * argv[])
   ident_publisher->setMessageProvider(ident_data_provider);
   RosTask * ident_task = dynamic_cast<RosTask *>(ident_publisher);
 
-  Imu1650xDiagDataProviderInterface * diag1650x_data_provider = nullptr;
-  Imu1650xDiagRosPublisherInterface * diag1650x_publisher = nullptr;
-  RosTask * diag1650x_task = nullptr;
+  ImuDiagDataProviderInterface * diag_data_provider = nullptr;
+  ImuDiagRosPublisherInterface * diag_publisher = nullptr;
+  RosTask * diag_task = nullptr;
 
-  Imu1657xDiagDataProviderInterface * diag1657x_data_provider = nullptr;
-  Imu1657xDiagRosPublisherInterface * diag1657x_publisher = nullptr;
-  RosTask * diag1657x_task = nullptr;
-  switch (IIOWrapper::s_device_name_enum) {
-    case IIODeviceName::ADIS1650X:
-      diag1650x_data_provider = new Imu1650xDiagDataProvider();
-      diag1650x_publisher = new Imu1650xDiagRosPublisher(imu_node);
-      diag1650x_publisher->setMessageProvider(diag1650x_data_provider);
+  diag_data_provider = new ImuDiagDataProvider();
+  diag_publisher = new ImuDiagRosPublisher(imu_node);
+  diag_publisher->setMessageProvider(diag_data_provider);
 
-      diag1650x_task = dynamic_cast<RosTask *>(diag1650x_publisher);
-      break;
-    case IIODeviceName::ADIS1657X:
-      diag1657x_data_provider = new Imu1657xDiagDataProvider();
-      diag1657x_publisher = new Imu1657xDiagRosPublisher(imu_node);
-      diag1657x_publisher->setMessageProvider(diag1657x_data_provider);
-
-      diag1657x_task = dynamic_cast<RosTask *>(diag1657x_publisher);
-      break;
-    default: {
-      break;
-    }
-  }
+  diag_task = dynamic_cast<RosTask *>(diag_publisher);
 
   WorkerThread publisher_group_thread(publisher_group_task);
 
   WorkerThread ident_thread(ident_task);
-  if (diag1650x_task) {
-    WorkerThread diag1650x_thread(diag1650x_task);
-    diag1650x_thread.join();
-  }
-
-  if (diag1657x_task) {
-    WorkerThread diag1657x_thread(diag1657x_task);
-    diag1657x_thread.join();
-  }
+  WorkerThread diag_thread(diag_task);
+  diag_thread.join();
 
   publisher_group_thread.join();
   ident_thread.join();
 
   delete ctrl_params;
   delete accel_gyro_publisher;
+#ifdef ADIS_HAS_DELTA_BURST
   delete vel_ang_publisher;
+#endif
   delete imu_std_publisher;
   delete full_data_publisher;
   delete ident_publisher;
-
-  if (diag1650x_publisher) delete diag1650x_publisher;
-  if (diag1657x_publisher) delete diag1657x_publisher;
+  delete diag_publisher;
 
   rclcpp::shutdown();
 

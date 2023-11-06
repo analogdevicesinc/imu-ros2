@@ -1,6 +1,6 @@
 /*******************************************************************************
- *   @file   imu_1657x_diag_data_provider_interface.h
- *   @brief  Interface for providing diagnosis data for adis1657x.
+ *   @file   imu_diag_data_provider_interface.h
+ *   @brief  Interface for providing diagnosis data for adis.
  *   @author Vasile Holonec (Vasile.Holonec@analog.com)
  *******************************************************************************
  * Copyright 2023(c) Analog Devices, Inc.
@@ -18,34 +18,34 @@
  * limitations under the License.
  ******************************************************************************/
 
-#ifndef IMU_1657X_DIAG_DATA_PROVIDER_INTERFACE_H
-#define IMU_1657X_DIAG_DATA_PROVIDER_INTERFACE_H
+#ifndef IMU_DIAG_DATA_PROVIDER_INTERFACE_H
+#define IMU_DIAG_DATA_PROVIDER_INTERFACE_H
 
-#include "imu_ros2/msg/imu1657x_diag_data.hpp"
+#include "imu_ros2/msg/imu_diag_data.hpp"
 
 /**
- * @brief Interface for diagnosis data provider for adis1657x chips.
+ * @brief Interface for diagnosis data provider for adis chips.
  */
-class Imu1657xDiagDataProviderInterface
+class ImuDiagDataProviderInterface
 {
 public:
   /**
-   * @brief Constructor for Imu1657xDiagDataProviderInterface.
+   * @brief Constructor for ImuDiagDataProviderInterface.
    */
-  Imu1657xDiagDataProviderInterface() {}
+  ImuDiagDataProviderInterface() {}
 
   /**
-   * @brief Destructor for Imu1657xDiagDataProviderInterface.
+   * @brief Destructor for ImuDiagDataProviderInterface.
    */
-  virtual ~Imu1657xDiagDataProviderInterface() {}
+  virtual ~ImuDiagDataProviderInterface() {}
 
   /**
-   * @brief Populate Imu1657xDiagData message with diagnosis data.
+   * @brief Populate ImuDiagData message with diagnosis data.
    * @param message Message containing the diagnosis data.
    * @return Return true if the message parameter is successfully populated with
    * diagnosis data and false otherwise.
    */
-  virtual bool getData(imu_ros2::msg::Imu1657xDiagData & message) = 0;
+  virtual bool getData(imu_ros2::msg::ImuDiagData & message) = 0;
 };
 
-#endif  // IMU_1657X_DIAG_DATA_PROVIDER_INTERFACE_H
+#endif  // IMU_DIAG_DATA_PROVIDER_INTERFACE_H

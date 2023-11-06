@@ -1,6 +1,6 @@
 /*******************************************************************************
- *   @file   imu_1650x_diag_ros_publisher.h
- *   @brief  Header for adis1650x diagnosis publisher.
+ *   @file   imu_diag_ros_publisher.h
+ *   @brief  Header for adis1657x diagnosis publisher.
  *   @author Vasile Holonec (Vasile.Holonec@analog.com)
  *******************************************************************************
  * Copyright 2023(c) Analog Devices, Inc.
@@ -18,51 +18,51 @@
  * limitations under the License.
  ******************************************************************************/
 
-#ifndef IMU_1650X_DIAG_ROS_SUBSCRIBER_H
-#define IMU_1650X_DIAG_ROS_SUBSCRIBER_H
+#ifndef IMU_DIAG_ROS_PUBLISHER_H
+#define IMU_DIAG_ROS_PUBLISHER_H
 
 #include <rclcpp/rclcpp.hpp>
 
-#include "imu_ros2/imu_1650x_diag_data_provider_interface.h"
-#include "imu_ros2/imu_1650x_diag_ros_publisher_interface.h"
+#include "imu_diag_data_provider_interface.h"
+#include "imu_diag_ros_publisher_interface.h"
 
 /**
- * @brief Class for diagnosis publisher for adis1650x chips.
+ * @brief Class for diagnosis publisher for adis1657x chips.
  */
-class Imu1650xDiagRosPublisher : public Imu1650xDiagRosPublisherInterface
+class ImuDiagRosPublisher : public ImuDiagRosPublisherInterface
 {
 public:
   /**
-   * @brief Constructor for Imu1650xDiagRosPublisher.
+   * @brief Constructor for ImuDiagRosPublisher.
    * @param node The ros2 Node instance.
    */
-  Imu1650xDiagRosPublisher(std::shared_ptr<rclcpp::Node> & node);
+  ImuDiagRosPublisher(std::shared_ptr<rclcpp::Node> & node);
 
   /**
-   * @brief Destructor for Imu1650xDiagRosPublisher.
+   * @brief Destructor for ImuDiagRosPublisher.
    */
-  ~Imu1650xDiagRosPublisher();
+  ~ImuDiagRosPublisher();
 
   /**
    * @brief Set the message data provider.
    * @param dataProvider Data provider.
    */
-  void setMessageProvider(Imu1650xDiagDataProviderInterface * dataProvider) override;
+  void setMessageProvider(ImuDiagDataProviderInterface * dataProvider) override;
 
   /**
-   * @brief Run the thread responsible for publishing Imu1650xDiagData message.
+   * @brief Run the thread responsible for publishing ImuDiagData message.
    */
   void run() override;
 
 private:
   /*! This variable retains the data provider instance. */
-  Imu1650xDiagDataProviderInterface * m_data_provider;
+  ImuDiagDataProviderInterface * m_data_provider;
 
   /*! This variable retains the publisher instance. */
-  rclcpp::Publisher<imu_ros2::msg::Imu1650xDiagData>::SharedPtr m_publisher;
+  rclcpp::Publisher<imu_ros2::msg::ImuDiagData>::SharedPtr m_publisher;
 
   /*! This variable retains the message that is published. */
-  imu_ros2::msg::Imu1650xDiagData m_message;
+  imu_ros2::msg::ImuDiagData m_message;
 };
 
-#endif  // IMU_1650X_DIAG_ROS_SUBSCRIBER_H
+#endif  // IMU_DIAG_ROS_PUBLISHER_H

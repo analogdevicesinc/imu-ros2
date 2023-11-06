@@ -18,6 +18,9 @@
 # limitations under the License.
 ################################################################################
 
+# message header
+std_msgs/Header header
+
 # firmware revision for the imu internal firmware
 string firmware_revision
 
@@ -32,4 +35,3 @@ uint32 serial_number
 
 # imu gyroscope measurement range
 string gyroscope_measurement_range
-

@@ -24,8 +24,6 @@
 #include <chrono>
 #include <thread>
 
-#include "imu_ros2/setting_declarations.h"
-
 ImuFullMeasuredDataRosPublisher::ImuFullMeasuredDataRosPublisher(
   std::shared_ptr<rclcpp::Node> & node)
 {
@@ -44,9 +42,11 @@ void ImuFullMeasuredDataRosPublisher::setMessageProvider(
 
 void ImuFullMeasuredDataRosPublisher::publish()
 {
-  if (m_data_provider->getData(m_message))
+  if (m_data_provider->getData(m_message)) {
+    rclcpp::Time now = m_node->get_clock()->now();
+    m_message.header.stamp = now;
     m_publisher->publish(m_message);
-  else
+  } else
     RCLCPP_INFO(
       rclcpp::get_logger("imu_full_measured_data_ros_publisher"),
       "error reading full measured data");

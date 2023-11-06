@@ -27,8 +27,9 @@
 #include "imu_ros2/imu_control_parameters.h"
 #include "imu_ros2/imu_full_measured_data_ros_publisher_interface.h"
 #include "imu_ros2/imu_ros_publisher_interface.h"
-#include "imu_ros2/setting_declarations.h"
+#ifdef ADIS_HAS_DELTA_BURST
 #include "imu_ros2/velangtemp_ros_publisher_interface.h"
+#endif
 
 RosPublisherGroup::RosPublisherGroup(std::shared_ptr<rclcpp::Node> & node) { m_node = node; }
 
@@ -40,11 +41,13 @@ void RosPublisherGroup::setAccelGyroTempRosPublisher(
   m_accelGyroTempRosPublisher = accelGyroTempRosPublisher;
 }
 
+#ifdef ADIS_HAS_DELTA_BURST
 void RosPublisherGroup::setVelAngTempRosPublisher(
   VelAngTempRosPublisherInterface * velAngTempRosPublisher)
 {
   m_velAngTempRosPublisher = velAngTempRosPublisher;
 }
+#endif
 
 void RosPublisherGroup::setImuRosPublisher(ImuRosPublisherInterface * imuRosPublisher)
 {
@@ -78,9 +81,11 @@ void RosPublisherGroup::run()
       case ACCEL_GYRO_BUFFERED_DATA:
         m_accelGyroTempRosPublisher->publish();
         break;
+#ifdef ADIS_HAS_DELTA_BURST
       case DELTAVEL_DELTAANG_BUFFERED_DATA:
         m_velAngTempRosPublisher->publish();
         break;
+#endif
       case IMU_STD_MSG_DATA:
         m_imuRosPublisher->publish();
         break;
@@ -88,6 +93,9 @@ void RosPublisherGroup::run()
         m_imuFullMeasuredDataRosPublisher->publish();
         break;
       default: {
+        RCLCPP_INFO(
+          rclcpp::get_logger("ros_publisher_group"),
+          "Invalid value for measured_data_topic_selection parameter.");
         break;
       }
     }

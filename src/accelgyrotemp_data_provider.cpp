@@ -39,7 +39,8 @@ bool AccelGyroTempDataProvider::getData(imu_ros2::msg::AccelGyroTempData & messa
 
   message.temperature = m_iio_wrapper.getBuffTemperature();
 
-  message.timestamp = m_iio_wrapper.getBuffSampleTimestamp();
+  message.header.frame_id = "accelgyrotempdata";
+  m_iio_wrapper.getBuffSampleTimestamp(message.header.stamp.sec, message.header.stamp.nanosec);
 
   return true;
 }

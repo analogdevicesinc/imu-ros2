@@ -18,6 +18,9 @@
 # limitations under the License.
 ################################################################################
 
+# message header
+std_msgs/Header header
+
 # 3-axis acceleration [m/s^2]
 geometry_msgs/Vector3 linear_acceleration
 
@@ -26,6 +29,3 @@ geometry_msgs/Vector3 angular_velocity
 
 # imu internal temperature [°C]
 float64 temperature
-
-# sample timestamp
-int64 timestamp
