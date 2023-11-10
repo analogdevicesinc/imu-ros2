@@ -86,11 +86,11 @@ Evaluation setup - Required hardware with remote client
   `ADIS16576 <https://www.analog.com/ADIS16576>`_
   `ADIS16577 <https://www.analog.com/ADIS16577>`_
 
-* A client running ROS2 Humble with LibIIO installed on which imu-ros2 node is started.
+* A client running ROS2 Humble with LibIIO installed on which imu_ros2 node is started.
 
-* A network connection between Raspberry Pi and the client running the imu-ros2 node.
+* A network connection between Raspberry Pi and the client running the imu_ros2 node.
 
-The image below shows the information flow from the IMU up to the imu-ros2 node
+The image below shows the information flow from the IMU up to the imu_ros2 node
 when using a remote client.
 
 .. figure:: architecture_remote_client.png
@@ -121,7 +121,7 @@ Evaluation setup - Required hardware with local client
   `ADIS16576 <https://www.analog.com/ADIS16576>`_
   `ADIS16577 <https://www.analog.com/ADIS16577>`_
 
-The image below shows the information flow from the IMU up to the imu-ros2 node
+The image below shows the information flow from the IMU up to the imu_ros2 node
 when using a local client.
 
 .. figure:: architecture_local_client.png
@@ -260,8 +260,8 @@ has been started:
         # test ImuDiagSubscriber
         ./imu_ros2_test_node --gtest_filter="ImuDiagSubscriberTest*" --ros-args -p iio_context_string:="ip:'processing_unit_IP_address'"
 
-imu-ros2 description
---------------------
+imu_ros2 node description
+-------------------------
 
 Published topics
 ^^^^^^^^^^^^^^^^
@@ -974,4 +974,94 @@ EVAL-ADISIMU1-RPIZ using Mounting Slot I with P7 Connector:
         diag_gyroscope2_self_test_error: false
         diag_flash_memory_write_count_exceeded_error: false
         flash_counter: 22
+
+Using imu_ros2 node with imu-tools
+----------------------------------
+
+imu-ros2 repository offers a launch file which can be used to visualize
+in rviz the imu filtered data, using a Madgwick filter implemented in imu-tools
+ros package. Below you may find the steps to achieve this, assuming imu-ros2 sources
+and dependencies are already available.
+
+First install imu-tools and rviz2 packages:
+
+.. code-block:: bash
+
+        ➜ sudo apt-get install ros-humble-imu-tools ros-humble-rviz2
+
+Identify the IP address of the processing unit to which
+the IMU is connected to (e.g. Raspberry Pi) then update the iio_context_string
+in launch/imu_with_madgwick_filter_rviz.launch.py:
+
+.. code-block:: bash
+
+        imu_ros2_node = launch_ros.actions.Node(
+                package='imu_ros2',
+                executable='imu_ros2_node',
+                parameters=[{'measured_data_topic_selection': 2},
+                        # the IP address of the processing unit to which the IMU is connected to
+                        {'iio_context_string': "ip:192.168.0.1"},],
+                remappings=[('/imu','/imu/data_raw')],
+                output='screen'
+                )
+
+Rebuild imu-ros2 package:
+
+.. code-block:: bash
+
+        colcon build
+
+Then launch the imu_with_madgwick_filter_rviz.launch file:
+
+.. code-block:: bash
+
+        source install/setup.sh
+        ros2 launch imu_ros2 imu_with_madgwick_filter_rviz.launch.py
+
+
+IMU and TOF sensor fusion
+-------------------------
+
+imu-ros2 repository offers a launch file which can be used to visualize
+in rviz the ToF point cloud fused with imu filtered data.
+Below you may find the steps to achieve this, assuming imu-ros2 sources
+and dependencies are already available.
+
+First install imu-tools and rviz2 packages:
+
+.. code-block:: bash
+
+        ➜ sudo apt-get install ros-humble-imu-tools ros-humble-rviz2
+
+Secondly install tof-ros2 package by following the steps from:
+https://github.com/analogdevicesinc/tof-ros2#readme
+
+Identify the IP address of the processing unit to which
+the IMU is connected to (e.g. Raspberry Pi) then update the iio_context_string
+in launch/imu_tof_fusion.launch.py:
+
+.. code-block:: bash
+
+        imu_ros2_node = launch_ros.actions.Node(
+                package='imu_ros2',
+                executable='imu_ros2_node',
+                parameters=[{'measured_data_topic_selection': 2},
+                        # the IP address of the processing unit to which the IMU is connected to
+                        {'iio_context_string': "ip:192.168.0.1"},],
+                remappings=[('/imu','/imu/data_raw')],
+                output='screen'
+                )
+
+Rebuild imu-ros2 package:
+
+.. code-block:: bash
+
+        colcon build
+
+Then launch the imu_tof_fusion.launch file:
+
+.. code-block:: bash
+
+        source install/setup.sh
+        ros2 launch imu_ros2 imu_tof_fusion.launch.py
 
