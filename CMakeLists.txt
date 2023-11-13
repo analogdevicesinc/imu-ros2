@@ -125,6 +125,11 @@ ament_target_dependencies(imu_ros2_node rclcpp geometry_msgs std_msgs sensor_msg
 
 target_link_libraries(imu_ros2_node iio)
 
+install(
+  DIRECTORY launch rviz
+  DESTINATION share/${PROJECT_NAME}
+)
+
 install(TARGETS imu_ros2_node
   DESTINATION lib/${PROJECT_NAME})
 
