@@ -13,3 +13,4 @@
     sampling_frequency: 2000.0
     command_to_execute: no_command
     measured_data_topic_selection: 3
+    iio_context_string: ip:192.168.0.1
