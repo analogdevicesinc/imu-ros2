@@ -94,6 +94,8 @@ uint32_t no_of_samp = MAX_NO_OF_SAMPLES;
 /*! Current set data selection. */
 uint32_t current_data_selection = FULL_MEASURED_DATA;
 
+bool has_delta_channels = true;
+
 IIOWrapper::IIOWrapper() {}
 
 IIOWrapper::~IIOWrapper()
@@ -134,6 +136,8 @@ void IIOWrapper::createContext(const char * context)
     "adis16507-2", "adis16507-3", "adis16575-2", "adis16575-3", "adis16576-2", "adis16576-3",
     "adis16577-2", "adis16577-3"};
 
+  uint8_t dev_id = 0;
+
   for (std::string const & devname : supported_devices) {
     m_dev = iio_context_find_device(m_iio_context, devname.c_str());
     if (m_dev) {
@@ -152,6 +156,7 @@ void IIOWrapper::createContext(const char * context)
       }
       break;
     }
+    dev_id++;
   }
 
   if (!m_dev) {
@@ -177,19 +182,24 @@ void IIOWrapper::createContext(const char * context)
   if (m_channel_anglvel_z == nullptr)
     m_channel_anglvel_z = iio_device_find_channel(m_dev, "anglvel_z", false);
 
-  if (m_channel_deltaangl_x == nullptr)
+  if (m_channel_deltaangl_x == nullptr) {
     m_channel_deltaangl_x = iio_device_find_channel(m_dev, "deltaangl_x", false);
-  if (m_channel_deltaangl_y == nullptr)
-    m_channel_deltaangl_y = iio_device_find_channel(m_dev, "deltaangl_y", false);
-  if (m_channel_deltaangl_z == nullptr)
-    m_channel_deltaangl_z = iio_device_find_channel(m_dev, "deltaangl_z", false);
+    if (m_channel_deltaangl_x == nullptr) has_delta_channels = false;
+  }
 
-  if (m_channel_deltavelocity_x == nullptr)
-    m_channel_deltavelocity_x = iio_device_find_channel(m_dev, "deltavelocity_x", false);
-  if (m_channel_deltavelocity_y == nullptr)
-    m_channel_deltavelocity_y = iio_device_find_channel(m_dev, "deltavelocity_y", false);
-  if (m_channel_deltavelocity_z == nullptr)
-    m_channel_deltavelocity_z = iio_device_find_channel(m_dev, "deltavelocity_z", false);
+  if (has_delta_channels) {
+    if (m_channel_deltaangl_y == nullptr)
+      m_channel_deltaangl_y = iio_device_find_channel(m_dev, "deltaangl_y", false);
+    if (m_channel_deltaangl_z == nullptr)
+      m_channel_deltaangl_z = iio_device_find_channel(m_dev, "deltaangl_z", false);
+
+    if (m_channel_deltavelocity_x == nullptr)
+      m_channel_deltavelocity_x = iio_device_find_channel(m_dev, "deltavelocity_x", false);
+    if (m_channel_deltavelocity_y == nullptr)
+      m_channel_deltavelocity_y = iio_device_find_channel(m_dev, "deltavelocity_y", false);
+    if (m_channel_deltavelocity_z == nullptr)
+      m_channel_deltavelocity_z = iio_device_find_channel(m_dev, "deltavelocity_z", false);
+  }
 
   if (m_channel_temp == nullptr) m_channel_temp = iio_device_find_channel(m_dev, "temp0", false);
 
@@ -215,23 +225,18 @@ void IIOWrapper::createContext(const char * context)
   if (m_channel_anglvel_z)
     iio_channel_attr_read_double(m_channel_anglvel_z, "scale", &m_scale_anglvel_z);
 
-  if (m_channel_deltaangl_x)
+  if (has_delta_channels) {
     iio_channel_attr_read_double(m_channel_deltaangl_x, "scale", &m_scale_deltaangl_x);
-
-  if (m_channel_deltaangl_y)
     iio_channel_attr_read_double(m_channel_deltaangl_y, "scale", &m_scale_deltaangl_y);
-
-  if (m_channel_deltaangl_z)
     iio_channel_attr_read_double(m_channel_deltaangl_z, "scale", &m_scale_deltaangl_z);
-
-  if (m_channel_deltavelocity_x)
     iio_channel_attr_read_double(m_channel_deltavelocity_x, "scale", &m_scale_deltavelocity_x);
-
-  if (m_channel_deltavelocity_y)
     iio_channel_attr_read_double(m_channel_deltavelocity_y, "scale", &m_scale_deltavelocity_y);
-
-  if (m_channel_deltavelocity_z)
     iio_channel_attr_read_double(m_channel_deltavelocity_z, "scale", &m_scale_deltavelocity_z);
+  } else {
+    /* Set scale manually in case delta channels are not available in the linux driver. */
+    setDeltaAngleScales((enum adis_device_id)dev_id);
+    setDeltaVelocityScales((enum adis_device_id)dev_id);
+  }
 
   if (m_channel_temp) iio_channel_attr_read_double(m_channel_temp, "scale", &m_scale_temp);
 }
@@ -249,6 +254,102 @@ bool IIOWrapper::updateField(uint32_t reg, uint32_t val, uint32_t mask)
   __val = (__val & ~mask) | (val & mask);
 
   return (iio_device_reg_write(m_dev, reg, __val) == 0);
+}
+
+void IIOWrapper::setDeltaAngleScales(enum adis_device_id id)
+{
+  switch (id) {
+    case ADIS16465_1:
+    case ADIS16467_1:
+    case ADIS16475_1:
+    case ADIS16477_1:
+    case ADIS16505_1:
+    case ADIS16507_1:
+      m_scale_deltaangl_x = 0.000000168;
+      m_scale_deltaangl_y = 0.000000168;
+      m_scale_deltaangl_z = 0.000000168;
+      return;
+    case ADIS16465_2:
+    case ADIS16467_2:
+    case ADIS16475_2:
+    case ADIS16477_2:
+    case ADIS16505_2:
+    case ADIS16507_2:
+      m_scale_deltaangl_x = 0.000000335;
+      m_scale_deltaangl_y = 0.000000335;
+      m_scale_deltaangl_z = 0.000000335;
+      return;
+    case ADIS16465_3:
+    case ADIS16467_3:
+    case ADIS16470:
+    case ADIS16475_3:
+    case ADIS16477_3:
+    case ADIS16500:
+    case ADIS16505_3:
+    case ADIS16507_3:
+      m_scale_deltaangl_x = 0.000001006;
+      m_scale_deltaangl_y = 0.000001006;
+      m_scale_deltaangl_z = 0.000001006;
+      return;
+    case ADIS16575_2:
+    case ADIS16576_2:
+    case ADIS16577_2:
+      m_scale_deltaangl_x = 0.00000021;
+      m_scale_deltaangl_y = 0.00000021;
+      m_scale_deltaangl_z = 0.00000021;
+      return;
+    case ADIS16575_3:
+    case ADIS16576_3:
+    case ADIS16577_3:
+      m_scale_deltaangl_x = 0.000000931;
+      m_scale_deltaangl_y = 0.000000931;
+      m_scale_deltaangl_z = 0.000000931;
+      return;
+    default:
+      return;
+  }
+}
+
+void IIOWrapper::setDeltaVelocityScales(enum adis_device_id id)
+{
+  switch (id) {
+    case ADIS16467_1:
+    case ADIS16467_2:
+    case ADIS16467_3:
+    case ADIS16470:
+    case ADIS16477_1:
+    case ADIS16477_2:
+    case ADIS16477_3:
+    case ADIS16500:
+    case ADIS16507_1:
+    case ADIS16507_2:
+    case ADIS16507_3:
+      m_scale_deltavelocity_x = 0.000000186;
+      m_scale_deltavelocity_y = 0.000000186;
+      m_scale_deltavelocity_z = 0.000000186;
+      return;
+    case ADIS16465_1:
+    case ADIS16465_2:
+    case ADIS16465_3:
+    case ADIS16475_1:
+    case ADIS16475_2:
+    case ADIS16475_3:
+    case ADIS16505_1:
+    case ADIS16505_2:
+    case ADIS16505_3:
+    case ADIS16575_2:
+    case ADIS16575_3:
+    case ADIS16576_2:
+    case ADIS16576_3:
+    case ADIS16577_2:
+    case ADIS16577_3:
+      m_scale_deltavelocity_x = 0.000000047;
+      m_scale_deltavelocity_y = 0.000000047;
+      m_scale_deltavelocity_z = 0.000000047;
+      return;
+    default:
+      return;
+  }
 }
 
 void IIOWrapper::stopBufferAcquisition()
@@ -290,12 +391,14 @@ bool IIOWrapper::updateBuffer(uint32_t data_selection)
     stopBufferAcquisition();
     if (data_selection == ACCEL_GYRO_BUFFERED_DATA) {
 #ifdef ADIS_HAS_DELTA_BURST
-      iio_channel_disable(m_channel_deltaangl_x);
-      iio_channel_disable(m_channel_deltaangl_y);
-      iio_channel_disable(m_channel_deltaangl_z);
-      iio_channel_disable(m_channel_deltavelocity_x);
-      iio_channel_disable(m_channel_deltavelocity_y);
-      iio_channel_disable(m_channel_deltavelocity_z);
+      if (has_delta_channels) {
+        iio_channel_disable(m_channel_deltaangl_x);
+        iio_channel_disable(m_channel_deltaangl_y);
+        iio_channel_disable(m_channel_deltaangl_z);
+        iio_channel_disable(m_channel_deltavelocity_x);
+        iio_channel_disable(m_channel_deltavelocity_y);
+        iio_channel_disable(m_channel_deltavelocity_z);
+      }
 #endif
       iio_channel_enable(m_channel_accel_x);
       iio_channel_enable(m_channel_accel_y);
@@ -311,12 +414,16 @@ bool IIOWrapper::updateBuffer(uint32_t data_selection)
       iio_channel_disable(m_channel_anglvel_y);
       iio_channel_disable(m_channel_anglvel_z);
 #ifdef ADIS_HAS_DELTA_BURST
-      iio_channel_enable(m_channel_deltaangl_x);
-      iio_channel_enable(m_channel_deltaangl_y);
-      iio_channel_enable(m_channel_deltaangl_z);
-      iio_channel_enable(m_channel_deltavelocity_x);
-      iio_channel_enable(m_channel_deltavelocity_y);
-      iio_channel_enable(m_channel_deltavelocity_z);
+      if (has_delta_channels) {
+        iio_channel_enable(m_channel_deltaangl_x);
+        iio_channel_enable(m_channel_deltaangl_y);
+        iio_channel_enable(m_channel_deltaangl_z);
+        iio_channel_enable(m_channel_deltavelocity_x);
+        iio_channel_enable(m_channel_deltavelocity_y);
+        iio_channel_enable(m_channel_deltavelocity_z);
+      } else {
+        stopBufferAcquisition();
+      }
 #endif
     }
 
@@ -389,31 +496,74 @@ double IIOWrapper::getBuffAngularVelocityZ()
 #ifdef ADIS_HAS_DELTA_BURST
 double IIOWrapper::getBuffDeltaAngleX()
 {
+  if (!has_delta_channels) {
+    double result;
+    if (getConvertedDeltaAngleXFromDebug(result))
+      return result;
+    else
+      return 0.0;
+  }
+
   return (int32_t)buff_data[CHAN_DELTA_ANGL_X][buff_read_idx] * m_scale_deltaangl_x;
 }
 
 double IIOWrapper::getBuffDeltaAngleY()
 {
+  if (!has_delta_channels) {
+    double result;
+    if (getConvertedDeltaAngleYFromDebug(result))
+      return result;
+    else
+      return 0.0;
+  }
   return (int32_t)buff_data[CHAN_DELTA_ANGL_Y][buff_read_idx] * m_scale_deltaangl_y;
 }
 
 double IIOWrapper::getBuffDeltaAngleZ()
 {
+  if (!has_delta_channels) {
+    double result;
+    if (getConvertedDeltaAngleZFromDebug(result))
+      return result;
+    else
+      return 0.0;
+  }
   return (int32_t)buff_data[CHAN_DELTA_ANGL_Z][buff_read_idx] * m_scale_deltaangl_z;
 }
 
 double IIOWrapper::getBuffDeltaVelocityX()
 {
+  if (!has_delta_channels) {
+    double result;
+    if (getConvertedDeltaVelocityXFromDebug(result))
+      return result;
+    else
+      return 0.0;
+  }
   return (int32_t)buff_data[CHAN_DELTA_VEL_X][buff_read_idx] * m_scale_deltavelocity_x;
 }
 
 double IIOWrapper::getBuffDeltaVelocityY()
 {
+  if (!has_delta_channels) {
+    double result;
+    if (getConvertedDeltaVelocityYFromDebug(result))
+      return result;
+    else
+      return 0.0;
+  }
   return (int32_t)buff_data[CHAN_DELTA_VEL_Y][buff_read_idx] * m_scale_deltavelocity_y;
 }
 
 double IIOWrapper::getBuffDeltaVelocityZ()
 {
+  if (!has_delta_channels) {
+    double result;
+    if (getConvertedDeltaVelocityZFromDebug(result))
+      return result;
+    else
+      return 0.0;
+  }
   return (int32_t)buff_data[CHAN_DELTA_VEL_Z][buff_read_idx] * m_scale_deltavelocity_z;
 }
 #endif
@@ -437,7 +587,7 @@ void IIOWrapper::getBuffSampleTimestamp(int32_t & sec, uint32_t & nanosec)
   nanosec = timestamp % 1000000000;
 }
 
-bool IIOWrapper::getRegLinearAccelerationX(double & result)
+bool IIOWrapper::getConvertedLinearAccelerationX(double & result)
 {
   long long valueRaw;
 
@@ -449,7 +599,7 @@ bool IIOWrapper::getRegLinearAccelerationX(double & result)
   return (ret == 0);
 }
 
-bool IIOWrapper::getRegLinearAccelerationY(double & result)
+bool IIOWrapper::getConvertedLinearAccelerationY(double & result)
 {
   long long valueRaw;
 
@@ -461,7 +611,7 @@ bool IIOWrapper::getRegLinearAccelerationY(double & result)
   return (ret == 0);
 }
 
-bool IIOWrapper::getRegLinearAccelerationZ(double & result)
+bool IIOWrapper::getConvertedLinearAccelerationZ(double & result)
 {
   long long valueRaw;
 
@@ -473,7 +623,7 @@ bool IIOWrapper::getRegLinearAccelerationZ(double & result)
   return (ret == 0);
 }
 
-bool IIOWrapper::getRegAngularVelocityX(double & result)
+bool IIOWrapper::getConvertedAngularVelocityX(double & result)
 {
   long long valueRaw;
 
@@ -485,7 +635,7 @@ bool IIOWrapper::getRegAngularVelocityX(double & result)
   return (ret == 0);
 }
 
-bool IIOWrapper::getRegAngularVelocityY(double & result)
+bool IIOWrapper::getConvertedAngularVelocityY(double & result)
 {
   long long valueRaw;
 
@@ -497,7 +647,7 @@ bool IIOWrapper::getRegAngularVelocityY(double & result)
   return (ret == 0);
 }
 
-bool IIOWrapper::getRegAngularVelocityZ(double & result)
+bool IIOWrapper::getConvertedAngularVelocityZ(double & result)
 {
   long long valueRaw;
 
@@ -509,11 +659,40 @@ bool IIOWrapper::getRegAngularVelocityZ(double & result)
   return (ret == 0);
 }
 
-bool IIOWrapper::getRegDeltaAngleX(double & result)
+bool IIOWrapper::getRawDeltaAngleXFromDebug(int32_t & result)
+{
+  uint32_t reg_low;
+  uint32_t reg_high;
+
+  if (!m_dev) return false;
+
+  int ret = iio_device_reg_read(m_dev, ADIS_DELTANG_X_LOW_REG, &reg_low);
+  if (ret) return false;
+
+  ret = iio_device_reg_read(m_dev, ADIS_DELTANG_X_OUT_REG, &reg_high);
+  if (ret) return false;
+
+  result = reg_high << 16 | reg_low;
+
+  return true;
+}
+
+bool IIOWrapper::getConvertedDeltaAngleXFromDebug(double & result)
+{
+  int32_t reg_val = 0;
+
+  bool ret = getRawDeltaAngleXFromDebug(reg_val);
+
+  result = reg_val * m_scale_deltaangl_x;
+
+  return ret;
+}
+
+bool IIOWrapper::getConvertedDeltaAngleX(double & result)
 {
   long long valueRaw;
 
-  if (!m_channel_deltaangl_x) return false;
+  if (!m_channel_deltaangl_x) return getConvertedDeltaAngleXFromDebug(result);
 
   int ret = iio_channel_attr_read_longlong(m_channel_deltaangl_x, "raw", &valueRaw);
 
@@ -521,11 +700,40 @@ bool IIOWrapper::getRegDeltaAngleX(double & result)
   return (ret == 0);
 }
 
-bool IIOWrapper::getRegDeltaAngleY(double & result)
+bool IIOWrapper::getRawDeltaAngleYFromDebug(int32_t & result)
+{
+  uint32_t reg_low;
+  uint32_t reg_high;
+
+  if (!m_dev) return false;
+
+  int ret = iio_device_reg_read(m_dev, ADIS_DELTANG_Y_LOW_REG, &reg_low);
+  if (ret) return false;
+
+  ret = iio_device_reg_read(m_dev, ADIS_DELTANG_Y_OUT_REG, &reg_high);
+  if (ret) return false;
+
+  result = reg_high << 16 | reg_low;
+
+  return true;
+}
+
+bool IIOWrapper::getConvertedDeltaAngleYFromDebug(double & result)
+{
+  int32_t reg_val = 0;
+
+  bool ret = getRawDeltaAngleYFromDebug(reg_val);
+
+  result = reg_val * m_scale_deltaangl_y;
+
+  return ret;
+}
+
+bool IIOWrapper::getConvertedDeltaAngleY(double & result)
 {
   long long valueRaw;
 
-  if (!m_channel_deltaangl_y) return false;
+  if (!m_channel_deltaangl_y) return getConvertedDeltaAngleYFromDebug(result);
 
   int ret = iio_channel_attr_read_longlong(m_channel_deltaangl_y, "raw", &valueRaw);
 
@@ -533,11 +741,40 @@ bool IIOWrapper::getRegDeltaAngleY(double & result)
   return (ret == 0);
 }
 
-bool IIOWrapper::getRegDeltaAngleZ(double & result)
+bool IIOWrapper::getRawDeltaAngleZFromDebug(int32_t & result)
+{
+  uint32_t reg_low;
+  uint32_t reg_high;
+
+  if (!m_dev) return false;
+
+  int ret = iio_device_reg_read(m_dev, ADIS_DELTANG_Z_LOW_REG, &reg_low);
+  if (ret) return false;
+
+  ret = iio_device_reg_read(m_dev, ADIS_DELTANG_Z_OUT_REG, &reg_high);
+  if (ret) return false;
+
+  result = reg_high << 16 | reg_low;
+
+  return true;
+}
+
+bool IIOWrapper::getConvertedDeltaAngleZFromDebug(double & result)
+{
+  int32_t reg_val = 0;
+
+  bool ret = getRawDeltaAngleZFromDebug(reg_val);
+
+  result = reg_val * m_scale_deltaangl_z;
+
+  return ret;
+}
+
+bool IIOWrapper::getConvertedDeltaAngleZ(double & result)
 {
   long long valueRaw;
 
-  if (!m_channel_deltaangl_z) return false;
+  if (!m_channel_deltaangl_z) return getConvertedDeltaAngleZFromDebug(result);
 
   int ret = iio_channel_attr_read_longlong(m_channel_deltaangl_z, "raw", &valueRaw);
 
@@ -545,11 +782,40 @@ bool IIOWrapper::getRegDeltaAngleZ(double & result)
   return (ret == 0);
 }
 
-bool IIOWrapper::getRegDeltaVelocityX(double & result)
+bool IIOWrapper::getRawDeltaVelocityXFromDebug(int32_t & result)
+{
+  uint32_t reg_low;
+  uint32_t reg_high;
+
+  if (!m_dev) return false;
+
+  int ret = iio_device_reg_read(m_dev, ADIS_DELTVEL_X_LOW_REG, &reg_low);
+  if (ret) return false;
+
+  ret = iio_device_reg_read(m_dev, ADIS_DELTVEL_X_OUT_REG, &reg_high);
+  if (ret) return false;
+
+  result = reg_high << 16 | reg_low;
+
+  return true;
+}
+
+bool IIOWrapper::getConvertedDeltaVelocityXFromDebug(double & result)
+{
+  int32_t reg_val = 0;
+
+  bool ret = getRawDeltaVelocityXFromDebug(reg_val);
+
+  result = reg_val * m_scale_deltavelocity_x;
+
+  return ret;
+}
+
+bool IIOWrapper::getConvertedDeltaVelocityX(double & result)
 {
   long long valueRaw;
 
-  if (!m_channel_deltavelocity_x) return false;
+  if (!m_channel_deltavelocity_x) return getConvertedDeltaVelocityXFromDebug(result);
 
   int ret = iio_channel_attr_read_longlong(m_channel_deltavelocity_x, "raw", &valueRaw);
 
@@ -557,11 +823,40 @@ bool IIOWrapper::getRegDeltaVelocityX(double & result)
   return (ret == 0);
 }
 
-bool IIOWrapper::getRegDeltaVelocityY(double & result)
+bool IIOWrapper::getRawDeltaVelocityYFromDebug(int32_t & result)
+{
+  uint32_t reg_low;
+  uint32_t reg_high;
+
+  if (!m_dev) return false;
+
+  int ret = iio_device_reg_read(m_dev, ADIS_DELTVEL_Y_LOW_REG, &reg_low);
+  if (ret) return false;
+
+  ret = iio_device_reg_read(m_dev, ADIS_DELTVEL_Y_OUT_REG, &reg_high);
+  if (ret) return false;
+
+  result = reg_high << 16 | reg_low;
+
+  return true;
+}
+
+bool IIOWrapper::getConvertedDeltaVelocityYFromDebug(double & result)
+{
+  int32_t reg_val = 0;
+
+  bool ret = getRawDeltaVelocityYFromDebug(reg_val);
+
+  result = reg_val * m_scale_deltavelocity_y;
+
+  return ret;
+}
+
+bool IIOWrapper::getConvertedDeltaVelocityY(double & result)
 {
   long long valueRaw;
 
-  if (!m_channel_deltavelocity_y) return false;
+  if (!m_channel_deltavelocity_y) return getConvertedDeltaVelocityYFromDebug(result);
 
   int ret = iio_channel_attr_read_longlong(m_channel_deltavelocity_y, "raw", &valueRaw);
 
@@ -569,11 +864,40 @@ bool IIOWrapper::getRegDeltaVelocityY(double & result)
   return (ret == 0);
 }
 
-bool IIOWrapper::getRegDeltaVelocityZ(double & result)
+bool IIOWrapper::getRawDeltaVelocityZFromDebug(int32_t & result)
+{
+  uint32_t reg_low;
+  uint32_t reg_high;
+
+  if (!m_dev) return false;
+
+  int ret = iio_device_reg_read(m_dev, ADIS_DELTVEL_Z_LOW_REG, &reg_low);
+  if (ret) return false;
+
+  ret = iio_device_reg_read(m_dev, ADIS_DELTVEL_Z_OUT_REG, &reg_high);
+  if (ret) return false;
+
+  result = reg_high << 16 | reg_low;
+
+  return true;
+}
+
+bool IIOWrapper::getConvertedDeltaVelocityZFromDebug(double & result)
+{
+  int32_t reg_val = 0;
+
+  bool ret = getRawDeltaVelocityZFromDebug(reg_val);
+
+  result = reg_val * m_scale_deltavelocity_z;
+
+  return ret;
+}
+
+bool IIOWrapper::getConvertedDeltaVelocityZ(double & result)
 {
   long long valueRaw;
 
-  if (!m_channel_deltavelocity_z) return false;
+  if (!m_channel_deltavelocity_z) return getConvertedDeltaVelocityZFromDebug(result);
 
   int ret = iio_channel_attr_read_longlong(m_channel_deltavelocity_z, "raw", &valueRaw);
 
@@ -581,7 +905,7 @@ bool IIOWrapper::getRegDeltaVelocityZ(double & result)
   return (ret == 0);
 }
 
-bool IIOWrapper::getRegTemperature(double & result)
+bool IIOWrapper::getConvertedTemperature(double & result)
 {
   long long valueRaw;
 
