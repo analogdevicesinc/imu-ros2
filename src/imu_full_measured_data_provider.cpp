@@ -31,29 +31,29 @@ bool ImuFullMeasuredDataProvider::getData(imu_ros2::msg::ImuFullMeasuredData & d
 
   data.header.frame_id = "imufullmeasureddata";
 
-  if (!m_iio_wrapper.getRegLinearAccelerationX(data.linear_acceleration.x)) return false;
+  if (!m_iio_wrapper.getConvertedLinearAccelerationX(data.linear_acceleration.x)) return false;
 
-  if (!m_iio_wrapper.getRegLinearAccelerationY(data.linear_acceleration.y)) return false;
+  if (!m_iio_wrapper.getConvertedLinearAccelerationY(data.linear_acceleration.y)) return false;
 
-  if (!m_iio_wrapper.getRegLinearAccelerationZ(data.linear_acceleration.z)) return false;
+  if (!m_iio_wrapper.getConvertedLinearAccelerationZ(data.linear_acceleration.z)) return false;
 
-  if (!m_iio_wrapper.getRegAngularVelocityX(data.angular_velocity.x)) return false;
+  if (!m_iio_wrapper.getConvertedAngularVelocityX(data.angular_velocity.x)) return false;
 
-  if (!m_iio_wrapper.getRegAngularVelocityY(data.angular_velocity.y)) return false;
+  if (!m_iio_wrapper.getConvertedAngularVelocityY(data.angular_velocity.y)) return false;
 
-  if (!m_iio_wrapper.getRegAngularVelocityZ(data.angular_velocity.z)) return false;
+  if (!m_iio_wrapper.getConvertedAngularVelocityZ(data.angular_velocity.z)) return false;
 
-  if (!m_iio_wrapper.getRegDeltaVelocityX(data.delta_velocity.x)) return false;
+  if (!m_iio_wrapper.getConvertedDeltaVelocityX(data.delta_velocity.x)) return false;
 
-  if (!m_iio_wrapper.getRegDeltaVelocityY(data.delta_velocity.y)) return false;
+  if (!m_iio_wrapper.getConvertedDeltaVelocityY(data.delta_velocity.y)) return false;
 
-  if (!m_iio_wrapper.getRegDeltaVelocityZ(data.delta_velocity.z)) return false;
+  if (!m_iio_wrapper.getConvertedDeltaVelocityZ(data.delta_velocity.z)) return false;
 
-  if (!m_iio_wrapper.getRegDeltaAngleX(data.delta_angle.x)) return false;
+  if (!m_iio_wrapper.getConvertedDeltaAngleX(data.delta_angle.x)) return false;
 
-  if (!m_iio_wrapper.getRegDeltaAngleY(data.delta_angle.y)) return false;
+  if (!m_iio_wrapper.getConvertedDeltaAngleY(data.delta_angle.y)) return false;
 
-  if (!m_iio_wrapper.getRegDeltaAngleZ(data.delta_angle.z)) return false;
+  if (!m_iio_wrapper.getConvertedDeltaAngleZ(data.delta_angle.z)) return false;
 
-  return m_iio_wrapper.getRegTemperature(data.temperature);
+  return m_iio_wrapper.getConvertedTemperature(data.temperature);
 }

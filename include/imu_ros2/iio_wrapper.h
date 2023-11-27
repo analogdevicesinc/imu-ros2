@@ -187,7 +187,7 @@ public:
    * false otherwise.
    * @param result The linear acceleration on x axis in m / s^2.
    */
-  bool getRegLinearAccelerationX(double & result);
+  bool getConvertedLinearAccelerationX(double & result);
 
   /**
    * @brief Get linear acceleration on y axis with register reads; in this case
@@ -196,7 +196,7 @@ public:
    * false otherwise.
    * @param result The linear acceleration on y axis in m / s^2.
    */
-  bool getRegLinearAccelerationY(double & result);
+  bool getConvertedLinearAccelerationY(double & result);
 
   /**
    * @brief Get linear acceleration on z axis with register reads; in this case
@@ -205,7 +205,7 @@ public:
    * false otherwise.
    * @param result The linear acceleration on z axis in m / s^2.
    */
-  bool getRegLinearAccelerationZ(double & result);
+  bool getConvertedLinearAccelerationZ(double & result);
 
   /**
    * @brief Get angular velocity on x axis with register reads; in this case
@@ -214,7 +214,7 @@ public:
    * false otherwise.
    * @param result The angular velocity on x axis in rad / s.
    */
-  bool getRegAngularVelocityX(double & result);
+  bool getConvertedAngularVelocityX(double & result);
 
   /**
    * @brief Get angular velocity on y axis with register reads; in this case
@@ -223,7 +223,7 @@ public:
    * false otherwise.
    * @param result The angular velocity on y axis in rad / s.
    */
-  bool getRegAngularVelocityY(double & result);
+  bool getConvertedAngularVelocityY(double & result);
 
   /**
    * @brief Get angular velocity on z axis with register reads; in this case
@@ -232,7 +232,7 @@ public:
    * false otherwise.
    * @param result The angular velocity on z axis in rad / s.
    */
-  bool getRegAngularVelocityZ(double & result);
+  bool getConvertedAngularVelocityZ(double & result);
 
   /**
    * @brief Get delta angle on x axis with register reads; in this case
@@ -241,7 +241,7 @@ public:
    * false otherwise.
    * @param result The delta angle on x axis in radians.
    */
-  bool getRegDeltaAngleX(double & result);
+  bool getConvertedDeltaAngleX(double & result);
 
   /**
    * @brief Get delta angle on y axis with register reads; in this case
@@ -250,7 +250,7 @@ public:
    * false otherwise.
    * @param result The delta angle on y axis in radians.
    */
-  bool getRegDeltaAngleY(double & result);
+  bool getConvertedDeltaAngleY(double & result);
 
   /**
    * @brief Get delta angle on z axis with register reads; in this case
@@ -259,7 +259,7 @@ public:
    * false otherwise.
    * @param result The delta angle on z axis in radians.
    */
-  bool getRegDeltaAngleZ(double & result);
+  bool getConvertedDeltaAngleZ(double & result);
 
   /**
    * @brief Get delta velocity on x axis with register reads; in this case
@@ -268,7 +268,7 @@ public:
    * false otherwise.
    * @param result The delta velocity on x axis in m / s.
    */
-  bool getRegDeltaVelocityX(double & result);
+  bool getConvertedDeltaVelocityX(double & result);
 
   /**
    * @brief Get delta velocity on y axis with register reads; in this case
@@ -277,7 +277,7 @@ public:
    * false otherwise.
    * @param result The delta velocity on y axis in m / s.
    */
-  bool getRegDeltaVelocityY(double & result);
+  bool getConvertedDeltaVelocityY(double & result);
 
   /**
    * @brief Get delta velocity on z axis with register reads; in this case
@@ -286,7 +286,7 @@ public:
    * false otherwise.
    * @param result The delta velocity on z axis in m / s.
    */
-  bool getRegDeltaVelocityZ(double & result);
+  bool getConvertedDeltaVelocityZ(double & result);
 
   /**
    * @brief Get temperature with register reads; in this case
@@ -295,7 +295,7 @@ public:
    * false otherwise.
    * @param result The temperature in degrees Celsius.
    */
-  bool getRegTemperature(double & result);
+  bool getConvertedTemperature(double & result);
 
   /**
    * @brief Get angular velocity calibration offset on x axis.
@@ -859,6 +859,16 @@ public:
 
 private:
   /**
+   * @brief Sets manually the delta angle scales based on the device id.
+   * @param dev Device id for which the scales are set.
+   */
+  void setDeltaAngleScales(enum adis_device_id dev_id);
+  /**
+   * @brief Sets manually the delta velocity scales based on the device id.
+   * @param dev Device id for which the scales are set.
+   */
+  void setDeltaVelocityScales(enum adis_device_id dev_id);
+  /**
    * @brief Update a field in the register map.
    * @param reg The register address where the field is located
    * @param val The value to be written.
@@ -866,6 +876,114 @@ private:
    * @return Return true if updated was successful, false otherwise.
    */
   bool updateField(uint32_t reg, uint32_t val, uint32_t mask);
+
+  /**
+   * @brief Get raw delta angle on x axis with register reads; in this case
+   * the retrieved samples are not necessary continuous.
+   * @return Return true if the reading was successful and result is valid,
+   * false otherwise.
+   * @param result The delta angle on x axis in raw format.
+   */
+  bool getRawDeltaAngleXFromDebug(int32_t & result);
+
+  /**
+   * @brief Get raw delta angle on y axis with register reads; in this case
+   * the retrieved samples are not necessary continuous.
+   * @return Return true if the reading was successful and result is valid,
+   * false otherwise.
+   * @param result The delta angle on y axis in raw format.
+   */
+  bool getRawDeltaAngleYFromDebug(int32_t & result);
+
+  /**
+   * @brief Get raw delta angle on z axis with register reads; in this case
+   * the retrieved samples are not necessary continuous.
+   * @return Return true if the reading was successful and result is valid,
+   * false otherwise.
+   * @param result The delta angle on z axis in raw format.
+   */
+  bool getRawDeltaAngleZFromDebug(int32_t & result);
+
+  /**
+   * @brief Get raw delta velocity on x axis with register reads; in this case
+   * the retrieved samples are not necessary continuous.
+   * @return Return true if the reading was successful and result is valid,
+   * false otherwise.
+   * @param result The delta velocity on x axis in raw format.
+   */
+  bool getRawDeltaVelocityXFromDebug(int32_t & result);
+
+  /**
+   * @brief Get raw delta velocity on y axis with register reads; in this case
+   * the retrieved samples are not necessary continuous.
+   * @return Return true if the reading was successful and result is valid,
+   * false otherwise.
+   * @param result The delta velocity on y axis in raw format.
+   */
+  bool getRawDeltaVelocityYFromDebug(int32_t & result);
+
+  /**
+   * @brief Get raw delta velocity on z axis with register reads; in this case
+   * the retrieved samples are not necessary continuous.
+   * @return Return true if the reading was successful and result is valid,
+   * false otherwise.
+   * @param result The delta velocity on z axis in raw format.
+   */
+  bool getRawDeltaVelocityZFromDebug(int32_t & result);
+
+  /**
+   * @brief Get delta angle on x axis with register reads; in this case
+   * the retrieved samples are not necessary continuous.
+   * @return Return true if the reading was successful and result is valid,
+   * false otherwise.
+   * @param result The delta angle on x axis in radians.
+   */
+  bool getConvertedDeltaAngleXFromDebug(double & result);
+
+  /**
+   * @brief Get delta angle on y axis with register reads; in this case
+   * the retrieved samples are not necessary continuous.
+   * @return Return true if the reading was successful and result is valid,
+   * false otherwise.
+   * @param result The delta angle on y axis in radians.
+   */
+  bool getConvertedDeltaAngleYFromDebug(double & result);
+
+  /**
+   * @brief Get delta angle on z axis with register reads; in this case
+   * the retrieved samples are not necessary continuous.
+   * @return Return true if the reading was successful and result is valid,
+   * false otherwise.
+   * @param result The delta angle on z axis in radians.
+   */
+  bool getConvertedDeltaAngleZFromDebug(double & result);
+
+  /**
+   * @brief Get delta velocity on x axis with register reads; in this case
+   * the retrieved samples are not necessary continuous.
+   * @return Return true if the reading was successful and result is valid,
+   * false otherwise.
+   * @param result The delta velocity on x axis in m / s.
+   */
+  bool getConvertedDeltaVelocityXFromDebug(double & result);
+
+  /**
+   * @brief Get delta velocity on y axis with register reads; in this case
+   * the retrieved samples are not necessary continuous.
+   * @return Return true if the reading was successful and result is valid,
+   * false otherwise.
+   * @param result The delta velocity on y axis in m / s.
+   */
+  bool getConvertedDeltaVelocityYFromDebug(double & result);
+
+  /**
+   * @brief Get delta velocity on z axis with register reads; in this case
+   * the retrieved samples are not necessary continuous.
+   * @return Return true if the reading was successful and result is valid,
+   * false otherwise.
+   * @param result The delta velocity on z axis in m / s.
+   */
+  bool getConvertedDeltaVelocityZFromDebug(double & result);
 
   /*! This variable retains the IIO context instance */
   static struct iio_context * m_iio_context;
