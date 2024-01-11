@@ -265,9 +265,9 @@ void IIOWrapper::setDeltaAngleScales(enum adis_device_id id)
     case ADIS16477_1:
     case ADIS16505_1:
     case ADIS16507_1:
-      m_scale_deltaangl_x = 0.000000168;
-      m_scale_deltaangl_y = 0.000000168;
-      m_scale_deltaangl_z = 0.000000168;
+      m_scale_deltaangl_x = 0.000000002;
+      m_scale_deltaangl_y = 0.000000002;
+      m_scale_deltaangl_z = 0.000000002;
       return;
     case ADIS16465_2:
     case ADIS16467_2:
@@ -275,9 +275,9 @@ void IIOWrapper::setDeltaAngleScales(enum adis_device_id id)
     case ADIS16477_2:
     case ADIS16505_2:
     case ADIS16507_2:
-      m_scale_deltaangl_x = 0.000000335;
-      m_scale_deltaangl_y = 0.000000335;
-      m_scale_deltaangl_z = 0.000000335;
+      m_scale_deltaangl_x = 0.000000006;
+      m_scale_deltaangl_y = 0.000000006;
+      m_scale_deltaangl_z = 0.000000006;
       return;
     case ADIS16465_3:
     case ADIS16467_3:
@@ -287,23 +287,23 @@ void IIOWrapper::setDeltaAngleScales(enum adis_device_id id)
     case ADIS16500:
     case ADIS16505_3:
     case ADIS16507_3:
-      m_scale_deltaangl_x = 0.000001006;
-      m_scale_deltaangl_y = 0.000001006;
-      m_scale_deltaangl_z = 0.000001006;
+      m_scale_deltaangl_x = 0.000000017;
+      m_scale_deltaangl_y = 0.000000017;
+      m_scale_deltaangl_z = 0.000000017;
       return;
     case ADIS16575_2:
     case ADIS16576_2:
     case ADIS16577_2:
-      m_scale_deltaangl_x = 0.00000021;
-      m_scale_deltaangl_y = 0.00000021;
-      m_scale_deltaangl_z = 0.00000021;
+      m_scale_deltaangl_x = 0.000000003;
+      m_scale_deltaangl_y = 0.000000003;
+      m_scale_deltaangl_z = 0.000000003;
       return;
     case ADIS16575_3:
     case ADIS16576_3:
     case ADIS16577_3:
-      m_scale_deltaangl_x = 0.000000931;
-      m_scale_deltaangl_y = 0.000000931;
-      m_scale_deltaangl_z = 0.000000931;
+      m_scale_deltaangl_x = 0.000000016;
+      m_scale_deltaangl_y = 0.000000016;
+      m_scale_deltaangl_z = 0.000000016;
       return;
     default:
       return;
@@ -343,9 +343,9 @@ void IIOWrapper::setDeltaVelocityScales(enum adis_device_id id)
     case ADIS16576_3:
     case ADIS16577_2:
     case ADIS16577_3:
-      m_scale_deltavelocity_x = 0.000000047;
-      m_scale_deltavelocity_y = 0.000000047;
-      m_scale_deltavelocity_z = 0.000000047;
+      m_scale_deltavelocity_x = 0.000000046;
+      m_scale_deltavelocity_y = 0.000000046;
+      m_scale_deltavelocity_z = 0.000000046;
       return;
     default:
       return;
