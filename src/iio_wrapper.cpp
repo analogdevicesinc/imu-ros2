@@ -132,9 +132,9 @@ void IIOWrapper::createContext(const char * context)
   std::list<std::string> supported_devices{
     "adis16465-1", "adis16465-2", "adis16465-3", "adis16467-1", "adis16467-2", "adis16467-3",
     "adis16470",   "adis16475-1", "adis16475-2", "adis16475-3", "adis16477-1", "adis16477-2",
-    "adis16477-3", "adis16500",   "adis16505-1", "adis16505-2", "adis16505-3", "adis16507-1",
-    "adis16507-2", "adis16507-3", "adis16575-2", "adis16575-3", "adis16576-2", "adis16576-3",
-    "adis16577-2", "adis16577-3"};
+    "adis16477-3", "adis16500",   "adis16501",   "adis16505-1", "adis16505-2", "adis16505-3",
+    "adis16507-1", "adis16507-2", "adis16507-3", "adis16575-2", "adis16575-3", "adis16576-2",
+    "adis16576-3", "adis16577-2", "adis16577-3"};
 
   uint8_t dev_id = 0;
 
@@ -273,6 +273,7 @@ void IIOWrapper::setDeltaAngleScales(enum adis_device_id id)
     case ADIS16467_2:
     case ADIS16475_2:
     case ADIS16477_2:
+    case ADIS16501:
     case ADIS16505_2:
     case ADIS16507_2:
       m_scale_deltaangl_x = 0.000000006;
@@ -346,6 +347,11 @@ void IIOWrapper::setDeltaVelocityScales(enum adis_device_id id)
       m_scale_deltavelocity_x = 0.000000046;
       m_scale_deltavelocity_y = 0.000000046;
       m_scale_deltavelocity_z = 0.000000046;
+      return;
+    case ADIS16501:
+      m_scale_deltavelocity_x = 0.000000058;
+      m_scale_deltavelocity_y = 0.000000058;
+      m_scale_deltavelocity_z = 0.000000058;
       return;
     default:
       return;
