@@ -188,6 +188,11 @@ connected to (e.g. on Raspberry Pi), run the following command to start the imu_
         source install/setup.sh
         ros2 run imu_ros2 imu_ros2_node
 
+.. warning::
+        Please make sure you are running the commands above with sudo.
+        LibIIO is using debugfs to retrieve some data from the adis16475 driver,
+        which can only be accessed by the root user.
+
 For executing system tests, run the following commands, after the imu_ros2 node
 has been started:
 
