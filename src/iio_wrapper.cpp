@@ -143,7 +143,14 @@ void IIOWrapper::createContext(const char * context)
     if (m_dev) {
       RCLCPP_INFO(rclcpp::get_logger("rclcpp_iiowrapper"), "Found device: %s", devname.c_str());
       if (m_dev_trigger == nullptr) {
-        std::string triggerName = devname + "-dev0";
+        const std::string devid = iio_device_get_id(m_dev);
+
+        /* Get device number in the form of 0, 1, etc. to append to the trigger name. */
+        std::string devnb;
+        for (long unsigned int i = 0; i < devid.std::string::length(); i++)
+          if (isdigit(devid.c_str()[i])) devnb.std::string::append(&devid.c_str()[i]);
+
+        std::string triggerName = devname + "-dev" + devnb;
         m_dev_trigger = iio_context_find_device(m_iio_context, triggerName.c_str());
         RCLCPP_INFO(
           rclcpp::get_logger("rclcpp_iiowrapper"), "Found trigger: %s", triggerName.c_str());
