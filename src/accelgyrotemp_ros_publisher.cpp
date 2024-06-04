@@ -40,9 +40,13 @@ void AccelGyroTempRosPublisher::setMessageProvider(
 
 void AccelGyroTempRosPublisher::publish()
 {
-  if (m_data_provider->getData(m_message))
+  if (m_data_provider->getData(m_message)) {
+    if (!m_message.header.stamp.sec && !m_message.header.stamp.nanosec) {
+      rclcpp::Time now = m_node->get_clock()->now();
+      m_message.header.stamp = now;
+    }
     m_publisher->publish(m_message);
-  else
+  } else
     RCLCPP_INFO(
       rclcpp::get_logger("accelgyrotemp_ros_publisher"),
       "error reading accelerometer, gyroscope and temperature buffered data");

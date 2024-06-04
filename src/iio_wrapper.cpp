@@ -95,6 +95,7 @@ uint32_t no_of_samp = MAX_NO_OF_SAMPLES;
 uint32_t current_data_selection = FULL_MEASURED_DATA;
 
 bool has_delta_channels = true;
+bool has_timestamp_channel = false;
 
 IIOWrapper::IIOWrapper() {}
 
@@ -215,7 +216,10 @@ void IIOWrapper::createContext(const char * context)
 
   if (m_channel_temp) iio_channel_enable(m_channel_temp);
 
-  if (m_channel_timestamp) iio_channel_enable(m_channel_timestamp);
+  if (m_channel_timestamp) {
+    iio_channel_enable(m_channel_timestamp);
+    has_timestamp_channel = true;
+  }
 
   if (m_channel_accel_x) iio_channel_attr_read_double(m_channel_accel_x, "scale", &m_scale_accel_x);
 
@@ -380,10 +384,18 @@ static ssize_t demux_sample(
     int16_t val;
     iio_channel_convert(chn, &val, sample);
     buff_data[iio_channel_get_index(chn)][buff_write_idx] = val;
+    if (!has_timestamp_channel) {
+      /* timestamp channel is not available, have to update buff_write_idx */
+      buff_write_idx++;
+    }
   } else if (size == 4) {
     int32_t val;
     iio_channel_convert(chn, &val, sample);
     buff_data[iio_channel_get_index(chn)][buff_write_idx] = val;
+    if (!has_timestamp_channel) {
+      /* timestamp channel is not available, have to update buff_write_idx for last read channel */
+      if (iio_channel_get_index(chn) == CHAN_DELTA_VEL_Z) buff_write_idx++;
+    }
   } else {
     int64_t val;
     iio_channel_convert(chn, &val, sample);
@@ -588,16 +600,21 @@ double IIOWrapper::getBuffTemperature()
 
 void IIOWrapper::getBuffSampleTimestamp(int32_t & sec, uint32_t & nanosec)
 {
-  uint16_t timestamp_0_15 = buff_data[CHAN_DATA_TIMESTAMP][buff_read_idx];
-  uint16_t timestamp_16_31 = buff_data[CHAN_DATA_TIMESTAMP][buff_read_idx] >> 16;
-  uint16_t timestamp_32_47 = buff_data[CHAN_DATA_TIMESTAMP + 1][buff_read_idx];
-  uint16_t timestamp_48_63 = buff_data[CHAN_DATA_TIMESTAMP + 1][buff_read_idx] >> 16;
+  if (!has_timestamp_channel) {
+    uint16_t timestamp_0_15 = buff_data[CHAN_DATA_TIMESTAMP][buff_read_idx];
+    uint16_t timestamp_16_31 = buff_data[CHAN_DATA_TIMESTAMP][buff_read_idx] >> 16;
+    uint16_t timestamp_32_47 = buff_data[CHAN_DATA_TIMESTAMP + 1][buff_read_idx];
+    uint16_t timestamp_48_63 = buff_data[CHAN_DATA_TIMESTAMP + 1][buff_read_idx] >> 16;
 
-  uint64_t timestamp = ((uint64_t)timestamp_48_63 << 48) | ((uint64_t)timestamp_32_47 << 32) |
-                       ((uint64_t)timestamp_16_31 << 16) | timestamp_0_15;
+    uint64_t timestamp = ((uint64_t)timestamp_48_63 << 48) | ((uint64_t)timestamp_32_47 << 32) |
+                         ((uint64_t)timestamp_16_31 << 16) | timestamp_0_15;
 
-  sec = timestamp / 1000000000;
-  nanosec = timestamp % 1000000000;
+    sec = timestamp / 1000000000;
+    nanosec = timestamp % 1000000000;
+  } else {
+    sec = 0;
+    nanosec = 0;
+  }
 }
 
 bool IIOWrapper::getConvertedLinearAccelerationX(double & result)
