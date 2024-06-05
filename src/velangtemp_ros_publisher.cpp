@@ -39,9 +39,13 @@ void VelAngTempRosPublisher::setMessageProvider(VelAngTempDataProviderInterface 
 
 void VelAngTempRosPublisher::publish()
 {
-  if (m_data_provider->getData(m_message))
+  if (m_data_provider->getData(m_message)) {
+    if (!m_message.header.stamp.sec && !m_message.header.stamp.nanosec) {
+      rclcpp::Time now = m_node->get_clock()->now();
+      m_message.header.stamp = now;
+    }
     m_publisher->publish(m_message);
-  else
+  } else
     RCLCPP_INFO(
       rclcpp::get_logger("velangtemp_ros_publisher"),
       "error reading delta angle, delta velocity and temperature buffered data");
