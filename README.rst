@@ -16,6 +16,8 @@ Supported Devices
 * `ADIS16501 <https://www.analog.com/ADIS16501>`_
 * `ADIS16505 <https://www.analog.com/ADIS16505>`_
 * `ADIS16507 <https://www.analog.com/ADIS16507>`_
+* `ADIS16545 <https://www.analog.com/ADIS16545>`_
+* `ADIS16547 <https://www.analog.com/ADIS16547>`_
 * `ADIS16575 <https://www.analog.com/ADIS16575>`_
 * `ADIS16576 <https://www.analog.com/ADIS16576>`_
 * `ADIS16577 <https://www.analog.com/ADIS16577>`_
@@ -84,6 +86,8 @@ Evaluation setup - Required hardware with remote client
   `ADIS16501 <https://www.analog.com/ADIS16501>`_
   `ADIS16505 <https://www.analog.com/ADIS16505>`_
   `ADIS16507 <https://www.analog.com/ADIS16507>`_
+  `ADIS16545 <https://www.analog.com/ADIS16545>`_
+  `ADIS16547 <https://www.analog.com/ADIS16547>`_
   `ADIS16575 <https://www.analog.com/ADIS16575>`_
   `ADIS16576 <https://www.analog.com/ADIS16576>`_
   `ADIS16577 <https://www.analog.com/ADIS16577>`_
@@ -119,6 +123,8 @@ Evaluation setup - Required hardware with local client
   `ADIS16500 <https://www.analog.com/ADIS16500>`_
   `ADIS16501 <https://www.analog.com/ADIS16501>`_
   `ADIS16505 <https://www.analog.com/ADIS16505>`_
+  `ADIS16545 <https://www.analog.com/ADIS16545>`_
+  `ADIS16547 <https://www.analog.com/ADIS16547>`_
   `ADIS16507 <https://www.analog.com/ADIS16507>`_
   `ADIS16575 <https://www.analog.com/ADIS16575>`_
   `ADIS16576 <https://www.analog.com/ADIS16576>`_
@@ -159,6 +165,8 @@ based on the IMU chip:
         adis16501,
         adis16505-1, adis16505-2, adis16505-3,
         adis16507-1, adis16507-2, adis16507-3,
+        adis16545-1, adis16545-2, adis16545-3,
+        adis16547-1, adis16547-2, adis16547-3,
         adis16575-2, adis16575-3,
         adis16576-2, adis16576-3,
         adis16577-2, adis16577-3.

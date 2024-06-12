@@ -134,8 +134,8 @@ void IIOWrapper::createContext(const char * context)
     "adis16465-1", "adis16465-2", "adis16465-3", "adis16467-1", "adis16467-2", "adis16467-3",
     "adis16470",   "adis16475-1", "adis16475-2", "adis16475-3", "adis16477-1", "adis16477-2",
     "adis16477-3", "adis16500",   "adis16501",   "adis16505-1", "adis16505-2", "adis16505-3",
-    "adis16507-1", "adis16507-2", "adis16507-3", "adis16575-2", "adis16575-3", "adis16576-2",
-    "adis16576-3", "adis16577-2", "adis16577-3"};
+    "adis16507-1", "adis16507-2", "adis16507-3", "adis16545-3", "adis16575-2", "adis16575-3",
+    "adis16576-2", "adis16576-3", "adis16577-2", "adis16577-3"};
 
   uint8_t dev_id = 0;
 
@@ -146,7 +146,8 @@ void IIOWrapper::createContext(const char * context)
       if (m_dev_trigger == nullptr) {
         const std::string devid = iio_device_get_id(m_dev);
 
-        /* Get device number in the form of 0, 1, etc. to append to the trigger name. */
+        /* Get device number in the form of 0, 1, etc. to append to the
+               * trigger name. */
         std::string devnb;
         for (long unsigned int i = 0; i < devid.std::string::length(); i++)
           if (isdigit(devid.c_str()[i])) devnb.std::string::append(&devid.c_str()[i]);
@@ -244,7 +245,8 @@ void IIOWrapper::createContext(const char * context)
     iio_channel_attr_read_double(m_channel_deltavelocity_y, "scale", &m_scale_deltavelocity_y);
     iio_channel_attr_read_double(m_channel_deltavelocity_z, "scale", &m_scale_deltavelocity_z);
   } else {
-    /* Set scale manually in case delta channels are not available in the linux driver. */
+    /* Set scale manually in case delta channels are not available in the
+       * linux driver. */
     setDeltaAngleScales((enum adis_device_id)dev_id);
     setDeltaVelocityScales((enum adis_device_id)dev_id);
   }
@@ -299,6 +301,12 @@ void IIOWrapper::setDeltaAngleScales(enum adis_device_id id)
     case ADIS16500:
     case ADIS16505_3:
     case ADIS16507_3:
+    case ADIS16545_1:
+    case ADIS16545_2:
+    case ADIS16545_3:
+    case ADIS16547_1:
+    case ADIS16547_2:
+    case ADIS16547_3:
       m_scale_deltaangl_x = 0.000000017;
       m_scale_deltaangl_y = 0.000000017;
       m_scale_deltaangl_z = 0.000000017;
@@ -349,6 +357,12 @@ void IIOWrapper::setDeltaVelocityScales(enum adis_device_id id)
     case ADIS16505_1:
     case ADIS16505_2:
     case ADIS16505_3:
+    case ADIS16545_1:
+    case ADIS16545_2:
+    case ADIS16545_3:
+    case ADIS16547_1:
+    case ADIS16547_2:
+    case ADIS16547_3:
     case ADIS16575_2:
     case ADIS16575_3:
     case ADIS16576_2:
@@ -385,7 +399,8 @@ static ssize_t demux_sample(
     iio_channel_convert(chn, &val, sample);
     buff_data[iio_channel_get_index(chn)][buff_write_idx] = val;
     if (!has_timestamp_channel) {
-      /* timestamp channel is not available, have to update buff_write_idx */
+      /* timestamp channel is not available, have to update buff_write_idx
+           */
       buff_write_idx++;
     }
   } else if (size == 4) {
@@ -393,7 +408,8 @@ static ssize_t demux_sample(
     iio_channel_convert(chn, &val, sample);
     buff_data[iio_channel_get_index(chn)][buff_write_idx] = val;
     if (!has_timestamp_channel) {
-/* timestamp channel is not available, have to update buff_write_idx for last read channel */
+/* timestamp channel is not available, have to update buff_write_idx for last
+ * read channel */
 #ifdef ADIS_HAS_DELTA_BURST
       if (iio_channel_get_index(chn) == CHAN_DELTA_VEL_Z) buff_write_idx++;
 #endif
@@ -461,7 +477,8 @@ bool IIOWrapper::updateBuffer(uint32_t data_selection)
     sampling_frequency(&samp_freq);
     no_of_samp = MAX_NO_OF_SAMPLES;
     if (no_of_samp > samp_freq)
-      /* Overwrite number of samples based on sampling frequency, to avoid timeout errors from LibIIO */
+      /* Overwrite number of samples based on sampling frequency, to avoid
+         * timeout errors from LibIIO */
       no_of_samp = samp_freq;
 
     m_dev_buffer = iio_device_create_buffer(m_dev, no_of_samp, false);
@@ -1091,6 +1108,271 @@ bool IIOWrapper::update_sampling_frequency(double val)
   return true;
 }
 
+#ifdef ADIS1654X
+bool IIOWrapper::angvel_x_filter_low_pass_3db(uint32_t & result)
+{
+  long long valuel;
+
+  if (!m_channel_anglvel_x) return false;
+
+  int ret =
+    iio_channel_attr_read_longlong(m_channel_anglvel_x, "filter_low_pass_3db_frequency", &valuel);
+
+  result = valuel;
+  return (ret == 0);
+}
+bool IIOWrapper::update_angvel_x_filter_low_pass_3db(uint32_t val)
+{
+  if (!m_channel_anglvel_x) return false;
+
+  return (
+    iio_channel_attr_write_longlong(m_channel_anglvel_x, "filter_low_pass_3db_frequency", val) ==
+    0);
+}
+
+bool IIOWrapper::angvel_y_filter_low_pass_3db(uint32_t & result)
+{
+  long long valuel;
+
+  if (!m_channel_anglvel_y) return false;
+
+  int ret =
+    iio_channel_attr_read_longlong(m_channel_anglvel_y, "filter_low_pass_3db_frequency", &valuel);
+
+  result = valuel;
+  return (ret == 0);
+}
+bool IIOWrapper::update_angvel_y_filter_low_pass_3db(uint32_t val)
+{
+  if (!m_channel_anglvel_y) return false;
+
+  return (
+    iio_channel_attr_write_longlong(m_channel_anglvel_y, "filter_low_pass_3db_frequency", val) ==
+    0);
+}
+
+bool IIOWrapper::angvel_z_filter_low_pass_3db(uint32_t & result)
+{
+  long long valuel;
+
+  if (!m_channel_anglvel_z) return false;
+
+  int ret =
+    iio_channel_attr_read_longlong(m_channel_anglvel_z, "filter_low_pass_3db_frequency", &valuel);
+
+  result = valuel;
+  return (ret == 0);
+}
+bool IIOWrapper::update_angvel_z_filter_low_pass_3db(uint32_t val)
+{
+  if (!m_channel_anglvel_z) return false;
+
+  return (
+    iio_channel_attr_write_longlong(m_channel_anglvel_z, "filter_low_pass_3db_frequency", val) ==
+    0);
+}
+
+bool IIOWrapper::accel_x_filter_low_pass_3db(uint32_t & result)
+{
+  long long valuel;
+
+  if (!m_channel_accel_x) return false;
+
+  int ret =
+    iio_channel_attr_read_longlong(m_channel_accel_x, "filter_low_pass_3db_frequency", &valuel);
+
+  result = valuel;
+  return (ret == 0);
+}
+bool IIOWrapper::update_accel_x_filter_low_pass_3db(uint32_t val)
+{
+  if (!m_channel_accel_x) return false;
+
+  return (
+    iio_channel_attr_write_longlong(m_channel_accel_x, "filter_low_pass_3db_frequency", val) == 0);
+}
+
+bool IIOWrapper::accel_y_filter_low_pass_3db(uint32_t & result)
+{
+  long long valuel;
+
+  if (!m_channel_accel_y) return false;
+
+  int ret =
+    iio_channel_attr_read_longlong(m_channel_accel_y, "filter_low_pass_3db_frequency", &valuel);
+
+  result = valuel;
+  return (ret == 0);
+}
+bool IIOWrapper::update_accel_y_filter_low_pass_3db(uint32_t val)
+{
+  if (!m_channel_accel_y) return false;
+
+  return (
+    iio_channel_attr_write_longlong(m_channel_accel_y, "filter_low_pass_3db_frequency", val) == 0);
+}
+
+bool IIOWrapper::accel_z_filter_low_pass_3db(uint32_t & result)
+{
+  long long valuel;
+
+  if (!m_channel_accel_z) return false;
+
+  int ret =
+    iio_channel_attr_read_longlong(m_channel_accel_z, "filter_low_pass_3db_frequency", &valuel);
+
+  result = valuel;
+  return (ret == 0);
+}
+bool IIOWrapper::update_accel_z_filter_low_pass_3db(uint32_t val)
+{
+  if (!m_channel_accel_z) return false;
+
+  return (
+    iio_channel_attr_write_longlong(m_channel_accel_z, "filter_low_pass_3db_frequency", val) == 0);
+}
+#else
+
+bool IIOWrapper::filter_low_pass_3db_frequency(uint32_t & result)
+{
+  long long valuel;
+
+  if (!m_dev) return false;
+
+  int ret = iio_device_attr_read_longlong(m_dev, "filter_low_pass_3db_frequency", &valuel);
+  if (ret) return false;
+
+  result = valuel;
+  return true;
+}
+
+bool IIOWrapper::update_filter_low_pass_3db_frequency(uint32_t val)
+{
+  if (!m_dev) return false;
+
+  return (iio_device_attr_write_longlong(m_dev, "filter_low_pass_3db_frequency", val) == 0);
+}
+
+#endif
+
+#ifdef ADIS_HAS_CALIB_SCALE
+
+bool IIOWrapper::accel_x_calibscale(int32_t & result)
+{
+  long long valuel;
+
+  if (!m_channel_accel_x) return false;
+
+  int ret = iio_channel_attr_read_longlong(m_channel_accel_x, "calibscale", &valuel);
+
+  result = valuel;
+  return (ret == 0);
+}
+
+bool IIOWrapper::accel_y_calibscale(int32_t & result)
+{
+  long long valuel;
+
+  if (!m_channel_accel_y) return false;
+
+  int ret = iio_channel_attr_read_longlong(m_channel_accel_y, "calibscale", &valuel);
+
+  result = valuel;
+  return (ret == 0);
+}
+
+bool IIOWrapper::accel_z_calibscale(int32_t & result)
+{
+  long long valuel;
+
+  if (!m_channel_accel_z) return false;
+
+  int ret = iio_channel_attr_read_longlong(m_channel_accel_z, "calibscale", &valuel);
+
+  result = valuel;
+  return (ret == 0);
+}
+
+bool IIOWrapper::anglvel_x_calibscale(int32_t & result)
+{
+  long long valuel;
+
+  if (!m_channel_anglvel_x) return false;
+
+  int ret = iio_channel_attr_read_longlong(m_channel_anglvel_x, "calibscale", &valuel);
+
+  result = valuel;
+  return (ret == 0);
+}
+
+bool IIOWrapper::anglvel_y_calibscale(int32_t & result)
+{
+  long long valuel;
+
+  if (!m_channel_anglvel_y) return false;
+
+  int ret = iio_channel_attr_read_longlong(m_channel_anglvel_y, "calibscale", &valuel);
+
+  result = valuel;
+  return (ret == 0);
+}
+
+bool IIOWrapper::anglvel_z_calibscale(int32_t & result)
+{
+  long long valuel;
+
+  if (!m_channel_anglvel_z) return false;
+
+  int ret = iio_channel_attr_read_longlong(m_channel_anglvel_z, "calibscale", &valuel);
+
+  result = valuel;
+  return (ret == 0);
+}
+
+bool IIOWrapper::update_accel_calibscale_x(int32_t val)
+{
+  if (!m_channel_accel_x) return false;
+
+  return (iio_channel_attr_write_longlong(m_channel_accel_x, "calibscale", val) == 0);
+}
+
+bool IIOWrapper::update_accel_calibscale_y(int32_t val)
+{
+  if (!m_channel_accel_y) return false;
+
+  return (iio_channel_attr_write_longlong(m_channel_accel_y, "calibscale", val) == 0);
+}
+
+bool IIOWrapper::update_accel_calibscale_z(int32_t val)
+{
+  if (!m_channel_accel_z) return false;
+
+  return (iio_channel_attr_write_longlong(m_channel_accel_z, "calibscale", val) == 0);
+}
+
+bool IIOWrapper::update_anglvel_calibscale_x(int32_t val)
+{
+  if (!m_channel_anglvel_x) return false;
+
+  return (iio_channel_attr_write_longlong(m_channel_anglvel_x, "calibscale", val) == 0);
+}
+
+bool IIOWrapper::update_anglvel_calibscale_y(int32_t val)
+{
+  if (!m_channel_anglvel_y) return false;
+
+  return (iio_channel_attr_write_longlong(m_channel_anglvel_y, "calibscale", val) == 0);
+}
+
+bool IIOWrapper::update_anglvel_calibscale_z(int32_t val)
+{
+  if (!m_channel_anglvel_z) return false;
+
+  return (iio_channel_attr_write_longlong(m_channel_anglvel_z, "calibscale", val) == 0);
+}
+
+#endif
+
 #ifdef ADIS_SNSR_INIT_FAIL
 bool IIOWrapper::diag_sensor_initialization_failure(bool & result)
 {
@@ -1109,6 +1391,7 @@ bool IIOWrapper::diag_sensor_initialization_failure(bool & result)
 }
 #endif
 
+#ifdef ADIS_DATA_PATH_OVERRUN
 bool IIOWrapper::diag_data_path_overrun(bool & result)
 {
   uint32_t reg_val;
@@ -1123,7 +1406,26 @@ bool IIOWrapper::diag_data_path_overrun(bool & result)
 
   return true;
 }
+#endif
 
+#ifdef ADIS_WDG_TIMER_FLAG
+bool IIOWrapper::diag_automatic_reset(bool & result)
+{
+  uint32_t reg_val;
+
+  if (!m_dev) return false;
+
+  int ret = iio_device_reg_read(m_dev, ADIS_DIAG_STAT_ADDR, &reg_val);
+  if (ret) return false;
+
+  reg_val = (reg_val & ADIS_WDG_TIMER_FLAG) >> ADIS_WDG_TIMER_FLAG_POS;
+  result = reg_val;
+
+  return true;
+}
+#endif
+
+#ifdef ADIS_FLS_MEM_UPDATE_FAIL
 bool IIOWrapper::diag_flash_memory_update_error(bool & result)
 {
   uint32_t reg_val;
@@ -1138,7 +1440,9 @@ bool IIOWrapper::diag_flash_memory_update_error(bool & result)
 
   return true;
 }
+#endif
 
+#ifdef ADIS_SPI_COMM_ERR
 bool IIOWrapper::diag_spi_communication_error(bool & result)
 {
   uint32_t reg_val;
@@ -1153,7 +1457,26 @@ bool IIOWrapper::diag_spi_communication_error(bool & result)
 
   return true;
 }
+#endif
 
+#ifdef ADIS_CRC_ERROR_POS
+bool IIOWrapper::diag_crc_error(bool & result)
+{
+  uint32_t reg_val;
+
+  if (!m_dev) return false;
+
+  int ret = iio_device_reg_read(m_dev, ADIS_DIAG_STAT_ADDR, &reg_val);
+  if (ret) return false;
+
+  reg_val = (reg_val & ADIS_CRC_ERROR) >> ADIS_CRC_ERROR_POS;
+  result = reg_val;
+
+  return true;
+}
+#endif
+
+#ifdef ADIS_STDBY_MODE
 bool IIOWrapper::diag_standby_mode(bool & result)
 {
   uint32_t reg_val;
@@ -1168,7 +1491,9 @@ bool IIOWrapper::diag_standby_mode(bool & result)
 
   return true;
 }
+#endif
 
+#ifdef ADIS_SNSR_FAIL
 bool IIOWrapper::diag_sensor_self_test_error(bool & result)
 {
   uint32_t reg_val;
@@ -1178,12 +1503,14 @@ bool IIOWrapper::diag_sensor_self_test_error(bool & result)
   int ret = iio_device_reg_read(m_dev, ADIS_DIAG_STAT_ADDR, &reg_val);
   if (ret) return false;
 
-  reg_val = (reg_val & AIDS_SNSR_FAIL) >> AIDS_SNSR_FAIL_POS;
+  reg_val = (reg_val & ADIS_SNSR_FAIL) >> ADIS_SNSR_FAIL_POS;
   result = reg_val;
 
   return true;
 }
+#endif
 
+#ifdef ADIS_MEM_FAIL
 bool IIOWrapper::diag_flash_memory_test_error(bool & result)
 {
   uint32_t reg_val;
@@ -1198,7 +1525,9 @@ bool IIOWrapper::diag_flash_memory_test_error(bool & result)
 
   return true;
 }
+#endif
 
+#ifdef ADIS_CLK_ERR
 bool IIOWrapper::diag_clock_error(bool & result)
 {
   uint32_t reg_val;
@@ -1213,6 +1542,7 @@ bool IIOWrapper::diag_clock_error(bool & result)
 
   return true;
 }
+#endif
 
 #ifdef ADIS_GYRO1_FAIL
 bool IIOWrapper::diag_gyroscope1_self_test_error(bool & result)
@@ -1272,7 +1602,7 @@ bool IIOWrapper::diag_x_axis_gyroscope_failure(bool & result)
 
   if (!m_dev) return false;
 
-  int ret = iio_device_reg_read(m_dev, ADIS_DIAG_STAT_ADDR, &reg_val);
+  int ret = iio_device_reg_read(m_dev, ADIS_GYRO_ACCEL_FAIL_REG, &reg_val);
   if (ret) return false;
 
   reg_val = (reg_val & ADIS_GYRO_X_FAIL) >> ADIS_GYRO_X_FAIL_POS;
@@ -1289,7 +1619,7 @@ bool IIOWrapper::diag_y_axis_gyroscope_failure(bool & result)
 
   if (!m_dev) return false;
 
-  int ret = iio_device_reg_read(m_dev, ADIS_DIAG_STAT_ADDR, &reg_val);
+  int ret = iio_device_reg_read(m_dev, ADIS_GYRO_ACCEL_FAIL_REG, &reg_val);
   if (ret) return false;
 
   reg_val = (reg_val & ADIS_GYRO_Y_FAIL) >> ADIS_GYRO_Y_FAIL_POS;
@@ -1306,7 +1636,7 @@ bool IIOWrapper::diag_z_axis_gyroscope_failure(bool & result)
 
   if (!m_dev) return false;
 
-  int ret = iio_device_reg_read(m_dev, ADIS_DIAG_STAT_ADDR, &reg_val);
+  int ret = iio_device_reg_read(m_dev, ADIS_GYRO_ACCEL_FAIL_REG, &reg_val);
   if (ret) return false;
 
   reg_val = (reg_val & ADIS_GYRO_Z_FAIL) >> ADIS_GYRO_Z_FAIL_POS;
@@ -1323,7 +1653,7 @@ bool IIOWrapper::diag_x_axis_accelerometer_failure(bool & result)
 
   if (!m_dev) return false;
 
-  int ret = iio_device_reg_read(m_dev, ADIS_DIAG_STAT_ADDR, &reg_val);
+  int ret = iio_device_reg_read(m_dev, ADIS_GYRO_ACCEL_FAIL_REG, &reg_val);
   if (ret) return false;
 
   reg_val = (reg_val & ADIS_ACCEL_X_FAIL) >> ADIS_ACCEL_X_FAIL_POS;
@@ -1340,7 +1670,7 @@ bool IIOWrapper::diag_y_axis_accelerometer_failure(bool & result)
 
   if (!m_dev) return false;
 
-  int ret = iio_device_reg_read(m_dev, ADIS_DIAG_STAT_ADDR, &reg_val);
+  int ret = iio_device_reg_read(m_dev, ADIS_GYRO_ACCEL_FAIL_REG, &reg_val);
   if (ret) return false;
 
   reg_val = (reg_val & ADIS_ACCEL_Y_FAIL) >> ADIS_ACCEL_Y_FAIL_POS;
@@ -1357,7 +1687,7 @@ bool IIOWrapper::diag_z_axis_accelerometer_failure(bool & result)
 
   if (!m_dev) return false;
 
-  int ret = iio_device_reg_read(m_dev, ADIS_DIAG_STAT_ADDR, &reg_val);
+  int ret = iio_device_reg_read(m_dev, ADIS_GYRO_ACCEL_FAIL_REG, &reg_val);
   if (ret) return false;
 
   reg_val = (reg_val & ADIS_ACCEL_Z_FAIL) >> ADIS_ACCEL_Z_FAIL_POS;
@@ -1394,26 +1724,6 @@ bool IIOWrapper::diag_flash_memory_write_count_exceeded_error(bool & result)
   return true;
 }
 
-bool IIOWrapper::filter_low_pass_3db_frequency(uint32_t & result)
-{
-  long long valuel;
-
-  if (!m_dev) return false;
-
-  int ret = iio_device_attr_read_longlong(m_dev, "filter_low_pass_3db_frequency", &valuel);
-  if (ret) return false;
-
-  result = valuel;
-  return true;
-}
-
-bool IIOWrapper::update_filter_low_pass_3db_frequency(uint32_t val)
-{
-  if (!m_dev) return false;
-
-  return (iio_device_attr_write_longlong(m_dev, "filter_low_pass_3db_frequency", val) == 0);
-}
-
 bool IIOWrapper::gyroscope_measurement_range(std::string & result)
 {
   uint32_t reg_val;
@@ -1430,7 +1740,11 @@ bool IIOWrapper::gyroscope_measurement_range(std::string & result)
       result = "+/-125_degrees_per_sec";
       return true;
     case 1:
+#ifdef ADIS1654X
+      result = "+/-450_degrees_per_sec";
+#else
       result = "+/-500_degrees_per_sec";
+#endif
       return true;
     case 3:
       result = "+/-2000_degrees_per_sec";
@@ -1458,23 +1772,28 @@ bool IIOWrapper::update_internal_sensor_bandwidth(uint32_t val)
 }
 #endif
 
+#ifdef ADIS_PT_OF_PERC_REG_ADDR
 bool IIOWrapper::point_of_percussion_alignment(uint32_t & result)
 {
   if (!m_dev) return false;
 
-  int ret = iio_device_reg_read(m_dev, ADIS_MSC_CTRL_ADDR, &result);
+  int ret = iio_device_reg_read(m_dev, ADIS_PT_OF_PERC_REG_ADDR, &result);
   if (ret) return false;
 
-  result = (result & ADIS_PT_OF_PERG_ALGNMNT) >> ADIS_PT_OF_PERG_ALGNMNT_POS;
+  result = (result & ADIS_PT_OF_PERC_ALGNMNT) >> ADIS_PT_OF_PERC_ALGNMNT_POS;
   return true;
 }
+#endif
 
+#ifdef ADIS_PT_OF_PERC_REG_ADDR
 bool IIOWrapper::update_point_of_percussion_alignment(uint32_t val)
 {
   return updateField(
-    ADIS_MSC_CTRL_ADDR, val << ADIS_PT_OF_PERG_ALGNMNT_POS, ADIS_PT_OF_PERG_ALGNMNT);
+    ADIS_PT_OF_PERC_REG_ADDR, val << ADIS_PT_OF_PERC_ALGNMNT_POS, ADIS_PT_OF_PERC_ALGNMNT);
 }
+#endif
 
+#ifdef ADIS_MSC_CTRL_ADDR
 bool IIOWrapper::linear_acceleration_compensation(uint32_t & result)
 {
   if (!m_dev) return false;
@@ -1485,11 +1804,14 @@ bool IIOWrapper::linear_acceleration_compensation(uint32_t & result)
   result = (result & ADIS_LN_ACCL_COMP) >> ADIS_LN_ACCL_COMP_POS;
   return true;
 }
+#endif
 
+#ifdef ADIS_MSC_CTRL_ADDR
 bool IIOWrapper::update_linear_acceleration_compensation(uint32_t val)
 {
   return updateField(ADIS_MSC_CTRL_ADDR, val << ADIS_LN_ACCL_COMP_POS, ADIS_LN_ACCL_COMP);
 }
+#endif
 
 #ifdef ADIS_NULL_CNFG_ADDR
 bool IIOWrapper::bias_correction_time_base_control(uint32_t & result)
@@ -1646,6 +1968,7 @@ bool IIOWrapper::flash_memory_update()
   return (iio_device_reg_write(m_dev, ADIS_GLOB_CMD_ADDR, cmd) == 0);
 }
 
+#ifdef ADIS_FLASH_MEMORY_TEST
 bool IIOWrapper::flash_memory_test()
 {
   if (!m_dev) return false;
@@ -1653,6 +1976,7 @@ bool IIOWrapper::flash_memory_test()
   uint16_t cmd = ADIS_FLASH_MEMORY_TEST;
   return (iio_device_reg_write(m_dev, ADIS_GLOB_CMD_ADDR, cmd) == 0);
 }
+#endif
 
 bool IIOWrapper::software_reset()
 {

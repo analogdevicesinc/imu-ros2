@@ -66,13 +66,33 @@ TEST(ImuDiagSubscriberTest, test_imu__diag_data_publisher)
 #ifdef ADIS_SNSR_INIT_FAIL
     ASSERT_TRUE(msg.diag_sensor_initialization_failure == false);
 #endif
+#ifdef ADIS_DATA_PATH_OVERRUN
     ASSERT_TRUE(msg.diag_data_path_overrun == false);
+#endif
+#ifdef ADIS_WDG_TIMER_FLAG
+    ASSERT_TRUE(msg.diag_automatic_reset == false);
+#endif
+#ifdef ADIS_FLS_MEM_UPDATE_FAIL
     ASSERT_TRUE(msg.diag_flash_memory_update_error == false);
+#endif
+#ifdef ADIS_SPI_COMM_ERROR
     ASSERT_TRUE(msg.diag_spi_communication_error == false);
+#endif
+#ifdef ADIS_CRC_ERROR
+    ASSERT_TRUE(msg.diag_crc_error == false);
+#endif
+#ifdef ADIS_STDBY_MODE
     ASSERT_TRUE(msg.diag_standby_mode == false);
+#endif
+#ifdef ADIS_SNSR_FAIL
     ASSERT_TRUE(msg.diag_sensor_self_test_error == false);
+#endif
+#ifdef ADIS_MEM_FAIL
     ASSERT_TRUE(msg.diag_flash_memory_test_error == false);
+#endif
+#ifdef ADIS_CLK_ERR
     ASSERT_TRUE(msg.diag_clock_error == false);
+#endif
 #ifdef ADIS_ACCEL_FAIL
     ASSERT_TRUE(msg.diag_acceleration_self_test_error == false);
 #endif
