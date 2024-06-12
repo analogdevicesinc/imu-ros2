@@ -52,8 +52,8 @@ public:
   void createContext(const char * context);
 
   /**
-   * @brief Update buffer data. This function should be called before retrieving
-   * data using getBuff** APIs.
+   * @brief Update buffer data. This function should be called before
+   * retrieving data using getBuff** APIs.
    * @param data_selection 0 for acceleration and gyroscope data, 1 for
    * delta angle and delta velocity data.
    * @return Return true if data was read successfully and can be retrieved,
@@ -174,7 +174,8 @@ public:
 
   /**
    * @brief Get buffer timestamp when performing buffer reads; the timestamp
-   * represent the time at which the samples from the devices were read over SPI.
+   * represent the time at which the samples from the devices were read over
+   * SPI.
    * @param sec The second component of the timestamp
    * @param nanosec The nanosecond component of the timestamp
    */
@@ -393,6 +394,204 @@ public:
    */
   bool update_accel_calibbias_z(int32_t val);
 
+#ifdef ADIS1654X
+  /**
+   * @brief Get low pass 3db frequency data for x angular velocity.
+   * @param result low pass 3db frequency value.
+   * @return Return true if reading was successful and data is valid, false
+   * otherwise.
+   */
+  bool angvel_x_filter_low_pass_3db(uint32_t & result);
+  /**
+   * @brief Update low pass 3db frequency for x angular velocity.
+   * @param val value to update with.
+   * @return Return true if writing was with success and
+   * false if not.
+   */
+  bool update_angvel_x_filter_low_pass_3db(uint32_t val);
+
+  /**
+   * @brief Get low pass 3db frequency data for y angular velocity.
+   * @param result low pass 3db frequency value.
+   * @return Return true if reading was successful and data is valid, false
+   * otherwise.
+   */
+  bool angvel_y_filter_low_pass_3db(uint32_t & result);
+  /**
+   * @brief Update low pass 3db frequency for y angular velocity.
+   * @param val value to update with.
+   * @return Return true if writing was with success and
+   * false if not.
+   */
+  bool update_angvel_y_filter_low_pass_3db(uint32_t val);
+
+  /**
+   * @brief Get low pass 3db frequency data for z angular velocity.
+   * @param result low pass 3db frequency value.
+   * @return Return true if reading was successful and data is valid, false
+   * otherwise.
+   */
+  bool angvel_z_filter_low_pass_3db(uint32_t & result);
+  /**
+   * @brief Update low pass 3db frequency for z angular velocity.
+   * @param val value to update with.
+   * @return Return true if writing was with success and
+   * false if not.
+   */
+  bool update_angvel_z_filter_low_pass_3db(uint32_t val);
+
+  /**
+   * @brief Get low pass 3db frequency data for x acceleration.
+   * @param result low pass 3db frequency value.
+   * @return Return true if reading was successful and data is valid, false
+   * otherwise.
+   */
+  bool accel_x_filter_low_pass_3db(uint32_t & result);
+  /**
+   * @brief Update low pass 3db frequency for x acceleration.
+   * @param val value to update with.
+   * @return Return true if writing was with success and
+   * false if not.
+   */
+  bool update_accel_x_filter_low_pass_3db(uint32_t val);
+
+  /**
+   * @brief Get low pass 3db frequency data for y acceleration.
+   * @param result low pass 3db frequency value.
+   * @return Return true if reading was successful and data is valid, false
+   * otherwise.
+   */
+  bool accel_y_filter_low_pass_3db(uint32_t & result);
+  /**
+   * @brief Update low pass 3db frequency for y acceleration.
+   * @param val value to update with.
+   * @return Return true if writing was with success and
+   * false if not.
+   */
+  bool update_accel_y_filter_low_pass_3db(uint32_t val);
+
+  /**
+   * @brief Get low pass 3db frequency data for z acceleration.
+   * @param result low pass 3db frequency value.
+   * @return Return true if reading was successful and data is valid, false
+   * otherwise.
+   */
+  bool accel_z_filter_low_pass_3db(uint32_t & result);
+  /**
+   * @brief Update low pass 3db frequency for z acceleration.
+   * @param val value to update with.
+   * @return Return true if writing was with success and
+   * false if not.
+   */
+  bool update_accel_z_filter_low_pass_3db(uint32_t val);
+
+#else
+  /**
+   * @brief Get low pass 3db frequency data.
+   * @param result low pass 3db frequency value.
+   * @return Return true if reading was successful and data is valid, false
+   * otherwise.
+   */
+  bool filter_low_pass_3db_frequency(uint32_t & result);
+
+  /**
+   * @brief Update low pass 3db frequency.
+   * @param val value to update with.
+   * @return Return true if writing was with success and
+   * false if not.
+   */
+  bool update_filter_low_pass_3db_frequency(uint32_t val);
+#endif
+
+#ifdef ADIS_HAS_CALIB_SCALE
+  /**
+   * @brief Get linear acceleration calibration scale on x axis.
+   * @param result linear acceleration calibration scale on x axis.
+   * @return Return true if reading was with success and
+   * false if not.
+   */
+  bool accel_x_calibscale(int32_t & result);
+  /**
+   * @brief Get linear acceleration calibration scale on y axis.
+   * @param result linear acceleration calibration scale on y axis.
+   * @return Return true if reading was with success and
+   * false if not.
+   */
+  bool accel_y_calibscale(int32_t & result);
+  /**
+   * @brief Get linear acceleration calibration scale on z axis.
+   * @param result linear acceleration calibration scale on z axis.
+   * @return Return true if reading was with success and
+   * false if not.
+   */
+  bool accel_z_calibscale(int32_t & result);
+  /**
+   * @brief Get linear angular velocity calibration scale on x axis.
+   * @param result linear angular velocity calibration scale on x axis.
+   * @return Return true if reading was with success and
+   * false if not.
+   */
+  bool anglvel_x_calibscale(int32_t & result);
+  /**
+   * @brief Get linear angular velocity calibration scale on y axis.
+   * @param result linear angular velocity calibration scale on y axis.
+   * @return Return true if reading was with success and
+   * false if not.
+   */
+  bool anglvel_y_calibscale(int32_t & result);
+  /**
+   * @brief Get linear angular velocity calibration scale on z axis.
+   * @param result linear angular velocity calibration scale on z axis.
+   * @return Return true if reading was with success and
+   * false if not.
+   */
+  bool anglvel_z_calibscale(int32_t & result);
+
+  /**
+   * @brief Update linear acceleration calibration scale on x axis.
+   * @param val value to update with.
+   * @return Return true if writing was with success and
+   * false if not.
+   */
+  bool update_accel_calibscale_x(int32_t val);
+  /**
+   * @brief Update linear acceleration calibration scale on y axis.
+   * @param val value to update with.
+   * @return Return true if writing was with success and
+   * false if not.
+   */
+  bool update_accel_calibscale_y(int32_t val);
+  /**
+   * @brief Update linear acceleration calibration scale on y axis.
+   * @param val value to update with.
+   * @return Return true if writing was with success and
+   * false if not.
+   */
+  bool update_accel_calibscale_z(int32_t val);
+  /**
+   * @brief Update angular velocity calibration scale on x axis.
+   * @param val value to update with.
+   * @return Return true if writing was with success and
+   * false if not.
+   */
+  bool update_anglvel_calibscale_x(int32_t val);
+  /**
+   * @brief Update angular velocity calibration scale on y axis.
+   * @param val value to update with.
+   * @return Return true if writing was with success and
+   * false if not.
+   */
+  bool update_anglvel_calibscale_y(int32_t val);
+  /**
+   * @brief Update angular velocity calibration scale on z axis.
+   * @param val value to update with.
+   * @return Return true if writing was with success and
+   * false if not.
+   */
+  bool update_anglvel_calibscale_z(int32_t val);
+
+#endif
+
   /**
    * @brief Get sampling frequency.
    * @param result current set sampling frequency
@@ -426,6 +625,14 @@ public:
   bool diag_data_path_overrun(bool & result);
 
   /**
+   * @brief Get automatic reset data
+   * @param result True if device reset has occured
+   * @return true Return true if reading was successful and data is valid,
+   * false otherwise.
+   */
+  bool diag_automatic_reset(bool & result);
+
+  /**
    * @brief Get diag flash memory update_error data.
    * @param result True if failure occurred, false otherwise.
    * @return Return true if reading was successful and data is valid, false
@@ -440,6 +647,14 @@ public:
    * otherwise.
    */
   bool diag_spi_communication_error(bool & result);
+
+  /**
+   * @brief Get diag crc error.
+   * @param result True if calculation failure occurred in a CRC
+   * @return Return true if reading was successful and data is valid, false
+   * otherwise.
+   */
+  bool diag_crc_error(bool & result);
 
   /**
    * @brief Get diag standby mode data.
@@ -560,22 +775,6 @@ public:
    * otherwise.
    */
   bool diag_flash_memory_write_count_exceeded_error(bool & result);
-
-  /**
-   * @brief Get low pass 3db frequency data.
-   * @param result low pass 3db frequency value.
-   * @return Return true if reading was successful and data is valid, false
-   * otherwise.
-   */
-  bool filter_low_pass_3db_frequency(uint32_t & result);
-
-  /**
-   * @brief Update low pass 3db frequency.
-   * @param val value to update with.
-   * @return Return true if writing was with success and
-   * false if not.
-   */
-  bool update_filter_low_pass_3db_frequency(uint32_t val);
 
   /**
    * @brief Get gyroscope measurement range data.
@@ -1039,13 +1238,16 @@ private:
   /*! This variable retains the timestamp channel */
   static struct iio_channel * m_channel_timestamp;
 
-  /*! This variable retains the scale for the linear acceleration x raw value */
+  /*! This variable retains the scale for the linear acceleration x raw value
+   */
   static double m_scale_accel_x;
 
-  /*! This variable retains the scale for the linear acceleration y raw value */
+  /*! This variable retains the scale for the linear acceleration y raw value
+   */
   static double m_scale_accel_y;
 
-  /*! This variable retains the scale for the linear acceleration z raw value */
+  /*! This variable retains the scale for the linear acceleration z raw value
+   */
   static double m_scale_accel_z;
 
   /*! This variable retains the scale for the angular velocity  x raw value */

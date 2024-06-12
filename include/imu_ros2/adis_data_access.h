@@ -42,6 +42,12 @@ enum adis_device_id
   ADIS16507_1,
   ADIS16507_2,
   ADIS16507_3,
+  ADIS16545_1,
+  ADIS16545_2,
+  ADIS16545_3,
+  ADIS16547_1,
+  ADIS16547_2,
+  ADIS16547_3,
   ADIS16575_2,
   ADIS16575_3,
   ADIS16576_2,
@@ -56,6 +62,8 @@ enum adis_device_id
 #include "adis1647x/adis1647x_data_access.h"
 #elif defined(ADIS1650X)
 #include "adis1650x/adis1650x_data_access.h"
+#elif defined(ADIS1654X)
+#include "adis1654x/adis1654x_data_access.h"
 #elif defined(ADIS1657X)
 #include "adis1657x/adis1657x_data_access.h"
 #else

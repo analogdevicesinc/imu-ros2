@@ -35,22 +35,44 @@ bool ImuDiagDataProvider::getData(imu_ros2::msg::ImuDiagData & message)
     return false;
 #endif
 
+#ifdef ADIS_DATA_PATH_OVERRUN
   if (!m_iio_wrapper.diag_data_path_overrun(message.diag_data_path_overrun)) return false;
+#endif
 
+#ifdef ADIS_WDG_TIMER_FLAG
+  if (!m_iio_wrapper.diag_automatic_reset(message.diag_automatic_reset)) return false;
+#endif
+
+#ifdef ADIS_FLS_MEM_UPDATE_FAIL
   if (!m_iio_wrapper.diag_flash_memory_update_error(message.diag_flash_memory_update_error))
     return false;
+#endif
 
+#ifdef ADIS_SPI_COMM_ERR
   if (!m_iio_wrapper.diag_spi_communication_error(message.diag_spi_communication_error))
     return false;
+#endif
 
+#ifdef ADIS_CRC_ERROR
+  if (!m_iio_wrapper.diag_crc_error(message.diag_crc_error)) return false;
+#endif
+
+#ifdef ADIS_STDBY_MODE
   if (!m_iio_wrapper.diag_standby_mode(message.diag_standby_mode)) return false;
+#endif
 
+#ifdef ADIS_SNSR_FAIL
   if (!m_iio_wrapper.diag_sensor_self_test_error(message.diag_sensor_self_test_error)) return false;
+#endif
 
+#ifdef ADIS_FLASH_MEMORY_TEST
   if (!m_iio_wrapper.diag_flash_memory_test_error(message.diag_flash_memory_test_error))
     return false;
+#endif
 
+#ifdef ADIS_CLK_ERR
   if (!m_iio_wrapper.diag_clock_error(message.diag_clock_error)) return false;
+#endif
 
 #ifdef ADIS_GYRO1_FAIL
   if (!m_iio_wrapper.diag_gyroscope1_self_test_error(message.diag_gyroscope1_self_test_error))
