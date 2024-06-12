@@ -600,7 +600,7 @@ double IIOWrapper::getBuffTemperature()
 
 void IIOWrapper::getBuffSampleTimestamp(int32_t & sec, uint32_t & nanosec)
 {
-  if (!has_timestamp_channel) {
+  if (has_timestamp_channel) {
     uint16_t timestamp_0_15 = buff_data[CHAN_DATA_TIMESTAMP][buff_read_idx];
     uint16_t timestamp_16_31 = buff_data[CHAN_DATA_TIMESTAMP][buff_read_idx] >> 16;
     uint16_t timestamp_32_47 = buff_data[CHAN_DATA_TIMESTAMP + 1][buff_read_idx];
