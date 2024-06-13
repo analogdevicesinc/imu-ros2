@@ -393,8 +393,12 @@ static ssize_t demux_sample(
     iio_channel_convert(chn, &val, sample);
     buff_data[iio_channel_get_index(chn)][buff_write_idx] = val;
     if (!has_timestamp_channel) {
-      /* timestamp channel is not available, have to update buff_write_idx for last read channel */
+/* timestamp channel is not available, have to update buff_write_idx for last read channel */
+#ifdef ADIS_HAS_DELTA_BURST
       if (iio_channel_get_index(chn) == CHAN_DELTA_VEL_Z) buff_write_idx++;
+#else
+      if (iio_channel_get_index(chn) == CHAN_ACCEL_Z) buff_write_idx++;
+#endif
     }
   } else {
     int64_t val;
