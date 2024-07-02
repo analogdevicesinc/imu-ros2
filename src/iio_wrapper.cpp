@@ -134,8 +134,9 @@ void IIOWrapper::createContext(const char * context)
     "adis16465-1", "adis16465-2", "adis16465-3", "adis16467-1", "adis16467-2", "adis16467-3",
     "adis16470",   "adis16475-1", "adis16475-2", "adis16475-3", "adis16477-1", "adis16477-2",
     "adis16477-3", "adis16500",   "adis16501",   "adis16505-1", "adis16505-2", "adis16505-3",
-    "adis16507-1", "adis16507-2", "adis16507-3", "adis16545-3", "adis16575-2", "adis16575-3",
-    "adis16576-2", "adis16576-3", "adis16577-2", "adis16577-3"};
+    "adis16507-1", "adis16507-2", "adis16507-3", "adis16545-1", "adis16545-2", "adis16545-3",
+    "adis16547-1", "adis16547-2", "adis16547-3", "adis16575-2", "adis16575-3", "adis16576-2",
+    "adis16576-3", "adis16577-2", "adis16577-3"};
 
   uint8_t dev_id = 0;
 
