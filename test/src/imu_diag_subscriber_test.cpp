@@ -75,7 +75,7 @@ TEST(ImuDiagSubscriberTest, test_imu__diag_data_publisher)
 #ifdef ADIS_FLS_MEM_UPDATE_FAIL
     ASSERT_TRUE(msg.diag_flash_memory_update_error == false);
 #endif
-#ifdef ADIS_SPI_COMM_ERROR
+#ifdef ADIS_SPI_COMM_ERR
     ASSERT_TRUE(msg.diag_spi_communication_error == false);
 #endif
 #ifdef ADIS_CRC_ERROR
