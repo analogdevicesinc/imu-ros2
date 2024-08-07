@@ -394,7 +394,7 @@ public:
    */
   bool update_accel_calibbias_z(int32_t val);
 
-#ifdef ADIS1654X
+#if defined(ADIS1654X) || defined(ADIS1655X)
   /**
    * @brief Get low pass 3db frequency data for x angular velocity.
    * @param result low pass 3db frequency value.
