@@ -1734,8 +1734,11 @@ bool IIOWrapper::gyroscope_measurement_range(std::string & result)
   int ret = iio_device_reg_read(m_dev, ADIS_RANG_MDL_ADDR, &reg_val);
   if (ret) return false;
 
+#ifdef ADIS1655x
+  result = "+/-300_degrees_per_sec";
+  return true;
+#else
   reg_val = (reg_val & ADIS_GYRO_MEAS_RANG) >> ADIS_GYRO_MEAS_RANG_POS;
-
   switch (reg_val) {
     case 0:
       result = "+/-125_degrees_per_sec";
@@ -1752,7 +1755,8 @@ bool IIOWrapper::gyroscope_measurement_range(std::string & result)
       return true;
     default:
       return false;
-  }
+
+#endif
 }
 
 #ifdef ADIS_SENS_BW
