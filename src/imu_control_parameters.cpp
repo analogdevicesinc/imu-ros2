@@ -60,9 +60,6 @@ void ImuControlParameters::declareAdisAttributes()
   m_attr_current_device.push_back("accel_calibscale_y");
   m_attr_current_device.push_back("accel_calibscale_z");
 #endif
-#ifndef ADIS1654X
-  m_attr_current_device.push_back("filter_low_pass_3db_frequency");
-#endif
 #ifdef ADIS_SENS_BW
   m_attr_current_device.push_back("internal_sensor_bandwidth");
 #endif
@@ -81,13 +78,15 @@ void ImuControlParameters::declareAdisAttributes()
   m_attr_current_device.push_back("y_axis_gyroscope_bias_correction_enable");
   m_attr_current_device.push_back("z_axis_gyroscope_bias_correction_enable");
 #endif
-#ifdef ADIS1654X
+#if defined(ADIS1654X) || defined(ADIS1655X)
   m_attr_current_device.push_back("angvel_x_filter_low_pass_3db");
   m_attr_current_device.push_back("angvel_y_filter_low_pass_3db");
   m_attr_current_device.push_back("angvel_z_filter_low_pass_3db");
   m_attr_current_device.push_back("accel_x_filter_low_pass_3db");
   m_attr_current_device.push_back("accel_y_filter_low_pass_3db");
   m_attr_current_device.push_back("accel_z_filter_low_pass_3db");
+#else
+  m_attr_current_device.push_back("filter_low_pass_3db_frequency");
 #endif
   m_attr_current_device.push_back("sampling_frequency");
 }
@@ -109,7 +108,7 @@ void ImuControlParameters::mapIIOUpdateFunctionsInt32()
   m_func_map_update_int32_params["anglvel_calibscale_y"] = &IIOWrapper::update_anglvel_calibscale_y;
   m_func_map_update_int32_params["anglvel_calibscale_z"] = &IIOWrapper::update_anglvel_calibscale_z;
 #endif
-#ifdef ADIS1654X
+#if defined(ADIS1654X) || defined(ADIS1655X)
   m_func_map_update_uint32_params["angvel_x_filter_low_pass_3db"] =
     &IIOWrapper::update_angvel_x_filter_low_pass_3db;
   m_func_map_update_uint32_params["angvel_y_filter_low_pass_3db"] =
@@ -122,6 +121,9 @@ void ImuControlParameters::mapIIOUpdateFunctionsInt32()
     &IIOWrapper::update_angvel_x_filter_low_pass_3db;
   m_func_map_update_uint32_params["accel_z_filter_low_pass_3db"] =
     &IIOWrapper::update_angvel_x_filter_low_pass_3db;
+#else
+  m_func_map_update_uint32_params["filter_low_pass_3db_frequency"] =
+    &IIOWrapper::update_filter_low_pass_3db_frequency;
 #endif
 }
 
@@ -142,7 +144,7 @@ void ImuControlParameters::mapIIOGetFunctionsInt32()
   m_func_map_get_int32_params["anglvel_calibscale_y"] = &IIOWrapper::anglvel_y_calibscale;
   m_func_map_get_int32_params["anglvel_calibscale_z"] = &IIOWrapper::anglvel_z_calibscale;
 #endif
-#ifdef ADIS1654X
+#if defined(ADIS1654X) || defined(ADIS1655X)
   m_func_map_get_uint32_params["angvel_x_filter_low_pass_3db"] =
     &IIOWrapper::angvel_x_filter_low_pass_3db;
   m_func_map_get_uint32_params["angvel_y_filter_low_pass_3db"] =
@@ -155,15 +157,14 @@ void ImuControlParameters::mapIIOGetFunctionsInt32()
     &IIOWrapper::angvel_x_filter_low_pass_3db;
   m_func_map_get_uint32_params["accel_z_filter_low_pass_3db"] =
     &IIOWrapper::angvel_x_filter_low_pass_3db;
+#else
+  m_func_map_get_uint32_params["filter_low_pass_3db_frequency"] =
+    &IIOWrapper::filter_low_pass_3db_frequency;
 #endif
 }
 
 void ImuControlParameters::mapIIOUpdateFunctionsUint32()
 {
-#ifndef ADIS1654X
-  m_func_map_update_uint32_params["filter_low_pass_3db_frequency"] =
-    &IIOWrapper::update_filter_low_pass_3db_frequency;
-#endif
 #ifdef ADIS_SENS_BW
   m_func_map_update_uint32_params["internal_sensor_bandwidth"] =
     &IIOWrapper::update_internal_sensor_bandwidth;
@@ -196,10 +197,6 @@ void ImuControlParameters::mapIIOUpdateFunctionsUint32()
 
 void ImuControlParameters::mapIIOGetFunctionsUint32()
 {
-#ifndef ADIS1654X
-  m_func_map_get_uint32_params["filter_low_pass_3db_frequency"] =
-    &IIOWrapper::filter_low_pass_3db_frequency;
-#endif
 #ifdef ADIS_SENS_BW
   m_func_map_get_uint32_params["internal_sensor_bandwidth"] =
     &IIOWrapper::internal_sensor_bandwidth;

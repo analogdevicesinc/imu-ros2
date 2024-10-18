@@ -135,8 +135,8 @@ void IIOWrapper::createContext(const char * context)
     "adis16470",   "adis16475-1", "adis16475-2", "adis16475-3", "adis16477-1", "adis16477-2",
     "adis16477-3", "adis16500",   "adis16501",   "adis16505-1", "adis16505-2", "adis16505-3",
     "adis16507-1", "adis16507-2", "adis16507-3", "adis16545-1", "adis16545-2", "adis16545-3",
-    "adis16547-1", "adis16547-2", "adis16547-3", "adis16575-2", "adis16575-3", "adis16576-2",
-    "adis16576-3", "adis16577-2", "adis16577-3"};
+    "adis16547-1", "adis16547-2", "adis16547-3", "adis16550",   "adis16550w",  "adis16575-2",
+    "adis16575-3", "adis16576-2", "adis16576-3", "adis16577-2", "adis16577-3"};
 
   uint8_t dev_id = 0;
 
@@ -290,6 +290,8 @@ void IIOWrapper::setDeltaAngleScales(enum adis_device_id id)
     case ADIS16501:
     case ADIS16505_2:
     case ADIS16507_2:
+    case ADIS16550:
+    case ADIS16550W:
       m_scale_deltaangl_x = 0.000000006;
       m_scale_deltaangl_y = 0.000000006;
       m_scale_deltaangl_z = 0.000000006;
@@ -375,6 +377,8 @@ void IIOWrapper::setDeltaVelocityScales(enum adis_device_id id)
       m_scale_deltavelocity_z = 0.000000046;
       return;
     case ADIS16501:
+    case ADIS16550:
+    case ADIS16550W:
       m_scale_deltavelocity_x = 0.000000058;
       m_scale_deltavelocity_y = 0.000000058;
       m_scale_deltavelocity_z = 0.000000058;
@@ -1109,7 +1113,7 @@ bool IIOWrapper::update_sampling_frequency(double val)
   return true;
 }
 
-#ifdef ADIS1654X
+#if defined(ADIS1654X) || defined(ADIS1655X)
 bool IIOWrapper::angvel_x_filter_low_pass_3db(uint32_t & result)
 {
   long long valuel;
@@ -1232,6 +1236,7 @@ bool IIOWrapper::update_accel_z_filter_low_pass_3db(uint32_t val)
   return (
     iio_channel_attr_write_longlong(m_channel_accel_z, "filter_low_pass_3db_frequency", val) == 0);
 }
+
 #else
 
 bool IIOWrapper::filter_low_pass_3db_frequency(uint32_t & result)
@@ -1734,8 +1739,11 @@ bool IIOWrapper::gyroscope_measurement_range(std::string & result)
   int ret = iio_device_reg_read(m_dev, ADIS_RANG_MDL_ADDR, &reg_val);
   if (ret) return false;
 
+#ifdef ADIS1655X
+  result = "+/-300_degrees_per_sec";
+  return true;
+#else
   reg_val = (reg_val & ADIS_GYRO_MEAS_RANG) >> ADIS_GYRO_MEAS_RANG_POS;
-
   switch (reg_val) {
     case 0:
       result = "+/-125_degrees_per_sec";
@@ -1753,6 +1761,7 @@ bool IIOWrapper::gyroscope_measurement_range(std::string & result)
     default:
       return false;
   }
+#endif
 }
 
 #ifdef ADIS_SENS_BW
