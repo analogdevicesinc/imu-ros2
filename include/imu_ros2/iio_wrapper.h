@@ -21,6 +21,8 @@
 #ifndef IIO_WRAPPER_H
 #define IIO_WRAPPER_H
 
+#define IIO_CONTEXT_ERROR -1
+
 #include <iio.h>
 
 #include <string>
@@ -48,8 +50,9 @@ public:
    * IIO ADIS device, enable trigger and map device attributes, device channels
    * and channels attributes.
    * @param context IIO context string
+   * @return ERROR code on IIO context error, 0 otherwise
    */
-  void createContext(const char * context);
+  int createContext(const char * context);
 
   /**
    * @brief Update buffer data. This function should be called before

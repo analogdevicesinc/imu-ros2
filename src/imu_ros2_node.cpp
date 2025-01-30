@@ -48,6 +48,7 @@
    */
 int main(int argc, char * argv[])
 {
+  int ret;
   rclcpp::init(argc, argv);
 
   std::shared_ptr<rclcpp::Node> imu_node = rclcpp::Node::make_shared("imu_ros2_node");
@@ -67,11 +68,11 @@ int main(int argc, char * argv[])
   std::string context =
     imu_node->get_parameter("iio_context_string").get_parameter_value().get<std::string>();
   IIOWrapper m_iio_wrapper;
-  m_iio_wrapper.createContext(context.c_str());
+  ret = m_iio_wrapper.createContext(context.c_str());
 
-  if(!IIOWrapper::m_iio_context) {
-    RCLCPP_INFO("Could not connect to IIO context");
-    goto exit;
+  if (ret) {
+    std::runtime_error("Error IIO context, exiting ROS2 node");
+    rclcpp::shutdown();
     return 0;
   }
   ImuControlParameters * ctrl_params = new ImuControlParameters(imu_node);
@@ -142,7 +143,6 @@ int main(int argc, char * argv[])
   delete ident_publisher;
   delete diag_publisher;
 
-exit:
   rclcpp::shutdown();
 
   return 0;

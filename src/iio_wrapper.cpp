@@ -111,11 +111,11 @@ IIOWrapper::~IIOWrapper()
   }
 }
 
-void IIOWrapper::createContext(const char * context)
+int IIOWrapper::createContext(const char * context)
 {
   if (m_iio_context) {
     RCLCPP_INFO(rclcpp::get_logger("rclcpp_iiowrapper"), "IIO context already exists.");
-    return;
+    return IIO_CONTEXT_ERROR;
   }
 
   if (!strcmp(context, "local:"))
@@ -125,7 +125,7 @@ void IIOWrapper::createContext(const char * context)
 
   if (!m_iio_context) {
     RCLCPP_INFO(rclcpp::get_logger("rclcpp_iiowrapper"), "IIO context is null");
-    return;
+    return IIO_CONTEXT_ERROR;
   }
 
   iio_context_set_timeout(m_iio_context, 5000);
@@ -161,7 +161,7 @@ void IIOWrapper::createContext(const char * context)
           RCLCPP_INFO(
             rclcpp::get_logger("rclcpp_iiowrapper"), "Did not find a trigger for device %s.",
             devname.c_str());
-          return;
+          return IIO_CONTEXT_ERROR;
         }
       }
       break;
@@ -173,7 +173,7 @@ void IIOWrapper::createContext(const char * context)
     iio_context_destroy(m_iio_context);
     m_iio_context = nullptr;
     RCLCPP_INFO(rclcpp::get_logger("rclcpp_iiowrapper"), "No supported IIO device found.");
-    return;
+    return IIO_CONTEXT_ERROR;
   }
 
   iio_device_set_trigger(m_dev, m_dev_trigger);
@@ -253,6 +253,8 @@ void IIOWrapper::createContext(const char * context)
   }
 
   if (m_channel_temp) iio_channel_attr_read_double(m_channel_temp, "scale", &m_scale_temp);
+
+  return 0;
 }
 
 bool IIOWrapper::updateField(uint32_t reg, uint32_t val, uint32_t mask)
