@@ -69,6 +69,11 @@ int main(int argc, char * argv[])
   IIOWrapper m_iio_wrapper;
   m_iio_wrapper.createContext(context.c_str());
 
+  if(!IIOWrapper::m_iio_context) {
+    RCLCPP_INFO("Could not connect to IIO context");
+    goto exit;
+    return 0;
+  }
   ImuControlParameters * ctrl_params = new ImuControlParameters(imu_node);
 
   AccelGyroTempDataProviderInterface * accel_gyro_data_provider = new AccelGyroTempDataProvider();
@@ -120,13 +125,12 @@ int main(int argc, char * argv[])
   diag_task = dynamic_cast<RosTask *>(diag_publisher);
 
   WorkerThread publisher_group_thread(publisher_group_task);
-
   WorkerThread ident_thread(ident_task);
   WorkerThread diag_thread(diag_task);
-  diag_thread.join();
 
-  publisher_group_thread.join();
+  diag_thread.join();
   ident_thread.join();
+  publisher_group_thread.join();
 
   delete ctrl_params;
   delete accel_gyro_publisher;
@@ -138,6 +142,7 @@ int main(int argc, char * argv[])
   delete ident_publisher;
   delete diag_publisher;
 
+exit:
   rclcpp::shutdown();
 
   return 0;
