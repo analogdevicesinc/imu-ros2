@@ -56,14 +56,13 @@ public:
   virtual void setAccelGyroTempRosPublisher(
     AccelGyroTempRosPublisherInterface * accelGyroTempRosPublisher) = 0;
 
-#ifdef ADIS_HAS_DELTA_BURST
   /**
    * @brief Sets the velAngTempRosPublisher publisher in the publisher group.
    * @param velAngTempRosPublisher The publisher to be set in the group.
    */
   virtual void setVelAngTempRosPublisher(
     VelAngTempRosPublisherInterface * velAngTempRosPublisher) = 0;
-#endif
+
 
   /**
    * @brief Sets the imuRosPublisher publisher in the publisher group.

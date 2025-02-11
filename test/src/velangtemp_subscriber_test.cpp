@@ -54,9 +54,10 @@ public:
  * VelAngTempData topic and compares it against a range of expected
  * values.
  */
-#ifdef ADIS_HAS_DELTA_BURST
+
 TEST(VelAngTempSubscriberTest, test_velangtemp_publisher)
 {
+   if(AdisData::GetInstance()->getDeviceValue("ADIS_HAS_DELTA_BURST")) {
   IIOWrapper iio_wrapper;
 
   auto node = rclcpp::Node::make_shared("test_velangtempdata_publisher");
@@ -121,5 +122,8 @@ TEST(VelAngTempSubscriberTest, test_velangtemp_publisher)
   std::chrono::seconds sec(1);
 
   while (!callbackExecuted) executor.spin_once(sec);
+
+  }
+
 }
-#endif
+

@@ -20,6 +20,7 @@
  ******************************************************************************/
 
 #include "imu_ros2/velangtemp_data_provider.h"
+#include "imu_ros2/adis_data.h"
 
 VelAngTempDataProvider::VelAngTempDataProvider() {}
 
@@ -27,7 +28,7 @@ VelAngTempDataProvider::~VelAngTempDataProvider() {}
 
 bool VelAngTempDataProvider::getData(imu_ros2::msg::VelAngTempData & message)
 {
-#ifdef ADIS_HAS_DELTA_BURST
+  if(AdisData::GetInstance()->getDeviceValue("ADIS_HAS_DELTA_BURST")) {
   if (!m_iio_wrapper.updateBuffer(DELTAVEL_DELTAANG_BUFFERED_DATA)) return false;
 
   message.delta_angle.x = m_iio_wrapper.getBuffDeltaAngleX();
@@ -44,7 +45,9 @@ bool VelAngTempDataProvider::getData(imu_ros2::msg::VelAngTempData & message)
   m_iio_wrapper.getBuffSampleTimestamp(message.header.stamp.sec, message.header.stamp.nanosec);
 
   return true;
-#else
+  }
+  else {
   return false;
-#endif
+   }
+
 }

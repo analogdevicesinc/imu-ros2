@@ -49,13 +49,13 @@ public:
   void setAccelGyroTempRosPublisher(
     AccelGyroTempRosPublisherInterface * accelGyroTempRosPublisher) override;
 
-#ifdef ADIS_HAS_DELTA_BURST
+
   /**
    * @brief Sets the velAngTempRosPublisher publisher in the publisher group.
    * @param velAngTempRosPublisher The publisher to be set in the group.
    */
   void setVelAngTempRosPublisher(VelAngTempRosPublisherInterface * velAngTempRosPublisher) override;
-#endif
+
 
   /**
    * @brief Sets the imuRosPublisher publisher in the publisher group.
@@ -88,10 +88,10 @@ public:
 private:
   /*! Variable to retain AccelGyroTemp message provider. */
   AccelGyroTempRosPublisherInterface * m_accelGyroTempRosPublisher;
-#ifdef ADIS_HAS_DELTA_BURST
+
   /*! Variable to retain VelAngTemp message provider. */
   VelAngTempRosPublisherInterface * m_velAngTempRosPublisher;
-#endif
+
   /*! Variable to retain Imu message provider. */
   ImuRosPublisherInterface * m_imuRosPublisher;
   /*! Variable to retain ImuFullMeasuredData message provider. */

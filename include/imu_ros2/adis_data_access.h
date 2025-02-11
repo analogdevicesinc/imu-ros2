@@ -58,20 +58,6 @@ enum adis_device_id
   ADIS16577_3,
 };
 
-#if defined(ADIS1646X)
-#include "adis1646x/adis1646x_data_access.h"
-#elif defined(ADIS1647X)
-#include "adis1647x/adis1647x_data_access.h"
-#elif defined(ADIS1650X)
-#include "adis1650x/adis1650x_data_access.h"
-#elif defined(ADIS1654X)
-#include "adis1654x/adis1654x_data_access.h"
-#elif defined(ADIS1655X)
-#include "adis1655x/adis1655x_data_access.h"
-#elif defined(ADIS1657X)
-#include "adis1657x/adis1657x_data_access.h"
-#else
-#error "No device defined."
-#endif
+
 
 #endif

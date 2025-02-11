@@ -19,6 +19,7 @@
  *******************************************************************************/
 
 #include "imu_ros2/imu_control_parameters.h"
+#include "imu_ros2/adis_data.h"
 
 #include <inttypes.h>
 
@@ -52,24 +53,32 @@ void ImuControlParameters::declareAdisAttributes()
   m_attr_current_device.push_back("accel_calibbias_y");
   m_attr_current_device.push_back("accel_calibbias_z");
 
-#ifdef ADIS_HAS_CALIB_SCALE
+
+  if(AdisData::GetInstance()->getDeviceValue("ADIS_HAS_CALIB_SCALE")) {
   m_attr_current_device.push_back("anglvel_calibscale_x");
   m_attr_current_device.push_back("anglvel_calibscale_y");
   m_attr_current_device.push_back("anglvel_calibscale_z");
   m_attr_current_device.push_back("accel_calibscale_x");
   m_attr_current_device.push_back("accel_calibscale_y");
   m_attr_current_device.push_back("accel_calibscale_z");
-#endif
-#ifdef ADIS_SENS_BW
+  }
+
+
+  if(AdisData::GetInstance()->getDeviceValue("ADIS_SENS_BW")) {
   m_attr_current_device.push_back("internal_sensor_bandwidth");
-#endif
-#ifdef ADIS_PT_OF_PERC_REG_ADDR
+  }
+
+  if(AdisData::GetInstance()->getDeviceValue("ADIS_PT_OF_PERC_REG_ADDR")) {
   m_attr_current_device.push_back("point_of_percussion_alignment");
-#endif
-#ifdef ADIS_MSC_CTRL_ADDR
+  }
+
+
+  if(AdisData::GetInstance()->getDeviceValue("ADIS_MSC_CTRL_ADDR")) {
   m_attr_current_device.push_back("linear_acceleration_compensation");
-#endif
-#ifdef ADIS_NULL_CNFG_ADDR
+  }
+
+
+  if(AdisData::GetInstance()->getDeviceValue("ADIS_NULL_CNFG_ADDR")) {
   m_attr_current_device.push_back("bias_correction_time_base_control");
   m_attr_current_device.push_back("x_axis_gyroscope_bias_correction_enable");
   m_attr_current_device.push_back("y_axis_accelerometer_bias_correction_enable");
@@ -77,17 +86,20 @@ void ImuControlParameters::declareAdisAttributes()
   m_attr_current_device.push_back("x_axis_accelerometer_bias_correction_enable");
   m_attr_current_device.push_back("y_axis_gyroscope_bias_correction_enable");
   m_attr_current_device.push_back("z_axis_gyroscope_bias_correction_enable");
-#endif
-#if defined(ADIS1654X) || defined(ADIS1655X)
+  }
+
+  if(AdisData::GetInstance()->checkDeviceName("adis1654x") ||
+     AdisData::GetInstance()->checkDeviceName("adis1655x")) {
   m_attr_current_device.push_back("angvel_x_filter_low_pass_3db");
   m_attr_current_device.push_back("angvel_y_filter_low_pass_3db");
   m_attr_current_device.push_back("angvel_z_filter_low_pass_3db");
   m_attr_current_device.push_back("accel_x_filter_low_pass_3db");
   m_attr_current_device.push_back("accel_y_filter_low_pass_3db");
   m_attr_current_device.push_back("accel_z_filter_low_pass_3db");
-#else
+  }
+  else {
   m_attr_current_device.push_back("filter_low_pass_3db_frequency");
-#endif
+  }
   m_attr_current_device.push_back("sampling_frequency");
 }
 
@@ -100,15 +112,18 @@ void ImuControlParameters::mapIIOUpdateFunctionsInt32()
   m_func_map_update_int32_params["anglvel_calibbias_y"] = &IIOWrapper::update_anglvel_calibbias_y;
   m_func_map_update_int32_params["anglvel_calibbias_z"] = &IIOWrapper::update_anglvel_calibbias_z;
 
-#ifdef ADIS_HAS_CALIB_SCALE
+  if(AdisData::GetInstance()->getDeviceValue("ADIS_HAS_CALIB_SCALE")) {
   m_func_map_update_int32_params["accel_calibscale_x"] = &IIOWrapper::update_accel_calibscale_x;
   m_func_map_update_int32_params["accel_calibscale_y"] = &IIOWrapper::update_accel_calibscale_y;
   m_func_map_update_int32_params["accel_calibscale_z"] = &IIOWrapper::update_accel_calibscale_z;
   m_func_map_update_int32_params["anglvel_calibscale_x"] = &IIOWrapper::update_anglvel_calibscale_x;
   m_func_map_update_int32_params["anglvel_calibscale_y"] = &IIOWrapper::update_anglvel_calibscale_y;
   m_func_map_update_int32_params["anglvel_calibscale_z"] = &IIOWrapper::update_anglvel_calibscale_z;
-#endif
-#if defined(ADIS1654X) || defined(ADIS1655X)
+  }
+
+
+  if(AdisData::GetInstance()->checkDeviceName("adis1654x") ||
+     AdisData::GetInstance()->checkDeviceName("adis1655x")) {
   m_func_map_update_uint32_params["angvel_x_filter_low_pass_3db"] =
     &IIOWrapper::update_angvel_x_filter_low_pass_3db;
   m_func_map_update_uint32_params["angvel_y_filter_low_pass_3db"] =
@@ -121,10 +136,11 @@ void ImuControlParameters::mapIIOUpdateFunctionsInt32()
     &IIOWrapper::update_angvel_x_filter_low_pass_3db;
   m_func_map_update_uint32_params["accel_z_filter_low_pass_3db"] =
     &IIOWrapper::update_angvel_x_filter_low_pass_3db;
-#else
+  } else {
   m_func_map_update_uint32_params["filter_low_pass_3db_frequency"] =
     &IIOWrapper::update_filter_low_pass_3db_frequency;
-#endif
+  }
+
 }
 
 void ImuControlParameters::mapIIOGetFunctionsInt32()
@@ -136,15 +152,17 @@ void ImuControlParameters::mapIIOGetFunctionsInt32()
   m_func_map_get_int32_params["anglvel_calibbias_y"] = &IIOWrapper::anglvel_y_calibbias;
   m_func_map_get_int32_params["anglvel_calibbias_z"] = &IIOWrapper::anglvel_z_calibbias;
 
-#ifdef ADIS_HAS_CALIB_SCALE
+  if(AdisData::GetInstance()->getDeviceValue("ADIS_HAS_CALIB_SCALE")) {
   m_func_map_get_int32_params["accel_calibscale_x"] = &IIOWrapper::accel_x_calibscale;
   m_func_map_get_int32_params["accel_calibscale_y"] = &IIOWrapper::accel_y_calibscale;
   m_func_map_get_int32_params["accel_calibscale_z"] = &IIOWrapper::accel_z_calibscale;
   m_func_map_get_int32_params["anglvel_calibscale_x"] = &IIOWrapper::anglvel_x_calibscale;
   m_func_map_get_int32_params["anglvel_calibscale_y"] = &IIOWrapper::anglvel_y_calibscale;
   m_func_map_get_int32_params["anglvel_calibscale_z"] = &IIOWrapper::anglvel_z_calibscale;
-#endif
-#if defined(ADIS1654X) || defined(ADIS1655X)
+  }
+
+  if(AdisData::GetInstance()->checkDeviceName("adis1654x") ||
+     AdisData::GetInstance()->checkDeviceName("adis1655x")) {
   m_func_map_get_uint32_params["angvel_x_filter_low_pass_3db"] =
     &IIOWrapper::angvel_x_filter_low_pass_3db;
   m_func_map_get_uint32_params["angvel_y_filter_low_pass_3db"] =
@@ -157,27 +175,31 @@ void ImuControlParameters::mapIIOGetFunctionsInt32()
     &IIOWrapper::angvel_x_filter_low_pass_3db;
   m_func_map_get_uint32_params["accel_z_filter_low_pass_3db"] =
     &IIOWrapper::angvel_x_filter_low_pass_3db;
-#else
+  } else {
   m_func_map_get_uint32_params["filter_low_pass_3db_frequency"] =
     &IIOWrapper::filter_low_pass_3db_frequency;
-#endif
+  }
+
 }
 
 void ImuControlParameters::mapIIOUpdateFunctionsUint32()
 {
-#ifdef ADIS_SENS_BW
+
+  if(AdisData::GetInstance()->getDeviceValue("ADIS_SENS_BW")) {
   m_func_map_update_uint32_params["internal_sensor_bandwidth"] =
     &IIOWrapper::update_internal_sensor_bandwidth;
-#endif
-#ifdef ADIS_PT_OF_PERC_REG_ADDR
+  }
+
+  if(AdisData::GetInstance()->getDeviceValue("ADIS_PT_OF_PERC_REG_ADDR")) {
   m_func_map_update_uint32_params["point_of_percussion_alignment"] =
     &IIOWrapper::update_point_of_percussion_alignment;
-#endif
-#ifdef ADIS_MSC_CTRL_ADDR
+  }
+  if(AdisData::GetInstance()->getDeviceValue("ADIS_MSC_CTRL_ADDR")) {
   m_func_map_update_uint32_params["linear_acceleration_compensation"] =
     &IIOWrapper::update_linear_acceleration_compensation;
-#endif
-#ifdef ADIS_NULL_CNFG_ADDR
+  }
+
+  if(AdisData::GetInstance()->getDeviceValue("ADIS_NULL_CNFG_ADDR")) {
   m_func_map_update_uint32_params["bias_correction_time_base_control"] =
     &IIOWrapper::update_bias_correction_time_base_control;
   m_func_map_update_uint32_params["x_axis_gyroscope_bias_correction_enable"] =
@@ -192,24 +214,27 @@ void ImuControlParameters::mapIIOUpdateFunctionsUint32()
     &IIOWrapper::update_y_axis_accelerometer_bias_correction_enable;
   m_func_map_update_uint32_params["z_axis_accelerometer_bias_correction_enable"] =
     &IIOWrapper::update_z_axis_accelerometer_bias_correction_enable;
-#endif
+  }
 }
 
 void ImuControlParameters::mapIIOGetFunctionsUint32()
 {
-#ifdef ADIS_SENS_BW
+  if(AdisData::GetInstance()->getDeviceValue("ADIS_SENS_BW")) {
   m_func_map_get_uint32_params["internal_sensor_bandwidth"] =
     &IIOWrapper::internal_sensor_bandwidth;
-#endif
-#ifdef ADIS_PT_OF_PERC_REG_ADDR
+  }
+
+  if(AdisData::GetInstance()->getDeviceValue("ADIS_PT_OF_PERC_REG_ADDR")) {
   m_func_map_get_uint32_params["point_of_percussion_alignment"] =
     &IIOWrapper::point_of_percussion_alignment;
-#endif
-#ifdef ADIS_MSC_CTRL_ADDR
+  }
+
+  if(AdisData::GetInstance()->getDeviceValue("ADIS_MSC_CTRL_ADDR")) {
   m_func_map_get_uint32_params["linear_acceleration_compensation"] =
     &IIOWrapper::linear_acceleration_compensation;
-#endif
-#ifdef ADIS_NULL_CNFG_ADDR
+  }
+
+  if(AdisData::GetInstance()->getDeviceValue("ADIS_NULL_CNFG_ADDR")) {
   m_func_map_get_uint32_params["bias_correction_time_base_control"] =
     &IIOWrapper::bias_correction_time_base_control;
   m_func_map_get_uint32_params["x_axis_gyroscope_bias_correction_enable"] =
@@ -224,7 +249,7 @@ void ImuControlParameters::mapIIOGetFunctionsUint32()
     &IIOWrapper::y_axis_accelerometer_bias_correction_enable;
   m_func_map_get_uint32_params["z_axis_accelerometer_bias_correction_enable"] =
     &IIOWrapper::z_axis_accelerometer_bias_correction_enable;
-#endif
+  }
 }
 
 void ImuControlParameters::mapIIOUpdateFunctionsDouble()
@@ -240,16 +265,20 @@ void ImuControlParameters::mapIIOGetFunctionsDouble()
 void ImuControlParameters::mapIIOCommandFunctions()
 {
   m_func_map_execute_commands["software_reset"] = &IIOWrapper::software_reset;
-#ifdef ADIS_FLASH_MEMORY_TEST
+
+  if(AdisData::GetInstance()->getDeviceValue("ADIS_FLASH_MEMORY_TEST")) {
   m_func_map_execute_commands["flash_memory_test"] = &IIOWrapper::flash_memory_test;
-#endif
+  }
+
   m_func_map_execute_commands["flash_memory_update"] = &IIOWrapper::flash_memory_update;
   m_func_map_execute_commands["sensor_self_test"] = &IIOWrapper::sensor_self_test;
   m_func_map_execute_commands["factory_calibration_restore"] =
     &IIOWrapper::factory_calibration_restore;
-#ifdef ADIS_BIAS_CORRECTION_UPDATE
+
+  if(AdisData::GetInstance()->getDeviceValue("ADIS_BIAS_CORRECTION_UPDATE")) {
   m_func_map_execute_commands["bias_correction_update"] = &IIOWrapper::bias_correction_update;
-#endif
+  }
+
 }
 
 void ImuControlParameters::declareParameterDescription()
@@ -259,15 +288,16 @@ void ImuControlParameters::declareParameterDescription()
   param_range_calibbias.to_value = 2147483647;
   param_range_calibbias.step = 1;
 
-#ifndef ADIS1654X
-  auto param_range_0_720 = rcl_interfaces::msg::IntegerRange{};
+   auto param_range_0_720 = rcl_interfaces::msg::IntegerRange{};
+   auto param_range_100_300 = rcl_interfaces::msg::IntegerRange{};
+   if(AdisData::GetInstance()->checkDeviceName("adis1654x")) {
   param_range_0_720.from_value = 0;
   param_range_0_720.to_value = 720;
-#else
-  auto param_range_100_300 = rcl_interfaces::msg::IntegerRange{};
+   } else {
   param_range_100_300.from_value = 0;
   param_range_100_300.to_value = 300;
-#endif
+}
+
 
   auto param_range_01 = rcl_interfaces::msg::IntegerRange{};
   param_range_01.from_value = 0;
@@ -275,11 +305,13 @@ void ImuControlParameters::declareParameterDescription()
   param_range_01.step = 1;
 
   auto param_range_03 = rcl_interfaces::msg::IntegerRange{};
-#ifdef ADIS_HAS_DELTA_BURST
+
+  if(AdisData::GetInstance()->getDeviceValue("ADIS_HAS_DELTA_BURST")) {
   param_range_03.from_value = 0;
-#else
+  } else {
   param_range_03.from_value = 1;
-#endif
+  }
+
   param_range_03.to_value = 3;
   param_range_03.step = 1;
 
@@ -301,7 +333,7 @@ void ImuControlParameters::declareParameterDescription()
   m_param_description["accel_calibbias_z"] = "z-axis acceleration offset correction";
   m_param_constraints_integer["accel_calibbias_z"] = param_range_calibbias;
 
-#ifdef ADIS1654X
+  if(AdisData::GetInstance()->checkDeviceName("adis1654x")) {
   m_param_description["angvel_x_filter_low_pass_3db"] = "X angular velocity low pass 3db frequency";
   m_param_constraints_integer["angvel_x_filter_low_pass_3db"] = param_range_100_300;
 
@@ -319,12 +351,13 @@ void ImuControlParameters::declareParameterDescription()
 
   m_param_description["accel_z_filter_low_pass_3db"] = "Z acceleration low pass 3db frequency";
   m_param_constraints_integer["accel_z_filter_low_pass_3db"] = param_range_100_300;
-#else
+
+} else {
   m_param_description["filter_low_pass_3db_frequency"] = "Low pass 3db frequency";
   m_param_constraints_integer["filter_low_pass_3db_frequency"] = param_range_0_720;
-#endif
+  }
 
-#ifdef ADIS_HAS_CALIB_SCALE
+  if(AdisData::GetInstance()->getDeviceValue("ADIS_HAS_CALIB_SCALE")) {
 
   m_param_description["anglvel_calibscale_x"] = "x-axis angular velocity scale correction";
   m_param_constraints_integer["anglvel_calibscale_x"] = param_range_calibbias;
@@ -343,28 +376,31 @@ void ImuControlParameters::declareParameterDescription()
 
   m_param_description["accel_calibscale_z"] = "z-axis acceleration scale correction";
   m_param_constraints_integer["accel_calibscale_z"] = param_range_calibbias;
+  }
 
-#endif
 
-#ifdef ADIS_SENS_BW
+  if(AdisData::GetInstance()->getDeviceValue("ADIS_SENS_BW")) {
   m_param_description["internal_sensor_bandwidth"] =
     "\n0: wide bandwidth"
     "\n1: 370 Hz";
   m_param_constraints_integer["internal_sensor_bandwidth"] = param_range_01;
-#endif
-#ifdef ADIS_PT_OF_PERC_REG_ADDR
+  }
+
+  if(AdisData::GetInstance()->getDeviceValue("ADIS_PT_OF_PERC_REG_ADDR")) {
   m_param_description["point_of_percussion_alignment"] =
     "\n0: point of percussion alignment disable"
     "\n1: point of percussion alignment enable";
   m_param_constraints_integer["point_of_percussion_alignment"] = param_range_01;
-#endif
-#ifdef ADIS_MSC_CTRL_ADDR
+  }
+
+  if(AdisData::GetInstance()->getDeviceValue("ADIS_MSC_CTRL_ADDR")) {
   m_param_description["linear_acceleration_compensation"] =
     "\n0: linear acceleration compensation disable"
     "\n1: linear acceleration compensation enable";
   m_param_constraints_integer["linear_acceleration_compensation"] = param_range_01;
-#endif
-#ifdef ADIS_NULL_CNFG_ADDR
+  }
+
+  if(AdisData::GetInstance()->getDeviceValue("ADIS_NULL_CNFG_ADDR")) {
   auto param_range_0_12 = rcl_interfaces::msg::IntegerRange{};
   param_range_0_12.from_value = 0;
   param_range_0_12.to_value = 12;
@@ -402,13 +438,15 @@ void ImuControlParameters::declareParameterDescription()
     "\n0: z-axis accelerometer bias correction disabled"
     "\n1: z-axis accelerometer bias correction enabled";
   m_param_constraints_integer["z_axis_accelerometer_bias_correction_enable"] = param_range_01;
-#endif
+  }
 
   m_param_description["measured_data_topic_selection"] = "\nmeasured_data_topic_selection values:";
-#ifdef ADIS_HAS_DELTA_BURST
+
+  if(AdisData::GetInstance()->getDeviceValue("ADIS_HAS_DELTA_BURST")) {
   m_param_description["measured_data_topic_selection"].append(
     "\n0: measured data is published on /velangtempdata topic");
-#endif
+  }
+
   m_param_description["measured_data_topic_selection"].append(
     "\n1: measured data is published on /accelgyrotempdata topic");
 
@@ -421,7 +459,7 @@ void ImuControlParameters::declareParameterDescription()
 
   auto param_range_float = rcl_interfaces::msg::FloatingPointRange{};
   param_range_float.from_value = 1.0;
-  param_range_float.to_value = ADIS_MAX_SAMP_FREQ;
+  param_range_float.to_value = AdisData::GetInstance()->getDeviceValue("ADIS_MAX_SAMP_FREQ");
   m_param_description["sampling_frequency"] = "Device sampling frequency";
   m_param_constraints_floating["sampling_frequency"] = param_range_float;
 }
@@ -477,18 +515,19 @@ void ImuControlParameters::declareParameters()
   param_desc.description =
     "\ncommand_to_execute values:"
     "\nsoftware_reset: performs a software reset on the device"
-#ifdef ADIS_FLASH_MEMORY_TEST
-    "\nflash_memory_test: performs a flash memory test on the device"
-#endif
     "\nflash_memory_update: performs a flash memory update on the device"
     "\nsensor_self_test: performs a sensor self test on the device"
     "\nfactory_calibration_restore: performs a factory calibration "
     "restore on the device";
-#ifdef ADIS_BIAS_CORRECTION_UPDATE
+  if(AdisData::GetInstance()->getDeviceValue("ADIS_FLASH_MEMORY_TEST")) {
+    param_desc.description.append("\nflash_memory_test: performs a flash memory test on the device");
+  }
+
+  if(AdisData::GetInstance()->getDeviceValue("ADIS_BIAS_CORRECTION_UPDATE")) {
   param_desc.description.append(
     "\nbias_correction_update: triggers a bias correction, using the bias "
     "correction factors");
-#endif
+  }
 
   m_node->declare_parameter("command_to_execute", "no_command", param_desc);
 }

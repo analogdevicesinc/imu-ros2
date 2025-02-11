@@ -22,6 +22,10 @@
 
 #include <rclcpp/rclcpp.hpp>
 
+
+
+
+
 /*! Maximum allowed number of samples in IIO buffer. */
 #define MAX_NO_OF_SAMPLES 1
 
@@ -34,14 +38,12 @@ enum
   CHAN_ACCEL_Y,
   CHAN_ACCEL_Z,
   CHAN_TEMP,
-#ifdef ADIS_HAS_DELTA_BURST
   CHAN_DELTA_ANGL_X,
   CHAN_DELTA_ANGL_Y,
   CHAN_DELTA_ANGL_Z,
   CHAN_DELTA_VEL_X,
   CHAN_DELTA_VEL_Y,
   CHAN_DELTA_VEL_Z,
-#endif
   CHAN_DATA_TIMESTAMP,
   NO_OF_CHANS,
 };
@@ -97,7 +99,8 @@ uint32_t current_data_selection = FULL_MEASURED_DATA;
 bool has_delta_channels = true;
 bool has_timestamp_channel = false;
 
-IIOWrapper::IIOWrapper() {}
+
+IIOWrapper::IIOWrapper() { }
 
 IIOWrapper::~IIOWrapper()
 {
@@ -417,9 +420,8 @@ static ssize_t demux_sample(
     if (!has_timestamp_channel) {
 /* timestamp channel is not available, have to update buff_write_idx for last
  * read channel */
-#ifdef ADIS_HAS_DELTA_BURST
+    if(AdisData::GetInstance()->getDeviceValue("ADIS_HAS_DELTA_BURST"))
       if (iio_channel_get_index(chn) == CHAN_DELTA_VEL_Z) buff_write_idx++;
-#endif
     }
   } else {
     int64_t val;
@@ -440,7 +442,7 @@ bool IIOWrapper::updateBuffer(uint32_t data_selection)
   if (current_data_selection != data_selection) {
     stopBufferAcquisition();
     if (data_selection == ACCEL_GYRO_BUFFERED_DATA) {
-#ifdef ADIS_HAS_DELTA_BURST
+if(AdisData::GetInstance()->getDeviceValue("ADIS_HAS_DELTA_BURST")) {
       if (has_delta_channels) {
         iio_channel_disable(m_channel_deltaangl_x);
         iio_channel_disable(m_channel_deltaangl_y);
@@ -449,7 +451,7 @@ bool IIOWrapper::updateBuffer(uint32_t data_selection)
         iio_channel_disable(m_channel_deltavelocity_y);
         iio_channel_disable(m_channel_deltavelocity_z);
       }
-#endif
+}
       iio_channel_enable(m_channel_accel_x);
       iio_channel_enable(m_channel_accel_y);
       iio_channel_enable(m_channel_accel_z);
@@ -463,7 +465,7 @@ bool IIOWrapper::updateBuffer(uint32_t data_selection)
       iio_channel_disable(m_channel_anglvel_x);
       iio_channel_disable(m_channel_anglvel_y);
       iio_channel_disable(m_channel_anglvel_z);
-#ifdef ADIS_HAS_DELTA_BURST
+if(AdisData::GetInstance()->getDeviceValue("ADIS_HAS_DELTA_BURST")) {
       if (has_delta_channels) {
         iio_channel_enable(m_channel_deltaangl_x);
         iio_channel_enable(m_channel_deltaangl_y);
@@ -474,7 +476,7 @@ bool IIOWrapper::updateBuffer(uint32_t data_selection)
       } else {
         stopBufferAcquisition();
       }
-#endif
+}
     }
 
     current_data_selection = data_selection;
@@ -544,7 +546,6 @@ double IIOWrapper::getBuffAngularVelocityZ()
   return (int32_t)buff_data[CHAN_GYRO_Z][buff_read_idx] * m_scale_anglvel_z;
 }
 
-#ifdef ADIS_HAS_DELTA_BURST
 double IIOWrapper::getBuffDeltaAngleX()
 {
   if (!has_delta_channels) {
@@ -617,7 +618,6 @@ double IIOWrapper::getBuffDeltaVelocityZ()
   }
   return (int32_t)buff_data[CHAN_DELTA_VEL_Z][buff_read_idx] * m_scale_deltavelocity_z;
 }
-#endif
 
 double IIOWrapper::getBuffTemperature()
 {
@@ -1115,7 +1115,6 @@ bool IIOWrapper::update_sampling_frequency(double val)
   return true;
 }
 
-#if defined(ADIS1654X) || defined(ADIS1655X)
 bool IIOWrapper::angvel_x_filter_low_pass_3db(uint32_t & result)
 {
   long long valuel;
@@ -1239,8 +1238,6 @@ bool IIOWrapper::update_accel_z_filter_low_pass_3db(uint32_t val)
     iio_channel_attr_write_longlong(m_channel_accel_z, "filter_low_pass_3db_frequency", val) == 0);
 }
 
-#else
-
 bool IIOWrapper::filter_low_pass_3db_frequency(uint32_t & result)
 {
   long long valuel;
@@ -1261,9 +1258,7 @@ bool IIOWrapper::update_filter_low_pass_3db_frequency(uint32_t val)
   return (iio_device_attr_write_longlong(m_dev, "filter_low_pass_3db_frequency", val) == 0);
 }
 
-#endif
 
-#ifdef ADIS_HAS_CALIB_SCALE
 
 bool IIOWrapper::accel_x_calibscale(int32_t & result)
 {
@@ -1379,348 +1374,339 @@ bool IIOWrapper::update_anglvel_calibscale_z(int32_t val)
   return (iio_channel_attr_write_longlong(m_channel_anglvel_z, "calibscale", val) == 0);
 }
 
-#endif
-
-#ifdef ADIS_SNSR_INIT_FAIL
 bool IIOWrapper::diag_sensor_initialization_failure(bool & result)
 {
   uint32_t reg_val;
 
   if (!m_dev) return false;
 
-  int ret = iio_device_reg_read(m_dev, ADIS_DIAG_STAT_ADDR, &reg_val);
+  int ret = iio_device_reg_read(m_dev, AdisData::GetInstance()->getDeviceValue("ADIS_DIAG_STAT_ADDR"), &reg_val);
   if (ret) return false;
 
-  reg_val = (reg_val & ADIS_SNSR_INIT_FAIL) >> ADIS_SNSR_INIT_FAIL_POS;
+  reg_val = (reg_val & AdisData::GetInstance()->getDeviceValue("ADIS_SNSR_INIT_FAIL")) >> AdisData::GetInstance()->getDeviceValue("ADIS_SNSR_INIT_FAIL_POS");
 
   result = reg_val;
 
   return true;
 }
-#endif
 
-#ifdef ADIS_DATA_PATH_OVERRUN
+
+
 bool IIOWrapper::diag_data_path_overrun(bool & result)
 {
   uint32_t reg_val;
 
   if (!m_dev) return false;
 
-  int ret = iio_device_reg_read(m_dev, ADIS_DIAG_STAT_ADDR, &reg_val);
+  int ret = iio_device_reg_read(m_dev, AdisData::GetInstance()->getDeviceValue("ADIS_DIAG_STAT_ADDR"), &reg_val);
   if (ret) return false;
 
-  reg_val = (reg_val & ADIS_DATA_PATH_OVERRUN) >> ADIS_DATA_PATH_OVERRUN_POS;
+  reg_val = (reg_val & AdisData::GetInstance()->getDeviceValue("ADIS_DATA_PATH_OVERRUN")) >> AdisData::GetInstance()->getDeviceValue("ADIS_DATA_PATH_OVERRUN_POS");
   result = reg_val;
 
   return true;
 }
-#endif
 
-#ifdef ADIS_WDG_TIMER_FLAG
+
 bool IIOWrapper::diag_automatic_reset(bool & result)
 {
   uint32_t reg_val;
 
   if (!m_dev) return false;
 
-  int ret = iio_device_reg_read(m_dev, ADIS_DIAG_STAT_ADDR, &reg_val);
+  int ret = iio_device_reg_read(m_dev, AdisData::GetInstance()->getDeviceValue("ADIS_DIAG_STAT_ADDR") , &reg_val);
   if (ret) return false;
 
-  reg_val = (reg_val & ADIS_WDG_TIMER_FLAG) >> ADIS_WDG_TIMER_FLAG_POS;
+  reg_val = (reg_val & AdisData::GetInstance()->getDeviceValue("ADIS_WDG_TIMER_FLAG")) >> AdisData::GetInstance()->getDeviceValue("ADIS_WDG_TIMER_FLAG_POS");
   result = reg_val;
 
   return true;
 }
-#endif
 
-#ifdef ADIS_FLS_MEM_UPDATE_FAIL
+
 bool IIOWrapper::diag_flash_memory_update_error(bool & result)
 {
   uint32_t reg_val;
 
   if (!m_dev) return false;
 
-  int ret = iio_device_reg_read(m_dev, ADIS_DIAG_STAT_ADDR, &reg_val);
+  int ret = iio_device_reg_read(m_dev, AdisData::GetInstance()->getDeviceValue("ADIS_DIAG_STAT_ADDR"), &reg_val);
   if (ret) return false;
 
-  reg_val = (reg_val & ADIS_FLS_MEM_UPDATE_FAIL) >> ADIS_FLS_MEM_UPDATE_FAIL_POS;
+  reg_val = (reg_val & AdisData::GetInstance()->getDeviceValue("ADIS_FLS_MEM_UPDATE_FAIL")) >> AdisData::GetInstance()->getDeviceValue("ADIS_FLS_MEM_UPDATE_FAIL_POS");
   result = reg_val;
 
   return true;
 }
-#endif
 
-#ifdef ADIS_SPI_COMM_ERR
+
+
 bool IIOWrapper::diag_spi_communication_error(bool & result)
 {
   uint32_t reg_val;
 
   if (!m_dev) return false;
 
-  int ret = iio_device_reg_read(m_dev, ADIS_DIAG_STAT_ADDR, &reg_val);
+  int ret = iio_device_reg_read(m_dev, AdisData::GetInstance()->getDeviceValue("ADIS_DIAG_STAT_ADDR"), &reg_val);
   if (ret) return false;
 
-  reg_val = (reg_val & ADIS_SPI_COMM_ERR) >> ADIS_SPI_COMM_ERR_POS;
+  reg_val = (reg_val & AdisData::GetInstance()->getDeviceValue("ADIS_SPI_COMM_ERR")) >> AdisData::GetInstance()->getDeviceValue("ADIS_SPI_COMM_ERR_POS");
   result = reg_val;
 
   return true;
 }
-#endif
 
-#ifdef ADIS_CRC_ERROR_POS
+
 bool IIOWrapper::diag_crc_error(bool & result)
 {
   uint32_t reg_val;
 
   if (!m_dev) return false;
 
-  int ret = iio_device_reg_read(m_dev, ADIS_DIAG_STAT_ADDR, &reg_val);
+  int ret = iio_device_reg_read(m_dev, AdisData::GetInstance()->getDeviceValue("ADIS_DIAG_STAT_ADDR"), &reg_val);
   if (ret) return false;
 
-  reg_val = (reg_val & ADIS_CRC_ERROR) >> ADIS_CRC_ERROR_POS;
+  reg_val = (reg_val & AdisData::GetInstance()->getDeviceValue("ADIS_CRC_ERROR")) >> AdisData::GetInstance()->getDeviceValue("ADIS_CRC_ERROR_POS");
   result = reg_val;
 
   return true;
 }
-#endif
 
-#ifdef ADIS_STDBY_MODE
+
+
 bool IIOWrapper::diag_standby_mode(bool & result)
 {
   uint32_t reg_val;
 
   if (!m_dev) return false;
 
-  int ret = iio_device_reg_read(m_dev, ADIS_DIAG_STAT_ADDR, &reg_val);
+  int ret = iio_device_reg_read(m_dev, AdisData::GetInstance()->getDeviceValue("ADIS_DIAG_STAT_ADDR"), &reg_val);
   if (ret) return false;
 
-  reg_val = (reg_val & ADIS_STDBY_MODE) >> ADIS_STDBY_MODE_POS;
+  reg_val = (reg_val & AdisData::GetInstance()->getDeviceValue("ADIS_STDBY_MODE")) >> AdisData::GetInstance()->getDeviceValue("ADIS_STDBY_MODE_POS");
   result = reg_val;
 
   return true;
 }
-#endif
 
-#ifdef ADIS_SNSR_FAIL
+
+
 bool IIOWrapper::diag_sensor_self_test_error(bool & result)
 {
   uint32_t reg_val;
 
   if (!m_dev) return false;
 
-  int ret = iio_device_reg_read(m_dev, ADIS_DIAG_STAT_ADDR, &reg_val);
+  int ret = iio_device_reg_read(m_dev, AdisData::GetInstance()->getDeviceValue("ADIS_DIAG_STAT_ADDR"), &reg_val);
   if (ret) return false;
 
-  reg_val = (reg_val & ADIS_SNSR_FAIL) >> ADIS_SNSR_FAIL_POS;
+  reg_val = (reg_val & AdisData::GetInstance()->getDeviceValue("ADIS_SNSR_FAIL")) >> AdisData::GetInstance()->getDeviceValue("ADIS_SNSR_FAIL_POS");
   result = reg_val;
 
   return true;
 }
-#endif
 
-#ifdef ADIS_MEM_FAIL
+
+
 bool IIOWrapper::diag_flash_memory_test_error(bool & result)
 {
   uint32_t reg_val;
 
   if (!m_dev) return false;
 
-  int ret = iio_device_reg_read(m_dev, ADIS_DIAG_STAT_ADDR, &reg_val);
+  int ret = iio_device_reg_read(m_dev, AdisData::GetInstance()->getDeviceValue("ADIS_DIAG_STAT_ADDR"), &reg_val);
   if (ret) return false;
 
-  reg_val = (reg_val & ADIS_MEM_FAIL) >> ADIS_MEM_FAIL_POS;
+  reg_val = (reg_val & AdisData::GetInstance()->getDeviceValue("ADIS_MEM_FAIL")) >> AdisData::GetInstance()->getDeviceValue("ADIS_MEM_FAIL_POS");
   result = reg_val;
 
   return true;
 }
-#endif
 
-#ifdef ADIS_CLK_ERR
+
+
 bool IIOWrapper::diag_clock_error(bool & result)
 {
   uint32_t reg_val;
 
   if (!m_dev) return false;
 
-  int ret = iio_device_reg_read(m_dev, ADIS_DIAG_STAT_ADDR, &reg_val);
+  int ret = iio_device_reg_read(m_dev, AdisData::GetInstance()->getDeviceValue("ADIS_DIAG_STAT_ADDR"), &reg_val);
   if (ret) return false;
 
-  reg_val = (reg_val & ADIS_CLK_ERR) >> ADIS_CLK_ERR_POS;
+  reg_val = (reg_val & AdisData::GetInstance()->getDeviceValue("ADIS_CLK_ERR")) >> AdisData::GetInstance()->getDeviceValue("ADIS_CLK_ERR_POS");
   result = reg_val;
 
   return true;
 }
-#endif
 
-#ifdef ADIS_GYRO1_FAIL
+
 bool IIOWrapper::diag_gyroscope1_self_test_error(bool & result)
 {
   uint32_t reg_val;
 
   if (!m_dev) return false;
 
-  int ret = iio_device_reg_read(m_dev, ADIS_DIAG_STAT_ADDR, &reg_val);
+  int ret = iio_device_reg_read(m_dev, AdisData::GetInstance()->getDeviceValue("ADIS_DIAG_STAT_ADDR"), &reg_val);
   if (ret) return false;
 
-  reg_val = (reg_val & ADIS_GYRO1_FAIL) >> ADIS_GYRO1_FAIL_POS;
+  reg_val = (reg_val & AdisData::GetInstance()->getDeviceValue("ADIS_GYRO1_FAIL") ) >> AdisData::GetInstance()->getDeviceValue("ADIS_GYRO1_FAIL_POS");
   result = reg_val;
 
   return true;
 }
-#endif
 
-#ifdef ADIS_GYRO2_FAIL
+
 bool IIOWrapper::diag_gyroscope2_self_test_error(bool & result)
 {
   uint32_t reg_val;
 
   if (!m_dev) return false;
 
-  int ret = iio_device_reg_read(m_dev, ADIS_DIAG_STAT_ADDR, &reg_val);
+  int ret = iio_device_reg_read(m_dev, AdisData::GetInstance()->getDeviceValue("ADIS_DIAG_STAT_ADDR") , &reg_val);
   if (ret) return false;
 
-  reg_val = (reg_val & ADIS_GYRO2_FAIL) >> ADIS_GYRO2_FAIL_POS;
+  reg_val = (reg_val & AdisData::GetInstance()->getDeviceValue("ADIS_GYRO2_FAIL")) >> AdisData::GetInstance()->getDeviceValue("ADIS_GYRO2_FAIL_POS");
   result = reg_val;
 
   return true;
 }
-#endif
 
-#ifdef ADIS_ACCEL_FAIL
+
+
 bool IIOWrapper::diag_acceleration_self_test_error(bool & result)
 {
   uint32_t reg_val;
 
   if (!m_dev) return false;
 
-  int ret = iio_device_reg_read(m_dev, ADIS_DIAG_STAT_ADDR, &reg_val);
+  int ret = iio_device_reg_read(m_dev, AdisData::GetInstance()->getDeviceValue("ADIS_DIAG_STAT_ADDR"), &reg_val);
   if (ret) return false;
 
-  reg_val = (reg_val & ADIS_ACCEL_FAIL) >> ADIS_ACCEL_FAIL_POS;
+  reg_val = (reg_val & AdisData::GetInstance()->getDeviceValue("ADIS_ACCEL_FAIL")) >> AdisData::GetInstance()->getDeviceValue("ADIS_ACCEL_FAIL_POS");
   result = reg_val;
 
   return true;
 }
-#endif
 
-#ifdef ADIS_GYRO_X_FAIL
+
+
 bool IIOWrapper::diag_x_axis_gyroscope_failure(bool & result)
 {
   uint32_t reg_val;
 
   if (!m_dev) return false;
 
-  int ret = iio_device_reg_read(m_dev, ADIS_GYRO_ACCEL_FAIL_REG, &reg_val);
+  int ret = iio_device_reg_read(m_dev, AdisData::GetInstance()->getDeviceValue("ADIS_GYRO_ACCEL_FAIL_REG"), &reg_val);
   if (ret) return false;
 
-  reg_val = (reg_val & ADIS_GYRO_X_FAIL) >> ADIS_GYRO_X_FAIL_POS;
+  reg_val = (reg_val & AdisData::GetInstance()->getDeviceValue("ADIS_GYRO_X_FAIL")) >> AdisData::GetInstance()->getDeviceValue("ADIS_GYRO_X_FAIL_POS");
   result = reg_val;
 
   return true;
 }
-#endif
 
-#ifdef ADIS_GYRO_Y_FAIL
+
+
 bool IIOWrapper::diag_y_axis_gyroscope_failure(bool & result)
 {
   uint32_t reg_val;
 
   if (!m_dev) return false;
 
-  int ret = iio_device_reg_read(m_dev, ADIS_GYRO_ACCEL_FAIL_REG, &reg_val);
+  int ret = iio_device_reg_read(m_dev, AdisData::GetInstance()->getDeviceValue("ADIS_GYRO_ACCEL_FAIL_REG"), &reg_val);
   if (ret) return false;
 
-  reg_val = (reg_val & ADIS_GYRO_Y_FAIL) >> ADIS_GYRO_Y_FAIL_POS;
+  reg_val = (reg_val & AdisData::GetInstance()->getDeviceValue("ADIS_GYRO_Y_FAIL")) >> AdisData::GetInstance()->getDeviceValue("ADIS_GYRO_Y_FAIL_POS");
   result = reg_val;
 
   return true;
 }
-#endif
 
-#ifdef ADIS_GYRO_Z_FAIL
+
+
 bool IIOWrapper::diag_z_axis_gyroscope_failure(bool & result)
 {
   uint32_t reg_val;
 
   if (!m_dev) return false;
 
-  int ret = iio_device_reg_read(m_dev, ADIS_GYRO_ACCEL_FAIL_REG, &reg_val);
+  int ret = iio_device_reg_read(m_dev, AdisData::GetInstance()->getDeviceValue("ADIS_GYRO_ACCEL_FAIL_REG"), &reg_val);
   if (ret) return false;
 
-  reg_val = (reg_val & ADIS_GYRO_Z_FAIL) >> ADIS_GYRO_Z_FAIL_POS;
+  reg_val = (reg_val & AdisData::GetInstance()->getDeviceValue("ADIS_GYRO_Z_FAIL")) >> AdisData::GetInstance()->getDeviceValue("ADIS_GYRO_Z_FAIL_POS");
   result = reg_val;
 
   return true;
 }
-#endif
 
-#ifdef ADIS_ACCEL_X_FAIL
+
 bool IIOWrapper::diag_x_axis_accelerometer_failure(bool & result)
 {
   uint32_t reg_val;
 
   if (!m_dev) return false;
 
-  int ret = iio_device_reg_read(m_dev, ADIS_GYRO_ACCEL_FAIL_REG, &reg_val);
+  int ret = iio_device_reg_read(m_dev, AdisData::GetInstance()->getDeviceValue("ADIS_GYRO_ACCEL_FAIL_REG"), &reg_val);
   if (ret) return false;
 
-  reg_val = (reg_val & ADIS_ACCEL_X_FAIL) >> ADIS_ACCEL_X_FAIL_POS;
+  reg_val = (reg_val & AdisData::GetInstance()->getDeviceValue("ADIS_ACCEL_X_FAIL")) >> AdisData::GetInstance()->getDeviceValue("ADIS_ACCEL_X_FAIL_POS");
   result = reg_val;
 
   return true;
 }
-#endif
 
-#ifdef ADIS_ACCEL_Y_FAIL
+
+
 bool IIOWrapper::diag_y_axis_accelerometer_failure(bool & result)
 {
   uint32_t reg_val;
 
   if (!m_dev) return false;
 
-  int ret = iio_device_reg_read(m_dev, ADIS_GYRO_ACCEL_FAIL_REG, &reg_val);
+  int ret = iio_device_reg_read(m_dev, AdisData::GetInstance()->getDeviceValue("ADIS_GYRO_ACCEL_FAIL_REG"), &reg_val);
   if (ret) return false;
 
-  reg_val = (reg_val & ADIS_ACCEL_Y_FAIL) >> ADIS_ACCEL_Y_FAIL_POS;
+  reg_val = (reg_val & AdisData::GetInstance()->getDeviceValue("ADIS_ACCEL_Y_FAIL")) >> AdisData::GetInstance()->getDeviceValue("ADIS_ACCEL_Y_FAIL_POS");
   result = reg_val;
 
   return true;
 }
-#endif
 
-#ifdef ADIS_ACCEL_Z_FAIL
+
+
 bool IIOWrapper::diag_z_axis_accelerometer_failure(bool & result)
 {
   uint32_t reg_val;
 
   if (!m_dev) return false;
 
-  int ret = iio_device_reg_read(m_dev, ADIS_GYRO_ACCEL_FAIL_REG, &reg_val);
+  int ret = iio_device_reg_read(m_dev, AdisData::GetInstance()->getDeviceValue("ADIS_GYRO_ACCEL_FAIL_REG"), &reg_val);
   if (ret) return false;
 
-  reg_val = (reg_val & ADIS_ACCEL_Z_FAIL) >> ADIS_ACCEL_Z_FAIL_POS;
+  reg_val = (reg_val & AdisData::GetInstance()->getDeviceValue("ADIS_ACCEL_Z_FAIL")) >>  AdisData::GetInstance()->getDeviceValue("ADIS_ACCEL_Z_FAIL_POS");
   result = reg_val;
 
   return true;
 }
-#endif
 
-#ifdef ADIS_ADUC_MCU_FAULT
+
+
 bool IIOWrapper::diag_aduc_mcu_fault(bool & result)
 {
   uint32_t reg_val;
 
   if (!m_dev) return false;
 
-  int ret = iio_device_reg_read(m_dev, ADIS_DIAG_STAT_ADDR, &reg_val);
+  int ret = iio_device_reg_read(m_dev, AdisData::GetInstance()->getDeviceValue("ADIS_DIAG_STAT_ADDR"), &reg_val);
   if (ret) return false;
 
-  reg_val = (reg_val & ADIS_ADUC_MCU_FAULT) >> ADIS_ADUC_MCU_FAULT_POS;
+  reg_val = (reg_val & AdisData::GetInstance()->getDeviceValue("ADIS_ADUC_MCU_FAULT")) >> AdisData::GetInstance()->getDeviceValue("ADIS_ADUC_MCU_FAULT_POS");
   result = reg_val;
 
   return true;
 }
-#endif
+
 
 bool IIOWrapper::diag_flash_memory_write_count_exceeded_error(bool & result)
 {
@@ -1728,7 +1714,7 @@ bool IIOWrapper::diag_flash_memory_write_count_exceeded_error(bool & result)
   bool ret = flash_counter(reg_val);
   if (!ret) return false;
 
-  result = reg_val > ADIS_FLS_MEM_ENDURANCE;
+  result = reg_val > AdisData::GetInstance()->getDeviceValue("ADIS_FLS_MEM_ENDURANCE");
   return true;
 }
 
@@ -1738,24 +1724,24 @@ bool IIOWrapper::gyroscope_measurement_range(std::string & result)
 
   if (!m_dev) return false;
 
-  int ret = iio_device_reg_read(m_dev, ADIS_RANG_MDL_ADDR, &reg_val);
+  int ret = iio_device_reg_read(m_dev, AdisData::GetInstance()->getDeviceValue("ADIS_RANG_MDL_ADDR"), &reg_val);
   if (ret) return false;
-
-#ifdef ADIS1655X
+if(AdisData::GetInstance()->checkDeviceName("adis1655x")) {
   result = "+/-300_degrees_per_sec";
   return true;
-#else
-  reg_val = (reg_val & ADIS_GYRO_MEAS_RANG) >> ADIS_GYRO_MEAS_RANG_POS;
+} else {
+  reg_val = (reg_val & AdisData::GetInstance()->getDeviceValue("ADIS_GYRO_MEAS_RANG")) >> AdisData::GetInstance()->getDeviceValue("ADIS_GYRO_MEAS_RANG_POS");
   switch (reg_val) {
     case 0:
       result = "+/-125_degrees_per_sec";
       return true;
     case 1:
-#ifdef ADIS1654X
+if(AdisData::GetInstance()->checkDeviceName("adis1654x")) {
       result = "+/-450_degrees_per_sec";
-#else
+}
+else  {
       result = "+/-500_degrees_per_sec";
-#endif
+}
       return true;
     case 3:
       result = "+/-2000_degrees_per_sec";
@@ -1763,239 +1749,238 @@ bool IIOWrapper::gyroscope_measurement_range(std::string & result)
     default:
       return false;
   }
-#endif
+}
 }
 
-#ifdef ADIS_SENS_BW
+
 bool IIOWrapper::internal_sensor_bandwidth(uint32_t & result)
 {
   if (!m_dev) return false;
 
-  int ret = iio_device_reg_read(m_dev, ADIS_MSC_CTRL_ADDR, &result);
+  int ret = iio_device_reg_read(m_dev, AdisData::GetInstance()->getDeviceValue("ADIS_MSC_CTRL_ADDR"), &result);
   if (ret) return false;
 
-  result = (result & ADIS_SENS_BW) >> ADIS_SENS_BW_POS;
+  result = (result & AdisData::GetInstance()->getDeviceValue("ADIS_SENS_BW")) >> AdisData::GetInstance()->getDeviceValue("ADIS_SENS_BW_POS");
   return true;
 }
 
 bool IIOWrapper::update_internal_sensor_bandwidth(uint32_t val)
 {
-  return updateField(ADIS_MSC_CTRL_ADDR, val << ADIS_SENS_BW_POS, ADIS_SENS_BW);
+  return updateField(AdisData::GetInstance()->getDeviceValue("ADIS_MSC_CTRL_ADDR"), val << AdisData::GetInstance()->getDeviceValue("ADIS_SENS_BW_POS"), AdisData::GetInstance()->getDeviceValue("ADIS_SENS_BW"));
 }
-#endif
 
-#ifdef ADIS_PT_OF_PERC_REG_ADDR
+
+
 bool IIOWrapper::point_of_percussion_alignment(uint32_t & result)
 {
   if (!m_dev) return false;
 
-  int ret = iio_device_reg_read(m_dev, ADIS_PT_OF_PERC_REG_ADDR, &result);
+  int ret = iio_device_reg_read(m_dev, AdisData::GetInstance()->getDeviceValue("ADIS_PT_OF_PERC_REG_ADDR"), &result);
   if (ret) return false;
 
-  result = (result & ADIS_PT_OF_PERC_ALGNMNT) >> ADIS_PT_OF_PERC_ALGNMNT_POS;
+  result = (result & AdisData::GetInstance()->getDeviceValue("ADIS_PT_OF_PERC_ALGNMNT")) >> AdisData::GetInstance()->getDeviceValue("ADIS_PT_OF_PERC_ALGNMNT_POS");
   return true;
 }
-#endif
 
-#ifdef ADIS_PT_OF_PERC_REG_ADDR
+
+
 bool IIOWrapper::update_point_of_percussion_alignment(uint32_t val)
 {
   return updateField(
-    ADIS_PT_OF_PERC_REG_ADDR, val << ADIS_PT_OF_PERC_ALGNMNT_POS, ADIS_PT_OF_PERC_ALGNMNT);
+    AdisData::GetInstance()->getDeviceValue("ADIS_PT_OF_PERC_REG_ADDR"), val << AdisData::GetInstance()->getDeviceValue("ADIS_PT_OF_PERC_ALGNMNT_POS"), AdisData::GetInstance()->getDeviceValue("ADIS_PT_OF_PERC_ALGNMNT"));
 }
-#endif
 
-#ifdef ADIS_MSC_CTRL_ADDR
+
+
 bool IIOWrapper::linear_acceleration_compensation(uint32_t & result)
 {
   if (!m_dev) return false;
 
-  int ret = iio_device_reg_read(m_dev, ADIS_MSC_CTRL_ADDR, &result);
+  int ret = iio_device_reg_read(m_dev, AdisData::GetInstance()->getDeviceValue("ADIS_MSC_CTRL_ADDR"), &result);
   if (ret) return false;
 
-  result = (result & ADIS_LN_ACCL_COMP) >> ADIS_LN_ACCL_COMP_POS;
+  result = (result & AdisData::GetInstance()->getDeviceValue("ADIS_LN_ACCL_COMP")) >> AdisData::GetInstance()->getDeviceValue("ADIS_LN_ACCL_COMP_POS");
   return true;
 }
-#endif
 
-#ifdef ADIS_MSC_CTRL_ADDR
+
+
 bool IIOWrapper::update_linear_acceleration_compensation(uint32_t val)
 {
-  return updateField(ADIS_MSC_CTRL_ADDR, val << ADIS_LN_ACCL_COMP_POS, ADIS_LN_ACCL_COMP);
+  return updateField(AdisData::GetInstance()->getDeviceValue("ADIS_MSC_CTRL_ADDR"), val << AdisData::GetInstance()->getDeviceValue("ADIS_LN_ACCL_COMP_POS"), AdisData::GetInstance()->getDeviceValue("ADIS_LN_ACCL_COMP"));
 }
-#endif
 
-#ifdef ADIS_NULL_CNFG_ADDR
+
 bool IIOWrapper::bias_correction_time_base_control(uint32_t & result)
 {
   if (!m_dev) return false;
 
-  int ret = iio_device_reg_read(m_dev, ADIS_NULL_CNFG_ADDR, &result);
+  int ret = iio_device_reg_read(m_dev, AdisData::GetInstance()->getDeviceValue("ADIS_NULL_CNFG_ADDR"), &result);
   if (ret) return false;
 
-  result = (result & ADIS_TIME_BASE_CONTROL) >> ADIS_TIME_BASE_CONTROL_POS;
+  result = (result & AdisData::GetInstance()->getDeviceValue("ADIS_TIME_BASE_CONTROL")) >> AdisData::GetInstance()->getDeviceValue("ADIS_TIME_BASE_CONTROL_POS");
   return true;
 }
 
 bool IIOWrapper::update_bias_correction_time_base_control(uint32_t val)
 {
   return updateField(
-    ADIS_NULL_CNFG_ADDR, val << ADIS_TIME_BASE_CONTROL_POS, ADIS_TIME_BASE_CONTROL);
+    AdisData::GetInstance()->getDeviceValue("ADIS_NULL_CNFG_ADDR"), val << AdisData::GetInstance()->getDeviceValue("ADIS_TIME_BASE_CONTROL_POS"), AdisData::GetInstance()->getDeviceValue("ADIS_TIME_BASE_CONTROL"));
 }
 
 bool IIOWrapper::x_axis_gyroscope_bias_correction_enable(uint32_t & result)
 {
   if (!m_dev) return false;
 
-  int ret = iio_device_reg_read(m_dev, ADIS_NULL_CNFG_ADDR, &result);
+  int ret = iio_device_reg_read(m_dev, AdisData::GetInstance()->getDeviceValue("ADIS_NULL_CNFG_ADDR"), &result);
   if (ret) return false;
 
-  result = (result & ADIS_X_AXIS_GYRO_BIAS_CORR_EN) >> ADIS_X_AXIS_GYRO_BIAS_CORR_EN_POS;
+  result = (result & AdisData::GetInstance()->getDeviceValue("ADIS_X_AXIS_GYRO_BIAS_CORR_EN")) >> AdisData::GetInstance()->getDeviceValue("ADIS_X_AXIS_GYRO_BIAS_CORR_EN_POS");
   return true;
 }
 
 bool IIOWrapper::update_x_axis_gyroscope_bias_correction_enable(uint32_t val)
 {
   return updateField(
-    ADIS_NULL_CNFG_ADDR, val << ADIS_X_AXIS_GYRO_BIAS_CORR_EN_POS, ADIS_X_AXIS_GYRO_BIAS_CORR_EN);
+    AdisData::GetInstance()->getDeviceValue("ADIS_NULL_CNFG_ADDR"), val << AdisData::GetInstance()->getDeviceValue("ADIS_X_AXIS_GYRO_BIAS_CORR_EN_POS"), AdisData::GetInstance()->getDeviceValue("ADIS_X_AXIS_GYRO_BIAS_CORR_EN"));
 }
 
 bool IIOWrapper::y_axis_gyroscope_bias_correction_enable(uint32_t & result)
 {
   if (!m_dev) return false;
 
-  int ret = iio_device_reg_read(m_dev, ADIS_NULL_CNFG_ADDR, &result);
+  int ret = iio_device_reg_read(m_dev, AdisData::GetInstance()->getDeviceValue("ADIS_NULL_CNFG_ADDR"), &result);
   if (ret) return false;
 
-  result = (result & ADIS_Y_AXIS_GYRO_BIAS_CORR_EN) >> ADIS_Y_AXIS_GYRO_BIAS_CORR_EN_POS;
+  result = (result & AdisData::GetInstance()->getDeviceValue("ADIS_Y_AXIS_GYRO_BIAS_CORR_EN")) >> AdisData::GetInstance()->getDeviceValue("ADIS_Y_AXIS_GYRO_BIAS_CORR_EN_POS");
   return true;
 }
 
 bool IIOWrapper::update_y_axis_gyroscope_bias_correction_enable(uint32_t val)
 {
   return updateField(
-    ADIS_NULL_CNFG_ADDR, val << ADIS_Y_AXIS_GYRO_BIAS_CORR_EN_POS, ADIS_Y_AXIS_GYRO_BIAS_CORR_EN);
+    AdisData::GetInstance()->getDeviceValue("ADIS_NULL_CNFG_ADDR"), val << AdisData::GetInstance()->getDeviceValue("ADIS_Y_AXIS_GYRO_BIAS_CORR_EN_POS"), AdisData::GetInstance()->getDeviceValue("ADIS_Y_AXIS_GYRO_BIAS_CORR_EN"));
 }
 
 bool IIOWrapper::z_axis_gyroscope_bias_correction_enable(uint32_t & result)
 {
   if (!m_dev) return false;
 
-  int ret = iio_device_reg_read(m_dev, ADIS_NULL_CNFG_ADDR, &result);
+  int ret = iio_device_reg_read(m_dev, AdisData::GetInstance()->getDeviceValue("ADIS_NULL_CNFG_ADDR"), &result);
   if (ret) return false;
 
-  result = (result & ADIS_Z_AXIS_GYRO_BIAS_CORR_EN) >> ADIS_Z_AXIS_GYRO_BIAS_CORR_EN_POS;
+  result = (result & AdisData::GetInstance()->getDeviceValue("ADIS_Z_AXIS_GYRO_BIAS_CORR_EN")) >> AdisData::GetInstance()->getDeviceValue("ADIS_Z_AXIS_GYRO_BIAS_CORR_EN_POS");
   return true;
 }
 
 bool IIOWrapper::update_z_axis_gyroscope_bias_correction_enable(uint32_t val)
 {
   return updateField(
-    ADIS_NULL_CNFG_ADDR, val << ADIS_Z_AXIS_GYRO_BIAS_CORR_EN_POS, ADIS_Z_AXIS_GYRO_BIAS_CORR_EN);
+    AdisData::GetInstance()->getDeviceValue("ADIS_NULL_CNFG_ADDR"), val << AdisData::GetInstance()->getDeviceValue("ADIS_Z_AXIS_GYRO_BIAS_CORR_EN_POS"), AdisData::GetInstance()->getDeviceValue("ADIS_Z_AXIS_GYRO_BIAS_CORR_EN"));
 }
 
 bool IIOWrapper::x_axis_accelerometer_bias_correction_enable(uint32_t & result)
 {
   if (!m_dev) return false;
 
-  int ret = iio_device_reg_read(m_dev, ADIS_NULL_CNFG_ADDR, &result);
+  int ret = iio_device_reg_read(m_dev, AdisData::GetInstance()->getDeviceValue("ADIS_NULL_CNFG_ADDR"), &result);
   if (ret) return false;
 
-  result = (result & ADIS_X_AXIS_ACCEL_BIAS_CORR_EN) >> ADIS_X_AXIS_ACCEL_BIAS_CORR_EN_POS;
+  result = (result & AdisData::GetInstance()->getDeviceValue("ADIS_X_AXIS_ACCEL_BIAS_CORR_EN")) >> AdisData::GetInstance()->getDeviceValue("ADIS_X_AXIS_ACCEL_BIAS_CORR_EN_POS");
   return true;
 }
 
 bool IIOWrapper::update_x_axis_accelerometer_bias_correction_enable(uint32_t val)
 {
   return updateField(
-    ADIS_NULL_CNFG_ADDR, val << ADIS_X_AXIS_ACCEL_BIAS_CORR_EN_POS, ADIS_X_AXIS_ACCEL_BIAS_CORR_EN);
+    AdisData::GetInstance()->getDeviceValue("ADIS_NULL_CNFG_ADDR"), val << AdisData::GetInstance()->getDeviceValue("ADIS_X_AXIS_ACCEL_BIAS_CORR_EN_POS"), AdisData::GetInstance()->getDeviceValue("ADIS_X_AXIS_ACCEL_BIAS_CORR_EN"));
 }
 
 bool IIOWrapper::y_axis_accelerometer_bias_correction_enable(uint32_t & result)
 {
   if (!m_dev) return false;
 
-  int ret = iio_device_reg_read(m_dev, ADIS_NULL_CNFG_ADDR, &result);
+  int ret = iio_device_reg_read(m_dev, AdisData::GetInstance()->getDeviceValue("ADIS_NULL_CNFG_ADDR"), &result);
   if (ret) return false;
 
-  result = (result & ADIS_Y_AXIS_ACCEL_BIAS_CORR_EN) >> ADIS_Y_AXIS_ACCEL_BIAS_CORR_EN_POS;
+  result = (result & AdisData::GetInstance()->getDeviceValue("ADIS_Y_AXIS_ACCEL_BIAS_CORR_EN")) >> AdisData::GetInstance()->getDeviceValue("ADIS_Y_AXIS_ACCEL_BIAS_CORR_EN_POS");
   return true;
 }
 
 bool IIOWrapper::update_y_axis_accelerometer_bias_correction_enable(uint32_t val)
 {
   return updateField(
-    ADIS_NULL_CNFG_ADDR, val << ADIS_Y_AXIS_ACCEL_BIAS_CORR_EN_POS, ADIS_Y_AXIS_ACCEL_BIAS_CORR_EN);
+    AdisData::GetInstance()->getDeviceValue("ADIS_NULL_CNFG_ADDR"), val << AdisData::GetInstance()->getDeviceValue("ADIS_Y_AXIS_ACCEL_BIAS_CORR_EN_POS"), AdisData::GetInstance()->getDeviceValue("ADIS_Y_AXIS_ACCEL_BIAS_CORR_EN"));
 }
 
 bool IIOWrapper::z_axis_accelerometer_bias_correction_enable(uint32_t & result)
 {
   if (!m_dev) return false;
 
-  int ret = iio_device_reg_read(m_dev, ADIS_NULL_CNFG_ADDR, &result);
+  int ret = iio_device_reg_read(m_dev, AdisData::GetInstance()->getDeviceValue("ADIS_NULL_CNFG_ADDR"), &result);
   if (ret) return false;
 
-  result = (result & ADIS_Z_AXIS_ACCEL_BIAS_CORR_EN) >> ADIS_Z_AXIS_ACCEL_BIAS_CORR_EN_POS;
+  result = (result & AdisData::GetInstance()->getDeviceValue("ADIS_Z_AXIS_ACCEL_BIAS_CORR_EN")) >> AdisData::GetInstance()->getDeviceValue("ADIS_Z_AXIS_ACCEL_BIAS_CORR_EN_POS");
   return true;
 }
 
 bool IIOWrapper::update_z_axis_accelerometer_bias_correction_enable(uint32_t val)
 {
   return updateField(
-    ADIS_NULL_CNFG_ADDR, val << ADIS_Z_AXIS_ACCEL_BIAS_CORR_EN_POS, ADIS_Z_AXIS_ACCEL_BIAS_CORR_EN);
+    AdisData::GetInstance()->getDeviceValue("ADIS_NULL_CNFG_ADDR"), val << AdisData::GetInstance()->getDeviceValue("ADIS_Z_AXIS_ACCEL_BIAS_CORR_EN_POS"), AdisData::GetInstance()->getDeviceValue("ADIS_Z_AXIS_ACCEL_BIAS_CORR_EN"));
 }
-#endif
 
-#ifdef ADIS_BIAS_CORRECTION_UPDATE
+
+
 bool IIOWrapper::bias_correction_update()
 {
   if (!m_dev) return false;
 
-  uint16_t cmd = ADIS_BIAS_CORRECTION_UPDATE;
-  return (iio_device_reg_write(m_dev, ADIS_GLOB_CMD_ADDR, cmd) == 0);
+  uint16_t cmd = AdisData::GetInstance()->getDeviceValue("ADIS_BIAS_CORRECTION_UPDATE");
+  return (iio_device_reg_write(m_dev, AdisData::GetInstance()->getDeviceValue("ADIS_GLOB_CMD_ADDR"), cmd) == 0);
 }
-#endif
+
 
 bool IIOWrapper::factory_calibration_restore()
 {
   if (!m_dev) return false;
 
-  uint16_t cmd = ADIS_FACTORY_CALIBRATION_RESTORE;
-  return (iio_device_reg_write(m_dev, ADIS_GLOB_CMD_ADDR, cmd) == 0);
+  uint16_t cmd = AdisData::GetInstance()->getDeviceValue("ADIS_FACTORY_CALIBRATION_RESTORE");
+  return (iio_device_reg_write(m_dev, AdisData::GetInstance()->getDeviceValue("ADIS_GLOB_CMD_ADDR"), cmd) == 0);
 }
 
 bool IIOWrapper::sensor_self_test()
 {
   if (!m_dev) return false;
 
-  uint16_t cmd = ADIS_SENSOR_SELF_TEST;
-  return (iio_device_reg_write(m_dev, ADIS_GLOB_CMD_ADDR, cmd) == 0);
+  uint16_t cmd = AdisData::GetInstance()->getDeviceValue("ADIS_SENSOR_SELF_TEST");
+  return (iio_device_reg_write(m_dev, AdisData::GetInstance()->getDeviceValue("ADIS_GLOB_CMD_ADDR"), cmd) == 0);
 }
 
 bool IIOWrapper::flash_memory_update()
 {
   if (!m_dev) return false;
 
-  uint16_t cmd = ADIS_FLASH_MEMORY_UPDATE;
-  return (iio_device_reg_write(m_dev, ADIS_GLOB_CMD_ADDR, cmd) == 0);
+  uint16_t cmd = AdisData::GetInstance()->getDeviceValue("ADIS_FLASH_MEMORY_UPDATE");
+  return (iio_device_reg_write(m_dev, AdisData::GetInstance()->getDeviceValue("ADIS_GLOB_CMD_ADDR"), cmd) == 0);
 }
 
-#ifdef ADIS_FLASH_MEMORY_TEST
+
 bool IIOWrapper::flash_memory_test()
 {
   if (!m_dev) return false;
 
-  uint16_t cmd = ADIS_FLASH_MEMORY_TEST;
-  return (iio_device_reg_write(m_dev, ADIS_GLOB_CMD_ADDR, cmd) == 0);
+  uint16_t cmd = AdisData::GetInstance()->getDeviceValue("ADIS_FLASH_MEMORY_TEST");
+  return (iio_device_reg_write(m_dev, AdisData::GetInstance()->getDeviceValue("ADIS_GLOB_CMD_ADDR"), cmd) == 0);
 }
-#endif
+
 
 bool IIOWrapper::software_reset()
 {
   if (!m_dev) return false;
 
-  uint16_t cmd = ADIS_SOFTWARE_RESET_CMD;
-  return (iio_device_reg_write(m_dev, ADIS_GLOB_CMD_ADDR, cmd) == 0);
+  uint16_t cmd = AdisData::GetInstance()->getDeviceValue("ADIS_SOFTWARE_RESET_CMD");
+  return (iio_device_reg_write(m_dev, AdisData::GetInstance()->getDeviceValue("ADIS_GLOB_CMD_ADDR"), cmd) == 0);
 }
 
 bool IIOWrapper::firmware_revision(std::string & result)

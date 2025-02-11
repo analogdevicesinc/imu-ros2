@@ -28,6 +28,7 @@
 #include <string>
 
 #include "adis_data_access.h"
+#include "imu_ros2/adis_data.h"
 
 /**
  * @brief Wrapper class for libiio library for IMU devices
@@ -117,7 +118,6 @@ public:
    */
   double getBuffAngularVelocityZ();
 
-#ifdef ADIS_HAS_DELTA_BURST
   /**
    * @brief Get delta velocity on x axis with buffer reads; in this case
    * the retrieved samples are continuous if the function is called fast enough
@@ -165,7 +165,6 @@ public:
    * @return Return the delta angle on z axis in radians.
    */
   double getBuffDeltaAngleZ();
-#endif
 
   /**
    * @brief Get temperature with buffer reads; in this case
@@ -397,7 +396,6 @@ public:
    */
   bool update_accel_calibbias_z(int32_t val);
 
-#if defined(ADIS1654X) || defined(ADIS1655X)
   /**
    * @brief Get low pass 3db frequency data for x angular velocity.
    * @param result low pass 3db frequency value.
@@ -488,7 +486,6 @@ public:
    */
   bool update_accel_z_filter_low_pass_3db(uint32_t val);
 
-#else
   /**
    * @brief Get low pass 3db frequency data.
    * @param result low pass 3db frequency value.
@@ -504,9 +501,7 @@ public:
    * false if not.
    */
   bool update_filter_low_pass_3db_frequency(uint32_t val);
-#endif
 
-#ifdef ADIS_HAS_CALIB_SCALE
   /**
    * @brief Get linear acceleration calibration scale on x axis.
    * @param result linear acceleration calibration scale on x axis.
@@ -593,7 +588,6 @@ public:
    */
   bool update_anglvel_calibscale_z(int32_t val);
 
-#endif
 
   /**
    * @brief Get sampling frequency.

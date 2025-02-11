@@ -21,7 +21,13 @@
 #ifndef IMU_DIAG_DATA_PROVIDER_INTERFACE_H
 #define IMU_DIAG_DATA_PROVIDER_INTERFACE_H
 
-#include "imu_ros2/msg/imu_diag_data.hpp"
+//#include "imu_ros2/msg/imu_diag_data.hpp"
+#include "imu_ros2/msg/imu_diag_dataadis1646x.hpp"
+#include "imu_ros2/msg/imu_diag_dataadis1647x.hpp"
+#include "imu_ros2/msg/imu_diag_dataadis1650x.hpp"
+#include "imu_ros2/msg/imu_diag_dataadis1654x.hpp"
+#include "imu_ros2/msg/imu_diag_dataadis1655x.hpp"
+#include "imu_ros2/msg/imu_diag_dataadis1657x.hpp"
 
 /**
  * @brief Interface for diagnosis data provider for adis chips.
@@ -45,7 +51,14 @@ public:
    * @return Return true if the message parameter is successfully populated with
    * diagnosis data and false otherwise.
    */
-  virtual bool getData(imu_ros2::msg::ImuDiagData & message) = 0;
+  //virtual bool getData(imu_ros2::msg::ImuDiagData & message) = 0;
+
+  virtual bool getData(imu_ros2::msg::ImuDiagDataadis1646x & message) = 0;
+  virtual bool getData(imu_ros2::msg::ImuDiagDataadis1647x & message) = 0;
+  virtual bool getData(imu_ros2::msg::ImuDiagDataadis1650x & message) = 0;
+  virtual bool getData(imu_ros2::msg::ImuDiagDataadis1654x & message) = 0;
+  virtual bool getData(imu_ros2::msg::ImuDiagDataadis1655x & message) = 0;
+  virtual bool getData(imu_ros2::msg::ImuDiagDataadis1657x & message) = 0;
 };
 
 #endif  // IMU_DIAG_DATA_PROVIDER_INTERFACE_H
