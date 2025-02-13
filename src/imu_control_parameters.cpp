@@ -652,7 +652,10 @@ void ImuControlParameters::handleUint32ParamChange()
     if (m_func_map_get_uint32_params.find(key) != m_func_map_get_uint32_params.end()) {
       requestedValue = m_node->get_parameter(key).get_parameter_value().get<int64_t>();
 
+        printf("###### Rrequested value for %s: %d, current_value: %d", key, requestedValue,m_uint32_current_params[key]);
+
       if (requestedValue != m_uint32_current_params[key]) {
+
         // update value in hardware
         const char * ckey = key.c_str();
         if (!(m_iio_wrapper.*(m_func_map_update_uint32_params[key]))(requestedValue)) {
