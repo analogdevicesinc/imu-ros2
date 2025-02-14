@@ -428,10 +428,10 @@ void ImuControlParameters::declareParameterDescription()
 
 void ImuControlParameters::declareParameters()
 {
-  uint32_t u32Param;
-  int64_t i64Param;
-  int32_t i32Param;
-  double dParam;
+  uint32_t u32Param = 0;
+  int64_t i64Param = 0;
+  int32_t i32Param = 0;
+  double dParam = 0;
 
   for (const std::string & key : m_attr_current_device) {
     if (m_func_map_get_int32_params.find(key) != m_func_map_get_int32_params.end()) {
@@ -495,14 +495,14 @@ void ImuControlParameters::declareParameters()
 
 void ImuControlParameters::updateParamsFromHardware()
 {
-  double doubleDriverParam;
-  double doubleCurrentParam;
-  int32_t int32DriverParam;
-  int32_t int32CurrentParam;
+  double doubleDriverParam = 0;
+  double doubleCurrentParam = 0;
+  int32_t int32DriverParam = 0;
+  int32_t int32CurrentParam = 0;
 
-  uint32_t u32DriverParam;
-  int64_t int64DriverParam;
-  int64_t int64CurrentParam;
+  uint32_t u32DriverParam = 0;
+  int64_t int64DriverParam = 0;
+  int64_t int64CurrentParam = 0;
 
   for (const std::string & key : m_attr_current_device) {
     const char * ckey = key.c_str();
@@ -542,8 +542,8 @@ void ImuControlParameters::updateParamsFromHardware()
 
 void ImuControlParameters::handleDoubleParamChange()
 {
-  double requestedValue;
-  double dDriverParam;
+  double requestedValue = 0;
+  double dDriverParam = 0;
 
   for (const std::string & key : m_attr_current_device) {
     if (m_func_map_get_double_params.find(key) != m_func_map_get_double_params.end()) {
@@ -593,8 +593,8 @@ void ImuControlParameters::handleDoubleParamChange()
 
 void ImuControlParameters::handleInt32ParamChange()
 {
-  int32_t requestedValue;
-  int32_t i32DriverParam;
+  int32_t requestedValue = 0;
+  int32_t i32DriverParam = 0;
 
   for (const std::string & key : m_attr_current_device) {
     if (m_func_map_get_int32_params.find(key) != m_func_map_get_int32_params.end()) {
@@ -644,9 +644,9 @@ void ImuControlParameters::handleInt32ParamChange()
 
 void ImuControlParameters::handleUint32ParamChange()
 {
-  int64_t requestedValue;
-  int64_t i64DriverParam;
-  uint32_t u32DriverParam;
+  int64_t requestedValue = 0;
+  int64_t i64DriverParam = 0;
+  uint32_t u32DriverParam = 0;
 
   for (const std::string & key : m_attr_current_device) {
     if (m_func_map_get_uint32_params.find(key) != m_func_map_get_uint32_params.end()) {
