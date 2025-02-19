@@ -17,10 +17,13 @@ find_library(LIBIIO_LIBRARIES iio)
 find_path(LIBIIO_INCLUDE_DIRS iio.h)
 
 file(GLOB FILES_H ${CMAKE_SOURCE_DIR}/include/*.h
+    ${CMAKE_SOURCE_DIR}/include/imu_ros2/imudiag/*.h
                     ${CMAKE_SOURCE_DIR}/include/iio_ros2_package/*.h
+
                     )
 
-file(GLOB FILES_CPP ${CMAKE_SOURCE_DIR}/src/*.cpp)
+file(GLOB FILES_CPP ${CMAKE_SOURCE_DIR}/src/*.cpp
+    ${CMAKE_SOURCE_DIR}/src/imudiag/*.cpp)
 
 include_directories(${CMAKE_SOURCE_DIR}/include)
 

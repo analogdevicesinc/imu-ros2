@@ -20,10 +20,12 @@ find_path(LIBIIO_INCLUDE_DIRS iio.h)
 
 file(GLOB FILES_H ${CMAKE_SOURCE_DIR}/include/*.h
                     ${CMAKE_SOURCE_DIR}/include/imu_ros2/*.h
+                    ${CMAKE_SOURCE_DIR}/include/imu_ros2/imudiag/*.h
                     )
 
 file(GLOB FILES_CPP ${CMAKE_SOURCE_DIR}/src/*.cpp
-                     )
+    ${CMAKE_SOURCE_DIR}/src/imudiag/*.cpp
+                  )
 
 add_executable(imu_ros2_node ${FILES_H} ${FILES_CPP})
 

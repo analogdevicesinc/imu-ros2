@@ -25,6 +25,7 @@
 
 #include "imu_diag_data_provider_interface.h"
 #include "imu_diag_ros_publisher_interface.h"
+#include "imudiag/imu_diag_ros_publisher_devices.h"
 
 /**
  * @brief Class for diagnosis publisher for adis1657x chips.
@@ -59,21 +60,7 @@ private:
   ImuDiagDataProviderInterface * m_data_provider;
 
   /*! This variable retains the publisher instance. */
-  //rclcpp::Publisher<imu_ros2::msg::ImuDiagData>::SharedPtr m_publisher;
-  rclcpp::Publisher<imu_ros2::msg::ImuDiagDataadis1646x>::SharedPtr m_publisher_adis1646x;
-  rclcpp::Publisher<imu_ros2::msg::ImuDiagDataadis1647x>::SharedPtr m_publisher_adis1647x;
-  rclcpp::Publisher<imu_ros2::msg::ImuDiagDataadis1650x>::SharedPtr m_publisher_adis1650x;
-  rclcpp::Publisher<imu_ros2::msg::ImuDiagDataadis1654x>::SharedPtr m_publisher_adis1654x;
-  rclcpp::Publisher<imu_ros2::msg::ImuDiagDataadis1655x>::SharedPtr m_publisher_adis1655x;
-  rclcpp::Publisher<imu_ros2::msg::ImuDiagDataadis1657x>::SharedPtr m_publisher_adis1657x;
-
-  /*! This variable retains the message that is published. */
-  imu_ros2::msg::ImuDiagDataadis1646x m_message_adis1646x;
-  imu_ros2::msg::ImuDiagDataadis1647x m_message_adis1647x;
-  imu_ros2::msg::ImuDiagDataadis1650x m_message_adis1650x;
-  imu_ros2::msg::ImuDiagDataadis1654x m_message_adis1654x;
-  imu_ros2::msg::ImuDiagDataadis1655x m_message_adis1655x;
-  imu_ros2::msg::ImuDiagDataadis1657x m_message_adis1657x;
+  ImuDiagRosPublisherDevices * m_diag_publisher_device;
 };
 
 #endif  // IMU_DIAG_ROS_PUBLISHER_H
