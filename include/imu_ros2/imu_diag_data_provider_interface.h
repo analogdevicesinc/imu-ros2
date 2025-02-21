@@ -21,7 +21,6 @@
 #ifndef IMU_DIAG_DATA_PROVIDER_INTERFACE_H
 #define IMU_DIAG_DATA_PROVIDER_INTERFACE_H
 
-//#include "imu_ros2/msg/imu_diag_data.hpp"
 #include "imu_ros2/msg/imu_diag_dataadis1646x.hpp"
 #include "imu_ros2/msg/imu_diag_dataadis1647x.hpp"
 #include "imu_ros2/msg/imu_diag_dataadis1650x.hpp"

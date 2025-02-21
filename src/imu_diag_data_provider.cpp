@@ -26,96 +26,26 @@ ImuDiagDataProvider::ImuDiagDataProvider() {}
 
 ImuDiagDataProvider::~ImuDiagDataProvider() {}
 
-/*
-bool ImuDiagDataProvider::getData(imu_ros2::msg::ImuDiagData & message)
-{
-  message.header.frame_id = "imudiagdata";
-
-  if(AdisData::GetInstance()->getDeviceValue("ADIS_DATA_PATH_OVERRUN"))
-  if (!m_iio_wrapper.diag_data_path_overrun(message.diag_data_path_overrun)) return false;
-
-  if(AdisData::GetInstance()->getDeviceValue("ADIS_WDG_TIMER_FLAG"))
-  if (!m_iio_wrapper.diag_automatic_reset(message.diag_automatic_reset)) return false;
-
-  if(AdisData::GetInstance()->getDeviceValue("ADIS_FLS_MEM_UPDATE_FAIL"))
-  if (!m_iio_wrapper.diag_flash_memory_update_error(message.diag_flash_memory_update_error))
-    return false;
-
-  if(AdisData::GetInstance()->getDeviceValue("ADIS_SPI_COMM_ERR"))
-  if (!m_iio_wrapper.diag_spi_communication_error(message.diag_spi_communication_error))
-    return false;
-
-  if(AdisData::GetInstance()->getDeviceValue("ADIS_CRC_ERROR"))
-  if (!m_iio_wrapper.diag_crc_error(message.diag_crc_error)) return false;
-
-  if(AdisData::GetInstance()->getDeviceValue("ADIS_SNSR_FAIL"))
-  if (!m_iio_wrapper.diag_sensor_self_test_error(message.diag_sensor_self_test_error)) return false;
-
-  if(AdisData::GetInstance()->getDeviceValue("ADIS_FLASH_MEMORY_TEST"))
-  if (!m_iio_wrapper.diag_flash_memory_test_error(message.diag_flash_memory_test_error))
-    return false;
-
-  if(AdisData::GetInstance()->getDeviceValue("ADIS_CLK_ERR"))
-  if (!m_iio_wrapper.diag_clock_error(message.diag_clock_error)) return false;
-
-  if(AdisData::GetInstance()->getDeviceValue("ADIS_GYRO_X_FAIL"))
-  if (!m_iio_wrapper.diag_x_axis_gyroscope_failure(message.diag_x_axis_gyroscope_failure))
-    return false;
-
-  if(AdisData::GetInstance()->getDeviceValue("ADIS_GYRO_Y_FAIL"))
-  if (!m_iio_wrapper.diag_y_axis_gyroscope_failure(message.diag_y_axis_gyroscope_failure))
-    return false;
-
-  if(AdisData::GetInstance()->getDeviceValue("ADIS_GYRO_Z_FAIL"))
-  if (!m_iio_wrapper.diag_z_axis_gyroscope_failure(message.diag_z_axis_gyroscope_failure))
-    return false;
-
-  if(AdisData::GetInstance()->getDeviceValue("ADIS_ACCEL_X_FAIL"))
-  if (!m_iio_wrapper.diag_x_axis_accelerometer_failure(message.diag_x_axis_accelerometer_failure))
-    return false;
-
-  if(AdisData::GetInstance()->getDeviceValue("ADIS_ACCEL_Y_FAIL"))
-  if (!m_iio_wrapper.diag_y_axis_accelerometer_failure(message.diag_y_axis_accelerometer_failure))
-    return false;
-
-  if(AdisData::GetInstance()->getDeviceValue("ADIS_ACCEL_Z_FAIL"))
-  if (!m_iio_wrapper.diag_z_axis_accelerometer_failure(message.diag_z_axis_accelerometer_failure))
-    return false;
-
-  if (!m_iio_wrapper.diag_flash_memory_write_count_exceeded_error(
-        message.diag_flash_memory_write_count_exceeded_error))
-    return false;
-
-  return m_iio_wrapper.flash_counter(message.flash_counter);
-}
-*/
 
 bool ImuDiagDataProvider::getData(imu_ros2::msg::ImuDiagDataadis1646x & message)
 {
   message.header.frame_id = "imudiagdataadis1646x";
 
-  if(AdisData::GetInstance()->getDeviceValue("ADIS_DATA_PATH_OVERRUN"))
   if (!m_iio_wrapper.diag_data_path_overrun(message.diag_data_path_overrun)) return false;
 
-  if(AdisData::GetInstance()->getDeviceValue("ADIS_FLS_MEM_UPDATE_FAIL"))
   if (!m_iio_wrapper.diag_flash_memory_update_error(message.diag_flash_memory_update_error))
     return false;
 
-  if(AdisData::GetInstance()->getDeviceValue("ADIS_SPI_COMM_ERR"))
   if (!m_iio_wrapper.diag_spi_communication_error(message.diag_spi_communication_error))
     return false;
 
-  if(AdisData::GetInstance()->getDeviceValue("ADIS_STDBY_MODE"))
   if (!m_iio_wrapper.diag_standby_mode(message.diag_standby_mode)) return false;
 
-  if(AdisData::GetInstance()->getDeviceValue("ADIS_SNSR_FAIL"))
   if (!m_iio_wrapper.diag_sensor_self_test_error(message.diag_sensor_self_test_error)) return false;
 
-  if(AdisData::GetInstance()->getDeviceValue("ADIS_FLASH_MEMORY_TEST"))
   if (!m_iio_wrapper.diag_flash_memory_test_error(message.diag_flash_memory_test_error))
     return false;
 
-  if(AdisData::GetInstance()->getDeviceValue("ADIS_CLK_ERR"))
   if (!m_iio_wrapper.diag_clock_error(message.diag_clock_error)) return false;
 
   if (!m_iio_wrapper.diag_flash_memory_write_count_exceeded_error(
@@ -130,28 +60,21 @@ bool ImuDiagDataProvider::getData(imu_ros2::msg::ImuDiagDataadis1647x & message)
 {
   message.header.frame_id = "imudiagdataadis1647x";
 
-  if(AdisData::GetInstance()->getDeviceValue("ADIS_DATA_PATH_OVERRUN"))
   if (!m_iio_wrapper.diag_data_path_overrun(message.diag_data_path_overrun)) return false;
 
-  if(AdisData::GetInstance()->getDeviceValue("ADIS_FLS_MEM_UPDATE_FAIL"))
   if (!m_iio_wrapper.diag_flash_memory_update_error(message.diag_flash_memory_update_error))
     return false;
 
-  if(AdisData::GetInstance()->getDeviceValue("ADIS_SPI_COMM_ERR"))
   if (!m_iio_wrapper.diag_spi_communication_error(message.diag_spi_communication_error))
     return false;
 
-  if(AdisData::GetInstance()->getDeviceValue("ADIS_STDBY_MODE"))
   if (!m_iio_wrapper.diag_standby_mode(message.diag_standby_mode)) return false;
 
-  if(AdisData::GetInstance()->getDeviceValue("ADIS_SNSR_FAIL"))
   if (!m_iio_wrapper.diag_sensor_self_test_error(message.diag_sensor_self_test_error)) return false;
 
-  if(AdisData::GetInstance()->getDeviceValue("ADIS_FLASH_MEMORY_TEST"))
   if (!m_iio_wrapper.diag_flash_memory_test_error(message.diag_flash_memory_test_error))
     return false;
 
-  if(AdisData::GetInstance()->getDeviceValue("ADIS_CLK_ERR"))
   if (!m_iio_wrapper.diag_clock_error(message.diag_clock_error)) return false;
 
   if (!m_iio_wrapper.diag_flash_memory_write_count_exceeded_error(
@@ -166,40 +89,29 @@ bool ImuDiagDataProvider::getData(imu_ros2::msg::ImuDiagDataadis1650x & message)
 {
   message.header.frame_id = "imudiagdataadis1650x";
 
-  if(AdisData::GetInstance()->getDeviceValue("ADIS_DATA_PATH_OVERRUN"))
   if (!m_iio_wrapper.diag_data_path_overrun(message.diag_data_path_overrun)) return false;
 
-  if(AdisData::GetInstance()->getDeviceValue("ADIS_FLS_MEM_UPDATE_FAIL"))
   if (!m_iio_wrapper.diag_flash_memory_update_error(message.diag_flash_memory_update_error))
     return false;
 
-  if(AdisData::GetInstance()->getDeviceValue("ADIS_SPI_COMM_ERR"))
   if (!m_iio_wrapper.diag_spi_communication_error(message.diag_spi_communication_error))
     return false;
 
-  if(AdisData::GetInstance()->getDeviceValue("ADIS_STDBY_MODE"))
   if (!m_iio_wrapper.diag_standby_mode(message.diag_standby_mode)) return false;
 
-  if(AdisData::GetInstance()->getDeviceValue("ADIS_SNSR_FAIL"))
   if (!m_iio_wrapper.diag_sensor_self_test_error(message.diag_sensor_self_test_error)) return false;
 
-  if(AdisData::GetInstance()->getDeviceValue("ADIS_FLASH_MEMORY_TEST"))
   if (!m_iio_wrapper.diag_flash_memory_test_error(message.diag_flash_memory_test_error))
     return false;
 
-  if(AdisData::GetInstance()->getDeviceValue("ADIS_CLK_ERR"))
   if (!m_iio_wrapper.diag_clock_error(message.diag_clock_error)) return false;
 
-  if(AdisData::GetInstance()->getDeviceValue("ADIS_GYRO1_FAIL"))
   if (!m_iio_wrapper.diag_gyroscope1_self_test_error(message.diag_gyroscope1_self_test_error))
     return false;
 
-  if(AdisData::GetInstance()->getDeviceValue("ADIS_GYRO2_FAIL"))
   if (!m_iio_wrapper.diag_gyroscope2_self_test_error(message.diag_gyroscope2_self_test_error))
     return false;
 
-
-  if(AdisData::GetInstance()->getDeviceValue("ADIS_ACCEL_FAIL"))
   if (!m_iio_wrapper.diag_acceleration_self_test_error(message.diag_acceleration_self_test_error))
     return false;
 
@@ -215,54 +127,40 @@ bool ImuDiagDataProvider::getData(imu_ros2::msg::ImuDiagDataadis1654x & message)
 {
   message.header.frame_id = "imudiagdataadis1654x";
 
-  if(AdisData::GetInstance()->getDeviceValue("ADIS_DATA_PATH_OVERRUN"))
   if (!m_iio_wrapper.diag_data_path_overrun(message.diag_data_path_overrun)) return false;
 
-  if(AdisData::GetInstance()->getDeviceValue("ADIS_WDG_TIMER_FLAG"))
   if (!m_iio_wrapper.diag_automatic_reset(message.diag_automatic_reset)) return false;
 
-  if(AdisData::GetInstance()->getDeviceValue("ADIS_FLS_MEM_UPDATE_FAIL"))
   if (!m_iio_wrapper.diag_flash_memory_update_error(message.diag_flash_memory_update_error))
     return false;
 
-  if(AdisData::GetInstance()->getDeviceValue("ADIS_SPI_COMM_ERR"))
   if (!m_iio_wrapper.diag_spi_communication_error(message.diag_spi_communication_error))
     return false;
 
-  if(AdisData::GetInstance()->getDeviceValue("ADIS_CRC_ERROR"))
   if (!m_iio_wrapper.diag_crc_error(message.diag_crc_error)) return false;
 
-  if(AdisData::GetInstance()->getDeviceValue("ADIS_SNSR_FAIL"))
   if (!m_iio_wrapper.diag_sensor_self_test_error(message.diag_sensor_self_test_error)) return false;
 
-  if(AdisData::GetInstance()->getDeviceValue("ADIS_FLASH_MEMORY_TEST"))
   if (!m_iio_wrapper.diag_flash_memory_test_error(message.diag_flash_memory_test_error))
     return false;
 
-  if(AdisData::GetInstance()->getDeviceValue("ADIS_CLK_ERR"))
   if (!m_iio_wrapper.diag_clock_error(message.diag_clock_error)) return false;
 
-  if(AdisData::GetInstance()->getDeviceValue("ADIS_GYRO_X_FAIL"))
   if (!m_iio_wrapper.diag_x_axis_gyroscope_failure(message.diag_x_axis_gyroscope_failure))
     return false;
 
-  if(AdisData::GetInstance()->getDeviceValue("ADIS_GYRO_Y_FAIL"))
   if (!m_iio_wrapper.diag_y_axis_gyroscope_failure(message.diag_y_axis_gyroscope_failure))
     return false;
 
-  if(AdisData::GetInstance()->getDeviceValue("ADIS_GYRO_Z_FAIL"))
   if (!m_iio_wrapper.diag_z_axis_gyroscope_failure(message.diag_z_axis_gyroscope_failure))
     return false;
 
-  if(AdisData::GetInstance()->getDeviceValue("ADIS_ACCEL_X_FAIL"))
   if (!m_iio_wrapper.diag_x_axis_accelerometer_failure(message.diag_x_axis_accelerometer_failure))
     return false;
 
-  if(AdisData::GetInstance()->getDeviceValue("ADIS_ACCEL_Y_FAIL"))
   if (!m_iio_wrapper.diag_y_axis_accelerometer_failure(message.diag_y_axis_accelerometer_failure))
     return false;
 
-  if(AdisData::GetInstance()->getDeviceValue("ADIS_ACCEL_Z_FAIL"))
   if (!m_iio_wrapper.diag_z_axis_accelerometer_failure(message.diag_z_axis_accelerometer_failure))
     return false;
 
@@ -278,54 +176,40 @@ bool ImuDiagDataProvider::getData(imu_ros2::msg::ImuDiagDataadis1655x & message)
 {
   message.header.frame_id = "imudiagdataadis1655x";
 
-  if(AdisData::GetInstance()->getDeviceValue("ADIS_DATA_PATH_OVERRUN"))
   if (!m_iio_wrapper.diag_data_path_overrun(message.diag_data_path_overrun)) return false;
 
-  if(AdisData::GetInstance()->getDeviceValue("ADIS_WDG_TIMER_FLAG"))
   if (!m_iio_wrapper.diag_automatic_reset(message.diag_automatic_reset)) return false;
 
-  if(AdisData::GetInstance()->getDeviceValue("ADIS_FLS_MEM_UPDATE_FAIL"))
   if (!m_iio_wrapper.diag_flash_memory_update_error(message.diag_flash_memory_update_error))
     return false;
 
-  if(AdisData::GetInstance()->getDeviceValue("ADIS_SPI_COMM_ERR"))
   if (!m_iio_wrapper.diag_spi_communication_error(message.diag_spi_communication_error))
     return false;
 
-  if(AdisData::GetInstance()->getDeviceValue("ADIS_CRC_ERROR"))
   if (!m_iio_wrapper.diag_crc_error(message.diag_crc_error)) return false;
 
-  if(AdisData::GetInstance()->getDeviceValue("ADIS_SNSR_FAIL"))
   if (!m_iio_wrapper.diag_sensor_self_test_error(message.diag_sensor_self_test_error)) return false;
 
-  if(AdisData::GetInstance()->getDeviceValue("ADIS_FLASH_MEMORY_TEST"))
   if (!m_iio_wrapper.diag_flash_memory_test_error(message.diag_flash_memory_test_error))
     return false;
 
-  if(AdisData::GetInstance()->getDeviceValue("ADIS_CLK_ERR"))
   if (!m_iio_wrapper.diag_clock_error(message.diag_clock_error)) return false;
 
-  if(AdisData::GetInstance()->getDeviceValue("ADIS_GYRO_X_FAIL"))
   if (!m_iio_wrapper.diag_x_axis_gyroscope_failure(message.diag_x_axis_gyroscope_failure))
     return false;
 
-  if(AdisData::GetInstance()->getDeviceValue("ADIS_GYRO_Y_FAIL"))
   if (!m_iio_wrapper.diag_y_axis_gyroscope_failure(message.diag_y_axis_gyroscope_failure))
     return false;
 
-  if(AdisData::GetInstance()->getDeviceValue("ADIS_GYRO_Z_FAIL"))
   if (!m_iio_wrapper.diag_z_axis_gyroscope_failure(message.diag_z_axis_gyroscope_failure))
     return false;
 
-  if(AdisData::GetInstance()->getDeviceValue("ADIS_ACCEL_X_FAIL"))
   if (!m_iio_wrapper.diag_x_axis_accelerometer_failure(message.diag_x_axis_accelerometer_failure))
     return false;
 
-  if(AdisData::GetInstance()->getDeviceValue("ADIS_ACCEL_Y_FAIL"))
   if (!m_iio_wrapper.diag_y_axis_accelerometer_failure(message.diag_y_axis_accelerometer_failure))
     return false;
 
-  if(AdisData::GetInstance()->getDeviceValue("ADIS_ACCEL_Z_FAIL"))
   if (!m_iio_wrapper.diag_z_axis_accelerometer_failure(message.diag_z_axis_accelerometer_failure))
     return false;
 
@@ -341,59 +225,44 @@ bool ImuDiagDataProvider::getData(imu_ros2::msg::ImuDiagDataadis1657x & message)
 {
   message.header.frame_id = "imudiagdataadis1657x";
 
-  if(AdisData::GetInstance()->getDeviceValue("ADIS_SNSR_INIT_FAIL"))
   if (!m_iio_wrapper.diag_sensor_initialization_failure(message.diag_sensor_initialization_failure))
     return false;
 
-  if(AdisData::GetInstance()->getDeviceValue("ADIS_DATA_PATH_OVERRUN"))
   if (!m_iio_wrapper.diag_data_path_overrun(message.diag_data_path_overrun)) return false;
 
-  if(AdisData::GetInstance()->getDeviceValue("ADIS_FLS_MEM_UPDATE_FAIL"))
   if (!m_iio_wrapper.diag_flash_memory_update_error(message.diag_flash_memory_update_error))
     return false;
 
-  if(AdisData::GetInstance()->getDeviceValue("ADIS_SPI_COMM_ERR"))
   if (!m_iio_wrapper.diag_spi_communication_error(message.diag_spi_communication_error))
     return false;
 
-  if(AdisData::GetInstance()->getDeviceValue("ADIS_STDBY_MODE"))
   if (!m_iio_wrapper.diag_standby_mode(message.diag_standby_mode)) return false;
 
-  if(AdisData::GetInstance()->getDeviceValue("ADIS_SNSR_FAIL"))
   if (!m_iio_wrapper.diag_sensor_self_test_error(message.diag_sensor_self_test_error)) return false;
 
-  if(AdisData::GetInstance()->getDeviceValue("ADIS_FLASH_MEMORY_TEST"))
   if (!m_iio_wrapper.diag_flash_memory_test_error(message.diag_flash_memory_test_error))
     return false;
 
-  if(AdisData::GetInstance()->getDeviceValue("ADIS_CLK_ERR"))
   if (!m_iio_wrapper.diag_clock_error(message.diag_clock_error)) return false;
 
-  if(AdisData::GetInstance()->getDeviceValue("ADIS_GYRO_X_FAIL"))
   if (!m_iio_wrapper.diag_x_axis_gyroscope_failure(message.diag_x_axis_gyroscope_failure))
     return false;
 
-  if(AdisData::GetInstance()->getDeviceValue("ADIS_GYRO_Y_FAIL"))
   if (!m_iio_wrapper.diag_y_axis_gyroscope_failure(message.diag_y_axis_gyroscope_failure))
     return false;
 
-  if(AdisData::GetInstance()->getDeviceValue("ADIS_GYRO_Z_FAIL"))
   if (!m_iio_wrapper.diag_z_axis_gyroscope_failure(message.diag_z_axis_gyroscope_failure))
     return false;
 
-  if(AdisData::GetInstance()->getDeviceValue("ADIS_ACCEL_X_FAIL"))
   if (!m_iio_wrapper.diag_x_axis_accelerometer_failure(message.diag_x_axis_accelerometer_failure))
     return false;
 
-  if(AdisData::GetInstance()->getDeviceValue("ADIS_ACCEL_Y_FAIL"))
   if (!m_iio_wrapper.diag_y_axis_accelerometer_failure(message.diag_y_axis_accelerometer_failure))
     return false;
 
-  if(AdisData::GetInstance()->getDeviceValue("ADIS_ACCEL_Z_FAIL"))
   if (!m_iio_wrapper.diag_z_axis_accelerometer_failure(message.diag_z_axis_accelerometer_failure))
     return false;
 
-  if(AdisData::GetInstance()->getDeviceValue("ADIS_ADUC_MCU_FAULT"))
   if (!m_iio_wrapper.diag_aduc_mcu_fault(message.diag_aduc_mcu_fault)) return false;
 
   if (!m_iio_wrapper.diag_flash_memory_write_count_exceeded_error(

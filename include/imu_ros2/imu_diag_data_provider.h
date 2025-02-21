@@ -46,8 +46,6 @@ public:
    * @return Return true if the message parameter is successfully populated with
    * diagnosis data and false otherwise.
    */
-  //bool getData(imu_ros2::msg::ImuDiagData & message) override;
-
   bool getData(imu_ros2::msg::ImuDiagDataadis1646x & message) override;
   bool getData(imu_ros2::msg::ImuDiagDataadis1647x & message) override;
   bool getData(imu_ros2::msg::ImuDiagDataadis1650x & message) override;
