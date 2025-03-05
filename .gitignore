@@ -2,3 +2,7 @@
 *.txt.user
 *.cpp.orig
 .vscode
+.venv
+venv
+doc/_build
+_build
