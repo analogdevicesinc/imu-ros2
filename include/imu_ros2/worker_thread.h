@@ -23,7 +23,7 @@
 
 #include <thread>
 
-#include "imu_ros2/ros_task.h"
+#include "adi_imu/ros_task.h"
 
 /**
  * @brief Class for running a task in a thread.

@@ -22,8 +22,8 @@
 #ifndef VELANGTEMP_DATA_PROVIDER_H
 #define VELANGTEMP_DATA_PROVIDER_H
 
-#include "imu_ros2/iio_wrapper.h"
-#include "imu_ros2/velangtemp_data_provider_interface.h"
+#include "adi_imu/iio_wrapper.h"
+#include "adi_imu/velangtemp_data_provider_interface.h"
 
 /**
  * @brief Class for delta angle, delta velocity and temperature buffered
@@ -48,7 +48,7 @@ public:
    * @return Return true if the message parameter is successfully populated with
    * measured data and false otherwise.
    */
-  bool getData(imu_ros2::msg::VelAngTempData & message) override;
+  bool getData(adi_imu::msg::VelAngTempData & message) override;
 
 private:
   /*! This data member is used to access sensor information via libiio. */

@@ -23,7 +23,7 @@
 
 #include <rclcpp/rclcpp.hpp>
 
-#include "imu_ros2/ros_publisher_group_interface.h"
+#include "adi_imu/ros_publisher_group_interface.h"
 
 /**
  * @brief Class ROS publisher group.

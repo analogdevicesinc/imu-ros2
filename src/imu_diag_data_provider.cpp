@@ -18,7 +18,7 @@
  * limitations under the License.
  ******************************************************************************/
 
-#include "imu_ros2/imu_diag_data_provider.h"
+#include "adi_imu/imu_diag_data_provider.h"
 
 #include <rclcpp/rclcpp.hpp>
 
@@ -26,7 +26,7 @@ ImuDiagDataProvider::ImuDiagDataProvider() {}
 
 ImuDiagDataProvider::~ImuDiagDataProvider() {}
 
-bool ImuDiagDataProvider::getData(imu_ros2::msg::ImuDiagData & message)
+bool ImuDiagDataProvider::getData(adi_imu::msg::ImuDiagData & message)
 {
   message.header.frame_id = "imudiagdata";
 

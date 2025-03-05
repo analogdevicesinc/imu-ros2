@@ -1,4 +1,4 @@
-/imu_ros2_node:
+/adi_imu_node:
   ros__parameters:
     accel_calibbias_x: 0
     accel_calibbias_y: 0

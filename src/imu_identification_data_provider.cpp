@@ -18,13 +18,13 @@
  * limitations under the License.
  ******************************************************************************/
 
-#include "imu_ros2/imu_identification_data_provider.h"
+#include "adi_imu/imu_identification_data_provider.h"
 
 ImuIdentificationDataProvider::ImuIdentificationDataProvider() {}
 
 ImuIdentificationDataProvider::~ImuIdentificationDataProvider() {}
 
-bool ImuIdentificationDataProvider::getData(imu_ros2::msg::ImuIdentificationData & message)
+bool ImuIdentificationDataProvider::getData(adi_imu::msg::ImuIdentificationData & message)
 {
   message.header.frame_id = "imuidentificationdata";
 

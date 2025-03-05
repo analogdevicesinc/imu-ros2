@@ -24,7 +24,7 @@
 #include <memory>
 #include <rclcpp/rclcpp.hpp>
 
-#include "imu_ros2/ros_task.h"
+#include "adi_imu/ros_task.h"
 
 class ImuDiagDataProviderInterface;
 

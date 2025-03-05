@@ -59,10 +59,10 @@ private:
   ImuDiagDataProviderInterface * m_data_provider;
 
   /*! This variable retains the publisher instance. */
-  rclcpp::Publisher<imu_ros2::msg::ImuDiagData>::SharedPtr m_publisher;
+  rclcpp::Publisher<adi_imu::msg::ImuDiagData>::SharedPtr m_publisher;
 
   /*! This variable retains the message that is published. */
-  imu_ros2::msg::ImuDiagData m_message;
+  adi_imu::msg::ImuDiagData m_message;
 };
 
 #endif  // IMU_DIAG_ROS_PUBLISHER_H

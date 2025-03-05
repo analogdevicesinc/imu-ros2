@@ -22,7 +22,7 @@
 #ifndef IMU_FULL_MEASURED_DATA_PROVIDER_INTERFACE_H
 #define IMU_FULL_MEASURED_DATA_PROVIDER_INTERFACE_H
 
-#include "imu_ros2/msg/imu_full_measured_data.hpp"
+#include "adi_imu/msg/imu_full_measured_data.hpp"
 
 /**
  * @brief Interface for acceleration, angular velocity, delta angle, delta
@@ -47,7 +47,7 @@ public:
    * @return Return true if the message parameter is successfully populated with
    * measured data and false otherwise.
    */
-  virtual bool getData(imu_ros2::msg::ImuFullMeasuredData & message) = 0;
+  virtual bool getData(adi_imu::msg::ImuFullMeasuredData & message) = 0;
 };
 
 #endif  // IMU_FULL_MEASURED_DATA_PROVIDER_INTERFACE_H

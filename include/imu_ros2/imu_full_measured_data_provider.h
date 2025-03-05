@@ -22,8 +22,8 @@
 #ifndef IMU_FULL_MEASURED_DATA_PROVIDER_H
 #define IMU_FULL_MEASURED_DATA_PROVIDER_H
 
-#include "imu_ros2/iio_wrapper.h"
-#include "imu_ros2/imu_full_measured_data_provider_interface.h"
+#include "adi_imu/iio_wrapper.h"
+#include "adi_imu/imu_full_measured_data_provider_interface.h"
 
 /**
  * @brief Class for acceleration, angular velocity, delta angle, delta velocity
@@ -48,7 +48,7 @@ public:
    * @return Return true if the message parameter is successfully populated with
    * measured data and false otherwise.
    */
-  bool getData(imu_ros2::msg::ImuFullMeasuredData & message) override;
+  bool getData(adi_imu::msg::ImuFullMeasuredData & message) override;
 
 private:
   /*! This data member is used to access sensor information via libiio. */

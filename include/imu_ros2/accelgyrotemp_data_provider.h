@@ -22,8 +22,8 @@
 #ifndef ACCELGYROTEMP_DATA_PROVIDER_H
 #define ACCELGYROTEMP_DATA_PROVIDER_H
 
-#include "imu_ros2/accelgyrotemp_data_provider_interface.h"
-#include "imu_ros2/iio_wrapper.h"
+#include "adi_imu/accelgyrotemp_data_provider_interface.h"
+#include "adi_imu/iio_wrapper.h"
 
 /**
  * @brief Class for acceleration, angular velocity and temperature
@@ -48,7 +48,7 @@ public:
    * @return Return true if the message parameter is successfully populated with
    * measured data and false otherwise.
    */
-  bool getData(imu_ros2::msg::AccelGyroTempData & message) override;
+  bool getData(adi_imu::msg::AccelGyroTempData & message) override;
 
 private:
   /*! This data member is used to access sensor information via libiio. */
