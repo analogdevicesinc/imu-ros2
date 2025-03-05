@@ -21,7 +21,7 @@
 #ifndef IMU_DIAG_DATA_PROVIDER_INTERFACE_H
 #define IMU_DIAG_DATA_PROVIDER_INTERFACE_H
 
-#include "imu_ros2/msg/imu_diag_data.hpp"
+#include "adi_imu/msg/imu_diag_data.hpp"
 
 /**
  * @brief Interface for diagnosis data provider for adis chips.
@@ -45,7 +45,7 @@ public:
    * @return Return true if the message parameter is successfully populated with
    * diagnosis data and false otherwise.
    */
-  virtual bool getData(imu_ros2::msg::ImuDiagData & message) = 0;
+  virtual bool getData(adi_imu::msg::ImuDiagData & message) = 0;
 };
 
 #endif  // IMU_DIAG_DATA_PROVIDER_INTERFACE_H

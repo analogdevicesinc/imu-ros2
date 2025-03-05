@@ -21,8 +21,8 @@
 #ifndef IMU_IDENTIFICATION_DATA_PROVIDER_H
 #define IMU_IDENTIFICATION_DATA_PROVIDER_H
 
-#include "imu_ros2/iio_wrapper.h"
-#include "imu_ros2/imu_identification_data_provider_interface.h"
+#include "adi_imu/iio_wrapper.h"
+#include "adi_imu/imu_identification_data_provider_interface.h"
 
 /**
  * @brief Class for identification data provider.
@@ -46,7 +46,7 @@ public:
    * @return Return true if the message parameter is successfully populated with
    * identification data and false otherwise.
    */
-  bool getData(imu_ros2::msg::ImuIdentificationData & message) override;
+  bool getData(adi_imu::msg::ImuIdentificationData & message) override;
 
 private:
   /*! This data member is used to access sensor information via libiio. */

@@ -1,5 +1,5 @@
 /***************************************************************************/ /**
- *   @file   imu_ros2_node.cpp
+ *   @file   adi_imu_node.cpp
  *   @brief  Implementation for IMU node.
  *   @author Vasile Holonec (Vasile.Holonec@analog.com)
  ********************************************************************************
@@ -18,25 +18,25 @@
  * limitations under the License.
  *******************************************************************************/
 
-#include "imu_ros2/accelgyrotemp_data_provider.h"
-#include "imu_ros2/accelgyrotemp_ros_publisher.h"
-#include "imu_ros2/imu_control_parameters.h"
-#include "imu_ros2/imu_data_provider.h"
-#include "imu_ros2/imu_diag_data_provider.h"
-#include "imu_ros2/imu_diag_ros_publisher.h"
-#include "imu_ros2/imu_full_measured_data_provider.h"
-#include "imu_ros2/imu_full_measured_data_ros_publisher.h"
-#include "imu_ros2/imu_identification_data_provider.h"
-#include "imu_ros2/imu_identification_ros_publisher.h"
-#include "imu_ros2/imu_ros_publisher.h"
-#include "imu_ros2/ros_publisher_group.h"
-#include "imu_ros2/ros_publisher_group_interface.h"
+#include "adi_imu/accelgyrotemp_data_provider.h"
+#include "adi_imu/accelgyrotemp_ros_publisher.h"
+#include "adi_imu/imu_control_parameters.h"
+#include "adi_imu/imu_data_provider.h"
+#include "adi_imu/imu_diag_data_provider.h"
+#include "adi_imu/imu_diag_ros_publisher.h"
+#include "adi_imu/imu_full_measured_data_provider.h"
+#include "adi_imu/imu_full_measured_data_ros_publisher.h"
+#include "adi_imu/imu_identification_data_provider.h"
+#include "adi_imu/imu_identification_ros_publisher.h"
+#include "adi_imu/imu_ros_publisher.h"
+#include "adi_imu/ros_publisher_group.h"
+#include "adi_imu/ros_publisher_group_interface.h"
 #ifdef ADIS_HAS_DELTA_BURST
-#include "imu_ros2/velangtemp_data_provider.h"
-#include "imu_ros2/velangtemp_ros_publisher.h"
+#include "adi_imu/velangtemp_data_provider.h"
+#include "adi_imu/velangtemp_ros_publisher.h"
 #endif
 
-#include "imu_ros2/worker_thread.h"
+#include "adi_imu/worker_thread.h"
 #include "rclcpp/rclcpp.hpp"
 
 /**
@@ -51,7 +51,7 @@ int main(int argc, char * argv[])
   int ret;
   rclcpp::init(argc, argv);
 
-  std::shared_ptr<rclcpp::Node> imu_node = rclcpp::Node::make_shared("imu_ros2_node");
+  std::shared_ptr<rclcpp::Node> imu_node = rclcpp::Node::make_shared("adi_imu_node");
 
   std::thread::id this_id = std::this_thread::get_id();
   std::cout << "mainthread " << this_id << " running...\n";
@@ -59,8 +59,8 @@ int main(int argc, char * argv[])
 
   auto param_desc = rcl_interfaces::msg::ParameterDescriptor{};
   param_desc.description =
-    "\nDefault value is \'local:\', to be used when the imu_ros2 node is running locally."
-    "\nIf the imu_ros2 node is running remotely, please use \'ip:rpi_ip_address\',";
+    "\nDefault value is \'local:\', to be used when the adi_imu node is running locally."
+    "\nIf the adi_imu node is running remotely, please use \'ip:rpi_ip_address\',";
 
   imu_node->declare_parameter("iio_context_string", "local:", param_desc);
 

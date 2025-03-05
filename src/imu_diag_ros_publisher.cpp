@@ -18,14 +18,14 @@
  * limitations under the License.
  ******************************************************************************/
 
-#include "imu_ros2/imu_diag_ros_publisher.h"
+#include "adi_imu/imu_diag_ros_publisher.h"
 
 #include <thread>
 
 ImuDiagRosPublisher::ImuDiagRosPublisher(std::shared_ptr<rclcpp::Node> & node)
 {
   m_node = node;
-  m_publisher = node->create_publisher<imu_ros2::msg::ImuDiagData>("imudiagdata", 10);
+  m_publisher = node->create_publisher<adi_imu::msg::ImuDiagData>("imudiagdata", 10);
 }
 
 ImuDiagRosPublisher::~ImuDiagRosPublisher() { delete m_data_provider; }

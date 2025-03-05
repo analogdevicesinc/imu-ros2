@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
 <launch>
-    <node pkg="fake_ar_publisher" type="fake_ar_publisher_node" name="fake_ar_publisher"/>
-    <test test-name="imu_ros2_test" pkg="imu_ros2_test" type="utest_node"/>
+    <node pkg="fake_ar_publisher" type="fake_ar_publisher_node" name="fake_ar_publisher" />
+    <test test-name="adi_imu_test" pkg="adi_imu_test" type="utest_node" />
 </launch>

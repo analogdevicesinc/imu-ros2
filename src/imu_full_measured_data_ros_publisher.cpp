@@ -19,7 +19,7 @@
  * limitations under the License.
  *******************************************************************************/
 
-#include "imu_ros2/imu_full_measured_data_ros_publisher.h"
+#include "adi_imu/imu_full_measured_data_ros_publisher.h"
 
 #include <chrono>
 #include <thread>
@@ -29,7 +29,7 @@ ImuFullMeasuredDataRosPublisher::ImuFullMeasuredDataRosPublisher(
 {
   m_node = node;
   m_publisher =
-    node->create_publisher<imu_ros2::msg::ImuFullMeasuredData>("imufullmeasureddata", 10);
+    node->create_publisher<adi_imu::msg::ImuFullMeasuredData>("imufullmeasureddata", 10);
 }
 
 ImuFullMeasuredDataRosPublisher::~ImuFullMeasuredDataRosPublisher() { delete m_data_provider; }

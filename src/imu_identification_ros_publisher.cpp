@@ -18,7 +18,7 @@
  * limitations under the License.
  ******************************************************************************/
 
-#include "imu_ros2/imu_identification_ros_publisher.h"
+#include "adi_imu/imu_identification_ros_publisher.h"
 
 #include <thread>
 
@@ -26,7 +26,7 @@ ImuIdentificationRosPublisher::ImuIdentificationRosPublisher(std::shared_ptr<rcl
 {
   m_node = node;
   m_publisher =
-    node->create_publisher<imu_ros2::msg::ImuIdentificationData>("imuidentificationdata", 10);
+    node->create_publisher<adi_imu::msg::ImuIdentificationData>("imuidentificationdata", 10);
 }
 
 ImuIdentificationRosPublisher::~ImuIdentificationRosPublisher() { delete m_data_provider; }

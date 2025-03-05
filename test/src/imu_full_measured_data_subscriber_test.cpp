@@ -23,8 +23,8 @@
 #include <chrono>
 #include <rclcpp/rclcpp.hpp>
 
-#include "imu_ros2/iio_wrapper.h"
-#include "imu_ros2/msg/imu_full_measured_data.hpp"
+#include "adi_imu/iio_wrapper.h"
+#include "adi_imu/msg/imu_full_measured_data.hpp"
 
 /**
  * @brief Class for testing ImuFullMeasuredData.
@@ -77,7 +77,7 @@ TEST(ImuFullMeasuredDataSubscriberTest, test_imu_full_measured_data_publisher)
   bool callbackExecuted = false;
 
   auto callback = [&scale_accel, &scale_angvel, &scale_velocity, &scale_rot, &scale_temp,
-                   &callbackExecuted](imu_ros2::msg::ImuFullMeasuredData msg) -> void {
+                   &callbackExecuted](adi_imu::msg::ImuFullMeasuredData msg) -> void {
     RCLCPP_INFO(
       rclcpp::get_logger("imu_full_measured_data_subscriber_test"),
       "\nlinear acceleration x axis: %f \nlinear acceleration y axis: %f\nlinear acceleration z "
@@ -152,7 +152,7 @@ TEST(ImuFullMeasuredDataSubscriberTest, test_imu_full_measured_data_publisher)
   executor.add_node(node);
 
   auto subscriber =
-    node->create_subscription<imu_ros2::msg::ImuFullMeasuredData>(topic, 10, callback);
+    node->create_subscription<adi_imu::msg::ImuFullMeasuredData>(topic, 10, callback);
 
   std::chrono::seconds sec(1);
 

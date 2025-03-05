@@ -23,8 +23,8 @@
 
 #include <rclcpp/rclcpp.hpp>
 
-#include "imu_ros2/accelgyrotemp_data_provider_interface.h"
-#include "imu_ros2/accelgyrotemp_ros_publisher_interface.h"
+#include "adi_imu/accelgyrotemp_data_provider_interface.h"
+#include "adi_imu/accelgyrotemp_ros_publisher_interface.h"
 
 /**
  * @brief Class for acceleration, angular velocity and temperature publisher.
@@ -59,10 +59,10 @@ private:
   AccelGyroTempDataProviderInterface * m_data_provider;
 
   /*! This variable retains the publisher instance. */
-  rclcpp::Publisher<imu_ros2::msg::AccelGyroTempData>::SharedPtr m_publisher;
+  rclcpp::Publisher<adi_imu::msg::AccelGyroTempData>::SharedPtr m_publisher;
 
   /*! This variable retains the message that is published. */
-  imu_ros2::msg::AccelGyroTempData m_message;
+  adi_imu::msg::AccelGyroTempData m_message;
 };
 
 #endif  // ACCELGYROTEMP_ROS_SUBSCRIBER_H

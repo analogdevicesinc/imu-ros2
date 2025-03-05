@@ -23,8 +23,8 @@
 #include <chrono>
 #include <rclcpp/rclcpp.hpp>
 
-#include "imu_ros2/iio_wrapper.h"
-#include "imu_ros2/msg/vel_ang_temp_data.hpp"
+#include "adi_imu/iio_wrapper.h"
+#include "adi_imu/msg/vel_ang_temp_data.hpp"
 
 /**
  * @brief Class for testing VelAngTempData.
@@ -76,7 +76,7 @@ TEST(VelAngTempSubscriberTest, test_velangtemp_publisher)
   bool callbackExecuted = false;
 
   auto callback = [&scale_deltavelocity, &scale_deltaangl, &scale_temp,
-                   &callbackExecuted](imu_ros2::msg::VelAngTempData msg) -> void {
+                   &callbackExecuted](adi_imu::msg::VelAngTempData msg) -> void {
     RCLCPP_INFO(
       rclcpp::get_logger("velangtemp_subscriber_test"),
       "delta velocity x axis: %f \ndelta velocity y axis: %f\ndelta velocity z axis: %f\n"
@@ -116,7 +116,7 @@ TEST(VelAngTempSubscriberTest, test_velangtemp_publisher)
   rclcpp::executors::SingleThreadedExecutor executor;
   executor.add_node(node);
 
-  auto subscriber = node->create_subscription<imu_ros2::msg::VelAngTempData>(topic, 10, callback);
+  auto subscriber = node->create_subscription<adi_imu::msg::VelAngTempData>(topic, 10, callback);
 
   std::chrono::seconds sec(1);
 

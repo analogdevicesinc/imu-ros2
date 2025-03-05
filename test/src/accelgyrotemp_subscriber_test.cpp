@@ -23,8 +23,8 @@
 #include <chrono>
 #include <rclcpp/rclcpp.hpp>
 
-#include "imu_ros2/iio_wrapper.h"
-#include "imu_ros2/msg/accel_gyro_temp_data.hpp"
+#include "adi_imu/iio_wrapper.h"
+#include "adi_imu/msg/accel_gyro_temp_data.hpp"
 
 /**
  * @brief Class for testing AccelGyroTempData.
@@ -75,7 +75,7 @@ TEST(AccelGyroTempSubscriberTest, test_accelgyrotemp_publisher)
   bool callbackExecuted = false;
 
   auto callback = [&scale_accel, &scale_anglvel, &scale_temp,
-                   &callbackExecuted](imu_ros2::msg::AccelGyroTempData msg) -> void {
+                   &callbackExecuted](adi_imu::msg::AccelGyroTempData msg) -> void {
     RCLCPP_INFO(
       rclcpp::get_logger("accelgyrotemp_subscriber_test"),
       "\nlinear acceleration x axis: %f \nlinear acceleration y axis: %f\nlinear acceleration z "
@@ -125,8 +125,7 @@ TEST(AccelGyroTempSubscriberTest, test_accelgyrotemp_publisher)
   rclcpp::executors::SingleThreadedExecutor executor;
   executor.add_node(node);
 
-  auto subscriber =
-    node->create_subscription<imu_ros2::msg::AccelGyroTempData>(topic, 10, callback);
+  auto subscriber = node->create_subscription<adi_imu::msg::AccelGyroTempData>(topic, 10, callback);
 
   std::chrono::seconds sec(1);
 

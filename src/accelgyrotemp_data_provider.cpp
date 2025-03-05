@@ -19,13 +19,13 @@
  * limitations under the License.
  ******************************************************************************/
 
-#include "imu_ros2/accelgyrotemp_data_provider.h"
+#include "adi_imu/accelgyrotemp_data_provider.h"
 
 AccelGyroTempDataProvider::AccelGyroTempDataProvider() {}
 
 AccelGyroTempDataProvider::~AccelGyroTempDataProvider() {}
 
-bool AccelGyroTempDataProvider::getData(imu_ros2::msg::AccelGyroTempData & message)
+bool AccelGyroTempDataProvider::getData(adi_imu::msg::AccelGyroTempData & message)
 {
   if (!m_iio_wrapper.updateBuffer(ACCEL_GYRO_BUFFERED_DATA)) return false;
 

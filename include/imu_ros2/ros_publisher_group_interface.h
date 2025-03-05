@@ -24,8 +24,8 @@
 #include <memory>
 #include <rclcpp/rclcpp.hpp>
 
+#include "adi_imu/ros_task.h"
 #include "adis_data_access.h"
-#include "imu_ros2/ros_task.h"
 
 class AccelGyroTempRosPublisherInterface;
 class ImuRosPublisherInterface;

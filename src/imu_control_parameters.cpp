@@ -18,7 +18,7 @@
  * limitations under the License.
  *******************************************************************************/
 
-#include "imu_ros2/imu_control_parameters.h"
+#include "adi_imu/imu_control_parameters.h"
 
 #include <inttypes.h>
 

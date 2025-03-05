@@ -19,13 +19,13 @@
  * limitations under the License.
  ******************************************************************************/
 
-#include "imu_ros2/velangtemp_data_provider.h"
+#include "adi_imu/velangtemp_data_provider.h"
 
 VelAngTempDataProvider::VelAngTempDataProvider() {}
 
 VelAngTempDataProvider::~VelAngTempDataProvider() {}
 
-bool VelAngTempDataProvider::getData(imu_ros2::msg::VelAngTempData & message)
+bool VelAngTempDataProvider::getData(adi_imu::msg::VelAngTempData & message)
 {
 #ifdef ADIS_HAS_DELTA_BURST
   if (!m_iio_wrapper.updateBuffer(DELTAVEL_DELTAANG_BUFFERED_DATA)) return false;

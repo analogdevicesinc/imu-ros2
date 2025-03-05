@@ -19,7 +19,7 @@
  * limitations under the License.
  *******************************************************************************/
 
-#include "imu_ros2/velangtemp_ros_publisher.h"
+#include "adi_imu/velangtemp_ros_publisher.h"
 
 #include <chrono>
 #include <thread>
@@ -27,7 +27,7 @@
 VelAngTempRosPublisher::VelAngTempRosPublisher(std::shared_ptr<rclcpp::Node> & node)
 {
   m_node = node;
-  m_publisher = node->create_publisher<imu_ros2::msg::VelAngTempData>("velangtempdata", 10);
+  m_publisher = node->create_publisher<adi_imu::msg::VelAngTempData>("velangtempdata", 10);
 }
 
 VelAngTempRosPublisher::~VelAngTempRosPublisher() { delete m_data_provider; }

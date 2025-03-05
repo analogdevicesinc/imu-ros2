@@ -21,7 +21,7 @@
 #ifndef IMU_IDENTIFICATION_DATA_PROVIDER_INTERFACE_H
 #define IMU_IDENTIFICATION_DATA_PROVIDER_INTERFACE_H
 
-#include "imu_ros2/msg/imu_identification_data.hpp"
+#include "adi_imu/msg/imu_identification_data.hpp"
 
 /**
  * @brief Interface for identification data provider.
@@ -45,7 +45,7 @@ public:
    * @return Return true if the message parameter is successfully populated with
    * identification data and false otherwise.
    */
-  virtual bool getData(imu_ros2::msg::ImuIdentificationData & message) = 0;
+  virtual bool getData(adi_imu::msg::ImuIdentificationData & message) = 0;
 };
 
 #endif  // IMU_IDENTIFICATION_DATA_PROVIDER_INTERFACE_H

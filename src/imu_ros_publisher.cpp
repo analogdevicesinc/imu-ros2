@@ -18,7 +18,7 @@
  * limitations under the License.
  ******************************************************************************/
 
-#include "imu_ros2/imu_ros_publisher.h"
+#include "adi_imu/imu_ros_publisher.h"
 
 #include <chrono>
 #include <thread>

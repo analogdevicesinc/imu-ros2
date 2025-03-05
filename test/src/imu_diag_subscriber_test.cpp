@@ -23,8 +23,8 @@
 #include <chrono>
 #include <rclcpp/rclcpp.hpp>
 
-#include "imu_ros2/adis_data_access.h"
-#include "imu_ros2/msg/imu_diag_data.hpp"
+#include "adi_imu/adis_data_access.h"
+#include "adi_imu/msg/imu_diag_data.hpp"
 
 /**
  * @brief Class for testing ImuDiagData.
@@ -61,7 +61,7 @@ TEST(ImuDiagSubscriberTest, test_imu__diag_data_publisher)
   std::string topic = "imudiagdata";
   bool callbackExecuted = false;
 
-  auto callback = [&callbackExecuted](imu_ros2::msg::ImuDiagData msg) -> void {
+  auto callback = [&callbackExecuted](adi_imu::msg::ImuDiagData msg) -> void {
 
 #ifdef ADIS_SNSR_INIT_FAIL
     ASSERT_TRUE(msg.diag_sensor_initialization_failure == false);
@@ -132,7 +132,7 @@ TEST(ImuDiagSubscriberTest, test_imu__diag_data_publisher)
   rclcpp::executors::SingleThreadedExecutor executor;
   executor.add_node(node);
 
-  auto subscriber = node->create_subscription<imu_ros2::msg::ImuDiagData>(topic, 10, callback);
+  auto subscriber = node->create_subscription<adi_imu::msg::ImuDiagData>(topic, 10, callback);
 
   std::chrono::seconds sec(1);
 

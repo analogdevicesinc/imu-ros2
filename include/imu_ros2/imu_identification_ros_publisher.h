@@ -23,8 +23,8 @@
 
 #include <rclcpp/rclcpp.hpp>
 
-#include "imu_ros2/imu_identification_data_provider_interface.h"
-#include "imu_ros2/imu_identification_ros_publisher_interface.h"
+#include "adi_imu/imu_identification_data_provider_interface.h"
+#include "adi_imu/imu_identification_ros_publisher_interface.h"
 
 /**
  * @brief Class for identification publisher.
@@ -60,10 +60,10 @@ private:
   ImuIdentificationDataProviderInterface * m_data_provider;
 
   /*! This variable retains the publisher instance. */
-  rclcpp::Publisher<imu_ros2::msg::ImuIdentificationData>::SharedPtr m_publisher;
+  rclcpp::Publisher<adi_imu::msg::ImuIdentificationData>::SharedPtr m_publisher;
 
   /*! This variable retains the message that is published. */
-  imu_ros2::msg::ImuIdentificationData m_message;
+  adi_imu::msg::ImuIdentificationData m_message;
 };
 
 #endif  // IMU_IDENTIFICATION_ROS_PUBLISHER_H

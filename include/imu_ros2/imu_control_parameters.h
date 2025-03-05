@@ -23,7 +23,7 @@
 
 #include <rclcpp/rclcpp.hpp>
 
-#include "imu_ros2/iio_wrapper.h"
+#include "adi_imu/iio_wrapper.h"
 #include "rcl_interfaces/msg/set_parameters_result.hpp"
 
 /**

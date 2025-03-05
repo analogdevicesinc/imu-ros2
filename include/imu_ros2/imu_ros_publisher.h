@@ -23,8 +23,8 @@
 
 #include <rclcpp/rclcpp.hpp>
 
-#include "imu_ros2/imu_data_provider_interface.h"
-#include "imu_ros2/imu_ros_publisher_interface.h"
+#include "adi_imu/imu_data_provider_interface.h"
+#include "adi_imu/imu_ros_publisher_interface.h"
 
 /**
  * @brief Class for standard message sensor_msgs::msg::Imu publisher.

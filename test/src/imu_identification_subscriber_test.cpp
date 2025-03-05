@@ -23,8 +23,8 @@
 #include <chrono>
 #include <rclcpp/rclcpp.hpp>
 
-#include "imu_ros2/iio_wrapper.h"
-#include "imu_ros2/msg/imu_identification_data.hpp"
+#include "adi_imu/iio_wrapper.h"
+#include "adi_imu/msg/imu_identification_data.hpp"
 
 /**
  * @brief Class for testing ImuIdentificationData.
@@ -70,7 +70,7 @@ TEST(ImuIdentificationSubscriberTest, test_imu_identification_publisher)
   std::string topic = "imuidentificationdata";
 
   bool callbackExecuted = false;
-  imu_ros2::msg::ImuIdentificationData imu_message;
+  adi_imu::msg::ImuIdentificationData imu_message;
 
   iio_wrapper.firmware_revision(imu_message.firmware_revision);
   iio_wrapper.firmware_date(imu_message.firmware_date);
@@ -79,7 +79,7 @@ TEST(ImuIdentificationSubscriberTest, test_imu_identification_publisher)
   iio_wrapper.gyroscope_measurement_range(imu_message.gyroscope_measurement_range);
 
   auto callback = [&imu_message,
-                   &callbackExecuted](imu_ros2::msg::ImuIdentificationData msg) -> void {
+                   &callbackExecuted](adi_imu::msg::ImuIdentificationData msg) -> void {
     RCLCPP_INFO(
       rclcpp::get_logger("imu_identification_subscriber_test"),
       "\nproduct id: %d"
@@ -101,7 +101,7 @@ TEST(ImuIdentificationSubscriberTest, test_imu_identification_publisher)
   executor.add_node(node);
 
   auto subscriber =
-    node->create_subscription<imu_ros2::msg::ImuIdentificationData>(topic, 10, callback);
+    node->create_subscription<adi_imu::msg::ImuIdentificationData>(topic, 10, callback);
 
   std::chrono::seconds sec(1);
 

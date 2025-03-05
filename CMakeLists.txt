@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.8)
-project(imu_ros2)
+project(adi_imu)
 
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
@@ -83,7 +83,7 @@ message(AUTHOR_WARNING "DEVICE_ID=$ENV{DEVICE_ID} which is a valid value.")
 set(DEVICE_PATH adis1654x)
 add_compile_definitions(ADIS1654X)
 
-elseif (${DEVICE_FOUND_ADIS16550} OR 
+elseif (${DEVICE_FOUND_ADIS16550} OR
         ${DEVICE_FOUND_ADIS16550W})
 message(AUTHOR_WARNING "DEVICE_ID=$ENV{DEVICE_ID} which is a valid value.")
 set(DEVICE_PATH adis1655x)
@@ -141,32 +141,32 @@ find_library(LIBIIO_LIBRARIES iio)
 find_path(LIBIIO_INCLUDE_DIRS iio.h)
 
 file(GLOB FILES_H ${CMAKE_SOURCE_DIR}/include/*.h
-                    ${CMAKE_SOURCE_DIR}/include/imu_ros2/*.h
-                    ${CMAKE_SOURCE_DIR}/include/imu_ros2/${DEVICE_PATH}/*.h)
+                    ${CMAKE_SOURCE_DIR}/include/adi_imu/*.h
+                    ${CMAKE_SOURCE_DIR}/include/adi_imu/${DEVICE_PATH}/*.h)
 
 file(GLOB FILES_CPP ${CMAKE_SOURCE_DIR}/src/*.cpp
                       ${CMAKE_SOURCE_DIR}/src/${DEVICE_PATH}/*.cpp)
 
-add_executable(imu_ros2_node ${FILES_H} ${FILES_CPP})
+add_executable(adi_imu_node ${FILES_H} ${FILES_CPP})
 
-target_include_directories(imu_ros2_node PUBLIC
+target_include_directories(adi_imu_node PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:include>)
-target_compile_features(imu_ros2_node PUBLIC cxx_std_17)  # Require C++17
+target_compile_features(adi_imu_node PUBLIC cxx_std_17)  # Require C++17
 
-ament_target_dependencies(imu_ros2_node rclcpp geometry_msgs std_msgs sensor_msgs ament_cmake )
+ament_target_dependencies(adi_imu_node rclcpp geometry_msgs std_msgs sensor_msgs ament_cmake )
 
-target_link_libraries(imu_ros2_node iio)
+target_link_libraries(adi_imu_node iio)
 
 install(
   DIRECTORY launch rviz
   DESTINATION share/${PROJECT_NAME}
 )
 
-install(TARGETS imu_ros2_node
+install(TARGETS adi_imu_node
   DESTINATION lib/${PROJECT_NAME})
 
-rosidl_generate_interfaces(imu_ros2
+rosidl_generate_interfaces(adi_imu
   "msg/ImuIdentificationData.msg"
   "msg/VelAngTempData.msg"
   "msg/ImuFullMeasuredData.msg"
@@ -175,11 +175,11 @@ rosidl_generate_interfaces(imu_ros2
   DEPENDENCIES builtin_interfaces geometry_msgs
 )
 
-rosidl_get_typesupport_target(imu_ros2_node
+rosidl_get_typesupport_target(adi_imu_node
   ${PROJECT_NAME} "rosidl_typesupport_cpp")
 
 ament_export_dependencies(rosidl_default_runtime)
-target_link_libraries(imu_ros2_node "${imu_ros2_node}")
+target_link_libraries(adi_imu_node "${adi_imu_node}")
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)

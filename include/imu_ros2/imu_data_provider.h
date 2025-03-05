@@ -21,8 +21,8 @@
 #ifndef IMU_DATA_PROVIDER_H
 #define IMU_DATA_PROVIDER_H
 
-#include "imu_ros2/iio_wrapper.h"
-#include "imu_ros2/imu_data_provider_interface.h"
+#include "adi_imu/iio_wrapper.h"
+#include "adi_imu/imu_data_provider_interface.h"
 
 /**
  * @brief Class for standard message sensor_msgs::msg::Imu data provider.

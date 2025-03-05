@@ -23,8 +23,8 @@
 
 #include <rclcpp/rclcpp.hpp>
 
-#include "imu_ros2/velangtemp_data_provider_interface.h"
-#include "imu_ros2/velangtemp_ros_publisher_interface.h"
+#include "adi_imu/velangtemp_data_provider_interface.h"
+#include "adi_imu/velangtemp_ros_publisher_interface.h"
 
 /**
  * @brief Class for delta velocity, delta angle and temperature publisher.
@@ -59,10 +59,10 @@ private:
   VelAngTempDataProviderInterface * m_data_provider;
 
   /*! This variable retains the publisher instance. */
-  rclcpp::Publisher<imu_ros2::msg::VelAngTempData>::SharedPtr m_publisher;
+  rclcpp::Publisher<adi_imu::msg::VelAngTempData>::SharedPtr m_publisher;
 
   /*! This variable retains the message that is published. */
-  imu_ros2::msg::VelAngTempData m_message;
+  adi_imu::msg::VelAngTempData m_message;
 };
 
 #endif  // VELANGTEMP_ROS_PUBLISHER_H
