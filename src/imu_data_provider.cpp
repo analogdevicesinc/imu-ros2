@@ -18,7 +18,7 @@
  * limitations under the License.
  ******************************************************************************/
 
-#include "imu_ros2/imu_data_provider.h"
+#include "adi_imu/imu_data_provider.h"
 
 #include <sensor_msgs/msg/imu.hpp>
 

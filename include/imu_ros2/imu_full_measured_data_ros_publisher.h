@@ -24,8 +24,8 @@
 
 #include <rclcpp/rclcpp.hpp>
 
-#include "imu_ros2/imu_full_measured_data_provider_interface.h"
-#include "imu_ros2/imu_full_measured_data_ros_publisher_interface.h"
+#include "adi_imu/imu_full_measured_data_provider_interface.h"
+#include "adi_imu/imu_full_measured_data_ros_publisher_interface.h"
 
 /**
  * @brief Class for acceleration, angular velocity, delta angle, delta velocity
@@ -61,10 +61,10 @@ private:
   ImuFullMeasuredDataProviderInterface * m_data_provider;
 
   /*! This variable retains the publisher instance. */
-  rclcpp::Publisher<imu_ros2::msg::ImuFullMeasuredData>::SharedPtr m_publisher;
+  rclcpp::Publisher<adi_imu::msg::ImuFullMeasuredData>::SharedPtr m_publisher;
 
   /*! This variable retains the message that is published. */
-  imu_ros2::msg::ImuFullMeasuredData m_message;
+  adi_imu::msg::ImuFullMeasuredData m_message;
 };
 
 #endif  // IMU_FULL_MEASURED_DATA_ROS_PUBLISHER_H

@@ -22,7 +22,7 @@
 #ifndef VELANGTEMP_DATA_PROVIDER_INTERFACE_H
 #define VELANGTEMP_DATA_PROVIDER_INTERFACE_H
 
-#include "imu_ros2/msg/vel_ang_temp_data.hpp"
+#include "adi_imu/msg/vel_ang_temp_data.hpp"
 
 /**
  * @brief Interface for delta angle, delta velocity and temperature buffered
@@ -47,7 +47,7 @@ public:
    * @return Return true if the message parameter is successfully populated with
    * measured data and false otherwise.
    */
-  virtual bool getData(imu_ros2::msg::VelAngTempData & message) = 0;
+  virtual bool getData(adi_imu::msg::VelAngTempData & message) = 0;
 };
 
 #endif  // VELANGTEMP_DATA_PROVIDER_INTERFACE_H

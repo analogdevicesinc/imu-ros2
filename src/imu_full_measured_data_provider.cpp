@@ -19,13 +19,13 @@
  * limitations under the License.
  ******************************************************************************/
 
-#include "imu_ros2/imu_full_measured_data_provider.h"
+#include "adi_imu/imu_full_measured_data_provider.h"
 
 ImuFullMeasuredDataProvider::ImuFullMeasuredDataProvider() {}
 
 ImuFullMeasuredDataProvider::~ImuFullMeasuredDataProvider() {}
 
-bool ImuFullMeasuredDataProvider::getData(imu_ros2::msg::ImuFullMeasuredData & data)
+bool ImuFullMeasuredDataProvider::getData(adi_imu::msg::ImuFullMeasuredData & data)
 {
   m_iio_wrapper.stopBufferAcquisition();
 

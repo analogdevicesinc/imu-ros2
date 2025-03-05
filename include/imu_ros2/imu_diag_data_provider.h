@@ -21,8 +21,8 @@
 #ifndef IMU_DIAG_DATA_PROVIDER_H
 #define IMU_DIAG_DATA_PROVIDER_H
 
+#include "adi_imu/iio_wrapper.h"
 #include "imu_diag_data_provider_interface.h"
-#include "imu_ros2/iio_wrapper.h"
 
 /**
  * @brief Class for diagnosis data provider for adis chips.
@@ -46,7 +46,7 @@ public:
    * @return Return true if the message parameter is successfully populated with
    * diagnosis data and false otherwise.
    */
-  bool getData(imu_ros2::msg::ImuDiagData & message) override;
+  bool getData(adi_imu::msg::ImuDiagData & message) override;
 
 private:
   /*! This data member is used to access sensor information via libiio. */

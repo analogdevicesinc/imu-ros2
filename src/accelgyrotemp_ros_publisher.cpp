@@ -19,7 +19,7 @@
  * limitations under the License.
  ******************************************************************************/
 
-#include "imu_ros2/accelgyrotemp_ros_publisher.h"
+#include "adi_imu/accelgyrotemp_ros_publisher.h"
 
 #include <chrono>
 #include <thread>
@@ -27,7 +27,7 @@
 AccelGyroTempRosPublisher::AccelGyroTempRosPublisher(std::shared_ptr<rclcpp::Node> & node)
 {
   m_node = node;
-  m_publisher = node->create_publisher<imu_ros2::msg::AccelGyroTempData>("accelgyrotempdata", 10);
+  m_publisher = node->create_publisher<adi_imu::msg::AccelGyroTempData>("accelgyrotempdata", 10);
 }
 
 AccelGyroTempRosPublisher::~AccelGyroTempRosPublisher() { delete m_data_provider; }

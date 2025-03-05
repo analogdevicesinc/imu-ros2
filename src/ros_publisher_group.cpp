@@ -18,17 +18,17 @@
  * limitations under the License.
  ******************************************************************************/
 
-#include "imu_ros2/ros_publisher_group.h"
+#include "adi_imu/ros_publisher_group.h"
 
 #include <chrono>
 #include <thread>
 
-#include "imu_ros2/accelgyrotemp_ros_publisher_interface.h"
-#include "imu_ros2/imu_control_parameters.h"
-#include "imu_ros2/imu_full_measured_data_ros_publisher_interface.h"
-#include "imu_ros2/imu_ros_publisher_interface.h"
+#include "adi_imu/accelgyrotemp_ros_publisher_interface.h"
+#include "adi_imu/imu_control_parameters.h"
+#include "adi_imu/imu_full_measured_data_ros_publisher_interface.h"
+#include "adi_imu/imu_ros_publisher_interface.h"
 #ifdef ADIS_HAS_DELTA_BURST
-#include "imu_ros2/velangtemp_ros_publisher_interface.h"
+#include "adi_imu/velangtemp_ros_publisher_interface.h"
 #endif
 
 RosPublisherGroup::RosPublisherGroup(std::shared_ptr<rclcpp::Node> & node) { m_node = node; }

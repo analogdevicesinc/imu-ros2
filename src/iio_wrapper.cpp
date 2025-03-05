@@ -18,7 +18,7 @@
  * limitations under the License.
  *******************************************************************************/
 
-#include "imu_ros2/iio_wrapper.h"
+#include "adi_imu/iio_wrapper.h"
 
 #include <rclcpp/rclcpp.hpp>
 

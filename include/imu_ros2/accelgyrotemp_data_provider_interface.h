@@ -22,7 +22,7 @@
 #ifndef ACCELGYROTEMP_DATA_PROVIDER_INTERFACE_H
 #define ACCELGYROTEMP_DATA_PROVIDER_INTERFACE_H
 
-#include "imu_ros2/msg/accel_gyro_temp_data.hpp"
+#include "adi_imu/msg/accel_gyro_temp_data.hpp"
 
 /**
  * @brief Interface for acceleration, angular velocity and temperature
@@ -47,7 +47,7 @@ public:
    * @return Return true if the message parameter is successfully populated with
    * measured data and false otherwise.
    */
-  virtual bool getData(imu_ros2::msg::AccelGyroTempData & message) = 0;
+  virtual bool getData(adi_imu::msg::AccelGyroTempData & message) = 0;
 };
 
 #endif  // ACCELGYROTEMP_DATA_PROVIDER_INTERFACE_H
