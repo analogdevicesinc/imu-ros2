@@ -1,8 +1,69 @@
-ROS2 drivers for ADI's IMUs
-===========================
+``adi_imu`` - ROS2 driver for for ADI's IMUs
+============================================
 
 .. contents::
     :depth: 2
+
+
+Overview
+--------
+
+Analog Devices offers a series of precision, miniature microelectromechanical
+system (MEMS) inertial measurement units (IMUs) that include a triaxial
+gyroscope and a triaxial accelerometer. Each inertial combines with signal
+conditioning that optimizes dynamic performance.
+
+The factory calibration characterizes each sensor for sensitivity, bias,
+alignment, linear acceleration (gyroscope bias), and point of percussion
+(accelerometer location). As a result, each sensor has dynamic compensation
+formulas that provide accurate sensor measurements over a broad set of
+conditions.
+
+
+Getting Started
+^^^^^^^^^^^^^^^
+
+To help you quickly get started with the adi_iio package, we have organized
+detailed documentation into several sections:
+
+* For information on **prerequisites, repository setup, and building the package**,
+  please refer to the `Using imu-ros2 repository`_ section.
+* For information on **running the adi_imu node with a local client or a remote client**,
+  please refer to the `Run adi_imu node`_ section.
+* For information on **topics, parameters, and examples**, please refer to the
+  `adi_imu node description`_ section.
+* For example on how to use the adi_imu node, please refer to the `Examples`_ section.
+
+
+Getting Help
+^^^^^^^^^^^^
+
+* **Issue Tracker:** Report bugs, request features, or submit technical queries
+  via our Issue Tracker.
+* **Further Guidance:** For additional communication guidelines, refer to `COMMUNICATION <COMMUNICATION.md>`_.
+
+
+Contributing
+^^^^^^^^^^^^
+
+Contributions are key to our project’s success. Before submitting changes:
+
+* Familiarize yourself with our code and testing conventions.
+* Consult the `CONTRIBUTING.md <CONTRIBUTING.md>`_ for detailed instructions.
+* Ensure your code adheres to our design values and guidelines.
+
+
+License
+^^^^^^^
+
+This project is licensed under the `Apache License, Version 2.0 LICENSE <LICENSE>`_.
+
+
+Changelog
+^^^^^^^^^
+
+Refer to our `CHANGELOG <CHANGELOG.md>`_ file for version history and release notes.
+
 
 Supported Devices
 -----------------
@@ -22,19 +83,7 @@ Supported Devices
 * `ADIS16576 <https://www.analog.com/ADIS16576>`_
 * `ADIS16577 <https://www.analog.com/ADIS16577>`_
 
-Overview
---------
 
-Analog Devices offers a series of precision, miniature microelectromechanical
-system (MEMS) inertial measurement units (IMUs) that include a triaxial
-gyroscope and a triaxial accelerometer. Each inertial combines with signal
-conditioning that optimizes dynamic performance.
-
-The factory calibration characterizes each sensor for sensitivity, bias,
-alignment, linear acceleration (gyroscope bias), and point of percussion
-(accelerometer location). As a result, each sensor has dynamic compensation
-formulas that provide accurate sensor measurements over a broad set of
-conditions.
 
 Applications
 ------------
@@ -185,6 +234,12 @@ After DEVICE_ID variable is exported, run the following command:
 
 Check wether the build is successful.
 
+.. _runn_adi_imu_node:
+
+
+Run adi_imu node
+----------------
+
 Run adi_imu node with local client
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -276,6 +331,7 @@ has been started:
 
         # test ImuDiagSubscriber
         ./adi_imu_test_node --gtest_filter="ImuDiagSubscriberTest*" --ros-args -p iio_context_string:="ip:'processing_unit_IP_address'"
+
 
 adi_imu node description
 -------------------------
@@ -417,6 +473,7 @@ chip specific configuration.
 +---------------------------------------------+------------------------------------------------------------+----------------+-------------------------------------------------------------------------------------------------------------------------------+------------------------+------------------------+-------------------------------------------------------+--------------------------------------------------+------------------------+
 | internal_sensor_bandwidth                   | Internal sensor bandwidth                                  | integer        | 0 for wide bandwidth, 1 for 370 Hz                                                                                            | Not Supported          | Not Supported          | Supported                                             | Not Supported                                    | Supported              |
 +---------------------------------------------+------------------------------------------------------------+----------------+-------------------------------------------------------------------------------------------------------------------------------+------------------------+------------------------+-------------------------------------------------------+--------------------------------------------------+------------------------+
+
 
 Examples
 --------
