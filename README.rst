@@ -99,7 +99,7 @@ Evaluation setup - Required hardware with remote client
 The image below shows the information flow from the IMU up to the adi_imu node
 when using a remote client.
 
-.. figure:: architecture_remote_client.png
+.. figure:: doc/images/architecture_remote_client.png
   :width: 721
   :align: center
   :alt: Architecture Remote Client
@@ -133,7 +133,7 @@ Evaluation setup - Required hardware with local client
 The image below shows the information flow from the IMU up to the adi_imu node
 when using a local client.
 
-.. figure:: architecture_local_client.png
+.. figure:: doc/images/architecture_local_client.png
   :width: 401
   :align: center
   :alt: Architecture Local Client
@@ -439,7 +439,7 @@ config.txt entries for device-tree overlay:
 The image below shows how the adis16467-1 device is connected to Raspberry Pi 4 using
 EVAL-ADISIMU1-RPIZ using Mounting Slot I with P7 Connector:
 
-.. image:: adis16467_1_rpi.jpg
+.. image:: doc/images/adis16467_1_rpi.jpg
   :align: center
   :alt: ADIS16467-1 with RPI4
 
@@ -709,7 +709,7 @@ config.txt entries for device-tree overlay:
 The image below shows how the adis16467-1 device is connected to Raspberry Pi 4 using
 EVAL-ADISIMU1-RPIZ using Mounting Slot I with P7 Connector:
 
-.. image:: adis16505_2_rpi.jpg
+.. image:: doc/images/adis16505_2_rpi.jpg
   :align: center
   :alt: ADIS16505-2 with RPI4
 
