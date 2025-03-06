@@ -1,0 +1,1008 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.9.8" xml:lang="en-US">
+  <compound refid="classAccelGyroTempDataProvider" kind="class"><name>AccelGyroTempDataProvider</name>
+    <member refid="classAccelGyroTempDataProvider_1acb8ae19c02d11f1aec5c69c11638cc91" kind="variable"><name>m_iio_wrapper</name></member>
+    <member refid="classAccelGyroTempDataProvider_1ad3afbaaf055db6e75d94205295f8290f" kind="function"><name>AccelGyroTempDataProvider</name></member>
+    <member refid="classAccelGyroTempDataProvider_1a46a788cd8ee9b14c04eb564003ddeb31" kind="function"><name>~AccelGyroTempDataProvider</name></member>
+    <member refid="classAccelGyroTempDataProvider_1af67881b4ea267e67689a2e5af672d947" kind="function"><name>getData</name></member>
+  </compound>
+  <compound refid="classAccelGyroTempDataProviderInterface" kind="class"><name>AccelGyroTempDataProviderInterface</name>
+    <member refid="classAccelGyroTempDataProviderInterface_1a8c99006840c27be6ebc2c83f4296095b" kind="function"><name>AccelGyroTempDataProviderInterface</name></member>
+    <member refid="classAccelGyroTempDataProviderInterface_1afb2081833893e32a460d658298989691" kind="function"><name>~AccelGyroTempDataProviderInterface</name></member>
+    <member refid="classAccelGyroTempDataProviderInterface_1a0b20795091c2739841a9b08b647eb45b" kind="function"><name>getData</name></member>
+  </compound>
+  <compound refid="classAccelGyroTempRosPublisher" kind="class"><name>AccelGyroTempRosPublisher</name>
+    <member refid="classAccelGyroTempRosPublisher_1a435e229211446240df0fa4cbecaba9b8" kind="variable"><name>m_data_provider</name></member>
+    <member refid="classAccelGyroTempRosPublisher_1a3ec3d01c3a5ba585e3e4284ab4ea3838" kind="variable"><name>m_publisher</name></member>
+    <member refid="classAccelGyroTempRosPublisher_1a99abaebe7b2e85d944980bf960777f02" kind="variable"><name>m_message</name></member>
+    <member refid="classAccelGyroTempRosPublisher_1af8fb4636878123e31f7b740c1f6a02f8" kind="function"><name>AccelGyroTempRosPublisher</name></member>
+    <member refid="classAccelGyroTempRosPublisher_1a074d147f93dc242ce7b254064f9b34ea" kind="function"><name>~AccelGyroTempRosPublisher</name></member>
+    <member refid="classAccelGyroTempRosPublisher_1ade22dbc3766732e4bfa2281454ec0029" kind="function"><name>setMessageProvider</name></member>
+    <member refid="classAccelGyroTempRosPublisher_1a4cfabbaac2eb9326afb28d95649c5154" kind="function"><name>publish</name></member>
+  </compound>
+  <compound refid="classAccelGyroTempRosPublisherInterface" kind="class"><name>AccelGyroTempRosPublisherInterface</name>
+    <member refid="classAccelGyroTempRosPublisherInterface_1a3d5c5d96b9b34724e83f8a82d1755f8b" kind="variable"><name>m_node</name></member>
+    <member refid="classAccelGyroTempRosPublisherInterface_1a35273384fcd445e27fdfa7e4a72057b1" kind="function"><name>AccelGyroTempRosPublisherInterface</name></member>
+    <member refid="classAccelGyroTempRosPublisherInterface_1a205416a2d172c6caf4a5f3d5a8417784" kind="function"><name>~AccelGyroTempRosPublisherInterface</name></member>
+    <member refid="classAccelGyroTempRosPublisherInterface_1ae70930451d10d71f9417cfbeffc44592" kind="function"><name>setMessageProvider</name></member>
+    <member refid="classAccelGyroTempRosPublisherInterface_1ac1f025c7a68632e7c702964d3fc946dd" kind="function"><name>publish</name></member>
+  </compound>
+  <compound refid="classAccelGyroTempSubscriberTest" kind="class"><name>AccelGyroTempSubscriberTest</name>
+    <member refid="classAccelGyroTempSubscriberTest_1a47864f9624e8ecac8302dcaee645d4a1" kind="function"><name>SetUpTestCase</name></member>
+    <member refid="classAccelGyroTempSubscriberTest_1a419c199f9c6bbc610094323fb785eaac" kind="function"><name>TearDownTestCase</name></member>
+  </compound>
+  <compound refid="classIIOWrapper" kind="class"><name>IIOWrapper</name>
+    <member refid="classIIOWrapper_1aef4fe3a3f93085da695bf65639f09b87" kind="variable"><name>m_iio_context</name></member>
+    <member refid="classIIOWrapper_1aa54f78cb0c53f73b6562e303367b20be" kind="variable"><name>m_dev</name></member>
+    <member refid="classIIOWrapper_1a4c656678d45e8e978480712451b69649" kind="variable"><name>m_dev_trigger</name></member>
+    <member refid="classIIOWrapper_1ac6c3cec6da827146507437ee27296a96" kind="variable"><name>m_dev_buffer</name></member>
+    <member refid="classIIOWrapper_1ac1fb844f82d64a1b6e2e6cc6c089bd71" kind="variable"><name>m_channel_accel_x</name></member>
+    <member refid="classIIOWrapper_1ad1e0779435221c690f93d6d05a76f176" kind="variable"><name>m_channel_accel_y</name></member>
+    <member refid="classIIOWrapper_1aa5f24dc01a83090154c57359a4668cd9" kind="variable"><name>m_channel_accel_z</name></member>
+    <member refid="classIIOWrapper_1a9b7c68d2cd7161e853b261c3e1363ef3" kind="variable"><name>m_channel_anglvel_x</name></member>
+    <member refid="classIIOWrapper_1a1b138c4cc8238e52a68f830363a04b8d" kind="variable"><name>m_channel_anglvel_y</name></member>
+    <member refid="classIIOWrapper_1a1b2384d209272000f673f25e7134d06d" kind="variable"><name>m_channel_anglvel_z</name></member>
+    <member refid="classIIOWrapper_1ae585f76ba5a1e003c9416bc87d5d7897" kind="variable"><name>m_channel_deltaangl_x</name></member>
+    <member refid="classIIOWrapper_1a60cc79165edc458ad3af03ad976feb2d" kind="variable"><name>m_channel_deltaangl_y</name></member>
+    <member refid="classIIOWrapper_1a7f9f033ffb31d35240723713a9769a6b" kind="variable"><name>m_channel_deltaangl_z</name></member>
+    <member refid="classIIOWrapper_1a13c3a4d31efdd2d329b3acc14b697aa4" kind="variable"><name>m_channel_deltavelocity_x</name></member>
+    <member refid="classIIOWrapper_1a7fba21deedbdc14adf0f4a46cb59fdff" kind="variable"><name>m_channel_deltavelocity_y</name></member>
+    <member refid="classIIOWrapper_1a38e16f0f6f97028d0eee31b7e98d40aa" kind="variable"><name>m_channel_deltavelocity_z</name></member>
+    <member refid="classIIOWrapper_1a49a1068fef0e2c1c48096f6b88d103b7" kind="variable"><name>m_channel_temp</name></member>
+    <member refid="classIIOWrapper_1a335fdbf54f6ea1f463b4b7e9e74e0cc8" kind="variable"><name>m_channel_timestamp</name></member>
+    <member refid="classIIOWrapper_1ac4a267304bf82229d032adf4c167c8be" kind="variable"><name>m_scale_accel_x</name></member>
+    <member refid="classIIOWrapper_1a39297415934efc288f6ced765861d19d" kind="variable"><name>m_scale_accel_y</name></member>
+    <member refid="classIIOWrapper_1a62c70c9017644054942d0a27c5582291" kind="variable"><name>m_scale_accel_z</name></member>
+    <member refid="classIIOWrapper_1a60201aaf24995e68520d846c5446cd23" kind="variable"><name>m_scale_anglvel_x</name></member>
+    <member refid="classIIOWrapper_1aabb94da5ca0c007e066898cd7767f5a2" kind="variable"><name>m_scale_anglvel_y</name></member>
+    <member refid="classIIOWrapper_1acdb2f23b02ac0650e12b76a02502e725" kind="variable"><name>m_scale_anglvel_z</name></member>
+    <member refid="classIIOWrapper_1a9d05021dd126ae2446d4bfc8e122d926" kind="variable"><name>m_scale_deltaangl_x</name></member>
+    <member refid="classIIOWrapper_1a0a614ad2a77e11186da5c6d22743c1cc" kind="variable"><name>m_scale_deltaangl_y</name></member>
+    <member refid="classIIOWrapper_1aa60f12b53d29ad7a17750da6cfe56a9b" kind="variable"><name>m_scale_deltaangl_z</name></member>
+    <member refid="classIIOWrapper_1a6b769d1cfe0c7e2f09d7af4cdbea5c09" kind="variable"><name>m_scale_deltavelocity_x</name></member>
+    <member refid="classIIOWrapper_1a5f29b5ac8ea9c50f38059626899f45ab" kind="variable"><name>m_scale_deltavelocity_y</name></member>
+    <member refid="classIIOWrapper_1a822cfeb7635264d647df73dabd2ec4d6" kind="variable"><name>m_scale_deltavelocity_z</name></member>
+    <member refid="classIIOWrapper_1ac33c30566920a17f9f0b20321c7bb4ae" kind="variable"><name>m_scale_temp</name></member>
+    <member refid="classIIOWrapper_1ae9b4506c5a6cb9d56e36d11c3d4fc56e" kind="function"><name>IIOWrapper</name></member>
+    <member refid="classIIOWrapper_1ab4e9232cf3ba9539db8e4bfac2e0ebf0" kind="function"><name>~IIOWrapper</name></member>
+    <member refid="classIIOWrapper_1aa56bb91153c46ef51c3d3d53a68cc423" kind="function"><name>createContext</name></member>
+    <member refid="classIIOWrapper_1ae179fe95e80ad6624c6782de04c854ed" kind="function"><name>updateBuffer</name></member>
+    <member refid="classIIOWrapper_1a807ef883b1b5a6119ce4ab75d21985c5" kind="function"><name>stopBufferAcquisition</name></member>
+    <member refid="classIIOWrapper_1a24d03c22a08baf0c5209d7f31c9d0533" kind="function"><name>getBuffLinearAccelerationX</name></member>
+    <member refid="classIIOWrapper_1a809c113401e38fdf0fc660735a2192e1" kind="function"><name>getBuffLinearAccelerationY</name></member>
+    <member refid="classIIOWrapper_1a41e760380fa5036a652201e2df50c889" kind="function"><name>getBuffLinearAccelerationZ</name></member>
+    <member refid="classIIOWrapper_1ab98be528a5805d948e0cbf8c81bdac26" kind="function"><name>getBuffAngularVelocityX</name></member>
+    <member refid="classIIOWrapper_1a530c457c0cd4d81951b7d174072fd75b" kind="function"><name>getBuffAngularVelocityY</name></member>
+    <member refid="classIIOWrapper_1a4d5286b33d41295f1cc6567f67b4d6d2" kind="function"><name>getBuffAngularVelocityZ</name></member>
+    <member refid="classIIOWrapper_1a8636bc7c28c829538d05d5bb638c9074" kind="function"><name>getBuffTemperature</name></member>
+    <member refid="classIIOWrapper_1a4a4cea0c85854aef0117ce98a587b8b4" kind="function"><name>getBuffSampleTimestamp</name></member>
+    <member refid="classIIOWrapper_1ad1c329ac2d3785a4c4ceee754d5b1c7c" kind="function"><name>getConvertedLinearAccelerationX</name></member>
+    <member refid="classIIOWrapper_1a798839e37670a3ee83381c3b8e7bee9d" kind="function"><name>getConvertedLinearAccelerationY</name></member>
+    <member refid="classIIOWrapper_1a63262c6685e600d505fc751db4f52f4e" kind="function"><name>getConvertedLinearAccelerationZ</name></member>
+    <member refid="classIIOWrapper_1a188e946663bc7b97c34051307f4d5d27" kind="function"><name>getConvertedAngularVelocityX</name></member>
+    <member refid="classIIOWrapper_1a1f3f03307a91115e17ee3f18323f061a" kind="function"><name>getConvertedAngularVelocityY</name></member>
+    <member refid="classIIOWrapper_1adc9f70fada12dbe6e110a8bcddf6c539" kind="function"><name>getConvertedAngularVelocityZ</name></member>
+    <member refid="classIIOWrapper_1a68420aad14da02a7fd8316b6c7853c03" kind="function"><name>getConvertedDeltaAngleX</name></member>
+    <member refid="classIIOWrapper_1a58453b95cb9193b5b2813fd3c1f5e4d7" kind="function"><name>getConvertedDeltaAngleY</name></member>
+    <member refid="classIIOWrapper_1a29160e4f1947315e1862bf1c1a0630bc" kind="function"><name>getConvertedDeltaAngleZ</name></member>
+    <member refid="classIIOWrapper_1a6ef7ac4cd9d2b1b7e0cd9a7a44e6dd35" kind="function"><name>getConvertedDeltaVelocityX</name></member>
+    <member refid="classIIOWrapper_1ad566dd23cded258dea92a16a88946902" kind="function"><name>getConvertedDeltaVelocityY</name></member>
+    <member refid="classIIOWrapper_1a31a1dc7c03fc782b2eff9ae0f925e789" kind="function"><name>getConvertedDeltaVelocityZ</name></member>
+    <member refid="classIIOWrapper_1a23f8fbda995629b864dc72bcf3ba0984" kind="function"><name>getConvertedTemperature</name></member>
+    <member refid="classIIOWrapper_1a2cc98e4d4a651e82c7d5766f824acebd" kind="function"><name>anglvel_x_calibbias</name></member>
+    <member refid="classIIOWrapper_1a09fa5c163037f078a83e813ef13f73e9" kind="function"><name>update_anglvel_calibbias_x</name></member>
+    <member refid="classIIOWrapper_1aafec41ed9294cf0ef6ac0afaf350188e" kind="function"><name>anglvel_y_calibbias</name></member>
+    <member refid="classIIOWrapper_1a3730f3c7dcea63f4e2104a02c1e695ae" kind="function"><name>update_anglvel_calibbias_y</name></member>
+    <member refid="classIIOWrapper_1a84a5ecfbf0942fa175703f1a0aee8bcd" kind="function"><name>anglvel_z_calibbias</name></member>
+    <member refid="classIIOWrapper_1a640785a86e54405eecad55a93321bc26" kind="function"><name>update_anglvel_calibbias_z</name></member>
+    <member refid="classIIOWrapper_1a45cbee4a2eaf700b7396a4df956ed7e8" kind="function"><name>accel_x_calibbias</name></member>
+    <member refid="classIIOWrapper_1a371075c2f73786fc409dbfe11bb9b68f" kind="function"><name>update_accel_calibbias_x</name></member>
+    <member refid="classIIOWrapper_1ab069f082479643718588962ed76e48e9" kind="function"><name>accel_y_calibbias</name></member>
+    <member refid="classIIOWrapper_1a6b81ddc7f9f7c67b15e4f8be594c0926" kind="function"><name>update_accel_calibbias_y</name></member>
+    <member refid="classIIOWrapper_1a777c78d431b5fc16088018b52ffa8d3a" kind="function"><name>accel_z_calibbias</name></member>
+    <member refid="classIIOWrapper_1a4265bcbf41f4c0582e08f30f5ab63eca" kind="function"><name>update_accel_calibbias_z</name></member>
+    <member refid="classIIOWrapper_1aee4ed59f8c41d2c1e1ad95d5179e0e61" kind="function"><name>filter_low_pass_3db_frequency</name></member>
+    <member refid="classIIOWrapper_1ab960b56f3b8fb3bab2f4d3e492616bca" kind="function"><name>update_filter_low_pass_3db_frequency</name></member>
+    <member refid="classIIOWrapper_1ac8584252d4635e9a3c00f464cc176b17" kind="function"><name>sampling_frequency</name></member>
+    <member refid="classIIOWrapper_1a5cf1f0bfc5f5f0cf43c9707f399c2001" kind="function"><name>update_sampling_frequency</name></member>
+    <member refid="classIIOWrapper_1ac818ead3ccd5f2a7c8ab59f5464cff9a" kind="function"><name>diag_sensor_initialization_failure</name></member>
+    <member refid="classIIOWrapper_1aacdab905284a0a6ecabb1b9bcad81be9" kind="function"><name>diag_data_path_overrun</name></member>
+    <member refid="classIIOWrapper_1aa81282a7f07974ef69c65711200f5d7a" kind="function"><name>diag_automatic_reset</name></member>
+    <member refid="classIIOWrapper_1a9950dc38bc1e56a7fc42d36b50a3e718" kind="function"><name>diag_flash_memory_update_error</name></member>
+    <member refid="classIIOWrapper_1a1d23815c0de4a1ad4366602a4f4bdd96" kind="function"><name>diag_spi_communication_error</name></member>
+    <member refid="classIIOWrapper_1a11b581d355f708591f0e425507d93164" kind="function"><name>diag_crc_error</name></member>
+    <member refid="classIIOWrapper_1a88df8843b74de7c177dada4d61708fc4" kind="function"><name>diag_standby_mode</name></member>
+    <member refid="classIIOWrapper_1a6c7b7b8d0039a24ed6be2ce7b15fc814" kind="function"><name>diag_sensor_self_test_error</name></member>
+    <member refid="classIIOWrapper_1a39396f6d69a04202f9e859922f95fc34" kind="function"><name>diag_flash_memory_test_error</name></member>
+    <member refid="classIIOWrapper_1a09e0a223d200b7d2ed1731f06635b370" kind="function"><name>diag_clock_error</name></member>
+    <member refid="classIIOWrapper_1aea94b1e579314660c7dd03d82ee4c29f" kind="function"><name>diag_gyroscope1_self_test_error</name></member>
+    <member refid="classIIOWrapper_1aa85c0d7dbb01ff4201678d687b8adf93" kind="function"><name>diag_gyroscope2_self_test_error</name></member>
+    <member refid="classIIOWrapper_1a6f0b68bf91bb6bd000a570b349a4e9f4" kind="function"><name>diag_acceleration_self_test_error</name></member>
+    <member refid="classIIOWrapper_1a45143fbc3eba8260f9cda6870c704d19" kind="function"><name>diag_x_axis_gyroscope_failure</name></member>
+    <member refid="classIIOWrapper_1ab027802372011c7f7d9f59061017173c" kind="function"><name>diag_y_axis_gyroscope_failure</name></member>
+    <member refid="classIIOWrapper_1adc4a32825bc5982131f53e227805946b" kind="function"><name>diag_z_axis_gyroscope_failure</name></member>
+    <member refid="classIIOWrapper_1afd7976cbd87ab425eb6fdf1192e39e1b" kind="function"><name>diag_x_axis_accelerometer_failure</name></member>
+    <member refid="classIIOWrapper_1a5e040011fba86b221a028f96440ac59e" kind="function"><name>diag_y_axis_accelerometer_failure</name></member>
+    <member refid="classIIOWrapper_1adf039156a53b8bb0afebe4c48507c097" kind="function"><name>diag_z_axis_accelerometer_failure</name></member>
+    <member refid="classIIOWrapper_1aa691849d0baa2fad55deb7975a070734" kind="function"><name>diag_aduc_mcu_fault</name></member>
+    <member refid="classIIOWrapper_1ab3a551d7da672e3c5d3cce79aac4a37c" kind="function"><name>diag_flash_memory_write_count_exceeded_error</name></member>
+    <member refid="classIIOWrapper_1aa3dfbe95f0013016b8b5056b73d1f126" kind="function"><name>gyroscope_measurement_range</name></member>
+    <member refid="classIIOWrapper_1a25e63a463289dc1c7761e9ef14982cbf" kind="function"><name>internal_sensor_bandwidth</name></member>
+    <member refid="classIIOWrapper_1a630b1d5232285b51560a90b805339961" kind="function"><name>update_internal_sensor_bandwidth</name></member>
+    <member refid="classIIOWrapper_1a67eaded963621b47f1f228a0b250a00e" kind="function"><name>point_of_percussion_alignment</name></member>
+    <member refid="classIIOWrapper_1a293d23f39cf1a07b3e8056d239728dc3" kind="function"><name>update_point_of_percussion_alignment</name></member>
+    <member refid="classIIOWrapper_1a2352785dfb0a0324613bd6f99a27831b" kind="function"><name>linear_acceleration_compensation</name></member>
+    <member refid="classIIOWrapper_1a09fe16394d6d8b7a7ab7dbefa64ba084" kind="function"><name>update_linear_acceleration_compensation</name></member>
+    <member refid="classIIOWrapper_1a4b0d75039f36c1063c12c2335c230ffd" kind="function"><name>bias_correction_time_base_control</name></member>
+    <member refid="classIIOWrapper_1a5818afde806f78c0868884d6b1f23bbf" kind="function"><name>update_bias_correction_time_base_control</name></member>
+    <member refid="classIIOWrapper_1ab0d834e0075c408c546991934ac4ac7a" kind="function"><name>x_axis_gyroscope_bias_correction_enable</name></member>
+    <member refid="classIIOWrapper_1acedff444962fb642b5d2417aaf5dd63a" kind="function"><name>update_x_axis_gyroscope_bias_correction_enable</name></member>
+    <member refid="classIIOWrapper_1a73fd94d29e90e9b46a5c47453e5a76a7" kind="function"><name>y_axis_gyroscope_bias_correction_enable</name></member>
+    <member refid="classIIOWrapper_1a4a20c51a3a2079f1c7e887605f6f78dc" kind="function"><name>update_y_axis_gyroscope_bias_correction_enable</name></member>
+    <member refid="classIIOWrapper_1a00aa6acb648e5c90038132c537649773" kind="function"><name>z_axis_gyroscope_bias_correction_enable</name></member>
+    <member refid="classIIOWrapper_1a70f3f6d8b2cdefb6a5a6cff54915c6e1" kind="function"><name>update_z_axis_gyroscope_bias_correction_enable</name></member>
+    <member refid="classIIOWrapper_1a62287c7a5dfdd731494ed7ba1780663d" kind="function"><name>x_axis_accelerometer_bias_correction_enable</name></member>
+    <member refid="classIIOWrapper_1a43ae9191af8bc6da154d7b301848ac41" kind="function"><name>update_x_axis_accelerometer_bias_correction_enable</name></member>
+    <member refid="classIIOWrapper_1a9f393e7caf03730f7ddcd003c2556dfe" kind="function"><name>y_axis_accelerometer_bias_correction_enable</name></member>
+    <member refid="classIIOWrapper_1ace85be9c516ad0dce1d76700c440d0e7" kind="function"><name>update_y_axis_accelerometer_bias_correction_enable</name></member>
+    <member refid="classIIOWrapper_1a56ca0c938bef97c190ee7ae56736fcda" kind="function"><name>z_axis_accelerometer_bias_correction_enable</name></member>
+    <member refid="classIIOWrapper_1ad501d5b8096992254282b710ae3593bf" kind="function"><name>update_z_axis_accelerometer_bias_correction_enable</name></member>
+    <member refid="classIIOWrapper_1a2da8f4f3cd36e8e2cff6befcb53ecbbe" kind="function"><name>bias_correction_update</name></member>
+    <member refid="classIIOWrapper_1a2cb403633337d848e3e334460098a954" kind="function"><name>factory_calibration_restore</name></member>
+    <member refid="classIIOWrapper_1a9063348d525f98961fca0e5a8d1b2942" kind="function"><name>sensor_self_test</name></member>
+    <member refid="classIIOWrapper_1a39973a796e6e9f809b8284f011ccaa36" kind="function"><name>flash_memory_update</name></member>
+    <member refid="classIIOWrapper_1af97abb3a23be70f995eb1becb1863dfb" kind="function"><name>flash_memory_test</name></member>
+    <member refid="classIIOWrapper_1a06c8b2dd5e06296e6071515d42678338" kind="function"><name>software_reset</name></member>
+    <member refid="classIIOWrapper_1a7ece889e328ab46d471031934eb93b33" kind="function"><name>firmware_revision</name></member>
+    <member refid="classIIOWrapper_1a392b3968397a63a0bf235bb7515f5879" kind="function"><name>firmware_date</name></member>
+    <member refid="classIIOWrapper_1a1f0c7c86eba809ac5e0505b12e7b8143" kind="function"><name>product_id</name></member>
+    <member refid="classIIOWrapper_1a9d05c33bbd4eef378b584d656a56cfc7" kind="function"><name>serial_number</name></member>
+    <member refid="classIIOWrapper_1af2bd81f3dca62979b41cf5018f72a173" kind="function"><name>flash_counter</name></member>
+    <member refid="classIIOWrapper_1a45fe53b29bb3c69fd167caa42418b56e" kind="function"><name>get_scale_accel</name></member>
+    <member refid="classIIOWrapper_1a9155426d173e6adb8c6436598cab9d6b" kind="function"><name>get_scale_anglvel</name></member>
+    <member refid="classIIOWrapper_1a0986611e409cfa128ec0f5b5429c8b72" kind="function"><name>get_scale_deltavelocity</name></member>
+    <member refid="classIIOWrapper_1a133f8dcccf4727d7a97ba1f708c7c249" kind="function"><name>get_scale_deltaangl</name></member>
+    <member refid="classIIOWrapper_1a022888d663a4dbead44e37a84c45411b" kind="function"><name>get_scale_temp</name></member>
+    <member refid="classIIOWrapper_1aec9b699fd6110a7795a32e84343a1c1d" kind="function"><name>setDeltaAngleScales</name></member>
+    <member refid="classIIOWrapper_1a7287fe1ab85c9aebb746dff3baf7300d" kind="function"><name>setDeltaVelocityScales</name></member>
+    <member refid="classIIOWrapper_1a3b99dc4a11bfc1044779befc29c9385a" kind="function"><name>updateField</name></member>
+    <member refid="classIIOWrapper_1a47cb7f7d914c9a12c51cfaa152645b07" kind="function"><name>getRawDeltaAngleXFromDebug</name></member>
+    <member refid="classIIOWrapper_1adde2349c207c0d885197bb11165e6546" kind="function"><name>getRawDeltaAngleYFromDebug</name></member>
+    <member refid="classIIOWrapper_1a2f8806cda1ba466fab265a45eb66815c" kind="function"><name>getRawDeltaAngleZFromDebug</name></member>
+    <member refid="classIIOWrapper_1a0fe6f4ff144f0c80f1452987e383318a" kind="function"><name>getRawDeltaVelocityXFromDebug</name></member>
+    <member refid="classIIOWrapper_1ae6a0f742c9dd11684e9a49fb975773e0" kind="function"><name>getRawDeltaVelocityYFromDebug</name></member>
+    <member refid="classIIOWrapper_1a153ba949b8daa8514864b59538fcb64a" kind="function"><name>getRawDeltaVelocityZFromDebug</name></member>
+    <member refid="classIIOWrapper_1a78ff447b7bccef0dd8abc5239ddcda27" kind="function"><name>getConvertedDeltaAngleXFromDebug</name></member>
+    <member refid="classIIOWrapper_1aa52383a8d31690b73f74539cc617e7d7" kind="function"><name>getConvertedDeltaAngleYFromDebug</name></member>
+    <member refid="classIIOWrapper_1adb513e9bdd99b7fcf9accec73faba53e" kind="function"><name>getConvertedDeltaAngleZFromDebug</name></member>
+    <member refid="classIIOWrapper_1afae369c43ec0dfdb08f41e173b968f58" kind="function"><name>getConvertedDeltaVelocityXFromDebug</name></member>
+    <member refid="classIIOWrapper_1a93c0f0e87624cc045bf571ed8d85911b" kind="function"><name>getConvertedDeltaVelocityYFromDebug</name></member>
+    <member refid="classIIOWrapper_1a9adcb8752a2895affbab03ea3d1e2ef0" kind="function"><name>getConvertedDeltaVelocityZFromDebug</name></member>
+  </compound>
+  <compound refid="classImuControlParameters" kind="class"><name>ImuControlParameters</name>
+    <member refid="classImuControlParameters_1a08337927ac5d0390c065a8f8b64e11ce" kind="typedef"><name>UpdateUint32Params</name></member>
+    <member refid="classImuControlParameters_1add2e53a89e0f075df4a090fb28ea59d0" kind="typedef"><name>UpdateUint32ParamsMapType</name></member>
+    <member refid="classImuControlParameters_1a82802c01a3698c99b5e0bbd5117f7dd1" kind="typedef"><name>GetUint32Params</name></member>
+    <member refid="classImuControlParameters_1aca50889946b53f310ddd2cd1143c951b" kind="typedef"><name>GetUint32ParamsMapType</name></member>
+    <member refid="classImuControlParameters_1a82366b8096ef75c05b44ece86798ecce" kind="typedef"><name>UpdateInt32Params</name></member>
+    <member refid="classImuControlParameters_1a96d9f5b54857f9de53ab8aa9e28e1433" kind="typedef"><name>UpdateInt32ParamsMapType</name></member>
+    <member refid="classImuControlParameters_1a87949036708585beab3c05aeff113f32" kind="typedef"><name>GetInt32Params</name></member>
+    <member refid="classImuControlParameters_1a54231d8005b5513dc51d079e11b88cb7" kind="typedef"><name>GetInt32ParamsMapType</name></member>
+    <member refid="classImuControlParameters_1ad9ec37d0885918285b76b0a01cc17ee8" kind="typedef"><name>UpdateDoubleParams</name></member>
+    <member refid="classImuControlParameters_1a217a4e02692f65433945b7a285b6415e" kind="typedef"><name>UpdateDoubleParamsMapType</name></member>
+    <member refid="classImuControlParameters_1a261cfd80e62c8a3362414fddd9f2da93" kind="typedef"><name>GetDoubleParams</name></member>
+    <member refid="classImuControlParameters_1a619c7db2b3afced6b9fa7f6f770b9e17" kind="typedef"><name>GetDoubleParamsMapType</name></member>
+    <member refid="classImuControlParameters_1affa8e2f00d84a5f26a69f16eaf9f9c39" kind="typedef"><name>ExecuteCommands</name></member>
+    <member refid="classImuControlParameters_1af395e099df244af44911518e92f4a02b" kind="typedef"><name>ExecuteCommandsMapType</name></member>
+    <member refid="classImuControlParameters_1a550af7cb014cc2b4dec9e42342303f63" kind="variable"><name>m_node</name></member>
+    <member refid="classImuControlParameters_1a1116f3c4083e6dc9dbea7e8104e6cde9" kind="variable"><name>m_iio_wrapper</name></member>
+    <member refid="classImuControlParameters_1abfb5fd3c8fad0ce52ac726cf135c5ebb" kind="variable"><name>m_command_to_execute</name></member>
+    <member refid="classImuControlParameters_1af520e1d09d7b28678d5d3103cd1cb0d4" kind="variable"><name>m_func_map_update_uint32_params</name></member>
+    <member refid="classImuControlParameters_1afd5ac3df4ab613f0b3f77775b8755c4f" kind="variable"><name>m_func_map_get_uint32_params</name></member>
+    <member refid="classImuControlParameters_1a27be5741591bf0fc60fe7167257ee112" kind="variable"><name>m_func_map_update_int32_params</name></member>
+    <member refid="classImuControlParameters_1ae8b7fda4cd0053f95fcdb17cd0d845e5" kind="variable"><name>m_func_map_get_int32_params</name></member>
+    <member refid="classImuControlParameters_1a56ea60d73a130a69a0dd61c1d8779e27" kind="variable"><name>m_func_map_update_double_params</name></member>
+    <member refid="classImuControlParameters_1af56801333a7647590e9318db88c65e85" kind="variable"><name>m_func_map_get_double_params</name></member>
+    <member refid="classImuControlParameters_1ab5a51dfd26f3cdeeb7c2d1c1de771eb7" kind="variable"><name>m_func_map_execute_commands</name></member>
+    <member refid="classImuControlParameters_1ab1f1a2ace21a2123c9086c6e141713da" kind="variable"><name>m_attr_current_device</name></member>
+    <member refid="classImuControlParameters_1a30414b572a699d87f6d21e17a54a36ef" kind="variable"><name>m_int32_current_params</name></member>
+    <member refid="classImuControlParameters_1a9bf1f32e4bbaaeba1a8d4d0bbc869ae2" kind="variable"><name>m_uint32_current_params</name></member>
+    <member refid="classImuControlParameters_1a7027df0c4d7cde53c39f46d3438d90e2" kind="variable"><name>m_double_current_params</name></member>
+    <member refid="classImuControlParameters_1a793e0ffb6bfbea341b30d74ca854a585" kind="variable"><name>m_param_description</name></member>
+    <member refid="classImuControlParameters_1af0387f10c79cc939f530b9458b813a7a" kind="variable"><name>m_param_constraints_integer</name></member>
+    <member refid="classImuControlParameters_1ab64303326f426a54dd55a201d8e8d411" kind="variable"><name>m_param_constraints_floating</name></member>
+    <member refid="classImuControlParameters_1ac48f67e7a3b66410fb3c4e9ea0b5dc0a" kind="function"><name>ImuControlParameters</name></member>
+    <member refid="classImuControlParameters_1a9eab68cf68a1fba0e2d0ad312e814d37" kind="function"><name>~ImuControlParameters</name></member>
+    <member refid="classImuControlParameters_1a3fdcf6864bdd68a06f712bef548acd24" kind="function"><name>handleControlParams</name></member>
+    <member refid="classImuControlParameters_1a7ddb2c0494555953182e42bd0078e8f2" kind="function"><name>declareAdisAttributes</name></member>
+    <member refid="classImuControlParameters_1acad11bd8e1ff8ef2d5bf512877ffa32f" kind="function"><name>mapIIOUpdateFunctionsInt32</name></member>
+    <member refid="classImuControlParameters_1ad256c1c4af60a7fe2b6b6adbf1108e30" kind="function"><name>mapIIOGetFunctionsInt32</name></member>
+    <member refid="classImuControlParameters_1a0839165af2a0cc50e07ad6b55806953f" kind="function"><name>mapIIOUpdateFunctionsUint32</name></member>
+    <member refid="classImuControlParameters_1aff2a31343637952540bfe76a04728e51" kind="function"><name>mapIIOGetFunctionsUint32</name></member>
+    <member refid="classImuControlParameters_1ae6be8328df3865c9b057f7b6871612cd" kind="function"><name>mapIIOUpdateFunctionsDouble</name></member>
+    <member refid="classImuControlParameters_1acfe86a041e90121d3199ea7a0daaf8ac" kind="function"><name>mapIIOGetFunctionsDouble</name></member>
+    <member refid="classImuControlParameters_1a2895734d37c7278c6df4a51cbed6aa82" kind="function"><name>mapIIOCommandFunctions</name></member>
+    <member refid="classImuControlParameters_1a3c2c658b2e5fb2e2fe659501e7203054" kind="function"><name>declareParameterDescription</name></member>
+    <member refid="classImuControlParameters_1ab8aba305fccae66c9ad5f4a0f9e0aece" kind="function"><name>declareParameters</name></member>
+    <member refid="classImuControlParameters_1aa733955c32fc2253f4b14d2db1b454a2" kind="function"><name>updateParamsFromHardware</name></member>
+    <member refid="classImuControlParameters_1a747ae2b209292e2af2de26a8cc448c61" kind="function"><name>handleDoubleParamChange</name></member>
+    <member refid="classImuControlParameters_1a3cd01af35e9eae635764fac2ed0bb3e2" kind="function"><name>handleInt32ParamChange</name></member>
+    <member refid="classImuControlParameters_1a117d2fb3cdb9cb7ae668295a7615df94" kind="function"><name>handleUint32ParamChange</name></member>
+    <member refid="classImuControlParameters_1ab456afd17772314a2bdcdb611aa6fc12" kind="function"><name>handleCommands</name></member>
+  </compound>
+  <compound refid="classImuDataProvider" kind="class"><name>ImuDataProvider</name>
+    <member refid="classImuDataProvider_1a1492459cc251d51ce04f5556864d4fbf" kind="variable"><name>m_iio_wrapper</name></member>
+    <member refid="classImuDataProvider_1a7b58260bd62baf3000a1870ec0e07e67" kind="function"><name>ImuDataProvider</name></member>
+    <member refid="classImuDataProvider_1acfac62b4c0d1ba677cb6b31367545eec" kind="function"><name>~ImuDataProvider</name></member>
+    <member refid="classImuDataProvider_1a9da652b7fbab948882f4bf6fcdf4c9f7" kind="function"><name>getData</name></member>
+  </compound>
+  <compound refid="classImuDataProviderInterface" kind="class"><name>ImuDataProviderInterface</name>
+    <member refid="classImuDataProviderInterface_1afd0d8a28e9de26552c5cac982d85a39d" kind="function"><name>ImuDataProviderInterface</name></member>
+    <member refid="classImuDataProviderInterface_1a09c5a4c79e9e97a40daf88b9ce7b57db" kind="function"><name>~ImuDataProviderInterface</name></member>
+    <member refid="classImuDataProviderInterface_1a308b5335b052855ce8917c2949ae1d8f" kind="function"><name>getData</name></member>
+  </compound>
+  <compound refid="classImuDiagDataProvider" kind="class"><name>ImuDiagDataProvider</name>
+    <member refid="classImuDiagDataProvider_1ac2972e054da2eeda1558df42c7e4a8c9" kind="variable"><name>m_iio_wrapper</name></member>
+    <member refid="classImuDiagDataProvider_1a67f2a4fc39dccc3d5a3137bb77a4864b" kind="function"><name>ImuDiagDataProvider</name></member>
+    <member refid="classImuDiagDataProvider_1a479edb5b4b2ab2159af4fde6d3c4ff27" kind="function"><name>~ImuDiagDataProvider</name></member>
+    <member refid="classImuDiagDataProvider_1a934cc7ba53b5e091d9e8f6fd55448ca2" kind="function"><name>getData</name></member>
+  </compound>
+  <compound refid="classImuDiagDataProviderInterface" kind="class"><name>ImuDiagDataProviderInterface</name>
+    <member refid="classImuDiagDataProviderInterface_1a13231358624249ee9136d8e44fe35765" kind="function"><name>ImuDiagDataProviderInterface</name></member>
+    <member refid="classImuDiagDataProviderInterface_1acae6d777d7c6e038cec89826d9e9d1b2" kind="function"><name>~ImuDiagDataProviderInterface</name></member>
+    <member refid="classImuDiagDataProviderInterface_1a35be63cb4a4509a40d8af262420fb70f" kind="function"><name>getData</name></member>
+  </compound>
+  <compound refid="classImuDiagRosPublisher" kind="class"><name>ImuDiagRosPublisher</name>
+    <member refid="classImuDiagRosPublisher_1ae65f15d3729cdb044463a0ebdd2b4038" kind="variable"><name>m_data_provider</name></member>
+    <member refid="classImuDiagRosPublisher_1a51c437ba1557e82b847b3bf86293e256" kind="variable"><name>m_publisher</name></member>
+    <member refid="classImuDiagRosPublisher_1ae77e1ee412b353b9e66d3e490c518970" kind="variable"><name>m_message</name></member>
+    <member refid="classImuDiagRosPublisher_1aef26c2843483d06048f716f4f2b8cf44" kind="function"><name>ImuDiagRosPublisher</name></member>
+    <member refid="classImuDiagRosPublisher_1a6a4cf58c270529dcf9e02305d119e6ac" kind="function"><name>~ImuDiagRosPublisher</name></member>
+    <member refid="classImuDiagRosPublisher_1ae5233d9e51106f0f5cf7a8734db34800" kind="function"><name>setMessageProvider</name></member>
+    <member refid="classImuDiagRosPublisher_1aaf3056416be0e688ef7d3833c3bbfbfd" kind="function"><name>run</name></member>
+  </compound>
+  <compound refid="classImuDiagRosPublisherInterface" kind="class"><name>ImuDiagRosPublisherInterface</name>
+    <member refid="classImuDiagRosPublisherInterface_1a2410d6fb2cc843c224b1ed251ac92787" kind="variable"><name>m_node</name></member>
+    <member refid="classImuDiagRosPublisherInterface_1a5ed6cfb9a6c3962ac619cc6832b91b84" kind="function"><name>ImuDiagRosPublisherInterface</name></member>
+    <member refid="classImuDiagRosPublisherInterface_1adc6b891a079402ab86761984c73bc508" kind="function"><name>~ImuDiagRosPublisherInterface</name></member>
+    <member refid="classImuDiagRosPublisherInterface_1a1cf7bd52aaf259428911d0aa6eb2cd5e" kind="function"><name>setMessageProvider</name></member>
+  </compound>
+  <compound refid="classImuDiagSubscriberTest" kind="class"><name>ImuDiagSubscriberTest</name>
+    <member refid="classImuDiagSubscriberTest_1a1d24997802245f251c335872a82c4400" kind="function"><name>SetUpTestCase</name></member>
+    <member refid="classImuDiagSubscriberTest_1ac47054a39336903feb6c016608add700" kind="function"><name>TearDownTestCase</name></member>
+  </compound>
+  <compound refid="classImuFullMeasuredDataProvider" kind="class"><name>ImuFullMeasuredDataProvider</name>
+    <member refid="classImuFullMeasuredDataProvider_1a63ff7bc0aabb0df326fa9008790fe1b7" kind="variable"><name>m_iio_wrapper</name></member>
+    <member refid="classImuFullMeasuredDataProvider_1a8b4ccb7823f30176dc185c0b11991a8e" kind="function"><name>ImuFullMeasuredDataProvider</name></member>
+    <member refid="classImuFullMeasuredDataProvider_1a44c5bb54a32d7f1514ba60687713ce1f" kind="function"><name>~ImuFullMeasuredDataProvider</name></member>
+    <member refid="classImuFullMeasuredDataProvider_1a5276a9d259d563868d3769d6ab8bd1c8" kind="function"><name>getData</name></member>
+  </compound>
+  <compound refid="classImuFullMeasuredDataProviderInterface" kind="class"><name>ImuFullMeasuredDataProviderInterface</name>
+    <member refid="classImuFullMeasuredDataProviderInterface_1a9a2864395e9c525b0d3998271745c713" kind="function"><name>ImuFullMeasuredDataProviderInterface</name></member>
+    <member refid="classImuFullMeasuredDataProviderInterface_1aba9399db2895e334cc4dcbfa2157f187" kind="function"><name>~ImuFullMeasuredDataProviderInterface</name></member>
+    <member refid="classImuFullMeasuredDataProviderInterface_1af94190681fdf6b4535410b905a8a3436" kind="function"><name>getData</name></member>
+  </compound>
+  <compound refid="classImuFullMeasuredDataRosPublisher" kind="class"><name>ImuFullMeasuredDataRosPublisher</name>
+    <member refid="classImuFullMeasuredDataRosPublisher_1afc917159d4d339720979adbec90c2ef5" kind="variable"><name>m_data_provider</name></member>
+    <member refid="classImuFullMeasuredDataRosPublisher_1aa57d65687cb70be0fbcb367eec646eb3" kind="variable"><name>m_publisher</name></member>
+    <member refid="classImuFullMeasuredDataRosPublisher_1a10286f173729d53b9fca60b9973d9417" kind="variable"><name>m_message</name></member>
+    <member refid="classImuFullMeasuredDataRosPublisher_1adb3eef4b042f4b4d45939d35486c59b2" kind="function"><name>ImuFullMeasuredDataRosPublisher</name></member>
+    <member refid="classImuFullMeasuredDataRosPublisher_1a8cf6829550691b33c0ca50272e8ade6d" kind="function"><name>~ImuFullMeasuredDataRosPublisher</name></member>
+    <member refid="classImuFullMeasuredDataRosPublisher_1a51c4795592fd41e712444552eeece31d" kind="function"><name>setMessageProvider</name></member>
+    <member refid="classImuFullMeasuredDataRosPublisher_1a18fa397d0a2774107bd74f29f5ecf08c" kind="function"><name>publish</name></member>
+  </compound>
+  <compound refid="classImuFullMeasuredDataRosPublisherInterface" kind="class"><name>ImuFullMeasuredDataRosPublisherInterface</name>
+    <member refid="classImuFullMeasuredDataRosPublisherInterface_1a2643f9390c283e53bd23bf2978c1da34" kind="variable"><name>m_node</name></member>
+    <member refid="classImuFullMeasuredDataRosPublisherInterface_1aa9ce565f5999ca1720fa6cefb0440e6d" kind="function"><name>ImuFullMeasuredDataRosPublisherInterface</name></member>
+    <member refid="classImuFullMeasuredDataRosPublisherInterface_1aad746b55a627f4acb1c50392e67db426" kind="function"><name>~ImuFullMeasuredDataRosPublisherInterface</name></member>
+    <member refid="classImuFullMeasuredDataRosPublisherInterface_1a799c51c1b501e469fa1e6f0dc77edc1a" kind="function"><name>setMessageProvider</name></member>
+    <member refid="classImuFullMeasuredDataRosPublisherInterface_1a4d4fd5aa71065f6ddc52fc8cc9ae06e2" kind="function"><name>publish</name></member>
+  </compound>
+  <compound refid="classImuFullMeasuredDataSubscriberTest" kind="class"><name>ImuFullMeasuredDataSubscriberTest</name>
+    <member refid="classImuFullMeasuredDataSubscriberTest_1ab55b195b93db47cf7b07156641fb06c7" kind="function"><name>SetUpTestCase</name></member>
+    <member refid="classImuFullMeasuredDataSubscriberTest_1a3c70b0c1048ab33ee5c1487bd8162828" kind="function"><name>TearDownTestCase</name></member>
+  </compound>
+  <compound refid="classImuIdentificationDataProvider" kind="class"><name>ImuIdentificationDataProvider</name>
+    <member refid="classImuIdentificationDataProvider_1ab2abdffd81df3c14185e5b9115fb26f6" kind="variable"><name>m_iio_wrapper</name></member>
+    <member refid="classImuIdentificationDataProvider_1a6b774b1a11a08fcdc6df1dfcb2b490d2" kind="function"><name>ImuIdentificationDataProvider</name></member>
+    <member refid="classImuIdentificationDataProvider_1ae4317cdb317f46f14a10723f767d7025" kind="function"><name>~ImuIdentificationDataProvider</name></member>
+    <member refid="classImuIdentificationDataProvider_1ae93f13d5654f5d83cb1b672b9984fbbb" kind="function"><name>getData</name></member>
+  </compound>
+  <compound refid="classImuIdentificationDataProviderInterface" kind="class"><name>ImuIdentificationDataProviderInterface</name>
+    <member refid="classImuIdentificationDataProviderInterface_1adc3d08505c9c45fd8ee2782963342812" kind="function"><name>ImuIdentificationDataProviderInterface</name></member>
+    <member refid="classImuIdentificationDataProviderInterface_1a3c20f4e190d9da755ee45499eba8dd54" kind="function"><name>~ImuIdentificationDataProviderInterface</name></member>
+    <member refid="classImuIdentificationDataProviderInterface_1a1897dffdb20936fa8f25570eb767d9d5" kind="function"><name>getData</name></member>
+  </compound>
+  <compound refid="classImuIdentificationRosPublisher" kind="class"><name>ImuIdentificationRosPublisher</name>
+    <member refid="classImuIdentificationRosPublisher_1a46fd341acacf04dba8e5ad9258044fda" kind="variable"><name>m_data_provider</name></member>
+    <member refid="classImuIdentificationRosPublisher_1a4f092942baae2d6d3603968fea578435" kind="variable"><name>m_publisher</name></member>
+    <member refid="classImuIdentificationRosPublisher_1a10ec8befa2046eb720334b0bd4d395eb" kind="variable"><name>m_message</name></member>
+    <member refid="classImuIdentificationRosPublisher_1ae09df00ee5f8a7523e0da1682a10b596" kind="function"><name>ImuIdentificationRosPublisher</name></member>
+    <member refid="classImuIdentificationRosPublisher_1a1b39b89870753dd7594e216293ca8d8d" kind="function"><name>~ImuIdentificationRosPublisher</name></member>
+    <member refid="classImuIdentificationRosPublisher_1ac4bc896dd849aa3e1c8363721a1c6238" kind="function"><name>setMessageProvider</name></member>
+    <member refid="classImuIdentificationRosPublisher_1a3c6ffc12c162c4ad6190e7b54b9a1bdc" kind="function"><name>run</name></member>
+  </compound>
+  <compound refid="classImuIdentificationRosPublisherInterface" kind="class"><name>ImuIdentificationRosPublisherInterface</name>
+    <member refid="classImuIdentificationRosPublisherInterface_1ae4b1f479fbe79db85ae9df56ca41a675" kind="variable"><name>m_node</name></member>
+    <member refid="classImuIdentificationRosPublisherInterface_1ae1d829038cd93abd04c4f4cabbe24de9" kind="function"><name>ImuIdentificationRosPublisherInterface</name></member>
+    <member refid="classImuIdentificationRosPublisherInterface_1a00337841abcc48e385e6c1f9f54defaa" kind="function"><name>~ImuIdentificationRosPublisherInterface</name></member>
+    <member refid="classImuIdentificationRosPublisherInterface_1af93cc79fb0cbed698b25662beefacceb" kind="function"><name>setMessageProvider</name></member>
+  </compound>
+  <compound refid="classImuIdentificationSubscriberTest" kind="class"><name>ImuIdentificationSubscriberTest</name>
+    <member refid="classImuIdentificationSubscriberTest_1a32056248dd3fcf21fe97f2b5b41dae8d" kind="function"><name>SetUpTestCase</name></member>
+    <member refid="classImuIdentificationSubscriberTest_1a3fcc6269d08ee482073a68eae77229e8" kind="function"><name>TearDownTestCase</name></member>
+  </compound>
+  <compound refid="classImuRosPublisher" kind="class"><name>ImuRosPublisher</name>
+    <member refid="classImuRosPublisher_1a436a9b31a918449c9d30daf0664b2f60" kind="variable"><name>m_data_provider</name></member>
+    <member refid="classImuRosPublisher_1a21ebaa5902f0dd8f61567b1e56be4a71" kind="variable"><name>m_publisher</name></member>
+    <member refid="classImuRosPublisher_1ac569c410dbef56fb611d3a11a76a78b8" kind="variable"><name>m_message</name></member>
+    <member refid="classImuRosPublisher_1a4706d76ef778af74fc42f0e1987e39e5" kind="function"><name>ImuRosPublisher</name></member>
+    <member refid="classImuRosPublisher_1a0003f105376ae33e60ce10688d85a08b" kind="function"><name>~ImuRosPublisher</name></member>
+    <member refid="classImuRosPublisher_1a78dc9501d090b81ff7de5c5f1f0d765e" kind="function"><name>setMessageProvider</name></member>
+    <member refid="classImuRosPublisher_1aa6968af9b20c3a0616cbeafc0e5a8eda" kind="function"><name>publish</name></member>
+  </compound>
+  <compound refid="classImuRosPublisherInterface" kind="class"><name>ImuRosPublisherInterface</name>
+    <member refid="classImuRosPublisherInterface_1a1db80017d3556a4a8efb1971b187d182" kind="variable"><name>m_node</name></member>
+    <member refid="classImuRosPublisherInterface_1a31b100cb8a9da5c0f385f1438c04a64b" kind="function"><name>ImuRosPublisherInterface</name></member>
+    <member refid="classImuRosPublisherInterface_1a7867f11bfbb64c03895533c8d627cb3f" kind="function"><name>~ImuRosPublisherInterface</name></member>
+    <member refid="classImuRosPublisherInterface_1a89a2e7b14c3bf6e31fd2c69f2be492f8" kind="function"><name>setMessageProvider</name></member>
+    <member refid="classImuRosPublisherInterface_1aeda9158c26d62348fcb83181103862ce" kind="function"><name>publish</name></member>
+  </compound>
+  <compound refid="classImuSubscriberTest" kind="class"><name>ImuSubscriberTest</name>
+    <member refid="classImuSubscriberTest_1a5013c2c26c6e8af50ecf54af5be5274f" kind="function"><name>SetUpTestCase</name></member>
+    <member refid="classImuSubscriberTest_1a15eebc7f09bb8a928e69c24fd64a43cc" kind="function"><name>TearDownTestCase</name></member>
+  </compound>
+  <compound refid="classRosPublisherGroup" kind="class"><name>RosPublisherGroup</name>
+    <member refid="classRosPublisherGroup_1a0ffa2985f2e02ca1139453ad7ed2b3df" kind="variable"><name>m_accelGyroTempRosPublisher</name></member>
+    <member refid="classRosPublisherGroup_1afc3e8969f04fc70a2f52a0e88f3a645a" kind="variable"><name>m_imuRosPublisher</name></member>
+    <member refid="classRosPublisherGroup_1a00a053daf7455c5024f16b686d524676" kind="variable"><name>m_imuFullMeasuredDataRosPublisher</name></member>
+    <member refid="classRosPublisherGroup_1a3b53e5abac921148bf0c248a8cd07596" kind="variable"><name>m_imuControlParameters</name></member>
+    <member refid="classRosPublisherGroup_1a77dd776062db65bedf195c431b852bf2" kind="function"><name>RosPublisherGroup</name></member>
+    <member refid="classRosPublisherGroup_1aa9a84b81b952bd75cf87bb5c0e73f40a" kind="function"><name>~RosPublisherGroup</name></member>
+    <member refid="classRosPublisherGroup_1a52fea1a71e98cb0625c889b31eebb6fc" kind="function"><name>setAccelGyroTempRosPublisher</name></member>
+    <member refid="classRosPublisherGroup_1a7c1b3b2b98a90f8484da38fb24a559a7" kind="function"><name>setImuRosPublisher</name></member>
+    <member refid="classRosPublisherGroup_1a124b01689fb74a813d7af292aa9dd065" kind="function"><name>setImuFullMeasuredDataRosPublisher</name></member>
+    <member refid="classRosPublisherGroup_1a9b1f3c0218ffa6ff7d2fb6f6870b72fb" kind="function"><name>setImuControlParameters</name></member>
+    <member refid="classRosPublisherGroup_1afee0f211b77283a37fa197b39f4d1253" kind="function"><name>run</name></member>
+  </compound>
+  <compound refid="classRosPublisherGroupInterface" kind="class"><name>RosPublisherGroupInterface</name>
+    <member refid="classRosPublisherGroupInterface_1af8621aa2254eb8b90a39349559293d5b" kind="variable"><name>m_node</name></member>
+    <member refid="classRosPublisherGroupInterface_1aaf8be6806a488d5f4ee676399e64774c" kind="function"><name>RosPublisherGroupInterface</name></member>
+    <member refid="classRosPublisherGroupInterface_1a4c3de3a49b137a54288a118bee283afc" kind="function"><name>~RosPublisherGroupInterface</name></member>
+    <member refid="classRosPublisherGroupInterface_1a30bd6c52a5e925f37b1613230e9f9b5a" kind="function"><name>setAccelGyroTempRosPublisher</name></member>
+    <member refid="classRosPublisherGroupInterface_1a5ff386378b8ab64f63162e8582c8880f" kind="function"><name>setImuRosPublisher</name></member>
+    <member refid="classRosPublisherGroupInterface_1a0d0f06f5f5cde238b42904d080fe44d3" kind="function"><name>setImuFullMeasuredDataRosPublisher</name></member>
+    <member refid="classRosPublisherGroupInterface_1afec58a4c181b0737f9385a58b5c06178" kind="function"><name>setImuControlParameters</name></member>
+  </compound>
+  <compound refid="classRosTask" kind="class"><name>RosTask</name>
+    <member refid="classRosTask_1a519dd722e83fba675d0e988c5d5100d1" kind="function"><name>RosTask</name></member>
+    <member refid="classRosTask_1a1043013f8bb20f9c3878d4cb8d99b2fb" kind="function"><name>~RosTask</name></member>
+    <member refid="classRosTask_1a331afbcd684711c35e1488fbaad73cf2" kind="function"><name>run</name></member>
+  </compound>
+  <compound refid="classVelAngTempDataProvider" kind="class"><name>VelAngTempDataProvider</name>
+    <member refid="classVelAngTempDataProvider_1a1c8afa5aad73fd438814807e594df22d" kind="variable"><name>m_iio_wrapper</name></member>
+    <member refid="classVelAngTempDataProvider_1ae94b88e60be8b88f38ce395c93b22d4c" kind="function"><name>VelAngTempDataProvider</name></member>
+    <member refid="classVelAngTempDataProvider_1aaa957dfc12e03ccdf7453b8e98b34573" kind="function"><name>~VelAngTempDataProvider</name></member>
+    <member refid="classVelAngTempDataProvider_1a3a41a957fd644e599139450d5abffb9f" kind="function"><name>getData</name></member>
+  </compound>
+  <compound refid="classVelAngTempDataProviderInterface" kind="class"><name>VelAngTempDataProviderInterface</name>
+    <member refid="classVelAngTempDataProviderInterface_1a45fd34f04fab06fdca49c5625569ce35" kind="function"><name>VelAngTempDataProviderInterface</name></member>
+    <member refid="classVelAngTempDataProviderInterface_1a07810df68e3caef91f8fb9dc4815f02e" kind="function"><name>~VelAngTempDataProviderInterface</name></member>
+    <member refid="classVelAngTempDataProviderInterface_1a209118f87b8ae0b7a2a2085f3c9c95e0" kind="function"><name>getData</name></member>
+  </compound>
+  <compound refid="classVelAngTempRosPublisher" kind="class"><name>VelAngTempRosPublisher</name>
+    <member refid="classVelAngTempRosPublisher_1ad029ab5a35bccd34fd0174b6aea7b824" kind="variable"><name>m_data_provider</name></member>
+    <member refid="classVelAngTempRosPublisher_1a88bfcbfc561ed2fe52111b6f708ef1af" kind="variable"><name>m_publisher</name></member>
+    <member refid="classVelAngTempRosPublisher_1a716b7f2269ee985456060e621d2b5f6b" kind="variable"><name>m_message</name></member>
+    <member refid="classVelAngTempRosPublisher_1ad222a6358968546c8a5eb6c4a8102ef3" kind="function"><name>VelAngTempRosPublisher</name></member>
+    <member refid="classVelAngTempRosPublisher_1a38d6d1e83f097b9975054aa2bdd2147a" kind="function"><name>~VelAngTempRosPublisher</name></member>
+    <member refid="classVelAngTempRosPublisher_1a539b342de4cc1eeefb0591fe731950e1" kind="function"><name>setMessageProvider</name></member>
+    <member refid="classVelAngTempRosPublisher_1a3729886cf0214c86a6ee9296d58c0dc3" kind="function"><name>publish</name></member>
+  </compound>
+  <compound refid="classVelAngTempRosPublisherInterface" kind="class"><name>VelAngTempRosPublisherInterface</name>
+    <member refid="classVelAngTempRosPublisherInterface_1a70429e77f0f6a5715b8bf399d0b14626" kind="variable"><name>m_node</name></member>
+    <member refid="classVelAngTempRosPublisherInterface_1ac4840670a590e00d6a6f9108e81db019" kind="function"><name>VelAngTempRosPublisherInterface</name></member>
+    <member refid="classVelAngTempRosPublisherInterface_1a36feb8b97fbd8e2ea430d4609c4f62e1" kind="function"><name>~VelAngTempRosPublisherInterface</name></member>
+    <member refid="classVelAngTempRosPublisherInterface_1a5fb51d73442921eb29f3052b8db018a9" kind="function"><name>setMessageProvider</name></member>
+    <member refid="classVelAngTempRosPublisherInterface_1a3bf1cfbe81422dbbe70bf42cafe78b69" kind="function"><name>publish</name></member>
+  </compound>
+  <compound refid="classVelAngTempSubscriberTest" kind="class"><name>VelAngTempSubscriberTest</name>
+    <member refid="classVelAngTempSubscriberTest_1a6644c917bb2f0286416a9f4295028977" kind="function"><name>SetUpTestCase</name></member>
+    <member refid="classVelAngTempSubscriberTest_1abfd9acc8721263a9c7106e1b2d69886f" kind="function"><name>TearDownTestCase</name></member>
+  </compound>
+  <compound refid="classWorkerThread" kind="class"><name>WorkerThread</name>
+    <member refid="classWorkerThread_1a51d45d8d09d7826fe6e9ac5fa31dceec" kind="variable"><name>m_rosTask</name></member>
+    <member refid="classWorkerThread_1a942f957a04f6d5a7b7677836ad2f7650" kind="function"><name>WorkerThread</name></member>
+    <member refid="classWorkerThread_1a5aa554e7d73f0f185a850ca0ef145d6d" kind="function"><name>~WorkerThread</name></member>
+    <member refid="classWorkerThread_1a15c7f87a0cf955ef034ec99f9ccb22ff" kind="function"><name>runTask</name></member>
+  </compound>
+  <compound refid="namespacestd" kind="namespace"><name>std</name>
+  </compound>
+  <compound refid="namespacetesting" kind="namespace"><name>testing</name>
+  </compound>
+  <compound refid="accelgyrotemp__data__provider_8h" kind="file"><name>accelgyrotemp_data_provider.h</name>
+  </compound>
+  <compound refid="accelgyrotemp__data__provider__interface_8h" kind="file"><name>accelgyrotemp_data_provider_interface.h</name>
+  </compound>
+  <compound refid="accelgyrotemp__ros__publisher_8h" kind="file"><name>accelgyrotemp_ros_publisher.h</name>
+  </compound>
+  <compound refid="accelgyrotemp__ros__publisher__interface_8h" kind="file"><name>accelgyrotemp_ros_publisher_interface.h</name>
+  </compound>
+  <compound refid="adis1646x__data__access_8h" kind="file"><name>adis1646x_data_access.h</name>
+    <member refid="adis1646x__data__access_8h_1ac690976b9d8a5cef6ae4f66ec6272253" kind="define"><name>ADIS_FLS_MEM_ENDURANCE</name></member>
+    <member refid="adis1646x__data__access_8h_1a069236f3929ff9561ceeec01e6601743" kind="define"><name>ADIS_MAX_SAMP_FREQ</name></member>
+    <member refid="adis1646x__data__access_8h_1a00888b371d916c5ea39793dd670a61c1" kind="define"><name>ADIS_DIAG_STAT_ADDR</name></member>
+    <member refid="adis1646x__data__access_8h_1a09a94278ab55807d945576205a217a1f" kind="define"><name>ADIS_DATA_PATH_OVERRUN_POS</name></member>
+    <member refid="adis1646x__data__access_8h_1ab130fcdec49a87835b96266890f18ae7" kind="define"><name>ADIS_FLS_MEM_UPDATE_FAIL_POS</name></member>
+    <member refid="adis1646x__data__access_8h_1a294bb27581a93538420931d6cafc54df" kind="define"><name>ADIS_SPI_COMM_ERR_POS</name></member>
+    <member refid="adis1646x__data__access_8h_1a26e094f2d1fa49356716838465b09ac4" kind="define"><name>ADIS_STDBY_MODE_POS</name></member>
+    <member refid="adis1646x__data__access_8h_1ae011746534d120c56d97a65d875d098d" kind="define"><name>ADIS_SNSR_FAIL_POS</name></member>
+    <member refid="adis1646x__data__access_8h_1ac4a5fdbfc1a3c7d391a3cc174025276b" kind="define"><name>ADIS_MEM_FAIL_POS</name></member>
+    <member refid="adis1646x__data__access_8h_1a711244651992562599a6e2aef79840ef" kind="define"><name>ADIS_CLK_ERR_POS</name></member>
+    <member refid="adis1646x__data__access_8h_1af78561af97a99686e7dde925118158ee" kind="define"><name>ADIS_DATA_PATH_OVERRUN</name></member>
+    <member refid="adis1646x__data__access_8h_1a3e3b49f9f8d7253f2a05f4af14fe2e77" kind="define"><name>ADIS_FLS_MEM_UPDATE_FAIL</name></member>
+    <member refid="adis1646x__data__access_8h_1aba2d908cda71325077530f1b0d6f0d6d" kind="define"><name>ADIS_SPI_COMM_ERR</name></member>
+    <member refid="adis1646x__data__access_8h_1a74d6285b6fd090ae939c250e0c8bce5a" kind="define"><name>ADIS_STDBY_MODE</name></member>
+    <member refid="adis1646x__data__access_8h_1a281251c2e8612a1cc81613e4cd89ac15" kind="define"><name>ADIS_SNSR_FAIL</name></member>
+    <member refid="adis1646x__data__access_8h_1a9d998165da056cc3a2b600ab8382d7cf" kind="define"><name>ADIS_MEM_FAIL</name></member>
+    <member refid="adis1646x__data__access_8h_1a6dc53845d4c9a34ba8a7e61af639c7f7" kind="define"><name>ADIS_CLK_ERR</name></member>
+    <member refid="adis1646x__data__access_8h_1a969eacbc2d25e3c2468eb5cc6f638b27" kind="define"><name>ADIS_RANG_MDL_ADDR</name></member>
+    <member refid="adis1646x__data__access_8h_1a7de18cb23c2daf40857df9945d5a3a7c" kind="define"><name>ADIS_GYRO_MEAS_RANG_POS</name></member>
+    <member refid="adis1646x__data__access_8h_1a00ab4e91230687d83816c45dbc49e185" kind="define"><name>ADIS_GYRO_MEAS_RANG</name></member>
+    <member refid="adis1646x__data__access_8h_1a14b8fca2d7cfd5bb1baf0a4c23658b35" kind="define"><name>ADIS_MSC_CTRL_ADDR</name></member>
+    <member refid="adis1646x__data__access_8h_1a03b31b1843125a101b31acced6455c31" kind="define"><name>ADIS_DR_POL_POS</name></member>
+    <member refid="adis1646x__data__access_8h_1ae78df4bcff713178bf8121d87f2be467" kind="define"><name>ADIS_SYNC_POL_POS</name></member>
+    <member refid="adis1646x__data__access_8h_1a129695383e48c5c2593f5f1123db6012" kind="define"><name>ADIS_LN_ACCL_COMP_POS</name></member>
+    <member refid="adis1646x__data__access_8h_1a546191746e8a4d114668f06f5ba11805" kind="define"><name>ADIS_DR_POL</name></member>
+    <member refid="adis1646x__data__access_8h_1a4021b1a2f6e85d91a0e9cc5e8cc01555" kind="define"><name>ADIS_SYNC_POL</name></member>
+    <member refid="adis1646x__data__access_8h_1a4f5a40c8b6cd32847d823496f80c24f3" kind="define"><name>ADIS_LN_ACCL_COMP</name></member>
+    <member refid="adis1646x__data__access_8h_1a750299fcfc067f2cf82f3d6cd86c0543" kind="define"><name>ADIS_NULL_CNFG_ADDR</name></member>
+    <member refid="adis1646x__data__access_8h_1a621e0a62b72e598f9d3f4e65b2cd9a6e" kind="define"><name>ADIS_TIME_BASE_CONTROL_POS</name></member>
+    <member refid="adis1646x__data__access_8h_1ae6681abe9ef9c79d8a731f1d335e0ff1" kind="define"><name>ADIS_X_AXIS_GYRO_BIAS_CORR_EN_POS</name></member>
+    <member refid="adis1646x__data__access_8h_1a40a6c3e755173290e0c3cfd5a0437144" kind="define"><name>ADIS_Y_AXIS_GYRO_BIAS_CORR_EN_POS</name></member>
+    <member refid="adis1646x__data__access_8h_1a269e180b447f46ce02556c0b89d1fff5" kind="define"><name>ADIS_Z_AXIS_GYRO_BIAS_CORR_EN_POS</name></member>
+    <member refid="adis1646x__data__access_8h_1abc41fbd02548f66f16860ad314df865e" kind="define"><name>ADIS_X_AXIS_ACCEL_BIAS_CORR_EN_POS</name></member>
+    <member refid="adis1646x__data__access_8h_1a5541994fa8dbe8f8dbe162b330dd0eeb" kind="define"><name>ADIS_Y_AXIS_ACCEL_BIAS_CORR_EN_POS</name></member>
+    <member refid="adis1646x__data__access_8h_1acd43a3a718106e3ee2ccad55e755970b" kind="define"><name>ADIS_Z_AXIS_ACCEL_BIAS_CORR_EN_POS</name></member>
+    <member refid="adis1646x__data__access_8h_1a8984972ab7d4ee7a96445d852d50000e" kind="define"><name>ADIS_TIME_BASE_CONTROL</name></member>
+    <member refid="adis1646x__data__access_8h_1a635a2b39aacb456fd01fedb5f3b426e1" kind="define"><name>ADIS_X_AXIS_GYRO_BIAS_CORR_EN</name></member>
+    <member refid="adis1646x__data__access_8h_1ac3f927c9b7bba8116d8d322f07e7b877" kind="define"><name>ADIS_Y_AXIS_GYRO_BIAS_CORR_EN</name></member>
+    <member refid="adis1646x__data__access_8h_1a57132b62a29d1e8741b8db97215c883e" kind="define"><name>ADIS_Z_AXIS_GYRO_BIAS_CORR_EN</name></member>
+    <member refid="adis1646x__data__access_8h_1ae59fdd84ddeaf2656416fb2cca7056c5" kind="define"><name>ADIS_X_AXIS_ACCEL_BIAS_CORR_EN</name></member>
+    <member refid="adis1646x__data__access_8h_1ab29c3b9af01dcd2468e73ff6978755fe" kind="define"><name>ADIS_Y_AXIS_ACCEL_BIAS_CORR_EN</name></member>
+    <member refid="adis1646x__data__access_8h_1a9336901cfc5976260595d3e84d2fbda9" kind="define"><name>ADIS_Z_AXIS_ACCEL_BIAS_CORR_EN</name></member>
+    <member refid="adis1646x__data__access_8h_1a42c62d46224ce68df7ada715c77be950" kind="define"><name>ADIS_GLOB_CMD_ADDR</name></member>
+    <member refid="adis1646x__data__access_8h_1a5838435bca4544693bbc1794fb107840" kind="define"><name>ADIS_BIAS_CORRECTION_UPDATE</name></member>
+    <member refid="adis1646x__data__access_8h_1adb8aba739dc68b9d1c69b9225d769b3c" kind="define"><name>ADIS_FACTORY_CALIBRATION_RESTORE</name></member>
+    <member refid="adis1646x__data__access_8h_1af8122b7e93db959412609be1644d5963" kind="define"><name>ADIS_SENSOR_SELF_TEST</name></member>
+    <member refid="adis1646x__data__access_8h_1afd8619ab2bd62e2a1d567b365630b6dc" kind="define"><name>ADIS_FLASH_MEMORY_UPDATE</name></member>
+    <member refid="adis1646x__data__access_8h_1a61ed1ff604e65466d9fb37adfdbe4a04" kind="define"><name>ADIS_FLASH_MEMORY_TEST</name></member>
+    <member refid="adis1646x__data__access_8h_1a192f1694df557e9c92ec39d58caccbf3" kind="define"><name>ADIS_SOFTWARE_RESET_CMD</name></member>
+    <member refid="adis1646x__data__access_8h_1a5af76feaa70560f735e4a7f783cf0adb" kind="define"><name>ADIS_PT_OF_PERC_REG_ADDR</name></member>
+    <member refid="adis1646x__data__access_8h_1a53a01d7e65d04e2e78b9b815b870d56d" kind="define"><name>ADIS_PT_OF_PERC_ALGNMNT_POS</name></member>
+    <member refid="adis1646x__data__access_8h_1a224472ceeefad7128e0a436bf855bb48" kind="define"><name>ADIS_PT_OF_PERC_ALGNMNT</name></member>
+  </compound>
+  <compound refid="adis1647x__data__access_8h" kind="file"><name>adis1647x_data_access.h</name>
+    <member refid="adis1647x__data__access_8h_1a9a628803e86d5dd2ee521147498012df" kind="define"><name>ADIS_HAS_DELTA_BURST</name></member>
+    <member refid="adis1647x__data__access_8h_1ac690976b9d8a5cef6ae4f66ec6272253" kind="define"><name>ADIS_FLS_MEM_ENDURANCE</name></member>
+    <member refid="adis1647x__data__access_8h_1a069236f3929ff9561ceeec01e6601743" kind="define"><name>ADIS_MAX_SAMP_FREQ</name></member>
+    <member refid="adis1647x__data__access_8h_1a00888b371d916c5ea39793dd670a61c1" kind="define"><name>ADIS_DIAG_STAT_ADDR</name></member>
+    <member refid="adis1647x__data__access_8h_1a09a94278ab55807d945576205a217a1f" kind="define"><name>ADIS_DATA_PATH_OVERRUN_POS</name></member>
+    <member refid="adis1647x__data__access_8h_1ab130fcdec49a87835b96266890f18ae7" kind="define"><name>ADIS_FLS_MEM_UPDATE_FAIL_POS</name></member>
+    <member refid="adis1647x__data__access_8h_1a294bb27581a93538420931d6cafc54df" kind="define"><name>ADIS_SPI_COMM_ERR_POS</name></member>
+    <member refid="adis1647x__data__access_8h_1a26e094f2d1fa49356716838465b09ac4" kind="define"><name>ADIS_STDBY_MODE_POS</name></member>
+    <member refid="adis1647x__data__access_8h_1ae011746534d120c56d97a65d875d098d" kind="define"><name>ADIS_SNSR_FAIL_POS</name></member>
+    <member refid="adis1647x__data__access_8h_1ac4a5fdbfc1a3c7d391a3cc174025276b" kind="define"><name>ADIS_MEM_FAIL_POS</name></member>
+    <member refid="adis1647x__data__access_8h_1a711244651992562599a6e2aef79840ef" kind="define"><name>ADIS_CLK_ERR_POS</name></member>
+    <member refid="adis1647x__data__access_8h_1af78561af97a99686e7dde925118158ee" kind="define"><name>ADIS_DATA_PATH_OVERRUN</name></member>
+    <member refid="adis1647x__data__access_8h_1a3e3b49f9f8d7253f2a05f4af14fe2e77" kind="define"><name>ADIS_FLS_MEM_UPDATE_FAIL</name></member>
+    <member refid="adis1647x__data__access_8h_1aba2d908cda71325077530f1b0d6f0d6d" kind="define"><name>ADIS_SPI_COMM_ERR</name></member>
+    <member refid="adis1647x__data__access_8h_1a74d6285b6fd090ae939c250e0c8bce5a" kind="define"><name>ADIS_STDBY_MODE</name></member>
+    <member refid="adis1647x__data__access_8h_1a281251c2e8612a1cc81613e4cd89ac15" kind="define"><name>ADIS_SNSR_FAIL</name></member>
+    <member refid="adis1647x__data__access_8h_1a9d998165da056cc3a2b600ab8382d7cf" kind="define"><name>ADIS_MEM_FAIL</name></member>
+    <member refid="adis1647x__data__access_8h_1a6dc53845d4c9a34ba8a7e61af639c7f7" kind="define"><name>ADIS_CLK_ERR</name></member>
+    <member refid="adis1647x__data__access_8h_1a969eacbc2d25e3c2468eb5cc6f638b27" kind="define"><name>ADIS_RANG_MDL_ADDR</name></member>
+    <member refid="adis1647x__data__access_8h_1a7de18cb23c2daf40857df9945d5a3a7c" kind="define"><name>ADIS_GYRO_MEAS_RANG_POS</name></member>
+    <member refid="adis1647x__data__access_8h_1a00ab4e91230687d83816c45dbc49e185" kind="define"><name>ADIS_GYRO_MEAS_RANG</name></member>
+    <member refid="adis1647x__data__access_8h_1a14b8fca2d7cfd5bb1baf0a4c23658b35" kind="define"><name>ADIS_MSC_CTRL_ADDR</name></member>
+    <member refid="adis1647x__data__access_8h_1a03b31b1843125a101b31acced6455c31" kind="define"><name>ADIS_DR_POL_POS</name></member>
+    <member refid="adis1647x__data__access_8h_1ae78df4bcff713178bf8121d87f2be467" kind="define"><name>ADIS_SYNC_POL_POS</name></member>
+    <member refid="adis1647x__data__access_8h_1a129695383e48c5c2593f5f1123db6012" kind="define"><name>ADIS_LN_ACCL_COMP_POS</name></member>
+    <member refid="adis1647x__data__access_8h_1a546191746e8a4d114668f06f5ba11805" kind="define"><name>ADIS_DR_POL</name></member>
+    <member refid="adis1647x__data__access_8h_1a4021b1a2f6e85d91a0e9cc5e8cc01555" kind="define"><name>ADIS_SYNC_POL</name></member>
+    <member refid="adis1647x__data__access_8h_1a4f5a40c8b6cd32847d823496f80c24f3" kind="define"><name>ADIS_LN_ACCL_COMP</name></member>
+    <member refid="adis1647x__data__access_8h_1a750299fcfc067f2cf82f3d6cd86c0543" kind="define"><name>ADIS_NULL_CNFG_ADDR</name></member>
+    <member refid="adis1647x__data__access_8h_1a621e0a62b72e598f9d3f4e65b2cd9a6e" kind="define"><name>ADIS_TIME_BASE_CONTROL_POS</name></member>
+    <member refid="adis1647x__data__access_8h_1ae6681abe9ef9c79d8a731f1d335e0ff1" kind="define"><name>ADIS_X_AXIS_GYRO_BIAS_CORR_EN_POS</name></member>
+    <member refid="adis1647x__data__access_8h_1a40a6c3e755173290e0c3cfd5a0437144" kind="define"><name>ADIS_Y_AXIS_GYRO_BIAS_CORR_EN_POS</name></member>
+    <member refid="adis1647x__data__access_8h_1a269e180b447f46ce02556c0b89d1fff5" kind="define"><name>ADIS_Z_AXIS_GYRO_BIAS_CORR_EN_POS</name></member>
+    <member refid="adis1647x__data__access_8h_1abc41fbd02548f66f16860ad314df865e" kind="define"><name>ADIS_X_AXIS_ACCEL_BIAS_CORR_EN_POS</name></member>
+    <member refid="adis1647x__data__access_8h_1a5541994fa8dbe8f8dbe162b330dd0eeb" kind="define"><name>ADIS_Y_AXIS_ACCEL_BIAS_CORR_EN_POS</name></member>
+    <member refid="adis1647x__data__access_8h_1acd43a3a718106e3ee2ccad55e755970b" kind="define"><name>ADIS_Z_AXIS_ACCEL_BIAS_CORR_EN_POS</name></member>
+    <member refid="adis1647x__data__access_8h_1a8984972ab7d4ee7a96445d852d50000e" kind="define"><name>ADIS_TIME_BASE_CONTROL</name></member>
+    <member refid="adis1647x__data__access_8h_1a635a2b39aacb456fd01fedb5f3b426e1" kind="define"><name>ADIS_X_AXIS_GYRO_BIAS_CORR_EN</name></member>
+    <member refid="adis1647x__data__access_8h_1ac3f927c9b7bba8116d8d322f07e7b877" kind="define"><name>ADIS_Y_AXIS_GYRO_BIAS_CORR_EN</name></member>
+    <member refid="adis1647x__data__access_8h_1a57132b62a29d1e8741b8db97215c883e" kind="define"><name>ADIS_Z_AXIS_GYRO_BIAS_CORR_EN</name></member>
+    <member refid="adis1647x__data__access_8h_1ae59fdd84ddeaf2656416fb2cca7056c5" kind="define"><name>ADIS_X_AXIS_ACCEL_BIAS_CORR_EN</name></member>
+    <member refid="adis1647x__data__access_8h_1ab29c3b9af01dcd2468e73ff6978755fe" kind="define"><name>ADIS_Y_AXIS_ACCEL_BIAS_CORR_EN</name></member>
+    <member refid="adis1647x__data__access_8h_1a9336901cfc5976260595d3e84d2fbda9" kind="define"><name>ADIS_Z_AXIS_ACCEL_BIAS_CORR_EN</name></member>
+    <member refid="adis1647x__data__access_8h_1a42c62d46224ce68df7ada715c77be950" kind="define"><name>ADIS_GLOB_CMD_ADDR</name></member>
+    <member refid="adis1647x__data__access_8h_1a5838435bca4544693bbc1794fb107840" kind="define"><name>ADIS_BIAS_CORRECTION_UPDATE</name></member>
+    <member refid="adis1647x__data__access_8h_1adb8aba739dc68b9d1c69b9225d769b3c" kind="define"><name>ADIS_FACTORY_CALIBRATION_RESTORE</name></member>
+    <member refid="adis1647x__data__access_8h_1af8122b7e93db959412609be1644d5963" kind="define"><name>ADIS_SENSOR_SELF_TEST</name></member>
+    <member refid="adis1647x__data__access_8h_1afd8619ab2bd62e2a1d567b365630b6dc" kind="define"><name>ADIS_FLASH_MEMORY_UPDATE</name></member>
+    <member refid="adis1647x__data__access_8h_1a61ed1ff604e65466d9fb37adfdbe4a04" kind="define"><name>ADIS_FLASH_MEMORY_TEST</name></member>
+    <member refid="adis1647x__data__access_8h_1a192f1694df557e9c92ec39d58caccbf3" kind="define"><name>ADIS_SOFTWARE_RESET_CMD</name></member>
+    <member refid="adis1647x__data__access_8h_1a5af76feaa70560f735e4a7f783cf0adb" kind="define"><name>ADIS_PT_OF_PERC_REG_ADDR</name></member>
+    <member refid="adis1647x__data__access_8h_1a53a01d7e65d04e2e78b9b815b870d56d" kind="define"><name>ADIS_PT_OF_PERC_ALGNMNT_POS</name></member>
+    <member refid="adis1647x__data__access_8h_1a224472ceeefad7128e0a436bf855bb48" kind="define"><name>ADIS_PT_OF_PERC_ALGNMNT</name></member>
+  </compound>
+  <compound refid="adis1650x__data__access_8h" kind="file"><name>adis1650x_data_access.h</name>
+    <member refid="adis1650x__data__access_8h_1a9a628803e86d5dd2ee521147498012df" kind="define"><name>ADIS_HAS_DELTA_BURST</name></member>
+    <member refid="adis1650x__data__access_8h_1ac690976b9d8a5cef6ae4f66ec6272253" kind="define"><name>ADIS_FLS_MEM_ENDURANCE</name></member>
+    <member refid="adis1650x__data__access_8h_1a069236f3929ff9561ceeec01e6601743" kind="define"><name>ADIS_MAX_SAMP_FREQ</name></member>
+    <member refid="adis1650x__data__access_8h_1a00888b371d916c5ea39793dd670a61c1" kind="define"><name>ADIS_DIAG_STAT_ADDR</name></member>
+    <member refid="adis1650x__data__access_8h_1a09a94278ab55807d945576205a217a1f" kind="define"><name>ADIS_DATA_PATH_OVERRUN_POS</name></member>
+    <member refid="adis1650x__data__access_8h_1ab130fcdec49a87835b96266890f18ae7" kind="define"><name>ADIS_FLS_MEM_UPDATE_FAIL_POS</name></member>
+    <member refid="adis1650x__data__access_8h_1a294bb27581a93538420931d6cafc54df" kind="define"><name>ADIS_SPI_COMM_ERR_POS</name></member>
+    <member refid="adis1650x__data__access_8h_1a26e094f2d1fa49356716838465b09ac4" kind="define"><name>ADIS_STDBY_MODE_POS</name></member>
+    <member refid="adis1650x__data__access_8h_1ae011746534d120c56d97a65d875d098d" kind="define"><name>ADIS_SNSR_FAIL_POS</name></member>
+    <member refid="adis1650x__data__access_8h_1ac4a5fdbfc1a3c7d391a3cc174025276b" kind="define"><name>ADIS_MEM_FAIL_POS</name></member>
+    <member refid="adis1650x__data__access_8h_1a711244651992562599a6e2aef79840ef" kind="define"><name>ADIS_CLK_ERR_POS</name></member>
+    <member refid="adis1650x__data__access_8h_1a4a99cce87e73761d8e4a1b4a57c2fc48" kind="define"><name>ADIS_GYRO1_FAIL_POS</name></member>
+    <member refid="adis1650x__data__access_8h_1ab6bf37624d01522e9e6d73ff0186625e" kind="define"><name>ADIS_GYRO2_FAIL_POS</name></member>
+    <member refid="adis1650x__data__access_8h_1a7de21adcdc1e23b89d3f67185bfa2033" kind="define"><name>ADIS_ACCEL_FAIL_POS</name></member>
+    <member refid="adis1650x__data__access_8h_1af78561af97a99686e7dde925118158ee" kind="define"><name>ADIS_DATA_PATH_OVERRUN</name></member>
+    <member refid="adis1650x__data__access_8h_1a3e3b49f9f8d7253f2a05f4af14fe2e77" kind="define"><name>ADIS_FLS_MEM_UPDATE_FAIL</name></member>
+    <member refid="adis1650x__data__access_8h_1aba2d908cda71325077530f1b0d6f0d6d" kind="define"><name>ADIS_SPI_COMM_ERR</name></member>
+    <member refid="adis1650x__data__access_8h_1a74d6285b6fd090ae939c250e0c8bce5a" kind="define"><name>ADIS_STDBY_MODE</name></member>
+    <member refid="adis1650x__data__access_8h_1a281251c2e8612a1cc81613e4cd89ac15" kind="define"><name>ADIS_SNSR_FAIL</name></member>
+    <member refid="adis1650x__data__access_8h_1a9d998165da056cc3a2b600ab8382d7cf" kind="define"><name>ADIS_MEM_FAIL</name></member>
+    <member refid="adis1650x__data__access_8h_1a6dc53845d4c9a34ba8a7e61af639c7f7" kind="define"><name>ADIS_CLK_ERR</name></member>
+    <member refid="adis1650x__data__access_8h_1a2af0cbe3a7579a5b0341e7d7bb08097a" kind="define"><name>ADIS_GYRO1_FAIL</name></member>
+    <member refid="adis1650x__data__access_8h_1acd186737612f7996e67408ed3f64fac1" kind="define"><name>ADIS_GYRO2_FAIL</name></member>
+    <member refid="adis1650x__data__access_8h_1aa0ab12bf392baffb16784cbf1244c1da" kind="define"><name>ADIS_ACCEL_FAIL</name></member>
+    <member refid="adis1650x__data__access_8h_1a969eacbc2d25e3c2468eb5cc6f638b27" kind="define"><name>ADIS_RANG_MDL_ADDR</name></member>
+    <member refid="adis1650x__data__access_8h_1a7de18cb23c2daf40857df9945d5a3a7c" kind="define"><name>ADIS_GYRO_MEAS_RANG_POS</name></member>
+    <member refid="adis1650x__data__access_8h_1a00ab4e91230687d83816c45dbc49e185" kind="define"><name>ADIS_GYRO_MEAS_RANG</name></member>
+    <member refid="adis1650x__data__access_8h_1a14b8fca2d7cfd5bb1baf0a4c23658b35" kind="define"><name>ADIS_MSC_CTRL_ADDR</name></member>
+    <member refid="adis1650x__data__access_8h_1a03b31b1843125a101b31acced6455c31" kind="define"><name>ADIS_DR_POL_POS</name></member>
+    <member refid="adis1650x__data__access_8h_1ae78df4bcff713178bf8121d87f2be467" kind="define"><name>ADIS_SYNC_POL_POS</name></member>
+    <member refid="adis1650x__data__access_8h_1ae3b1461272ec2f057ff52aec4793bea2" kind="define"><name>ADIS_SENS_BW_POS</name></member>
+    <member refid="adis1650x__data__access_8h_1a129695383e48c5c2593f5f1123db6012" kind="define"><name>ADIS_LN_ACCL_COMP_POS</name></member>
+    <member refid="adis1650x__data__access_8h_1a546191746e8a4d114668f06f5ba11805" kind="define"><name>ADIS_DR_POL</name></member>
+    <member refid="adis1650x__data__access_8h_1a4021b1a2f6e85d91a0e9cc5e8cc01555" kind="define"><name>ADIS_SYNC_POL</name></member>
+    <member refid="adis1650x__data__access_8h_1a714dc7aeb55b8002ba422dc01def4e14" kind="define"><name>ADIS_SENS_BW</name></member>
+    <member refid="adis1650x__data__access_8h_1a4f5a40c8b6cd32847d823496f80c24f3" kind="define"><name>ADIS_LN_ACCL_COMP</name></member>
+    <member refid="adis1650x__data__access_8h_1a42c62d46224ce68df7ada715c77be950" kind="define"><name>ADIS_GLOB_CMD_ADDR</name></member>
+    <member refid="adis1650x__data__access_8h_1adb8aba739dc68b9d1c69b9225d769b3c" kind="define"><name>ADIS_FACTORY_CALIBRATION_RESTORE</name></member>
+    <member refid="adis1650x__data__access_8h_1af8122b7e93db959412609be1644d5963" kind="define"><name>ADIS_SENSOR_SELF_TEST</name></member>
+    <member refid="adis1650x__data__access_8h_1afd8619ab2bd62e2a1d567b365630b6dc" kind="define"><name>ADIS_FLASH_MEMORY_UPDATE</name></member>
+    <member refid="adis1650x__data__access_8h_1a61ed1ff604e65466d9fb37adfdbe4a04" kind="define"><name>ADIS_FLASH_MEMORY_TEST</name></member>
+    <member refid="adis1650x__data__access_8h_1a192f1694df557e9c92ec39d58caccbf3" kind="define"><name>ADIS_SOFTWARE_RESET_CMD</name></member>
+    <member refid="adis1650x__data__access_8h_1a5af76feaa70560f735e4a7f783cf0adb" kind="define"><name>ADIS_PT_OF_PERC_REG_ADDR</name></member>
+    <member refid="adis1650x__data__access_8h_1a53a01d7e65d04e2e78b9b815b870d56d" kind="define"><name>ADIS_PT_OF_PERC_ALGNMNT_POS</name></member>
+    <member refid="adis1650x__data__access_8h_1a224472ceeefad7128e0a436bf855bb48" kind="define"><name>ADIS_PT_OF_PERC_ALGNMNT</name></member>
+  </compound>
+  <compound refid="adis1654x__data__access_8h" kind="file"><name>adis1654x_data_access.h</name>
+    <member refid="adis1654x__data__access_8h_1a9a628803e86d5dd2ee521147498012df" kind="define"><name>ADIS_HAS_DELTA_BURST</name></member>
+    <member refid="adis1654x__data__access_8h_1ae94276ad20caa596349f5ce0579072b4" kind="define"><name>ADIS_HAS_CALIB_SCALE</name></member>
+    <member refid="adis1654x__data__access_8h_1ac690976b9d8a5cef6ae4f66ec6272253" kind="define"><name>ADIS_FLS_MEM_ENDURANCE</name></member>
+    <member refid="adis1654x__data__access_8h_1a069236f3929ff9561ceeec01e6601743" kind="define"><name>ADIS_MAX_SAMP_FREQ</name></member>
+    <member refid="adis1654x__data__access_8h_1a01c63e5371bb331a0cec0ef2bfa1f74a" kind="define"><name>ADIS_PAGE_ID_VAL</name></member>
+    <member refid="adis1654x__data__access_8h_1a4757a9230418cb2c36434564b41e747c" kind="define"><name>ADIS_GLOB_CMD_PAGE_ID</name></member>
+    <member refid="adis1654x__data__access_8h_1a7b4215a68a01ce69902ba6a30cf8510a" kind="define"><name>ADIS_GLOB_CMD_ADDR_WITHOUT_PAGE</name></member>
+    <member refid="adis1654x__data__access_8h_1a42c62d46224ce68df7ada715c77be950" kind="define"><name>ADIS_GLOB_CMD_ADDR</name></member>
+    <member refid="adis1654x__data__access_8h_1aa966a977f542fce36f90c38ca3937cff" kind="define"><name>ADIS_BIAS_CORRECTION_UPDATE_POS</name></member>
+    <member refid="adis1654x__data__access_8h_1af857040cb01ed2bfdc347c0dfb3d0687" kind="define"><name>ADIS_SENSOR_SELF_TEST_POS</name></member>
+    <member refid="adis1654x__data__access_8h_1a8bbd979256a753044b0c0e88a5693732" kind="define"><name>ADIS_FLASH_MEMORY_UPDATE_POS</name></member>
+    <member refid="adis1654x__data__access_8h_1ac9644c3f3e356c4e335eb3c3be4f4318" kind="define"><name>ADIS_FACTORY_CALIBRATION_RESTORE_POS</name></member>
+    <member refid="adis1654x__data__access_8h_1a14928c73e1bf067891ee3ddb5dd72008" kind="define"><name>ADIS_SOFTWARE_RESET_CMD_POS</name></member>
+    <member refid="adis1654x__data__access_8h_1a5838435bca4544693bbc1794fb107840" kind="define"><name>ADIS_BIAS_CORRECTION_UPDATE</name></member>
+    <member refid="adis1654x__data__access_8h_1af8122b7e93db959412609be1644d5963" kind="define"><name>ADIS_SENSOR_SELF_TEST</name></member>
+    <member refid="adis1654x__data__access_8h_1afd8619ab2bd62e2a1d567b365630b6dc" kind="define"><name>ADIS_FLASH_MEMORY_UPDATE</name></member>
+    <member refid="adis1654x__data__access_8h_1adb8aba739dc68b9d1c69b9225d769b3c" kind="define"><name>ADIS_FACTORY_CALIBRATION_RESTORE</name></member>
+    <member refid="adis1654x__data__access_8h_1a192f1694df557e9c92ec39d58caccbf3" kind="define"><name>ADIS_SOFTWARE_RESET_CMD</name></member>
+    <member refid="adis1654x__data__access_8h_1a5e9411b1861401c5dc9a55e71ebeccf2" kind="define"><name>ADIS_DIAG_STAT_PAGE_ID</name></member>
+    <member refid="adis1654x__data__access_8h_1ae98d2b0b2f6c4dc2cdd12295d448ff86" kind="define"><name>ADIS_DIAG_STAT_ADDR_WITHOUT_PAGE</name></member>
+    <member refid="adis1654x__data__access_8h_1a00888b371d916c5ea39793dd670a61c1" kind="define"><name>ADIS_DIAG_STAT_ADDR</name></member>
+    <member refid="adis1654x__data__access_8h_1ac4a5fdbfc1a3c7d391a3cc174025276b" kind="define"><name>ADIS_MEM_FAIL_POS</name></member>
+    <member refid="adis1654x__data__access_8h_1a891fbdefc9c49f7c48644c936780fe30" kind="define"><name>ADIS_CRC_ERROR_POS</name></member>
+    <member refid="adis1654x__data__access_8h_1a294bb27581a93538420931d6cafc54df" kind="define"><name>ADIS_SPI_COMM_ERR_POS</name></member>
+    <member refid="adis1654x__data__access_8h_1ae011746534d120c56d97a65d875d098d" kind="define"><name>ADIS_SNSR_FAIL_POS</name></member>
+    <member refid="adis1654x__data__access_8h_1ab130fcdec49a87835b96266890f18ae7" kind="define"><name>ADIS_FLS_MEM_UPDATE_FAIL_POS</name></member>
+    <member refid="adis1654x__data__access_8h_1a09a94278ab55807d945576205a217a1f" kind="define"><name>ADIS_DATA_PATH_OVERRUN_POS</name></member>
+    <member refid="adis1654x__data__access_8h_1a711244651992562599a6e2aef79840ef" kind="define"><name>ADIS_CLK_ERR_POS</name></member>
+    <member refid="adis1654x__data__access_8h_1abb5e2c83d09395d7e4f325b48702e931" kind="define"><name>ADIS_WDG_TIMER_FLAG_POS</name></member>
+    <member refid="adis1654x__data__access_8h_1a9d998165da056cc3a2b600ab8382d7cf" kind="define"><name>ADIS_MEM_FAIL</name></member>
+    <member refid="adis1654x__data__access_8h_1a0d42788fa708f312aea01cafdfc6545c" kind="define"><name>ADIS_CRC_ERROR</name></member>
+    <member refid="adis1654x__data__access_8h_1aba2d908cda71325077530f1b0d6f0d6d" kind="define"><name>ADIS_SPI_COMM_ERR</name></member>
+    <member refid="adis1654x__data__access_8h_1a281251c2e8612a1cc81613e4cd89ac15" kind="define"><name>ADIS_SNSR_FAIL</name></member>
+    <member refid="adis1654x__data__access_8h_1a3e3b49f9f8d7253f2a05f4af14fe2e77" kind="define"><name>ADIS_FLS_MEM_UPDATE_FAIL</name></member>
+    <member refid="adis1654x__data__access_8h_1af78561af97a99686e7dde925118158ee" kind="define"><name>ADIS_DATA_PATH_OVERRUN</name></member>
+    <member refid="adis1654x__data__access_8h_1a6dc53845d4c9a34ba8a7e61af639c7f7" kind="define"><name>ADIS_CLK_ERR</name></member>
+    <member refid="adis1654x__data__access_8h_1a0e1eaa323fab2efb23a2c2a72fcd8244" kind="define"><name>ADIS_WDG_TIMER_FLAG</name></member>
+    <member refid="adis1654x__data__access_8h_1a91a0e935064b9d07fc7a5e798c0a4858" kind="define"><name>ADIS_DIAG_STS_PAGE_ID</name></member>
+    <member refid="adis1654x__data__access_8h_1a2835be66ac0fd1ea1ce3f19abb13f4b6" kind="define"><name>ADIS_DIAG_STS_REG_WITHOUT_PAGE</name></member>
+    <member refid="adis1654x__data__access_8h_1a98bc997623f154a9033bb81de383858e" kind="define"><name>ADIS_DIAG_STS_REG</name></member>
+    <member refid="adis1654x__data__access_8h_1ad5866956ffd11792c984e6416a68e333" kind="define"><name>ADIS_GYRO_ACCEL_FAIL_REG</name></member>
+    <member refid="adis1654x__data__access_8h_1aa0392d5f5f66a6a2870deec118af7046" kind="define"><name>ADIS_GYRO_X_FAIL_POS</name></member>
+    <member refid="adis1654x__data__access_8h_1a9c5172d2087f8e637ed977adf6f4b1af" kind="define"><name>ADIS_GYRO_Y_FAIL_POS</name></member>
+    <member refid="adis1654x__data__access_8h_1a67dd79bc04aa2b04d3decef65f795aa1" kind="define"><name>ADIS_GYRO_Z_FAIL_POS</name></member>
+    <member refid="adis1654x__data__access_8h_1a8d5e28ac9ff4dec409b502e687212b78" kind="define"><name>ADIS_ACCEL_X_FAIL_POS</name></member>
+    <member refid="adis1654x__data__access_8h_1a5c1f9f933fd311c1914f27c525039368" kind="define"><name>ADIS_ACCEL_Y_FAIL_POS</name></member>
+    <member refid="adis1654x__data__access_8h_1a9ae4fe31ecfcebf11d523e3648ca6d0c" kind="define"><name>ADIS_ACCEL_Z_FAIL_POS</name></member>
+    <member refid="adis1654x__data__access_8h_1a82f646d0754f1163f13a7b03d3e3ad8a" kind="define"><name>ADIS_GYRO_X_FAIL</name></member>
+    <member refid="adis1654x__data__access_8h_1a2078895656358fb28f2ac6c427946bef" kind="define"><name>ADIS_GYRO_Y_FAIL</name></member>
+    <member refid="adis1654x__data__access_8h_1acd8829aa75c3606ae877530053b2d8c4" kind="define"><name>ADIS_GYRO_Z_FAIL</name></member>
+    <member refid="adis1654x__data__access_8h_1a1cb648cc32e5b8064e92616eb7ee8981" kind="define"><name>ADIS_ACCEL_X_FAIL</name></member>
+    <member refid="adis1654x__data__access_8h_1a15c4fe94c4ea712c992b30ee919196e6" kind="define"><name>ADIS_ACCEL_Y_FAIL</name></member>
+    <member refid="adis1654x__data__access_8h_1ae3b6e96bc844d22f014145eb83e7637b" kind="define"><name>ADIS_ACCEL_Z_FAIL</name></member>
+    <member refid="adis1654x__data__access_8h_1ad6cb370f6b0d4ecf6dbf23aae2a07ef1" kind="define"><name>ADIS_RANG_MDL_PAGE_ID</name></member>
+    <member refid="adis1654x__data__access_8h_1a9764135e724dd6b0d5295705212d7c78" kind="define"><name>ADIS_RANG_MDL_ADDR_WITHOUT_PAGE</name></member>
+    <member refid="adis1654x__data__access_8h_1a969eacbc2d25e3c2468eb5cc6f638b27" kind="define"><name>ADIS_RANG_MDL_ADDR</name></member>
+    <member refid="adis1654x__data__access_8h_1a7de18cb23c2daf40857df9945d5a3a7c" kind="define"><name>ADIS_GYRO_MEAS_RANG_POS</name></member>
+    <member refid="adis1654x__data__access_8h_1a00ab4e91230687d83816c45dbc49e185" kind="define"><name>ADIS_GYRO_MEAS_RANG</name></member>
+    <member refid="adis1654x__data__access_8h_1a49aeef7ae805605e86704d04777f5eb6" kind="define"><name>ADIS_PT_OF_PERC_PAGE_ID</name></member>
+    <member refid="adis1654x__data__access_8h_1aa286cb33e0d323469caed40cb3e3e2ca" kind="define"><name>ADIS_PT_OF_PERC_REG_ADDR_WITHOUT_PAGE</name></member>
+    <member refid="adis1654x__data__access_8h_1a5af76feaa70560f735e4a7f783cf0adb" kind="define"><name>ADIS_PT_OF_PERC_REG_ADDR</name></member>
+    <member refid="adis1654x__data__access_8h_1a53a01d7e65d04e2e78b9b815b870d56d" kind="define"><name>ADIS_PT_OF_PERC_ALGNMNT_POS</name></member>
+    <member refid="adis1654x__data__access_8h_1a224472ceeefad7128e0a436bf855bb48" kind="define"><name>ADIS_PT_OF_PERC_ALGNMNT</name></member>
+    <member refid="adis1654x__data__access_8h_1a73a8238df11ab5183c583676e86d6fc9" kind="define"><name>ADIS_NULL_CNFG_PAGE_ID</name></member>
+    <member refid="adis1654x__data__access_8h_1a2a288c4be0d9fd83ce63e85d00020069" kind="define"><name>ADIS_NULL_CNFG_ADDR_WITHOUT_PAGE</name></member>
+    <member refid="adis1654x__data__access_8h_1a750299fcfc067f2cf82f3d6cd86c0543" kind="define"><name>ADIS_NULL_CNFG_ADDR</name></member>
+    <member refid="adis1654x__data__access_8h_1a621e0a62b72e598f9d3f4e65b2cd9a6e" kind="define"><name>ADIS_TIME_BASE_CONTROL_POS</name></member>
+    <member refid="adis1654x__data__access_8h_1ae6681abe9ef9c79d8a731f1d335e0ff1" kind="define"><name>ADIS_X_AXIS_GYRO_BIAS_CORR_EN_POS</name></member>
+    <member refid="adis1654x__data__access_8h_1a40a6c3e755173290e0c3cfd5a0437144" kind="define"><name>ADIS_Y_AXIS_GYRO_BIAS_CORR_EN_POS</name></member>
+    <member refid="adis1654x__data__access_8h_1a269e180b447f46ce02556c0b89d1fff5" kind="define"><name>ADIS_Z_AXIS_GYRO_BIAS_CORR_EN_POS</name></member>
+    <member refid="adis1654x__data__access_8h_1abc41fbd02548f66f16860ad314df865e" kind="define"><name>ADIS_X_AXIS_ACCEL_BIAS_CORR_EN_POS</name></member>
+    <member refid="adis1654x__data__access_8h_1a5541994fa8dbe8f8dbe162b330dd0eeb" kind="define"><name>ADIS_Y_AXIS_ACCEL_BIAS_CORR_EN_POS</name></member>
+    <member refid="adis1654x__data__access_8h_1acd43a3a718106e3ee2ccad55e755970b" kind="define"><name>ADIS_Z_AXIS_ACCEL_BIAS_CORR_EN_POS</name></member>
+    <member refid="adis1654x__data__access_8h_1a8984972ab7d4ee7a96445d852d50000e" kind="define"><name>ADIS_TIME_BASE_CONTROL</name></member>
+    <member refid="adis1654x__data__access_8h_1a635a2b39aacb456fd01fedb5f3b426e1" kind="define"><name>ADIS_X_AXIS_GYRO_BIAS_CORR_EN</name></member>
+    <member refid="adis1654x__data__access_8h_1ac3f927c9b7bba8116d8d322f07e7b877" kind="define"><name>ADIS_Y_AXIS_GYRO_BIAS_CORR_EN</name></member>
+    <member refid="adis1654x__data__access_8h_1a57132b62a29d1e8741b8db97215c883e" kind="define"><name>ADIS_Z_AXIS_GYRO_BIAS_CORR_EN</name></member>
+    <member refid="adis1654x__data__access_8h_1ae59fdd84ddeaf2656416fb2cca7056c5" kind="define"><name>ADIS_X_AXIS_ACCEL_BIAS_CORR_EN</name></member>
+    <member refid="adis1654x__data__access_8h_1ab29c3b9af01dcd2468e73ff6978755fe" kind="define"><name>ADIS_Y_AXIS_ACCEL_BIAS_CORR_EN</name></member>
+    <member refid="adis1654x__data__access_8h_1a9336901cfc5976260595d3e84d2fbda9" kind="define"><name>ADIS_Z_AXIS_ACCEL_BIAS_CORR_EN</name></member>
+  </compound>
+  <compound refid="adis1655x__data__access_8h" kind="file"><name>adis1655x_data_access.h</name>
+    <member refid="adis1655x__data__access_8h_1a9a628803e86d5dd2ee521147498012df" kind="define"><name>ADIS_HAS_DELTA_BURST</name></member>
+    <member refid="adis1655x__data__access_8h_1ae94276ad20caa596349f5ce0579072b4" kind="define"><name>ADIS_HAS_CALIB_SCALE</name></member>
+    <member refid="adis1655x__data__access_8h_1ac690976b9d8a5cef6ae4f66ec6272253" kind="define"><name>ADIS_FLS_MEM_ENDURANCE</name></member>
+    <member refid="adis1655x__data__access_8h_1a069236f3929ff9561ceeec01e6601743" kind="define"><name>ADIS_MAX_SAMP_FREQ</name></member>
+    <member refid="adis1655x__data__access_8h_1a01c63e5371bb331a0cec0ef2bfa1f74a" kind="define"><name>ADIS_PAGE_ID_VAL</name></member>
+    <member refid="adis1655x__data__access_8h_1a4757a9230418cb2c36434564b41e747c" kind="define"><name>ADIS_GLOB_CMD_PAGE_ID</name></member>
+    <member refid="adis1655x__data__access_8h_1a7b4215a68a01ce69902ba6a30cf8510a" kind="define"><name>ADIS_GLOB_CMD_ADDR_WITHOUT_PAGE</name></member>
+    <member refid="adis1655x__data__access_8h_1a42c62d46224ce68df7ada715c77be950" kind="define"><name>ADIS_GLOB_CMD_ADDR</name></member>
+    <member refid="adis1655x__data__access_8h_1af857040cb01ed2bfdc347c0dfb3d0687" kind="define"><name>ADIS_SENSOR_SELF_TEST_POS</name></member>
+    <member refid="adis1655x__data__access_8h_1a8bbd979256a753044b0c0e88a5693732" kind="define"><name>ADIS_FLASH_MEMORY_UPDATE_POS</name></member>
+    <member refid="adis1655x__data__access_8h_1ac9644c3f3e356c4e335eb3c3be4f4318" kind="define"><name>ADIS_FACTORY_CALIBRATION_RESTORE_POS</name></member>
+    <member refid="adis1655x__data__access_8h_1a14928c73e1bf067891ee3ddb5dd72008" kind="define"><name>ADIS_SOFTWARE_RESET_CMD_POS</name></member>
+    <member refid="adis1655x__data__access_8h_1af8122b7e93db959412609be1644d5963" kind="define"><name>ADIS_SENSOR_SELF_TEST</name></member>
+    <member refid="adis1655x__data__access_8h_1afd8619ab2bd62e2a1d567b365630b6dc" kind="define"><name>ADIS_FLASH_MEMORY_UPDATE</name></member>
+    <member refid="adis1655x__data__access_8h_1adb8aba739dc68b9d1c69b9225d769b3c" kind="define"><name>ADIS_FACTORY_CALIBRATION_RESTORE</name></member>
+    <member refid="adis1655x__data__access_8h_1a192f1694df557e9c92ec39d58caccbf3" kind="define"><name>ADIS_SOFTWARE_RESET_CMD</name></member>
+    <member refid="adis1655x__data__access_8h_1a5e9411b1861401c5dc9a55e71ebeccf2" kind="define"><name>ADIS_DIAG_STAT_PAGE_ID</name></member>
+    <member refid="adis1655x__data__access_8h_1ae98d2b0b2f6c4dc2cdd12295d448ff86" kind="define"><name>ADIS_DIAG_STAT_ADDR_WITHOUT_PAGE</name></member>
+    <member refid="adis1655x__data__access_8h_1a00888b371d916c5ea39793dd670a61c1" kind="define"><name>ADIS_DIAG_STAT_ADDR</name></member>
+    <member refid="adis1655x__data__access_8h_1ac4a5fdbfc1a3c7d391a3cc174025276b" kind="define"><name>ADIS_MEM_FAIL_POS</name></member>
+    <member refid="adis1655x__data__access_8h_1a891fbdefc9c49f7c48644c936780fe30" kind="define"><name>ADIS_CRC_ERROR_POS</name></member>
+    <member refid="adis1655x__data__access_8h_1ab130fcdec49a87835b96266890f18ae7" kind="define"><name>ADIS_FLS_MEM_UPDATE_FAIL_POS</name></member>
+    <member refid="adis1655x__data__access_8h_1ae011746534d120c56d97a65d875d098d" kind="define"><name>ADIS_SNSR_FAIL_POS</name></member>
+    <member refid="adis1655x__data__access_8h_1a294bb27581a93538420931d6cafc54df" kind="define"><name>ADIS_SPI_COMM_ERR_POS</name></member>
+    <member refid="adis1655x__data__access_8h_1a09a94278ab55807d945576205a217a1f" kind="define"><name>ADIS_DATA_PATH_OVERRUN_POS</name></member>
+    <member refid="adis1655x__data__access_8h_1a711244651992562599a6e2aef79840ef" kind="define"><name>ADIS_CLK_ERR_POS</name></member>
+    <member refid="adis1655x__data__access_8h_1abb5e2c83d09395d7e4f325b48702e931" kind="define"><name>ADIS_WDG_TIMER_FLAG_POS</name></member>
+    <member refid="adis1655x__data__access_8h_1a9d998165da056cc3a2b600ab8382d7cf" kind="define"><name>ADIS_MEM_FAIL</name></member>
+    <member refid="adis1655x__data__access_8h_1a0d42788fa708f312aea01cafdfc6545c" kind="define"><name>ADIS_CRC_ERROR</name></member>
+    <member refid="adis1655x__data__access_8h_1a3e3b49f9f8d7253f2a05f4af14fe2e77" kind="define"><name>ADIS_FLS_MEM_UPDATE_FAIL</name></member>
+    <member refid="adis1655x__data__access_8h_1a281251c2e8612a1cc81613e4cd89ac15" kind="define"><name>ADIS_SNSR_FAIL</name></member>
+    <member refid="adis1655x__data__access_8h_1aba2d908cda71325077530f1b0d6f0d6d" kind="define"><name>ADIS_SPI_COMM_ERR</name></member>
+    <member refid="adis1655x__data__access_8h_1af78561af97a99686e7dde925118158ee" kind="define"><name>ADIS_DATA_PATH_OVERRUN</name></member>
+    <member refid="adis1655x__data__access_8h_1a6dc53845d4c9a34ba8a7e61af639c7f7" kind="define"><name>ADIS_CLK_ERR</name></member>
+    <member refid="adis1655x__data__access_8h_1a0e1eaa323fab2efb23a2c2a72fcd8244" kind="define"><name>ADIS_WDG_TIMER_FLAG</name></member>
+    <member refid="adis1655x__data__access_8h_1a91a0e935064b9d07fc7a5e798c0a4858" kind="define"><name>ADIS_DIAG_STS_PAGE_ID</name></member>
+    <member refid="adis1655x__data__access_8h_1a2835be66ac0fd1ea1ce3f19abb13f4b6" kind="define"><name>ADIS_DIAG_STS_REG_WITHOUT_PAGE</name></member>
+    <member refid="adis1655x__data__access_8h_1a98bc997623f154a9033bb81de383858e" kind="define"><name>ADIS_DIAG_STS_REG</name></member>
+    <member refid="adis1655x__data__access_8h_1ad5866956ffd11792c984e6416a68e333" kind="define"><name>ADIS_GYRO_ACCEL_FAIL_REG</name></member>
+    <member refid="adis1655x__data__access_8h_1aa0392d5f5f66a6a2870deec118af7046" kind="define"><name>ADIS_GYRO_X_FAIL_POS</name></member>
+    <member refid="adis1655x__data__access_8h_1a9c5172d2087f8e637ed977adf6f4b1af" kind="define"><name>ADIS_GYRO_Y_FAIL_POS</name></member>
+    <member refid="adis1655x__data__access_8h_1a67dd79bc04aa2b04d3decef65f795aa1" kind="define"><name>ADIS_GYRO_Z_FAIL_POS</name></member>
+    <member refid="adis1655x__data__access_8h_1a8d5e28ac9ff4dec409b502e687212b78" kind="define"><name>ADIS_ACCEL_X_FAIL_POS</name></member>
+    <member refid="adis1655x__data__access_8h_1a5c1f9f933fd311c1914f27c525039368" kind="define"><name>ADIS_ACCEL_Y_FAIL_POS</name></member>
+    <member refid="adis1655x__data__access_8h_1a9ae4fe31ecfcebf11d523e3648ca6d0c" kind="define"><name>ADIS_ACCEL_Z_FAIL_POS</name></member>
+    <member refid="adis1655x__data__access_8h_1a82f646d0754f1163f13a7b03d3e3ad8a" kind="define"><name>ADIS_GYRO_X_FAIL</name></member>
+    <member refid="adis1655x__data__access_8h_1a2078895656358fb28f2ac6c427946bef" kind="define"><name>ADIS_GYRO_Y_FAIL</name></member>
+    <member refid="adis1655x__data__access_8h_1acd8829aa75c3606ae877530053b2d8c4" kind="define"><name>ADIS_GYRO_Z_FAIL</name></member>
+    <member refid="adis1655x__data__access_8h_1a1cb648cc32e5b8064e92616eb7ee8981" kind="define"><name>ADIS_ACCEL_X_FAIL</name></member>
+    <member refid="adis1655x__data__access_8h_1a15c4fe94c4ea712c992b30ee919196e6" kind="define"><name>ADIS_ACCEL_Y_FAIL</name></member>
+    <member refid="adis1655x__data__access_8h_1ae3b6e96bc844d22f014145eb83e7637b" kind="define"><name>ADIS_ACCEL_Z_FAIL</name></member>
+    <member refid="adis1655x__data__access_8h_1ad6cb370f6b0d4ecf6dbf23aae2a07ef1" kind="define"><name>ADIS_RANG_MDL_PAGE_ID</name></member>
+    <member refid="adis1655x__data__access_8h_1a9764135e724dd6b0d5295705212d7c78" kind="define"><name>ADIS_RANG_MDL_ADDR_WITHOUT_PAGE</name></member>
+    <member refid="adis1655x__data__access_8h_1a969eacbc2d25e3c2468eb5cc6f638b27" kind="define"><name>ADIS_RANG_MDL_ADDR</name></member>
+    <member refid="adis1655x__data__access_8h_1a49aeef7ae805605e86704d04777f5eb6" kind="define"><name>ADIS_PT_OF_PERC_PAGE_ID</name></member>
+    <member refid="adis1655x__data__access_8h_1aa286cb33e0d323469caed40cb3e3e2ca" kind="define"><name>ADIS_PT_OF_PERC_REG_ADDR_WITHOUT_PAGE</name></member>
+    <member refid="adis1655x__data__access_8h_1a5af76feaa70560f735e4a7f783cf0adb" kind="define"><name>ADIS_PT_OF_PERC_REG_ADDR</name></member>
+    <member refid="adis1655x__data__access_8h_1a53a01d7e65d04e2e78b9b815b870d56d" kind="define"><name>ADIS_PT_OF_PERC_ALGNMNT_POS</name></member>
+    <member refid="adis1655x__data__access_8h_1a224472ceeefad7128e0a436bf855bb48" kind="define"><name>ADIS_PT_OF_PERC_ALGNMNT</name></member>
+  </compound>
+  <compound refid="adis1657x__data__access_8h" kind="file"><name>adis1657x_data_access.h</name>
+    <member refid="adis1657x__data__access_8h_1a9a628803e86d5dd2ee521147498012df" kind="define"><name>ADIS_HAS_DELTA_BURST</name></member>
+    <member refid="adis1657x__data__access_8h_1ac690976b9d8a5cef6ae4f66ec6272253" kind="define"><name>ADIS_FLS_MEM_ENDURANCE</name></member>
+    <member refid="adis1657x__data__access_8h_1a069236f3929ff9561ceeec01e6601743" kind="define"><name>ADIS_MAX_SAMP_FREQ</name></member>
+    <member refid="adis1657x__data__access_8h_1a00888b371d916c5ea39793dd670a61c1" kind="define"><name>ADIS_DIAG_STAT_ADDR</name></member>
+    <member refid="adis1657x__data__access_8h_1aa5f772a63cffc192e44e90d5185d1dcd" kind="define"><name>ADIS_SNSR_INIT_FAIL_POS</name></member>
+    <member refid="adis1657x__data__access_8h_1a09a94278ab55807d945576205a217a1f" kind="define"><name>ADIS_DATA_PATH_OVERRUN_POS</name></member>
+    <member refid="adis1657x__data__access_8h_1ab130fcdec49a87835b96266890f18ae7" kind="define"><name>ADIS_FLS_MEM_UPDATE_FAIL_POS</name></member>
+    <member refid="adis1657x__data__access_8h_1a294bb27581a93538420931d6cafc54df" kind="define"><name>ADIS_SPI_COMM_ERR_POS</name></member>
+    <member refid="adis1657x__data__access_8h_1a26e094f2d1fa49356716838465b09ac4" kind="define"><name>ADIS_STDBY_MODE_POS</name></member>
+    <member refid="adis1657x__data__access_8h_1ae011746534d120c56d97a65d875d098d" kind="define"><name>ADIS_SNSR_FAIL_POS</name></member>
+    <member refid="adis1657x__data__access_8h_1ac4a5fdbfc1a3c7d391a3cc174025276b" kind="define"><name>ADIS_MEM_FAIL_POS</name></member>
+    <member refid="adis1657x__data__access_8h_1a711244651992562599a6e2aef79840ef" kind="define"><name>ADIS_CLK_ERR_POS</name></member>
+    <member refid="adis1657x__data__access_8h_1af78561af97a99686e7dde925118158ee" kind="define"><name>ADIS_DATA_PATH_OVERRUN</name></member>
+    <member refid="adis1657x__data__access_8h_1a3e3b49f9f8d7253f2a05f4af14fe2e77" kind="define"><name>ADIS_FLS_MEM_UPDATE_FAIL</name></member>
+    <member refid="adis1657x__data__access_8h_1aba2d908cda71325077530f1b0d6f0d6d" kind="define"><name>ADIS_SPI_COMM_ERR</name></member>
+    <member refid="adis1657x__data__access_8h_1a74d6285b6fd090ae939c250e0c8bce5a" kind="define"><name>ADIS_STDBY_MODE</name></member>
+    <member refid="adis1657x__data__access_8h_1a281251c2e8612a1cc81613e4cd89ac15" kind="define"><name>ADIS_SNSR_FAIL</name></member>
+    <member refid="adis1657x__data__access_8h_1a9d998165da056cc3a2b600ab8382d7cf" kind="define"><name>ADIS_MEM_FAIL</name></member>
+    <member refid="adis1657x__data__access_8h_1ab5b4ec5daba8e2c9cc05638f4e0db216" kind="define"><name>ADIS_ADUC_MCU_FAULT</name></member>
+    <member refid="adis1657x__data__access_8h_1ad5866956ffd11792c984e6416a68e333" kind="define"><name>ADIS_GYRO_ACCEL_FAIL_REG</name></member>
+    <member refid="adis1657x__data__access_8h_1aa0392d5f5f66a6a2870deec118af7046" kind="define"><name>ADIS_GYRO_X_FAIL_POS</name></member>
+    <member refid="adis1657x__data__access_8h_1a9c5172d2087f8e637ed977adf6f4b1af" kind="define"><name>ADIS_GYRO_Y_FAIL_POS</name></member>
+    <member refid="adis1657x__data__access_8h_1a67dd79bc04aa2b04d3decef65f795aa1" kind="define"><name>ADIS_GYRO_Z_FAIL_POS</name></member>
+    <member refid="adis1657x__data__access_8h_1a8d5e28ac9ff4dec409b502e687212b78" kind="define"><name>ADIS_ACCEL_X_FAIL_POS</name></member>
+    <member refid="adis1657x__data__access_8h_1a5c1f9f933fd311c1914f27c525039368" kind="define"><name>ADIS_ACCEL_Y_FAIL_POS</name></member>
+    <member refid="adis1657x__data__access_8h_1a9ae4fe31ecfcebf11d523e3648ca6d0c" kind="define"><name>ADIS_ACCEL_Z_FAIL_POS</name></member>
+    <member refid="adis1657x__data__access_8h_1ae96990560d4448740f72ebb590c772e9" kind="define"><name>ADIS_ADUC_MCU_FAULT_POS</name></member>
+    <member refid="adis1657x__data__access_8h_1a6dc53845d4c9a34ba8a7e61af639c7f7" kind="define"><name>ADIS_CLK_ERR</name></member>
+    <member refid="adis1657x__data__access_8h_1a82f646d0754f1163f13a7b03d3e3ad8a" kind="define"><name>ADIS_GYRO_X_FAIL</name></member>
+    <member refid="adis1657x__data__access_8h_1a2078895656358fb28f2ac6c427946bef" kind="define"><name>ADIS_GYRO_Y_FAIL</name></member>
+    <member refid="adis1657x__data__access_8h_1acd8829aa75c3606ae877530053b2d8c4" kind="define"><name>ADIS_GYRO_Z_FAIL</name></member>
+    <member refid="adis1657x__data__access_8h_1a1cb648cc32e5b8064e92616eb7ee8981" kind="define"><name>ADIS_ACCEL_X_FAIL</name></member>
+    <member refid="adis1657x__data__access_8h_1a15c4fe94c4ea712c992b30ee919196e6" kind="define"><name>ADIS_ACCEL_Y_FAIL</name></member>
+    <member refid="adis1657x__data__access_8h_1ae3b6e96bc844d22f014145eb83e7637b" kind="define"><name>ADIS_ACCEL_Z_FAIL</name></member>
+    <member refid="adis1657x__data__access_8h_1a969eacbc2d25e3c2468eb5cc6f638b27" kind="define"><name>ADIS_RANG_MDL_ADDR</name></member>
+    <member refid="adis1657x__data__access_8h_1a7de18cb23c2daf40857df9945d5a3a7c" kind="define"><name>ADIS_GYRO_MEAS_RANG_POS</name></member>
+    <member refid="adis1657x__data__access_8h_1a00ab4e91230687d83816c45dbc49e185" kind="define"><name>ADIS_GYRO_MEAS_RANG</name></member>
+    <member refid="adis1657x__data__access_8h_1a14b8fca2d7cfd5bb1baf0a4c23658b35" kind="define"><name>ADIS_MSC_CTRL_ADDR</name></member>
+    <member refid="adis1657x__data__access_8h_1a03b31b1843125a101b31acced6455c31" kind="define"><name>ADIS_DR_POL_POS</name></member>
+    <member refid="adis1657x__data__access_8h_1ae78df4bcff713178bf8121d87f2be467" kind="define"><name>ADIS_SYNC_POL_POS</name></member>
+    <member refid="adis1657x__data__access_8h_1a129695383e48c5c2593f5f1123db6012" kind="define"><name>ADIS_LN_ACCL_COMP_POS</name></member>
+    <member refid="adis1657x__data__access_8h_1ae3b1461272ec2f057ff52aec4793bea2" kind="define"><name>ADIS_SENS_BW_POS</name></member>
+    <member refid="adis1657x__data__access_8h_1a546191746e8a4d114668f06f5ba11805" kind="define"><name>ADIS_DR_POL</name></member>
+    <member refid="adis1657x__data__access_8h_1a4021b1a2f6e85d91a0e9cc5e8cc01555" kind="define"><name>ADIS_SYNC_POL</name></member>
+    <member refid="adis1657x__data__access_8h_1a4f5a40c8b6cd32847d823496f80c24f3" kind="define"><name>ADIS_LN_ACCL_COMP</name></member>
+    <member refid="adis1657x__data__access_8h_1a714dc7aeb55b8002ba422dc01def4e14" kind="define"><name>ADIS_SENS_BW</name></member>
+    <member refid="adis1657x__data__access_8h_1a750299fcfc067f2cf82f3d6cd86c0543" kind="define"><name>ADIS_NULL_CNFG_ADDR</name></member>
+    <member refid="adis1657x__data__access_8h_1a621e0a62b72e598f9d3f4e65b2cd9a6e" kind="define"><name>ADIS_TIME_BASE_CONTROL_POS</name></member>
+    <member refid="adis1657x__data__access_8h_1ae6681abe9ef9c79d8a731f1d335e0ff1" kind="define"><name>ADIS_X_AXIS_GYRO_BIAS_CORR_EN_POS</name></member>
+    <member refid="adis1657x__data__access_8h_1a40a6c3e755173290e0c3cfd5a0437144" kind="define"><name>ADIS_Y_AXIS_GYRO_BIAS_CORR_EN_POS</name></member>
+    <member refid="adis1657x__data__access_8h_1a269e180b447f46ce02556c0b89d1fff5" kind="define"><name>ADIS_Z_AXIS_GYRO_BIAS_CORR_EN_POS</name></member>
+    <member refid="adis1657x__data__access_8h_1abc41fbd02548f66f16860ad314df865e" kind="define"><name>ADIS_X_AXIS_ACCEL_BIAS_CORR_EN_POS</name></member>
+    <member refid="adis1657x__data__access_8h_1a5541994fa8dbe8f8dbe162b330dd0eeb" kind="define"><name>ADIS_Y_AXIS_ACCEL_BIAS_CORR_EN_POS</name></member>
+    <member refid="adis1657x__data__access_8h_1acd43a3a718106e3ee2ccad55e755970b" kind="define"><name>ADIS_Z_AXIS_ACCEL_BIAS_CORR_EN_POS</name></member>
+    <member refid="adis1657x__data__access_8h_1a8984972ab7d4ee7a96445d852d50000e" kind="define"><name>ADIS_TIME_BASE_CONTROL</name></member>
+    <member refid="adis1657x__data__access_8h_1a635a2b39aacb456fd01fedb5f3b426e1" kind="define"><name>ADIS_X_AXIS_GYRO_BIAS_CORR_EN</name></member>
+    <member refid="adis1657x__data__access_8h_1ac3f927c9b7bba8116d8d322f07e7b877" kind="define"><name>ADIS_Y_AXIS_GYRO_BIAS_CORR_EN</name></member>
+    <member refid="adis1657x__data__access_8h_1a57132b62a29d1e8741b8db97215c883e" kind="define"><name>ADIS_Z_AXIS_GYRO_BIAS_CORR_EN</name></member>
+    <member refid="adis1657x__data__access_8h_1ae59fdd84ddeaf2656416fb2cca7056c5" kind="define"><name>ADIS_X_AXIS_ACCEL_BIAS_CORR_EN</name></member>
+    <member refid="adis1657x__data__access_8h_1ab29c3b9af01dcd2468e73ff6978755fe" kind="define"><name>ADIS_Y_AXIS_ACCEL_BIAS_CORR_EN</name></member>
+    <member refid="adis1657x__data__access_8h_1a9336901cfc5976260595d3e84d2fbda9" kind="define"><name>ADIS_Z_AXIS_ACCEL_BIAS_CORR_EN</name></member>
+    <member refid="adis1657x__data__access_8h_1a42c62d46224ce68df7ada715c77be950" kind="define"><name>ADIS_GLOB_CMD_ADDR</name></member>
+    <member refid="adis1657x__data__access_8h_1a5838435bca4544693bbc1794fb107840" kind="define"><name>ADIS_BIAS_CORRECTION_UPDATE</name></member>
+    <member refid="adis1657x__data__access_8h_1adb8aba739dc68b9d1c69b9225d769b3c" kind="define"><name>ADIS_FACTORY_CALIBRATION_RESTORE</name></member>
+    <member refid="adis1657x__data__access_8h_1af8122b7e93db959412609be1644d5963" kind="define"><name>ADIS_SENSOR_SELF_TEST</name></member>
+    <member refid="adis1657x__data__access_8h_1afd8619ab2bd62e2a1d567b365630b6dc" kind="define"><name>ADIS_FLASH_MEMORY_UPDATE</name></member>
+    <member refid="adis1657x__data__access_8h_1a61ed1ff604e65466d9fb37adfdbe4a04" kind="define"><name>ADIS_FLASH_MEMORY_TEST</name></member>
+    <member refid="adis1657x__data__access_8h_1a192f1694df557e9c92ec39d58caccbf3" kind="define"><name>ADIS_SOFTWARE_RESET_CMD</name></member>
+    <member refid="adis1657x__data__access_8h_1a5af76feaa70560f735e4a7f783cf0adb" kind="define"><name>ADIS_PT_OF_PERC_REG_ADDR</name></member>
+    <member refid="adis1657x__data__access_8h_1a53a01d7e65d04e2e78b9b815b870d56d" kind="define"><name>ADIS_PT_OF_PERC_ALGNMNT_POS</name></member>
+    <member refid="adis1657x__data__access_8h_1a224472ceeefad7128e0a436bf855bb48" kind="define"><name>ADIS_PT_OF_PERC_ALGNMNT</name></member>
+  </compound>
+  <compound refid="adis__data__access_8h" kind="file"><name>adis_data_access.h</name>
+    <member refid="adis__data__access_8h_1a493949af5fb07ec429f621f893bea101" kind="define"><name>DELTAVEL_DELTAANG_BUFFERED_DATA</name></member>
+    <member refid="adis__data__access_8h_1af7ebb793628d0706a8127f3ef7f71c96" kind="define"><name>ACCEL_GYRO_BUFFERED_DATA</name></member>
+    <member refid="adis__data__access_8h_1aacb2143ae4f9106bda2217285cc97fa0" kind="define"><name>IMU_STD_MSG_DATA</name></member>
+    <member refid="adis__data__access_8h_1ac121f6277a38d37f56ca4bc4bf416f84" kind="define"><name>FULL_MEASURED_DATA</name></member>
+    <member refid="adis__data__access_8h_1a9907c8632f57dcb52a14aeca9f37b95e" kind="define"><name>ADIS_DELTANG_X_LOW_REG</name></member>
+    <member refid="adis__data__access_8h_1a77c03018a07f424b5bb59b9abae1370e" kind="define"><name>ADIS_DELTANG_X_OUT_REG</name></member>
+    <member refid="adis__data__access_8h_1a6db74bc3c65462215509033871b8b7ba" kind="define"><name>ADIS_DELTANG_Y_LOW_REG</name></member>
+    <member refid="adis__data__access_8h_1af995534d48f84616b8f891b1f80e42aa" kind="define"><name>ADIS_DELTANG_Y_OUT_REG</name></member>
+    <member refid="adis__data__access_8h_1a4a57beb4a3f1c2dca596a2b5620870f1" kind="define"><name>ADIS_DELTANG_Z_LOW_REG</name></member>
+    <member refid="adis__data__access_8h_1ac96a965db88f8207b70e11cb216777c3" kind="define"><name>ADIS_DELTANG_Z_OUT_REG</name></member>
+    <member refid="adis__data__access_8h_1a5ba7518320997cc54f1d62803e7b04af" kind="define"><name>ADIS_DELTVEL_X_LOW_REG</name></member>
+    <member refid="adis__data__access_8h_1a2e1d1883eb1b483b9100e0c625504fa0" kind="define"><name>ADIS_DELTVEL_X_OUT_REG</name></member>
+    <member refid="adis__data__access_8h_1afdad557a4795807a90968e8dc04f4c84" kind="define"><name>ADIS_DELTVEL_Y_LOW_REG</name></member>
+    <member refid="adis__data__access_8h_1abf1e29eddc1d8cc50cbb4c6c123e8268" kind="define"><name>ADIS_DELTVEL_Y_OUT_REG</name></member>
+    <member refid="adis__data__access_8h_1a111f7d2f1ec7a1c2346d533e343d280d" kind="define"><name>ADIS_DELTVEL_Z_LOW_REG</name></member>
+    <member refid="adis__data__access_8h_1a1d5a5bc288cd1c5fce6d113af0438e62" kind="define"><name>ADIS_DELTVEL_Z_OUT_REG</name></member>
+    <member refid="adis__data__access_8h_1a7e7f41a754d681f5d5e014fd70e5bf42" kind="enum"><name>adis_device_id</name></member>
+    <member refid="adis__data__access_8h_1a7e7f41a754d681f5d5e014fd70e5bf42a5787e4f6fe0ad1fd36fe03432c06999e" kind="enumvalue"><name>ADIS16465_1</name></member>
+    <member refid="adis__data__access_8h_1a7e7f41a754d681f5d5e014fd70e5bf42a276f138b00c77a31a880c5b30dae393b" kind="enumvalue"><name>ADIS16465_2</name></member>
+    <member refid="adis__data__access_8h_1a7e7f41a754d681f5d5e014fd70e5bf42a5552d5b5f2e11fecc02219e9102245af" kind="enumvalue"><name>ADIS16465_3</name></member>
+    <member refid="adis__data__access_8h_1a7e7f41a754d681f5d5e014fd70e5bf42aed5fc50d14acaaa54eaa6b28b44fc3e1" kind="enumvalue"><name>ADIS16467_1</name></member>
+    <member refid="adis__data__access_8h_1a7e7f41a754d681f5d5e014fd70e5bf42af46bf1fe12930352e2c6db56ffa59347" kind="enumvalue"><name>ADIS16467_2</name></member>
+    <member refid="adis__data__access_8h_1a7e7f41a754d681f5d5e014fd70e5bf42ad0ee90df4dd5f317234cfbceec6d7c61" kind="enumvalue"><name>ADIS16467_3</name></member>
+    <member refid="adis__data__access_8h_1a7e7f41a754d681f5d5e014fd70e5bf42ac7e908bb59356215c3181badaaa25462" kind="enumvalue"><name>ADIS16470</name></member>
+    <member refid="adis__data__access_8h_1a7e7f41a754d681f5d5e014fd70e5bf42a294de8d4bb2b25a2d783489c9bb09d00" kind="enumvalue"><name>ADIS16475_1</name></member>
+    <member refid="adis__data__access_8h_1a7e7f41a754d681f5d5e014fd70e5bf42ae4711f1ce6554f745d749d44848f953c" kind="enumvalue"><name>ADIS16475_2</name></member>
+    <member refid="adis__data__access_8h_1a7e7f41a754d681f5d5e014fd70e5bf42a371b565399b4cf5cb4b0a874d396566e" kind="enumvalue"><name>ADIS16475_3</name></member>
+    <member refid="adis__data__access_8h_1a7e7f41a754d681f5d5e014fd70e5bf42a520ae66901be82670c32b249b6517faf" kind="enumvalue"><name>ADIS16477_1</name></member>
+    <member refid="adis__data__access_8h_1a7e7f41a754d681f5d5e014fd70e5bf42a1c01f9a86f22f3c485e31627c9e814a6" kind="enumvalue"><name>ADIS16477_2</name></member>
+    <member refid="adis__data__access_8h_1a7e7f41a754d681f5d5e014fd70e5bf42a467be7a1d5bfe024d50f425a36924172" kind="enumvalue"><name>ADIS16477_3</name></member>
+    <member refid="adis__data__access_8h_1a7e7f41a754d681f5d5e014fd70e5bf42a4ca014ee975fb06d25bcfa01d3a7104a" kind="enumvalue"><name>ADIS16500</name></member>
+    <member refid="adis__data__access_8h_1a7e7f41a754d681f5d5e014fd70e5bf42a50868ddea01dbffef9d0cb359f0c9241" kind="enumvalue"><name>ADIS16501</name></member>
+    <member refid="adis__data__access_8h_1a7e7f41a754d681f5d5e014fd70e5bf42a25599a1810373a772c7259aebc406877" kind="enumvalue"><name>ADIS16505_1</name></member>
+    <member refid="adis__data__access_8h_1a7e7f41a754d681f5d5e014fd70e5bf42a24d284336b6aca316091752c5460172a" kind="enumvalue"><name>ADIS16505_2</name></member>
+    <member refid="adis__data__access_8h_1a7e7f41a754d681f5d5e014fd70e5bf42a764756edd17c1624254fb84e2f6f7d30" kind="enumvalue"><name>ADIS16505_3</name></member>
+    <member refid="adis__data__access_8h_1a7e7f41a754d681f5d5e014fd70e5bf42a4d947a24ef45abc5958dcea490a382f9" kind="enumvalue"><name>ADIS16507_1</name></member>
+    <member refid="adis__data__access_8h_1a7e7f41a754d681f5d5e014fd70e5bf42a78d59c8cab8b9d8f15119526255a8538" kind="enumvalue"><name>ADIS16507_2</name></member>
+    <member refid="adis__data__access_8h_1a7e7f41a754d681f5d5e014fd70e5bf42a526f92b67c04f3838357544ac6b560ce" kind="enumvalue"><name>ADIS16507_3</name></member>
+    <member refid="adis__data__access_8h_1a7e7f41a754d681f5d5e014fd70e5bf42a736c017a3581dbd813db5666adf921f7" kind="enumvalue"><name>ADIS16545_1</name></member>
+    <member refid="adis__data__access_8h_1a7e7f41a754d681f5d5e014fd70e5bf42a5bba04c8de5e36309aac6e2201845b84" kind="enumvalue"><name>ADIS16545_2</name></member>
+    <member refid="adis__data__access_8h_1a7e7f41a754d681f5d5e014fd70e5bf42a9a85cd2f15f60ece530363c97a65e30b" kind="enumvalue"><name>ADIS16545_3</name></member>
+    <member refid="adis__data__access_8h_1a7e7f41a754d681f5d5e014fd70e5bf42a50fd74b102a79f15181fa2ae7dd21432" kind="enumvalue"><name>ADIS16547_1</name></member>
+    <member refid="adis__data__access_8h_1a7e7f41a754d681f5d5e014fd70e5bf42a7c36cd62a612966ac58215c60ba4fb52" kind="enumvalue"><name>ADIS16547_2</name></member>
+    <member refid="adis__data__access_8h_1a7e7f41a754d681f5d5e014fd70e5bf42afdb44df99d798238d4a261ab6fda1f9f" kind="enumvalue"><name>ADIS16547_3</name></member>
+    <member refid="adis__data__access_8h_1a7e7f41a754d681f5d5e014fd70e5bf42a7aa6eeb6ba5cc96d3cc4c91caf4b2c4b" kind="enumvalue"><name>ADIS16550</name></member>
+    <member refid="adis__data__access_8h_1a7e7f41a754d681f5d5e014fd70e5bf42a67241ad797780cb08a7b439859261b4d" kind="enumvalue"><name>ADIS16550W</name></member>
+    <member refid="adis__data__access_8h_1a7e7f41a754d681f5d5e014fd70e5bf42a852648ef46d4a553fa3bf40e720b8e96" kind="enumvalue"><name>ADIS16575_2</name></member>
+    <member refid="adis__data__access_8h_1a7e7f41a754d681f5d5e014fd70e5bf42a276397badcce8c11dadf83485b5d28e5" kind="enumvalue"><name>ADIS16575_3</name></member>
+    <member refid="adis__data__access_8h_1a7e7f41a754d681f5d5e014fd70e5bf42a92c674d45e85632a18da6b531c8cd37e" kind="enumvalue"><name>ADIS16576_2</name></member>
+    <member refid="adis__data__access_8h_1a7e7f41a754d681f5d5e014fd70e5bf42af6ddf6a7449447ba2e411a1cecdbfe28" kind="enumvalue"><name>ADIS16576_3</name></member>
+    <member refid="adis__data__access_8h_1a7e7f41a754d681f5d5e014fd70e5bf42aa335a6730d59a516dadb6e7eb8a26552" kind="enumvalue"><name>ADIS16577_2</name></member>
+    <member refid="adis__data__access_8h_1a7e7f41a754d681f5d5e014fd70e5bf42aeec297e34fc0207bc93fa03f25c27dd2" kind="enumvalue"><name>ADIS16577_3</name></member>
+  </compound>
+  <compound refid="iio__wrapper_8h" kind="file"><name>iio_wrapper.h</name>
+    <member refid="iio__wrapper_8h_1ab70d8c3d394df58fe73a31949cee087d" kind="define"><name>IIO_CONTEXT_ERROR</name></member>
+  </compound>
+  <compound refid="imu__control__parameters_8h" kind="file"><name>imu_control_parameters.h</name>
+  </compound>
+  <compound refid="imu__data__provider_8h" kind="file"><name>imu_data_provider.h</name>
+  </compound>
+  <compound refid="imu__data__provider__interface_8h" kind="file"><name>imu_data_provider_interface.h</name>
+  </compound>
+  <compound refid="imu__diag__data__provider_8h" kind="file"><name>imu_diag_data_provider.h</name>
+  </compound>
+  <compound refid="imu__diag__data__provider__interface_8h" kind="file"><name>imu_diag_data_provider_interface.h</name>
+  </compound>
+  <compound refid="imu__diag__ros__publisher_8h" kind="file"><name>imu_diag_ros_publisher.h</name>
+  </compound>
+  <compound refid="imu__diag__ros__publisher__interface_8h" kind="file"><name>imu_diag_ros_publisher_interface.h</name>
+  </compound>
+  <compound refid="imu__full__measured__data__provider_8h" kind="file"><name>imu_full_measured_data_provider.h</name>
+  </compound>
+  <compound refid="imu__full__measured__data__provider__interface_8h" kind="file"><name>imu_full_measured_data_provider_interface.h</name>
+  </compound>
+  <compound refid="imu__full__measured__data__ros__publisher_8h" kind="file"><name>imu_full_measured_data_ros_publisher.h</name>
+  </compound>
+  <compound refid="imu__full__measured__data__ros__publisher__interface_8h" kind="file"><name>imu_full_measured_data_ros_publisher_interface.h</name>
+  </compound>
+  <compound refid="imu__identification__data__provider_8h" kind="file"><name>imu_identification_data_provider.h</name>
+  </compound>
+  <compound refid="imu__identification__data__provider__interface_8h" kind="file"><name>imu_identification_data_provider_interface.h</name>
+  </compound>
+  <compound refid="imu__identification__ros__publisher_8h" kind="file"><name>imu_identification_ros_publisher.h</name>
+  </compound>
+  <compound refid="imu__identification__ros__publisher__interface_8h" kind="file"><name>imu_identification_ros_publisher_interface.h</name>
+  </compound>
+  <compound refid="imu__ros__publisher_8h" kind="file"><name>imu_ros_publisher.h</name>
+  </compound>
+  <compound refid="imu__ros__publisher__interface_8h" kind="file"><name>imu_ros_publisher_interface.h</name>
+  </compound>
+  <compound refid="ros__publisher__group_8h" kind="file"><name>ros_publisher_group.h</name>
+  </compound>
+  <compound refid="ros__publisher__group__interface_8h" kind="file"><name>ros_publisher_group_interface.h</name>
+  </compound>
+  <compound refid="ros__task_8h" kind="file"><name>ros_task.h</name>
+  </compound>
+  <compound refid="velangtemp__data__provider_8h" kind="file"><name>velangtemp_data_provider.h</name>
+  </compound>
+  <compound refid="velangtemp__data__provider__interface_8h" kind="file"><name>velangtemp_data_provider_interface.h</name>
+  </compound>
+  <compound refid="velangtemp__ros__publisher_8h" kind="file"><name>velangtemp_ros_publisher.h</name>
+  </compound>
+  <compound refid="velangtemp__ros__publisher__interface_8h" kind="file"><name>velangtemp_ros_publisher_interface.h</name>
+  </compound>
+  <compound refid="worker__thread_8h" kind="file"><name>worker_thread.h</name>
+  </compound>
+  <compound refid="accelgyrotemp__data__provider_8cpp" kind="file"><name>accelgyrotemp_data_provider.cpp</name>
+  </compound>
+  <compound refid="accelgyrotemp__ros__publisher_8cpp" kind="file"><name>accelgyrotemp_ros_publisher.cpp</name>
+  </compound>
+  <compound refid="iio__wrapper_8cpp" kind="file"><name>iio_wrapper.cpp</name>
+    <member refid="iio__wrapper_8cpp_1a2caa0716e56afb87d491d87fb4460b62" kind="define"><name>MAX_NO_OF_SAMPLES</name></member>
+    <member refid="iio__wrapper_8cpp_1a06fc87d81c62e9abb8790b6e5713c55b" kind="enum"><name></name></member>
+    <member refid="iio__wrapper_8cpp_1a06fc87d81c62e9abb8790b6e5713c55ba9ae031eef8c60bba76c743b0cae54e66" kind="enumvalue"><name>CHAN_GYRO_X</name></member>
+    <member refid="iio__wrapper_8cpp_1a06fc87d81c62e9abb8790b6e5713c55ba945871e61cdb7aefce8f81a61457a78f" kind="enumvalue"><name>CHAN_GYRO_Y</name></member>
+    <member refid="iio__wrapper_8cpp_1a06fc87d81c62e9abb8790b6e5713c55bac32c37f16b5b2cfd2c96b19c181eb542" kind="enumvalue"><name>CHAN_GYRO_Z</name></member>
+    <member refid="iio__wrapper_8cpp_1a06fc87d81c62e9abb8790b6e5713c55ba1151b288032c105b3da89eece48cc10c" kind="enumvalue"><name>CHAN_ACCEL_X</name></member>
+    <member refid="iio__wrapper_8cpp_1a06fc87d81c62e9abb8790b6e5713c55ba2d99758af2fade9dd76984a2eee9f932" kind="enumvalue"><name>CHAN_ACCEL_Y</name></member>
+    <member refid="iio__wrapper_8cpp_1a06fc87d81c62e9abb8790b6e5713c55baeca21da86b7bfab5f4d104dfb58ae724" kind="enumvalue"><name>CHAN_ACCEL_Z</name></member>
+    <member refid="iio__wrapper_8cpp_1a06fc87d81c62e9abb8790b6e5713c55baafc9bd9078df467284f69f2017599501" kind="enumvalue"><name>CHAN_TEMP</name></member>
+    <member refid="iio__wrapper_8cpp_1a06fc87d81c62e9abb8790b6e5713c55ba76baa67431ba615d41e1ddc2b188926e" kind="enumvalue"><name>CHAN_DATA_TIMESTAMP</name></member>
+    <member refid="iio__wrapper_8cpp_1a06fc87d81c62e9abb8790b6e5713c55ba1b5abeee0bde7a3daa47d29c8665848e" kind="enumvalue"><name>NO_OF_CHANS</name></member>
+    <member refid="iio__wrapper_8cpp_1a51e5bf2f116b1e09c8b9ed29bb4e326b" kind="variable"><name>buff_write_idx</name></member>
+    <member refid="iio__wrapper_8cpp_1a1532e6c5918d0afd3d2b45eaff3f6f68" kind="variable"><name>buff_read_idx</name></member>
+    <member refid="iio__wrapper_8cpp_1a9c684a2e63c59045ea4d135add263bb9" kind="variable"><name>buff_data</name></member>
+    <member refid="iio__wrapper_8cpp_1a4ce011ebc45fa44e68df76ab78144541" kind="variable"><name>samp_freq</name></member>
+    <member refid="iio__wrapper_8cpp_1ad00387e7a9a10b544928c5afc4ded5b7" kind="variable"><name>no_of_samp</name></member>
+    <member refid="iio__wrapper_8cpp_1a60e90dbaa463bf8637eb6f63512b97d1" kind="variable"><name>current_data_selection</name></member>
+    <member refid="iio__wrapper_8cpp_1a80b9e2e5df0b6e005c30488d59b6d97a" kind="variable"><name>has_delta_channels</name></member>
+    <member refid="iio__wrapper_8cpp_1ae29e0ad226de4f0dd3fefa66453759e6" kind="variable"><name>has_timestamp_channel</name></member>
+    <member refid="iio__wrapper_8cpp_1a9fb0463243d8a11004e5f95022d5f188" kind="function"><name>demux_sample</name></member>
+  </compound>
+  <compound refid="imu__control__parameters_8cpp" kind="file"><name>imu_control_parameters.cpp</name>
+  </compound>
+  <compound refid="imu__data__provider_8cpp" kind="file"><name>imu_data_provider.cpp</name>
+  </compound>
+  <compound refid="imu__diag__data__provider_8cpp" kind="file"><name>imu_diag_data_provider.cpp</name>
+  </compound>
+  <compound refid="imu__diag__ros__publisher_8cpp" kind="file"><name>imu_diag_ros_publisher.cpp</name>
+  </compound>
+  <compound refid="imu__full__measured__data__provider_8cpp" kind="file"><name>imu_full_measured_data_provider.cpp</name>
+  </compound>
+  <compound refid="imu__full__measured__data__ros__publisher_8cpp" kind="file"><name>imu_full_measured_data_ros_publisher.cpp</name>
+  </compound>
+  <compound refid="imu__identification__data__provider_8cpp" kind="file"><name>imu_identification_data_provider.cpp</name>
+  </compound>
+  <compound refid="imu__identification__ros__publisher_8cpp" kind="file"><name>imu_identification_ros_publisher.cpp</name>
+  </compound>
+  <compound refid="imu__ros2__node_8cpp" kind="file"><name>imu_ros2_node.cpp</name>
+    <member refid="imu__ros2__node_8cpp_1a0ddf1224851353fc92bfbff6f499fa97" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="imu__ros__publisher_8cpp" kind="file"><name>imu_ros_publisher.cpp</name>
+  </compound>
+  <compound refid="ros__publisher__group_8cpp" kind="file"><name>ros_publisher_group.cpp</name>
+  </compound>
+  <compound refid="velangtemp__data__provider_8cpp" kind="file"><name>velangtemp_data_provider.cpp</name>
+  </compound>
+  <compound refid="velangtemp__ros__publisher_8cpp" kind="file"><name>velangtemp_ros_publisher.cpp</name>
+  </compound>
+  <compound refid="worker__thread_8cpp" kind="file"><name>worker_thread.cpp</name>
+  </compound>
+  <compound refid="accelgyrotemp__subscriber__test_8cpp" kind="file"><name>accelgyrotemp_subscriber_test.cpp</name>
+    <member refid="accelgyrotemp__subscriber__test_8cpp_1aed21fd35654fb44d147ad6e67c01c282" kind="function"><name>TEST</name></member>
+  </compound>
+  <compound refid="imu__diag__subscriber__test_8cpp" kind="file"><name>imu_diag_subscriber_test.cpp</name>
+    <member refid="imu__diag__subscriber__test_8cpp_1adffb6846a41cab166116402c28dc7fd0" kind="function"><name>TEST</name></member>
+  </compound>
+  <compound refid="imu__full__measured__data__subscriber__test_8cpp" kind="file"><name>imu_full_measured_data_subscriber_test.cpp</name>
+    <member refid="imu__full__measured__data__subscriber__test_8cpp_1a9e0af4b163a8c34a3a2d6857596edf2b" kind="function"><name>TEST</name></member>
+  </compound>
+  <compound refid="imu__identification__subscriber__test_8cpp" kind="file"><name>imu_identification_subscriber_test.cpp</name>
+    <member refid="imu__identification__subscriber__test_8cpp_1a0fc96a7839a89415f4f747a0a4450795" kind="function"><name>TEST</name></member>
+  </compound>
+  <compound refid="imu__subscriber__test_8cpp" kind="file"><name>imu_subscriber_test.cpp</name>
+    <member refid="imu__subscriber__test_8cpp_1a8a5f8dee9a30cfd5b32180c995f50b94" kind="function"><name>TEST</name></member>
+  </compound>
+  <compound refid="utest_8cpp" kind="file"><name>utest.cpp</name>
+    <member refid="utest_8cpp_1a77ee4e035805c51131e12f78ba09e0c7" kind="function"><name>TEST</name></member>
+    <member refid="utest_8cpp_1a3c04138a5bfe5d72780bb7e82a18e627" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="velangtemp__subscriber__test_8cpp" kind="file"><name>velangtemp_subscriber_test.cpp</name>
+  </compound>
+  <compound refid="dir_a1544ef4f075a8bede3ebe9ab9687e63" kind="dir"><name>include/adi_imu</name>
+  </compound>
+  <compound refid="dir_f897dffdae5e9168994c558326412029" kind="dir"><name>include/adi_imu/adis1646x</name>
+  </compound>
+  <compound refid="dir_98aaef053e11c48c016c75edafb2a36e" kind="dir"><name>include/adi_imu/adis1647x</name>
+  </compound>
+  <compound refid="dir_01e611c4c55ab183f3ee49589280787d" kind="dir"><name>include/adi_imu/adis1650x</name>
+  </compound>
+  <compound refid="dir_da360a2fc6cc183084e003f06cfb6f46" kind="dir"><name>include/adi_imu/adis1654x</name>
+  </compound>
+  <compound refid="dir_a50b4a7d8de44701c14c9201afb431e4" kind="dir"><name>include/adi_imu/adis1655x</name>
+  </compound>
+  <compound refid="dir_f947627a4d030fd37d6937cdacb15599" kind="dir"><name>include/adi_imu/adis1657x</name>
+  </compound>
+  <compound refid="dir_d44c64559bbebec7f509842c48db8b23" kind="dir"><name>include</name>
+  </compound>
+  <compound refid="dir_68267d1309a1af8e8297ef4c3efbcdba" kind="dir"><name>src</name>
+  </compound>
+  <compound refid="dir_7440c80a84150c89eded6c163cdc56e5" kind="dir"><name>test/src</name>
+  </compound>
+  <compound refid="dir_13e138d54eb8818da29c3992edef070a" kind="dir"><name>test</name>
+  </compound>
+</doxygenindex>

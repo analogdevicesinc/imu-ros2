@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classImuFullMeasuredDataSubscriberTest" kind="class" language="C++" prot="public">
+    <compoundname>ImuFullMeasuredDataSubscriberTest</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">testing::Test</basecompoundref>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classImuFullMeasuredDataSubscriberTest_1ab55b195b93db47cf7b07156641fb06c7" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void ImuFullMeasuredDataSubscriberTest::SetUpTestCase</definition>
+        <argsstring>()</argsstring>
+        <name>SetUpTestCase</name>
+        <qualifiedname>ImuFullMeasuredDataSubscriberTest::SetUpTestCase</qualifiedname>
+        <briefdescription>
+<para>Set up the test case. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="test/src/imu_full_measured_data_subscriber_test.cpp" line="42" column="15" bodyfile="test/src/imu_full_measured_data_subscriber_test.cpp" bodystart="42" bodyend="42"/>
+      </memberdef>
+      <memberdef kind="function" id="classImuFullMeasuredDataSubscriberTest_1a3c70b0c1048ab33ee5c1487bd8162828" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void ImuFullMeasuredDataSubscriberTest::TearDownTestCase</definition>
+        <argsstring>()</argsstring>
+        <name>TearDownTestCase</name>
+        <qualifiedname>ImuFullMeasuredDataSubscriberTest::TearDownTestCase</qualifiedname>
+        <briefdescription>
+<para>Tear down the test case. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="test/src/imu_full_measured_data_subscriber_test.cpp" line="47" column="15" bodyfile="test/src/imu_full_measured_data_subscriber_test.cpp" bodystart="47" bodyend="47"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Class for testing ImuFullMeasuredData. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>This class instantiates a subscriber node and listens to data on ImuFullMeasuredData topic and compares it against a range of expected values. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>ImuFullMeasuredDataSubscriberTest</label>
+        <link refid="classImuFullMeasuredDataSubscriberTest"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>testing::Test</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>ImuFullMeasuredDataSubscriberTest</label>
+        <link refid="classImuFullMeasuredDataSubscriberTest"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>testing::Test</label>
+      </node>
+    </collaborationgraph>
+    <location file="test/src/imu_full_measured_data_subscriber_test.cpp" line="36" column="1" bodyfile="test/src/imu_full_measured_data_subscriber_test.cpp" bodystart="37" bodyend="48"/>
+    <listofallmembers>
+      <member refid="classImuFullMeasuredDataSubscriberTest_1ab55b195b93db47cf7b07156641fb06c7" prot="public" virt="non-virtual"><scope>ImuFullMeasuredDataSubscriberTest</scope><name>SetUpTestCase</name></member>
+      <member refid="classImuFullMeasuredDataSubscriberTest_1a3c70b0c1048ab33ee5c1487bd8162828" prot="public" virt="non-virtual"><scope>ImuFullMeasuredDataSubscriberTest</scope><name>TearDownTestCase</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

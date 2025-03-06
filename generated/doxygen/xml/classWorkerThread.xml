@@ -1,0 +1,127 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classWorkerThread" kind="class" language="C++" prot="public">
+    <compoundname>WorkerThread</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">std::thread</basecompoundref>
+    <includes refid="worker__thread_8h" local="no">worker_thread.h</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classWorkerThread_1a51d45d8d09d7826fe6e9ac5fa31dceec" prot="private" static="no" mutable="no">
+        <type><ref refid="classRosTask" kindref="compound">RosTask</ref> *</type>
+        <definition>RosTask* WorkerThread::m_rosTask</definition>
+        <argsstring></argsstring>
+        <name>m_rosTask</name>
+        <qualifiedname>WorkerThread::m_rosTask</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This data member will run the method run on a thread. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/worker_thread.h" line="52" column="12" bodyfile="include/adi_imu/worker_thread.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classWorkerThread_1a942f957a04f6d5a7b7677836ad2f7650" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>WorkerThread::WorkerThread</definition>
+        <argsstring>(RosTask *rosTask)</argsstring>
+        <name>WorkerThread</name>
+        <qualifiedname>WorkerThread::WorkerThread</qualifiedname>
+        <param>
+          <type><ref refid="classRosTask" kindref="compound">RosTask</ref> *</type>
+          <declname>rosTask</declname>
+        </param>
+        <briefdescription>
+<para>Constructor for <ref refid="classWorkerThread" kindref="compound">WorkerThread</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>rosTask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A class that implements <ref refid="classRosTask" kindref="compound">RosTask</ref> interface. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/worker_thread.h" line="38" column="3" bodyfile="src/worker_thread.cpp" bodystart="23" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="function" id="classWorkerThread_1a5aa554e7d73f0f185a850ca0ef145d6d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>WorkerThread::~WorkerThread</definition>
+        <argsstring>()</argsstring>
+        <name>~WorkerThread</name>
+        <qualifiedname>WorkerThread::~WorkerThread</qualifiedname>
+        <briefdescription>
+<para>Destructor for <ref refid="classWorkerThread" kindref="compound">WorkerThread</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/worker_thread.h" line="43" column="3" bodyfile="src/worker_thread.cpp" bodystart="28" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="function" id="classWorkerThread_1a15c7f87a0cf955ef034ec99f9ccb22ff" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void WorkerThread::runTask</definition>
+        <argsstring>()</argsstring>
+        <name>runTask</name>
+        <qualifiedname>WorkerThread::runTask</qualifiedname>
+        <briefdescription>
+<para>Method that runs on a thread. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/worker_thread.h" line="48" column="8" bodyfile="src/worker_thread.cpp" bodystart="30" bodyend="30"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Class for running a task in a thread. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>WorkerThread</label>
+        <link refid="classWorkerThread"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>std::thread</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>RosTask</label>
+        <link refid="classRosTask"/>
+      </node>
+      <node id="1">
+        <label>WorkerThread</label>
+        <link refid="classWorkerThread"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>m_rosTask</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>std::thread</label>
+      </node>
+    </collaborationgraph>
+    <location file="include/adi_imu/worker_thread.h" line="31" column="1" bodyfile="include/adi_imu/worker_thread.h" bodystart="32" bodyend="53"/>
+    <listofallmembers>
+      <member refid="classWorkerThread_1a51d45d8d09d7826fe6e9ac5fa31dceec" prot="private" virt="non-virtual"><scope>WorkerThread</scope><name>m_rosTask</name></member>
+      <member refid="classWorkerThread_1a15c7f87a0cf955ef034ec99f9ccb22ff" prot="public" virt="non-virtual"><scope>WorkerThread</scope><name>runTask</name></member>
+      <member refid="classWorkerThread_1a942f957a04f6d5a7b7677836ad2f7650" prot="public" virt="non-virtual"><scope>WorkerThread</scope><name>WorkerThread</name></member>
+      <member refid="classWorkerThread_1a5aa554e7d73f0f185a850ca0ef145d6d" prot="public" virt="non-virtual"><scope>WorkerThread</scope><name>~WorkerThread</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

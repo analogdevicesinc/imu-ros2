@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_98aaef053e11c48c016c75edafb2a36e" kind="dir">
+    <compoundname>include/adi_imu/adis1647x</compoundname>
+    <innerfile refid="adis1647x__data__access_8h">adis1647x_data_access.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/adi_imu/adis1647x/"/>
+  </compounddef>
+</doxygen>

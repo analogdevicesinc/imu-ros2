@@ -1,0 +1,607 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="adis__data__access_8h" kind="file" language="C++">
+    <compoundname>adis_data_access.h</compoundname>
+    <includedby refid="iio__wrapper_8h" local="yes">include/adi_imu/iio_wrapper.h</includedby>
+    <includedby refid="ros__publisher__group__interface_8h" local="yes">include/adi_imu/ros_publisher_group_interface.h</includedby>
+    <includedby refid="imu__diag__subscriber__test_8cpp" local="yes">test/src/imu_diag_subscriber_test.cpp</includedby>
+    <invincdepgraph>
+      <node id="3">
+        <label>include/adi_imu/accelgyrotemp_data_provider.h</label>
+        <link refid="accelgyrotemp__data__provider_8h_source"/>
+      </node>
+      <node id="1">
+        <label>include/adi_imu/adis_data_access.h</label>
+        <link refid="adis__data__access_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>include/adi_imu/iio_wrapper.h</label>
+        <link refid="iio__wrapper_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>include/adi_imu/imu_control_parameters.h</label>
+        <link refid="imu__control__parameters_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>include/adi_imu/imu_data_provider.h</label>
+        <link refid="imu__data__provider_8h_source"/>
+      </node>
+      <node id="7">
+        <label>include/adi_imu/imu_diag_data_provider.h</label>
+        <link refid="imu__diag__data__provider_8h_source"/>
+      </node>
+      <node id="8">
+        <label>include/adi_imu/imu_full_measured_data_provider.h</label>
+        <link refid="imu__full__measured__data__provider_8h_source"/>
+      </node>
+      <node id="9">
+        <label>include/adi_imu/imu_identification_data_provider.h</label>
+        <link refid="imu__identification__data__provider_8h"/>
+      </node>
+      <node id="13">
+        <label>include/adi_imu/ros_publisher_group.h</label>
+        <link refid="ros__publisher__group_8h_source"/>
+      </node>
+      <node id="12">
+        <label>include/adi_imu/ros_publisher_group_interface.h</label>
+        <link refid="ros__publisher__group__interface_8h_source"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>include/adi_imu/velangtemp_data_provider.h</label>
+        <link refid="velangtemp__data__provider_8h_source"/>
+      </node>
+      <node id="11">
+        <label>src/iio_wrapper.cpp</label>
+        <link refid="iio__wrapper_8cpp"/>
+      </node>
+      <node id="5">
+        <label>src/imu_control_parameters.cpp</label>
+        <link refid="imu__control__parameters_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="adis__data__access_8h_1a493949af5fb07ec429f621f893bea101" prot="public" static="no">
+        <name>DELTAVEL_DELTAANG_BUFFERED_DATA</name>
+        <initializer>0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/adis_data_access.h" line="4" column="9" bodyfile="include/adi_imu/adis_data_access.h" bodystart="4" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="adis__data__access_8h_1af7ebb793628d0706a8127f3ef7f71c96" prot="public" static="no">
+        <name>ACCEL_GYRO_BUFFERED_DATA</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/adis_data_access.h" line="5" column="9" bodyfile="include/adi_imu/adis_data_access.h" bodystart="5" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="adis__data__access_8h_1aacb2143ae4f9106bda2217285cc97fa0" prot="public" static="no">
+        <name>IMU_STD_MSG_DATA</name>
+        <initializer>2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/adis_data_access.h" line="6" column="9" bodyfile="include/adi_imu/adis_data_access.h" bodystart="6" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="adis__data__access_8h_1ac121f6277a38d37f56ca4bc4bf416f84" prot="public" static="no">
+        <name>FULL_MEASURED_DATA</name>
+        <initializer>3</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/adis_data_access.h" line="7" column="9" bodyfile="include/adi_imu/adis_data_access.h" bodystart="7" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="adis__data__access_8h_1a9907c8632f57dcb52a14aeca9f37b95e" prot="public" static="no">
+        <name>ADIS_DELTANG_X_LOW_REG</name>
+        <initializer>0x24</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/adis_data_access.h" line="9" column="9" bodyfile="include/adi_imu/adis_data_access.h" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="adis__data__access_8h_1a77c03018a07f424b5bb59b9abae1370e" prot="public" static="no">
+        <name>ADIS_DELTANG_X_OUT_REG</name>
+        <initializer>0x26</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/adis_data_access.h" line="10" column="9" bodyfile="include/adi_imu/adis_data_access.h" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="adis__data__access_8h_1a6db74bc3c65462215509033871b8b7ba" prot="public" static="no">
+        <name>ADIS_DELTANG_Y_LOW_REG</name>
+        <initializer>0x28</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/adis_data_access.h" line="11" column="9" bodyfile="include/adi_imu/adis_data_access.h" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="adis__data__access_8h_1af995534d48f84616b8f891b1f80e42aa" prot="public" static="no">
+        <name>ADIS_DELTANG_Y_OUT_REG</name>
+        <initializer>0x2A</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/adis_data_access.h" line="12" column="9" bodyfile="include/adi_imu/adis_data_access.h" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="adis__data__access_8h_1a4a57beb4a3f1c2dca596a2b5620870f1" prot="public" static="no">
+        <name>ADIS_DELTANG_Z_LOW_REG</name>
+        <initializer>0x2C</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/adis_data_access.h" line="13" column="9" bodyfile="include/adi_imu/adis_data_access.h" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="adis__data__access_8h_1ac96a965db88f8207b70e11cb216777c3" prot="public" static="no">
+        <name>ADIS_DELTANG_Z_OUT_REG</name>
+        <initializer>0x2E</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/adis_data_access.h" line="14" column="9" bodyfile="include/adi_imu/adis_data_access.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="adis__data__access_8h_1a5ba7518320997cc54f1d62803e7b04af" prot="public" static="no">
+        <name>ADIS_DELTVEL_X_LOW_REG</name>
+        <initializer>0x30</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/adis_data_access.h" line="15" column="9" bodyfile="include/adi_imu/adis_data_access.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="adis__data__access_8h_1a2e1d1883eb1b483b9100e0c625504fa0" prot="public" static="no">
+        <name>ADIS_DELTVEL_X_OUT_REG</name>
+        <initializer>0x32</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/adis_data_access.h" line="16" column="9" bodyfile="include/adi_imu/adis_data_access.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="adis__data__access_8h_1afdad557a4795807a90968e8dc04f4c84" prot="public" static="no">
+        <name>ADIS_DELTVEL_Y_LOW_REG</name>
+        <initializer>0x34</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/adis_data_access.h" line="17" column="9" bodyfile="include/adi_imu/adis_data_access.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="adis__data__access_8h_1abf1e29eddc1d8cc50cbb4c6c123e8268" prot="public" static="no">
+        <name>ADIS_DELTVEL_Y_OUT_REG</name>
+        <initializer>0x36</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/adis_data_access.h" line="18" column="9" bodyfile="include/adi_imu/adis_data_access.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="adis__data__access_8h_1a111f7d2f1ec7a1c2346d533e343d280d" prot="public" static="no">
+        <name>ADIS_DELTVEL_Z_LOW_REG</name>
+        <initializer>0x38</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/adis_data_access.h" line="19" column="9" bodyfile="include/adi_imu/adis_data_access.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="adis__data__access_8h_1a1d5a5bc288cd1c5fce6d113af0438e62" prot="public" static="no">
+        <name>ADIS_DELTVEL_Z_OUT_REG</name>
+        <initializer>0x3A</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/adis_data_access.h" line="20" column="9" bodyfile="include/adi_imu/adis_data_access.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="enum">
+      <memberdef kind="enum" id="adis__data__access_8h_1a7e7f41a754d681f5d5e014fd70e5bf42" prot="public" static="no" strong="no">
+        <type></type>
+        <name>adis_device_id</name>
+        <enumvalue id="adis__data__access_8h_1a7e7f41a754d681f5d5e014fd70e5bf42a5787e4f6fe0ad1fd36fe03432c06999e" prot="public">
+          <name>ADIS16465_1</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__data__access_8h_1a7e7f41a754d681f5d5e014fd70e5bf42a276f138b00c77a31a880c5b30dae393b" prot="public">
+          <name>ADIS16465_2</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__data__access_8h_1a7e7f41a754d681f5d5e014fd70e5bf42a5552d5b5f2e11fecc02219e9102245af" prot="public">
+          <name>ADIS16465_3</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__data__access_8h_1a7e7f41a754d681f5d5e014fd70e5bf42aed5fc50d14acaaa54eaa6b28b44fc3e1" prot="public">
+          <name>ADIS16467_1</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__data__access_8h_1a7e7f41a754d681f5d5e014fd70e5bf42af46bf1fe12930352e2c6db56ffa59347" prot="public">
+          <name>ADIS16467_2</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__data__access_8h_1a7e7f41a754d681f5d5e014fd70e5bf42ad0ee90df4dd5f317234cfbceec6d7c61" prot="public">
+          <name>ADIS16467_3</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__data__access_8h_1a7e7f41a754d681f5d5e014fd70e5bf42ac7e908bb59356215c3181badaaa25462" prot="public">
+          <name>ADIS16470</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__data__access_8h_1a7e7f41a754d681f5d5e014fd70e5bf42a294de8d4bb2b25a2d783489c9bb09d00" prot="public">
+          <name>ADIS16475_1</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__data__access_8h_1a7e7f41a754d681f5d5e014fd70e5bf42ae4711f1ce6554f745d749d44848f953c" prot="public">
+          <name>ADIS16475_2</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__data__access_8h_1a7e7f41a754d681f5d5e014fd70e5bf42a371b565399b4cf5cb4b0a874d396566e" prot="public">
+          <name>ADIS16475_3</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__data__access_8h_1a7e7f41a754d681f5d5e014fd70e5bf42a520ae66901be82670c32b249b6517faf" prot="public">
+          <name>ADIS16477_1</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__data__access_8h_1a7e7f41a754d681f5d5e014fd70e5bf42a1c01f9a86f22f3c485e31627c9e814a6" prot="public">
+          <name>ADIS16477_2</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__data__access_8h_1a7e7f41a754d681f5d5e014fd70e5bf42a467be7a1d5bfe024d50f425a36924172" prot="public">
+          <name>ADIS16477_3</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__data__access_8h_1a7e7f41a754d681f5d5e014fd70e5bf42a4ca014ee975fb06d25bcfa01d3a7104a" prot="public">
+          <name>ADIS16500</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__data__access_8h_1a7e7f41a754d681f5d5e014fd70e5bf42a50868ddea01dbffef9d0cb359f0c9241" prot="public">
+          <name>ADIS16501</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__data__access_8h_1a7e7f41a754d681f5d5e014fd70e5bf42a25599a1810373a772c7259aebc406877" prot="public">
+          <name>ADIS16505_1</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__data__access_8h_1a7e7f41a754d681f5d5e014fd70e5bf42a24d284336b6aca316091752c5460172a" prot="public">
+          <name>ADIS16505_2</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__data__access_8h_1a7e7f41a754d681f5d5e014fd70e5bf42a764756edd17c1624254fb84e2f6f7d30" prot="public">
+          <name>ADIS16505_3</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__data__access_8h_1a7e7f41a754d681f5d5e014fd70e5bf42a4d947a24ef45abc5958dcea490a382f9" prot="public">
+          <name>ADIS16507_1</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__data__access_8h_1a7e7f41a754d681f5d5e014fd70e5bf42a78d59c8cab8b9d8f15119526255a8538" prot="public">
+          <name>ADIS16507_2</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__data__access_8h_1a7e7f41a754d681f5d5e014fd70e5bf42a526f92b67c04f3838357544ac6b560ce" prot="public">
+          <name>ADIS16507_3</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__data__access_8h_1a7e7f41a754d681f5d5e014fd70e5bf42a736c017a3581dbd813db5666adf921f7" prot="public">
+          <name>ADIS16545_1</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__data__access_8h_1a7e7f41a754d681f5d5e014fd70e5bf42a5bba04c8de5e36309aac6e2201845b84" prot="public">
+          <name>ADIS16545_2</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__data__access_8h_1a7e7f41a754d681f5d5e014fd70e5bf42a9a85cd2f15f60ece530363c97a65e30b" prot="public">
+          <name>ADIS16545_3</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__data__access_8h_1a7e7f41a754d681f5d5e014fd70e5bf42a50fd74b102a79f15181fa2ae7dd21432" prot="public">
+          <name>ADIS16547_1</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__data__access_8h_1a7e7f41a754d681f5d5e014fd70e5bf42a7c36cd62a612966ac58215c60ba4fb52" prot="public">
+          <name>ADIS16547_2</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__data__access_8h_1a7e7f41a754d681f5d5e014fd70e5bf42afdb44df99d798238d4a261ab6fda1f9f" prot="public">
+          <name>ADIS16547_3</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__data__access_8h_1a7e7f41a754d681f5d5e014fd70e5bf42a7aa6eeb6ba5cc96d3cc4c91caf4b2c4b" prot="public">
+          <name>ADIS16550</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__data__access_8h_1a7e7f41a754d681f5d5e014fd70e5bf42a67241ad797780cb08a7b439859261b4d" prot="public">
+          <name>ADIS16550W</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__data__access_8h_1a7e7f41a754d681f5d5e014fd70e5bf42a852648ef46d4a553fa3bf40e720b8e96" prot="public">
+          <name>ADIS16575_2</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__data__access_8h_1a7e7f41a754d681f5d5e014fd70e5bf42a276397badcce8c11dadf83485b5d28e5" prot="public">
+          <name>ADIS16575_3</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__data__access_8h_1a7e7f41a754d681f5d5e014fd70e5bf42a92c674d45e85632a18da6b531c8cd37e" prot="public">
+          <name>ADIS16576_2</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__data__access_8h_1a7e7f41a754d681f5d5e014fd70e5bf42af6ddf6a7449447ba2e411a1cecdbfe28" prot="public">
+          <name>ADIS16576_3</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__data__access_8h_1a7e7f41a754d681f5d5e014fd70e5bf42aa335a6730d59a516dadb6e7eb8a26552" prot="public">
+          <name>ADIS16577_2</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__data__access_8h_1a7e7f41a754d681f5d5e014fd70e5bf42aeec297e34fc0207bc93fa03f25c27dd2" prot="public">
+          <name>ADIS16577_3</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/adis_data_access.h" line="22" column="1" bodyfile="include/adi_imu/adis_data_access.h" bodystart="23" bodyend="59"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>ADIS_DATA_ACCESS_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ADIS_DATA_ACCESS_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DELTAVEL_DELTAANG_BUFFERED_DATA<sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ACCEL_GYRO_BUFFERED_DATA<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>IMU_STD_MSG_DATA<sp/>2</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>FULL_MEASURED_DATA<sp/>3</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ADIS_DELTANG_X_LOW_REG<sp/>0x24</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ADIS_DELTANG_X_OUT_REG<sp/>0x26</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ADIS_DELTANG_Y_LOW_REG<sp/>0x28</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ADIS_DELTANG_Y_OUT_REG<sp/>0x2A</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ADIS_DELTANG_Z_LOW_REG<sp/>0x2C</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ADIS_DELTANG_Z_OUT_REG<sp/>0x2E</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ADIS_DELTVEL_X_LOW_REG<sp/>0x30</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ADIS_DELTVEL_X_OUT_REG<sp/>0x32</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ADIS_DELTVEL_Y_LOW_REG<sp/>0x34</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ADIS_DELTVEL_Y_OUT_REG<sp/>0x36</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ADIS_DELTVEL_Z_LOW_REG<sp/>0x38</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ADIS_DELTVEL_Z_OUT_REG<sp/>0x3A</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>adis_device_id</highlight></codeline>
+<codeline lineno="23"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/>ADIS16465_1,</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/>ADIS16465_2,</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/>ADIS16465_3,</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/>ADIS16467_1,</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/>ADIS16467_2,</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/>ADIS16467_3,</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/>ADIS16470,</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/>ADIS16475_1,</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/>ADIS16475_2,</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/>ADIS16475_3,</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/>ADIS16477_1,</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/>ADIS16477_2,</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/>ADIS16477_3,</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/>ADIS16500,</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/>ADIS16501,</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/>ADIS16505_1,</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/>ADIS16505_2,</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/>ADIS16505_3,</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/>ADIS16507_1,</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/>ADIS16507_2,</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/>ADIS16507_3,</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/>ADIS16545_1,</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/>ADIS16545_2,</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/>ADIS16545_3,</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/>ADIS16547_1,</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/>ADIS16547_2,</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/>ADIS16547_3,</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/>ADIS16550,</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/>ADIS16550W,</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/>ADIS16575_2,</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/>ADIS16575_3,</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/>ADIS16576_2,</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/>ADIS16576_3,</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/>ADIS16577_2,</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/>ADIS16577_3,</highlight></codeline>
+<codeline lineno="59"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(ADIS1646X)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;adis1646x/adis1646x_data_access.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight><highlight class="preprocessor">#elif<sp/>defined(ADIS1647X)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;adis1647x/adis1647x_data_access.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight><highlight class="preprocessor">#elif<sp/>defined(ADIS1650X)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;adis1650x/adis1650x_data_access.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight><highlight class="preprocessor">#elif<sp/>defined(ADIS1654X)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;adis1654x/adis1654x_data_access.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight><highlight class="preprocessor">#elif<sp/>defined(ADIS1655X)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;adis1655x/adis1655x_data_access.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight><highlight class="preprocessor">#elif<sp/>defined(ADIS1657X)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;adis1657x/adis1657x_data_access.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight><highlight class="preprocessor">#error<sp/>&quot;No<sp/>device<sp/>defined.&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="include/adi_imu/adis_data_access.h"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,128 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classAccelGyroTempRosPublisherInterface" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>AccelGyroTempRosPublisherInterface</compoundname>
+    <derivedcompoundref refid="classAccelGyroTempRosPublisher" prot="public" virt="non-virtual">AccelGyroTempRosPublisher</derivedcompoundref>
+    <includes refid="accelgyrotemp__ros__publisher__interface_8h" local="no">accelgyrotemp_ros_publisher_interface.h</includes>
+    <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="classAccelGyroTempRosPublisherInterface_1a3d5c5d96b9b34724e83f8a82d1755f8b" prot="protected" static="no" mutable="no">
+        <type>std::shared_ptr&lt; rclcpp::Node &gt;</type>
+        <definition>std::shared_ptr&lt;rclcpp::Node&gt; AccelGyroTempRosPublisherInterface::m_node</definition>
+        <argsstring></argsstring>
+        <name>m_node</name>
+        <qualifiedname>AccelGyroTempRosPublisherInterface::m_node</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The ros2 Node data member. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/accelgyrotemp_ros_publisher_interface.h" line="59" column="19" bodyfile="include/adi_imu/accelgyrotemp_ros_publisher_interface.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classAccelGyroTempRosPublisherInterface_1a35273384fcd445e27fdfa7e4a72057b1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>AccelGyroTempRosPublisherInterface::AccelGyroTempRosPublisherInterface</definition>
+        <argsstring>()</argsstring>
+        <name>AccelGyroTempRosPublisherInterface</name>
+        <qualifiedname>AccelGyroTempRosPublisherInterface::AccelGyroTempRosPublisherInterface</qualifiedname>
+        <briefdescription>
+<para>Constructor for <ref refid="classAccelGyroTempRosPublisherInterface" kindref="compound">AccelGyroTempRosPublisherInterface</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/accelgyrotemp_ros_publisher_interface.h" line="39" column="3" bodyfile="include/adi_imu/accelgyrotemp_ros_publisher_interface.h" bodystart="39" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="function" id="classAccelGyroTempRosPublisherInterface_1a205416a2d172c6caf4a5f3d5a8417784" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type></type>
+        <definition>virtual AccelGyroTempRosPublisherInterface::~AccelGyroTempRosPublisherInterface</definition>
+        <argsstring>()</argsstring>
+        <name>~AccelGyroTempRosPublisherInterface</name>
+        <qualifiedname>AccelGyroTempRosPublisherInterface::~AccelGyroTempRosPublisherInterface</qualifiedname>
+        <briefdescription>
+<para>Destructor for <ref refid="classAccelGyroTempRosPublisherInterface" kindref="compound">AccelGyroTempRosPublisherInterface</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/accelgyrotemp_ros_publisher_interface.h" line="44" column="11" bodyfile="include/adi_imu/accelgyrotemp_ros_publisher_interface.h" bodystart="44" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="function" id="classAccelGyroTempRosPublisherInterface_1ae70930451d10d71f9417cfbeffc44592" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void AccelGyroTempRosPublisherInterface::setMessageProvider</definition>
+        <argsstring>(AccelGyroTempDataProviderInterface *dataProvider)=0</argsstring>
+        <name>setMessageProvider</name>
+        <qualifiedname>AccelGyroTempRosPublisherInterface::setMessageProvider</qualifiedname>
+        <reimplementedby refid="classAccelGyroTempRosPublisher_1ade22dbc3766732e4bfa2281454ec0029">setMessageProvider</reimplementedby>
+        <param>
+          <type><ref refid="classAccelGyroTempDataProviderInterface" kindref="compound">AccelGyroTempDataProviderInterface</ref> *</type>
+          <declname>dataProvider</declname>
+        </param>
+        <briefdescription>
+<para>Set the message data provider. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dataProvider</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Data provider. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/accelgyrotemp_ros_publisher_interface.h" line="50" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classAccelGyroTempRosPublisherInterface_1ac1f025c7a68632e7c702964d3fc946dd" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void AccelGyroTempRosPublisherInterface::publish</definition>
+        <argsstring>()=0</argsstring>
+        <name>publish</name>
+        <qualifiedname>AccelGyroTempRosPublisherInterface::publish</qualifiedname>
+        <reimplementedby refid="classAccelGyroTempRosPublisher_1a4cfabbaac2eb9326afb28d95649c5154">publish</reimplementedby>
+        <briefdescription>
+<para>Publish the AccelGyroTempData message. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/accelgyrotemp_ros_publisher_interface.h" line="55" column="16"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Interface for acceleration, angular velocity and temperature publisher. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>AccelGyroTempRosPublisher</label>
+        <link refid="classAccelGyroTempRosPublisher"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>AccelGyroTempRosPublisherInterface</label>
+        <link refid="classAccelGyroTempRosPublisherInterface"/>
+      </node>
+    </inheritancegraph>
+    <location file="include/adi_imu/accelgyrotemp_ros_publisher_interface.h" line="33" column="1" bodyfile="include/adi_imu/accelgyrotemp_ros_publisher_interface.h" bodystart="34" bodyend="60"/>
+    <listofallmembers>
+      <member refid="classAccelGyroTempRosPublisherInterface_1a35273384fcd445e27fdfa7e4a72057b1" prot="public" virt="non-virtual"><scope>AccelGyroTempRosPublisherInterface</scope><name>AccelGyroTempRosPublisherInterface</name></member>
+      <member refid="classAccelGyroTempRosPublisherInterface_1a3d5c5d96b9b34724e83f8a82d1755f8b" prot="protected" virt="non-virtual"><scope>AccelGyroTempRosPublisherInterface</scope><name>m_node</name></member>
+      <member refid="classAccelGyroTempRosPublisherInterface_1ac1f025c7a68632e7c702964d3fc946dd" prot="public" virt="pure-virtual"><scope>AccelGyroTempRosPublisherInterface</scope><name>publish</name></member>
+      <member refid="classAccelGyroTempRosPublisherInterface_1ae70930451d10d71f9417cfbeffc44592" prot="public" virt="pure-virtual"><scope>AccelGyroTempRosPublisherInterface</scope><name>setMessageProvider</name></member>
+      <member refid="classAccelGyroTempRosPublisherInterface_1a205416a2d172c6caf4a5f3d5a8417784" prot="public" virt="virtual"><scope>AccelGyroTempRosPublisherInterface</scope><name>~AccelGyroTempRosPublisherInterface</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

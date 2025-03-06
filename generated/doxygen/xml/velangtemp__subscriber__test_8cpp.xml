@@ -1,0 +1,172 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="velangtemp__subscriber__test_8cpp" kind="file" language="C++">
+    <compoundname>velangtemp_subscriber_test.cpp</compoundname>
+    <includes local="no">gtest/gtest.h</includes>
+    <includes local="no">chrono</includes>
+    <includes local="no">rclcpp/rclcpp.hpp</includes>
+    <includes refid="iio__wrapper_8h" local="yes">adi_imu/iio_wrapper.h</includes>
+    <includes local="yes">adi_imu/msg/vel_ang_temp_data.hpp</includes>
+    <incdepgraph>
+      <node id="8">
+        <label>adis_data_access.h</label>
+        <link refid="adis__data__access_8h_source"/>
+      </node>
+      <node id="5">
+        <label>adi_imu/iio_wrapper.h</label>
+        <link refid="iio__wrapper_8h_source"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>test/src/velangtemp_subscriber_test.cpp</label>
+        <link refid="velangtemp__subscriber__test_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>adi_imu/msg/vel_ang_temp_data.hpp</label>
+      </node>
+      <node id="3">
+        <label>chrono</label>
+      </node>
+      <node id="2">
+        <label>gtest/gtest.h</label>
+      </node>
+      <node id="6">
+        <label>iio.h</label>
+      </node>
+      <node id="4">
+        <label>rclcpp/rclcpp.hpp</label>
+      </node>
+      <node id="7">
+        <label>string</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classVelAngTempSubscriberTest" prot="public">VelAngTempSubscriberTest</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*******************************************************************************</highlight></codeline>
+<codeline lineno="2"><highlight class="comment">*<sp/><sp/><sp/>@file<sp/><sp/><sp/>velangtemp_subscriber_test.cpp</highlight></codeline>
+<codeline lineno="3"><highlight class="comment">*<sp/><sp/><sp/>@brief<sp/><sp/>Test<sp/>vel<sp/>ang<sp/>temp<sp/>publisher</highlight></codeline>
+<codeline lineno="4"><highlight class="comment">*<sp/><sp/><sp/>@author<sp/>Vasile<sp/>Holonec<sp/>(Vasile.Holonec@analog.com)</highlight></codeline>
+<codeline lineno="5"><highlight class="comment">********************************************************************************</highlight></codeline>
+<codeline lineno="6"><highlight class="comment">*<sp/>Copyright<sp/>2023(c)<sp/>Analog<sp/>Devices,<sp/>Inc.</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"></highlight></codeline>
+<codeline lineno="8"><highlight class="comment">*<sp/>Licensed<sp/>under<sp/>the<sp/>Apache<sp/>License,<sp/>Version<sp/>2.0<sp/>(the<sp/>&quot;License&quot;);</highlight></codeline>
+<codeline lineno="9"><highlight class="comment">*<sp/>you<sp/>may<sp/>not<sp/>use<sp/>this<sp/>file<sp/>except<sp/>in<sp/>compliance<sp/>with<sp/>the<sp/>License.</highlight></codeline>
+<codeline lineno="10"><highlight class="comment">*<sp/>You<sp/>may<sp/>obtain<sp/>a<sp/>copy<sp/>of<sp/>the<sp/>License<sp/>at</highlight></codeline>
+<codeline lineno="11"><highlight class="comment">*</highlight></codeline>
+<codeline lineno="12"><highlight class="comment">*<sp/><sp/><sp/><sp/><sp/>http://www.apache.org/licenses/LICENSE-2.0</highlight></codeline>
+<codeline lineno="13"><highlight class="comment">*</highlight></codeline>
+<codeline lineno="14"><highlight class="comment">*<sp/>Unless<sp/>required<sp/>by<sp/>applicable<sp/>law<sp/>or<sp/>agreed<sp/>to<sp/>in<sp/>writing,<sp/>software</highlight></codeline>
+<codeline lineno="15"><highlight class="comment">*<sp/>distributed<sp/>under<sp/>the<sp/>License<sp/>is<sp/>distributed<sp/>on<sp/>an<sp/>&quot;AS<sp/>IS&quot;<sp/>BASIS,</highlight></codeline>
+<codeline lineno="16"><highlight class="comment">*<sp/>WITHOUT<sp/>WARRANTIES<sp/>OR<sp/>CONDITIONS<sp/>OF<sp/>ANY<sp/>KIND,<sp/>either<sp/>express<sp/>or<sp/>implied.</highlight></codeline>
+<codeline lineno="17"><highlight class="comment">*<sp/>See<sp/>the<sp/>License<sp/>for<sp/>the<sp/>specific<sp/>language<sp/>governing<sp/>permissions<sp/>and</highlight></codeline>
+<codeline lineno="18"><highlight class="comment">*<sp/>limitations<sp/>under<sp/>the<sp/>License.</highlight></codeline>
+<codeline lineno="19"><highlight class="comment">*******************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;gtest/gtest.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;chrono&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;rclcpp/rclcpp.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;adi_imu/iio_wrapper.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;adi_imu/msg/vel_ang_temp_data.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36" refid="classVelAngTempSubscriberTest" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classVelAngTempSubscriberTest" kindref="compound">VelAngTempSubscriberTest</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>::testing::Test</highlight></codeline>
+<codeline lineno="37"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classVelAngTempSubscriberTest_1a6644c917bb2f0286416a9f4295028977" kindref="member">SetUpTestCase</ref>()<sp/>{}</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classVelAngTempSubscriberTest_1abfd9acc8721263a9c7106e1b2d69886f" kindref="member">TearDownTestCase</ref>()<sp/>{<sp/>rclcpp::shutdown();<sp/>}</highlight></codeline>
+<codeline lineno="48"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>ADIS_HAS_DELTA_BURST</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal">TEST(<ref refid="classVelAngTempSubscriberTest" kindref="compound">VelAngTempSubscriberTest</ref>,<sp/>test_velangtemp_publisher)</highlight></codeline>
+<codeline lineno="59"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><ref refid="classIIOWrapper" kindref="compound">IIOWrapper</ref><sp/>iio_wrapper;</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>node<sp/>=<sp/>rclcpp::Node::make_shared(</highlight><highlight class="stringliteral">&quot;test_velangtempdata_publisher&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/>node-&gt;declare_parameter(</highlight><highlight class="stringliteral">&quot;iio_context_string&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;local:&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/>std::string<sp/>context<sp/>=</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>node-&gt;get_parameter(</highlight><highlight class="stringliteral">&quot;iio_context_string&quot;</highlight><highlight class="normal">).get_parameter_value().get&lt;std::string&gt;();</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><ref refid="classIIOWrapper" kindref="compound">IIOWrapper</ref><sp/>m_iio_wrapper;</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/>m_iio_wrapper.<ref refid="classIIOWrapper_1aa56bb91153c46ef51c3d3d53a68cc423" kindref="member">createContext</ref>(context.c_str());</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/>std::string<sp/>topic<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;velangtempdata&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>scale_deltavelocity<sp/>=<sp/>iio_wrapper.<ref refid="classIIOWrapper_1a0986611e409cfa128ec0f5b5429c8b72" kindref="member">get_scale_deltavelocity</ref>();</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>scale_deltaangl<sp/>=<sp/>iio_wrapper.<ref refid="classIIOWrapper_1a133f8dcccf4727d7a97ba1f708c7c249" kindref="member">get_scale_deltaangl</ref>();</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>scale_temp<sp/>=<sp/>iio_wrapper.<ref refid="classIIOWrapper_1a022888d663a4dbead44e37a84c45411b" kindref="member">get_scale_temp</ref>();</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>callbackExecuted<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>callback<sp/>=<sp/>[&amp;scale_deltavelocity,<sp/>&amp;scale_deltaangl,<sp/>&amp;scale_temp,</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;callbackExecuted](adi_imu::msg::VelAngTempData<sp/>msg)<sp/>-&gt;<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/>RCLCPP_INFO(</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>rclcpp::get_logger(</highlight><highlight class="stringliteral">&quot;velangtemp_subscriber_test&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;delta<sp/>velocity<sp/>x<sp/>axis:<sp/>%f<sp/>\ndelta<sp/>velocity<sp/>y<sp/>axis:<sp/>%f\ndelta<sp/>velocity<sp/>z<sp/>axis:<sp/>%f\n&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;delta<sp/>angle<sp/>x<sp/>axis:<sp/>%f\ndelta<sp/>angle<sp/>y<sp/>axis:<sp/>%f\ndelta<sp/>angle<sp/>z<sp/>axis:<sp/>%f\n&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;temperature:<sp/>%f\n&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>msg.delta_velocity.x,<sp/>msg.delta_velocity.y,<sp/>msg.delta_velocity.z,<sp/>msg.delta_angle.x,</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>msg.delta_angle.y,<sp/>msg.delta_angle.z,<sp/>msg.temperature);</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/>int32_t<sp/>minint<sp/>=<sp/>-2147483648;</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/>int32_t<sp/>maxint<sp/>=<sp/>2147483647;</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>maxRangeVelocity<sp/>=<sp/>maxint<sp/>*<sp/>scale_deltavelocity;</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>minRangeVelocity<sp/>=<sp/>minint<sp/>*<sp/>scale_deltavelocity;</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>maxRangeRot<sp/>=<sp/>maxint<sp/>*<sp/>scale_deltaangl;</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>minRangeRot<sp/>=<sp/>minint<sp/>*<sp/>scale_deltaangl;</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/>int32_t<sp/>minint16<sp/>=<sp/>-32768;</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/>int32_t<sp/>maxint16<sp/>=<sp/>32767;</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>maxRangeTemp<sp/>=<sp/>maxint16<sp/>*<sp/>scale_temp;</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>minRangeTemp<sp/>=<sp/>minint16<sp/>*<sp/>scale_temp;</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/>ASSERT_TRUE(</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>msg.delta_velocity.x<sp/>&gt;=<sp/>minRangeVelocity<sp/>&amp;&amp;<sp/>msg.delta_velocity.x<sp/>&lt;=<sp/>maxRangeVelocity);</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/>ASSERT_TRUE(</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>msg.delta_velocity.y<sp/>&gt;=<sp/>minRangeVelocity<sp/>&amp;&amp;<sp/>msg.delta_velocity.y<sp/>&lt;=<sp/>maxRangeVelocity);</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/>ASSERT_TRUE(</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>msg.delta_velocity.z<sp/>&gt;=<sp/>minRangeVelocity<sp/>&amp;&amp;<sp/>msg.delta_velocity.z<sp/>&lt;=<sp/>maxRangeVelocity);</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/>ASSERT_TRUE(msg.delta_angle.x<sp/>&gt;=<sp/>minRangeRot<sp/>&amp;&amp;<sp/>msg.delta_angle.x<sp/>&lt;=<sp/>maxRangeRot);</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/>ASSERT_TRUE(msg.delta_angle.y<sp/>&gt;=<sp/>minRangeRot<sp/>&amp;&amp;<sp/>msg.delta_angle.y<sp/>&lt;=<sp/>maxRangeRot);</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/>ASSERT_TRUE(msg.delta_angle.z<sp/>&gt;=<sp/>minRangeRot<sp/>&amp;&amp;<sp/>msg.delta_angle.z<sp/>&lt;=<sp/>maxRangeRot);</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/>ASSERT_TRUE(msg.temperature<sp/>&gt;=<sp/>minRangeTemp<sp/>&amp;&amp;<sp/>msg.temperature<sp/>&lt;=<sp/>maxRangeTemp);</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/>callbackExecuted<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/>rclcpp::executors::SingleThreadedExecutor<sp/>executor;</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/>executor.add_node(node);</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>subscriber<sp/>=<sp/>node-&gt;create_subscription&lt;adi_imu::msg::VelAngTempData&gt;(topic,<sp/>10,<sp/>callback);</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/>std::chrono::seconds<sp/>sec(1);</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(!callbackExecuted)<sp/>executor.spin_once(sec);</highlight></codeline>
+<codeline lineno="124"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="test/src/velangtemp_subscriber_test.cpp"/>
+  </compounddef>
+</doxygen>

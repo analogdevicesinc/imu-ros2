@@ -1,0 +1,83 @@
+\doxysection{Worker\+Thread Class Reference}
+\hypertarget{classWorkerThread}{}\label{classWorkerThread}\index{WorkerThread@{WorkerThread}}
+
+
+Class for running a task in a thread.  
+
+
+
+
+{\ttfamily \#include $<$worker\+\_\+thread.\+h$>$}
+
+
+
+Inheritance diagram for Worker\+Thread\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=164pt]{classWorkerThread__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Worker\+Thread\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=232pt]{classWorkerThread__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classWorkerThread_a942f957a04f6d5a7b7677836ad2f7650}{Worker\+Thread}} (\mbox{\hyperlink{classRosTask}{Ros\+Task}} \texorpdfstring{$\ast$}{*}ros\+Task)
+\begin{DoxyCompactList}\small\item\em Constructor for \doxylink{classWorkerThread}{Worker\+Thread}. \end{DoxyCompactList}\item 
+\Hypertarget{classWorkerThread_a5aa554e7d73f0f185a850ca0ef145d6d}\label{classWorkerThread_a5aa554e7d73f0f185a850ca0ef145d6d} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Worker\+Thread} ()
+\begin{DoxyCompactList}\small\item\em Destructor for \doxylink{classWorkerThread}{Worker\+Thread}. \end{DoxyCompactList}\item 
+\Hypertarget{classWorkerThread_a15c7f87a0cf955ef034ec99f9ccb22ff}\label{classWorkerThread_a15c7f87a0cf955ef034ec99f9ccb22ff} 
+void {\bfseries run\+Task} ()
+\begin{DoxyCompactList}\small\item\em Method that runs on a thread. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classRosTask}{Ros\+Task}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classWorkerThread_a51d45d8d09d7826fe6e9ac5fa31dceec}{m\+\_\+ros\+Task}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class for running a task in a thread. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classWorkerThread_a942f957a04f6d5a7b7677836ad2f7650}\label{classWorkerThread_a942f957a04f6d5a7b7677836ad2f7650} 
+\index{WorkerThread@{WorkerThread}!WorkerThread@{WorkerThread}}
+\index{WorkerThread@{WorkerThread}!WorkerThread@{WorkerThread}}
+\doxysubsubsection{\texorpdfstring{WorkerThread()}{WorkerThread()}}
+{\footnotesize\ttfamily Worker\+Thread\+::\+Worker\+Thread (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classRosTask}{Ros\+Task}} \texorpdfstring{$\ast$}{*}}]{ros\+Task }\end{DoxyParamCaption})}
+
+
+
+Constructor for \doxylink{classWorkerThread}{Worker\+Thread}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ros\+Task} & A class that implements \doxylink{classRosTask}{Ros\+Task} interface. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classWorkerThread_a51d45d8d09d7826fe6e9ac5fa31dceec}\label{classWorkerThread_a51d45d8d09d7826fe6e9ac5fa31dceec} 
+\index{WorkerThread@{WorkerThread}!m\_rosTask@{m\_rosTask}}
+\index{m\_rosTask@{m\_rosTask}!WorkerThread@{WorkerThread}}
+\doxysubsubsection{\texorpdfstring{m\_rosTask}{m\_rosTask}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classRosTask}{Ros\+Task}}\texorpdfstring{$\ast$}{*} Worker\+Thread\+::m\+\_\+ros\+Task\hspace{0.3cm}{\ttfamily [private]}}
+
+This data member will run the method run on a thread. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/adi\+\_\+imu/worker\+\_\+thread.\+h\item 
+src/worker\+\_\+thread.\+cpp\end{DoxyCompactItemize}

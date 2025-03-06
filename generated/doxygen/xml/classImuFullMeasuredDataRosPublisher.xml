@@ -1,0 +1,196 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classImuFullMeasuredDataRosPublisher" kind="class" language="C++" prot="public">
+    <compoundname>ImuFullMeasuredDataRosPublisher</compoundname>
+    <basecompoundref refid="classImuFullMeasuredDataRosPublisherInterface" prot="public" virt="non-virtual">ImuFullMeasuredDataRosPublisherInterface</basecompoundref>
+    <includes refid="imu__full__measured__data__ros__publisher_8h" local="no">imu_full_measured_data_ros_publisher.h</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classImuFullMeasuredDataRosPublisher_1afc917159d4d339720979adbec90c2ef5" prot="private" static="no" mutable="no">
+        <type><ref refid="classImuFullMeasuredDataProviderInterface" kindref="compound">ImuFullMeasuredDataProviderInterface</ref> *</type>
+        <definition>ImuFullMeasuredDataProviderInterface* ImuFullMeasuredDataRosPublisher::m_data_provider</definition>
+        <argsstring></argsstring>
+        <name>m_data_provider</name>
+        <qualifiedname>ImuFullMeasuredDataRosPublisher::m_data_provider</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This variable retains the data provider instance. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/imu_full_measured_data_ros_publisher.h" line="61" column="41" bodyfile="include/adi_imu/imu_full_measured_data_ros_publisher.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classImuFullMeasuredDataRosPublisher_1aa57d65687cb70be0fbcb367eec646eb3" prot="private" static="no" mutable="no">
+        <type>rclcpp::Publisher&lt; adi_imu::msg::ImuFullMeasuredData &gt;::SharedPtr</type>
+        <definition>rclcpp::Publisher&lt;adi_imu::msg::ImuFullMeasuredData&gt;::SharedPtr ImuFullMeasuredDataRosPublisher::m_publisher</definition>
+        <argsstring></argsstring>
+        <name>m_publisher</name>
+        <qualifiedname>ImuFullMeasuredDataRosPublisher::m_publisher</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This variable retains the publisher instance. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/imu_full_measured_data_ros_publisher.h" line="64" column="33" bodyfile="include/adi_imu/imu_full_measured_data_ros_publisher.h" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classImuFullMeasuredDataRosPublisher_1a10286f173729d53b9fca60b9973d9417" prot="private" static="no" mutable="no">
+        <type>adi_imu::msg::ImuFullMeasuredData</type>
+        <definition>adi_imu::msg::ImuFullMeasuredData ImuFullMeasuredDataRosPublisher::m_message</definition>
+        <argsstring></argsstring>
+        <name>m_message</name>
+        <qualifiedname>ImuFullMeasuredDataRosPublisher::m_message</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This variable retains the message that is published. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/imu_full_measured_data_ros_publisher.h" line="67" column="37" bodyfile="include/adi_imu/imu_full_measured_data_ros_publisher.h" bodystart="67" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classImuFullMeasuredDataRosPublisher_1adb3eef4b042f4b4d45939d35486c59b2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ImuFullMeasuredDataRosPublisher::ImuFullMeasuredDataRosPublisher</definition>
+        <argsstring>(std::shared_ptr&lt; rclcpp::Node &gt; &amp;node)</argsstring>
+        <name>ImuFullMeasuredDataRosPublisher</name>
+        <qualifiedname>ImuFullMeasuredDataRosPublisher::ImuFullMeasuredDataRosPublisher</qualifiedname>
+        <param>
+          <type>std::shared_ptr&lt; rclcpp::Node &gt; &amp;</type>
+          <declname>node</declname>
+        </param>
+        <briefdescription>
+<para>Constructor for <ref refid="classImuFullMeasuredDataRosPublisher" kindref="compound">ImuFullMeasuredDataRosPublisher</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>node</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The ros2 Node instance. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/imu_full_measured_data_ros_publisher.h" line="41" column="3" bodyfile="src/imu_full_measured_data_ros_publisher.cpp" bodystart="27" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="function" id="classImuFullMeasuredDataRosPublisher_1a8cf6829550691b33c0ca50272e8ade6d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ImuFullMeasuredDataRosPublisher::~ImuFullMeasuredDataRosPublisher</definition>
+        <argsstring>()</argsstring>
+        <name>~ImuFullMeasuredDataRosPublisher</name>
+        <qualifiedname>ImuFullMeasuredDataRosPublisher::~ImuFullMeasuredDataRosPublisher</qualifiedname>
+        <briefdescription>
+<para>Destructor for <ref refid="classAccelGyroTempRosPublisher" kindref="compound">AccelGyroTempRosPublisher</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/imu_full_measured_data_ros_publisher.h" line="46" column="3" bodyfile="src/imu_full_measured_data_ros_publisher.cpp" bodystart="35" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="function" id="classImuFullMeasuredDataRosPublisher_1a51c4795592fd41e712444552eeece31d" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void ImuFullMeasuredDataRosPublisher::setMessageProvider</definition>
+        <argsstring>(ImuFullMeasuredDataProviderInterface *dataProvider) override</argsstring>
+        <name>setMessageProvider</name>
+        <qualifiedname>ImuFullMeasuredDataRosPublisher::setMessageProvider</qualifiedname>
+        <reimplements refid="classImuFullMeasuredDataRosPublisherInterface_1a799c51c1b501e469fa1e6f0dc77edc1a">setMessageProvider</reimplements>
+        <param>
+          <type><ref refid="classImuFullMeasuredDataProviderInterface" kindref="compound">ImuFullMeasuredDataProviderInterface</ref> *</type>
+          <declname>dataProvider</declname>
+        </param>
+        <briefdescription>
+<para>Set the message data provider. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dataProvider</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Data provider. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/imu_full_measured_data_ros_publisher.h" line="52" column="8" bodyfile="src/imu_full_measured_data_ros_publisher.cpp" bodystart="37" bodyend="41"/>
+      </memberdef>
+      <memberdef kind="function" id="classImuFullMeasuredDataRosPublisher_1a18fa397d0a2774107bd74f29f5ecf08c" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void ImuFullMeasuredDataRosPublisher::publish</definition>
+        <argsstring>() override</argsstring>
+        <name>publish</name>
+        <qualifiedname>ImuFullMeasuredDataRosPublisher::publish</qualifiedname>
+        <reimplements refid="classImuFullMeasuredDataRosPublisherInterface_1a4d4fd5aa71065f6ddc52fc8cc9ae06e2">publish</reimplements>
+        <briefdescription>
+<para>Publish the ImuFullMeasuredData message. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/imu_full_measured_data_ros_publisher.h" line="57" column="8" bodyfile="src/imu_full_measured_data_ros_publisher.cpp" bodystart="43" bodyend="53"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Class for acceleration, angular velocity, delta angle, delta velocity and temperature publisher. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>ImuFullMeasuredDataRosPublisher</label>
+        <link refid="classImuFullMeasuredDataRosPublisher"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>ImuFullMeasuredDataRosPublisherInterface</label>
+        <link refid="classImuFullMeasuredDataRosPublisherInterface"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>ImuFullMeasuredDataProviderInterface</label>
+        <link refid="classImuFullMeasuredDataProviderInterface"/>
+      </node>
+      <node id="1">
+        <label>ImuFullMeasuredDataRosPublisher</label>
+        <link refid="classImuFullMeasuredDataRosPublisher"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>m_data_provider</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>ImuFullMeasuredDataRosPublisherInterface</label>
+        <link refid="classImuFullMeasuredDataRosPublisherInterface"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/adi_imu/imu_full_measured_data_ros_publisher.h" line="34" column="1" bodyfile="include/adi_imu/imu_full_measured_data_ros_publisher.h" bodystart="35" bodyend="68"/>
+    <listofallmembers>
+      <member refid="classImuFullMeasuredDataRosPublisher_1adb3eef4b042f4b4d45939d35486c59b2" prot="public" virt="non-virtual"><scope>ImuFullMeasuredDataRosPublisher</scope><name>ImuFullMeasuredDataRosPublisher</name></member>
+      <member refid="classImuFullMeasuredDataRosPublisherInterface_1aa9ce565f5999ca1720fa6cefb0440e6d" prot="public" virt="non-virtual"><scope>ImuFullMeasuredDataRosPublisher</scope><name>ImuFullMeasuredDataRosPublisherInterface</name></member>
+      <member refid="classImuFullMeasuredDataRosPublisher_1afc917159d4d339720979adbec90c2ef5" prot="private" virt="non-virtual"><scope>ImuFullMeasuredDataRosPublisher</scope><name>m_data_provider</name></member>
+      <member refid="classImuFullMeasuredDataRosPublisher_1a10286f173729d53b9fca60b9973d9417" prot="private" virt="non-virtual"><scope>ImuFullMeasuredDataRosPublisher</scope><name>m_message</name></member>
+      <member refid="classImuFullMeasuredDataRosPublisherInterface_1a2643f9390c283e53bd23bf2978c1da34" prot="protected" virt="non-virtual"><scope>ImuFullMeasuredDataRosPublisher</scope><name>m_node</name></member>
+      <member refid="classImuFullMeasuredDataRosPublisher_1aa57d65687cb70be0fbcb367eec646eb3" prot="private" virt="non-virtual"><scope>ImuFullMeasuredDataRosPublisher</scope><name>m_publisher</name></member>
+      <member refid="classImuFullMeasuredDataRosPublisher_1a18fa397d0a2774107bd74f29f5ecf08c" prot="public" virt="virtual"><scope>ImuFullMeasuredDataRosPublisher</scope><name>publish</name></member>
+      <member refid="classImuFullMeasuredDataRosPublisher_1a51c4795592fd41e712444552eeece31d" prot="public" virt="virtual"><scope>ImuFullMeasuredDataRosPublisher</scope><name>setMessageProvider</name></member>
+      <member refid="classImuFullMeasuredDataRosPublisher_1a8cf6829550691b33c0ca50272e8ade6d" prot="public" virt="non-virtual"><scope>ImuFullMeasuredDataRosPublisher</scope><name>~ImuFullMeasuredDataRosPublisher</name></member>
+      <member refid="classImuFullMeasuredDataRosPublisherInterface_1aad746b55a627f4acb1c50392e67db426" prot="public" virt="virtual"><scope>ImuFullMeasuredDataRosPublisher</scope><name>~ImuFullMeasuredDataRosPublisherInterface</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

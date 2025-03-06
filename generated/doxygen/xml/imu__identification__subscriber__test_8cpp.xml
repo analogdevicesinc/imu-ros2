@@ -1,0 +1,179 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="imu__identification__subscriber__test_8cpp" kind="file" language="C++">
+    <compoundname>imu_identification_subscriber_test.cpp</compoundname>
+    <includes local="no">gtest/gtest.h</includes>
+    <includes local="no">chrono</includes>
+    <includes local="no">rclcpp/rclcpp.hpp</includes>
+    <includes refid="iio__wrapper_8h" local="yes">adi_imu/iio_wrapper.h</includes>
+    <includes local="yes">adi_imu/msg/imu_identification_data.hpp</includes>
+    <incdepgraph>
+      <node id="8">
+        <label>adis_data_access.h</label>
+        <link refid="adis__data__access_8h_source"/>
+      </node>
+      <node id="5">
+        <label>adi_imu/iio_wrapper.h</label>
+        <link refid="iio__wrapper_8h_source"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>test/src/imu_identification_subscriber_test.cpp</label>
+        <link refid="imu__identification__subscriber__test_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>adi_imu/msg/imu_identification_data.hpp</label>
+      </node>
+      <node id="3">
+        <label>chrono</label>
+      </node>
+      <node id="2">
+        <label>gtest/gtest.h</label>
+      </node>
+      <node id="6">
+        <label>iio.h</label>
+      </node>
+      <node id="4">
+        <label>rclcpp/rclcpp.hpp</label>
+      </node>
+      <node id="7">
+        <label>string</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classImuIdentificationSubscriberTest" prot="public">ImuIdentificationSubscriberTest</innerclass>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="imu__identification__subscriber__test_8cpp_1a0fc96a7839a89415f4f747a0a4450795" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>TEST</definition>
+        <argsstring>(ImuIdentificationSubscriberTest, test_imu_identification_publisher)</argsstring>
+        <name>TEST</name>
+        <param>
+          <type><ref refid="classImuIdentificationSubscriberTest" kindref="compound">ImuIdentificationSubscriberTest</ref></type>
+        </param>
+        <param>
+          <type>test_imu_identification_publisher</type>
+        </param>
+        <briefdescription>
+<para><ref refid="classImuIdentificationSubscriberTest" kindref="compound">ImuIdentificationSubscriberTest</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This test instantiates a subscriber node and listens to data on ImuIdentificationData topic and compares it against a range of expected values. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="test/src/imu_identification_subscriber_test.cpp" line="57" column="1" bodyfile="test/src/imu_identification_subscriber_test.cpp" bodystart="57" bodyend="109"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*******************************************************************************</highlight></codeline>
+<codeline lineno="2"><highlight class="comment">*<sp/><sp/><sp/>@file<sp/><sp/><sp/>imu_identification_subscriber_test.cpp</highlight></codeline>
+<codeline lineno="3"><highlight class="comment">*<sp/><sp/><sp/>@brief<sp/><sp/>Test<sp/>imu<sp/>identification<sp/>data</highlight></codeline>
+<codeline lineno="4"><highlight class="comment">*<sp/><sp/><sp/>@author<sp/>Vasile<sp/>Holonec<sp/>(Vasile.Holonec@analog.com)</highlight></codeline>
+<codeline lineno="5"><highlight class="comment">********************************************************************************</highlight></codeline>
+<codeline lineno="6"><highlight class="comment">*<sp/>Copyright<sp/>2023(c)<sp/>Analog<sp/>Devices,<sp/>Inc.</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"></highlight></codeline>
+<codeline lineno="8"><highlight class="comment">*<sp/>Licensed<sp/>under<sp/>the<sp/>Apache<sp/>License,<sp/>Version<sp/>2.0<sp/>(the<sp/>&quot;License&quot;);</highlight></codeline>
+<codeline lineno="9"><highlight class="comment">*<sp/>you<sp/>may<sp/>not<sp/>use<sp/>this<sp/>file<sp/>except<sp/>in<sp/>compliance<sp/>with<sp/>the<sp/>License.</highlight></codeline>
+<codeline lineno="10"><highlight class="comment">*<sp/>You<sp/>may<sp/>obtain<sp/>a<sp/>copy<sp/>of<sp/>the<sp/>License<sp/>at</highlight></codeline>
+<codeline lineno="11"><highlight class="comment">*</highlight></codeline>
+<codeline lineno="12"><highlight class="comment">*<sp/><sp/><sp/><sp/><sp/>http://www.apache.org/licenses/LICENSE-2.0</highlight></codeline>
+<codeline lineno="13"><highlight class="comment">*</highlight></codeline>
+<codeline lineno="14"><highlight class="comment">*<sp/>Unless<sp/>required<sp/>by<sp/>applicable<sp/>law<sp/>or<sp/>agreed<sp/>to<sp/>in<sp/>writing,<sp/>software</highlight></codeline>
+<codeline lineno="15"><highlight class="comment">*<sp/>distributed<sp/>under<sp/>the<sp/>License<sp/>is<sp/>distributed<sp/>on<sp/>an<sp/>&quot;AS<sp/>IS&quot;<sp/>BASIS,</highlight></codeline>
+<codeline lineno="16"><highlight class="comment">*<sp/>WITHOUT<sp/>WARRANTIES<sp/>OR<sp/>CONDITIONS<sp/>OF<sp/>ANY<sp/>KIND,<sp/>either<sp/>express<sp/>or<sp/>implied.</highlight></codeline>
+<codeline lineno="17"><highlight class="comment">*<sp/>See<sp/>the<sp/>License<sp/>for<sp/>the<sp/>specific<sp/>language<sp/>governing<sp/>permissions<sp/>and</highlight></codeline>
+<codeline lineno="18"><highlight class="comment">*<sp/>limitations<sp/>under<sp/>the<sp/>License.</highlight></codeline>
+<codeline lineno="19"><highlight class="comment">*******************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;gtest/gtest.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;chrono&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;rclcpp/rclcpp.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;adi_imu/iio_wrapper.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;adi_imu/msg/imu_identification_data.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36" refid="classImuIdentificationSubscriberTest" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classImuIdentificationSubscriberTest" kindref="compound">ImuIdentificationSubscriberTest</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>::testing::Test</highlight></codeline>
+<codeline lineno="37"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classImuIdentificationSubscriberTest_1a32056248dd3fcf21fe97f2b5b41dae8d" kindref="member">SetUpTestCase</ref>()<sp/>{}</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classImuIdentificationSubscriberTest_1a3fcc6269d08ee482073a68eae77229e8" kindref="member">TearDownTestCase</ref>()<sp/>{<sp/>rclcpp::shutdown();<sp/>}</highlight></codeline>
+<codeline lineno="48"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal">TEST(<ref refid="classImuIdentificationSubscriberTest" kindref="compound">ImuIdentificationSubscriberTest</ref>,<sp/>test_imu_identification_publisher)</highlight></codeline>
+<codeline lineno="58"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><ref refid="classIIOWrapper" kindref="compound">IIOWrapper</ref><sp/>iio_wrapper;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>node<sp/>=<sp/>rclcpp::Node::make_shared(</highlight><highlight class="stringliteral">&quot;test_imuidentificationdata_publisher&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/>node-&gt;declare_parameter(</highlight><highlight class="stringliteral">&quot;iio_context_string&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;local:&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/>std::string<sp/>context<sp/>=</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>node-&gt;get_parameter(</highlight><highlight class="stringliteral">&quot;iio_context_string&quot;</highlight><highlight class="normal">).get_parameter_value().get&lt;std::string&gt;();</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><ref refid="classIIOWrapper" kindref="compound">IIOWrapper</ref><sp/>m_iio_wrapper;</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/>m_iio_wrapper.<ref refid="classIIOWrapper_1aa56bb91153c46ef51c3d3d53a68cc423" kindref="member">createContext</ref>(context.c_str());</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/>std::string<sp/>topic<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;imuidentificationdata&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>callbackExecuted<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/>adi_imu::msg::ImuIdentificationData<sp/>imu_message;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/>iio_wrapper.<ref refid="classIIOWrapper_1a7ece889e328ab46d471031934eb93b33" kindref="member">firmware_revision</ref>(imu_message.firmware_revision);</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/>iio_wrapper.<ref refid="classIIOWrapper_1a392b3968397a63a0bf235bb7515f5879" kindref="member">firmware_date</ref>(imu_message.firmware_date);</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/>iio_wrapper.<ref refid="classIIOWrapper_1a1f0c7c86eba809ac5e0505b12e7b8143" kindref="member">product_id</ref>(imu_message.product_id);</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/>iio_wrapper.<ref refid="classIIOWrapper_1a9d05c33bbd4eef378b584d656a56cfc7" kindref="member">serial_number</ref>(imu_message.serial_number);</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/>iio_wrapper.<ref refid="classIIOWrapper_1aa3dfbe95f0013016b8b5056b73d1f126" kindref="member">gyroscope_measurement_range</ref>(imu_message.gyroscope_measurement_range);</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>callback<sp/>=<sp/>[&amp;imu_message,</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;callbackExecuted](adi_imu::msg::ImuIdentificationData<sp/>msg)<sp/>-&gt;<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>RCLCPP_INFO(</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>rclcpp::get_logger(</highlight><highlight class="stringliteral">&quot;imu_identification_subscriber_test&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;\nproduct<sp/>id:<sp/>%d&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;\nserial<sp/>number:<sp/>%d&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;\nfirmware<sp/>revision:<sp/>%s&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;\nfirmare<sp/>date:<sp/>%s&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;\ngyroscope<sp/>measurement<sp/>range:<sp/>%s&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>msg.product_id,<sp/>msg.serial_number,<sp/>msg.firmware_revision.c_str(),<sp/>msg.firmware_date.c_str(),</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>msg.gyroscope_measurement_range.c_str());</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/>ASSERT_TRUE(msg.firmware_revision<sp/>==<sp/>imu_message.firmware_revision);</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/>ASSERT_TRUE(msg.firmware_date<sp/>==<sp/>imu_message.firmware_date);</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/>ASSERT_TRUE(msg.product_id<sp/>==<sp/>imu_message.product_id);</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/>ASSERT_TRUE(msg.serial_number<sp/>==<sp/>imu_message.serial_number);</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/>ASSERT_TRUE(msg.gyroscope_measurement_range<sp/>==<sp/>imu_message.gyroscope_measurement_range);</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/>callbackExecuted<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/>rclcpp::executors::SingleThreadedExecutor<sp/>executor;</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/>executor.add_node(node);</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>subscriber<sp/>=</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/>node-&gt;create_subscription&lt;adi_imu::msg::ImuIdentificationData&gt;(topic,<sp/>10,<sp/>callback);</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/>std::chrono::seconds<sp/>sec(1);</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(!callbackExecuted)<sp/>executor.spin_once(sec);</highlight></codeline>
+<codeline lineno="109"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="test/src/imu_identification_subscriber_test.cpp"/>
+  </compounddef>
+</doxygen>

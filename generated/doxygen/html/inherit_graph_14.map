@@ -1,0 +1,5 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="Node000000" href="$classVelAngTempRosPublisherInterface.html" title="Interface for delta velocity, delta angle and temperature publisher." alt="" coords="5,5,249,31"/>
+<area shape="rect" id="Node000001" href="$classVelAngTempRosPublisher.html" title="Class for delta velocity, delta angle and temperature publisher." alt="" coords="297,5,484,31"/>
+<area shape="poly" id="edge23_Node000000_Node000001" title=" " alt="" coords="263,15,297,15,297,21,263,21"/>
+</map>

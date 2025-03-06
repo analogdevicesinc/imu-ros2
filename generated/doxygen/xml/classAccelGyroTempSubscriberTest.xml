@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classAccelGyroTempSubscriberTest" kind="class" language="C++" prot="public">
+    <compoundname>AccelGyroTempSubscriberTest</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">testing::Test</basecompoundref>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classAccelGyroTempSubscriberTest_1a47864f9624e8ecac8302dcaee645d4a1" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void AccelGyroTempSubscriberTest::SetUpTestCase</definition>
+        <argsstring>()</argsstring>
+        <name>SetUpTestCase</name>
+        <qualifiedname>AccelGyroTempSubscriberTest::SetUpTestCase</qualifiedname>
+        <briefdescription>
+<para>Set up the test case. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="test/src/accelgyrotemp_subscriber_test.cpp" line="42" column="15" bodyfile="test/src/accelgyrotemp_subscriber_test.cpp" bodystart="42" bodyend="42"/>
+      </memberdef>
+      <memberdef kind="function" id="classAccelGyroTempSubscriberTest_1a419c199f9c6bbc610094323fb785eaac" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void AccelGyroTempSubscriberTest::TearDownTestCase</definition>
+        <argsstring>()</argsstring>
+        <name>TearDownTestCase</name>
+        <qualifiedname>AccelGyroTempSubscriberTest::TearDownTestCase</qualifiedname>
+        <briefdescription>
+<para>Tear down the test case. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="test/src/accelgyrotemp_subscriber_test.cpp" line="47" column="15" bodyfile="test/src/accelgyrotemp_subscriber_test.cpp" bodystart="47" bodyend="47"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Class for testing AccelGyroTempData. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>This class instantiates a subscriber node and listens to data on AccelGyroTempData topic and compares it against a range of expected values. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>AccelGyroTempSubscriberTest</label>
+        <link refid="classAccelGyroTempSubscriberTest"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>testing::Test</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>AccelGyroTempSubscriberTest</label>
+        <link refid="classAccelGyroTempSubscriberTest"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>testing::Test</label>
+      </node>
+    </collaborationgraph>
+    <location file="test/src/accelgyrotemp_subscriber_test.cpp" line="36" column="1" bodyfile="test/src/accelgyrotemp_subscriber_test.cpp" bodystart="37" bodyend="48"/>
+    <listofallmembers>
+      <member refid="classAccelGyroTempSubscriberTest_1a47864f9624e8ecac8302dcaee645d4a1" prot="public" virt="non-virtual"><scope>AccelGyroTempSubscriberTest</scope><name>SetUpTestCase</name></member>
+      <member refid="classAccelGyroTempSubscriberTest_1a419c199f9c6bbc610094323fb785eaac" prot="public" virt="non-virtual"><scope>AccelGyroTempSubscriberTest</scope><name>TearDownTestCase</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,118 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="imu__full__measured__data__provider_8cpp" kind="file" language="C++">
+    <compoundname>imu_full_measured_data_provider.cpp</compoundname>
+    <includes refid="imu__full__measured__data__provider_8h" local="yes">adi_imu/imu_full_measured_data_provider.h</includes>
+    <incdepgraph>
+      <node id="6">
+        <label>adis_data_access.h</label>
+        <link refid="adis__data__access_8h_source"/>
+      </node>
+      <node id="3">
+        <label>adi_imu/iio_wrapper.h</label>
+        <link refid="iio__wrapper_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>adi_imu/imu_full_measured_data_provider.h</label>
+        <link refid="imu__full__measured__data__provider_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>adi_imu/imu_full_measured_data_provider_interface.h</label>
+        <link refid="imu__full__measured__data__provider__interface_8h_source"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>src/imu_full_measured_data_provider.cpp</label>
+        <link refid="imu__full__measured__data__provider_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>adi_imu/msg/imu_full_measured_data.hpp</label>
+      </node>
+      <node id="4">
+        <label>iio.h</label>
+      </node>
+      <node id="5">
+        <label>string</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*******************************************************************************</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/><sp/><sp/>@file<sp/><sp/><sp/>imu_full_measured_data_provider.cpp</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/><sp/><sp/>@brief<sp/><sp/>Implementation<sp/>for<sp/>acceleration,<sp/>gyroscope,<sp/>temperature,<sp/>delta</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>velocity,<sp/>delta<sp/>angle<sp/>and<sp/>temperature<sp/>data<sp/>provider.</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/><sp/><sp/>@author<sp/>Vasile<sp/>Holonec<sp/>(Vasile.Holonec@analog.com)</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*******************************************************************************</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>2023(c)<sp/>Analog<sp/>Devices,<sp/>Inc.</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*<sp/>Licensed<sp/>under<sp/>the<sp/>Apache<sp/>License,<sp/>Version<sp/>2.0<sp/>(the<sp/>&quot;License&quot;);</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/>you<sp/>may<sp/>not<sp/>use<sp/>this<sp/>file<sp/>except<sp/>in<sp/>compliance<sp/>with<sp/>the<sp/>License.</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/>You<sp/>may<sp/>obtain<sp/>a<sp/>copy<sp/>of<sp/>the<sp/>License<sp/>at</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/>http://www.apache.org/licenses/LICENSE-2.0</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/>Unless<sp/>required<sp/>by<sp/>applicable<sp/>law<sp/>or<sp/>agreed<sp/>to<sp/>in<sp/>writing,<sp/>software</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*<sp/>distributed<sp/>under<sp/>the<sp/>License<sp/>is<sp/>distributed<sp/>on<sp/>an<sp/>&quot;AS<sp/>IS&quot;<sp/>BASIS,</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*<sp/>WITHOUT<sp/>WARRANTIES<sp/>OR<sp/>CONDITIONS<sp/>OF<sp/>ANY<sp/>KIND,<sp/>either<sp/>express<sp/>or<sp/>implied.</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/>See<sp/>the<sp/>License<sp/>for<sp/>the<sp/>specific<sp/>language<sp/>governing<sp/>permissions<sp/>and</highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*<sp/>limitations<sp/>under<sp/>the<sp/>License.</highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>******************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;adi_imu/imu_full_measured_data_provider.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><ref refid="classImuFullMeasuredDataProvider_1a8b4ccb7823f30176dc185c0b11991a8e" kindref="member">ImuFullMeasuredDataProvider::ImuFullMeasuredDataProvider</ref>()<sp/>{}</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><ref refid="classImuFullMeasuredDataProvider_1a44c5bb54a32d7f1514ba60687713ce1f" kindref="member">ImuFullMeasuredDataProvider::~ImuFullMeasuredDataProvider</ref>()<sp/>{}</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classImuFullMeasuredDataProvider_1a5276a9d259d563868d3769d6ab8bd1c8" kindref="member">ImuFullMeasuredDataProvider::getData</ref>(adi_imu::msg::ImuFullMeasuredData<sp/>&amp;<sp/>data)</highlight></codeline>
+<codeline lineno="29"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><ref refid="classImuFullMeasuredDataProvider_1a63ff7bc0aabb0df326fa9008790fe1b7" kindref="member">m_iio_wrapper</ref>.<ref refid="classIIOWrapper_1a807ef883b1b5a6119ce4ab75d21985c5" kindref="member">stopBufferAcquisition</ref>();</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/>data.header.frame_id<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;imufullmeasureddata&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!<ref refid="classImuFullMeasuredDataProvider_1a63ff7bc0aabb0df326fa9008790fe1b7" kindref="member">m_iio_wrapper</ref>.<ref refid="classIIOWrapper_1ad1c329ac2d3785a4c4ceee754d5b1c7c" kindref="member">getConvertedLinearAccelerationX</ref>(data.linear_acceleration.x))<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!<ref refid="classImuFullMeasuredDataProvider_1a63ff7bc0aabb0df326fa9008790fe1b7" kindref="member">m_iio_wrapper</ref>.<ref refid="classIIOWrapper_1a798839e37670a3ee83381c3b8e7bee9d" kindref="member">getConvertedLinearAccelerationY</ref>(data.linear_acceleration.y))<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!<ref refid="classImuFullMeasuredDataProvider_1a63ff7bc0aabb0df326fa9008790fe1b7" kindref="member">m_iio_wrapper</ref>.<ref refid="classIIOWrapper_1a63262c6685e600d505fc751db4f52f4e" kindref="member">getConvertedLinearAccelerationZ</ref>(data.linear_acceleration.z))<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!<ref refid="classImuFullMeasuredDataProvider_1a63ff7bc0aabb0df326fa9008790fe1b7" kindref="member">m_iio_wrapper</ref>.<ref refid="classIIOWrapper_1a188e946663bc7b97c34051307f4d5d27" kindref="member">getConvertedAngularVelocityX</ref>(data.angular_velocity.x))<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!<ref refid="classImuFullMeasuredDataProvider_1a63ff7bc0aabb0df326fa9008790fe1b7" kindref="member">m_iio_wrapper</ref>.<ref refid="classIIOWrapper_1a1f3f03307a91115e17ee3f18323f061a" kindref="member">getConvertedAngularVelocityY</ref>(data.angular_velocity.y))<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!<ref refid="classImuFullMeasuredDataProvider_1a63ff7bc0aabb0df326fa9008790fe1b7" kindref="member">m_iio_wrapper</ref>.<ref refid="classIIOWrapper_1adc9f70fada12dbe6e110a8bcddf6c539" kindref="member">getConvertedAngularVelocityZ</ref>(data.angular_velocity.z))<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!<ref refid="classImuFullMeasuredDataProvider_1a63ff7bc0aabb0df326fa9008790fe1b7" kindref="member">m_iio_wrapper</ref>.<ref refid="classIIOWrapper_1a6ef7ac4cd9d2b1b7e0cd9a7a44e6dd35" kindref="member">getConvertedDeltaVelocityX</ref>(data.delta_velocity.x))<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!<ref refid="classImuFullMeasuredDataProvider_1a63ff7bc0aabb0df326fa9008790fe1b7" kindref="member">m_iio_wrapper</ref>.<ref refid="classIIOWrapper_1ad566dd23cded258dea92a16a88946902" kindref="member">getConvertedDeltaVelocityY</ref>(data.delta_velocity.y))<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!<ref refid="classImuFullMeasuredDataProvider_1a63ff7bc0aabb0df326fa9008790fe1b7" kindref="member">m_iio_wrapper</ref>.<ref refid="classIIOWrapper_1a31a1dc7c03fc782b2eff9ae0f925e789" kindref="member">getConvertedDeltaVelocityZ</ref>(data.delta_velocity.z))<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!<ref refid="classImuFullMeasuredDataProvider_1a63ff7bc0aabb0df326fa9008790fe1b7" kindref="member">m_iio_wrapper</ref>.<ref refid="classIIOWrapper_1a68420aad14da02a7fd8316b6c7853c03" kindref="member">getConvertedDeltaAngleX</ref>(data.delta_angle.x))<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!<ref refid="classImuFullMeasuredDataProvider_1a63ff7bc0aabb0df326fa9008790fe1b7" kindref="member">m_iio_wrapper</ref>.<ref refid="classIIOWrapper_1a58453b95cb9193b5b2813fd3c1f5e4d7" kindref="member">getConvertedDeltaAngleY</ref>(data.delta_angle.y))<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!<ref refid="classImuFullMeasuredDataProvider_1a63ff7bc0aabb0df326fa9008790fe1b7" kindref="member">m_iio_wrapper</ref>.<ref refid="classIIOWrapper_1a29160e4f1947315e1862bf1c1a0630bc" kindref="member">getConvertedDeltaAngleZ</ref>(data.delta_angle.z))<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classImuFullMeasuredDataProvider_1a63ff7bc0aabb0df326fa9008790fe1b7" kindref="member">m_iio_wrapper</ref>.<ref refid="classIIOWrapper_1a23f8fbda995629b864dc72bcf3ba0984" kindref="member">getConvertedTemperature</ref>(data.temperature);</highlight></codeline>
+<codeline lineno="59"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="src/imu_full_measured_data_provider.cpp"/>
+  </compounddef>
+</doxygen>

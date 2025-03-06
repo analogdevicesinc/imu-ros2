@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="imu__identification__data__provider_8h" kind="file" language="C++">
+    <compoundname>imu_identification_data_provider.h</compoundname>
+    <includes refid="iio__wrapper_8h" local="yes">adi_imu/iio_wrapper.h</includes>
+    <includes refid="imu__identification__data__provider__interface_8h" local="yes">adi_imu/imu_identification_data_provider_interface.h</includes>
+    <includedby refid="imu__identification__data__provider_8cpp" local="yes">src/imu_identification_data_provider.cpp</includedby>
+    <includedby refid="imu__ros2__node_8cpp" local="yes">src/imu_ros2_node.cpp</includedby>
+    <incdepgraph>
+      <node id="5">
+        <label>adis_data_access.h</label>
+        <link refid="adis__data__access_8h_source"/>
+      </node>
+      <node id="2">
+        <label>adi_imu/iio_wrapper.h</label>
+        <link refid="iio__wrapper_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>include/adi_imu/imu_identification_data_provider.h</label>
+        <link refid="imu__identification__data__provider_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>adi_imu/imu_identification_data_provider_interface.h</label>
+        <link refid="imu__identification__data__provider__interface_8h_source"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>adi_imu/msg/imu_identification_data.hpp</label>
+      </node>
+      <node id="3">
+        <label>iio.h</label>
+      </node>
+      <node id="4">
+        <label>string</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classImuIdentificationDataProvider" prot="public">ImuIdentificationDataProvider</innerclass>
+    <briefdescription>
+<para>Header for providing imu identification data. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>Vasile Holonec (<ulink url="mailto:Vasile.Holonec@analog.com">Vasile.Holonec@analog.com</ulink>)</para>
+</simplesect>
+Copyright 2023(c) Analog Devices, Inc.</para>
+<para>Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may not use this file except in compliance with the License. You may obtain a copy of the License at <verbatim>http://www.apache.org/licenses/LICENSE-2.0
+</verbatim> Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License. </para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/***************************************************************************/</highlight><highlight class="normal"><sp/></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>IMU_IDENTIFICATION_DATA_PROVIDER_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>IMU_IDENTIFICATION_DATA_PROVIDER_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;adi_imu/iio_wrapper.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;adi_imu/imu_identification_data_provider_interface.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30" refid="classImuIdentificationDataProvider" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classImuIdentificationDataProvider" kindref="compound">ImuIdentificationDataProvider</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classImuIdentificationDataProviderInterface" kindref="compound">ImuIdentificationDataProviderInterface</ref></highlight></codeline>
+<codeline lineno="31"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><ref refid="classImuIdentificationDataProvider_1a6b774b1a11a08fcdc6df1dfcb2b490d2" kindref="member">ImuIdentificationDataProvider</ref>();</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><ref refid="classImuIdentificationDataProvider_1ae4317cdb317f46f14a10723f767d7025" kindref="member">~ImuIdentificationDataProvider</ref>();</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classImuIdentificationDataProvider_1ae93f13d5654f5d83cb1b672b9984fbbb" kindref="member">getData</ref>(adi_imu::msg::ImuIdentificationData<sp/>&amp;<sp/>message)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="53" refid="classImuIdentificationDataProvider_1ab2abdffd81df3c14185e5b9115fb26f6" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="classIIOWrapper" kindref="compound">IIOWrapper</ref><sp/><ref refid="classImuIdentificationDataProvider_1ab2abdffd81df3c14185e5b9115fb26f6" kindref="member">m_iio_wrapper</ref>;</highlight></codeline>
+<codeline lineno="54"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/></highlight><highlight class="comment">//<sp/>IMU_IDENTIFICATION_DATA_PROVIDER_STRING_H</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="include/adi_imu/imu_identification_data_provider.h"/>
+  </compounddef>
+</doxygen>

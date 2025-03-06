@@ -1,0 +1,7 @@
+<map id="ImuDiagDataProvider" name="ImuDiagDataProvider">
+<area shape="rect" id="Node000001" title="Class for diagnosis data provider for adis chips." alt="" coords="125,93,287,119"/>
+<area shape="rect" id="Node000002" href="$classImuDiagDataProviderInterface.html" title="Interface for diagnosis data provider for adis chips." alt="" coords="5,5,225,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="139,38,195,91,192,95,136,42"/>
+<area shape="rect" id="Node000003" href="$classIIOWrapper.html" title="Wrapper class for libiio library for IMU devices." alt="" coords="249,5,344,31"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="276,42,220,95,217,91,273,38"/>
+</map>

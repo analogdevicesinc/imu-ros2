@@ -1,0 +1,15 @@
+<map id="include/adi_imu/imu_identification_data_provider.h" name="include/adi_imu/imu_identification_data_provider.h">
+<area shape="rect" id="Node000001" title="Header for providing imu identification data." alt="" coords="199,5,353,60"/>
+<area shape="rect" id="Node000002" href="$iio__wrapper_8h_source.html" title=" " alt="" coords="91,115,256,141"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="249,62,198,108,195,104,245,58"/>
+<area shape="rect" id="Node000006" href="$imu__identification__data__provider__interface_8h_source.html" title=" " alt="" coords="315,108,511,148"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="316,58,376,98,373,103,313,62"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,203,56,229"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="155,143,63,198,60,194,153,139"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="80,203,139,229"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="167,142,129,193,124,190,163,139"/>
+<area shape="rect" id="Node000005" href="$adis__data__access_8h_source.html" title=" " alt="" coords="163,203,311,229"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="184,139,222,190,218,193,180,142"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="336,196,563,236"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="424,147,439,182,434,184,419,149"/>
+</map>

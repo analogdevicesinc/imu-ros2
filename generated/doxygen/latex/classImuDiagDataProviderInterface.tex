@@ -1,0 +1,65 @@
+\doxysection{Imu\+Diag\+Data\+Provider\+Interface Class Reference}
+\hypertarget{classImuDiagDataProviderInterface}{}\label{classImuDiagDataProviderInterface}\index{ImuDiagDataProviderInterface@{ImuDiagDataProviderInterface}}
+
+
+Interface for diagnosis data provider for adis chips.  
+
+
+
+
+{\ttfamily \#include $<$imu\+\_\+diag\+\_\+data\+\_\+provider\+\_\+interface.\+h$>$}
+
+
+
+Inheritance diagram for Imu\+Diag\+Data\+Provider\+Interface\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=245pt]{classImuDiagDataProviderInterface__inherit__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classImuDiagDataProviderInterface_a13231358624249ee9136d8e44fe35765}\label{classImuDiagDataProviderInterface_a13231358624249ee9136d8e44fe35765} 
+{\bfseries Imu\+Diag\+Data\+Provider\+Interface} ()
+\begin{DoxyCompactList}\small\item\em Constructor for \doxylink{classImuDiagDataProviderInterface}{Imu\+Diag\+Data\+Provider\+Interface}. \end{DoxyCompactList}\item 
+\Hypertarget{classImuDiagDataProviderInterface_acae6d777d7c6e038cec89826d9e9d1b2}\label{classImuDiagDataProviderInterface_acae6d777d7c6e038cec89826d9e9d1b2} 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Imu\+Diag\+Data\+Provider\+Interface} ()
+\begin{DoxyCompactList}\small\item\em Destructor for \doxylink{classImuDiagDataProviderInterface}{Imu\+Diag\+Data\+Provider\+Interface}. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classImuDiagDataProviderInterface_a35be63cb4a4509a40d8af262420fb70f}{get\+Data}} (adi\+\_\+imu\+::msg\+::\+Imu\+Diag\+Data \&message)=0
+\begin{DoxyCompactList}\small\item\em Populate Imu\+Diag\+Data message with diagnosis data. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Interface for diagnosis data provider for adis chips. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classImuDiagDataProviderInterface_a35be63cb4a4509a40d8af262420fb70f}\label{classImuDiagDataProviderInterface_a35be63cb4a4509a40d8af262420fb70f} 
+\index{ImuDiagDataProviderInterface@{ImuDiagDataProviderInterface}!getData@{getData}}
+\index{getData@{getData}!ImuDiagDataProviderInterface@{ImuDiagDataProviderInterface}}
+\doxysubsubsection{\texorpdfstring{getData()}{getData()}}
+{\footnotesize\ttfamily virtual bool Imu\+Diag\+Data\+Provider\+Interface\+::get\+Data (\begin{DoxyParamCaption}\item[{adi\+\_\+imu\+::msg\+::\+Imu\+Diag\+Data \&}]{message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Populate Imu\+Diag\+Data message with diagnosis data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & Message containing the diagnosis data. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return true if the message parameter is successfully populated with diagnosis data and false otherwise. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classImuDiagDataProvider_a934cc7ba53b5e091d9e8f6fd55448ca2}{Imu\+Diag\+Data\+Provider}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/adi\+\_\+imu/imu\+\_\+diag\+\_\+data\+\_\+provider\+\_\+interface.\+h\end{DoxyCompactItemize}

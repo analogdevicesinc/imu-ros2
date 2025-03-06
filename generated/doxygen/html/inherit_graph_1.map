@@ -1,0 +1,5 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="Node000000" href="$classAccelGyroTempRosPublisherInterface.html" title="Interface for acceleration, angular velocity and temperature publisher." alt="" coords="5,5,212,45"/>
+<area shape="rect" id="Node000001" href="$classAccelGyroTempRosPublisher.html" title="Class for acceleration, angular velocity and temperature publisher." alt="" coords="260,13,467,38"/>
+<area shape="poly" id="edge2_Node000000_Node000001" title=" " alt="" coords="225,23,260,23,260,28,225,28"/>
+</map>

@@ -1,0 +1,47 @@
+\doxysection{worker\+\_\+thread.\+h}
+\hypertarget{worker__thread_8h_source}{}\label{worker__thread_8h_source}\index{include/adi\_imu/worker\_thread.h@{include/adi\_imu/worker\_thread.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*******************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ \ \ @file\ \ \ worker\_thread.h}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ \ \ @brief\ \ Header\ for\ ros\ imu\ threads.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ \ \ @author\ Vasile\ Holonec\ (Vasile.Holonec@analog.com)}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *******************************************************************************}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ Copyright\ 2023(c)\ Analog\ Devices,\ Inc.}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ Licensed\ under\ the\ Apache\ License,\ Version\ 2.0\ (the\ "{}License"{});}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *\ you\ may\ not\ use\ this\ file\ except\ in\ compliance\ with\ the\ License.}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ You\ may\ obtain\ a\ copy\ of\ the\ License\ at}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ \ \ \ \ http://www.apache.org/licenses/LICENSE-\/2.0}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ Unless\ required\ by\ applicable\ law\ or\ agreed\ to\ in\ writing,\ software}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ distributed\ under\ the\ License\ is\ distributed\ on\ an\ "{}AS\ IS"{}\ BASIS,}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ WITHOUT\ WARRANTIES\ OR\ CONDITIONS\ OF\ ANY\ KIND,\ either\ express\ or\ implied.}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ See\ the\ License\ for\ the\ specific\ language\ governing\ permissions\ and}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ *\ limitations\ under\ the\ License.}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ ******************************************************************************/}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#ifndef\ WORKER\_THREAD\_H}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ WORKER\_THREAD\_H}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ <thread>}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#include\ "{}adi\_imu/ros\_task.h"{}}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00031\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classWorkerThread}{WorkerThread}}\ :\ \textcolor{keyword}{public}\ std::thread}
+\DoxyCodeLine{00032\ \{}
+\DoxyCodeLine{00033\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00038\ \ \ \mbox{\hyperlink{classWorkerThread}{WorkerThread}}(\mbox{\hyperlink{classRosTask}{RosTask}}\ *\ rosTask);}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00043\ \ \ \mbox{\hyperlink{classWorkerThread_a5aa554e7d73f0f185a850ca0ef145d6d}{\string~WorkerThread}}();}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00048\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classWorkerThread_a15c7f87a0cf955ef034ec99f9ccb22ff}{runTask}}();}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00052\ \ \ \mbox{\hyperlink{classRosTask}{RosTask}}\ *\ \mbox{\hyperlink{classWorkerThread_a51d45d8d09d7826fe6e9ac5fa31dceec}{m\_rosTask}};}
+\DoxyCodeLine{00053\ \};}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ WORKER\_THREAD\_H}}
+
+\end{DoxyCode}

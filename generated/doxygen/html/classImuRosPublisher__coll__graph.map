@@ -1,0 +1,7 @@
+<map id="ImuRosPublisher" name="ImuRosPublisher">
+<area shape="rect" id="Node000001" title="Class for standard message sensor_msgs::msg::Imu publisher." alt="" coords="141,93,272,119"/>
+<area shape="rect" id="Node000002" href="$classImuRosPublisherInterface.html" title="Interface for standard message sensor_msgs::msg::Imu publisher." alt="" coords="5,5,195,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="127,37,194,91,191,95,123,41"/>
+<area shape="rect" id="Node000003" href="$classImuDataProviderInterface.html" title="Interface for standard message sensor_msgs::msg::Imu data provider." alt="" coords="219,5,410,31"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="291,41,223,95,220,91,288,37"/>
+</map>

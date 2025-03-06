@@ -1,0 +1,5 @@
+<map id="ImuDiagDataProviderInterface" name="ImuDiagDataProviderInterface">
+<area shape="rect" id="Node000001" title="Interface for diagnosis data provider for adis chips." alt="" coords="5,5,225,31"/>
+<area shape="rect" id="Node000002" href="$classImuDiagDataProvider.html" title="Class for diagnosis data provider for adis chips." alt="" coords="34,79,197,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="118,44,118,79,113,79,113,44"/>
+</map>

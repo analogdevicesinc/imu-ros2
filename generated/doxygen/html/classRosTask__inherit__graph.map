@@ -1,0 +1,15 @@
+<map id="RosTask" name="RosTask">
+<area shape="rect" id="Node000001" title="Interface for running a task in a thread." alt="" coords="5,63,80,88"/>
+<area shape="rect" id="Node000002" href="$classImuDiagRosPublisherInterface.html" title="Interface for diagnosis publisher for adis chips." alt="" coords="128,5,347,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="86,55,127,41,174,28,176,33,129,46,88,60"/>
+<area shape="rect" id="Node000004" href="$classImuIdentificationRosPublisherInterface.html" title="Interface for identification publisher." alt="" coords="129,55,345,95"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="93,73,129,73,129,78,93,78"/>
+<area shape="rect" id="Node000006" href="$classRosPublisherGroupInterface.html" title="Interface for publisher group." alt="" coords="136,120,339,145"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="88,90,129,105,176,117,174,122,127,110,86,95"/>
+<area shape="rect" id="Node000003" href="$classImuDiagRosPublisher.html" title="Class for diagnosis publisher for adis1657x chips." alt="" coords="422,5,583,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="361,15,422,15,422,21,361,21"/>
+<area shape="rect" id="Node000005" href="$classImuIdentificationRosPublisher.html" title="Class for identification publisher." alt="" coords="395,63,611,88"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="359,73,395,73,395,78,359,78"/>
+<area shape="rect" id="Node000007" href="$classRosPublisherGroup.html" title="Class ROS publisher group." alt="" coords="430,120,575,145"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="352,130,430,130,430,135,352,135"/>
+</map>

@@ -1,0 +1,9 @@
+<map id="ImuIdentificationRosPublisher" name="ImuIdentificationRosPublisher">
+<area shape="rect" id="Node000001" title="Class for identification publisher." alt="" coords="125,183,341,208"/>
+<area shape="rect" id="Node000002" href="$classImuIdentificationRosPublisherInterface.html" title="Interface for identification publisher." alt="" coords="5,80,221,120"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="150,126,220,180,217,185,147,131"/>
+<area shape="rect" id="Node000003" href="$classRosTask.html" title="Interface for running a task in a thread." alt="" coords="76,5,151,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="116,44,116,80,111,80,111,44"/>
+<area shape="rect" id="Node000004" href="$classImuIdentificationDataProviderInterface.html" title="Interface for identification data provider." alt="" coords="246,80,463,120"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="321,131,250,185,247,180,317,126"/>
+</map>

@@ -1,0 +1,504 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="iio__wrapper_8h" kind="file" language="C++">
+    <compoundname>iio_wrapper.h</compoundname>
+    <includes local="no">iio.h</includes>
+    <includes local="no">string</includes>
+    <includes refid="adis__data__access_8h" local="yes">adis_data_access.h</includes>
+    <includedby refid="accelgyrotemp__data__provider_8h" local="yes">include/adi_imu/accelgyrotemp_data_provider.h</includedby>
+    <includedby refid="imu__control__parameters_8h" local="yes">include/adi_imu/imu_control_parameters.h</includedby>
+    <includedby refid="imu__data__provider_8h" local="yes">include/adi_imu/imu_data_provider.h</includedby>
+    <includedby refid="imu__diag__data__provider_8h" local="yes">include/adi_imu/imu_diag_data_provider.h</includedby>
+    <includedby refid="imu__full__measured__data__provider_8h" local="yes">include/adi_imu/imu_full_measured_data_provider.h</includedby>
+    <includedby refid="imu__identification__data__provider_8h" local="yes">include/adi_imu/imu_identification_data_provider.h</includedby>
+    <includedby refid="velangtemp__data__provider_8h" local="yes">include/adi_imu/velangtemp_data_provider.h</includedby>
+    <includedby refid="iio__wrapper_8cpp" local="yes">src/iio_wrapper.cpp</includedby>
+    <includedby refid="accelgyrotemp__subscriber__test_8cpp" local="yes">test/src/accelgyrotemp_subscriber_test.cpp</includedby>
+    <includedby refid="imu__full__measured__data__subscriber__test_8cpp" local="yes">test/src/imu_full_measured_data_subscriber_test.cpp</includedby>
+    <includedby refid="imu__identification__subscriber__test_8cpp" local="yes">test/src/imu_identification_subscriber_test.cpp</includedby>
+    <includedby refid="imu__subscriber__test_8cpp" local="yes">test/src/imu_subscriber_test.cpp</includedby>
+    <includedby refid="velangtemp__subscriber__test_8cpp" local="yes">test/src/velangtemp_subscriber_test.cpp</includedby>
+    <incdepgraph>
+      <node id="4">
+        <label>adis_data_access.h</label>
+        <link refid="adis__data__access_8h_source"/>
+      </node>
+      <node id="1">
+        <label>include/adi_imu/iio_wrapper.h</label>
+        <link refid="iio__wrapper_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>iio.h</label>
+      </node>
+      <node id="3">
+        <label>string</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>include/adi_imu/accelgyrotemp_data_provider.h</label>
+        <link refid="accelgyrotemp__data__provider_8h_source"/>
+      </node>
+      <node id="1">
+        <label>include/adi_imu/iio_wrapper.h</label>
+        <link refid="iio__wrapper_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>include/adi_imu/imu_control_parameters.h</label>
+        <link refid="imu__control__parameters_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>include/adi_imu/imu_data_provider.h</label>
+        <link refid="imu__data__provider_8h_source"/>
+      </node>
+      <node id="6">
+        <label>include/adi_imu/imu_diag_data_provider.h</label>
+        <link refid="imu__diag__data__provider_8h_source"/>
+      </node>
+      <node id="7">
+        <label>include/adi_imu/imu_full_measured_data_provider.h</label>
+        <link refid="imu__full__measured__data__provider_8h_source"/>
+      </node>
+      <node id="8">
+        <label>include/adi_imu/imu_identification_data_provider.h</label>
+        <link refid="imu__identification__data__provider_8h"/>
+      </node>
+      <node id="9">
+        <label>include/adi_imu/velangtemp_data_provider.h</label>
+        <link refid="velangtemp__data__provider_8h_source"/>
+      </node>
+      <node id="10">
+        <label>src/iio_wrapper.cpp</label>
+        <link refid="iio__wrapper_8cpp"/>
+      </node>
+      <node id="4">
+        <label>src/imu_control_parameters.cpp</label>
+        <link refid="imu__control__parameters_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classIIOWrapper" prot="public">IIOWrapper</innerclass>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="iio__wrapper_8h_1ab70d8c3d394df58fe73a31949cee087d" prot="public" static="no">
+        <name>IIO_CONTEXT_ERROR</name>
+        <initializer>-1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/iio_wrapper.h" line="24" column="9" bodyfile="include/adi_imu/iio_wrapper.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*******************************************************************************</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/><sp/><sp/>@file<sp/><sp/><sp/>iio_wrapper.h</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/><sp/><sp/>@brief<sp/><sp/>Wrapper<sp/>for<sp/>iio<sp/>library</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*<sp/><sp/><sp/>@author<sp/>Vasile<sp/>Holonec<sp/>(Vasile.Holonec@analog.com)</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*******************************************************************************</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>2023(c)<sp/>Analog<sp/>Devices,<sp/>Inc.</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/>Licensed<sp/>under<sp/>the<sp/>Apache<sp/>License,<sp/>Version<sp/>2.0<sp/>(the<sp/>&quot;License&quot;);</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*<sp/>you<sp/>may<sp/>not<sp/>use<sp/>this<sp/>file<sp/>except<sp/>in<sp/>compliance<sp/>with<sp/>the<sp/>License.</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/>You<sp/>may<sp/>obtain<sp/>a<sp/>copy<sp/>of<sp/>the<sp/>License<sp/>at</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/>http://www.apache.org/licenses/LICENSE-2.0</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/>Unless<sp/>required<sp/>by<sp/>applicable<sp/>law<sp/>or<sp/>agreed<sp/>to<sp/>in<sp/>writing,<sp/>software</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/>distributed<sp/>under<sp/>the<sp/>License<sp/>is<sp/>distributed<sp/>on<sp/>an<sp/>&quot;AS<sp/>IS&quot;<sp/>BASIS,</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*<sp/>WITHOUT<sp/>WARRANTIES<sp/>OR<sp/>CONDITIONS<sp/>OF<sp/>ANY<sp/>KIND,<sp/>either<sp/>express<sp/>or<sp/>implied.</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*<sp/>See<sp/>the<sp/>License<sp/>for<sp/>the<sp/>specific<sp/>language<sp/>governing<sp/>permissions<sp/>and</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/>limitations<sp/>under<sp/>the<sp/>License.</highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>******************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>IIO_WRAPPER_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>IIO_WRAPPER_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>IIO_CONTEXT_ERROR<sp/>-1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;iio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;adis_data_access.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35" refid="classIIOWrapper" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classIIOWrapper" kindref="compound">IIOWrapper</ref></highlight></codeline>
+<codeline lineno="36"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><ref refid="classIIOWrapper_1ae9b4506c5a6cb9d56e36d11c3d4fc56e" kindref="member">IIOWrapper</ref>();</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><ref refid="classIIOWrapper_1ab4e9232cf3ba9539db8e4bfac2e0ebf0" kindref="member">~IIOWrapper</ref>();</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1aa56bb91153c46ef51c3d3d53a68cc423" kindref="member">createContext</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>context);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1ae179fe95e80ad6624c6782de04c854ed" kindref="member">updateBuffer</ref>(uint32_t<sp/>data_selection);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1a807ef883b1b5a6119ce4ab75d21985c5" kindref="member">stopBufferAcquisition</ref>();</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1a24d03c22a08baf0c5209d7f31c9d0533" kindref="member">getBuffLinearAccelerationX</ref>();</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1a809c113401e38fdf0fc660735a2192e1" kindref="member">getBuffLinearAccelerationY</ref>();</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1a41e760380fa5036a652201e2df50c889" kindref="member">getBuffLinearAccelerationZ</ref>();</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1ab98be528a5805d948e0cbf8c81bdac26" kindref="member">getBuffAngularVelocityX</ref>();</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1a530c457c0cd4d81951b7d174072fd75b" kindref="member">getBuffAngularVelocityY</ref>();</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1a4d5286b33d41295f1cc6567f67b4d6d2" kindref="member">getBuffAngularVelocityZ</ref>();</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>ADIS_HAS_DELTA_BURST</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>getBuffDeltaVelocityX();</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>getBuffDeltaVelocityY();</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>getBuffDeltaVelocityZ();</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>getBuffDeltaAngleX();</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"></highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>getBuffDeltaAngleY();</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"></highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>getBuffDeltaAngleZ();</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="169"><highlight class="normal"></highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1a8636bc7c28c829538d05d5bb638c9074" kindref="member">getBuffTemperature</ref>();</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"></highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1a4a4cea0c85854aef0117ce98a587b8b4" kindref="member">getBuffSampleTimestamp</ref>(int32_t<sp/>&amp;<sp/>sec,<sp/>uint32_t<sp/>&amp;<sp/>nanosec);</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"></highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1ad1c329ac2d3785a4c4ceee754d5b1c7c" kindref="member">getConvertedLinearAccelerationX</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>&amp;<sp/>result);</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"></highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1a798839e37670a3ee83381c3b8e7bee9d" kindref="member">getConvertedLinearAccelerationY</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>&amp;<sp/>result);</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"></highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1a63262c6685e600d505fc751db4f52f4e" kindref="member">getConvertedLinearAccelerationZ</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>&amp;<sp/>result);</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"></highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1a188e946663bc7b97c34051307f4d5d27" kindref="member">getConvertedAngularVelocityX</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>&amp;<sp/>result);</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"></highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1a1f3f03307a91115e17ee3f18323f061a" kindref="member">getConvertedAngularVelocityY</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>&amp;<sp/>result);</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"></highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1adc9f70fada12dbe6e110a8bcddf6c539" kindref="member">getConvertedAngularVelocityZ</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>&amp;<sp/>result);</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"></highlight></codeline>
+<codeline lineno="248"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1a68420aad14da02a7fd8316b6c7853c03" kindref="member">getConvertedDeltaAngleX</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>&amp;<sp/>result);</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"></highlight></codeline>
+<codeline lineno="257"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1a58453b95cb9193b5b2813fd3c1f5e4d7" kindref="member">getConvertedDeltaAngleY</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>&amp;<sp/>result);</highlight></codeline>
+<codeline lineno="258"><highlight class="normal"></highlight></codeline>
+<codeline lineno="266"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1a29160e4f1947315e1862bf1c1a0630bc" kindref="member">getConvertedDeltaAngleZ</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>&amp;<sp/>result);</highlight></codeline>
+<codeline lineno="267"><highlight class="normal"></highlight></codeline>
+<codeline lineno="275"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1a6ef7ac4cd9d2b1b7e0cd9a7a44e6dd35" kindref="member">getConvertedDeltaVelocityX</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>&amp;<sp/>result);</highlight></codeline>
+<codeline lineno="276"><highlight class="normal"></highlight></codeline>
+<codeline lineno="284"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1ad566dd23cded258dea92a16a88946902" kindref="member">getConvertedDeltaVelocityY</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>&amp;<sp/>result);</highlight></codeline>
+<codeline lineno="285"><highlight class="normal"></highlight></codeline>
+<codeline lineno="293"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1a31a1dc7c03fc782b2eff9ae0f925e789" kindref="member">getConvertedDeltaVelocityZ</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>&amp;<sp/>result);</highlight></codeline>
+<codeline lineno="294"><highlight class="normal"></highlight></codeline>
+<codeline lineno="302"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1a23f8fbda995629b864dc72bcf3ba0984" kindref="member">getConvertedTemperature</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>&amp;<sp/>result);</highlight></codeline>
+<codeline lineno="303"><highlight class="normal"></highlight></codeline>
+<codeline lineno="310"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1a2cc98e4d4a651e82c7d5766f824acebd" kindref="member">anglvel_x_calibbias</ref>(int32_t<sp/>&amp;<sp/>result);</highlight></codeline>
+<codeline lineno="311"><highlight class="normal"></highlight></codeline>
+<codeline lineno="318"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1a09fa5c163037f078a83e813ef13f73e9" kindref="member">update_anglvel_calibbias_x</ref>(int32_t<sp/>val);</highlight></codeline>
+<codeline lineno="319"><highlight class="normal"></highlight></codeline>
+<codeline lineno="326"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1aafec41ed9294cf0ef6ac0afaf350188e" kindref="member">anglvel_y_calibbias</ref>(int32_t<sp/>&amp;<sp/>result);</highlight></codeline>
+<codeline lineno="327"><highlight class="normal"></highlight></codeline>
+<codeline lineno="334"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1a3730f3c7dcea63f4e2104a02c1e695ae" kindref="member">update_anglvel_calibbias_y</ref>(int32_t<sp/>val);</highlight></codeline>
+<codeline lineno="335"><highlight class="normal"></highlight></codeline>
+<codeline lineno="342"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1a84a5ecfbf0942fa175703f1a0aee8bcd" kindref="member">anglvel_z_calibbias</ref>(int32_t<sp/>&amp;<sp/>result);</highlight></codeline>
+<codeline lineno="343"><highlight class="normal"></highlight></codeline>
+<codeline lineno="350"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1a640785a86e54405eecad55a93321bc26" kindref="member">update_anglvel_calibbias_z</ref>(int32_t<sp/>val);</highlight></codeline>
+<codeline lineno="351"><highlight class="normal"></highlight></codeline>
+<codeline lineno="358"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1a45cbee4a2eaf700b7396a4df956ed7e8" kindref="member">accel_x_calibbias</ref>(int32_t<sp/>&amp;<sp/>result);</highlight></codeline>
+<codeline lineno="359"><highlight class="normal"></highlight></codeline>
+<codeline lineno="366"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1a371075c2f73786fc409dbfe11bb9b68f" kindref="member">update_accel_calibbias_x</ref>(int32_t<sp/>val);</highlight></codeline>
+<codeline lineno="367"><highlight class="normal"></highlight></codeline>
+<codeline lineno="374"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1ab069f082479643718588962ed76e48e9" kindref="member">accel_y_calibbias</ref>(int32_t<sp/>&amp;<sp/>result);</highlight></codeline>
+<codeline lineno="375"><highlight class="normal"></highlight></codeline>
+<codeline lineno="382"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1a6b81ddc7f9f7c67b15e4f8be594c0926" kindref="member">update_accel_calibbias_y</ref>(int32_t<sp/>val);</highlight></codeline>
+<codeline lineno="383"><highlight class="normal"></highlight></codeline>
+<codeline lineno="390"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1a777c78d431b5fc16088018b52ffa8d3a" kindref="member">accel_z_calibbias</ref>(int32_t<sp/>&amp;<sp/>result);</highlight></codeline>
+<codeline lineno="391"><highlight class="normal"></highlight></codeline>
+<codeline lineno="398"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1a4265bcbf41f4c0582e08f30f5ab63eca" kindref="member">update_accel_calibbias_z</ref>(int32_t<sp/>val);</highlight></codeline>
+<codeline lineno="399"><highlight class="normal"></highlight></codeline>
+<codeline lineno="400"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(ADIS1654X)<sp/>||<sp/>defined(ADIS1655X)</highlight></codeline>
+<codeline lineno="407"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>angvel_x_filter_low_pass_3db(uint32_t<sp/>&amp;<sp/>result);</highlight></codeline>
+<codeline lineno="414"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>update_angvel_x_filter_low_pass_3db(uint32_t<sp/>val);</highlight></codeline>
+<codeline lineno="415"><highlight class="normal"></highlight></codeline>
+<codeline lineno="422"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>angvel_y_filter_low_pass_3db(uint32_t<sp/>&amp;<sp/>result);</highlight></codeline>
+<codeline lineno="429"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>update_angvel_y_filter_low_pass_3db(uint32_t<sp/>val);</highlight></codeline>
+<codeline lineno="430"><highlight class="normal"></highlight></codeline>
+<codeline lineno="437"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>angvel_z_filter_low_pass_3db(uint32_t<sp/>&amp;<sp/>result);</highlight></codeline>
+<codeline lineno="444"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>update_angvel_z_filter_low_pass_3db(uint32_t<sp/>val);</highlight></codeline>
+<codeline lineno="445"><highlight class="normal"></highlight></codeline>
+<codeline lineno="452"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>accel_x_filter_low_pass_3db(uint32_t<sp/>&amp;<sp/>result);</highlight></codeline>
+<codeline lineno="459"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>update_accel_x_filter_low_pass_3db(uint32_t<sp/>val);</highlight></codeline>
+<codeline lineno="460"><highlight class="normal"></highlight></codeline>
+<codeline lineno="467"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>accel_y_filter_low_pass_3db(uint32_t<sp/>&amp;<sp/>result);</highlight></codeline>
+<codeline lineno="474"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>update_accel_y_filter_low_pass_3db(uint32_t<sp/>val);</highlight></codeline>
+<codeline lineno="475"><highlight class="normal"></highlight></codeline>
+<codeline lineno="482"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>accel_z_filter_low_pass_3db(uint32_t<sp/>&amp;<sp/>result);</highlight></codeline>
+<codeline lineno="489"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>update_accel_z_filter_low_pass_3db(uint32_t<sp/>val);</highlight></codeline>
+<codeline lineno="490"><highlight class="normal"></highlight></codeline>
+<codeline lineno="491"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight></codeline>
+<codeline lineno="498"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1aee4ed59f8c41d2c1e1ad95d5179e0e61" kindref="member">filter_low_pass_3db_frequency</ref>(uint32_t<sp/>&amp;<sp/>result);</highlight></codeline>
+<codeline lineno="499"><highlight class="normal"></highlight></codeline>
+<codeline lineno="506"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1ab960b56f3b8fb3bab2f4d3e492616bca" kindref="member">update_filter_low_pass_3db_frequency</ref>(uint32_t<sp/>val);</highlight></codeline>
+<codeline lineno="507"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="508"><highlight class="normal"></highlight></codeline>
+<codeline lineno="509"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>ADIS_HAS_CALIB_SCALE</highlight></codeline>
+<codeline lineno="516"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>accel_x_calibscale(int32_t<sp/>&amp;<sp/>result);</highlight></codeline>
+<codeline lineno="523"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>accel_y_calibscale(int32_t<sp/>&amp;<sp/>result);</highlight></codeline>
+<codeline lineno="530"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>accel_z_calibscale(int32_t<sp/>&amp;<sp/>result);</highlight></codeline>
+<codeline lineno="537"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>anglvel_x_calibscale(int32_t<sp/>&amp;<sp/>result);</highlight></codeline>
+<codeline lineno="544"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>anglvel_y_calibscale(int32_t<sp/>&amp;<sp/>result);</highlight></codeline>
+<codeline lineno="551"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>anglvel_z_calibscale(int32_t<sp/>&amp;<sp/>result);</highlight></codeline>
+<codeline lineno="552"><highlight class="normal"></highlight></codeline>
+<codeline lineno="559"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>update_accel_calibscale_x(int32_t<sp/>val);</highlight></codeline>
+<codeline lineno="566"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>update_accel_calibscale_y(int32_t<sp/>val);</highlight></codeline>
+<codeline lineno="573"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>update_accel_calibscale_z(int32_t<sp/>val);</highlight></codeline>
+<codeline lineno="580"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>update_anglvel_calibscale_x(int32_t<sp/>val);</highlight></codeline>
+<codeline lineno="587"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>update_anglvel_calibscale_y(int32_t<sp/>val);</highlight></codeline>
+<codeline lineno="594"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>update_anglvel_calibscale_z(int32_t<sp/>val);</highlight></codeline>
+<codeline lineno="595"><highlight class="normal"></highlight></codeline>
+<codeline lineno="596"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="597"><highlight class="normal"></highlight></codeline>
+<codeline lineno="604"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1ac8584252d4635e9a3c00f464cc176b17" kindref="member">sampling_frequency</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*<sp/>result);</highlight></codeline>
+<codeline lineno="605"><highlight class="normal"></highlight></codeline>
+<codeline lineno="612"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1a5cf1f0bfc5f5f0cf43c9707f399c2001" kindref="member">update_sampling_frequency</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>val);</highlight></codeline>
+<codeline lineno="613"><highlight class="normal"></highlight></codeline>
+<codeline lineno="620" refid="classIIOWrapper_1ac818ead3ccd5f2a7c8ab59f5464cff9a" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1ac818ead3ccd5f2a7c8ab59f5464cff9a" kindref="member">diag_sensor_initialization_failure</ref>(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>&amp;<sp/>result);</highlight></codeline>
+<codeline lineno="621"><highlight class="normal"></highlight></codeline>
+<codeline lineno="628" refid="classIIOWrapper_1aacdab905284a0a6ecabb1b9bcad81be9" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1aacdab905284a0a6ecabb1b9bcad81be9" kindref="member">diag_data_path_overrun</ref>(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>&amp;<sp/>result);</highlight></codeline>
+<codeline lineno="629"><highlight class="normal"></highlight></codeline>
+<codeline lineno="636" refid="classIIOWrapper_1aa81282a7f07974ef69c65711200f5d7a" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1aa81282a7f07974ef69c65711200f5d7a" kindref="member">diag_automatic_reset</ref>(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>&amp;<sp/>result);</highlight></codeline>
+<codeline lineno="637"><highlight class="normal"></highlight></codeline>
+<codeline lineno="644" refid="classIIOWrapper_1a9950dc38bc1e56a7fc42d36b50a3e718" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1a9950dc38bc1e56a7fc42d36b50a3e718" kindref="member">diag_flash_memory_update_error</ref>(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>&amp;<sp/>result);</highlight></codeline>
+<codeline lineno="645"><highlight class="normal"></highlight></codeline>
+<codeline lineno="652" refid="classIIOWrapper_1a1d23815c0de4a1ad4366602a4f4bdd96" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1a1d23815c0de4a1ad4366602a4f4bdd96" kindref="member">diag_spi_communication_error</ref>(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>&amp;<sp/>result);</highlight></codeline>
+<codeline lineno="653"><highlight class="normal"></highlight></codeline>
+<codeline lineno="660" refid="classIIOWrapper_1a11b581d355f708591f0e425507d93164" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1a11b581d355f708591f0e425507d93164" kindref="member">diag_crc_error</ref>(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>&amp;<sp/>result);</highlight></codeline>
+<codeline lineno="661"><highlight class="normal"></highlight></codeline>
+<codeline lineno="668" refid="classIIOWrapper_1a88df8843b74de7c177dada4d61708fc4" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1a88df8843b74de7c177dada4d61708fc4" kindref="member">diag_standby_mode</ref>(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>&amp;<sp/>result);</highlight></codeline>
+<codeline lineno="669"><highlight class="normal"></highlight></codeline>
+<codeline lineno="676" refid="classIIOWrapper_1a6c7b7b8d0039a24ed6be2ce7b15fc814" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1a6c7b7b8d0039a24ed6be2ce7b15fc814" kindref="member">diag_sensor_self_test_error</ref>(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>&amp;<sp/>result);</highlight></codeline>
+<codeline lineno="677"><highlight class="normal"></highlight></codeline>
+<codeline lineno="684" refid="classIIOWrapper_1a39396f6d69a04202f9e859922f95fc34" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1a39396f6d69a04202f9e859922f95fc34" kindref="member">diag_flash_memory_test_error</ref>(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>&amp;<sp/>result);</highlight></codeline>
+<codeline lineno="685"><highlight class="normal"></highlight></codeline>
+<codeline lineno="692" refid="classIIOWrapper_1a09e0a223d200b7d2ed1731f06635b370" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1a09e0a223d200b7d2ed1731f06635b370" kindref="member">diag_clock_error</ref>(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>&amp;<sp/>result);</highlight></codeline>
+<codeline lineno="693"><highlight class="normal"></highlight></codeline>
+<codeline lineno="700" refid="classIIOWrapper_1aea94b1e579314660c7dd03d82ee4c29f" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1aea94b1e579314660c7dd03d82ee4c29f" kindref="member">diag_gyroscope1_self_test_error</ref>(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>&amp;<sp/>result);</highlight></codeline>
+<codeline lineno="701"><highlight class="normal"></highlight></codeline>
+<codeline lineno="708" refid="classIIOWrapper_1aa85c0d7dbb01ff4201678d687b8adf93" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1aa85c0d7dbb01ff4201678d687b8adf93" kindref="member">diag_gyroscope2_self_test_error</ref>(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>&amp;<sp/>result);</highlight></codeline>
+<codeline lineno="709"><highlight class="normal"></highlight></codeline>
+<codeline lineno="716" refid="classIIOWrapper_1a6f0b68bf91bb6bd000a570b349a4e9f4" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1a6f0b68bf91bb6bd000a570b349a4e9f4" kindref="member">diag_acceleration_self_test_error</ref>(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>&amp;<sp/>result);</highlight></codeline>
+<codeline lineno="717"><highlight class="normal"></highlight></codeline>
+<codeline lineno="724" refid="classIIOWrapper_1a45143fbc3eba8260f9cda6870c704d19" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1a45143fbc3eba8260f9cda6870c704d19" kindref="member">diag_x_axis_gyroscope_failure</ref>(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>&amp;<sp/>result);</highlight></codeline>
+<codeline lineno="725"><highlight class="normal"></highlight></codeline>
+<codeline lineno="732" refid="classIIOWrapper_1ab027802372011c7f7d9f59061017173c" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1ab027802372011c7f7d9f59061017173c" kindref="member">diag_y_axis_gyroscope_failure</ref>(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>&amp;<sp/>result);</highlight></codeline>
+<codeline lineno="733"><highlight class="normal"></highlight></codeline>
+<codeline lineno="740" refid="classIIOWrapper_1adc4a32825bc5982131f53e227805946b" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1adc4a32825bc5982131f53e227805946b" kindref="member">diag_z_axis_gyroscope_failure</ref>(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>&amp;<sp/>result);</highlight></codeline>
+<codeline lineno="741"><highlight class="normal"></highlight></codeline>
+<codeline lineno="748" refid="classIIOWrapper_1afd7976cbd87ab425eb6fdf1192e39e1b" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1afd7976cbd87ab425eb6fdf1192e39e1b" kindref="member">diag_x_axis_accelerometer_failure</ref>(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>&amp;<sp/>result);</highlight></codeline>
+<codeline lineno="749"><highlight class="normal"></highlight></codeline>
+<codeline lineno="756" refid="classIIOWrapper_1a5e040011fba86b221a028f96440ac59e" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1a5e040011fba86b221a028f96440ac59e" kindref="member">diag_y_axis_accelerometer_failure</ref>(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>&amp;<sp/>result);</highlight></codeline>
+<codeline lineno="757"><highlight class="normal"></highlight></codeline>
+<codeline lineno="764" refid="classIIOWrapper_1adf039156a53b8bb0afebe4c48507c097" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1adf039156a53b8bb0afebe4c48507c097" kindref="member">diag_z_axis_accelerometer_failure</ref>(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>&amp;<sp/>result);</highlight></codeline>
+<codeline lineno="765"><highlight class="normal"></highlight></codeline>
+<codeline lineno="772" refid="classIIOWrapper_1aa691849d0baa2fad55deb7975a070734" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1aa691849d0baa2fad55deb7975a070734" kindref="member">diag_aduc_mcu_fault</ref>(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>&amp;<sp/>result);</highlight></codeline>
+<codeline lineno="773"><highlight class="normal"></highlight></codeline>
+<codeline lineno="780"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1ab3a551d7da672e3c5d3cce79aac4a37c" kindref="member">diag_flash_memory_write_count_exceeded_error</ref>(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>&amp;<sp/>result);</highlight></codeline>
+<codeline lineno="781"><highlight class="normal"></highlight></codeline>
+<codeline lineno="788"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1aa3dfbe95f0013016b8b5056b73d1f126" kindref="member">gyroscope_measurement_range</ref>(std::string<sp/>&amp;<sp/>result);</highlight></codeline>
+<codeline lineno="789"><highlight class="normal"></highlight></codeline>
+<codeline lineno="796" refid="classIIOWrapper_1a25e63a463289dc1c7761e9ef14982cbf" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1a25e63a463289dc1c7761e9ef14982cbf" kindref="member">internal_sensor_bandwidth</ref>(uint32_t<sp/>&amp;<sp/>result);</highlight></codeline>
+<codeline lineno="797"><highlight class="normal"></highlight></codeline>
+<codeline lineno="804" refid="classIIOWrapper_1a630b1d5232285b51560a90b805339961" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1a630b1d5232285b51560a90b805339961" kindref="member">update_internal_sensor_bandwidth</ref>(uint32_t<sp/>val);</highlight></codeline>
+<codeline lineno="805"><highlight class="normal"></highlight></codeline>
+<codeline lineno="812" refid="classIIOWrapper_1a67eaded963621b47f1f228a0b250a00e" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1a67eaded963621b47f1f228a0b250a00e" kindref="member">point_of_percussion_alignment</ref>(uint32_t<sp/>&amp;<sp/>result);</highlight></codeline>
+<codeline lineno="813"><highlight class="normal"></highlight></codeline>
+<codeline lineno="820" refid="classIIOWrapper_1a293d23f39cf1a07b3e8056d239728dc3" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1a293d23f39cf1a07b3e8056d239728dc3" kindref="member">update_point_of_percussion_alignment</ref>(uint32_t<sp/>val);</highlight></codeline>
+<codeline lineno="821"><highlight class="normal"></highlight></codeline>
+<codeline lineno="828" refid="classIIOWrapper_1a2352785dfb0a0324613bd6f99a27831b" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1a2352785dfb0a0324613bd6f99a27831b" kindref="member">linear_acceleration_compensation</ref>(uint32_t<sp/>&amp;<sp/>result);</highlight></codeline>
+<codeline lineno="829"><highlight class="normal"></highlight></codeline>
+<codeline lineno="836" refid="classIIOWrapper_1a09fe16394d6d8b7a7ab7dbefa64ba084" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1a09fe16394d6d8b7a7ab7dbefa64ba084" kindref="member">update_linear_acceleration_compensation</ref>(uint32_t<sp/>val);</highlight></codeline>
+<codeline lineno="837"><highlight class="normal"></highlight></codeline>
+<codeline lineno="844" refid="classIIOWrapper_1a4b0d75039f36c1063c12c2335c230ffd" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1a4b0d75039f36c1063c12c2335c230ffd" kindref="member">bias_correction_time_base_control</ref>(uint32_t<sp/>&amp;<sp/>result);</highlight></codeline>
+<codeline lineno="845"><highlight class="normal"></highlight></codeline>
+<codeline lineno="852" refid="classIIOWrapper_1a5818afde806f78c0868884d6b1f23bbf" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1a5818afde806f78c0868884d6b1f23bbf" kindref="member">update_bias_correction_time_base_control</ref>(uint32_t<sp/>val);</highlight></codeline>
+<codeline lineno="853"><highlight class="normal"></highlight></codeline>
+<codeline lineno="860" refid="classIIOWrapper_1ab0d834e0075c408c546991934ac4ac7a" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1ab0d834e0075c408c546991934ac4ac7a" kindref="member">x_axis_gyroscope_bias_correction_enable</ref>(uint32_t<sp/>&amp;<sp/>result);</highlight></codeline>
+<codeline lineno="861"><highlight class="normal"></highlight></codeline>
+<codeline lineno="868" refid="classIIOWrapper_1acedff444962fb642b5d2417aaf5dd63a" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1acedff444962fb642b5d2417aaf5dd63a" kindref="member">update_x_axis_gyroscope_bias_correction_enable</ref>(uint32_t<sp/>val);</highlight></codeline>
+<codeline lineno="869"><highlight class="normal"></highlight></codeline>
+<codeline lineno="876" refid="classIIOWrapper_1a73fd94d29e90e9b46a5c47453e5a76a7" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1a73fd94d29e90e9b46a5c47453e5a76a7" kindref="member">y_axis_gyroscope_bias_correction_enable</ref>(uint32_t<sp/>&amp;<sp/>result);</highlight></codeline>
+<codeline lineno="877"><highlight class="normal"></highlight></codeline>
+<codeline lineno="884" refid="classIIOWrapper_1a4a20c51a3a2079f1c7e887605f6f78dc" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1a4a20c51a3a2079f1c7e887605f6f78dc" kindref="member">update_y_axis_gyroscope_bias_correction_enable</ref>(uint32_t<sp/>val);</highlight></codeline>
+<codeline lineno="885"><highlight class="normal"></highlight></codeline>
+<codeline lineno="892" refid="classIIOWrapper_1a00aa6acb648e5c90038132c537649773" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1a00aa6acb648e5c90038132c537649773" kindref="member">z_axis_gyroscope_bias_correction_enable</ref>(uint32_t<sp/>&amp;<sp/>result);</highlight></codeline>
+<codeline lineno="893"><highlight class="normal"></highlight></codeline>
+<codeline lineno="900" refid="classIIOWrapper_1a70f3f6d8b2cdefb6a5a6cff54915c6e1" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1a70f3f6d8b2cdefb6a5a6cff54915c6e1" kindref="member">update_z_axis_gyroscope_bias_correction_enable</ref>(uint32_t<sp/>val);</highlight></codeline>
+<codeline lineno="901"><highlight class="normal"></highlight></codeline>
+<codeline lineno="908" refid="classIIOWrapper_1a62287c7a5dfdd731494ed7ba1780663d" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1a62287c7a5dfdd731494ed7ba1780663d" kindref="member">x_axis_accelerometer_bias_correction_enable</ref>(uint32_t<sp/>&amp;<sp/>result);</highlight></codeline>
+<codeline lineno="909"><highlight class="normal"></highlight></codeline>
+<codeline lineno="916" refid="classIIOWrapper_1a43ae9191af8bc6da154d7b301848ac41" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1a43ae9191af8bc6da154d7b301848ac41" kindref="member">update_x_axis_accelerometer_bias_correction_enable</ref>(uint32_t<sp/>val);</highlight></codeline>
+<codeline lineno="917"><highlight class="normal"></highlight></codeline>
+<codeline lineno="924" refid="classIIOWrapper_1a9f393e7caf03730f7ddcd003c2556dfe" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1a9f393e7caf03730f7ddcd003c2556dfe" kindref="member">y_axis_accelerometer_bias_correction_enable</ref>(uint32_t<sp/>&amp;<sp/>result);</highlight></codeline>
+<codeline lineno="925"><highlight class="normal"></highlight></codeline>
+<codeline lineno="932" refid="classIIOWrapper_1ace85be9c516ad0dce1d76700c440d0e7" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1ace85be9c516ad0dce1d76700c440d0e7" kindref="member">update_y_axis_accelerometer_bias_correction_enable</ref>(uint32_t<sp/>val);</highlight></codeline>
+<codeline lineno="933"><highlight class="normal"></highlight></codeline>
+<codeline lineno="940" refid="classIIOWrapper_1a56ca0c938bef97c190ee7ae56736fcda" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1a56ca0c938bef97c190ee7ae56736fcda" kindref="member">z_axis_accelerometer_bias_correction_enable</ref>(uint32_t<sp/>&amp;<sp/>result);</highlight></codeline>
+<codeline lineno="941"><highlight class="normal"></highlight></codeline>
+<codeline lineno="948" refid="classIIOWrapper_1ad501d5b8096992254282b710ae3593bf" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1ad501d5b8096992254282b710ae3593bf" kindref="member">update_z_axis_accelerometer_bias_correction_enable</ref>(uint32_t<sp/>val);</highlight></codeline>
+<codeline lineno="949"><highlight class="normal"></highlight></codeline>
+<codeline lineno="955" refid="classIIOWrapper_1a2da8f4f3cd36e8e2cff6befcb53ecbbe" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1a2da8f4f3cd36e8e2cff6befcb53ecbbe" kindref="member">bias_correction_update</ref>();</highlight></codeline>
+<codeline lineno="956"><highlight class="normal"></highlight></codeline>
+<codeline lineno="962"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1a2cb403633337d848e3e334460098a954" kindref="member">factory_calibration_restore</ref>();</highlight></codeline>
+<codeline lineno="963"><highlight class="normal"></highlight></codeline>
+<codeline lineno="969"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1a9063348d525f98961fca0e5a8d1b2942" kindref="member">sensor_self_test</ref>();</highlight></codeline>
+<codeline lineno="970"><highlight class="normal"></highlight></codeline>
+<codeline lineno="976"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1a39973a796e6e9f809b8284f011ccaa36" kindref="member">flash_memory_update</ref>();</highlight></codeline>
+<codeline lineno="977"><highlight class="normal"></highlight></codeline>
+<codeline lineno="983" refid="classIIOWrapper_1af97abb3a23be70f995eb1becb1863dfb" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1af97abb3a23be70f995eb1becb1863dfb" kindref="member">flash_memory_test</ref>();</highlight></codeline>
+<codeline lineno="984"><highlight class="normal"></highlight></codeline>
+<codeline lineno="990"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1a06c8b2dd5e06296e6071515d42678338" kindref="member">software_reset</ref>();</highlight></codeline>
+<codeline lineno="991"><highlight class="normal"></highlight></codeline>
+<codeline lineno="998"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1a7ece889e328ab46d471031934eb93b33" kindref="member">firmware_revision</ref>(std::string<sp/>&amp;<sp/>result);</highlight></codeline>
+<codeline lineno="999"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1006"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1a392b3968397a63a0bf235bb7515f5879" kindref="member">firmware_date</ref>(std::string<sp/>&amp;<sp/>result);</highlight></codeline>
+<codeline lineno="1007"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1014"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1a1f0c7c86eba809ac5e0505b12e7b8143" kindref="member">product_id</ref>(uint32_t<sp/>&amp;<sp/>result);</highlight></codeline>
+<codeline lineno="1015"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1022"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1a9d05c33bbd4eef378b584d656a56cfc7" kindref="member">serial_number</ref>(uint32_t<sp/>&amp;<sp/>result);</highlight></codeline>
+<codeline lineno="1023"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1030"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1af2bd81f3dca62979b41cf5018f72a173" kindref="member">flash_counter</ref>(uint32_t<sp/>&amp;<sp/>value);</highlight></codeline>
+<codeline lineno="1031"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1036"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1a45fe53b29bb3c69fd167caa42418b56e" kindref="member">get_scale_accel</ref>();</highlight></codeline>
+<codeline lineno="1037"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1042"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1a9155426d173e6adb8c6436598cab9d6b" kindref="member">get_scale_anglvel</ref>();</highlight></codeline>
+<codeline lineno="1043"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1048"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1a0986611e409cfa128ec0f5b5429c8b72" kindref="member">get_scale_deltavelocity</ref>();</highlight></codeline>
+<codeline lineno="1049"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1054"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1a133f8dcccf4727d7a97ba1f708c7c249" kindref="member">get_scale_deltaangl</ref>();</highlight></codeline>
+<codeline lineno="1055"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1060"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1a022888d663a4dbead44e37a84c45411b" kindref="member">get_scale_temp</ref>();</highlight></codeline>
+<codeline lineno="1061"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1062"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="1067"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1aec9b699fd6110a7795a32e84343a1c1d" kindref="member">setDeltaAngleScales</ref>(</highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>adis_device_id<sp/>dev_id);</highlight></codeline>
+<codeline lineno="1072"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1a7287fe1ab85c9aebb746dff3baf7300d" kindref="member">setDeltaVelocityScales</ref>(</highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>adis_device_id<sp/>dev_id);</highlight></codeline>
+<codeline lineno="1080"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1a3b99dc4a11bfc1044779befc29c9385a" kindref="member">updateField</ref>(uint32_t<sp/>reg,<sp/>uint32_t<sp/>val,<sp/>uint32_t<sp/>mask);</highlight></codeline>
+<codeline lineno="1081"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1089"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1a47cb7f7d914c9a12c51cfaa152645b07" kindref="member">getRawDeltaAngleXFromDebug</ref>(int32_t<sp/>&amp;<sp/>result);</highlight></codeline>
+<codeline lineno="1090"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1098"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1adde2349c207c0d885197bb11165e6546" kindref="member">getRawDeltaAngleYFromDebug</ref>(int32_t<sp/>&amp;<sp/>result);</highlight></codeline>
+<codeline lineno="1099"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1107"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1a2f8806cda1ba466fab265a45eb66815c" kindref="member">getRawDeltaAngleZFromDebug</ref>(int32_t<sp/>&amp;<sp/>result);</highlight></codeline>
+<codeline lineno="1108"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1116"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1a0fe6f4ff144f0c80f1452987e383318a" kindref="member">getRawDeltaVelocityXFromDebug</ref>(int32_t<sp/>&amp;<sp/>result);</highlight></codeline>
+<codeline lineno="1117"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1125"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1ae6a0f742c9dd11684e9a49fb975773e0" kindref="member">getRawDeltaVelocityYFromDebug</ref>(int32_t<sp/>&amp;<sp/>result);</highlight></codeline>
+<codeline lineno="1126"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1134"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1a153ba949b8daa8514864b59538fcb64a" kindref="member">getRawDeltaVelocityZFromDebug</ref>(int32_t<sp/>&amp;<sp/>result);</highlight></codeline>
+<codeline lineno="1135"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1143"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1a78ff447b7bccef0dd8abc5239ddcda27" kindref="member">getConvertedDeltaAngleXFromDebug</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>&amp;<sp/>result);</highlight></codeline>
+<codeline lineno="1144"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1152"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1aa52383a8d31690b73f74539cc617e7d7" kindref="member">getConvertedDeltaAngleYFromDebug</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>&amp;<sp/>result);</highlight></codeline>
+<codeline lineno="1153"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1161"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1adb513e9bdd99b7fcf9accec73faba53e" kindref="member">getConvertedDeltaAngleZFromDebug</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>&amp;<sp/>result);</highlight></codeline>
+<codeline lineno="1162"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1170"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1afae369c43ec0dfdb08f41e173b968f58" kindref="member">getConvertedDeltaVelocityXFromDebug</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>&amp;<sp/>result);</highlight></codeline>
+<codeline lineno="1171"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1179"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1a93c0f0e87624cc045bf571ed8d85911b" kindref="member">getConvertedDeltaVelocityYFromDebug</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>&amp;<sp/>result);</highlight></codeline>
+<codeline lineno="1180"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1188"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1a9adcb8752a2895affbab03ea3d1e2ef0" kindref="member">getConvertedDeltaVelocityZFromDebug</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>&amp;<sp/>result);</highlight></codeline>
+<codeline lineno="1189"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1191" refid="classIIOWrapper_1aef4fe3a3f93085da695bf65639f09b87" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">iio_context<sp/>*<sp/><ref refid="classIIOWrapper_1aef4fe3a3f93085da695bf65639f09b87" kindref="member">m_iio_context</ref>;</highlight></codeline>
+<codeline lineno="1192"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1194" refid="classIIOWrapper_1aa54f78cb0c53f73b6562e303367b20be" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">iio_device<sp/>*<sp/><ref refid="classIIOWrapper_1aa54f78cb0c53f73b6562e303367b20be" kindref="member">m_dev</ref>;</highlight></codeline>
+<codeline lineno="1195"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1197" refid="classIIOWrapper_1a4c656678d45e8e978480712451b69649" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">iio_device<sp/>*<sp/><ref refid="classIIOWrapper_1a4c656678d45e8e978480712451b69649" kindref="member">m_dev_trigger</ref>;</highlight></codeline>
+<codeline lineno="1198"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1200" refid="classIIOWrapper_1ac6c3cec6da827146507437ee27296a96" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">iio_buffer<sp/>*<sp/><ref refid="classIIOWrapper_1ac6c3cec6da827146507437ee27296a96" kindref="member">m_dev_buffer</ref>;</highlight></codeline>
+<codeline lineno="1201"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1203" refid="classIIOWrapper_1ac1fb844f82d64a1b6e2e6cc6c089bd71" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">iio_channel<sp/>*<sp/><ref refid="classIIOWrapper_1ac1fb844f82d64a1b6e2e6cc6c089bd71" kindref="member">m_channel_accel_x</ref>;</highlight></codeline>
+<codeline lineno="1204"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1206" refid="classIIOWrapper_1ad1e0779435221c690f93d6d05a76f176" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">iio_channel<sp/>*<sp/><ref refid="classIIOWrapper_1ad1e0779435221c690f93d6d05a76f176" kindref="member">m_channel_accel_y</ref>;</highlight></codeline>
+<codeline lineno="1207"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1209" refid="classIIOWrapper_1aa5f24dc01a83090154c57359a4668cd9" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">iio_channel<sp/>*<sp/><ref refid="classIIOWrapper_1aa5f24dc01a83090154c57359a4668cd9" kindref="member">m_channel_accel_z</ref>;</highlight></codeline>
+<codeline lineno="1210"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1212" refid="classIIOWrapper_1a9b7c68d2cd7161e853b261c3e1363ef3" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">iio_channel<sp/>*<sp/><ref refid="classIIOWrapper_1a9b7c68d2cd7161e853b261c3e1363ef3" kindref="member">m_channel_anglvel_x</ref>;</highlight></codeline>
+<codeline lineno="1213"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1215" refid="classIIOWrapper_1a1b138c4cc8238e52a68f830363a04b8d" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">iio_channel<sp/>*<sp/><ref refid="classIIOWrapper_1a1b138c4cc8238e52a68f830363a04b8d" kindref="member">m_channel_anglvel_y</ref>;</highlight></codeline>
+<codeline lineno="1216"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1218" refid="classIIOWrapper_1a1b2384d209272000f673f25e7134d06d" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">iio_channel<sp/>*<sp/><ref refid="classIIOWrapper_1a1b2384d209272000f673f25e7134d06d" kindref="member">m_channel_anglvel_z</ref>;</highlight></codeline>
+<codeline lineno="1219"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1221" refid="classIIOWrapper_1ae585f76ba5a1e003c9416bc87d5d7897" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">iio_channel<sp/>*<sp/><ref refid="classIIOWrapper_1ae585f76ba5a1e003c9416bc87d5d7897" kindref="member">m_channel_deltaangl_x</ref>;</highlight></codeline>
+<codeline lineno="1222"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1224" refid="classIIOWrapper_1a60cc79165edc458ad3af03ad976feb2d" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">iio_channel<sp/>*<sp/><ref refid="classIIOWrapper_1a60cc79165edc458ad3af03ad976feb2d" kindref="member">m_channel_deltaangl_y</ref>;</highlight></codeline>
+<codeline lineno="1225"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1227" refid="classIIOWrapper_1a7f9f033ffb31d35240723713a9769a6b" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">iio_channel<sp/>*<sp/><ref refid="classIIOWrapper_1a7f9f033ffb31d35240723713a9769a6b" kindref="member">m_channel_deltaangl_z</ref>;</highlight></codeline>
+<codeline lineno="1228"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1230" refid="classIIOWrapper_1a13c3a4d31efdd2d329b3acc14b697aa4" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">iio_channel<sp/>*<sp/><ref refid="classIIOWrapper_1a13c3a4d31efdd2d329b3acc14b697aa4" kindref="member">m_channel_deltavelocity_x</ref>;</highlight></codeline>
+<codeline lineno="1231"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1233" refid="classIIOWrapper_1a7fba21deedbdc14adf0f4a46cb59fdff" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">iio_channel<sp/>*<sp/><ref refid="classIIOWrapper_1a7fba21deedbdc14adf0f4a46cb59fdff" kindref="member">m_channel_deltavelocity_y</ref>;</highlight></codeline>
+<codeline lineno="1234"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1236" refid="classIIOWrapper_1a38e16f0f6f97028d0eee31b7e98d40aa" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">iio_channel<sp/>*<sp/><ref refid="classIIOWrapper_1a38e16f0f6f97028d0eee31b7e98d40aa" kindref="member">m_channel_deltavelocity_z</ref>;</highlight></codeline>
+<codeline lineno="1237"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1239" refid="classIIOWrapper_1a49a1068fef0e2c1c48096f6b88d103b7" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">iio_channel<sp/>*<sp/><ref refid="classIIOWrapper_1a49a1068fef0e2c1c48096f6b88d103b7" kindref="member">m_channel_temp</ref>;</highlight></codeline>
+<codeline lineno="1240"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1242" refid="classIIOWrapper_1a335fdbf54f6ea1f463b4b7e9e74e0cc8" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">iio_channel<sp/>*<sp/><ref refid="classIIOWrapper_1a335fdbf54f6ea1f463b4b7e9e74e0cc8" kindref="member">m_channel_timestamp</ref>;</highlight></codeline>
+<codeline lineno="1243"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1246" refid="classIIOWrapper_1ac4a267304bf82229d032adf4c167c8be" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1ac4a267304bf82229d032adf4c167c8be" kindref="member">m_scale_accel_x</ref>;</highlight></codeline>
+<codeline lineno="1247"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1250" refid="classIIOWrapper_1a39297415934efc288f6ced765861d19d" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1a39297415934efc288f6ced765861d19d" kindref="member">m_scale_accel_y</ref>;</highlight></codeline>
+<codeline lineno="1251"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1254" refid="classIIOWrapper_1a62c70c9017644054942d0a27c5582291" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1a62c70c9017644054942d0a27c5582291" kindref="member">m_scale_accel_z</ref>;</highlight></codeline>
+<codeline lineno="1255"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1257" refid="classIIOWrapper_1a60201aaf24995e68520d846c5446cd23" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1a60201aaf24995e68520d846c5446cd23" kindref="member">m_scale_anglvel_x</ref>;</highlight></codeline>
+<codeline lineno="1258"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1260" refid="classIIOWrapper_1aabb94da5ca0c007e066898cd7767f5a2" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1aabb94da5ca0c007e066898cd7767f5a2" kindref="member">m_scale_anglvel_y</ref>;</highlight></codeline>
+<codeline lineno="1261"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1263" refid="classIIOWrapper_1acdb2f23b02ac0650e12b76a02502e725" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1acdb2f23b02ac0650e12b76a02502e725" kindref="member">m_scale_anglvel_z</ref>;</highlight></codeline>
+<codeline lineno="1264"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1266" refid="classIIOWrapper_1a9d05021dd126ae2446d4bfc8e122d926" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1a9d05021dd126ae2446d4bfc8e122d926" kindref="member">m_scale_deltaangl_x</ref>;</highlight></codeline>
+<codeline lineno="1267"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1269" refid="classIIOWrapper_1a0a614ad2a77e11186da5c6d22743c1cc" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1a0a614ad2a77e11186da5c6d22743c1cc" kindref="member">m_scale_deltaangl_y</ref>;</highlight></codeline>
+<codeline lineno="1270"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1272" refid="classIIOWrapper_1aa60f12b53d29ad7a17750da6cfe56a9b" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1aa60f12b53d29ad7a17750da6cfe56a9b" kindref="member">m_scale_deltaangl_z</ref>;</highlight></codeline>
+<codeline lineno="1273"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1275" refid="classIIOWrapper_1a6b769d1cfe0c7e2f09d7af4cdbea5c09" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1a6b769d1cfe0c7e2f09d7af4cdbea5c09" kindref="member">m_scale_deltavelocity_x</ref>;</highlight></codeline>
+<codeline lineno="1276"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1278" refid="classIIOWrapper_1a5f29b5ac8ea9c50f38059626899f45ab" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1a5f29b5ac8ea9c50f38059626899f45ab" kindref="member">m_scale_deltavelocity_y</ref>;</highlight></codeline>
+<codeline lineno="1279"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1281" refid="classIIOWrapper_1a822cfeb7635264d647df73dabd2ec4d6" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1a822cfeb7635264d647df73dabd2ec4d6" kindref="member">m_scale_deltavelocity_z</ref>;</highlight></codeline>
+<codeline lineno="1282"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1284" refid="classIIOWrapper_1ac33c30566920a17f9f0b20321c7bb4ae" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classIIOWrapper_1ac33c30566920a17f9f0b20321c7bb4ae" kindref="member">m_scale_temp</ref>;</highlight></codeline>
+<codeline lineno="1285"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="1286"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1287"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/></highlight><highlight class="comment">//<sp/>IIO_WRAPPER_H</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="include/adi_imu/iio_wrapper.h"/>
+  </compounddef>
+</doxygen>

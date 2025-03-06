@@ -1,0 +1,5 @@
+<map id="AccelGyroTempRosPublisher" name="AccelGyroTempRosPublisher">
+<area shape="rect" id="Node000001" title="Class for acceleration, angular velocity and temperature publisher." alt="" coords="5,93,212,119"/>
+<area shape="rect" id="Node000002" href="$classAccelGyroTempRosPublisherInterface.html" title="Interface for acceleration, angular velocity and temperature publisher." alt="" coords="5,5,212,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="111,59,111,93,106,93,106,59"/>
+</map>

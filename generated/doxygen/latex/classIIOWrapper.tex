@@ -1,0 +1,2439 @@
+\doxysection{IIOWrapper Class Reference}
+\hypertarget{classIIOWrapper}{}\label{classIIOWrapper}\index{IIOWrapper@{IIOWrapper}}
+
+
+Wrapper class for libiio library for IMU devices.  
+
+
+
+
+{\ttfamily \#include $<$iio\+\_\+wrapper.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classIIOWrapper_ae9b4506c5a6cb9d56e36d11c3d4fc56e}\label{classIIOWrapper_ae9b4506c5a6cb9d56e36d11c3d4fc56e} 
+{\bfseries IIOWrapper} ()
+\begin{DoxyCompactList}\small\item\em Constructor for \doxylink{classIIOWrapper}{IIOWrapper}. \end{DoxyCompactList}\item 
+\Hypertarget{classIIOWrapper_ab4e9232cf3ba9539db8e4bfac2e0ebf0}\label{classIIOWrapper_ab4e9232cf3ba9539db8e4bfac2e0ebf0} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+IIOWrapper} ()
+\begin{DoxyCompactList}\small\item\em Destructor for \doxylink{classIIOWrapper}{IIOWrapper}. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classIIOWrapper_aa56bb91153c46ef51c3d3d53a68cc423}{create\+Context}} (const char \texorpdfstring{$\ast$}{*}context)
+\begin{DoxyCompactList}\small\item\em create IIO context based on the given context string and search for IIO ADIS device, enable trigger and map device attributes, device channels and channels attributes. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIIOWrapper_ae179fe95e80ad6624c6782de04c854ed}{update\+Buffer}} (uint32\+\_\+t data\+\_\+selection)
+\begin{DoxyCompactList}\small\item\em Update buffer data. This function should be called before retrieving data using get\+Buff\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} APIs. \end{DoxyCompactList}\item 
+\Hypertarget{classIIOWrapper_a807ef883b1b5a6119ce4ab75d21985c5}\label{classIIOWrapper_a807ef883b1b5a6119ce4ab75d21985c5} 
+void {\bfseries stop\+Buffer\+Acquisition} ()
+\begin{DoxyCompactList}\small\item\em Stops buffer acquisition. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classIIOWrapper_a24d03c22a08baf0c5209d7f31c9d0533}{get\+Buff\+Linear\+AccelerationX}} ()
+\begin{DoxyCompactList}\small\item\em Get linear acceleration on x axis with buffer reads; in this case the retrieved samples are continuous if the function is called fast enough and samples are not overwritten. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classIIOWrapper_a809c113401e38fdf0fc660735a2192e1}{get\+Buff\+Linear\+AccelerationY}} ()
+\begin{DoxyCompactList}\small\item\em Get linear acceleration on y axis with buffer reads; in this case the retrieved samples are continuous if the function is called fast enough and samples are not overwritten. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classIIOWrapper_a41e760380fa5036a652201e2df50c889}{get\+Buff\+Linear\+AccelerationZ}} ()
+\begin{DoxyCompactList}\small\item\em Get linear acceleration on z axis with buffer reads; in this case the retrieved samples are continuous if the function is called fast enough and samples are not overwritten. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classIIOWrapper_ab98be528a5805d948e0cbf8c81bdac26}{get\+Buff\+Angular\+VelocityX}} ()
+\begin{DoxyCompactList}\small\item\em Get angular velocity on x axis with buffer reads; in this case the retrieved samples are continuous if the function is called fast enough and samples are not overwritten. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classIIOWrapper_a530c457c0cd4d81951b7d174072fd75b}{get\+Buff\+Angular\+VelocityY}} ()
+\begin{DoxyCompactList}\small\item\em Get angular velocity on y axis with buffer reads; in this case the retrieved samples are continuous if the function is called fast enough and samples are not overwritten. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classIIOWrapper_a4d5286b33d41295f1cc6567f67b4d6d2}{get\+Buff\+Angular\+VelocityZ}} ()
+\begin{DoxyCompactList}\small\item\em Get angular velocity on z axis with buffer reads; in this case the retrieved samples are continuous if the function is called fast enough and samples are not overwritten. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classIIOWrapper_a8636bc7c28c829538d05d5bb638c9074}{get\+Buff\+Temperature}} ()
+\begin{DoxyCompactList}\small\item\em Get temperature with buffer reads; in this case the retrieved samples are continuous if the function is called fast enough and samples are not overwritten. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classIIOWrapper_a4a4cea0c85854aef0117ce98a587b8b4}{get\+Buff\+Sample\+Timestamp}} (int32\+\_\+t \&sec, uint32\+\_\+t \&nanosec)
+\begin{DoxyCompactList}\small\item\em Get buffer timestamp when performing buffer reads; the timestamp represent the time at which the samples from the devices were read over SPI. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIIOWrapper_ad1c329ac2d3785a4c4ceee754d5b1c7c}{get\+Converted\+Linear\+AccelerationX}} (double \&result)
+\begin{DoxyCompactList}\small\item\em Get linear acceleration on x axis with register reads; in this case the retrieved samples are not necessary continuous. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIIOWrapper_a798839e37670a3ee83381c3b8e7bee9d}{get\+Converted\+Linear\+AccelerationY}} (double \&result)
+\begin{DoxyCompactList}\small\item\em Get linear acceleration on y axis with register reads; in this case the retrieved samples are not necessary continuous. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIIOWrapper_a63262c6685e600d505fc751db4f52f4e}{get\+Converted\+Linear\+AccelerationZ}} (double \&result)
+\begin{DoxyCompactList}\small\item\em Get linear acceleration on z axis with register reads; in this case the retrieved samples are not necessary continuous. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIIOWrapper_a188e946663bc7b97c34051307f4d5d27}{get\+Converted\+Angular\+VelocityX}} (double \&result)
+\begin{DoxyCompactList}\small\item\em Get angular velocity on x axis with register reads; in this case the retrieved samples are not necessary continuous. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIIOWrapper_a1f3f03307a91115e17ee3f18323f061a}{get\+Converted\+Angular\+VelocityY}} (double \&result)
+\begin{DoxyCompactList}\small\item\em Get angular velocity on y axis with register reads; in this case the retrieved samples are not necessary continuous. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIIOWrapper_adc9f70fada12dbe6e110a8bcddf6c539}{get\+Converted\+Angular\+VelocityZ}} (double \&result)
+\begin{DoxyCompactList}\small\item\em Get angular velocity on z axis with register reads; in this case the retrieved samples are not necessary continuous. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIIOWrapper_a68420aad14da02a7fd8316b6c7853c03}{get\+Converted\+Delta\+AngleX}} (double \&result)
+\begin{DoxyCompactList}\small\item\em Get delta angle on x axis with register reads; in this case the retrieved samples are not necessary continuous. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIIOWrapper_a58453b95cb9193b5b2813fd3c1f5e4d7}{get\+Converted\+Delta\+AngleY}} (double \&result)
+\begin{DoxyCompactList}\small\item\em Get delta angle on y axis with register reads; in this case the retrieved samples are not necessary continuous. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIIOWrapper_a29160e4f1947315e1862bf1c1a0630bc}{get\+Converted\+Delta\+AngleZ}} (double \&result)
+\begin{DoxyCompactList}\small\item\em Get delta angle on z axis with register reads; in this case the retrieved samples are not necessary continuous. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIIOWrapper_a6ef7ac4cd9d2b1b7e0cd9a7a44e6dd35}{get\+Converted\+Delta\+VelocityX}} (double \&result)
+\begin{DoxyCompactList}\small\item\em Get delta velocity on x axis with register reads; in this case the retrieved samples are not necessary continuous. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIIOWrapper_ad566dd23cded258dea92a16a88946902}{get\+Converted\+Delta\+VelocityY}} (double \&result)
+\begin{DoxyCompactList}\small\item\em Get delta velocity on y axis with register reads; in this case the retrieved samples are not necessary continuous. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIIOWrapper_a31a1dc7c03fc782b2eff9ae0f925e789}{get\+Converted\+Delta\+VelocityZ}} (double \&result)
+\begin{DoxyCompactList}\small\item\em Get delta velocity on z axis with register reads; in this case the retrieved samples are not necessary continuous. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIIOWrapper_a23f8fbda995629b864dc72bcf3ba0984}{get\+Converted\+Temperature}} (double \&result)
+\begin{DoxyCompactList}\small\item\em Get temperature with register reads; in this case the retrieved samples are not necessary continuous. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIIOWrapper_a2cc98e4d4a651e82c7d5766f824acebd}{anglvel\+\_\+x\+\_\+calibbias}} (int32\+\_\+t \&result)
+\begin{DoxyCompactList}\small\item\em Get angular velocity calibration offset on x axis. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIIOWrapper_a09fa5c163037f078a83e813ef13f73e9}{update\+\_\+anglvel\+\_\+calibbias\+\_\+x}} (int32\+\_\+t val)
+\begin{DoxyCompactList}\small\item\em Update angular velocity calibration offset on x axis. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIIOWrapper_aafec41ed9294cf0ef6ac0afaf350188e}{anglvel\+\_\+y\+\_\+calibbias}} (int32\+\_\+t \&result)
+\begin{DoxyCompactList}\small\item\em Get angular velocity calibration offset on y axis. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIIOWrapper_a3730f3c7dcea63f4e2104a02c1e695ae}{update\+\_\+anglvel\+\_\+calibbias\+\_\+y}} (int32\+\_\+t val)
+\begin{DoxyCompactList}\small\item\em Update angular velocity calibration offset on y axis. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIIOWrapper_a84a5ecfbf0942fa175703f1a0aee8bcd}{anglvel\+\_\+z\+\_\+calibbias}} (int32\+\_\+t \&result)
+\begin{DoxyCompactList}\small\item\em Get angular velocity calibration offset on z axis. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIIOWrapper_a640785a86e54405eecad55a93321bc26}{update\+\_\+anglvel\+\_\+calibbias\+\_\+z}} (int32\+\_\+t val)
+\begin{DoxyCompactList}\small\item\em Update angular velocity calibration offset on z axis. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIIOWrapper_a45cbee4a2eaf700b7396a4df956ed7e8}{accel\+\_\+x\+\_\+calibbias}} (int32\+\_\+t \&result)
+\begin{DoxyCompactList}\small\item\em Get linear acceleration calibration offset on x axis. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIIOWrapper_a371075c2f73786fc409dbfe11bb9b68f}{update\+\_\+accel\+\_\+calibbias\+\_\+x}} (int32\+\_\+t val)
+\begin{DoxyCompactList}\small\item\em Update linear acceleration calibration offset on x axis. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIIOWrapper_ab069f082479643718588962ed76e48e9}{accel\+\_\+y\+\_\+calibbias}} (int32\+\_\+t \&result)
+\begin{DoxyCompactList}\small\item\em Get linear acceleration calibration offset on y axis. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIIOWrapper_a6b81ddc7f9f7c67b15e4f8be594c0926}{update\+\_\+accel\+\_\+calibbias\+\_\+y}} (int32\+\_\+t val)
+\begin{DoxyCompactList}\small\item\em Update linear acceleration calibration offset on y axis. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIIOWrapper_a777c78d431b5fc16088018b52ffa8d3a}{accel\+\_\+z\+\_\+calibbias}} (int32\+\_\+t \&result)
+\begin{DoxyCompactList}\small\item\em Get linear acceleration calibration offset on z axis. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIIOWrapper_a4265bcbf41f4c0582e08f30f5ab63eca}{update\+\_\+accel\+\_\+calibbias\+\_\+z}} (int32\+\_\+t val)
+\begin{DoxyCompactList}\small\item\em Update linear acceleration calibration offset on z axis. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIIOWrapper_aee4ed59f8c41d2c1e1ad95d5179e0e61}{filter\+\_\+low\+\_\+pass\+\_\+3db\+\_\+frequency}} (uint32\+\_\+t \&result)
+\begin{DoxyCompactList}\small\item\em Get low pass 3db frequency data. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIIOWrapper_ab960b56f3b8fb3bab2f4d3e492616bca}{update\+\_\+filter\+\_\+low\+\_\+pass\+\_\+3db\+\_\+frequency}} (uint32\+\_\+t val)
+\begin{DoxyCompactList}\small\item\em Update low pass 3db frequency. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIIOWrapper_ac8584252d4635e9a3c00f464cc176b17}{sampling\+\_\+frequency}} (double \texorpdfstring{$\ast$}{*}result)
+\begin{DoxyCompactList}\small\item\em Get sampling frequency. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIIOWrapper_a5cf1f0bfc5f5f0cf43c9707f399c2001}{update\+\_\+sampling\+\_\+frequency}} (double val)
+\begin{DoxyCompactList}\small\item\em Update sampling frequency. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIIOWrapper_ac818ead3ccd5f2a7c8ab59f5464cff9a}{diag\+\_\+sensor\+\_\+initialization\+\_\+failure}} (bool \&result)
+\begin{DoxyCompactList}\small\item\em Get diag sensor initialization failure data. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIIOWrapper_aacdab905284a0a6ecabb1b9bcad81be9}{diag\+\_\+data\+\_\+path\+\_\+overrun}} (bool \&result)
+\begin{DoxyCompactList}\small\item\em Get diag data path overrun data. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIIOWrapper_aa81282a7f07974ef69c65711200f5d7a}{diag\+\_\+automatic\+\_\+reset}} (bool \&result)
+\begin{DoxyCompactList}\small\item\em Get automatic reset data. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIIOWrapper_a9950dc38bc1e56a7fc42d36b50a3e718}{diag\+\_\+flash\+\_\+memory\+\_\+update\+\_\+error}} (bool \&result)
+\begin{DoxyCompactList}\small\item\em Get diag flash memory update\+\_\+error data. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIIOWrapper_a1d23815c0de4a1ad4366602a4f4bdd96}{diag\+\_\+spi\+\_\+communication\+\_\+error}} (bool \&result)
+\begin{DoxyCompactList}\small\item\em Get diag spi communication error data. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIIOWrapper_a11b581d355f708591f0e425507d93164}{diag\+\_\+crc\+\_\+error}} (bool \&result)
+\begin{DoxyCompactList}\small\item\em Get diag crc error. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIIOWrapper_a88df8843b74de7c177dada4d61708fc4}{diag\+\_\+standby\+\_\+mode}} (bool \&result)
+\begin{DoxyCompactList}\small\item\em Get diag standby mode data. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIIOWrapper_a6c7b7b8d0039a24ed6be2ce7b15fc814}{diag\+\_\+sensor\+\_\+self\+\_\+test\+\_\+error}} (bool \&result)
+\begin{DoxyCompactList}\small\item\em Get diag sensor self test error data. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIIOWrapper_a39396f6d69a04202f9e859922f95fc34}{diag\+\_\+flash\+\_\+memory\+\_\+test\+\_\+error}} (bool \&result)
+\begin{DoxyCompactList}\small\item\em Get diag flash memory test error data. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIIOWrapper_a09e0a223d200b7d2ed1731f06635b370}{diag\+\_\+clock\+\_\+error}} (bool \&result)
+\begin{DoxyCompactList}\small\item\em Get diag clock error data. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIIOWrapper_aea94b1e579314660c7dd03d82ee4c29f}{diag\+\_\+gyroscope1\+\_\+self\+\_\+test\+\_\+error}} (bool \&result)
+\begin{DoxyCompactList}\small\item\em Get diag gyroscope1 self test error data. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIIOWrapper_aa85c0d7dbb01ff4201678d687b8adf93}{diag\+\_\+gyroscope2\+\_\+self\+\_\+test\+\_\+error}} (bool \&result)
+\begin{DoxyCompactList}\small\item\em Get diag gyroscope2 self test error data. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIIOWrapper_a6f0b68bf91bb6bd000a570b349a4e9f4}{diag\+\_\+acceleration\+\_\+self\+\_\+test\+\_\+error}} (bool \&result)
+\begin{DoxyCompactList}\small\item\em Get diag acceleration self test error data. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIIOWrapper_a45143fbc3eba8260f9cda6870c704d19}{diag\+\_\+x\+\_\+axis\+\_\+gyroscope\+\_\+failure}} (bool \&result)
+\begin{DoxyCompactList}\small\item\em Get diag x axis gyroscope failure data. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIIOWrapper_ab027802372011c7f7d9f59061017173c}{diag\+\_\+y\+\_\+axis\+\_\+gyroscope\+\_\+failure}} (bool \&result)
+\begin{DoxyCompactList}\small\item\em Get diag y axis gyroscope failure data. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIIOWrapper_adc4a32825bc5982131f53e227805946b}{diag\+\_\+z\+\_\+axis\+\_\+gyroscope\+\_\+failure}} (bool \&result)
+\begin{DoxyCompactList}\small\item\em Get diag z axis gyroscope failure data. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIIOWrapper_afd7976cbd87ab425eb6fdf1192e39e1b}{diag\+\_\+x\+\_\+axis\+\_\+accelerometer\+\_\+failure}} (bool \&result)
+\begin{DoxyCompactList}\small\item\em Get diag x axis accelerometer failure data. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIIOWrapper_a5e040011fba86b221a028f96440ac59e}{diag\+\_\+y\+\_\+axis\+\_\+accelerometer\+\_\+failure}} (bool \&result)
+\begin{DoxyCompactList}\small\item\em Get diag y axis accelerometer failure data. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIIOWrapper_adf039156a53b8bb0afebe4c48507c097}{diag\+\_\+z\+\_\+axis\+\_\+accelerometer\+\_\+failure}} (bool \&result)
+\begin{DoxyCompactList}\small\item\em Get diag z axis accelerometer failure data. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIIOWrapper_aa691849d0baa2fad55deb7975a070734}{diag\+\_\+aduc\+\_\+mcu\+\_\+fault}} (bool \&result)
+\begin{DoxyCompactList}\small\item\em Get diag aduc mcu fault data. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIIOWrapper_ab3a551d7da672e3c5d3cce79aac4a37c}{diag\+\_\+flash\+\_\+memory\+\_\+write\+\_\+count\+\_\+exceeded\+\_\+error}} (bool \&result)
+\begin{DoxyCompactList}\small\item\em Get diag flash memory write count exceeded error data. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIIOWrapper_aa3dfbe95f0013016b8b5056b73d1f126}{gyroscope\+\_\+measurement\+\_\+range}} (std\+::string \&result)
+\begin{DoxyCompactList}\small\item\em Get gyroscope measurement range data. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIIOWrapper_a25e63a463289dc1c7761e9ef14982cbf}{internal\+\_\+sensor\+\_\+bandwidth}} (uint32\+\_\+t \&result)
+\begin{DoxyCompactList}\small\item\em Get internal sensor bandwidth data. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIIOWrapper_a630b1d5232285b51560a90b805339961}{update\+\_\+internal\+\_\+sensor\+\_\+bandwidth}} (uint32\+\_\+t val)
+\begin{DoxyCompactList}\small\item\em Update internal sensor bandwidth. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIIOWrapper_a67eaded963621b47f1f228a0b250a00e}{point\+\_\+of\+\_\+percussion\+\_\+alignment}} (uint32\+\_\+t \&result)
+\begin{DoxyCompactList}\small\item\em Get point of percussion alignment data. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIIOWrapper_a293d23f39cf1a07b3e8056d239728dc3}{update\+\_\+point\+\_\+of\+\_\+percussion\+\_\+alignment}} (uint32\+\_\+t val)
+\begin{DoxyCompactList}\small\item\em Update point of percussion alignment. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIIOWrapper_a2352785dfb0a0324613bd6f99a27831b}{linear\+\_\+acceleration\+\_\+compensation}} (uint32\+\_\+t \&result)
+\begin{DoxyCompactList}\small\item\em Get linear acceleration compensation data. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIIOWrapper_a09fe16394d6d8b7a7ab7dbefa64ba084}{update\+\_\+linear\+\_\+acceleration\+\_\+compensation}} (uint32\+\_\+t val)
+\begin{DoxyCompactList}\small\item\em Update linear acceleration compensation. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIIOWrapper_a4b0d75039f36c1063c12c2335c230ffd}{bias\+\_\+correction\+\_\+time\+\_\+base\+\_\+control}} (uint32\+\_\+t \&result)
+\begin{DoxyCompactList}\small\item\em Get bias correction time base control data. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIIOWrapper_a5818afde806f78c0868884d6b1f23bbf}{update\+\_\+bias\+\_\+correction\+\_\+time\+\_\+base\+\_\+control}} (uint32\+\_\+t val)
+\begin{DoxyCompactList}\small\item\em Update bias correction time base control. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIIOWrapper_ab0d834e0075c408c546991934ac4ac7a}{x\+\_\+axis\+\_\+gyroscope\+\_\+bias\+\_\+correction\+\_\+enable}} (uint32\+\_\+t \&result)
+\begin{DoxyCompactList}\small\item\em Get x axis gyroscope bias correction enable data. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIIOWrapper_acedff444962fb642b5d2417aaf5dd63a}{update\+\_\+x\+\_\+axis\+\_\+gyroscope\+\_\+bias\+\_\+correction\+\_\+enable}} (uint32\+\_\+t val)
+\begin{DoxyCompactList}\small\item\em Update x axis gyroscope bias correction enable. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIIOWrapper_a73fd94d29e90e9b46a5c47453e5a76a7}{y\+\_\+axis\+\_\+gyroscope\+\_\+bias\+\_\+correction\+\_\+enable}} (uint32\+\_\+t \&result)
+\begin{DoxyCompactList}\small\item\em Get y axis gyroscope bias correction enable data. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIIOWrapper_a4a20c51a3a2079f1c7e887605f6f78dc}{update\+\_\+y\+\_\+axis\+\_\+gyroscope\+\_\+bias\+\_\+correction\+\_\+enable}} (uint32\+\_\+t val)
+\begin{DoxyCompactList}\small\item\em Update y axis gyroscope bias correction enable. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIIOWrapper_a00aa6acb648e5c90038132c537649773}{z\+\_\+axis\+\_\+gyroscope\+\_\+bias\+\_\+correction\+\_\+enable}} (uint32\+\_\+t \&result)
+\begin{DoxyCompactList}\small\item\em Get z axis gyroscope bias correction enable data. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIIOWrapper_a70f3f6d8b2cdefb6a5a6cff54915c6e1}{update\+\_\+z\+\_\+axis\+\_\+gyroscope\+\_\+bias\+\_\+correction\+\_\+enable}} (uint32\+\_\+t val)
+\begin{DoxyCompactList}\small\item\em Update z axis gyroscope bias correction enable. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIIOWrapper_a62287c7a5dfdd731494ed7ba1780663d}{x\+\_\+axis\+\_\+accelerometer\+\_\+bias\+\_\+correction\+\_\+enable}} (uint32\+\_\+t \&result)
+\begin{DoxyCompactList}\small\item\em Get x axis accelerometer bias correction enable data. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIIOWrapper_a43ae9191af8bc6da154d7b301848ac41}{update\+\_\+x\+\_\+axis\+\_\+accelerometer\+\_\+bias\+\_\+correction\+\_\+enable}} (uint32\+\_\+t val)
+\begin{DoxyCompactList}\small\item\em Update x axis accelerometer bias correction enable. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIIOWrapper_a9f393e7caf03730f7ddcd003c2556dfe}{y\+\_\+axis\+\_\+accelerometer\+\_\+bias\+\_\+correction\+\_\+enable}} (uint32\+\_\+t \&result)
+\begin{DoxyCompactList}\small\item\em Get y axis accelerometer bias correction enable data. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIIOWrapper_ace85be9c516ad0dce1d76700c440d0e7}{update\+\_\+y\+\_\+axis\+\_\+accelerometer\+\_\+bias\+\_\+correction\+\_\+enable}} (uint32\+\_\+t val)
+\begin{DoxyCompactList}\small\item\em Update y axis accelerometer bias correction enable. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIIOWrapper_a56ca0c938bef97c190ee7ae56736fcda}{z\+\_\+axis\+\_\+accelerometer\+\_\+bias\+\_\+correction\+\_\+enable}} (uint32\+\_\+t \&result)
+\begin{DoxyCompactList}\small\item\em Get z axis accelerometer bias correction enable data. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIIOWrapper_ad501d5b8096992254282b710ae3593bf}{update\+\_\+z\+\_\+axis\+\_\+accelerometer\+\_\+bias\+\_\+correction\+\_\+enable}} (uint32\+\_\+t val)
+\begin{DoxyCompactList}\small\item\em Update z axis accelerometer bias correction enable. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIIOWrapper_a2da8f4f3cd36e8e2cff6befcb53ecbbe}{bias\+\_\+correction\+\_\+update}} ()
+\begin{DoxyCompactList}\small\item\em Trigger a bias correction update command. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIIOWrapper_a2cb403633337d848e3e334460098a954}{factory\+\_\+calibration\+\_\+restore}} ()
+\begin{DoxyCompactList}\small\item\em Trigger a factory calibration restore command. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIIOWrapper_a9063348d525f98961fca0e5a8d1b2942}{sensor\+\_\+self\+\_\+test}} ()
+\begin{DoxyCompactList}\small\item\em Trigger a sensor self test command. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIIOWrapper_a39973a796e6e9f809b8284f011ccaa36}{flash\+\_\+memory\+\_\+update}} ()
+\begin{DoxyCompactList}\small\item\em Trigger a flash memory update command. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIIOWrapper_af97abb3a23be70f995eb1becb1863dfb}{flash\+\_\+memory\+\_\+test}} ()
+\begin{DoxyCompactList}\small\item\em Trigger a flash memory test command. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIIOWrapper_a06c8b2dd5e06296e6071515d42678338}{software\+\_\+reset}} ()
+\begin{DoxyCompactList}\small\item\em Trigger a software reset command. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIIOWrapper_a7ece889e328ab46d471031934eb93b33}{firmware\+\_\+revision}} (std\+::string \&result)
+\begin{DoxyCompactList}\small\item\em Get firmware revision value. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIIOWrapper_a392b3968397a63a0bf235bb7515f5879}{firmware\+\_\+date}} (std\+::string \&result)
+\begin{DoxyCompactList}\small\item\em Get firmware date value. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIIOWrapper_a1f0c7c86eba809ac5e0505b12e7b8143}{product\+\_\+id}} (uint32\+\_\+t \&result)
+\begin{DoxyCompactList}\small\item\em Get product id value. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIIOWrapper_a9d05c33bbd4eef378b584d656a56cfc7}{serial\+\_\+number}} (uint32\+\_\+t \&result)
+\begin{DoxyCompactList}\small\item\em Get serial number value. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIIOWrapper_af2bd81f3dca62979b41cf5018f72a173}{flash\+\_\+counter}} (uint32\+\_\+t \&value)
+\begin{DoxyCompactList}\small\item\em Get flash counter value. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classIIOWrapper_a45fe53b29bb3c69fd167caa42418b56e}{get\+\_\+scale\+\_\+accel}} ()
+\begin{DoxyCompactList}\small\item\em Get scale value for linear acceleration. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classIIOWrapper_a9155426d173e6adb8c6436598cab9d6b}{get\+\_\+scale\+\_\+anglvel}} ()
+\begin{DoxyCompactList}\small\item\em Get scale value for angular velocity. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classIIOWrapper_a0986611e409cfa128ec0f5b5429c8b72}{get\+\_\+scale\+\_\+deltavelocity}} ()
+\begin{DoxyCompactList}\small\item\em Get scale value for delta velocity. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classIIOWrapper_a133f8dcccf4727d7a97ba1f708c7c249}{get\+\_\+scale\+\_\+deltaangl}} ()
+\begin{DoxyCompactList}\small\item\em Get scale value for delta angle. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classIIOWrapper_a022888d663a4dbead44e37a84c45411b}{get\+\_\+scale\+\_\+temp}} ()
+\begin{DoxyCompactList}\small\item\em Get scale value for temperature. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classIIOWrapper_aec9b699fd6110a7795a32e84343a1c1d}{set\+Delta\+Angle\+Scales}} (enum adis\+\_\+device\+\_\+id dev\+\_\+id)
+\begin{DoxyCompactList}\small\item\em Sets manually the delta angle scales based on the device id. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classIIOWrapper_a7287fe1ab85c9aebb746dff3baf7300d}{set\+Delta\+Velocity\+Scales}} (enum adis\+\_\+device\+\_\+id dev\+\_\+id)
+\begin{DoxyCompactList}\small\item\em Sets manually the delta velocity scales based on the device id. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIIOWrapper_a3b99dc4a11bfc1044779befc29c9385a}{update\+Field}} (uint32\+\_\+t reg, uint32\+\_\+t val, uint32\+\_\+t mask)
+\begin{DoxyCompactList}\small\item\em Update a field in the register map. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIIOWrapper_a47cb7f7d914c9a12c51cfaa152645b07}{get\+Raw\+Delta\+Angle\+XFrom\+Debug}} (int32\+\_\+t \&result)
+\begin{DoxyCompactList}\small\item\em Get raw delta angle on x axis with register reads; in this case the retrieved samples are not necessary continuous. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIIOWrapper_adde2349c207c0d885197bb11165e6546}{get\+Raw\+Delta\+Angle\+YFrom\+Debug}} (int32\+\_\+t \&result)
+\begin{DoxyCompactList}\small\item\em Get raw delta angle on y axis with register reads; in this case the retrieved samples are not necessary continuous. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIIOWrapper_a2f8806cda1ba466fab265a45eb66815c}{get\+Raw\+Delta\+Angle\+ZFrom\+Debug}} (int32\+\_\+t \&result)
+\begin{DoxyCompactList}\small\item\em Get raw delta angle on z axis with register reads; in this case the retrieved samples are not necessary continuous. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIIOWrapper_a0fe6f4ff144f0c80f1452987e383318a}{get\+Raw\+Delta\+Velocity\+XFrom\+Debug}} (int32\+\_\+t \&result)
+\begin{DoxyCompactList}\small\item\em Get raw delta velocity on x axis with register reads; in this case the retrieved samples are not necessary continuous. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIIOWrapper_ae6a0f742c9dd11684e9a49fb975773e0}{get\+Raw\+Delta\+Velocity\+YFrom\+Debug}} (int32\+\_\+t \&result)
+\begin{DoxyCompactList}\small\item\em Get raw delta velocity on y axis with register reads; in this case the retrieved samples are not necessary continuous. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIIOWrapper_a153ba949b8daa8514864b59538fcb64a}{get\+Raw\+Delta\+Velocity\+ZFrom\+Debug}} (int32\+\_\+t \&result)
+\begin{DoxyCompactList}\small\item\em Get raw delta velocity on z axis with register reads; in this case the retrieved samples are not necessary continuous. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIIOWrapper_a78ff447b7bccef0dd8abc5239ddcda27}{get\+Converted\+Delta\+Angle\+XFrom\+Debug}} (double \&result)
+\begin{DoxyCompactList}\small\item\em Get delta angle on x axis with register reads; in this case the retrieved samples are not necessary continuous. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIIOWrapper_aa52383a8d31690b73f74539cc617e7d7}{get\+Converted\+Delta\+Angle\+YFrom\+Debug}} (double \&result)
+\begin{DoxyCompactList}\small\item\em Get delta angle on y axis with register reads; in this case the retrieved samples are not necessary continuous. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIIOWrapper_adb513e9bdd99b7fcf9accec73faba53e}{get\+Converted\+Delta\+Angle\+ZFrom\+Debug}} (double \&result)
+\begin{DoxyCompactList}\small\item\em Get delta angle on z axis with register reads; in this case the retrieved samples are not necessary continuous. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIIOWrapper_afae369c43ec0dfdb08f41e173b968f58}{get\+Converted\+Delta\+Velocity\+XFrom\+Debug}} (double \&result)
+\begin{DoxyCompactList}\small\item\em Get delta velocity on x axis with register reads; in this case the retrieved samples are not necessary continuous. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIIOWrapper_a93c0f0e87624cc045bf571ed8d85911b}{get\+Converted\+Delta\+Velocity\+YFrom\+Debug}} (double \&result)
+\begin{DoxyCompactList}\small\item\em Get delta velocity on y axis with register reads; in this case the retrieved samples are not necessary continuous. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIIOWrapper_a9adcb8752a2895affbab03ea3d1e2ef0}{get\+Converted\+Delta\+Velocity\+ZFrom\+Debug}} (double \&result)
+\begin{DoxyCompactList}\small\item\em Get delta velocity on z axis with register reads; in this case the retrieved samples are not necessary continuous. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static struct iio\+\_\+context \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classIIOWrapper_aef4fe3a3f93085da695bf65639f09b87}{m\+\_\+iio\+\_\+context}} = nullptr
+\item 
+static struct iio\+\_\+device \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classIIOWrapper_aa54f78cb0c53f73b6562e303367b20be}{m\+\_\+dev}} = nullptr
+\item 
+static struct iio\+\_\+device \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classIIOWrapper_a4c656678d45e8e978480712451b69649}{m\+\_\+dev\+\_\+trigger}} = nullptr
+\item 
+static struct iio\+\_\+buffer \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classIIOWrapper_ac6c3cec6da827146507437ee27296a96}{m\+\_\+dev\+\_\+buffer}} = nullptr
+\item 
+static struct iio\+\_\+channel \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classIIOWrapper_ac1fb844f82d64a1b6e2e6cc6c089bd71}{m\+\_\+channel\+\_\+accel\+\_\+x}} = nullptr
+\item 
+static struct iio\+\_\+channel \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classIIOWrapper_ad1e0779435221c690f93d6d05a76f176}{m\+\_\+channel\+\_\+accel\+\_\+y}} = nullptr
+\item 
+static struct iio\+\_\+channel \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classIIOWrapper_aa5f24dc01a83090154c57359a4668cd9}{m\+\_\+channel\+\_\+accel\+\_\+z}} = nullptr
+\item 
+static struct iio\+\_\+channel \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classIIOWrapper_a9b7c68d2cd7161e853b261c3e1363ef3}{m\+\_\+channel\+\_\+anglvel\+\_\+x}} = nullptr
+\item 
+static struct iio\+\_\+channel \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classIIOWrapper_a1b138c4cc8238e52a68f830363a04b8d}{m\+\_\+channel\+\_\+anglvel\+\_\+y}} = nullptr
+\item 
+static struct iio\+\_\+channel \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classIIOWrapper_a1b2384d209272000f673f25e7134d06d}{m\+\_\+channel\+\_\+anglvel\+\_\+z}} = nullptr
+\item 
+static struct iio\+\_\+channel \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classIIOWrapper_ae585f76ba5a1e003c9416bc87d5d7897}{m\+\_\+channel\+\_\+deltaangl\+\_\+x}} = nullptr
+\item 
+static struct iio\+\_\+channel \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classIIOWrapper_a60cc79165edc458ad3af03ad976feb2d}{m\+\_\+channel\+\_\+deltaangl\+\_\+y}} = nullptr
+\item 
+static struct iio\+\_\+channel \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classIIOWrapper_a7f9f033ffb31d35240723713a9769a6b}{m\+\_\+channel\+\_\+deltaangl\+\_\+z}} = nullptr
+\item 
+static struct iio\+\_\+channel \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classIIOWrapper_a13c3a4d31efdd2d329b3acc14b697aa4}{m\+\_\+channel\+\_\+deltavelocity\+\_\+x}} = nullptr
+\item 
+static struct iio\+\_\+channel \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classIIOWrapper_a7fba21deedbdc14adf0f4a46cb59fdff}{m\+\_\+channel\+\_\+deltavelocity\+\_\+y}} = nullptr
+\item 
+static struct iio\+\_\+channel \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classIIOWrapper_a38e16f0f6f97028d0eee31b7e98d40aa}{m\+\_\+channel\+\_\+deltavelocity\+\_\+z}} = nullptr
+\item 
+static struct iio\+\_\+channel \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classIIOWrapper_a49a1068fef0e2c1c48096f6b88d103b7}{m\+\_\+channel\+\_\+temp}} = nullptr
+\item 
+static struct iio\+\_\+channel \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classIIOWrapper_a335fdbf54f6ea1f463b4b7e9e74e0cc8}{m\+\_\+channel\+\_\+timestamp}} = nullptr
+\item 
+static double \mbox{\hyperlink{classIIOWrapper_ac4a267304bf82229d032adf4c167c8be}{m\+\_\+scale\+\_\+accel\+\_\+x}} = 0
+\item 
+static double \mbox{\hyperlink{classIIOWrapper_a39297415934efc288f6ced765861d19d}{m\+\_\+scale\+\_\+accel\+\_\+y}} = 0
+\item 
+static double \mbox{\hyperlink{classIIOWrapper_a62c70c9017644054942d0a27c5582291}{m\+\_\+scale\+\_\+accel\+\_\+z}} = 0
+\item 
+static double \mbox{\hyperlink{classIIOWrapper_a60201aaf24995e68520d846c5446cd23}{m\+\_\+scale\+\_\+anglvel\+\_\+x}} = 0
+\item 
+static double \mbox{\hyperlink{classIIOWrapper_aabb94da5ca0c007e066898cd7767f5a2}{m\+\_\+scale\+\_\+anglvel\+\_\+y}} = 0
+\item 
+static double \mbox{\hyperlink{classIIOWrapper_acdb2f23b02ac0650e12b76a02502e725}{m\+\_\+scale\+\_\+anglvel\+\_\+z}} = 0
+\item 
+static double \mbox{\hyperlink{classIIOWrapper_a9d05021dd126ae2446d4bfc8e122d926}{m\+\_\+scale\+\_\+deltaangl\+\_\+x}} = 0
+\item 
+static double \mbox{\hyperlink{classIIOWrapper_a0a614ad2a77e11186da5c6d22743c1cc}{m\+\_\+scale\+\_\+deltaangl\+\_\+y}} = 0
+\item 
+static double \mbox{\hyperlink{classIIOWrapper_aa60f12b53d29ad7a17750da6cfe56a9b}{m\+\_\+scale\+\_\+deltaangl\+\_\+z}} = 0
+\item 
+static double \mbox{\hyperlink{classIIOWrapper_a6b769d1cfe0c7e2f09d7af4cdbea5c09}{m\+\_\+scale\+\_\+deltavelocity\+\_\+x}} = 0
+\item 
+static double \mbox{\hyperlink{classIIOWrapper_a5f29b5ac8ea9c50f38059626899f45ab}{m\+\_\+scale\+\_\+deltavelocity\+\_\+y}} = 0
+\item 
+static double \mbox{\hyperlink{classIIOWrapper_a822cfeb7635264d647df73dabd2ec4d6}{m\+\_\+scale\+\_\+deltavelocity\+\_\+z}} = 0
+\item 
+static double \mbox{\hyperlink{classIIOWrapper_ac33c30566920a17f9f0b20321c7bb4ae}{m\+\_\+scale\+\_\+temp}} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Wrapper class for libiio library for IMU devices. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classIIOWrapper_a45cbee4a2eaf700b7396a4df956ed7e8}\label{classIIOWrapper_a45cbee4a2eaf700b7396a4df956ed7e8} 
+\index{IIOWrapper@{IIOWrapper}!accel\_x\_calibbias@{accel\_x\_calibbias}}
+\index{accel\_x\_calibbias@{accel\_x\_calibbias}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{accel\_x\_calibbias()}{accel\_x\_calibbias()}}
+{\footnotesize\ttfamily bool IIOWrapper\+::accel\+\_\+x\+\_\+calibbias (\begin{DoxyParamCaption}\item[{int32\+\_\+t \&}]{result }\end{DoxyParamCaption})}
+
+
+
+Get linear acceleration calibration offset on x axis. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em result} & linear acceleration calibration offset on x axis. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return true if reading was successful and data is valid, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{classIIOWrapper_ab069f082479643718588962ed76e48e9}\label{classIIOWrapper_ab069f082479643718588962ed76e48e9} 
+\index{IIOWrapper@{IIOWrapper}!accel\_y\_calibbias@{accel\_y\_calibbias}}
+\index{accel\_y\_calibbias@{accel\_y\_calibbias}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{accel\_y\_calibbias()}{accel\_y\_calibbias()}}
+{\footnotesize\ttfamily bool IIOWrapper\+::accel\+\_\+y\+\_\+calibbias (\begin{DoxyParamCaption}\item[{int32\+\_\+t \&}]{result }\end{DoxyParamCaption})}
+
+
+
+Get linear acceleration calibration offset on y axis. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em result} & linear acceleration calibration offset on y axis. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return true if reading was successful and data is valid, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{classIIOWrapper_a777c78d431b5fc16088018b52ffa8d3a}\label{classIIOWrapper_a777c78d431b5fc16088018b52ffa8d3a} 
+\index{IIOWrapper@{IIOWrapper}!accel\_z\_calibbias@{accel\_z\_calibbias}}
+\index{accel\_z\_calibbias@{accel\_z\_calibbias}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{accel\_z\_calibbias()}{accel\_z\_calibbias()}}
+{\footnotesize\ttfamily bool IIOWrapper\+::accel\+\_\+z\+\_\+calibbias (\begin{DoxyParamCaption}\item[{int32\+\_\+t \&}]{result }\end{DoxyParamCaption})}
+
+
+
+Get linear acceleration calibration offset on z axis. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em result} & linear acceleration calibration offset on z axis. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return true if reading was successful and data is valid, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{classIIOWrapper_a2cc98e4d4a651e82c7d5766f824acebd}\label{classIIOWrapper_a2cc98e4d4a651e82c7d5766f824acebd} 
+\index{IIOWrapper@{IIOWrapper}!anglvel\_x\_calibbias@{anglvel\_x\_calibbias}}
+\index{anglvel\_x\_calibbias@{anglvel\_x\_calibbias}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{anglvel\_x\_calibbias()}{anglvel\_x\_calibbias()}}
+{\footnotesize\ttfamily bool IIOWrapper\+::anglvel\+\_\+x\+\_\+calibbias (\begin{DoxyParamCaption}\item[{int32\+\_\+t \&}]{result }\end{DoxyParamCaption})}
+
+
+
+Get angular velocity calibration offset on x axis. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em result} & angular velocity calibration offset on x axis. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return true if reading was successful and data is valid, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{classIIOWrapper_aafec41ed9294cf0ef6ac0afaf350188e}\label{classIIOWrapper_aafec41ed9294cf0ef6ac0afaf350188e} 
+\index{IIOWrapper@{IIOWrapper}!anglvel\_y\_calibbias@{anglvel\_y\_calibbias}}
+\index{anglvel\_y\_calibbias@{anglvel\_y\_calibbias}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{anglvel\_y\_calibbias()}{anglvel\_y\_calibbias()}}
+{\footnotesize\ttfamily bool IIOWrapper\+::anglvel\+\_\+y\+\_\+calibbias (\begin{DoxyParamCaption}\item[{int32\+\_\+t \&}]{result }\end{DoxyParamCaption})}
+
+
+
+Get angular velocity calibration offset on y axis. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em result} & angular velocity calibration offset on y axis. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return true if reading was successful and data is valid, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{classIIOWrapper_a84a5ecfbf0942fa175703f1a0aee8bcd}\label{classIIOWrapper_a84a5ecfbf0942fa175703f1a0aee8bcd} 
+\index{IIOWrapper@{IIOWrapper}!anglvel\_z\_calibbias@{anglvel\_z\_calibbias}}
+\index{anglvel\_z\_calibbias@{anglvel\_z\_calibbias}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{anglvel\_z\_calibbias()}{anglvel\_z\_calibbias()}}
+{\footnotesize\ttfamily bool IIOWrapper\+::anglvel\+\_\+z\+\_\+calibbias (\begin{DoxyParamCaption}\item[{int32\+\_\+t \&}]{result }\end{DoxyParamCaption})}
+
+
+
+Get angular velocity calibration offset on z axis. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em result} & angular velocity calibration offset on z axis. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return true if reading was successful and data is valid, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{classIIOWrapper_a4b0d75039f36c1063c12c2335c230ffd}\label{classIIOWrapper_a4b0d75039f36c1063c12c2335c230ffd} 
+\index{IIOWrapper@{IIOWrapper}!bias\_correction\_time\_base\_control@{bias\_correction\_time\_base\_control}}
+\index{bias\_correction\_time\_base\_control@{bias\_correction\_time\_base\_control}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{bias\_correction\_time\_base\_control()}{bias\_correction\_time\_base\_control()}}
+{\footnotesize\ttfamily bool IIOWrapper\+::bias\+\_\+correction\+\_\+time\+\_\+base\+\_\+control (\begin{DoxyParamCaption}\item[{uint32\+\_\+t \&}]{result }\end{DoxyParamCaption})}
+
+
+
+Get bias correction time base control data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em result} & bias correction time base control data. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return true if reading was successful and data is valid, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{classIIOWrapper_a2da8f4f3cd36e8e2cff6befcb53ecbbe}\label{classIIOWrapper_a2da8f4f3cd36e8e2cff6befcb53ecbbe} 
+\index{IIOWrapper@{IIOWrapper}!bias\_correction\_update@{bias\_correction\_update}}
+\index{bias\_correction\_update@{bias\_correction\_update}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{bias\_correction\_update()}{bias\_correction\_update()}}
+{\footnotesize\ttfamily bool IIOWrapper\+::bias\+\_\+correction\+\_\+update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Trigger a bias correction update command. 
+
+\begin{DoxyReturn}{Returns}
+Return true if the command was successfully triggered, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{classIIOWrapper_aa56bb91153c46ef51c3d3d53a68cc423}\label{classIIOWrapper_aa56bb91153c46ef51c3d3d53a68cc423} 
+\index{IIOWrapper@{IIOWrapper}!createContext@{createContext}}
+\index{createContext@{createContext}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{createContext()}{createContext()}}
+{\footnotesize\ttfamily int IIOWrapper\+::create\+Context (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{context }\end{DoxyParamCaption})}
+
+
+
+create IIO context based on the given context string and search for IIO ADIS device, enable trigger and map device attributes, device channels and channels attributes. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em context} & IIO context string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+ERROR code on IIO context error, 0 otherwise 
+\end{DoxyReturn}
+\Hypertarget{classIIOWrapper_a6f0b68bf91bb6bd000a570b349a4e9f4}\label{classIIOWrapper_a6f0b68bf91bb6bd000a570b349a4e9f4} 
+\index{IIOWrapper@{IIOWrapper}!diag\_acceleration\_self\_test\_error@{diag\_acceleration\_self\_test\_error}}
+\index{diag\_acceleration\_self\_test\_error@{diag\_acceleration\_self\_test\_error}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{diag\_acceleration\_self\_test\_error()}{diag\_acceleration\_self\_test\_error()}}
+{\footnotesize\ttfamily bool IIOWrapper\+::diag\+\_\+acceleration\+\_\+self\+\_\+test\+\_\+error (\begin{DoxyParamCaption}\item[{bool \&}]{result }\end{DoxyParamCaption})}
+
+
+
+Get diag acceleration self test error data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em result} & True if failure occurred, false otherwise. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return true if reading was successful and data is valid, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{classIIOWrapper_aa691849d0baa2fad55deb7975a070734}\label{classIIOWrapper_aa691849d0baa2fad55deb7975a070734} 
+\index{IIOWrapper@{IIOWrapper}!diag\_aduc\_mcu\_fault@{diag\_aduc\_mcu\_fault}}
+\index{diag\_aduc\_mcu\_fault@{diag\_aduc\_mcu\_fault}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{diag\_aduc\_mcu\_fault()}{diag\_aduc\_mcu\_fault()}}
+{\footnotesize\ttfamily bool IIOWrapper\+::diag\+\_\+aduc\+\_\+mcu\+\_\+fault (\begin{DoxyParamCaption}\item[{bool \&}]{result }\end{DoxyParamCaption})}
+
+
+
+Get diag aduc mcu fault data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em result} & True if failure occurred, false otherwise. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return true if reading was successful and data is valid, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{classIIOWrapper_aa81282a7f07974ef69c65711200f5d7a}\label{classIIOWrapper_aa81282a7f07974ef69c65711200f5d7a} 
+\index{IIOWrapper@{IIOWrapper}!diag\_automatic\_reset@{diag\_automatic\_reset}}
+\index{diag\_automatic\_reset@{diag\_automatic\_reset}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{diag\_automatic\_reset()}{diag\_automatic\_reset()}}
+{\footnotesize\ttfamily bool IIOWrapper\+::diag\+\_\+automatic\+\_\+reset (\begin{DoxyParamCaption}\item[{bool \&}]{result }\end{DoxyParamCaption})}
+
+
+
+Get automatic reset data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em result} & True if device reset has occured \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true Return true if reading was successful and data is valid, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{classIIOWrapper_a09e0a223d200b7d2ed1731f06635b370}\label{classIIOWrapper_a09e0a223d200b7d2ed1731f06635b370} 
+\index{IIOWrapper@{IIOWrapper}!diag\_clock\_error@{diag\_clock\_error}}
+\index{diag\_clock\_error@{diag\_clock\_error}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{diag\_clock\_error()}{diag\_clock\_error()}}
+{\footnotesize\ttfamily bool IIOWrapper\+::diag\+\_\+clock\+\_\+error (\begin{DoxyParamCaption}\item[{bool \&}]{result }\end{DoxyParamCaption})}
+
+
+
+Get diag clock error data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em result} & True if failure occurred, false otherwise. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return true if reading was successful and data is valid, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{classIIOWrapper_a11b581d355f708591f0e425507d93164}\label{classIIOWrapper_a11b581d355f708591f0e425507d93164} 
+\index{IIOWrapper@{IIOWrapper}!diag\_crc\_error@{diag\_crc\_error}}
+\index{diag\_crc\_error@{diag\_crc\_error}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{diag\_crc\_error()}{diag\_crc\_error()}}
+{\footnotesize\ttfamily bool IIOWrapper\+::diag\+\_\+crc\+\_\+error (\begin{DoxyParamCaption}\item[{bool \&}]{result }\end{DoxyParamCaption})}
+
+
+
+Get diag crc error. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em result} & True if calculation failure occurred in a CRC \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return true if reading was successful and data is valid, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{classIIOWrapper_aacdab905284a0a6ecabb1b9bcad81be9}\label{classIIOWrapper_aacdab905284a0a6ecabb1b9bcad81be9} 
+\index{IIOWrapper@{IIOWrapper}!diag\_data\_path\_overrun@{diag\_data\_path\_overrun}}
+\index{diag\_data\_path\_overrun@{diag\_data\_path\_overrun}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{diag\_data\_path\_overrun()}{diag\_data\_path\_overrun()}}
+{\footnotesize\ttfamily bool IIOWrapper\+::diag\+\_\+data\+\_\+path\+\_\+overrun (\begin{DoxyParamCaption}\item[{bool \&}]{result }\end{DoxyParamCaption})}
+
+
+
+Get diag data path overrun data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em result} & True if failure occurred, false otherwise. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return true if reading was successful and data is valid, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{classIIOWrapper_a39396f6d69a04202f9e859922f95fc34}\label{classIIOWrapper_a39396f6d69a04202f9e859922f95fc34} 
+\index{IIOWrapper@{IIOWrapper}!diag\_flash\_memory\_test\_error@{diag\_flash\_memory\_test\_error}}
+\index{diag\_flash\_memory\_test\_error@{diag\_flash\_memory\_test\_error}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{diag\_flash\_memory\_test\_error()}{diag\_flash\_memory\_test\_error()}}
+{\footnotesize\ttfamily bool IIOWrapper\+::diag\+\_\+flash\+\_\+memory\+\_\+test\+\_\+error (\begin{DoxyParamCaption}\item[{bool \&}]{result }\end{DoxyParamCaption})}
+
+
+
+Get diag flash memory test error data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em result} & True if failure occurred, false otherwise. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return true if reading was successful and data is valid, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{classIIOWrapper_a9950dc38bc1e56a7fc42d36b50a3e718}\label{classIIOWrapper_a9950dc38bc1e56a7fc42d36b50a3e718} 
+\index{IIOWrapper@{IIOWrapper}!diag\_flash\_memory\_update\_error@{diag\_flash\_memory\_update\_error}}
+\index{diag\_flash\_memory\_update\_error@{diag\_flash\_memory\_update\_error}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{diag\_flash\_memory\_update\_error()}{diag\_flash\_memory\_update\_error()}}
+{\footnotesize\ttfamily bool IIOWrapper\+::diag\+\_\+flash\+\_\+memory\+\_\+update\+\_\+error (\begin{DoxyParamCaption}\item[{bool \&}]{result }\end{DoxyParamCaption})}
+
+
+
+Get diag flash memory update\+\_\+error data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em result} & True if failure occurred, false otherwise. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return true if reading was successful and data is valid, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{classIIOWrapper_ab3a551d7da672e3c5d3cce79aac4a37c}\label{classIIOWrapper_ab3a551d7da672e3c5d3cce79aac4a37c} 
+\index{IIOWrapper@{IIOWrapper}!diag\_flash\_memory\_write\_count\_exceeded\_error@{diag\_flash\_memory\_write\_count\_exceeded\_error}}
+\index{diag\_flash\_memory\_write\_count\_exceeded\_error@{diag\_flash\_memory\_write\_count\_exceeded\_error}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{diag\_flash\_memory\_write\_count\_exceeded\_error()}{diag\_flash\_memory\_write\_count\_exceeded\_error()}}
+{\footnotesize\ttfamily bool IIOWrapper\+::diag\+\_\+flash\+\_\+memory\+\_\+write\+\_\+count\+\_\+exceeded\+\_\+error (\begin{DoxyParamCaption}\item[{bool \&}]{result }\end{DoxyParamCaption})}
+
+
+
+Get diag flash memory write count exceeded error data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em result} & True if write count exceeded allowed value, false otherwise. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return true if reading was successful and data is valid, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{classIIOWrapper_aea94b1e579314660c7dd03d82ee4c29f}\label{classIIOWrapper_aea94b1e579314660c7dd03d82ee4c29f} 
+\index{IIOWrapper@{IIOWrapper}!diag\_gyroscope1\_self\_test\_error@{diag\_gyroscope1\_self\_test\_error}}
+\index{diag\_gyroscope1\_self\_test\_error@{diag\_gyroscope1\_self\_test\_error}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{diag\_gyroscope1\_self\_test\_error()}{diag\_gyroscope1\_self\_test\_error()}}
+{\footnotesize\ttfamily bool IIOWrapper\+::diag\+\_\+gyroscope1\+\_\+self\+\_\+test\+\_\+error (\begin{DoxyParamCaption}\item[{bool \&}]{result }\end{DoxyParamCaption})}
+
+
+
+Get diag gyroscope1 self test error data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em result} & True if failure occurred, false otherwise. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return true if reading was successful and data is valid, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{classIIOWrapper_aa85c0d7dbb01ff4201678d687b8adf93}\label{classIIOWrapper_aa85c0d7dbb01ff4201678d687b8adf93} 
+\index{IIOWrapper@{IIOWrapper}!diag\_gyroscope2\_self\_test\_error@{diag\_gyroscope2\_self\_test\_error}}
+\index{diag\_gyroscope2\_self\_test\_error@{diag\_gyroscope2\_self\_test\_error}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{diag\_gyroscope2\_self\_test\_error()}{diag\_gyroscope2\_self\_test\_error()}}
+{\footnotesize\ttfamily bool IIOWrapper\+::diag\+\_\+gyroscope2\+\_\+self\+\_\+test\+\_\+error (\begin{DoxyParamCaption}\item[{bool \&}]{result }\end{DoxyParamCaption})}
+
+
+
+Get diag gyroscope2 self test error data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em result} & True if failure occurred, false otherwise. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return true if reading was successful and data is valid, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{classIIOWrapper_ac818ead3ccd5f2a7c8ab59f5464cff9a}\label{classIIOWrapper_ac818ead3ccd5f2a7c8ab59f5464cff9a} 
+\index{IIOWrapper@{IIOWrapper}!diag\_sensor\_initialization\_failure@{diag\_sensor\_initialization\_failure}}
+\index{diag\_sensor\_initialization\_failure@{diag\_sensor\_initialization\_failure}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{diag\_sensor\_initialization\_failure()}{diag\_sensor\_initialization\_failure()}}
+{\footnotesize\ttfamily bool IIOWrapper\+::diag\+\_\+sensor\+\_\+initialization\+\_\+failure (\begin{DoxyParamCaption}\item[{bool \&}]{result }\end{DoxyParamCaption})}
+
+
+
+Get diag sensor initialization failure data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em result} & True if failure occurred, false otherwise. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return true if reading was successful and data is valid, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{classIIOWrapper_a6c7b7b8d0039a24ed6be2ce7b15fc814}\label{classIIOWrapper_a6c7b7b8d0039a24ed6be2ce7b15fc814} 
+\index{IIOWrapper@{IIOWrapper}!diag\_sensor\_self\_test\_error@{diag\_sensor\_self\_test\_error}}
+\index{diag\_sensor\_self\_test\_error@{diag\_sensor\_self\_test\_error}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{diag\_sensor\_self\_test\_error()}{diag\_sensor\_self\_test\_error()}}
+{\footnotesize\ttfamily bool IIOWrapper\+::diag\+\_\+sensor\+\_\+self\+\_\+test\+\_\+error (\begin{DoxyParamCaption}\item[{bool \&}]{result }\end{DoxyParamCaption})}
+
+
+
+Get diag sensor self test error data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em result} & True if failure occurred, false otherwise. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return true if reading was successful and data is valid, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{classIIOWrapper_a1d23815c0de4a1ad4366602a4f4bdd96}\label{classIIOWrapper_a1d23815c0de4a1ad4366602a4f4bdd96} 
+\index{IIOWrapper@{IIOWrapper}!diag\_spi\_communication\_error@{diag\_spi\_communication\_error}}
+\index{diag\_spi\_communication\_error@{diag\_spi\_communication\_error}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{diag\_spi\_communication\_error()}{diag\_spi\_communication\_error()}}
+{\footnotesize\ttfamily bool IIOWrapper\+::diag\+\_\+spi\+\_\+communication\+\_\+error (\begin{DoxyParamCaption}\item[{bool \&}]{result }\end{DoxyParamCaption})}
+
+
+
+Get diag spi communication error data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em result} & True if failure occurred, false otherwise. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return true if reading was successful and data is valid, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{classIIOWrapper_a88df8843b74de7c177dada4d61708fc4}\label{classIIOWrapper_a88df8843b74de7c177dada4d61708fc4} 
+\index{IIOWrapper@{IIOWrapper}!diag\_standby\_mode@{diag\_standby\_mode}}
+\index{diag\_standby\_mode@{diag\_standby\_mode}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{diag\_standby\_mode()}{diag\_standby\_mode()}}
+{\footnotesize\ttfamily bool IIOWrapper\+::diag\+\_\+standby\+\_\+mode (\begin{DoxyParamCaption}\item[{bool \&}]{result }\end{DoxyParamCaption})}
+
+
+
+Get diag standby mode data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em result} & True if device is in standby mode, false otherwise. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return true if reading was successful and data is valid, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{classIIOWrapper_afd7976cbd87ab425eb6fdf1192e39e1b}\label{classIIOWrapper_afd7976cbd87ab425eb6fdf1192e39e1b} 
+\index{IIOWrapper@{IIOWrapper}!diag\_x\_axis\_accelerometer\_failure@{diag\_x\_axis\_accelerometer\_failure}}
+\index{diag\_x\_axis\_accelerometer\_failure@{diag\_x\_axis\_accelerometer\_failure}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{diag\_x\_axis\_accelerometer\_failure()}{diag\_x\_axis\_accelerometer\_failure()}}
+{\footnotesize\ttfamily bool IIOWrapper\+::diag\+\_\+x\+\_\+axis\+\_\+accelerometer\+\_\+failure (\begin{DoxyParamCaption}\item[{bool \&}]{result }\end{DoxyParamCaption})}
+
+
+
+Get diag x axis accelerometer failure data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em result} & True if failure occurred, false otherwise. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return true if reading was successful and data is valid, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{classIIOWrapper_a45143fbc3eba8260f9cda6870c704d19}\label{classIIOWrapper_a45143fbc3eba8260f9cda6870c704d19} 
+\index{IIOWrapper@{IIOWrapper}!diag\_x\_axis\_gyroscope\_failure@{diag\_x\_axis\_gyroscope\_failure}}
+\index{diag\_x\_axis\_gyroscope\_failure@{diag\_x\_axis\_gyroscope\_failure}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{diag\_x\_axis\_gyroscope\_failure()}{diag\_x\_axis\_gyroscope\_failure()}}
+{\footnotesize\ttfamily bool IIOWrapper\+::diag\+\_\+x\+\_\+axis\+\_\+gyroscope\+\_\+failure (\begin{DoxyParamCaption}\item[{bool \&}]{result }\end{DoxyParamCaption})}
+
+
+
+Get diag x axis gyroscope failure data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em result} & True if failure occurred, false otherwise. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return true if reading was successful and data is valid, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{classIIOWrapper_a5e040011fba86b221a028f96440ac59e}\label{classIIOWrapper_a5e040011fba86b221a028f96440ac59e} 
+\index{IIOWrapper@{IIOWrapper}!diag\_y\_axis\_accelerometer\_failure@{diag\_y\_axis\_accelerometer\_failure}}
+\index{diag\_y\_axis\_accelerometer\_failure@{diag\_y\_axis\_accelerometer\_failure}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{diag\_y\_axis\_accelerometer\_failure()}{diag\_y\_axis\_accelerometer\_failure()}}
+{\footnotesize\ttfamily bool IIOWrapper\+::diag\+\_\+y\+\_\+axis\+\_\+accelerometer\+\_\+failure (\begin{DoxyParamCaption}\item[{bool \&}]{result }\end{DoxyParamCaption})}
+
+
+
+Get diag y axis accelerometer failure data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em result} & True if failure occurred, false otherwise. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return true if reading was successful and data is valid, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{classIIOWrapper_ab027802372011c7f7d9f59061017173c}\label{classIIOWrapper_ab027802372011c7f7d9f59061017173c} 
+\index{IIOWrapper@{IIOWrapper}!diag\_y\_axis\_gyroscope\_failure@{diag\_y\_axis\_gyroscope\_failure}}
+\index{diag\_y\_axis\_gyroscope\_failure@{diag\_y\_axis\_gyroscope\_failure}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{diag\_y\_axis\_gyroscope\_failure()}{diag\_y\_axis\_gyroscope\_failure()}}
+{\footnotesize\ttfamily bool IIOWrapper\+::diag\+\_\+y\+\_\+axis\+\_\+gyroscope\+\_\+failure (\begin{DoxyParamCaption}\item[{bool \&}]{result }\end{DoxyParamCaption})}
+
+
+
+Get diag y axis gyroscope failure data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em result} & True if failure occurred, false otherwise. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return true if reading was successful and data is valid, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{classIIOWrapper_adf039156a53b8bb0afebe4c48507c097}\label{classIIOWrapper_adf039156a53b8bb0afebe4c48507c097} 
+\index{IIOWrapper@{IIOWrapper}!diag\_z\_axis\_accelerometer\_failure@{diag\_z\_axis\_accelerometer\_failure}}
+\index{diag\_z\_axis\_accelerometer\_failure@{diag\_z\_axis\_accelerometer\_failure}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{diag\_z\_axis\_accelerometer\_failure()}{diag\_z\_axis\_accelerometer\_failure()}}
+{\footnotesize\ttfamily bool IIOWrapper\+::diag\+\_\+z\+\_\+axis\+\_\+accelerometer\+\_\+failure (\begin{DoxyParamCaption}\item[{bool \&}]{result }\end{DoxyParamCaption})}
+
+
+
+Get diag z axis accelerometer failure data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em result} & True if failure occurred, false otherwise. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return true if reading was successful and data is valid, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{classIIOWrapper_adc4a32825bc5982131f53e227805946b}\label{classIIOWrapper_adc4a32825bc5982131f53e227805946b} 
+\index{IIOWrapper@{IIOWrapper}!diag\_z\_axis\_gyroscope\_failure@{diag\_z\_axis\_gyroscope\_failure}}
+\index{diag\_z\_axis\_gyroscope\_failure@{diag\_z\_axis\_gyroscope\_failure}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{diag\_z\_axis\_gyroscope\_failure()}{diag\_z\_axis\_gyroscope\_failure()}}
+{\footnotesize\ttfamily bool IIOWrapper\+::diag\+\_\+z\+\_\+axis\+\_\+gyroscope\+\_\+failure (\begin{DoxyParamCaption}\item[{bool \&}]{result }\end{DoxyParamCaption})}
+
+
+
+Get diag z axis gyroscope failure data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em result} & True if failure occurred, false otherwise. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return true if reading was successful and data is valid, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{classIIOWrapper_a2cb403633337d848e3e334460098a954}\label{classIIOWrapper_a2cb403633337d848e3e334460098a954} 
+\index{IIOWrapper@{IIOWrapper}!factory\_calibration\_restore@{factory\_calibration\_restore}}
+\index{factory\_calibration\_restore@{factory\_calibration\_restore}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{factory\_calibration\_restore()}{factory\_calibration\_restore()}}
+{\footnotesize\ttfamily bool IIOWrapper\+::factory\+\_\+calibration\+\_\+restore (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Trigger a factory calibration restore command. 
+
+\begin{DoxyReturn}{Returns}
+Return true if the command was successfully triggered, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{classIIOWrapper_aee4ed59f8c41d2c1e1ad95d5179e0e61}\label{classIIOWrapper_aee4ed59f8c41d2c1e1ad95d5179e0e61} 
+\index{IIOWrapper@{IIOWrapper}!filter\_low\_pass\_3db\_frequency@{filter\_low\_pass\_3db\_frequency}}
+\index{filter\_low\_pass\_3db\_frequency@{filter\_low\_pass\_3db\_frequency}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{filter\_low\_pass\_3db\_frequency()}{filter\_low\_pass\_3db\_frequency()}}
+{\footnotesize\ttfamily bool IIOWrapper\+::filter\+\_\+low\+\_\+pass\+\_\+3db\+\_\+frequency (\begin{DoxyParamCaption}\item[{uint32\+\_\+t \&}]{result }\end{DoxyParamCaption})}
+
+
+
+Get low pass 3db frequency data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em result} & low pass 3db frequency value. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return true if reading was successful and data is valid, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{classIIOWrapper_a392b3968397a63a0bf235bb7515f5879}\label{classIIOWrapper_a392b3968397a63a0bf235bb7515f5879} 
+\index{IIOWrapper@{IIOWrapper}!firmware\_date@{firmware\_date}}
+\index{firmware\_date@{firmware\_date}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{firmware\_date()}{firmware\_date()}}
+{\footnotesize\ttfamily bool IIOWrapper\+::firmware\+\_\+date (\begin{DoxyParamCaption}\item[{std\+::string \&}]{result }\end{DoxyParamCaption})}
+
+
+
+Get firmware date value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em result} & The firmware data value. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return true if reading was successful and data is valid, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{classIIOWrapper_a7ece889e328ab46d471031934eb93b33}\label{classIIOWrapper_a7ece889e328ab46d471031934eb93b33} 
+\index{IIOWrapper@{IIOWrapper}!firmware\_revision@{firmware\_revision}}
+\index{firmware\_revision@{firmware\_revision}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{firmware\_revision()}{firmware\_revision()}}
+{\footnotesize\ttfamily bool IIOWrapper\+::firmware\+\_\+revision (\begin{DoxyParamCaption}\item[{std\+::string \&}]{result }\end{DoxyParamCaption})}
+
+
+
+Get firmware revision value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em result} & The firmware revision value. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return true if reading was successful and data is valid, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{classIIOWrapper_af2bd81f3dca62979b41cf5018f72a173}\label{classIIOWrapper_af2bd81f3dca62979b41cf5018f72a173} 
+\index{IIOWrapper@{IIOWrapper}!flash\_counter@{flash\_counter}}
+\index{flash\_counter@{flash\_counter}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{flash\_counter()}{flash\_counter()}}
+{\footnotesize\ttfamily bool IIOWrapper\+::flash\+\_\+counter (\begin{DoxyParamCaption}\item[{uint32\+\_\+t \&}]{value }\end{DoxyParamCaption})}
+
+
+
+Get flash counter value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & The flash counter value. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return true if reading was successful and data is valid, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{classIIOWrapper_af97abb3a23be70f995eb1becb1863dfb}\label{classIIOWrapper_af97abb3a23be70f995eb1becb1863dfb} 
+\index{IIOWrapper@{IIOWrapper}!flash\_memory\_test@{flash\_memory\_test}}
+\index{flash\_memory\_test@{flash\_memory\_test}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{flash\_memory\_test()}{flash\_memory\_test()}}
+{\footnotesize\ttfamily bool IIOWrapper\+::flash\+\_\+memory\+\_\+test (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Trigger a flash memory test command. 
+
+\begin{DoxyReturn}{Returns}
+Return true if the command was successfully triggered, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{classIIOWrapper_a39973a796e6e9f809b8284f011ccaa36}\label{classIIOWrapper_a39973a796e6e9f809b8284f011ccaa36} 
+\index{IIOWrapper@{IIOWrapper}!flash\_memory\_update@{flash\_memory\_update}}
+\index{flash\_memory\_update@{flash\_memory\_update}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{flash\_memory\_update()}{flash\_memory\_update()}}
+{\footnotesize\ttfamily bool IIOWrapper\+::flash\+\_\+memory\+\_\+update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Trigger a flash memory update command. 
+
+\begin{DoxyReturn}{Returns}
+Return true if the command was successfully triggered, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{classIIOWrapper_a45fe53b29bb3c69fd167caa42418b56e}\label{classIIOWrapper_a45fe53b29bb3c69fd167caa42418b56e} 
+\index{IIOWrapper@{IIOWrapper}!get\_scale\_accel@{get\_scale\_accel}}
+\index{get\_scale\_accel@{get\_scale\_accel}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{get\_scale\_accel()}{get\_scale\_accel()}}
+{\footnotesize\ttfamily double IIOWrapper\+::get\+\_\+scale\+\_\+accel (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get scale value for linear acceleration. 
+
+\begin{DoxyReturn}{Returns}
+Return scale value for linear acceleration. 
+\end{DoxyReturn}
+\Hypertarget{classIIOWrapper_a9155426d173e6adb8c6436598cab9d6b}\label{classIIOWrapper_a9155426d173e6adb8c6436598cab9d6b} 
+\index{IIOWrapper@{IIOWrapper}!get\_scale\_anglvel@{get\_scale\_anglvel}}
+\index{get\_scale\_anglvel@{get\_scale\_anglvel}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{get\_scale\_anglvel()}{get\_scale\_anglvel()}}
+{\footnotesize\ttfamily double IIOWrapper\+::get\+\_\+scale\+\_\+anglvel (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get scale value for angular velocity. 
+
+\begin{DoxyReturn}{Returns}
+Return scale value for angular velocity. 
+\end{DoxyReturn}
+\Hypertarget{classIIOWrapper_a133f8dcccf4727d7a97ba1f708c7c249}\label{classIIOWrapper_a133f8dcccf4727d7a97ba1f708c7c249} 
+\index{IIOWrapper@{IIOWrapper}!get\_scale\_deltaangl@{get\_scale\_deltaangl}}
+\index{get\_scale\_deltaangl@{get\_scale\_deltaangl}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{get\_scale\_deltaangl()}{get\_scale\_deltaangl()}}
+{\footnotesize\ttfamily double IIOWrapper\+::get\+\_\+scale\+\_\+deltaangl (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get scale value for delta angle. 
+
+\begin{DoxyReturn}{Returns}
+Return scale value for delta angle. 
+\end{DoxyReturn}
+\Hypertarget{classIIOWrapper_a0986611e409cfa128ec0f5b5429c8b72}\label{classIIOWrapper_a0986611e409cfa128ec0f5b5429c8b72} 
+\index{IIOWrapper@{IIOWrapper}!get\_scale\_deltavelocity@{get\_scale\_deltavelocity}}
+\index{get\_scale\_deltavelocity@{get\_scale\_deltavelocity}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{get\_scale\_deltavelocity()}{get\_scale\_deltavelocity()}}
+{\footnotesize\ttfamily double IIOWrapper\+::get\+\_\+scale\+\_\+deltavelocity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get scale value for delta velocity. 
+
+\begin{DoxyReturn}{Returns}
+Return scale value for delta velocity. 
+\end{DoxyReturn}
+\Hypertarget{classIIOWrapper_a022888d663a4dbead44e37a84c45411b}\label{classIIOWrapper_a022888d663a4dbead44e37a84c45411b} 
+\index{IIOWrapper@{IIOWrapper}!get\_scale\_temp@{get\_scale\_temp}}
+\index{get\_scale\_temp@{get\_scale\_temp}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{get\_scale\_temp()}{get\_scale\_temp()}}
+{\footnotesize\ttfamily double IIOWrapper\+::get\+\_\+scale\+\_\+temp (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get scale value for temperature. 
+
+\begin{DoxyReturn}{Returns}
+Return scale value for temperature. 
+\end{DoxyReturn}
+\Hypertarget{classIIOWrapper_ab98be528a5805d948e0cbf8c81bdac26}\label{classIIOWrapper_ab98be528a5805d948e0cbf8c81bdac26} 
+\index{IIOWrapper@{IIOWrapper}!getBuffAngularVelocityX@{getBuffAngularVelocityX}}
+\index{getBuffAngularVelocityX@{getBuffAngularVelocityX}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{getBuffAngularVelocityX()}{getBuffAngularVelocityX()}}
+{\footnotesize\ttfamily double IIOWrapper\+::get\+Buff\+Angular\+VelocityX (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get angular velocity on x axis with buffer reads; in this case the retrieved samples are continuous if the function is called fast enough and samples are not overwritten. 
+
+\begin{DoxyReturn}{Returns}
+Return the angular velocity on x axis in rad / s. 
+\end{DoxyReturn}
+\Hypertarget{classIIOWrapper_a530c457c0cd4d81951b7d174072fd75b}\label{classIIOWrapper_a530c457c0cd4d81951b7d174072fd75b} 
+\index{IIOWrapper@{IIOWrapper}!getBuffAngularVelocityY@{getBuffAngularVelocityY}}
+\index{getBuffAngularVelocityY@{getBuffAngularVelocityY}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{getBuffAngularVelocityY()}{getBuffAngularVelocityY()}}
+{\footnotesize\ttfamily double IIOWrapper\+::get\+Buff\+Angular\+VelocityY (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get angular velocity on y axis with buffer reads; in this case the retrieved samples are continuous if the function is called fast enough and samples are not overwritten. 
+
+\begin{DoxyReturn}{Returns}
+Return the angular velocity on y axis in rad / s. 
+\end{DoxyReturn}
+\Hypertarget{classIIOWrapper_a4d5286b33d41295f1cc6567f67b4d6d2}\label{classIIOWrapper_a4d5286b33d41295f1cc6567f67b4d6d2} 
+\index{IIOWrapper@{IIOWrapper}!getBuffAngularVelocityZ@{getBuffAngularVelocityZ}}
+\index{getBuffAngularVelocityZ@{getBuffAngularVelocityZ}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{getBuffAngularVelocityZ()}{getBuffAngularVelocityZ()}}
+{\footnotesize\ttfamily double IIOWrapper\+::get\+Buff\+Angular\+VelocityZ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get angular velocity on z axis with buffer reads; in this case the retrieved samples are continuous if the function is called fast enough and samples are not overwritten. 
+
+\begin{DoxyReturn}{Returns}
+Return the angular velocity on z axis in rad / s. 
+\end{DoxyReturn}
+\Hypertarget{classIIOWrapper_a24d03c22a08baf0c5209d7f31c9d0533}\label{classIIOWrapper_a24d03c22a08baf0c5209d7f31c9d0533} 
+\index{IIOWrapper@{IIOWrapper}!getBuffLinearAccelerationX@{getBuffLinearAccelerationX}}
+\index{getBuffLinearAccelerationX@{getBuffLinearAccelerationX}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{getBuffLinearAccelerationX()}{getBuffLinearAccelerationX()}}
+{\footnotesize\ttfamily double IIOWrapper\+::get\+Buff\+Linear\+AccelerationX (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get linear acceleration on x axis with buffer reads; in this case the retrieved samples are continuous if the function is called fast enough and samples are not overwritten. 
+
+\begin{DoxyReturn}{Returns}
+Return the linear acceleration on x axis in m / s\texorpdfstring{$^\wedge$}{\string^}2. 
+\end{DoxyReturn}
+\Hypertarget{classIIOWrapper_a809c113401e38fdf0fc660735a2192e1}\label{classIIOWrapper_a809c113401e38fdf0fc660735a2192e1} 
+\index{IIOWrapper@{IIOWrapper}!getBuffLinearAccelerationY@{getBuffLinearAccelerationY}}
+\index{getBuffLinearAccelerationY@{getBuffLinearAccelerationY}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{getBuffLinearAccelerationY()}{getBuffLinearAccelerationY()}}
+{\footnotesize\ttfamily double IIOWrapper\+::get\+Buff\+Linear\+AccelerationY (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get linear acceleration on y axis with buffer reads; in this case the retrieved samples are continuous if the function is called fast enough and samples are not overwritten. 
+
+\begin{DoxyReturn}{Returns}
+Return the linear acceleration on y axis in m / s\texorpdfstring{$^\wedge$}{\string^}2. 
+\end{DoxyReturn}
+\Hypertarget{classIIOWrapper_a41e760380fa5036a652201e2df50c889}\label{classIIOWrapper_a41e760380fa5036a652201e2df50c889} 
+\index{IIOWrapper@{IIOWrapper}!getBuffLinearAccelerationZ@{getBuffLinearAccelerationZ}}
+\index{getBuffLinearAccelerationZ@{getBuffLinearAccelerationZ}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{getBuffLinearAccelerationZ()}{getBuffLinearAccelerationZ()}}
+{\footnotesize\ttfamily double IIOWrapper\+::get\+Buff\+Linear\+AccelerationZ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get linear acceleration on z axis with buffer reads; in this case the retrieved samples are continuous if the function is called fast enough and samples are not overwritten. 
+
+\begin{DoxyReturn}{Returns}
+Return the linear acceleration on z axis in m / s\texorpdfstring{$^\wedge$}{\string^}2. 
+\end{DoxyReturn}
+\Hypertarget{classIIOWrapper_a4a4cea0c85854aef0117ce98a587b8b4}\label{classIIOWrapper_a4a4cea0c85854aef0117ce98a587b8b4} 
+\index{IIOWrapper@{IIOWrapper}!getBuffSampleTimestamp@{getBuffSampleTimestamp}}
+\index{getBuffSampleTimestamp@{getBuffSampleTimestamp}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{getBuffSampleTimestamp()}{getBuffSampleTimestamp()}}
+{\footnotesize\ttfamily void IIOWrapper\+::get\+Buff\+Sample\+Timestamp (\begin{DoxyParamCaption}\item[{int32\+\_\+t \&}]{sec,  }\item[{uint32\+\_\+t \&}]{nanosec }\end{DoxyParamCaption})}
+
+
+
+Get buffer timestamp when performing buffer reads; the timestamp represent the time at which the samples from the devices were read over SPI. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sec} & The second component of the timestamp \\
+\hline
+{\em nanosec} & The nanosecond component of the timestamp \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classIIOWrapper_a8636bc7c28c829538d05d5bb638c9074}\label{classIIOWrapper_a8636bc7c28c829538d05d5bb638c9074} 
+\index{IIOWrapper@{IIOWrapper}!getBuffTemperature@{getBuffTemperature}}
+\index{getBuffTemperature@{getBuffTemperature}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{getBuffTemperature()}{getBuffTemperature()}}
+{\footnotesize\ttfamily double IIOWrapper\+::get\+Buff\+Temperature (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get temperature with buffer reads; in this case the retrieved samples are continuous if the function is called fast enough and samples are not overwritten. 
+
+\begin{DoxyReturn}{Returns}
+Return the temperature in degrees Celsius. 
+\end{DoxyReturn}
+\Hypertarget{classIIOWrapper_a188e946663bc7b97c34051307f4d5d27}\label{classIIOWrapper_a188e946663bc7b97c34051307f4d5d27} 
+\index{IIOWrapper@{IIOWrapper}!getConvertedAngularVelocityX@{getConvertedAngularVelocityX}}
+\index{getConvertedAngularVelocityX@{getConvertedAngularVelocityX}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{getConvertedAngularVelocityX()}{getConvertedAngularVelocityX()}}
+{\footnotesize\ttfamily bool IIOWrapper\+::get\+Converted\+Angular\+VelocityX (\begin{DoxyParamCaption}\item[{double \&}]{result }\end{DoxyParamCaption})}
+
+
+
+Get angular velocity on x axis with register reads; in this case the retrieved samples are not necessary continuous. 
+
+\begin{DoxyReturn}{Returns}
+Return true if the reading was successful and result is valid, false otherwise. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em result} & The angular velocity on x axis in rad / s. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classIIOWrapper_a1f3f03307a91115e17ee3f18323f061a}\label{classIIOWrapper_a1f3f03307a91115e17ee3f18323f061a} 
+\index{IIOWrapper@{IIOWrapper}!getConvertedAngularVelocityY@{getConvertedAngularVelocityY}}
+\index{getConvertedAngularVelocityY@{getConvertedAngularVelocityY}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{getConvertedAngularVelocityY()}{getConvertedAngularVelocityY()}}
+{\footnotesize\ttfamily bool IIOWrapper\+::get\+Converted\+Angular\+VelocityY (\begin{DoxyParamCaption}\item[{double \&}]{result }\end{DoxyParamCaption})}
+
+
+
+Get angular velocity on y axis with register reads; in this case the retrieved samples are not necessary continuous. 
+
+\begin{DoxyReturn}{Returns}
+Return true if the reading was successful and result is valid, false otherwise. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em result} & The angular velocity on y axis in rad / s. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classIIOWrapper_adc9f70fada12dbe6e110a8bcddf6c539}\label{classIIOWrapper_adc9f70fada12dbe6e110a8bcddf6c539} 
+\index{IIOWrapper@{IIOWrapper}!getConvertedAngularVelocityZ@{getConvertedAngularVelocityZ}}
+\index{getConvertedAngularVelocityZ@{getConvertedAngularVelocityZ}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{getConvertedAngularVelocityZ()}{getConvertedAngularVelocityZ()}}
+{\footnotesize\ttfamily bool IIOWrapper\+::get\+Converted\+Angular\+VelocityZ (\begin{DoxyParamCaption}\item[{double \&}]{result }\end{DoxyParamCaption})}
+
+
+
+Get angular velocity on z axis with register reads; in this case the retrieved samples are not necessary continuous. 
+
+\begin{DoxyReturn}{Returns}
+Return true if the reading was successful and result is valid, false otherwise. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em result} & The angular velocity on z axis in rad / s. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classIIOWrapper_a68420aad14da02a7fd8316b6c7853c03}\label{classIIOWrapper_a68420aad14da02a7fd8316b6c7853c03} 
+\index{IIOWrapper@{IIOWrapper}!getConvertedDeltaAngleX@{getConvertedDeltaAngleX}}
+\index{getConvertedDeltaAngleX@{getConvertedDeltaAngleX}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{getConvertedDeltaAngleX()}{getConvertedDeltaAngleX()}}
+{\footnotesize\ttfamily bool IIOWrapper\+::get\+Converted\+Delta\+AngleX (\begin{DoxyParamCaption}\item[{double \&}]{result }\end{DoxyParamCaption})}
+
+
+
+Get delta angle on x axis with register reads; in this case the retrieved samples are not necessary continuous. 
+
+\begin{DoxyReturn}{Returns}
+Return true if the reading was successful and result is valid, false otherwise. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em result} & The delta angle on x axis in radians. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classIIOWrapper_a78ff447b7bccef0dd8abc5239ddcda27}\label{classIIOWrapper_a78ff447b7bccef0dd8abc5239ddcda27} 
+\index{IIOWrapper@{IIOWrapper}!getConvertedDeltaAngleXFromDebug@{getConvertedDeltaAngleXFromDebug}}
+\index{getConvertedDeltaAngleXFromDebug@{getConvertedDeltaAngleXFromDebug}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{getConvertedDeltaAngleXFromDebug()}{getConvertedDeltaAngleXFromDebug()}}
+{\footnotesize\ttfamily bool IIOWrapper\+::get\+Converted\+Delta\+Angle\+XFrom\+Debug (\begin{DoxyParamCaption}\item[{double \&}]{result }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Get delta angle on x axis with register reads; in this case the retrieved samples are not necessary continuous. 
+
+\begin{DoxyReturn}{Returns}
+Return true if the reading was successful and result is valid, false otherwise. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em result} & The delta angle on x axis in radians. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classIIOWrapper_a58453b95cb9193b5b2813fd3c1f5e4d7}\label{classIIOWrapper_a58453b95cb9193b5b2813fd3c1f5e4d7} 
+\index{IIOWrapper@{IIOWrapper}!getConvertedDeltaAngleY@{getConvertedDeltaAngleY}}
+\index{getConvertedDeltaAngleY@{getConvertedDeltaAngleY}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{getConvertedDeltaAngleY()}{getConvertedDeltaAngleY()}}
+{\footnotesize\ttfamily bool IIOWrapper\+::get\+Converted\+Delta\+AngleY (\begin{DoxyParamCaption}\item[{double \&}]{result }\end{DoxyParamCaption})}
+
+
+
+Get delta angle on y axis with register reads; in this case the retrieved samples are not necessary continuous. 
+
+\begin{DoxyReturn}{Returns}
+Return true if the reading was successful and result is valid, false otherwise. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em result} & The delta angle on y axis in radians. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classIIOWrapper_aa52383a8d31690b73f74539cc617e7d7}\label{classIIOWrapper_aa52383a8d31690b73f74539cc617e7d7} 
+\index{IIOWrapper@{IIOWrapper}!getConvertedDeltaAngleYFromDebug@{getConvertedDeltaAngleYFromDebug}}
+\index{getConvertedDeltaAngleYFromDebug@{getConvertedDeltaAngleYFromDebug}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{getConvertedDeltaAngleYFromDebug()}{getConvertedDeltaAngleYFromDebug()}}
+{\footnotesize\ttfamily bool IIOWrapper\+::get\+Converted\+Delta\+Angle\+YFrom\+Debug (\begin{DoxyParamCaption}\item[{double \&}]{result }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Get delta angle on y axis with register reads; in this case the retrieved samples are not necessary continuous. 
+
+\begin{DoxyReturn}{Returns}
+Return true if the reading was successful and result is valid, false otherwise. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em result} & The delta angle on y axis in radians. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classIIOWrapper_a29160e4f1947315e1862bf1c1a0630bc}\label{classIIOWrapper_a29160e4f1947315e1862bf1c1a0630bc} 
+\index{IIOWrapper@{IIOWrapper}!getConvertedDeltaAngleZ@{getConvertedDeltaAngleZ}}
+\index{getConvertedDeltaAngleZ@{getConvertedDeltaAngleZ}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{getConvertedDeltaAngleZ()}{getConvertedDeltaAngleZ()}}
+{\footnotesize\ttfamily bool IIOWrapper\+::get\+Converted\+Delta\+AngleZ (\begin{DoxyParamCaption}\item[{double \&}]{result }\end{DoxyParamCaption})}
+
+
+
+Get delta angle on z axis with register reads; in this case the retrieved samples are not necessary continuous. 
+
+\begin{DoxyReturn}{Returns}
+Return true if the reading was successful and result is valid, false otherwise. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em result} & The delta angle on z axis in radians. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classIIOWrapper_adb513e9bdd99b7fcf9accec73faba53e}\label{classIIOWrapper_adb513e9bdd99b7fcf9accec73faba53e} 
+\index{IIOWrapper@{IIOWrapper}!getConvertedDeltaAngleZFromDebug@{getConvertedDeltaAngleZFromDebug}}
+\index{getConvertedDeltaAngleZFromDebug@{getConvertedDeltaAngleZFromDebug}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{getConvertedDeltaAngleZFromDebug()}{getConvertedDeltaAngleZFromDebug()}}
+{\footnotesize\ttfamily bool IIOWrapper\+::get\+Converted\+Delta\+Angle\+ZFrom\+Debug (\begin{DoxyParamCaption}\item[{double \&}]{result }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Get delta angle on z axis with register reads; in this case the retrieved samples are not necessary continuous. 
+
+\begin{DoxyReturn}{Returns}
+Return true if the reading was successful and result is valid, false otherwise. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em result} & The delta angle on z axis in radians. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classIIOWrapper_a6ef7ac4cd9d2b1b7e0cd9a7a44e6dd35}\label{classIIOWrapper_a6ef7ac4cd9d2b1b7e0cd9a7a44e6dd35} 
+\index{IIOWrapper@{IIOWrapper}!getConvertedDeltaVelocityX@{getConvertedDeltaVelocityX}}
+\index{getConvertedDeltaVelocityX@{getConvertedDeltaVelocityX}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{getConvertedDeltaVelocityX()}{getConvertedDeltaVelocityX()}}
+{\footnotesize\ttfamily bool IIOWrapper\+::get\+Converted\+Delta\+VelocityX (\begin{DoxyParamCaption}\item[{double \&}]{result }\end{DoxyParamCaption})}
+
+
+
+Get delta velocity on x axis with register reads; in this case the retrieved samples are not necessary continuous. 
+
+\begin{DoxyReturn}{Returns}
+Return true if the reading was successful and result is valid, false otherwise. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em result} & The delta velocity on x axis in m / s. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classIIOWrapper_afae369c43ec0dfdb08f41e173b968f58}\label{classIIOWrapper_afae369c43ec0dfdb08f41e173b968f58} 
+\index{IIOWrapper@{IIOWrapper}!getConvertedDeltaVelocityXFromDebug@{getConvertedDeltaVelocityXFromDebug}}
+\index{getConvertedDeltaVelocityXFromDebug@{getConvertedDeltaVelocityXFromDebug}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{getConvertedDeltaVelocityXFromDebug()}{getConvertedDeltaVelocityXFromDebug()}}
+{\footnotesize\ttfamily bool IIOWrapper\+::get\+Converted\+Delta\+Velocity\+XFrom\+Debug (\begin{DoxyParamCaption}\item[{double \&}]{result }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Get delta velocity on x axis with register reads; in this case the retrieved samples are not necessary continuous. 
+
+\begin{DoxyReturn}{Returns}
+Return true if the reading was successful and result is valid, false otherwise. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em result} & The delta velocity on x axis in m / s. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classIIOWrapper_ad566dd23cded258dea92a16a88946902}\label{classIIOWrapper_ad566dd23cded258dea92a16a88946902} 
+\index{IIOWrapper@{IIOWrapper}!getConvertedDeltaVelocityY@{getConvertedDeltaVelocityY}}
+\index{getConvertedDeltaVelocityY@{getConvertedDeltaVelocityY}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{getConvertedDeltaVelocityY()}{getConvertedDeltaVelocityY()}}
+{\footnotesize\ttfamily bool IIOWrapper\+::get\+Converted\+Delta\+VelocityY (\begin{DoxyParamCaption}\item[{double \&}]{result }\end{DoxyParamCaption})}
+
+
+
+Get delta velocity on y axis with register reads; in this case the retrieved samples are not necessary continuous. 
+
+\begin{DoxyReturn}{Returns}
+Return true if the reading was successful and result is valid, false otherwise. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em result} & The delta velocity on y axis in m / s. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classIIOWrapper_a93c0f0e87624cc045bf571ed8d85911b}\label{classIIOWrapper_a93c0f0e87624cc045bf571ed8d85911b} 
+\index{IIOWrapper@{IIOWrapper}!getConvertedDeltaVelocityYFromDebug@{getConvertedDeltaVelocityYFromDebug}}
+\index{getConvertedDeltaVelocityYFromDebug@{getConvertedDeltaVelocityYFromDebug}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{getConvertedDeltaVelocityYFromDebug()}{getConvertedDeltaVelocityYFromDebug()}}
+{\footnotesize\ttfamily bool IIOWrapper\+::get\+Converted\+Delta\+Velocity\+YFrom\+Debug (\begin{DoxyParamCaption}\item[{double \&}]{result }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Get delta velocity on y axis with register reads; in this case the retrieved samples are not necessary continuous. 
+
+\begin{DoxyReturn}{Returns}
+Return true if the reading was successful and result is valid, false otherwise. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em result} & The delta velocity on y axis in m / s. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classIIOWrapper_a31a1dc7c03fc782b2eff9ae0f925e789}\label{classIIOWrapper_a31a1dc7c03fc782b2eff9ae0f925e789} 
+\index{IIOWrapper@{IIOWrapper}!getConvertedDeltaVelocityZ@{getConvertedDeltaVelocityZ}}
+\index{getConvertedDeltaVelocityZ@{getConvertedDeltaVelocityZ}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{getConvertedDeltaVelocityZ()}{getConvertedDeltaVelocityZ()}}
+{\footnotesize\ttfamily bool IIOWrapper\+::get\+Converted\+Delta\+VelocityZ (\begin{DoxyParamCaption}\item[{double \&}]{result }\end{DoxyParamCaption})}
+
+
+
+Get delta velocity on z axis with register reads; in this case the retrieved samples are not necessary continuous. 
+
+\begin{DoxyReturn}{Returns}
+Return true if the reading was successful and result is valid, false otherwise. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em result} & The delta velocity on z axis in m / s. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classIIOWrapper_a9adcb8752a2895affbab03ea3d1e2ef0}\label{classIIOWrapper_a9adcb8752a2895affbab03ea3d1e2ef0} 
+\index{IIOWrapper@{IIOWrapper}!getConvertedDeltaVelocityZFromDebug@{getConvertedDeltaVelocityZFromDebug}}
+\index{getConvertedDeltaVelocityZFromDebug@{getConvertedDeltaVelocityZFromDebug}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{getConvertedDeltaVelocityZFromDebug()}{getConvertedDeltaVelocityZFromDebug()}}
+{\footnotesize\ttfamily bool IIOWrapper\+::get\+Converted\+Delta\+Velocity\+ZFrom\+Debug (\begin{DoxyParamCaption}\item[{double \&}]{result }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Get delta velocity on z axis with register reads; in this case the retrieved samples are not necessary continuous. 
+
+\begin{DoxyReturn}{Returns}
+Return true if the reading was successful and result is valid, false otherwise. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em result} & The delta velocity on z axis in m / s. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classIIOWrapper_ad1c329ac2d3785a4c4ceee754d5b1c7c}\label{classIIOWrapper_ad1c329ac2d3785a4c4ceee754d5b1c7c} 
+\index{IIOWrapper@{IIOWrapper}!getConvertedLinearAccelerationX@{getConvertedLinearAccelerationX}}
+\index{getConvertedLinearAccelerationX@{getConvertedLinearAccelerationX}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{getConvertedLinearAccelerationX()}{getConvertedLinearAccelerationX()}}
+{\footnotesize\ttfamily bool IIOWrapper\+::get\+Converted\+Linear\+AccelerationX (\begin{DoxyParamCaption}\item[{double \&}]{result }\end{DoxyParamCaption})}
+
+
+
+Get linear acceleration on x axis with register reads; in this case the retrieved samples are not necessary continuous. 
+
+\begin{DoxyReturn}{Returns}
+Return true if the reading was successful and result is valid, false otherwise. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em result} & The linear acceleration on x axis in m / s\texorpdfstring{$^\wedge$}{\string^}2. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classIIOWrapper_a798839e37670a3ee83381c3b8e7bee9d}\label{classIIOWrapper_a798839e37670a3ee83381c3b8e7bee9d} 
+\index{IIOWrapper@{IIOWrapper}!getConvertedLinearAccelerationY@{getConvertedLinearAccelerationY}}
+\index{getConvertedLinearAccelerationY@{getConvertedLinearAccelerationY}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{getConvertedLinearAccelerationY()}{getConvertedLinearAccelerationY()}}
+{\footnotesize\ttfamily bool IIOWrapper\+::get\+Converted\+Linear\+AccelerationY (\begin{DoxyParamCaption}\item[{double \&}]{result }\end{DoxyParamCaption})}
+
+
+
+Get linear acceleration on y axis with register reads; in this case the retrieved samples are not necessary continuous. 
+
+\begin{DoxyReturn}{Returns}
+Return true if the reading was successful and result is valid, false otherwise. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em result} & The linear acceleration on y axis in m / s\texorpdfstring{$^\wedge$}{\string^}2. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classIIOWrapper_a63262c6685e600d505fc751db4f52f4e}\label{classIIOWrapper_a63262c6685e600d505fc751db4f52f4e} 
+\index{IIOWrapper@{IIOWrapper}!getConvertedLinearAccelerationZ@{getConvertedLinearAccelerationZ}}
+\index{getConvertedLinearAccelerationZ@{getConvertedLinearAccelerationZ}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{getConvertedLinearAccelerationZ()}{getConvertedLinearAccelerationZ()}}
+{\footnotesize\ttfamily bool IIOWrapper\+::get\+Converted\+Linear\+AccelerationZ (\begin{DoxyParamCaption}\item[{double \&}]{result }\end{DoxyParamCaption})}
+
+
+
+Get linear acceleration on z axis with register reads; in this case the retrieved samples are not necessary continuous. 
+
+\begin{DoxyReturn}{Returns}
+Return true if the reading was successful and result is valid, false otherwise. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em result} & The linear acceleration on z axis in m / s\texorpdfstring{$^\wedge$}{\string^}2. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classIIOWrapper_a23f8fbda995629b864dc72bcf3ba0984}\label{classIIOWrapper_a23f8fbda995629b864dc72bcf3ba0984} 
+\index{IIOWrapper@{IIOWrapper}!getConvertedTemperature@{getConvertedTemperature}}
+\index{getConvertedTemperature@{getConvertedTemperature}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{getConvertedTemperature()}{getConvertedTemperature()}}
+{\footnotesize\ttfamily bool IIOWrapper\+::get\+Converted\+Temperature (\begin{DoxyParamCaption}\item[{double \&}]{result }\end{DoxyParamCaption})}
+
+
+
+Get temperature with register reads; in this case the retrieved samples are not necessary continuous. 
+
+\begin{DoxyReturn}{Returns}
+Return true if the reading was successful and result is valid, false otherwise. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em result} & The temperature in degrees Celsius. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classIIOWrapper_a47cb7f7d914c9a12c51cfaa152645b07}\label{classIIOWrapper_a47cb7f7d914c9a12c51cfaa152645b07} 
+\index{IIOWrapper@{IIOWrapper}!getRawDeltaAngleXFromDebug@{getRawDeltaAngleXFromDebug}}
+\index{getRawDeltaAngleXFromDebug@{getRawDeltaAngleXFromDebug}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{getRawDeltaAngleXFromDebug()}{getRawDeltaAngleXFromDebug()}}
+{\footnotesize\ttfamily bool IIOWrapper\+::get\+Raw\+Delta\+Angle\+XFrom\+Debug (\begin{DoxyParamCaption}\item[{int32\+\_\+t \&}]{result }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Get raw delta angle on x axis with register reads; in this case the retrieved samples are not necessary continuous. 
+
+\begin{DoxyReturn}{Returns}
+Return true if the reading was successful and result is valid, false otherwise. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em result} & The delta angle on x axis in raw format. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classIIOWrapper_adde2349c207c0d885197bb11165e6546}\label{classIIOWrapper_adde2349c207c0d885197bb11165e6546} 
+\index{IIOWrapper@{IIOWrapper}!getRawDeltaAngleYFromDebug@{getRawDeltaAngleYFromDebug}}
+\index{getRawDeltaAngleYFromDebug@{getRawDeltaAngleYFromDebug}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{getRawDeltaAngleYFromDebug()}{getRawDeltaAngleYFromDebug()}}
+{\footnotesize\ttfamily bool IIOWrapper\+::get\+Raw\+Delta\+Angle\+YFrom\+Debug (\begin{DoxyParamCaption}\item[{int32\+\_\+t \&}]{result }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Get raw delta angle on y axis with register reads; in this case the retrieved samples are not necessary continuous. 
+
+\begin{DoxyReturn}{Returns}
+Return true if the reading was successful and result is valid, false otherwise. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em result} & The delta angle on y axis in raw format. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classIIOWrapper_a2f8806cda1ba466fab265a45eb66815c}\label{classIIOWrapper_a2f8806cda1ba466fab265a45eb66815c} 
+\index{IIOWrapper@{IIOWrapper}!getRawDeltaAngleZFromDebug@{getRawDeltaAngleZFromDebug}}
+\index{getRawDeltaAngleZFromDebug@{getRawDeltaAngleZFromDebug}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{getRawDeltaAngleZFromDebug()}{getRawDeltaAngleZFromDebug()}}
+{\footnotesize\ttfamily bool IIOWrapper\+::get\+Raw\+Delta\+Angle\+ZFrom\+Debug (\begin{DoxyParamCaption}\item[{int32\+\_\+t \&}]{result }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Get raw delta angle on z axis with register reads; in this case the retrieved samples are not necessary continuous. 
+
+\begin{DoxyReturn}{Returns}
+Return true if the reading was successful and result is valid, false otherwise. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em result} & The delta angle on z axis in raw format. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classIIOWrapper_a0fe6f4ff144f0c80f1452987e383318a}\label{classIIOWrapper_a0fe6f4ff144f0c80f1452987e383318a} 
+\index{IIOWrapper@{IIOWrapper}!getRawDeltaVelocityXFromDebug@{getRawDeltaVelocityXFromDebug}}
+\index{getRawDeltaVelocityXFromDebug@{getRawDeltaVelocityXFromDebug}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{getRawDeltaVelocityXFromDebug()}{getRawDeltaVelocityXFromDebug()}}
+{\footnotesize\ttfamily bool IIOWrapper\+::get\+Raw\+Delta\+Velocity\+XFrom\+Debug (\begin{DoxyParamCaption}\item[{int32\+\_\+t \&}]{result }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Get raw delta velocity on x axis with register reads; in this case the retrieved samples are not necessary continuous. 
+
+\begin{DoxyReturn}{Returns}
+Return true if the reading was successful and result is valid, false otherwise. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em result} & The delta velocity on x axis in raw format. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classIIOWrapper_ae6a0f742c9dd11684e9a49fb975773e0}\label{classIIOWrapper_ae6a0f742c9dd11684e9a49fb975773e0} 
+\index{IIOWrapper@{IIOWrapper}!getRawDeltaVelocityYFromDebug@{getRawDeltaVelocityYFromDebug}}
+\index{getRawDeltaVelocityYFromDebug@{getRawDeltaVelocityYFromDebug}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{getRawDeltaVelocityYFromDebug()}{getRawDeltaVelocityYFromDebug()}}
+{\footnotesize\ttfamily bool IIOWrapper\+::get\+Raw\+Delta\+Velocity\+YFrom\+Debug (\begin{DoxyParamCaption}\item[{int32\+\_\+t \&}]{result }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Get raw delta velocity on y axis with register reads; in this case the retrieved samples are not necessary continuous. 
+
+\begin{DoxyReturn}{Returns}
+Return true if the reading was successful and result is valid, false otherwise. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em result} & The delta velocity on y axis in raw format. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classIIOWrapper_a153ba949b8daa8514864b59538fcb64a}\label{classIIOWrapper_a153ba949b8daa8514864b59538fcb64a} 
+\index{IIOWrapper@{IIOWrapper}!getRawDeltaVelocityZFromDebug@{getRawDeltaVelocityZFromDebug}}
+\index{getRawDeltaVelocityZFromDebug@{getRawDeltaVelocityZFromDebug}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{getRawDeltaVelocityZFromDebug()}{getRawDeltaVelocityZFromDebug()}}
+{\footnotesize\ttfamily bool IIOWrapper\+::get\+Raw\+Delta\+Velocity\+ZFrom\+Debug (\begin{DoxyParamCaption}\item[{int32\+\_\+t \&}]{result }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Get raw delta velocity on z axis with register reads; in this case the retrieved samples are not necessary continuous. 
+
+\begin{DoxyReturn}{Returns}
+Return true if the reading was successful and result is valid, false otherwise. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em result} & The delta velocity on z axis in raw format. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classIIOWrapper_aa3dfbe95f0013016b8b5056b73d1f126}\label{classIIOWrapper_aa3dfbe95f0013016b8b5056b73d1f126} 
+\index{IIOWrapper@{IIOWrapper}!gyroscope\_measurement\_range@{gyroscope\_measurement\_range}}
+\index{gyroscope\_measurement\_range@{gyroscope\_measurement\_range}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{gyroscope\_measurement\_range()}{gyroscope\_measurement\_range()}}
+{\footnotesize\ttfamily bool IIOWrapper\+::gyroscope\+\_\+measurement\+\_\+range (\begin{DoxyParamCaption}\item[{std\+::string \&}]{result }\end{DoxyParamCaption})}
+
+
+
+Get gyroscope measurement range data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em result} & gyroscope measurement range data. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return true if reading was successful and data is valid, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{classIIOWrapper_a25e63a463289dc1c7761e9ef14982cbf}\label{classIIOWrapper_a25e63a463289dc1c7761e9ef14982cbf} 
+\index{IIOWrapper@{IIOWrapper}!internal\_sensor\_bandwidth@{internal\_sensor\_bandwidth}}
+\index{internal\_sensor\_bandwidth@{internal\_sensor\_bandwidth}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{internal\_sensor\_bandwidth()}{internal\_sensor\_bandwidth()}}
+{\footnotesize\ttfamily bool IIOWrapper\+::internal\+\_\+sensor\+\_\+bandwidth (\begin{DoxyParamCaption}\item[{uint32\+\_\+t \&}]{result }\end{DoxyParamCaption})}
+
+
+
+Get internal sensor bandwidth data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em result} & internal sensor bandwidth data. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return true if reading was successful and data is valid, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{classIIOWrapper_a2352785dfb0a0324613bd6f99a27831b}\label{classIIOWrapper_a2352785dfb0a0324613bd6f99a27831b} 
+\index{IIOWrapper@{IIOWrapper}!linear\_acceleration\_compensation@{linear\_acceleration\_compensation}}
+\index{linear\_acceleration\_compensation@{linear\_acceleration\_compensation}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{linear\_acceleration\_compensation()}{linear\_acceleration\_compensation()}}
+{\footnotesize\ttfamily bool IIOWrapper\+::linear\+\_\+acceleration\+\_\+compensation (\begin{DoxyParamCaption}\item[{uint32\+\_\+t \&}]{result }\end{DoxyParamCaption})}
+
+
+
+Get linear acceleration compensation data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em result} & linear acceleration compensation data. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return true if reading was successful and data is valid, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{classIIOWrapper_a67eaded963621b47f1f228a0b250a00e}\label{classIIOWrapper_a67eaded963621b47f1f228a0b250a00e} 
+\index{IIOWrapper@{IIOWrapper}!point\_of\_percussion\_alignment@{point\_of\_percussion\_alignment}}
+\index{point\_of\_percussion\_alignment@{point\_of\_percussion\_alignment}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{point\_of\_percussion\_alignment()}{point\_of\_percussion\_alignment()}}
+{\footnotesize\ttfamily bool IIOWrapper\+::point\+\_\+of\+\_\+percussion\+\_\+alignment (\begin{DoxyParamCaption}\item[{uint32\+\_\+t \&}]{result }\end{DoxyParamCaption})}
+
+
+
+Get point of percussion alignment data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em result} & point of percussion alignment data. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return true if reading was successful and data is valid, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{classIIOWrapper_a1f0c7c86eba809ac5e0505b12e7b8143}\label{classIIOWrapper_a1f0c7c86eba809ac5e0505b12e7b8143} 
+\index{IIOWrapper@{IIOWrapper}!product\_id@{product\_id}}
+\index{product\_id@{product\_id}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{product\_id()}{product\_id()}}
+{\footnotesize\ttfamily bool IIOWrapper\+::product\+\_\+id (\begin{DoxyParamCaption}\item[{uint32\+\_\+t \&}]{result }\end{DoxyParamCaption})}
+
+
+
+Get product id value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em result} & The product id value. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return true if reading was successful and data is valid, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{classIIOWrapper_ac8584252d4635e9a3c00f464cc176b17}\label{classIIOWrapper_ac8584252d4635e9a3c00f464cc176b17} 
+\index{IIOWrapper@{IIOWrapper}!sampling\_frequency@{sampling\_frequency}}
+\index{sampling\_frequency@{sampling\_frequency}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{sampling\_frequency()}{sampling\_frequency()}}
+{\footnotesize\ttfamily bool IIOWrapper\+::sampling\+\_\+frequency (\begin{DoxyParamCaption}\item[{double \texorpdfstring{$\ast$}{*}}]{result }\end{DoxyParamCaption})}
+
+
+
+Get sampling frequency. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em result} & current set sampling frequency \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return true if reading was successful and data is valid, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{classIIOWrapper_a9063348d525f98961fca0e5a8d1b2942}\label{classIIOWrapper_a9063348d525f98961fca0e5a8d1b2942} 
+\index{IIOWrapper@{IIOWrapper}!sensor\_self\_test@{sensor\_self\_test}}
+\index{sensor\_self\_test@{sensor\_self\_test}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{sensor\_self\_test()}{sensor\_self\_test()}}
+{\footnotesize\ttfamily bool IIOWrapper\+::sensor\+\_\+self\+\_\+test (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Trigger a sensor self test command. 
+
+\begin{DoxyReturn}{Returns}
+Return true if the command was successfully triggered, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{classIIOWrapper_a9d05c33bbd4eef378b584d656a56cfc7}\label{classIIOWrapper_a9d05c33bbd4eef378b584d656a56cfc7} 
+\index{IIOWrapper@{IIOWrapper}!serial\_number@{serial\_number}}
+\index{serial\_number@{serial\_number}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{serial\_number()}{serial\_number()}}
+{\footnotesize\ttfamily bool IIOWrapper\+::serial\+\_\+number (\begin{DoxyParamCaption}\item[{uint32\+\_\+t \&}]{result }\end{DoxyParamCaption})}
+
+
+
+Get serial number value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em result} & The serial number value. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return true if reading was successful and data is valid, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{classIIOWrapper_aec9b699fd6110a7795a32e84343a1c1d}\label{classIIOWrapper_aec9b699fd6110a7795a32e84343a1c1d} 
+\index{IIOWrapper@{IIOWrapper}!setDeltaAngleScales@{setDeltaAngleScales}}
+\index{setDeltaAngleScales@{setDeltaAngleScales}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{setDeltaAngleScales()}{setDeltaAngleScales()}}
+{\footnotesize\ttfamily void IIOWrapper\+::set\+Delta\+Angle\+Scales (\begin{DoxyParamCaption}\item[{enum adis\+\_\+device\+\_\+id}]{dev\+\_\+id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Sets manually the delta angle scales based on the device id. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dev} & Device id for which the scales are set. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classIIOWrapper_a7287fe1ab85c9aebb746dff3baf7300d}\label{classIIOWrapper_a7287fe1ab85c9aebb746dff3baf7300d} 
+\index{IIOWrapper@{IIOWrapper}!setDeltaVelocityScales@{setDeltaVelocityScales}}
+\index{setDeltaVelocityScales@{setDeltaVelocityScales}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{setDeltaVelocityScales()}{setDeltaVelocityScales()}}
+{\footnotesize\ttfamily void IIOWrapper\+::set\+Delta\+Velocity\+Scales (\begin{DoxyParamCaption}\item[{enum adis\+\_\+device\+\_\+id}]{dev\+\_\+id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Sets manually the delta velocity scales based on the device id. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dev} & Device id for which the scales are set. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classIIOWrapper_a06c8b2dd5e06296e6071515d42678338}\label{classIIOWrapper_a06c8b2dd5e06296e6071515d42678338} 
+\index{IIOWrapper@{IIOWrapper}!software\_reset@{software\_reset}}
+\index{software\_reset@{software\_reset}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{software\_reset()}{software\_reset()}}
+{\footnotesize\ttfamily bool IIOWrapper\+::software\+\_\+reset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Trigger a software reset command. 
+
+\begin{DoxyReturn}{Returns}
+Return true if the command was successfully triggered, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{classIIOWrapper_a371075c2f73786fc409dbfe11bb9b68f}\label{classIIOWrapper_a371075c2f73786fc409dbfe11bb9b68f} 
+\index{IIOWrapper@{IIOWrapper}!update\_accel\_calibbias\_x@{update\_accel\_calibbias\_x}}
+\index{update\_accel\_calibbias\_x@{update\_accel\_calibbias\_x}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{update\_accel\_calibbias\_x()}{update\_accel\_calibbias\_x()}}
+{\footnotesize\ttfamily bool IIOWrapper\+::update\+\_\+accel\+\_\+calibbias\+\_\+x (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{val }\end{DoxyParamCaption})}
+
+
+
+Update linear acceleration calibration offset on x axis. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & value to update with. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return true if writing was with success and false if not. 
+\end{DoxyReturn}
+\Hypertarget{classIIOWrapper_a6b81ddc7f9f7c67b15e4f8be594c0926}\label{classIIOWrapper_a6b81ddc7f9f7c67b15e4f8be594c0926} 
+\index{IIOWrapper@{IIOWrapper}!update\_accel\_calibbias\_y@{update\_accel\_calibbias\_y}}
+\index{update\_accel\_calibbias\_y@{update\_accel\_calibbias\_y}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{update\_accel\_calibbias\_y()}{update\_accel\_calibbias\_y()}}
+{\footnotesize\ttfamily bool IIOWrapper\+::update\+\_\+accel\+\_\+calibbias\+\_\+y (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{val }\end{DoxyParamCaption})}
+
+
+
+Update linear acceleration calibration offset on y axis. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & value to update with. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return true if writing was with success and false if not. 
+\end{DoxyReturn}
+\Hypertarget{classIIOWrapper_a4265bcbf41f4c0582e08f30f5ab63eca}\label{classIIOWrapper_a4265bcbf41f4c0582e08f30f5ab63eca} 
+\index{IIOWrapper@{IIOWrapper}!update\_accel\_calibbias\_z@{update\_accel\_calibbias\_z}}
+\index{update\_accel\_calibbias\_z@{update\_accel\_calibbias\_z}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{update\_accel\_calibbias\_z()}{update\_accel\_calibbias\_z()}}
+{\footnotesize\ttfamily bool IIOWrapper\+::update\+\_\+accel\+\_\+calibbias\+\_\+z (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{val }\end{DoxyParamCaption})}
+
+
+
+Update linear acceleration calibration offset on z axis. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & value to update with. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return true if writing was with success and false if not. 
+\end{DoxyReturn}
+\Hypertarget{classIIOWrapper_a09fa5c163037f078a83e813ef13f73e9}\label{classIIOWrapper_a09fa5c163037f078a83e813ef13f73e9} 
+\index{IIOWrapper@{IIOWrapper}!update\_anglvel\_calibbias\_x@{update\_anglvel\_calibbias\_x}}
+\index{update\_anglvel\_calibbias\_x@{update\_anglvel\_calibbias\_x}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{update\_anglvel\_calibbias\_x()}{update\_anglvel\_calibbias\_x()}}
+{\footnotesize\ttfamily bool IIOWrapper\+::update\+\_\+anglvel\+\_\+calibbias\+\_\+x (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{val }\end{DoxyParamCaption})}
+
+
+
+Update angular velocity calibration offset on x axis. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & value to update with. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return true if writing was with success and false if not. 
+\end{DoxyReturn}
+\Hypertarget{classIIOWrapper_a3730f3c7dcea63f4e2104a02c1e695ae}\label{classIIOWrapper_a3730f3c7dcea63f4e2104a02c1e695ae} 
+\index{IIOWrapper@{IIOWrapper}!update\_anglvel\_calibbias\_y@{update\_anglvel\_calibbias\_y}}
+\index{update\_anglvel\_calibbias\_y@{update\_anglvel\_calibbias\_y}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{update\_anglvel\_calibbias\_y()}{update\_anglvel\_calibbias\_y()}}
+{\footnotesize\ttfamily bool IIOWrapper\+::update\+\_\+anglvel\+\_\+calibbias\+\_\+y (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{val }\end{DoxyParamCaption})}
+
+
+
+Update angular velocity calibration offset on y axis. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & value to update with. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return true if writing was with success and false if not. 
+\end{DoxyReturn}
+\Hypertarget{classIIOWrapper_a640785a86e54405eecad55a93321bc26}\label{classIIOWrapper_a640785a86e54405eecad55a93321bc26} 
+\index{IIOWrapper@{IIOWrapper}!update\_anglvel\_calibbias\_z@{update\_anglvel\_calibbias\_z}}
+\index{update\_anglvel\_calibbias\_z@{update\_anglvel\_calibbias\_z}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{update\_anglvel\_calibbias\_z()}{update\_anglvel\_calibbias\_z()}}
+{\footnotesize\ttfamily bool IIOWrapper\+::update\+\_\+anglvel\+\_\+calibbias\+\_\+z (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{val }\end{DoxyParamCaption})}
+
+
+
+Update angular velocity calibration offset on z axis. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & value to update with. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return true if writing was with success and false if not. 
+\end{DoxyReturn}
+\Hypertarget{classIIOWrapper_a5818afde806f78c0868884d6b1f23bbf}\label{classIIOWrapper_a5818afde806f78c0868884d6b1f23bbf} 
+\index{IIOWrapper@{IIOWrapper}!update\_bias\_correction\_time\_base\_control@{update\_bias\_correction\_time\_base\_control}}
+\index{update\_bias\_correction\_time\_base\_control@{update\_bias\_correction\_time\_base\_control}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{update\_bias\_correction\_time\_base\_control()}{update\_bias\_correction\_time\_base\_control()}}
+{\footnotesize\ttfamily bool IIOWrapper\+::update\+\_\+bias\+\_\+correction\+\_\+time\+\_\+base\+\_\+control (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{val }\end{DoxyParamCaption})}
+
+
+
+Update bias correction time base control. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & value to update with. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return true if writing was with success and false if not. 
+\end{DoxyReturn}
+\Hypertarget{classIIOWrapper_ab960b56f3b8fb3bab2f4d3e492616bca}\label{classIIOWrapper_ab960b56f3b8fb3bab2f4d3e492616bca} 
+\index{IIOWrapper@{IIOWrapper}!update\_filter\_low\_pass\_3db\_frequency@{update\_filter\_low\_pass\_3db\_frequency}}
+\index{update\_filter\_low\_pass\_3db\_frequency@{update\_filter\_low\_pass\_3db\_frequency}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{update\_filter\_low\_pass\_3db\_frequency()}{update\_filter\_low\_pass\_3db\_frequency()}}
+{\footnotesize\ttfamily bool IIOWrapper\+::update\+\_\+filter\+\_\+low\+\_\+pass\+\_\+3db\+\_\+frequency (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{val }\end{DoxyParamCaption})}
+
+
+
+Update low pass 3db frequency. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & value to update with. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return true if writing was with success and false if not. 
+\end{DoxyReturn}
+\Hypertarget{classIIOWrapper_a630b1d5232285b51560a90b805339961}\label{classIIOWrapper_a630b1d5232285b51560a90b805339961} 
+\index{IIOWrapper@{IIOWrapper}!update\_internal\_sensor\_bandwidth@{update\_internal\_sensor\_bandwidth}}
+\index{update\_internal\_sensor\_bandwidth@{update\_internal\_sensor\_bandwidth}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{update\_internal\_sensor\_bandwidth()}{update\_internal\_sensor\_bandwidth()}}
+{\footnotesize\ttfamily bool IIOWrapper\+::update\+\_\+internal\+\_\+sensor\+\_\+bandwidth (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{val }\end{DoxyParamCaption})}
+
+
+
+Update internal sensor bandwidth. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & value to update with. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return true if writing was with success and false if not. 
+\end{DoxyReturn}
+\Hypertarget{classIIOWrapper_a09fe16394d6d8b7a7ab7dbefa64ba084}\label{classIIOWrapper_a09fe16394d6d8b7a7ab7dbefa64ba084} 
+\index{IIOWrapper@{IIOWrapper}!update\_linear\_acceleration\_compensation@{update\_linear\_acceleration\_compensation}}
+\index{update\_linear\_acceleration\_compensation@{update\_linear\_acceleration\_compensation}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{update\_linear\_acceleration\_compensation()}{update\_linear\_acceleration\_compensation()}}
+{\footnotesize\ttfamily bool IIOWrapper\+::update\+\_\+linear\+\_\+acceleration\+\_\+compensation (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{val }\end{DoxyParamCaption})}
+
+
+
+Update linear acceleration compensation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & value to update with. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return true if writing was with success and false if not. 
+\end{DoxyReturn}
+\Hypertarget{classIIOWrapper_a293d23f39cf1a07b3e8056d239728dc3}\label{classIIOWrapper_a293d23f39cf1a07b3e8056d239728dc3} 
+\index{IIOWrapper@{IIOWrapper}!update\_point\_of\_percussion\_alignment@{update\_point\_of\_percussion\_alignment}}
+\index{update\_point\_of\_percussion\_alignment@{update\_point\_of\_percussion\_alignment}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{update\_point\_of\_percussion\_alignment()}{update\_point\_of\_percussion\_alignment()}}
+{\footnotesize\ttfamily bool IIOWrapper\+::update\+\_\+point\+\_\+of\+\_\+percussion\+\_\+alignment (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{val }\end{DoxyParamCaption})}
+
+
+
+Update point of percussion alignment. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & value to update with. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return true if writing was with success and false if not. 
+\end{DoxyReturn}
+\Hypertarget{classIIOWrapper_a5cf1f0bfc5f5f0cf43c9707f399c2001}\label{classIIOWrapper_a5cf1f0bfc5f5f0cf43c9707f399c2001} 
+\index{IIOWrapper@{IIOWrapper}!update\_sampling\_frequency@{update\_sampling\_frequency}}
+\index{update\_sampling\_frequency@{update\_sampling\_frequency}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{update\_sampling\_frequency()}{update\_sampling\_frequency()}}
+{\footnotesize\ttfamily bool IIOWrapper\+::update\+\_\+sampling\+\_\+frequency (\begin{DoxyParamCaption}\item[{double}]{val }\end{DoxyParamCaption})}
+
+
+
+Update sampling frequency. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & value to update with. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return true if writing was with success and false if not. 
+\end{DoxyReturn}
+\Hypertarget{classIIOWrapper_a43ae9191af8bc6da154d7b301848ac41}\label{classIIOWrapper_a43ae9191af8bc6da154d7b301848ac41} 
+\index{IIOWrapper@{IIOWrapper}!update\_x\_axis\_accelerometer\_bias\_correction\_enable@{update\_x\_axis\_accelerometer\_bias\_correction\_enable}}
+\index{update\_x\_axis\_accelerometer\_bias\_correction\_enable@{update\_x\_axis\_accelerometer\_bias\_correction\_enable}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{update\_x\_axis\_accelerometer\_bias\_correction\_enable()}{update\_x\_axis\_accelerometer\_bias\_correction\_enable()}}
+{\footnotesize\ttfamily bool IIOWrapper\+::update\+\_\+x\+\_\+axis\+\_\+accelerometer\+\_\+bias\+\_\+correction\+\_\+enable (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{val }\end{DoxyParamCaption})}
+
+
+
+Update x axis accelerometer bias correction enable. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & value to update with. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return true if writing was with success and false if not. 
+\end{DoxyReturn}
+\Hypertarget{classIIOWrapper_acedff444962fb642b5d2417aaf5dd63a}\label{classIIOWrapper_acedff444962fb642b5d2417aaf5dd63a} 
+\index{IIOWrapper@{IIOWrapper}!update\_x\_axis\_gyroscope\_bias\_correction\_enable@{update\_x\_axis\_gyroscope\_bias\_correction\_enable}}
+\index{update\_x\_axis\_gyroscope\_bias\_correction\_enable@{update\_x\_axis\_gyroscope\_bias\_correction\_enable}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{update\_x\_axis\_gyroscope\_bias\_correction\_enable()}{update\_x\_axis\_gyroscope\_bias\_correction\_enable()}}
+{\footnotesize\ttfamily bool IIOWrapper\+::update\+\_\+x\+\_\+axis\+\_\+gyroscope\+\_\+bias\+\_\+correction\+\_\+enable (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{val }\end{DoxyParamCaption})}
+
+
+
+Update x axis gyroscope bias correction enable. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & value to update with. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return true if writing was with success and false if not. 
+\end{DoxyReturn}
+\Hypertarget{classIIOWrapper_ace85be9c516ad0dce1d76700c440d0e7}\label{classIIOWrapper_ace85be9c516ad0dce1d76700c440d0e7} 
+\index{IIOWrapper@{IIOWrapper}!update\_y\_axis\_accelerometer\_bias\_correction\_enable@{update\_y\_axis\_accelerometer\_bias\_correction\_enable}}
+\index{update\_y\_axis\_accelerometer\_bias\_correction\_enable@{update\_y\_axis\_accelerometer\_bias\_correction\_enable}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{update\_y\_axis\_accelerometer\_bias\_correction\_enable()}{update\_y\_axis\_accelerometer\_bias\_correction\_enable()}}
+{\footnotesize\ttfamily bool IIOWrapper\+::update\+\_\+y\+\_\+axis\+\_\+accelerometer\+\_\+bias\+\_\+correction\+\_\+enable (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{val }\end{DoxyParamCaption})}
+
+
+
+Update y axis accelerometer bias correction enable. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & value to update with. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return true if writing was with success and false if not. 
+\end{DoxyReturn}
+\Hypertarget{classIIOWrapper_a4a20c51a3a2079f1c7e887605f6f78dc}\label{classIIOWrapper_a4a20c51a3a2079f1c7e887605f6f78dc} 
+\index{IIOWrapper@{IIOWrapper}!update\_y\_axis\_gyroscope\_bias\_correction\_enable@{update\_y\_axis\_gyroscope\_bias\_correction\_enable}}
+\index{update\_y\_axis\_gyroscope\_bias\_correction\_enable@{update\_y\_axis\_gyroscope\_bias\_correction\_enable}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{update\_y\_axis\_gyroscope\_bias\_correction\_enable()}{update\_y\_axis\_gyroscope\_bias\_correction\_enable()}}
+{\footnotesize\ttfamily bool IIOWrapper\+::update\+\_\+y\+\_\+axis\+\_\+gyroscope\+\_\+bias\+\_\+correction\+\_\+enable (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{val }\end{DoxyParamCaption})}
+
+
+
+Update y axis gyroscope bias correction enable. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & value to update with. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return true if writing was with success and false if not. 
+\end{DoxyReturn}
+\Hypertarget{classIIOWrapper_ad501d5b8096992254282b710ae3593bf}\label{classIIOWrapper_ad501d5b8096992254282b710ae3593bf} 
+\index{IIOWrapper@{IIOWrapper}!update\_z\_axis\_accelerometer\_bias\_correction\_enable@{update\_z\_axis\_accelerometer\_bias\_correction\_enable}}
+\index{update\_z\_axis\_accelerometer\_bias\_correction\_enable@{update\_z\_axis\_accelerometer\_bias\_correction\_enable}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{update\_z\_axis\_accelerometer\_bias\_correction\_enable()}{update\_z\_axis\_accelerometer\_bias\_correction\_enable()}}
+{\footnotesize\ttfamily bool IIOWrapper\+::update\+\_\+z\+\_\+axis\+\_\+accelerometer\+\_\+bias\+\_\+correction\+\_\+enable (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{val }\end{DoxyParamCaption})}
+
+
+
+Update z axis accelerometer bias correction enable. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & value to update with. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return true if writing was with success and false if not. 
+\end{DoxyReturn}
+\Hypertarget{classIIOWrapper_a70f3f6d8b2cdefb6a5a6cff54915c6e1}\label{classIIOWrapper_a70f3f6d8b2cdefb6a5a6cff54915c6e1} 
+\index{IIOWrapper@{IIOWrapper}!update\_z\_axis\_gyroscope\_bias\_correction\_enable@{update\_z\_axis\_gyroscope\_bias\_correction\_enable}}
+\index{update\_z\_axis\_gyroscope\_bias\_correction\_enable@{update\_z\_axis\_gyroscope\_bias\_correction\_enable}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{update\_z\_axis\_gyroscope\_bias\_correction\_enable()}{update\_z\_axis\_gyroscope\_bias\_correction\_enable()}}
+{\footnotesize\ttfamily bool IIOWrapper\+::update\+\_\+z\+\_\+axis\+\_\+gyroscope\+\_\+bias\+\_\+correction\+\_\+enable (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{val }\end{DoxyParamCaption})}
+
+
+
+Update z axis gyroscope bias correction enable. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & value to update with. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return true if writing was with success and false if not. 
+\end{DoxyReturn}
+\Hypertarget{classIIOWrapper_ae179fe95e80ad6624c6782de04c854ed}\label{classIIOWrapper_ae179fe95e80ad6624c6782de04c854ed} 
+\index{IIOWrapper@{IIOWrapper}!updateBuffer@{updateBuffer}}
+\index{updateBuffer@{updateBuffer}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{updateBuffer()}{updateBuffer()}}
+{\footnotesize\ttfamily bool IIOWrapper\+::update\+Buffer (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{data\+\_\+selection }\end{DoxyParamCaption})}
+
+
+
+Update buffer data. This function should be called before retrieving data using get\+Buff\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} APIs. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data\+\_\+selection} & 0 for acceleration and gyroscope data, 1 for delta angle and delta velocity data. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return true if data was read successfully and can be retrieved, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{classIIOWrapper_a3b99dc4a11bfc1044779befc29c9385a}\label{classIIOWrapper_a3b99dc4a11bfc1044779befc29c9385a} 
+\index{IIOWrapper@{IIOWrapper}!updateField@{updateField}}
+\index{updateField@{updateField}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{updateField()}{updateField()}}
+{\footnotesize\ttfamily bool IIOWrapper\+::update\+Field (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{reg,  }\item[{uint32\+\_\+t}]{val,  }\item[{uint32\+\_\+t}]{mask }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Update a field in the register map. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em reg} & The register address where the field is located \\
+\hline
+{\em val} & The value to be written. \\
+\hline
+{\em mask} & The bitmask to change \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return true if updated was successful, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{classIIOWrapper_a62287c7a5dfdd731494ed7ba1780663d}\label{classIIOWrapper_a62287c7a5dfdd731494ed7ba1780663d} 
+\index{IIOWrapper@{IIOWrapper}!x\_axis\_accelerometer\_bias\_correction\_enable@{x\_axis\_accelerometer\_bias\_correction\_enable}}
+\index{x\_axis\_accelerometer\_bias\_correction\_enable@{x\_axis\_accelerometer\_bias\_correction\_enable}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{x\_axis\_accelerometer\_bias\_correction\_enable()}{x\_axis\_accelerometer\_bias\_correction\_enable()}}
+{\footnotesize\ttfamily bool IIOWrapper\+::x\+\_\+axis\+\_\+accelerometer\+\_\+bias\+\_\+correction\+\_\+enable (\begin{DoxyParamCaption}\item[{uint32\+\_\+t \&}]{result }\end{DoxyParamCaption})}
+
+
+
+Get x axis accelerometer bias correction enable data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em result} & x axis accelerometer bias correction enable data. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return true if reading was successful and data is valid, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{classIIOWrapper_ab0d834e0075c408c546991934ac4ac7a}\label{classIIOWrapper_ab0d834e0075c408c546991934ac4ac7a} 
+\index{IIOWrapper@{IIOWrapper}!x\_axis\_gyroscope\_bias\_correction\_enable@{x\_axis\_gyroscope\_bias\_correction\_enable}}
+\index{x\_axis\_gyroscope\_bias\_correction\_enable@{x\_axis\_gyroscope\_bias\_correction\_enable}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{x\_axis\_gyroscope\_bias\_correction\_enable()}{x\_axis\_gyroscope\_bias\_correction\_enable()}}
+{\footnotesize\ttfamily bool IIOWrapper\+::x\+\_\+axis\+\_\+gyroscope\+\_\+bias\+\_\+correction\+\_\+enable (\begin{DoxyParamCaption}\item[{uint32\+\_\+t \&}]{result }\end{DoxyParamCaption})}
+
+
+
+Get x axis gyroscope bias correction enable data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em result} & x axis gyroscope bias correction enable data. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return true if reading was successful and data is valid, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{classIIOWrapper_a9f393e7caf03730f7ddcd003c2556dfe}\label{classIIOWrapper_a9f393e7caf03730f7ddcd003c2556dfe} 
+\index{IIOWrapper@{IIOWrapper}!y\_axis\_accelerometer\_bias\_correction\_enable@{y\_axis\_accelerometer\_bias\_correction\_enable}}
+\index{y\_axis\_accelerometer\_bias\_correction\_enable@{y\_axis\_accelerometer\_bias\_correction\_enable}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{y\_axis\_accelerometer\_bias\_correction\_enable()}{y\_axis\_accelerometer\_bias\_correction\_enable()}}
+{\footnotesize\ttfamily bool IIOWrapper\+::y\+\_\+axis\+\_\+accelerometer\+\_\+bias\+\_\+correction\+\_\+enable (\begin{DoxyParamCaption}\item[{uint32\+\_\+t \&}]{result }\end{DoxyParamCaption})}
+
+
+
+Get y axis accelerometer bias correction enable data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em result} & y axis accelerometer bias correction enable data. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return true if reading was successful and data is valid, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{classIIOWrapper_a73fd94d29e90e9b46a5c47453e5a76a7}\label{classIIOWrapper_a73fd94d29e90e9b46a5c47453e5a76a7} 
+\index{IIOWrapper@{IIOWrapper}!y\_axis\_gyroscope\_bias\_correction\_enable@{y\_axis\_gyroscope\_bias\_correction\_enable}}
+\index{y\_axis\_gyroscope\_bias\_correction\_enable@{y\_axis\_gyroscope\_bias\_correction\_enable}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{y\_axis\_gyroscope\_bias\_correction\_enable()}{y\_axis\_gyroscope\_bias\_correction\_enable()}}
+{\footnotesize\ttfamily bool IIOWrapper\+::y\+\_\+axis\+\_\+gyroscope\+\_\+bias\+\_\+correction\+\_\+enable (\begin{DoxyParamCaption}\item[{uint32\+\_\+t \&}]{result }\end{DoxyParamCaption})}
+
+
+
+Get y axis gyroscope bias correction enable data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em result} & y axis gyroscope bias correction enable data. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return true if reading was successful and data is valid, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{classIIOWrapper_a56ca0c938bef97c190ee7ae56736fcda}\label{classIIOWrapper_a56ca0c938bef97c190ee7ae56736fcda} 
+\index{IIOWrapper@{IIOWrapper}!z\_axis\_accelerometer\_bias\_correction\_enable@{z\_axis\_accelerometer\_bias\_correction\_enable}}
+\index{z\_axis\_accelerometer\_bias\_correction\_enable@{z\_axis\_accelerometer\_bias\_correction\_enable}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{z\_axis\_accelerometer\_bias\_correction\_enable()}{z\_axis\_accelerometer\_bias\_correction\_enable()}}
+{\footnotesize\ttfamily bool IIOWrapper\+::z\+\_\+axis\+\_\+accelerometer\+\_\+bias\+\_\+correction\+\_\+enable (\begin{DoxyParamCaption}\item[{uint32\+\_\+t \&}]{result }\end{DoxyParamCaption})}
+
+
+
+Get z axis accelerometer bias correction enable data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em result} & z axis accelerometer bias correction enable data. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return true if reading was successful and data is valid, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{classIIOWrapper_a00aa6acb648e5c90038132c537649773}\label{classIIOWrapper_a00aa6acb648e5c90038132c537649773} 
+\index{IIOWrapper@{IIOWrapper}!z\_axis\_gyroscope\_bias\_correction\_enable@{z\_axis\_gyroscope\_bias\_correction\_enable}}
+\index{z\_axis\_gyroscope\_bias\_correction\_enable@{z\_axis\_gyroscope\_bias\_correction\_enable}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{z\_axis\_gyroscope\_bias\_correction\_enable()}{z\_axis\_gyroscope\_bias\_correction\_enable()}}
+{\footnotesize\ttfamily bool IIOWrapper\+::z\+\_\+axis\+\_\+gyroscope\+\_\+bias\+\_\+correction\+\_\+enable (\begin{DoxyParamCaption}\item[{uint32\+\_\+t \&}]{result }\end{DoxyParamCaption})}
+
+
+
+Get z axis gyroscope bias correction enable data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em result} & z axis gyroscope bias correction enable data. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return true if reading was successful and data is valid, false otherwise. 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classIIOWrapper_ac1fb844f82d64a1b6e2e6cc6c089bd71}\label{classIIOWrapper_ac1fb844f82d64a1b6e2e6cc6c089bd71} 
+\index{IIOWrapper@{IIOWrapper}!m\_channel\_accel\_x@{m\_channel\_accel\_x}}
+\index{m\_channel\_accel\_x@{m\_channel\_accel\_x}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{m\_channel\_accel\_x}{m\_channel\_accel\_x}}
+{\footnotesize\ttfamily struct iio\+\_\+channel \texorpdfstring{$\ast$}{*} IIOWrapper\+::m\+\_\+channel\+\_\+accel\+\_\+x = nullptr\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+This variable retains the linear acceleration x channel \Hypertarget{classIIOWrapper_ad1e0779435221c690f93d6d05a76f176}\label{classIIOWrapper_ad1e0779435221c690f93d6d05a76f176} 
+\index{IIOWrapper@{IIOWrapper}!m\_channel\_accel\_y@{m\_channel\_accel\_y}}
+\index{m\_channel\_accel\_y@{m\_channel\_accel\_y}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{m\_channel\_accel\_y}{m\_channel\_accel\_y}}
+{\footnotesize\ttfamily struct iio\+\_\+channel \texorpdfstring{$\ast$}{*} IIOWrapper\+::m\+\_\+channel\+\_\+accel\+\_\+y = nullptr\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+This variable retains the linear acceleration y channel \Hypertarget{classIIOWrapper_aa5f24dc01a83090154c57359a4668cd9}\label{classIIOWrapper_aa5f24dc01a83090154c57359a4668cd9} 
+\index{IIOWrapper@{IIOWrapper}!m\_channel\_accel\_z@{m\_channel\_accel\_z}}
+\index{m\_channel\_accel\_z@{m\_channel\_accel\_z}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{m\_channel\_accel\_z}{m\_channel\_accel\_z}}
+{\footnotesize\ttfamily struct iio\+\_\+channel \texorpdfstring{$\ast$}{*} IIOWrapper\+::m\+\_\+channel\+\_\+accel\+\_\+z = nullptr\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+This variable retains the linear acceleration z channel \Hypertarget{classIIOWrapper_a9b7c68d2cd7161e853b261c3e1363ef3}\label{classIIOWrapper_a9b7c68d2cd7161e853b261c3e1363ef3} 
+\index{IIOWrapper@{IIOWrapper}!m\_channel\_anglvel\_x@{m\_channel\_anglvel\_x}}
+\index{m\_channel\_anglvel\_x@{m\_channel\_anglvel\_x}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{m\_channel\_anglvel\_x}{m\_channel\_anglvel\_x}}
+{\footnotesize\ttfamily struct iio\+\_\+channel \texorpdfstring{$\ast$}{*} IIOWrapper\+::m\+\_\+channel\+\_\+anglvel\+\_\+x = nullptr\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+This variable retains the angular velocity x channel \Hypertarget{classIIOWrapper_a1b138c4cc8238e52a68f830363a04b8d}\label{classIIOWrapper_a1b138c4cc8238e52a68f830363a04b8d} 
+\index{IIOWrapper@{IIOWrapper}!m\_channel\_anglvel\_y@{m\_channel\_anglvel\_y}}
+\index{m\_channel\_anglvel\_y@{m\_channel\_anglvel\_y}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{m\_channel\_anglvel\_y}{m\_channel\_anglvel\_y}}
+{\footnotesize\ttfamily struct iio\+\_\+channel \texorpdfstring{$\ast$}{*} IIOWrapper\+::m\+\_\+channel\+\_\+anglvel\+\_\+y = nullptr\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+This variable retains the angular velocity y channel \Hypertarget{classIIOWrapper_a1b2384d209272000f673f25e7134d06d}\label{classIIOWrapper_a1b2384d209272000f673f25e7134d06d} 
+\index{IIOWrapper@{IIOWrapper}!m\_channel\_anglvel\_z@{m\_channel\_anglvel\_z}}
+\index{m\_channel\_anglvel\_z@{m\_channel\_anglvel\_z}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{m\_channel\_anglvel\_z}{m\_channel\_anglvel\_z}}
+{\footnotesize\ttfamily struct iio\+\_\+channel \texorpdfstring{$\ast$}{*} IIOWrapper\+::m\+\_\+channel\+\_\+anglvel\+\_\+z = nullptr\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+This variable retains the angular velocity z channel \Hypertarget{classIIOWrapper_ae585f76ba5a1e003c9416bc87d5d7897}\label{classIIOWrapper_ae585f76ba5a1e003c9416bc87d5d7897} 
+\index{IIOWrapper@{IIOWrapper}!m\_channel\_deltaangl\_x@{m\_channel\_deltaangl\_x}}
+\index{m\_channel\_deltaangl\_x@{m\_channel\_deltaangl\_x}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{m\_channel\_deltaangl\_x}{m\_channel\_deltaangl\_x}}
+{\footnotesize\ttfamily struct iio\+\_\+channel \texorpdfstring{$\ast$}{*} IIOWrapper\+::m\+\_\+channel\+\_\+deltaangl\+\_\+x = nullptr\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+This variable retains the delta angle x channel \Hypertarget{classIIOWrapper_a60cc79165edc458ad3af03ad976feb2d}\label{classIIOWrapper_a60cc79165edc458ad3af03ad976feb2d} 
+\index{IIOWrapper@{IIOWrapper}!m\_channel\_deltaangl\_y@{m\_channel\_deltaangl\_y}}
+\index{m\_channel\_deltaangl\_y@{m\_channel\_deltaangl\_y}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{m\_channel\_deltaangl\_y}{m\_channel\_deltaangl\_y}}
+{\footnotesize\ttfamily struct iio\+\_\+channel \texorpdfstring{$\ast$}{*} IIOWrapper\+::m\+\_\+channel\+\_\+deltaangl\+\_\+y = nullptr\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+This variable retains the delta angle y channel \Hypertarget{classIIOWrapper_a7f9f033ffb31d35240723713a9769a6b}\label{classIIOWrapper_a7f9f033ffb31d35240723713a9769a6b} 
+\index{IIOWrapper@{IIOWrapper}!m\_channel\_deltaangl\_z@{m\_channel\_deltaangl\_z}}
+\index{m\_channel\_deltaangl\_z@{m\_channel\_deltaangl\_z}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{m\_channel\_deltaangl\_z}{m\_channel\_deltaangl\_z}}
+{\footnotesize\ttfamily struct iio\+\_\+channel \texorpdfstring{$\ast$}{*} IIOWrapper\+::m\+\_\+channel\+\_\+deltaangl\+\_\+z = nullptr\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+This variable retains the delta angle z channel \Hypertarget{classIIOWrapper_a13c3a4d31efdd2d329b3acc14b697aa4}\label{classIIOWrapper_a13c3a4d31efdd2d329b3acc14b697aa4} 
+\index{IIOWrapper@{IIOWrapper}!m\_channel\_deltavelocity\_x@{m\_channel\_deltavelocity\_x}}
+\index{m\_channel\_deltavelocity\_x@{m\_channel\_deltavelocity\_x}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{m\_channel\_deltavelocity\_x}{m\_channel\_deltavelocity\_x}}
+{\footnotesize\ttfamily struct iio\+\_\+channel \texorpdfstring{$\ast$}{*} IIOWrapper\+::m\+\_\+channel\+\_\+deltavelocity\+\_\+x = nullptr\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+This variable retains the delta velocity x channel \Hypertarget{classIIOWrapper_a7fba21deedbdc14adf0f4a46cb59fdff}\label{classIIOWrapper_a7fba21deedbdc14adf0f4a46cb59fdff} 
+\index{IIOWrapper@{IIOWrapper}!m\_channel\_deltavelocity\_y@{m\_channel\_deltavelocity\_y}}
+\index{m\_channel\_deltavelocity\_y@{m\_channel\_deltavelocity\_y}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{m\_channel\_deltavelocity\_y}{m\_channel\_deltavelocity\_y}}
+{\footnotesize\ttfamily struct iio\+\_\+channel \texorpdfstring{$\ast$}{*} IIOWrapper\+::m\+\_\+channel\+\_\+deltavelocity\+\_\+y = nullptr\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+This variable retains the delta velocity y channel \Hypertarget{classIIOWrapper_a38e16f0f6f97028d0eee31b7e98d40aa}\label{classIIOWrapper_a38e16f0f6f97028d0eee31b7e98d40aa} 
+\index{IIOWrapper@{IIOWrapper}!m\_channel\_deltavelocity\_z@{m\_channel\_deltavelocity\_z}}
+\index{m\_channel\_deltavelocity\_z@{m\_channel\_deltavelocity\_z}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{m\_channel\_deltavelocity\_z}{m\_channel\_deltavelocity\_z}}
+{\footnotesize\ttfamily struct iio\+\_\+channel \texorpdfstring{$\ast$}{*} IIOWrapper\+::m\+\_\+channel\+\_\+deltavelocity\+\_\+z = nullptr\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+This variable retains the delta velocity x channel \Hypertarget{classIIOWrapper_a49a1068fef0e2c1c48096f6b88d103b7}\label{classIIOWrapper_a49a1068fef0e2c1c48096f6b88d103b7} 
+\index{IIOWrapper@{IIOWrapper}!m\_channel\_temp@{m\_channel\_temp}}
+\index{m\_channel\_temp@{m\_channel\_temp}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{m\_channel\_temp}{m\_channel\_temp}}
+{\footnotesize\ttfamily struct iio\+\_\+channel \texorpdfstring{$\ast$}{*} IIOWrapper\+::m\+\_\+channel\+\_\+temp = nullptr\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+This variable retains the temperature channel \Hypertarget{classIIOWrapper_a335fdbf54f6ea1f463b4b7e9e74e0cc8}\label{classIIOWrapper_a335fdbf54f6ea1f463b4b7e9e74e0cc8} 
+\index{IIOWrapper@{IIOWrapper}!m\_channel\_timestamp@{m\_channel\_timestamp}}
+\index{m\_channel\_timestamp@{m\_channel\_timestamp}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{m\_channel\_timestamp}{m\_channel\_timestamp}}
+{\footnotesize\ttfamily struct iio\+\_\+channel \texorpdfstring{$\ast$}{*} IIOWrapper\+::m\+\_\+channel\+\_\+timestamp = nullptr\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+This variable retains the timestamp channel \Hypertarget{classIIOWrapper_aa54f78cb0c53f73b6562e303367b20be}\label{classIIOWrapper_aa54f78cb0c53f73b6562e303367b20be} 
+\index{IIOWrapper@{IIOWrapper}!m\_dev@{m\_dev}}
+\index{m\_dev@{m\_dev}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{m\_dev}{m\_dev}}
+{\footnotesize\ttfamily struct iio\+\_\+device \texorpdfstring{$\ast$}{*} IIOWrapper\+::m\+\_\+dev = nullptr\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+This variable retains the device instance \Hypertarget{classIIOWrapper_ac6c3cec6da827146507437ee27296a96}\label{classIIOWrapper_ac6c3cec6da827146507437ee27296a96} 
+\index{IIOWrapper@{IIOWrapper}!m\_dev\_buffer@{m\_dev\_buffer}}
+\index{m\_dev\_buffer@{m\_dev\_buffer}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{m\_dev\_buffer}{m\_dev\_buffer}}
+{\footnotesize\ttfamily struct iio\+\_\+buffer \texorpdfstring{$\ast$}{*} IIOWrapper\+::m\+\_\+dev\+\_\+buffer = nullptr\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+This variable retains device buffer instance \Hypertarget{classIIOWrapper_a4c656678d45e8e978480712451b69649}\label{classIIOWrapper_a4c656678d45e8e978480712451b69649} 
+\index{IIOWrapper@{IIOWrapper}!m\_dev\_trigger@{m\_dev\_trigger}}
+\index{m\_dev\_trigger@{m\_dev\_trigger}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{m\_dev\_trigger}{m\_dev\_trigger}}
+{\footnotesize\ttfamily struct iio\+\_\+device \texorpdfstring{$\ast$}{*} IIOWrapper\+::m\+\_\+dev\+\_\+trigger = nullptr\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+This variable retains device trigger instance \Hypertarget{classIIOWrapper_aef4fe3a3f93085da695bf65639f09b87}\label{classIIOWrapper_aef4fe3a3f93085da695bf65639f09b87} 
+\index{IIOWrapper@{IIOWrapper}!m\_iio\_context@{m\_iio\_context}}
+\index{m\_iio\_context@{m\_iio\_context}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{m\_iio\_context}{m\_iio\_context}}
+{\footnotesize\ttfamily struct iio\+\_\+context \texorpdfstring{$\ast$}{*} IIOWrapper\+::m\+\_\+iio\+\_\+context = nullptr\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+This variable retains the IIO context instance \Hypertarget{classIIOWrapper_ac4a267304bf82229d032adf4c167c8be}\label{classIIOWrapper_ac4a267304bf82229d032adf4c167c8be} 
+\index{IIOWrapper@{IIOWrapper}!m\_scale\_accel\_x@{m\_scale\_accel\_x}}
+\index{m\_scale\_accel\_x@{m\_scale\_accel\_x}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{m\_scale\_accel\_x}{m\_scale\_accel\_x}}
+{\footnotesize\ttfamily double IIOWrapper\+::m\+\_\+scale\+\_\+accel\+\_\+x = 0\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+This variable retains the scale for the linear acceleration x raw value \Hypertarget{classIIOWrapper_a39297415934efc288f6ced765861d19d}\label{classIIOWrapper_a39297415934efc288f6ced765861d19d} 
+\index{IIOWrapper@{IIOWrapper}!m\_scale\_accel\_y@{m\_scale\_accel\_y}}
+\index{m\_scale\_accel\_y@{m\_scale\_accel\_y}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{m\_scale\_accel\_y}{m\_scale\_accel\_y}}
+{\footnotesize\ttfamily double IIOWrapper\+::m\+\_\+scale\+\_\+accel\+\_\+y = 0\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+This variable retains the scale for the linear acceleration y raw value \Hypertarget{classIIOWrapper_a62c70c9017644054942d0a27c5582291}\label{classIIOWrapper_a62c70c9017644054942d0a27c5582291} 
+\index{IIOWrapper@{IIOWrapper}!m\_scale\_accel\_z@{m\_scale\_accel\_z}}
+\index{m\_scale\_accel\_z@{m\_scale\_accel\_z}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{m\_scale\_accel\_z}{m\_scale\_accel\_z}}
+{\footnotesize\ttfamily double IIOWrapper\+::m\+\_\+scale\+\_\+accel\+\_\+z = 0\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+This variable retains the scale for the linear acceleration z raw value \Hypertarget{classIIOWrapper_a60201aaf24995e68520d846c5446cd23}\label{classIIOWrapper_a60201aaf24995e68520d846c5446cd23} 
+\index{IIOWrapper@{IIOWrapper}!m\_scale\_anglvel\_x@{m\_scale\_anglvel\_x}}
+\index{m\_scale\_anglvel\_x@{m\_scale\_anglvel\_x}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{m\_scale\_anglvel\_x}{m\_scale\_anglvel\_x}}
+{\footnotesize\ttfamily double IIOWrapper\+::m\+\_\+scale\+\_\+anglvel\+\_\+x = 0\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+This variable retains the scale for the angular velocity x raw value \Hypertarget{classIIOWrapper_aabb94da5ca0c007e066898cd7767f5a2}\label{classIIOWrapper_aabb94da5ca0c007e066898cd7767f5a2} 
+\index{IIOWrapper@{IIOWrapper}!m\_scale\_anglvel\_y@{m\_scale\_anglvel\_y}}
+\index{m\_scale\_anglvel\_y@{m\_scale\_anglvel\_y}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{m\_scale\_anglvel\_y}{m\_scale\_anglvel\_y}}
+{\footnotesize\ttfamily double IIOWrapper\+::m\+\_\+scale\+\_\+anglvel\+\_\+y = 0\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+This variable retains the scale for the angular velocity y raw value \Hypertarget{classIIOWrapper_acdb2f23b02ac0650e12b76a02502e725}\label{classIIOWrapper_acdb2f23b02ac0650e12b76a02502e725} 
+\index{IIOWrapper@{IIOWrapper}!m\_scale\_anglvel\_z@{m\_scale\_anglvel\_z}}
+\index{m\_scale\_anglvel\_z@{m\_scale\_anglvel\_z}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{m\_scale\_anglvel\_z}{m\_scale\_anglvel\_z}}
+{\footnotesize\ttfamily double IIOWrapper\+::m\+\_\+scale\+\_\+anglvel\+\_\+z = 0\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+This variable retains the scale for the angular velocity z raw value \Hypertarget{classIIOWrapper_a9d05021dd126ae2446d4bfc8e122d926}\label{classIIOWrapper_a9d05021dd126ae2446d4bfc8e122d926} 
+\index{IIOWrapper@{IIOWrapper}!m\_scale\_deltaangl\_x@{m\_scale\_deltaangl\_x}}
+\index{m\_scale\_deltaangl\_x@{m\_scale\_deltaangl\_x}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{m\_scale\_deltaangl\_x}{m\_scale\_deltaangl\_x}}
+{\footnotesize\ttfamily double IIOWrapper\+::m\+\_\+scale\+\_\+deltaangl\+\_\+x = 0\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+This variable retains the scale for the delta angle x raw value \Hypertarget{classIIOWrapper_a0a614ad2a77e11186da5c6d22743c1cc}\label{classIIOWrapper_a0a614ad2a77e11186da5c6d22743c1cc} 
+\index{IIOWrapper@{IIOWrapper}!m\_scale\_deltaangl\_y@{m\_scale\_deltaangl\_y}}
+\index{m\_scale\_deltaangl\_y@{m\_scale\_deltaangl\_y}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{m\_scale\_deltaangl\_y}{m\_scale\_deltaangl\_y}}
+{\footnotesize\ttfamily double IIOWrapper\+::m\+\_\+scale\+\_\+deltaangl\+\_\+y = 0\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+This variable retains the scale for the delta angle y raw value \Hypertarget{classIIOWrapper_aa60f12b53d29ad7a17750da6cfe56a9b}\label{classIIOWrapper_aa60f12b53d29ad7a17750da6cfe56a9b} 
+\index{IIOWrapper@{IIOWrapper}!m\_scale\_deltaangl\_z@{m\_scale\_deltaangl\_z}}
+\index{m\_scale\_deltaangl\_z@{m\_scale\_deltaangl\_z}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{m\_scale\_deltaangl\_z}{m\_scale\_deltaangl\_z}}
+{\footnotesize\ttfamily double IIOWrapper\+::m\+\_\+scale\+\_\+deltaangl\+\_\+z = 0\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+This variable retains the scale for the delta angle z raw value \Hypertarget{classIIOWrapper_a6b769d1cfe0c7e2f09d7af4cdbea5c09}\label{classIIOWrapper_a6b769d1cfe0c7e2f09d7af4cdbea5c09} 
+\index{IIOWrapper@{IIOWrapper}!m\_scale\_deltavelocity\_x@{m\_scale\_deltavelocity\_x}}
+\index{m\_scale\_deltavelocity\_x@{m\_scale\_deltavelocity\_x}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{m\_scale\_deltavelocity\_x}{m\_scale\_deltavelocity\_x}}
+{\footnotesize\ttfamily double IIOWrapper\+::m\+\_\+scale\+\_\+deltavelocity\+\_\+x = 0\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+This variable retains the scale for the delta velocity x raw value \Hypertarget{classIIOWrapper_a5f29b5ac8ea9c50f38059626899f45ab}\label{classIIOWrapper_a5f29b5ac8ea9c50f38059626899f45ab} 
+\index{IIOWrapper@{IIOWrapper}!m\_scale\_deltavelocity\_y@{m\_scale\_deltavelocity\_y}}
+\index{m\_scale\_deltavelocity\_y@{m\_scale\_deltavelocity\_y}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{m\_scale\_deltavelocity\_y}{m\_scale\_deltavelocity\_y}}
+{\footnotesize\ttfamily double IIOWrapper\+::m\+\_\+scale\+\_\+deltavelocity\+\_\+y = 0\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+This variable retains the scale for the delta velocity y raw value \Hypertarget{classIIOWrapper_a822cfeb7635264d647df73dabd2ec4d6}\label{classIIOWrapper_a822cfeb7635264d647df73dabd2ec4d6} 
+\index{IIOWrapper@{IIOWrapper}!m\_scale\_deltavelocity\_z@{m\_scale\_deltavelocity\_z}}
+\index{m\_scale\_deltavelocity\_z@{m\_scale\_deltavelocity\_z}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{m\_scale\_deltavelocity\_z}{m\_scale\_deltavelocity\_z}}
+{\footnotesize\ttfamily double IIOWrapper\+::m\+\_\+scale\+\_\+deltavelocity\+\_\+z = 0\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+This variable retains the scale for the delta velocity z raw value \Hypertarget{classIIOWrapper_ac33c30566920a17f9f0b20321c7bb4ae}\label{classIIOWrapper_ac33c30566920a17f9f0b20321c7bb4ae} 
+\index{IIOWrapper@{IIOWrapper}!m\_scale\_temp@{m\_scale\_temp}}
+\index{m\_scale\_temp@{m\_scale\_temp}!IIOWrapper@{IIOWrapper}}
+\doxysubsubsection{\texorpdfstring{m\_scale\_temp}{m\_scale\_temp}}
+{\footnotesize\ttfamily double IIOWrapper\+::m\+\_\+scale\+\_\+temp = 0\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+This variable retains the scale for the temperature raw value 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/adi\+\_\+imu/iio\+\_\+wrapper.\+h\item 
+src/\mbox{\hyperlink{iio__wrapper_8cpp}{iio\+\_\+wrapper.\+cpp}}\end{DoxyCompactItemize}

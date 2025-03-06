@@ -1,0 +1,7 @@
+<map id="VelAngTempDataProvider" name="VelAngTempDataProvider">
+<area shape="rect" id="Node000001" title="Class for delta angle, delta velocity and temperature buffered data provider." alt="" coords="132,93,319,119"/>
+<area shape="rect" id="Node000002" href="$classVelAngTempDataProviderInterface.html" title="Interface for delta angle, delta velocity and temperature buffered data provider." alt="" coords="5,5,251,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="153,38,214,91,210,95,150,42"/>
+<area shape="rect" id="Node000003" href="$classIIOWrapper.html" title="Wrapper class for libiio library for IMU devices." alt="" coords="275,5,370,31"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="301,42,241,95,237,91,298,38"/>
+</map>

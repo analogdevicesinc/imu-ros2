@@ -1,0 +1,134 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classAccelGyroTempDataProvider" kind="class" language="C++" prot="public">
+    <compoundname>AccelGyroTempDataProvider</compoundname>
+    <basecompoundref refid="classAccelGyroTempDataProviderInterface" prot="public" virt="non-virtual">AccelGyroTempDataProviderInterface</basecompoundref>
+    <includes refid="accelgyrotemp__data__provider_8h" local="no">accelgyrotemp_data_provider.h</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classAccelGyroTempDataProvider_1acb8ae19c02d11f1aec5c69c11638cc91" prot="private" static="no" mutable="no">
+        <type><ref refid="classIIOWrapper" kindref="compound">IIOWrapper</ref></type>
+        <definition>IIOWrapper AccelGyroTempDataProvider::m_iio_wrapper</definition>
+        <argsstring></argsstring>
+        <name>m_iio_wrapper</name>
+        <qualifiedname>AccelGyroTempDataProvider::m_iio_wrapper</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This data member is used to access sensor information via libiio. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/accelgyrotemp_data_provider.h" line="55" column="14" bodyfile="include/adi_imu/accelgyrotemp_data_provider.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classAccelGyroTempDataProvider_1ad3afbaaf055db6e75d94205295f8290f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>AccelGyroTempDataProvider::AccelGyroTempDataProvider</definition>
+        <argsstring>()</argsstring>
+        <name>AccelGyroTempDataProvider</name>
+        <qualifiedname>AccelGyroTempDataProvider::AccelGyroTempDataProvider</qualifiedname>
+        <briefdescription>
+<para>Constructor for <ref refid="classAccelGyroTempDataProvider" kindref="compound">AccelGyroTempDataProvider</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/accelgyrotemp_data_provider.h" line="38" column="3" bodyfile="src/accelgyrotemp_data_provider.cpp" bodystart="24" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="function" id="classAccelGyroTempDataProvider_1a46a788cd8ee9b14c04eb564003ddeb31" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>AccelGyroTempDataProvider::~AccelGyroTempDataProvider</definition>
+        <argsstring>()</argsstring>
+        <name>~AccelGyroTempDataProvider</name>
+        <qualifiedname>AccelGyroTempDataProvider::~AccelGyroTempDataProvider</qualifiedname>
+        <briefdescription>
+<para>Destructor for <ref refid="classAccelGyroTempDataProvider" kindref="compound">AccelGyroTempDataProvider</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/accelgyrotemp_data_provider.h" line="43" column="3" bodyfile="src/accelgyrotemp_data_provider.cpp" bodystart="26" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="function" id="classAccelGyroTempDataProvider_1af67881b4ea267e67689a2e5af672d947" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool AccelGyroTempDataProvider::getData</definition>
+        <argsstring>(adi_imu::msg::AccelGyroTempData &amp;message) override</argsstring>
+        <name>getData</name>
+        <qualifiedname>AccelGyroTempDataProvider::getData</qualifiedname>
+        <reimplements refid="classAccelGyroTempDataProviderInterface_1a0b20795091c2739841a9b08b647eb45b">getData</reimplements>
+        <param>
+          <type>adi_imu::msg::AccelGyroTempData &amp;</type>
+          <declname>message</declname>
+        </param>
+        <briefdescription>
+<para>Populate AccelGyroTempData message with measured data. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>message</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Message containing the measured data. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Return true if the message parameter is successfully populated with measured data and false otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/accelgyrotemp_data_provider.h" line="51" column="8" bodyfile="src/accelgyrotemp_data_provider.cpp" bodystart="28" bodyend="46"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Class for acceleration, angular velocity and temperature buffered data provider. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>AccelGyroTempDataProvider</label>
+        <link refid="classAccelGyroTempDataProvider"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>AccelGyroTempDataProviderInterface</label>
+        <link refid="classAccelGyroTempDataProviderInterface"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>AccelGyroTempDataProvider</label>
+        <link refid="classAccelGyroTempDataProvider"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>m_iio_wrapper</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>AccelGyroTempDataProviderInterface</label>
+        <link refid="classAccelGyroTempDataProviderInterface"/>
+      </node>
+      <node id="3">
+        <label>IIOWrapper</label>
+        <link refid="classIIOWrapper"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/adi_imu/accelgyrotemp_data_provider.h" line="32" column="1" bodyfile="include/adi_imu/accelgyrotemp_data_provider.h" bodystart="33" bodyend="56"/>
+    <listofallmembers>
+      <member refid="classAccelGyroTempDataProvider_1ad3afbaaf055db6e75d94205295f8290f" prot="public" virt="non-virtual"><scope>AccelGyroTempDataProvider</scope><name>AccelGyroTempDataProvider</name></member>
+      <member refid="classAccelGyroTempDataProviderInterface_1a8c99006840c27be6ebc2c83f4296095b" prot="public" virt="non-virtual"><scope>AccelGyroTempDataProvider</scope><name>AccelGyroTempDataProviderInterface</name></member>
+      <member refid="classAccelGyroTempDataProvider_1af67881b4ea267e67689a2e5af672d947" prot="public" virt="virtual"><scope>AccelGyroTempDataProvider</scope><name>getData</name></member>
+      <member refid="classAccelGyroTempDataProvider_1acb8ae19c02d11f1aec5c69c11638cc91" prot="private" virt="non-virtual"><scope>AccelGyroTempDataProvider</scope><name>m_iio_wrapper</name></member>
+      <member refid="classAccelGyroTempDataProvider_1a46a788cd8ee9b14c04eb564003ddeb31" prot="public" virt="non-virtual"><scope>AccelGyroTempDataProvider</scope><name>~AccelGyroTempDataProvider</name></member>
+      <member refid="classAccelGyroTempDataProviderInterface_1afb2081833893e32a460d658298989691" prot="public" virt="virtual"><scope>AccelGyroTempDataProvider</scope><name>~AccelGyroTempDataProviderInterface</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

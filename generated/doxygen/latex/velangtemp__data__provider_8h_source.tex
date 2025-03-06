@@ -1,0 +1,47 @@
+\doxysection{velangtemp\+\_\+data\+\_\+provider.\+h}
+\hypertarget{velangtemp__data__provider_8h_source}{}\label{velangtemp__data__provider_8h_source}\index{include/adi\_imu/velangtemp\_data\_provider.h@{include/adi\_imu/velangtemp\_data\_provider.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*******************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ \ \ @file\ \ \ velangtemp\_data\_provider.h}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ \ \ @brief\ \ Header\ for\ providing\ temperature,\ delta\ velocity\ and\ delta\ angle}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ \ \ \ \ \ \ \ \ \ \ data.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ \ @author\ Vasile\ Holonec\ (Vasile.Holonec@analog.com)}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *******************************************************************************}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ Copyright\ 2023(c)\ Analog\ Devices,\ Inc.}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *\ Licensed\ under\ the\ Apache\ License,\ Version\ 2.0\ (the\ "{}License"{});}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ you\ may\ not\ use\ this\ file\ except\ in\ compliance\ with\ the\ License.}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ You\ may\ obtain\ a\ copy\ of\ the\ License\ at}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ \ \ \ \ http://www.apache.org/licenses/LICENSE-\/2.0}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ Unless\ required\ by\ applicable\ law\ or\ agreed\ to\ in\ writing,\ software}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ distributed\ under\ the\ License\ is\ distributed\ on\ an\ "{}AS\ IS"{}\ BASIS,}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ WITHOUT\ WARRANTIES\ OR\ CONDITIONS\ OF\ ANY\ KIND,\ either\ express\ or\ implied.}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ *\ See\ the\ License\ for\ the\ specific\ language\ governing\ permissions\ and}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ *\ limitations\ under\ the\ License.}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ ******************************************************************************/}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#ifndef\ VELANGTEMP\_DATA\_PROVIDER\_H}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#define\ VELANGTEMP\_DATA\_PROVIDER\_H}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#include\ "{}adi\_imu/iio\_wrapper.h"{}}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#include\ "{}adi\_imu/velangtemp\_data\_provider\_interface.h"{}}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00032\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classVelAngTempDataProvider}{VelAngTempDataProvider}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classVelAngTempDataProviderInterface}{VelAngTempDataProviderInterface}}}
+\DoxyCodeLine{00033\ \{}
+\DoxyCodeLine{00034\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00038\ \ \ \mbox{\hyperlink{classVelAngTempDataProvider_ae94b88e60be8b88f38ce395c93b22d4c}{VelAngTempDataProvider}}();}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00043\ \ \ \mbox{\hyperlink{classVelAngTempDataProvider_aaa957dfc12e03ccdf7453b8e98b34573}{\string~VelAngTempDataProvider}}();}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00051\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classVelAngTempDataProvider_a3a41a957fd644e599139450d5abffb9f}{getData}}(adi\_imu::msg::VelAngTempData\ \&\ message)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00055\ \ \ \mbox{\hyperlink{classIIOWrapper}{IIOWrapper}}\ \mbox{\hyperlink{classVelAngTempDataProvider_a1c8afa5aad73fd438814807e594df22d}{m\_iio\_wrapper}};}
+\DoxyCodeLine{00056\ \};}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ VELANGTEMP\_DATA\_PROVIDER\_H}}
+
+\end{DoxyCode}

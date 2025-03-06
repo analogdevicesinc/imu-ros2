@@ -1,0 +1,133 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classImuDiagRosPublisherInterface" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>ImuDiagRosPublisherInterface</compoundname>
+    <basecompoundref refid="classRosTask" prot="public" virt="non-virtual">RosTask</basecompoundref>
+    <derivedcompoundref refid="classImuDiagRosPublisher" prot="public" virt="non-virtual">ImuDiagRosPublisher</derivedcompoundref>
+    <includes refid="imu__diag__ros__publisher__interface_8h" local="no">imu_diag_ros_publisher_interface.h</includes>
+    <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="classImuDiagRosPublisherInterface_1a2410d6fb2cc843c224b1ed251ac92787" prot="protected" static="no" mutable="no">
+        <type>std::shared_ptr&lt; rclcpp::Node &gt;</type>
+        <definition>std::shared_ptr&lt;rclcpp::Node&gt; ImuDiagRosPublisherInterface::m_node</definition>
+        <argsstring></argsstring>
+        <name>m_node</name>
+        <qualifiedname>ImuDiagRosPublisherInterface::m_node</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The ros2 Node data member. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/imu_diag_ros_publisher_interface.h" line="55" column="19" bodyfile="include/adi_imu/imu_diag_ros_publisher_interface.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classImuDiagRosPublisherInterface_1a5ed6cfb9a6c3962ac619cc6832b91b84" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ImuDiagRosPublisherInterface::ImuDiagRosPublisherInterface</definition>
+        <argsstring>()</argsstring>
+        <name>ImuDiagRosPublisherInterface</name>
+        <qualifiedname>ImuDiagRosPublisherInterface::ImuDiagRosPublisherInterface</qualifiedname>
+        <briefdescription>
+<para>Constructor for <ref refid="classImuDiagRosPublisherInterface" kindref="compound">ImuDiagRosPublisherInterface</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/imu_diag_ros_publisher_interface.h" line="40" column="3" bodyfile="include/adi_imu/imu_diag_ros_publisher_interface.h" bodystart="40" bodyend="40"/>
+      </memberdef>
+      <memberdef kind="function" id="classImuDiagRosPublisherInterface_1adc6b891a079402ab86761984c73bc508" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type></type>
+        <definition>virtual ImuDiagRosPublisherInterface::~ImuDiagRosPublisherInterface</definition>
+        <argsstring>()</argsstring>
+        <name>~ImuDiagRosPublisherInterface</name>
+        <qualifiedname>ImuDiagRosPublisherInterface::~ImuDiagRosPublisherInterface</qualifiedname>
+        <briefdescription>
+<para>Destructor for <ref refid="classImuDiagRosPublisherInterface" kindref="compound">ImuDiagRosPublisherInterface</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/imu_diag_ros_publisher_interface.h" line="45" column="11" bodyfile="include/adi_imu/imu_diag_ros_publisher_interface.h" bodystart="45" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="function" id="classImuDiagRosPublisherInterface_1a1cf7bd52aaf259428911d0aa6eb2cd5e" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void ImuDiagRosPublisherInterface::setMessageProvider</definition>
+        <argsstring>(ImuDiagDataProviderInterface *dataProvider)=0</argsstring>
+        <name>setMessageProvider</name>
+        <qualifiedname>ImuDiagRosPublisherInterface::setMessageProvider</qualifiedname>
+        <reimplementedby refid="classImuDiagRosPublisher_1ae5233d9e51106f0f5cf7a8734db34800">setMessageProvider</reimplementedby>
+        <param>
+          <type><ref refid="classImuDiagDataProviderInterface" kindref="compound">ImuDiagDataProviderInterface</ref> *</type>
+          <declname>dataProvider</declname>
+        </param>
+        <briefdescription>
+<para>Set the message data provider. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dataProvider</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Data provider. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/imu_diag_ros_publisher_interface.h" line="51" column="16"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Interface for diagnosis publisher for adis chips. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>ImuDiagRosPublisher</label>
+        <link refid="classImuDiagRosPublisher"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>ImuDiagRosPublisherInterface</label>
+        <link refid="classImuDiagRosPublisherInterface"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>RosTask</label>
+        <link refid="classRosTask"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>ImuDiagRosPublisherInterface</label>
+        <link refid="classImuDiagRosPublisherInterface"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>RosTask</label>
+        <link refid="classRosTask"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/adi_imu/imu_diag_ros_publisher_interface.h" line="34" column="1" bodyfile="include/adi_imu/imu_diag_ros_publisher_interface.h" bodystart="35" bodyend="56"/>
+    <listofallmembers>
+      <member refid="classImuDiagRosPublisherInterface_1a5ed6cfb9a6c3962ac619cc6832b91b84" prot="public" virt="non-virtual"><scope>ImuDiagRosPublisherInterface</scope><name>ImuDiagRosPublisherInterface</name></member>
+      <member refid="classImuDiagRosPublisherInterface_1a2410d6fb2cc843c224b1ed251ac92787" prot="protected" virt="non-virtual"><scope>ImuDiagRosPublisherInterface</scope><name>m_node</name></member>
+      <member refid="classRosTask_1a519dd722e83fba675d0e988c5d5100d1" prot="public" virt="non-virtual"><scope>ImuDiagRosPublisherInterface</scope><name>RosTask</name></member>
+      <member refid="classRosTask_1a331afbcd684711c35e1488fbaad73cf2" prot="public" virt="pure-virtual"><scope>ImuDiagRosPublisherInterface</scope><name>run</name></member>
+      <member refid="classImuDiagRosPublisherInterface_1a1cf7bd52aaf259428911d0aa6eb2cd5e" prot="public" virt="pure-virtual"><scope>ImuDiagRosPublisherInterface</scope><name>setMessageProvider</name></member>
+      <member refid="classImuDiagRosPublisherInterface_1adc6b891a079402ab86761984c73bc508" prot="public" virt="virtual"><scope>ImuDiagRosPublisherInterface</scope><name>~ImuDiagRosPublisherInterface</name></member>
+      <member refid="classRosTask_1a1043013f8bb20f9c3878d4cb8d99b2fb" prot="public" virt="virtual"><scope>ImuDiagRosPublisherInterface</scope><name>~RosTask</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

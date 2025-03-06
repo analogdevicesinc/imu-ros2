@@ -1,0 +1,5 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="Node000000" href="$classImuDiagDataProviderInterface.html" title="Interface for diagnosis data provider for adis chips." alt="" coords="5,5,225,31"/>
+<area shape="rect" id="Node000001" href="$classImuDiagDataProvider.html" title="Class for diagnosis data provider for adis chips." alt="" coords="273,5,436,31"/>
+<area shape="poly" id="edge4_Node000000_Node000001" title=" " alt="" coords="239,15,273,15,273,21,239,21"/>
+</map>

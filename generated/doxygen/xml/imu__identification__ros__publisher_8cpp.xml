@@ -1,0 +1,129 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="imu__identification__ros__publisher_8cpp" kind="file" language="C++">
+    <compoundname>imu_identification_ros_publisher.cpp</compoundname>
+    <includes refid="imu__identification__ros__publisher_8h" local="yes">adi_imu/imu_identification_ros_publisher.h</includes>
+    <includes local="no">thread</includes>
+    <incdepgraph>
+      <node id="4">
+        <label>adi_imu/imu_identification_data_provider_interface.h</label>
+        <link refid="imu__identification__data__provider__interface_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>adi_imu/imu_identification_ros_publisher.h</label>
+        <link refid="imu__identification__ros__publisher_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>adi_imu/imu_identification_ros_publisher_interface.h</label>
+        <link refid="imu__identification__ros__publisher__interface_8h_source"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>adi_imu/ros_task.h</label>
+        <link refid="ros__task_8h_source"/>
+      </node>
+      <node id="1">
+        <label>src/imu_identification_ros_publisher.cpp</label>
+        <link refid="imu__identification__ros__publisher_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>adi_imu/msg/imu_identification_data.hpp</label>
+      </node>
+      <node id="7">
+        <label>memory</label>
+      </node>
+      <node id="3">
+        <label>rclcpp/rclcpp.hpp</label>
+      </node>
+      <node id="9">
+        <label>thread</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*******************************************************************************</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/><sp/><sp/>@file<sp/><sp/><sp/>imu_identification_ros_publisher.cpp</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/><sp/><sp/>@brief<sp/><sp/>Implementation<sp/>for<sp/>imu<sp/>identification<sp/>publisher.</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*<sp/><sp/><sp/>@author<sp/>Vasile<sp/>Holonec<sp/>(Vasile.Holonec@analog.com)</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*******************************************************************************</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>2023(c)<sp/>Analog<sp/>Devices,<sp/>Inc.</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/>Licensed<sp/>under<sp/>the<sp/>Apache<sp/>License,<sp/>Version<sp/>2.0<sp/>(the<sp/>&quot;License&quot;);</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*<sp/>you<sp/>may<sp/>not<sp/>use<sp/>this<sp/>file<sp/>except<sp/>in<sp/>compliance<sp/>with<sp/>the<sp/>License.</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/>You<sp/>may<sp/>obtain<sp/>a<sp/>copy<sp/>of<sp/>the<sp/>License<sp/>at</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/>http://www.apache.org/licenses/LICENSE-2.0</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/>Unless<sp/>required<sp/>by<sp/>applicable<sp/>law<sp/>or<sp/>agreed<sp/>to<sp/>in<sp/>writing,<sp/>software</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/>distributed<sp/>under<sp/>the<sp/>License<sp/>is<sp/>distributed<sp/>on<sp/>an<sp/>&quot;AS<sp/>IS&quot;<sp/>BASIS,</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*<sp/>WITHOUT<sp/>WARRANTIES<sp/>OR<sp/>CONDITIONS<sp/>OF<sp/>ANY<sp/>KIND,<sp/>either<sp/>express<sp/>or<sp/>implied.</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*<sp/>See<sp/>the<sp/>License<sp/>for<sp/>the<sp/>specific<sp/>language<sp/>governing<sp/>permissions<sp/>and</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/>limitations<sp/>under<sp/>the<sp/>License.</highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>******************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;adi_imu/imu_identification_ros_publisher.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;thread&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><ref refid="classImuIdentificationRosPublisher_1ae09df00ee5f8a7523e0da1682a10b596" kindref="member">ImuIdentificationRosPublisher::ImuIdentificationRosPublisher</ref>(std::shared_ptr&lt;rclcpp::Node&gt;<sp/>&amp;<sp/>node)</highlight></codeline>
+<codeline lineno="26"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><ref refid="classImuIdentificationRosPublisherInterface_1ae4b1f479fbe79db85ae9df56ca41a675" kindref="member">m_node</ref><sp/>=<sp/>node;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><ref refid="classImuIdentificationRosPublisher_1a4f092942baae2d6d3603968fea578435" kindref="member">m_publisher</ref><sp/>=</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/>node-&gt;create_publisher&lt;adi_imu::msg::ImuIdentificationData&gt;(</highlight><highlight class="stringliteral">&quot;imuidentificationdata&quot;</highlight><highlight class="normal">,<sp/>10);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><ref refid="classImuIdentificationRosPublisher_1a1b39b89870753dd7594e216293ca8d8d" kindref="member">ImuIdentificationRosPublisher::~ImuIdentificationRosPublisher</ref>()<sp/>{<sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal"><sp/><ref refid="classImuIdentificationRosPublisher_1a46fd341acacf04dba8e5ad9258044fda" kindref="member">m_data_provider</ref>;<sp/>}</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classImuIdentificationRosPublisher_1ac4bc896dd849aa3e1c8363721a1c6238" kindref="member">ImuIdentificationRosPublisher::setMessageProvider</ref>(</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><ref refid="classImuIdentificationDataProviderInterface" kindref="compound">ImuIdentificationDataProviderInterface</ref><sp/>*<sp/>dataProvider)</highlight></codeline>
+<codeline lineno="36"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><ref refid="classImuIdentificationRosPublisher_1a46fd341acacf04dba8e5ad9258044fda" kindref="member">m_data_provider</ref><sp/>=<sp/>dataProvider;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classImuIdentificationRosPublisher_1a3c6ffc12c162c4ad6190e7b54b9a1bdc" kindref="member">ImuIdentificationRosPublisher::run</ref>()</highlight></codeline>
+<codeline lineno="41"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/>std::thread::id<sp/>this_id<sp/>=<sp/>std::this_thread::get_id();</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;thread<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>this_id<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>started...\n&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/>RCLCPP_INFO(</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>rclcpp::get_logger(</highlight><highlight class="stringliteral">&quot;imu_identification_ros_publisher&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;startThread:<sp/>ImuIdentificationRosPublisher&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>read<sp/>data<sp/>only<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><ref refid="classImuIdentificationRosPublisher_1a46fd341acacf04dba8e5ad9258044fda" kindref="member">m_data_provider</ref>-&gt;<ref refid="classImuIdentificationDataProviderInterface_1a1897dffdb20936fa8f25570eb767d9d5" kindref="member">getData</ref>(<ref refid="classImuIdentificationRosPublisher_1a10ec8befa2046eb720334b0bd4d395eb" kindref="member">m_message</ref>);</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(rclcpp::ok())<sp/>{</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>rclcpp::Time<sp/>now<sp/>=<sp/><ref refid="classImuIdentificationRosPublisherInterface_1ae4b1f479fbe79db85ae9df56ca41a675" kindref="member">m_node</ref>-&gt;get_clock()-&gt;now();</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classImuIdentificationRosPublisher_1a10ec8befa2046eb720334b0bd4d395eb" kindref="member">m_message</ref>.header.stamp<sp/>=<sp/>now;</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classImuIdentificationRosPublisher_1a4f092942baae2d6d3603968fea578435" kindref="member">m_publisher</ref>-&gt;publish(<ref refid="classImuIdentificationRosPublisher_1a10ec8befa2046eb720334b0bd4d395eb" kindref="member">m_message</ref>);</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/>this_id<sp/>=<sp/>std::this_thread::get_id();</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;thread<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>this_id<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>ended...\n&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/>RCLCPP_INFO(</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>rclcpp::get_logger(</highlight><highlight class="stringliteral">&quot;imu_identification_ros_publisher&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;endThread:<sp/>ImuIdentificationRosPublisher&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="62"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="src/imu_identification_ros_publisher.cpp"/>
+  </compounddef>
+</doxygen>

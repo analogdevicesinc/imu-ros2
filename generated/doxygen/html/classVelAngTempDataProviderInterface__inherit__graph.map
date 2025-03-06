@@ -1,0 +1,5 @@
+<map id="VelAngTempDataProviderInterface" name="VelAngTempDataProviderInterface">
+<area shape="rect" id="Node000001" title="Interface for delta angle, delta velocity and temperature buffered data provider." alt="" coords="5,5,251,31"/>
+<area shape="rect" id="Node000002" href="$classVelAngTempDataProvider.html" title="Class for delta angle, delta velocity and temperature buffered data provider." alt="" coords="35,79,221,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="131,44,131,79,125,79,125,44"/>
+</map>

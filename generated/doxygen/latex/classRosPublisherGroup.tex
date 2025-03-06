@@ -1,0 +1,227 @@
+\doxysection{Ros\+Publisher\+Group Class Reference}
+\hypertarget{classRosPublisherGroup}{}\label{classRosPublisherGroup}\index{RosPublisherGroup@{RosPublisherGroup}}
+
+
+Class ROS publisher group.  
+
+
+
+
+{\ttfamily \#include $<$ros\+\_\+publisher\+\_\+group.\+h$>$}
+
+
+
+Inheritance diagram for Ros\+Publisher\+Group\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=232pt]{classRosPublisherGroup__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Ros\+Publisher\+Group\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classRosPublisherGroup__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classRosPublisherGroup_a77dd776062db65bedf195c431b852bf2}{Ros\+Publisher\+Group}} (std\+::shared\+\_\+ptr$<$ rclcpp\+::\+Node $>$ \&node)
+\begin{DoxyCompactList}\small\item\em Constructor for \doxylink{classRosPublisherGroup}{Ros\+Publisher\+Group}. \end{DoxyCompactList}\item 
+\Hypertarget{classRosPublisherGroup_aa9a84b81b952bd75cf87bb5c0e73f40a}\label{classRosPublisherGroup_aa9a84b81b952bd75cf87bb5c0e73f40a} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Ros\+Publisher\+Group} ()
+\begin{DoxyCompactList}\small\item\em Destructor for \doxylink{classRosPublisherGroup}{Ros\+Publisher\+Group}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRosPublisherGroup_a52fea1a71e98cb0625c889b31eebb6fc}{set\+Accel\+Gyro\+Temp\+Ros\+Publisher}} (\mbox{\hyperlink{classAccelGyroTempRosPublisherInterface}{Accel\+Gyro\+Temp\+Ros\+Publisher\+Interface}} \texorpdfstring{$\ast$}{*}accel\+Gyro\+Temp\+Ros\+Publisher) override
+\begin{DoxyCompactList}\small\item\em Sets the accel\+Gyro\+Temp\+Ros\+Publisher publisher in the publisher group. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRosPublisherGroup_a7c1b3b2b98a90f8484da38fb24a559a7}{set\+Imu\+Ros\+Publisher}} (\mbox{\hyperlink{classImuRosPublisherInterface}{Imu\+Ros\+Publisher\+Interface}} \texorpdfstring{$\ast$}{*}imu\+Ros\+Publisher) override
+\begin{DoxyCompactList}\small\item\em Sets the imu\+Ros\+Publisher publisher in the publisher group. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRosPublisherGroup_a124b01689fb74a813d7af292aa9dd065}{set\+Imu\+Full\+Measured\+Data\+Ros\+Publisher}} (\mbox{\hyperlink{classImuFullMeasuredDataRosPublisherInterface}{Imu\+Full\+Measured\+Data\+Ros\+Publisher\+Interface}} \texorpdfstring{$\ast$}{*}imu\+Full\+Measured\+Data\+Ros\+Publisher) override
+\begin{DoxyCompactList}\small\item\em Sets the imu\+Full\+Measured\+Data\+Ros\+Publisher publisher in the publisher group. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRosPublisherGroup_a9b1f3c0218ffa6ff7d2fb6f6870b72fb}{set\+Imu\+Control\+Parameters}} (\mbox{\hyperlink{classImuControlParameters}{Imu\+Control\+Parameters}} \texorpdfstring{$\ast$}{*}imu\+Control\+Parameters) override
+\begin{DoxyCompactList}\small\item\em Sets the imu\+Control\+Parameters instance in the publisher group. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRosPublisherGroup_afee0f211b77283a37fa197b39f4d1253}{run}} () override
+\begin{DoxyCompactList}\small\item\em Run the thread responsible for publishing messages and for performing parameter configuration. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classRosPublisherGroupInterface}{Ros\+Publisher\+Group\+Interface}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Ros\+Publisher\+Group\+Interface} ()
+\begin{DoxyCompactList}\small\item\em Constructor for \doxylink{classRosPublisherGroupInterface}{Ros\+Publisher\+Group\+Interface}. \end{DoxyCompactList}\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Ros\+Publisher\+Group\+Interface} ()
+\begin{DoxyCompactList}\small\item\em Destructor for \doxylink{classRosPublisherGroupInterface}{Ros\+Publisher\+Group\+Interface}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classRosTask}{Ros\+Task}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classRosTask_a519dd722e83fba675d0e988c5d5100d1}{Ros\+Task}} ()
+\begin{DoxyCompactList}\small\item\em Constructor for \doxylink{classRosTask}{Ros\+Task}. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classRosTask_a1043013f8bb20f9c3878d4cb8d99b2fb}{\texorpdfstring{$\sim$}{\string~}\+Ros\+Task}} ()
+\begin{DoxyCompactList}\small\item\em Destructor for \doxylink{classRosTask}{Ros\+Task}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classAccelGyroTempRosPublisherInterface}{Accel\+Gyro\+Temp\+Ros\+Publisher\+Interface}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classRosPublisherGroup_a0ffa2985f2e02ca1139453ad7ed2b3df}{m\+\_\+accel\+Gyro\+Temp\+Ros\+Publisher}}
+\item 
+\mbox{\hyperlink{classImuRosPublisherInterface}{Imu\+Ros\+Publisher\+Interface}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classRosPublisherGroup_afc3e8969f04fc70a2f52a0e88f3a645a}{m\+\_\+imu\+Ros\+Publisher}}
+\item 
+\mbox{\hyperlink{classImuFullMeasuredDataRosPublisherInterface}{Imu\+Full\+Measured\+Data\+Ros\+Publisher\+Interface}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classRosPublisherGroup_a00a053daf7455c5024f16b686d524676}{m\+\_\+imu\+Full\+Measured\+Data\+Ros\+Publisher}}
+\item 
+\mbox{\hyperlink{classImuControlParameters}{Imu\+Control\+Parameters}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classRosPublisherGroup_a3b53e5abac921148bf0c248a8cd07596}{m\+\_\+imu\+Control\+Parameters}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classRosPublisherGroupInterface}{Ros\+Publisher\+Group\+Interface}}}
+\begin{DoxyCompactItemize}
+\item 
+std\+::shared\+\_\+ptr$<$ rclcpp\+::\+Node $>$ \mbox{\hyperlink{classRosPublisherGroupInterface_af8621aa2254eb8b90a39349559293d5b}{m\+\_\+node}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class ROS publisher group. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classRosPublisherGroup_a77dd776062db65bedf195c431b852bf2}\label{classRosPublisherGroup_a77dd776062db65bedf195c431b852bf2} 
+\index{RosPublisherGroup@{RosPublisherGroup}!RosPublisherGroup@{RosPublisherGroup}}
+\index{RosPublisherGroup@{RosPublisherGroup}!RosPublisherGroup@{RosPublisherGroup}}
+\doxysubsubsection{\texorpdfstring{RosPublisherGroup()}{RosPublisherGroup()}}
+{\footnotesize\ttfamily Ros\+Publisher\+Group\+::\+Ros\+Publisher\+Group (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ rclcpp\+::\+Node $>$ \&}]{node }\end{DoxyParamCaption})}
+
+
+
+Constructor for \doxylink{classRosPublisherGroup}{Ros\+Publisher\+Group}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em node} & The ros2 Node instance. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classRosPublisherGroup_afee0f211b77283a37fa197b39f4d1253}\label{classRosPublisherGroup_afee0f211b77283a37fa197b39f4d1253} 
+\index{RosPublisherGroup@{RosPublisherGroup}!run@{run}}
+\index{run@{run}!RosPublisherGroup@{RosPublisherGroup}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily void Ros\+Publisher\+Group\+::run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Run the thread responsible for publishing messages and for performing parameter configuration. 
+
+
+
+Implements \mbox{\hyperlink{classRosTask_a331afbcd684711c35e1488fbaad73cf2}{Ros\+Task}}.
+
+\Hypertarget{classRosPublisherGroup_a52fea1a71e98cb0625c889b31eebb6fc}\label{classRosPublisherGroup_a52fea1a71e98cb0625c889b31eebb6fc} 
+\index{RosPublisherGroup@{RosPublisherGroup}!setAccelGyroTempRosPublisher@{setAccelGyroTempRosPublisher}}
+\index{setAccelGyroTempRosPublisher@{setAccelGyroTempRosPublisher}!RosPublisherGroup@{RosPublisherGroup}}
+\doxysubsubsection{\texorpdfstring{setAccelGyroTempRosPublisher()}{setAccelGyroTempRosPublisher()}}
+{\footnotesize\ttfamily void Ros\+Publisher\+Group\+::set\+Accel\+Gyro\+Temp\+Ros\+Publisher (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classAccelGyroTempRosPublisherInterface}{Accel\+Gyro\+Temp\+Ros\+Publisher\+Interface}} \texorpdfstring{$\ast$}{*}}]{accel\+Gyro\+Temp\+Ros\+Publisher }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Sets the accel\+Gyro\+Temp\+Ros\+Publisher publisher in the publisher group. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em accel\+Gyro\+Temp\+Ros\+Publisher} & The publisher to be set in the group. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classRosPublisherGroupInterface_a30bd6c52a5e925f37b1613230e9f9b5a}{Ros\+Publisher\+Group\+Interface}}.
+
+\Hypertarget{classRosPublisherGroup_a9b1f3c0218ffa6ff7d2fb6f6870b72fb}\label{classRosPublisherGroup_a9b1f3c0218ffa6ff7d2fb6f6870b72fb} 
+\index{RosPublisherGroup@{RosPublisherGroup}!setImuControlParameters@{setImuControlParameters}}
+\index{setImuControlParameters@{setImuControlParameters}!RosPublisherGroup@{RosPublisherGroup}}
+\doxysubsubsection{\texorpdfstring{setImuControlParameters()}{setImuControlParameters()}}
+{\footnotesize\ttfamily void Ros\+Publisher\+Group\+::set\+Imu\+Control\+Parameters (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classImuControlParameters}{Imu\+Control\+Parameters}} \texorpdfstring{$\ast$}{*}}]{imu\+Control\+Parameters }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Sets the imu\+Control\+Parameters instance in the publisher group. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em imu\+Control\+Parameters} & The imu\+Control\+Parameters instance to be set in the group. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classRosPublisherGroupInterface_afec58a4c181b0737f9385a58b5c06178}{Ros\+Publisher\+Group\+Interface}}.
+
+\Hypertarget{classRosPublisherGroup_a124b01689fb74a813d7af292aa9dd065}\label{classRosPublisherGroup_a124b01689fb74a813d7af292aa9dd065} 
+\index{RosPublisherGroup@{RosPublisherGroup}!setImuFullMeasuredDataRosPublisher@{setImuFullMeasuredDataRosPublisher}}
+\index{setImuFullMeasuredDataRosPublisher@{setImuFullMeasuredDataRosPublisher}!RosPublisherGroup@{RosPublisherGroup}}
+\doxysubsubsection{\texorpdfstring{setImuFullMeasuredDataRosPublisher()}{setImuFullMeasuredDataRosPublisher()}}
+{\footnotesize\ttfamily void Ros\+Publisher\+Group\+::set\+Imu\+Full\+Measured\+Data\+Ros\+Publisher (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classImuFullMeasuredDataRosPublisherInterface}{Imu\+Full\+Measured\+Data\+Ros\+Publisher\+Interface}} \texorpdfstring{$\ast$}{*}}]{imu\+Full\+Measured\+Data\+Ros\+Publisher }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Sets the imu\+Full\+Measured\+Data\+Ros\+Publisher publisher in the publisher group. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em imu\+Full\+Measured\+Data\+Ros\+Publisher} & The imu\+Full\+Measured\+Data\+Ros\+Publisher to be set in the group. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classRosPublisherGroupInterface_a0d0f06f5f5cde238b42904d080fe44d3}{Ros\+Publisher\+Group\+Interface}}.
+
+\Hypertarget{classRosPublisherGroup_a7c1b3b2b98a90f8484da38fb24a559a7}\label{classRosPublisherGroup_a7c1b3b2b98a90f8484da38fb24a559a7} 
+\index{RosPublisherGroup@{RosPublisherGroup}!setImuRosPublisher@{setImuRosPublisher}}
+\index{setImuRosPublisher@{setImuRosPublisher}!RosPublisherGroup@{RosPublisherGroup}}
+\doxysubsubsection{\texorpdfstring{setImuRosPublisher()}{setImuRosPublisher()}}
+{\footnotesize\ttfamily void Ros\+Publisher\+Group\+::set\+Imu\+Ros\+Publisher (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classImuRosPublisherInterface}{Imu\+Ros\+Publisher\+Interface}} \texorpdfstring{$\ast$}{*}}]{imu\+Ros\+Publisher }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Sets the imu\+Ros\+Publisher publisher in the publisher group. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em imu\+Ros\+Publisher} & The publisher to be set in the group. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classRosPublisherGroupInterface_a5ff386378b8ab64f63162e8582c8880f}{Ros\+Publisher\+Group\+Interface}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classRosPublisherGroup_a0ffa2985f2e02ca1139453ad7ed2b3df}\label{classRosPublisherGroup_a0ffa2985f2e02ca1139453ad7ed2b3df} 
+\index{RosPublisherGroup@{RosPublisherGroup}!m\_accelGyroTempRosPublisher@{m\_accelGyroTempRosPublisher}}
+\index{m\_accelGyroTempRosPublisher@{m\_accelGyroTempRosPublisher}!RosPublisherGroup@{RosPublisherGroup}}
+\doxysubsubsection{\texorpdfstring{m\_accelGyroTempRosPublisher}{m\_accelGyroTempRosPublisher}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classAccelGyroTempRosPublisherInterface}{Accel\+Gyro\+Temp\+Ros\+Publisher\+Interface}}\texorpdfstring{$\ast$}{*} Ros\+Publisher\+Group\+::m\+\_\+accel\+Gyro\+Temp\+Ros\+Publisher\hspace{0.3cm}{\ttfamily [private]}}
+
+Variable to retain Accel\+Gyro\+Temp message provider. \Hypertarget{classRosPublisherGroup_a3b53e5abac921148bf0c248a8cd07596}\label{classRosPublisherGroup_a3b53e5abac921148bf0c248a8cd07596} 
+\index{RosPublisherGroup@{RosPublisherGroup}!m\_imuControlParameters@{m\_imuControlParameters}}
+\index{m\_imuControlParameters@{m\_imuControlParameters}!RosPublisherGroup@{RosPublisherGroup}}
+\doxysubsubsection{\texorpdfstring{m\_imuControlParameters}{m\_imuControlParameters}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classImuControlParameters}{Imu\+Control\+Parameters}}\texorpdfstring{$\ast$}{*} Ros\+Publisher\+Group\+::m\+\_\+imu\+Control\+Parameters\hspace{0.3cm}{\ttfamily [private]}}
+
+Variable to retain m\+\_\+imu\+Control\+Parameters instance. \Hypertarget{classRosPublisherGroup_a00a053daf7455c5024f16b686d524676}\label{classRosPublisherGroup_a00a053daf7455c5024f16b686d524676} 
+\index{RosPublisherGroup@{RosPublisherGroup}!m\_imuFullMeasuredDataRosPublisher@{m\_imuFullMeasuredDataRosPublisher}}
+\index{m\_imuFullMeasuredDataRosPublisher@{m\_imuFullMeasuredDataRosPublisher}!RosPublisherGroup@{RosPublisherGroup}}
+\doxysubsubsection{\texorpdfstring{m\_imuFullMeasuredDataRosPublisher}{m\_imuFullMeasuredDataRosPublisher}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classImuFullMeasuredDataRosPublisherInterface}{Imu\+Full\+Measured\+Data\+Ros\+Publisher\+Interface}}\texorpdfstring{$\ast$}{*} Ros\+Publisher\+Group\+::m\+\_\+imu\+Full\+Measured\+Data\+Ros\+Publisher\hspace{0.3cm}{\ttfamily [private]}}
+
+Variable to retain Imu\+Full\+Measured\+Data message provider. \Hypertarget{classRosPublisherGroup_afc3e8969f04fc70a2f52a0e88f3a645a}\label{classRosPublisherGroup_afc3e8969f04fc70a2f52a0e88f3a645a} 
+\index{RosPublisherGroup@{RosPublisherGroup}!m\_imuRosPublisher@{m\_imuRosPublisher}}
+\index{m\_imuRosPublisher@{m\_imuRosPublisher}!RosPublisherGroup@{RosPublisherGroup}}
+\doxysubsubsection{\texorpdfstring{m\_imuRosPublisher}{m\_imuRosPublisher}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classImuRosPublisherInterface}{Imu\+Ros\+Publisher\+Interface}}\texorpdfstring{$\ast$}{*} Ros\+Publisher\+Group\+::m\+\_\+imu\+Ros\+Publisher\hspace{0.3cm}{\ttfamily [private]}}
+
+Variable to retain Imu message provider. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/adi\+\_\+imu/ros\+\_\+publisher\+\_\+group.\+h\item 
+src/ros\+\_\+publisher\+\_\+group.\+cpp\end{DoxyCompactItemize}

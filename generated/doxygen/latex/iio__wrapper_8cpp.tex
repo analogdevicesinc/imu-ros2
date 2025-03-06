@@ -1,0 +1,124 @@
+\doxysection{src/iio\+\_\+wrapper.cpp File Reference}
+\hypertarget{iio__wrapper_8cpp}{}\label{iio__wrapper_8cpp}\index{src/iio\_wrapper.cpp@{src/iio\_wrapper.cpp}}
+
+
+Implementation for iio wrapper library.  
+
+
+{\ttfamily \#include "{}adi\+\_\+imu/iio\+\_\+wrapper.\+h"{}}\newline
+{\ttfamily \#include $<$rclcpp/rclcpp.\+hpp$>$}\newline
+Include dependency graph for iio\+\_\+wrapper.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=338pt]{iio__wrapper_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{iio__wrapper_8cpp_a2caa0716e56afb87d491d87fb4460b62}{MAX\+\_\+\+NO\+\_\+\+OF\+\_\+\+SAMPLES}}~1
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{iio__wrapper_8cpp_a06fc87d81c62e9abb8790b6e5713c55b}\label{iio__wrapper_8cpp_a06fc87d81c62e9abb8790b6e5713c55b} 
+enum \{ \newline
+{\bfseries CHAN\+\_\+\+GYRO\+\_\+X}
+, {\bfseries CHAN\+\_\+\+GYRO\+\_\+Y}
+, {\bfseries CHAN\+\_\+\+GYRO\+\_\+Z}
+, {\bfseries CHAN\+\_\+\+ACCEL\+\_\+X}
+, \newline
+{\bfseries CHAN\+\_\+\+ACCEL\+\_\+Y}
+, {\bfseries CHAN\+\_\+\+ACCEL\+\_\+Z}
+, {\bfseries CHAN\+\_\+\+TEMP}
+, {\bfseries CHAN\+\_\+\+DATA\+\_\+\+TIMESTAMP}
+, \newline
+{\bfseries NO\+\_\+\+OF\+\_\+\+CHANS}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{iio__wrapper_8cpp_a51e5bf2f116b1e09c8b9ed29bb4e326b}{buff\+\_\+write\+\_\+idx}} = 0
+\item 
+uint32\+\_\+t \mbox{\hyperlink{iio__wrapper_8cpp_a1532e6c5918d0afd3d2b45eaff3f6f68}{buff\+\_\+read\+\_\+idx}} = \mbox{\hyperlink{iio__wrapper_8cpp_a2caa0716e56afb87d491d87fb4460b62}{MAX\+\_\+\+NO\+\_\+\+OF\+\_\+\+SAMPLES}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{iio__wrapper_8cpp_a9c684a2e63c59045ea4d135add263bb9}{buff\+\_\+data}} \mbox{[}NO\+\_\+\+OF\+\_\+\+CHANS+1\mbox{]}\mbox{[}\mbox{\hyperlink{iio__wrapper_8cpp_a2caa0716e56afb87d491d87fb4460b62}{MAX\+\_\+\+NO\+\_\+\+OF\+\_\+\+SAMPLES}}\mbox{]}
+\item 
+double \mbox{\hyperlink{iio__wrapper_8cpp_a4ce011ebc45fa44e68df76ab78144541}{samp\+\_\+freq}} = 2000.\+0
+\item 
+uint32\+\_\+t \mbox{\hyperlink{iio__wrapper_8cpp_ad00387e7a9a10b544928c5afc4ded5b7}{no\+\_\+of\+\_\+samp}} = \mbox{\hyperlink{iio__wrapper_8cpp_a2caa0716e56afb87d491d87fb4460b62}{MAX\+\_\+\+NO\+\_\+\+OF\+\_\+\+SAMPLES}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{iio__wrapper_8cpp_a60e90dbaa463bf8637eb6f63512b97d1}{current\+\_\+data\+\_\+selection}} = FULL\+\_\+\+MEASURED\+\_\+\+DATA
+\item 
+\Hypertarget{iio__wrapper_8cpp_a80b9e2e5df0b6e005c30488d59b6d97a}\label{iio__wrapper_8cpp_a80b9e2e5df0b6e005c30488d59b6d97a} 
+bool {\bfseries has\+\_\+delta\+\_\+channels} = true
+\item 
+\Hypertarget{iio__wrapper_8cpp_ae29e0ad226de4f0dd3fefa66453759e6}\label{iio__wrapper_8cpp_ae29e0ad226de4f0dd3fefa66453759e6} 
+bool {\bfseries has\+\_\+timestamp\+\_\+channel} = false
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation for iio wrapper library. 
+
+\begin{DoxyAuthor}{Author}
+Vasile Holonec (\href{mailto:Vasile.Holonec@analog.com}{\texttt{ Vasile.\+Holonec@analog.\+com}})
+\end{DoxyAuthor}
+Copyright 2023(c) Analog Devices, Inc.
+
+Licensed under the Apache License, Version 2.\+0 (the "{}\+License"{}); you may not use this file except in compliance with the License. You may obtain a copy of the License at \begin{DoxyVerb}http://www.apache.org/licenses/LICENSE-2.0
+\end{DoxyVerb}
+ Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "{}\+AS IS"{} BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License. 
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{iio__wrapper_8cpp_a2caa0716e56afb87d491d87fb4460b62}\label{iio__wrapper_8cpp_a2caa0716e56afb87d491d87fb4460b62} 
+\index{iio\_wrapper.cpp@{iio\_wrapper.cpp}!MAX\_NO\_OF\_SAMPLES@{MAX\_NO\_OF\_SAMPLES}}
+\index{MAX\_NO\_OF\_SAMPLES@{MAX\_NO\_OF\_SAMPLES}!iio\_wrapper.cpp@{iio\_wrapper.cpp}}
+\doxysubsubsection{\texorpdfstring{MAX\_NO\_OF\_SAMPLES}{MAX\_NO\_OF\_SAMPLES}}
+{\footnotesize\ttfamily \#define MAX\+\_\+\+NO\+\_\+\+OF\+\_\+\+SAMPLES~1}
+
+Maximum allowed number of samples in IIO buffer. 
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{iio__wrapper_8cpp_a9c684a2e63c59045ea4d135add263bb9}\label{iio__wrapper_8cpp_a9c684a2e63c59045ea4d135add263bb9} 
+\index{iio\_wrapper.cpp@{iio\_wrapper.cpp}!buff\_data@{buff\_data}}
+\index{buff\_data@{buff\_data}!iio\_wrapper.cpp@{iio\_wrapper.cpp}}
+\doxysubsubsection{\texorpdfstring{buff\_data}{buff\_data}}
+{\footnotesize\ttfamily uint32\+\_\+t buff\+\_\+data\mbox{[}NO\+\_\+\+OF\+\_\+\+CHANS+1\mbox{]}\mbox{[}\mbox{\hyperlink{iio__wrapper_8cpp_a2caa0716e56afb87d491d87fb4460b62}{MAX\+\_\+\+NO\+\_\+\+OF\+\_\+\+SAMPLES}}\mbox{]}}
+
+Buffer containing the read data. \Hypertarget{iio__wrapper_8cpp_a1532e6c5918d0afd3d2b45eaff3f6f68}\label{iio__wrapper_8cpp_a1532e6c5918d0afd3d2b45eaff3f6f68} 
+\index{iio\_wrapper.cpp@{iio\_wrapper.cpp}!buff\_read\_idx@{buff\_read\_idx}}
+\index{buff\_read\_idx@{buff\_read\_idx}!iio\_wrapper.cpp@{iio\_wrapper.cpp}}
+\doxysubsubsection{\texorpdfstring{buff\_read\_idx}{buff\_read\_idx}}
+{\footnotesize\ttfamily uint32\+\_\+t buff\+\_\+read\+\_\+idx = \mbox{\hyperlink{iio__wrapper_8cpp_a2caa0716e56afb87d491d87fb4460b62}{MAX\+\_\+\+NO\+\_\+\+OF\+\_\+\+SAMPLES}}}
+
+Buffer read index. ~\newline
+ \Hypertarget{iio__wrapper_8cpp_a51e5bf2f116b1e09c8b9ed29bb4e326b}\label{iio__wrapper_8cpp_a51e5bf2f116b1e09c8b9ed29bb4e326b} 
+\index{iio\_wrapper.cpp@{iio\_wrapper.cpp}!buff\_write\_idx@{buff\_write\_idx}}
+\index{buff\_write\_idx@{buff\_write\_idx}!iio\_wrapper.cpp@{iio\_wrapper.cpp}}
+\doxysubsubsection{\texorpdfstring{buff\_write\_idx}{buff\_write\_idx}}
+{\footnotesize\ttfamily uint32\+\_\+t buff\+\_\+write\+\_\+idx = 0}
+
+Buffer write index. ~\newline
+ \Hypertarget{iio__wrapper_8cpp_a60e90dbaa463bf8637eb6f63512b97d1}\label{iio__wrapper_8cpp_a60e90dbaa463bf8637eb6f63512b97d1} 
+\index{iio\_wrapper.cpp@{iio\_wrapper.cpp}!current\_data\_selection@{current\_data\_selection}}
+\index{current\_data\_selection@{current\_data\_selection}!iio\_wrapper.cpp@{iio\_wrapper.cpp}}
+\doxysubsubsection{\texorpdfstring{current\_data\_selection}{current\_data\_selection}}
+{\footnotesize\ttfamily uint32\+\_\+t current\+\_\+data\+\_\+selection = FULL\+\_\+\+MEASURED\+\_\+\+DATA}
+
+Current set data selection. \Hypertarget{iio__wrapper_8cpp_ad00387e7a9a10b544928c5afc4ded5b7}\label{iio__wrapper_8cpp_ad00387e7a9a10b544928c5afc4ded5b7} 
+\index{iio\_wrapper.cpp@{iio\_wrapper.cpp}!no\_of\_samp@{no\_of\_samp}}
+\index{no\_of\_samp@{no\_of\_samp}!iio\_wrapper.cpp@{iio\_wrapper.cpp}}
+\doxysubsubsection{\texorpdfstring{no\_of\_samp}{no\_of\_samp}}
+{\footnotesize\ttfamily uint32\+\_\+t no\+\_\+of\+\_\+samp = \mbox{\hyperlink{iio__wrapper_8cpp_a2caa0716e56afb87d491d87fb4460b62}{MAX\+\_\+\+NO\+\_\+\+OF\+\_\+\+SAMPLES}}}
+
+Number of samples to be read at once. \Hypertarget{iio__wrapper_8cpp_a4ce011ebc45fa44e68df76ab78144541}\label{iio__wrapper_8cpp_a4ce011ebc45fa44e68df76ab78144541} 
+\index{iio\_wrapper.cpp@{iio\_wrapper.cpp}!samp\_freq@{samp\_freq}}
+\index{samp\_freq@{samp\_freq}!iio\_wrapper.cpp@{iio\_wrapper.cpp}}
+\doxysubsubsection{\texorpdfstring{samp\_freq}{samp\_freq}}
+{\footnotesize\ttfamily double samp\+\_\+freq = 2000.\+0}
+
+Sampling frequency of the device. 

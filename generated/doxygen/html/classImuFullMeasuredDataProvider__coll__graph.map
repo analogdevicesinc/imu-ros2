@@ -1,0 +1,7 @@
+<map id="ImuFullMeasuredDataProvider" name="ImuFullMeasuredDataProvider">
+<area shape="rect" id="Node000001" title="Class for acceleration, angular velocity, delta angle, delta velocity and temperature data provider." alt="" coords="96,108,315,133"/>
+<area shape="rect" id="Node000002" href="$classImuFullMeasuredDataProviderInterface.html" title="Interface for acceleration, angular velocity, delta angle, delta velocity and temperature data provid..." alt="" coords="5,5,224,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="145,53,196,106,192,110,141,57"/>
+<area shape="rect" id="Node000003" href="$classIIOWrapper.html" title="Wrapper class for libiio library for IMU devices." alt="" coords="249,13,343,38"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="277,50,218,110,215,106,273,46"/>
+</map>

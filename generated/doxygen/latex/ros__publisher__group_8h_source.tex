@@ -1,0 +1,67 @@
+\doxysection{ros\+\_\+publisher\+\_\+group.\+h}
+\hypertarget{ros__publisher__group_8h_source}{}\label{ros__publisher__group_8h_source}\index{include/adi\_imu/ros\_publisher\_group.h@{include/adi\_imu/ros\_publisher\_group.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*******************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ \ \ @file\ \ \ ros\_publisher\_group.h}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ \ \ @brief\ \ Header\ for\ acceleration,\ gyroscope\ and\ temperature\ publisher.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ \ \ @author\ Vasile\ Holonec\ (Vasile.Holonec@analog.com)}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *******************************************************************************}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ Copyright\ 2023(c)\ Analog\ Devices,\ Inc.}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ Licensed\ under\ the\ Apache\ License,\ Version\ 2.0\ (the\ "{}License"{});}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *\ you\ may\ not\ use\ this\ file\ except\ in\ compliance\ with\ the\ License.}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ You\ may\ obtain\ a\ copy\ of\ the\ License\ at}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ \ \ \ \ http://www.apache.org/licenses/LICENSE-\/2.0}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ Unless\ required\ by\ applicable\ law\ or\ agreed\ to\ in\ writing,\ software}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ distributed\ under\ the\ License\ is\ distributed\ on\ an\ "{}AS\ IS"{}\ BASIS,}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ WITHOUT\ WARRANTIES\ OR\ CONDITIONS\ OF\ ANY\ KIND,\ either\ express\ or\ implied.}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ See\ the\ License\ for\ the\ specific\ language\ governing\ permissions\ and}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ *\ limitations\ under\ the\ License.}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ ******************************************************************************/}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#ifndef\ ROS\_PUBLISHER\_GROUP\_H}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ ROS\_PUBLISHER\_GROUP\_H}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ <rclcpp/rclcpp.hpp>}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#include\ "{}adi\_imu/ros\_publisher\_group\_interface.h"{}}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00031\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classRosPublisherGroup}{RosPublisherGroup}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classRosPublisherGroupInterface}{RosPublisherGroupInterface}}}
+\DoxyCodeLine{00032\ \{}
+\DoxyCodeLine{00033\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00038\ \ \ \mbox{\hyperlink{classRosPublisherGroup}{RosPublisherGroup}}(std::shared\_ptr<rclcpp::Node>\ \&\ node);}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00043\ \ \ \mbox{\hyperlink{classRosPublisherGroup_aa9a84b81b952bd75cf87bb5c0e73f40a}{\string~RosPublisherGroup}}();}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00049\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classRosPublisherGroup_a52fea1a71e98cb0625c889b31eebb6fc}{setAccelGyroTempRosPublisher}}(}
+\DoxyCodeLine{00050\ \ \ \ \ \mbox{\hyperlink{classAccelGyroTempRosPublisherInterface}{AccelGyroTempRosPublisherInterface}}\ *\ accelGyroTempRosPublisher)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#ifdef\ ADIS\_HAS\_DELTA\_BURST}}
+\DoxyCodeLine{00057\ \ \ \textcolor{keywordtype}{void}\ setVelAngTempRosPublisher(\mbox{\hyperlink{classVelAngTempRosPublisherInterface}{VelAngTempRosPublisherInterface}}\ *\ velAngTempRosPublisher)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00058\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00064\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classRosPublisherGroup_a7c1b3b2b98a90f8484da38fb24a559a7}{setImuRosPublisher}}(\mbox{\hyperlink{classImuRosPublisherInterface}{ImuRosPublisherInterface}}\ *\ imuRosPublisher)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00072\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classRosPublisherGroup_a124b01689fb74a813d7af292aa9dd065}{setImuFullMeasuredDataRosPublisher}}(}
+\DoxyCodeLine{00073\ \ \ \ \ \mbox{\hyperlink{classImuFullMeasuredDataRosPublisherInterface}{ImuFullMeasuredDataRosPublisherInterface}}\ *\ imuFullMeasuredDataRosPublisher)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00080\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classRosPublisherGroup_a9b1f3c0218ffa6ff7d2fb6f6870b72fb}{setImuControlParameters}}(\mbox{\hyperlink{classImuControlParameters}{ImuControlParameters}}\ *\ imuControlParameters)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00086\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classRosPublisherGroup_afee0f211b77283a37fa197b39f4d1253}{run}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00090\ \ \ \mbox{\hyperlink{classAccelGyroTempRosPublisherInterface}{AccelGyroTempRosPublisherInterface}}\ *\ \mbox{\hyperlink{classRosPublisherGroup_a0ffa2985f2e02ca1139453ad7ed2b3df}{m\_accelGyroTempRosPublisher}};}
+\DoxyCodeLine{00091\ \textcolor{preprocessor}{\#ifdef\ ADIS\_HAS\_DELTA\_BURST}}
+\DoxyCodeLine{00093\ \ \ \mbox{\hyperlink{classVelAngTempRosPublisherInterface}{VelAngTempRosPublisherInterface}}\ *\ m\_velAngTempRosPublisher;}
+\DoxyCodeLine{00094\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00096\ \ \ \mbox{\hyperlink{classImuRosPublisherInterface}{ImuRosPublisherInterface}}\ *\ \mbox{\hyperlink{classRosPublisherGroup_afc3e8969f04fc70a2f52a0e88f3a645a}{m\_imuRosPublisher}};}
+\DoxyCodeLine{00098\ \ \ \mbox{\hyperlink{classImuFullMeasuredDataRosPublisherInterface}{ImuFullMeasuredDataRosPublisherInterface}}\ *\ \mbox{\hyperlink{classRosPublisherGroup_a00a053daf7455c5024f16b686d524676}{m\_imuFullMeasuredDataRosPublisher}};}
+\DoxyCodeLine{00100\ \ \ \mbox{\hyperlink{classImuControlParameters}{ImuControlParameters}}\ *\ \mbox{\hyperlink{classRosPublisherGroup_a3b53e5abac921148bf0c248a8cd07596}{m\_imuControlParameters}};}
+\DoxyCodeLine{00101\ \};}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ ROS\_PUBLISHER\_GROUP\_H}}
+
+\end{DoxyCode}

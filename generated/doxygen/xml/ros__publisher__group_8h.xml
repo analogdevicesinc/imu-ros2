@@ -1,0 +1,115 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="ros__publisher__group_8h" kind="file" language="C++">
+    <compoundname>ros_publisher_group.h</compoundname>
+    <includes local="no">rclcpp/rclcpp.hpp</includes>
+    <includes refid="ros__publisher__group__interface_8h" local="yes">adi_imu/ros_publisher_group_interface.h</includes>
+    <includedby refid="imu__ros2__node_8cpp" local="yes">src/imu_ros2_node.cpp</includedby>
+    <includedby refid="ros__publisher__group_8cpp" local="yes">src/ros_publisher_group.cpp</includedby>
+    <incdepgraph>
+      <node id="6">
+        <label>adis_data_access.h</label>
+        <link refid="adis__data__access_8h_source"/>
+      </node>
+      <node id="1">
+        <label>include/adi_imu/ros_publisher_group.h</label>
+        <link refid="ros__publisher__group_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>adi_imu/ros_publisher_group_interface.h</label>
+        <link refid="ros__publisher__group__interface_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>adi_imu/ros_task.h</label>
+        <link refid="ros__task_8h_source"/>
+      </node>
+      <node id="4">
+        <label>memory</label>
+      </node>
+      <node id="2">
+        <label>rclcpp/rclcpp.hpp</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classRosPublisherGroup" prot="public">RosPublisherGroup</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*******************************************************************************</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/><sp/><sp/>@file<sp/><sp/><sp/>ros_publisher_group.h</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/><sp/><sp/>@brief<sp/><sp/>Header<sp/>for<sp/>acceleration,<sp/>gyroscope<sp/>and<sp/>temperature<sp/>publisher.</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*<sp/><sp/><sp/>@author<sp/>Vasile<sp/>Holonec<sp/>(Vasile.Holonec@analog.com)</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*******************************************************************************</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>2023(c)<sp/>Analog<sp/>Devices,<sp/>Inc.</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/>Licensed<sp/>under<sp/>the<sp/>Apache<sp/>License,<sp/>Version<sp/>2.0<sp/>(the<sp/>&quot;License&quot;);</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*<sp/>you<sp/>may<sp/>not<sp/>use<sp/>this<sp/>file<sp/>except<sp/>in<sp/>compliance<sp/>with<sp/>the<sp/>License.</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/>You<sp/>may<sp/>obtain<sp/>a<sp/>copy<sp/>of<sp/>the<sp/>License<sp/>at</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/>http://www.apache.org/licenses/LICENSE-2.0</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/>Unless<sp/>required<sp/>by<sp/>applicable<sp/>law<sp/>or<sp/>agreed<sp/>to<sp/>in<sp/>writing,<sp/>software</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/>distributed<sp/>under<sp/>the<sp/>License<sp/>is<sp/>distributed<sp/>on<sp/>an<sp/>&quot;AS<sp/>IS&quot;<sp/>BASIS,</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*<sp/>WITHOUT<sp/>WARRANTIES<sp/>OR<sp/>CONDITIONS<sp/>OF<sp/>ANY<sp/>KIND,<sp/>either<sp/>express<sp/>or<sp/>implied.</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*<sp/>See<sp/>the<sp/>License<sp/>for<sp/>the<sp/>specific<sp/>language<sp/>governing<sp/>permissions<sp/>and</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/>limitations<sp/>under<sp/>the<sp/>License.</highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>******************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>ROS_PUBLISHER_GROUP_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ROS_PUBLISHER_GROUP_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;rclcpp/rclcpp.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;adi_imu/ros_publisher_group_interface.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31" refid="classRosPublisherGroup" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classRosPublisherGroup" kindref="compound">RosPublisherGroup</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classRosPublisherGroupInterface" kindref="compound">RosPublisherGroupInterface</ref></highlight></codeline>
+<codeline lineno="32"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><ref refid="classRosPublisherGroup" kindref="compound">RosPublisherGroup</ref>(std::shared_ptr&lt;rclcpp::Node&gt;<sp/>&amp;<sp/>node);</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><ref refid="classRosPublisherGroup_1aa9a84b81b952bd75cf87bb5c0e73f40a" kindref="member">~RosPublisherGroup</ref>();</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classRosPublisherGroup_1a52fea1a71e98cb0625c889b31eebb6fc" kindref="member">setAccelGyroTempRosPublisher</ref>(</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classAccelGyroTempRosPublisherInterface" kindref="compound">AccelGyroTempRosPublisherInterface</ref><sp/>*<sp/>accelGyroTempRosPublisher)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>ADIS_HAS_DELTA_BURST</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setVelAngTempRosPublisher(<ref refid="classVelAngTempRosPublisherInterface" kindref="compound">VelAngTempRosPublisherInterface</ref><sp/>*<sp/>velAngTempRosPublisher)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classRosPublisherGroup_1a7c1b3b2b98a90f8484da38fb24a559a7" kindref="member">setImuRosPublisher</ref>(<ref refid="classImuRosPublisherInterface" kindref="compound">ImuRosPublisherInterface</ref><sp/>*<sp/>imuRosPublisher)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classRosPublisherGroup_1a124b01689fb74a813d7af292aa9dd065" kindref="member">setImuFullMeasuredDataRosPublisher</ref>(</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classImuFullMeasuredDataRosPublisherInterface" kindref="compound">ImuFullMeasuredDataRosPublisherInterface</ref><sp/>*<sp/>imuFullMeasuredDataRosPublisher)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classRosPublisherGroup_1a9b1f3c0218ffa6ff7d2fb6f6870b72fb" kindref="member">setImuControlParameters</ref>(<ref refid="classImuControlParameters" kindref="compound">ImuControlParameters</ref><sp/>*<sp/>imuControlParameters)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classRosPublisherGroup_1afee0f211b77283a37fa197b39f4d1253" kindref="member">run</ref>()<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="90" refid="classRosPublisherGroup_1a0ffa2985f2e02ca1139453ad7ed2b3df" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="classAccelGyroTempRosPublisherInterface" kindref="compound">AccelGyroTempRosPublisherInterface</ref><sp/>*<sp/><ref refid="classRosPublisherGroup_1a0ffa2985f2e02ca1139453ad7ed2b3df" kindref="member">m_accelGyroTempRosPublisher</ref>;</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>ADIS_HAS_DELTA_BURST</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><ref refid="classVelAngTempRosPublisherInterface" kindref="compound">VelAngTempRosPublisherInterface</ref><sp/>*<sp/>m_velAngTempRosPublisher;</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="96" refid="classRosPublisherGroup_1afc3e8969f04fc70a2f52a0e88f3a645a" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="classImuRosPublisherInterface" kindref="compound">ImuRosPublisherInterface</ref><sp/>*<sp/><ref refid="classRosPublisherGroup_1afc3e8969f04fc70a2f52a0e88f3a645a" kindref="member">m_imuRosPublisher</ref>;</highlight></codeline>
+<codeline lineno="98" refid="classRosPublisherGroup_1a00a053daf7455c5024f16b686d524676" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="classImuFullMeasuredDataRosPublisherInterface" kindref="compound">ImuFullMeasuredDataRosPublisherInterface</ref><sp/>*<sp/><ref refid="classRosPublisherGroup_1a00a053daf7455c5024f16b686d524676" kindref="member">m_imuFullMeasuredDataRosPublisher</ref>;</highlight></codeline>
+<codeline lineno="100" refid="classRosPublisherGroup_1a3b53e5abac921148bf0c248a8cd07596" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="classImuControlParameters" kindref="compound">ImuControlParameters</ref><sp/>*<sp/><ref refid="classRosPublisherGroup_1a3b53e5abac921148bf0c248a8cd07596" kindref="member">m_imuControlParameters</ref>;</highlight></codeline>
+<codeline lineno="101"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/></highlight><highlight class="comment">//<sp/>ROS_PUBLISHER_GROUP_H</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="include/adi_imu/ros_publisher_group.h"/>
+  </compounddef>
+</doxygen>

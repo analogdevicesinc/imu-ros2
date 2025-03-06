@@ -1,0 +1,158 @@
+\doxysection{Ros\+Publisher\+Group\+Interface Class Reference}
+\hypertarget{classRosPublisherGroupInterface}{}\label{classRosPublisherGroupInterface}\index{RosPublisherGroupInterface@{RosPublisherGroupInterface}}
+
+
+Interface for publisher group.  
+
+
+
+
+{\ttfamily \#include $<$ros\+\_\+publisher\+\_\+group\+\_\+interface.\+h$>$}
+
+
+
+Inheritance diagram for Ros\+Publisher\+Group\+Interface\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=232pt]{classRosPublisherGroupInterface__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Ros\+Publisher\+Group\+Interface\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=232pt]{classRosPublisherGroupInterface__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classRosPublisherGroupInterface_aaf8be6806a488d5f4ee676399e64774c}\label{classRosPublisherGroupInterface_aaf8be6806a488d5f4ee676399e64774c} 
+{\bfseries Ros\+Publisher\+Group\+Interface} ()
+\begin{DoxyCompactList}\small\item\em Constructor for \doxylink{classRosPublisherGroupInterface}{Ros\+Publisher\+Group\+Interface}. \end{DoxyCompactList}\item 
+\Hypertarget{classRosPublisherGroupInterface_a4c3de3a49b137a54288a118bee283afc}\label{classRosPublisherGroupInterface_a4c3de3a49b137a54288a118bee283afc} 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Ros\+Publisher\+Group\+Interface} ()
+\begin{DoxyCompactList}\small\item\em Destructor for \doxylink{classRosPublisherGroupInterface}{Ros\+Publisher\+Group\+Interface}. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classRosPublisherGroupInterface_a30bd6c52a5e925f37b1613230e9f9b5a}{set\+Accel\+Gyro\+Temp\+Ros\+Publisher}} (\mbox{\hyperlink{classAccelGyroTempRosPublisherInterface}{Accel\+Gyro\+Temp\+Ros\+Publisher\+Interface}} \texorpdfstring{$\ast$}{*}accel\+Gyro\+Temp\+Ros\+Publisher)=0
+\begin{DoxyCompactList}\small\item\em Sets the accel\+Gyro\+Temp\+Ros\+Publisher publisher in the publisher group. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classRosPublisherGroupInterface_a5ff386378b8ab64f63162e8582c8880f}{set\+Imu\+Ros\+Publisher}} (\mbox{\hyperlink{classImuRosPublisherInterface}{Imu\+Ros\+Publisher\+Interface}} \texorpdfstring{$\ast$}{*}imu\+Ros\+Publisher)=0
+\begin{DoxyCompactList}\small\item\em Sets the imu\+Ros\+Publisher publisher in the publisher group. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classRosPublisherGroupInterface_a0d0f06f5f5cde238b42904d080fe44d3}{set\+Imu\+Full\+Measured\+Data\+Ros\+Publisher}} (\mbox{\hyperlink{classImuFullMeasuredDataRosPublisherInterface}{Imu\+Full\+Measured\+Data\+Ros\+Publisher\+Interface}} \texorpdfstring{$\ast$}{*}imu\+Full\+Measured\+Data\+Ros\+Publisher)=0
+\begin{DoxyCompactList}\small\item\em Sets the imu\+Full\+Measured\+Data\+Ros\+Publisher publisher in the publisher group. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classRosPublisherGroupInterface_afec58a4c181b0737f9385a58b5c06178}{set\+Imu\+Control\+Parameters}} (\mbox{\hyperlink{classImuControlParameters}{Imu\+Control\+Parameters}} \texorpdfstring{$\ast$}{*}imu\+Control\+Parameters)=0
+\begin{DoxyCompactList}\small\item\em Sets the imu\+Control\+Parameters instance in the publisher group. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classRosTask}{Ros\+Task}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classRosTask_a519dd722e83fba675d0e988c5d5100d1}{Ros\+Task}} ()
+\begin{DoxyCompactList}\small\item\em Constructor for \doxylink{classRosTask}{Ros\+Task}. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classRosTask_a1043013f8bb20f9c3878d4cb8d99b2fb}{\texorpdfstring{$\sim$}{\string~}\+Ros\+Task}} ()
+\begin{DoxyCompactList}\small\item\em Destructor for \doxylink{classRosTask}{Ros\+Task}. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classRosTask_a331afbcd684711c35e1488fbaad73cf2}{run}} ()=0
+\begin{DoxyCompactList}\small\item\em Method that run on a thread. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::shared\+\_\+ptr$<$ rclcpp\+::\+Node $>$ \mbox{\hyperlink{classRosPublisherGroupInterface_af8621aa2254eb8b90a39349559293d5b}{m\+\_\+node}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Interface for publisher group. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classRosPublisherGroupInterface_a30bd6c52a5e925f37b1613230e9f9b5a}\label{classRosPublisherGroupInterface_a30bd6c52a5e925f37b1613230e9f9b5a} 
+\index{RosPublisherGroupInterface@{RosPublisherGroupInterface}!setAccelGyroTempRosPublisher@{setAccelGyroTempRosPublisher}}
+\index{setAccelGyroTempRosPublisher@{setAccelGyroTempRosPublisher}!RosPublisherGroupInterface@{RosPublisherGroupInterface}}
+\doxysubsubsection{\texorpdfstring{setAccelGyroTempRosPublisher()}{setAccelGyroTempRosPublisher()}}
+{\footnotesize\ttfamily virtual void Ros\+Publisher\+Group\+Interface\+::set\+Accel\+Gyro\+Temp\+Ros\+Publisher (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classAccelGyroTempRosPublisherInterface}{Accel\+Gyro\+Temp\+Ros\+Publisher\+Interface}} \texorpdfstring{$\ast$}{*}}]{accel\+Gyro\+Temp\+Ros\+Publisher }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Sets the accel\+Gyro\+Temp\+Ros\+Publisher publisher in the publisher group. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em accel\+Gyro\+Temp\+Ros\+Publisher} & The publisher to be set in the group. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classRosPublisherGroup_a52fea1a71e98cb0625c889b31eebb6fc}{Ros\+Publisher\+Group}}.
+
+\Hypertarget{classRosPublisherGroupInterface_afec58a4c181b0737f9385a58b5c06178}\label{classRosPublisherGroupInterface_afec58a4c181b0737f9385a58b5c06178} 
+\index{RosPublisherGroupInterface@{RosPublisherGroupInterface}!setImuControlParameters@{setImuControlParameters}}
+\index{setImuControlParameters@{setImuControlParameters}!RosPublisherGroupInterface@{RosPublisherGroupInterface}}
+\doxysubsubsection{\texorpdfstring{setImuControlParameters()}{setImuControlParameters()}}
+{\footnotesize\ttfamily virtual void Ros\+Publisher\+Group\+Interface\+::set\+Imu\+Control\+Parameters (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classImuControlParameters}{Imu\+Control\+Parameters}} \texorpdfstring{$\ast$}{*}}]{imu\+Control\+Parameters }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Sets the imu\+Control\+Parameters instance in the publisher group. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em imu\+Control\+Parameters} & The imu\+Control\+Parameters instance to be set in the group. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classRosPublisherGroup_a9b1f3c0218ffa6ff7d2fb6f6870b72fb}{Ros\+Publisher\+Group}}.
+
+\Hypertarget{classRosPublisherGroupInterface_a0d0f06f5f5cde238b42904d080fe44d3}\label{classRosPublisherGroupInterface_a0d0f06f5f5cde238b42904d080fe44d3} 
+\index{RosPublisherGroupInterface@{RosPublisherGroupInterface}!setImuFullMeasuredDataRosPublisher@{setImuFullMeasuredDataRosPublisher}}
+\index{setImuFullMeasuredDataRosPublisher@{setImuFullMeasuredDataRosPublisher}!RosPublisherGroupInterface@{RosPublisherGroupInterface}}
+\doxysubsubsection{\texorpdfstring{setImuFullMeasuredDataRosPublisher()}{setImuFullMeasuredDataRosPublisher()}}
+{\footnotesize\ttfamily virtual void Ros\+Publisher\+Group\+Interface\+::set\+Imu\+Full\+Measured\+Data\+Ros\+Publisher (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classImuFullMeasuredDataRosPublisherInterface}{Imu\+Full\+Measured\+Data\+Ros\+Publisher\+Interface}} \texorpdfstring{$\ast$}{*}}]{imu\+Full\+Measured\+Data\+Ros\+Publisher }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Sets the imu\+Full\+Measured\+Data\+Ros\+Publisher publisher in the publisher group. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em imu\+Full\+Measured\+Data\+Ros\+Publisher} & The imu\+Full\+Measured\+Data\+Ros\+Publisher to be set in the group. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classRosPublisherGroup_a124b01689fb74a813d7af292aa9dd065}{Ros\+Publisher\+Group}}.
+
+\Hypertarget{classRosPublisherGroupInterface_a5ff386378b8ab64f63162e8582c8880f}\label{classRosPublisherGroupInterface_a5ff386378b8ab64f63162e8582c8880f} 
+\index{RosPublisherGroupInterface@{RosPublisherGroupInterface}!setImuRosPublisher@{setImuRosPublisher}}
+\index{setImuRosPublisher@{setImuRosPublisher}!RosPublisherGroupInterface@{RosPublisherGroupInterface}}
+\doxysubsubsection{\texorpdfstring{setImuRosPublisher()}{setImuRosPublisher()}}
+{\footnotesize\ttfamily virtual void Ros\+Publisher\+Group\+Interface\+::set\+Imu\+Ros\+Publisher (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classImuRosPublisherInterface}{Imu\+Ros\+Publisher\+Interface}} \texorpdfstring{$\ast$}{*}}]{imu\+Ros\+Publisher }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Sets the imu\+Ros\+Publisher publisher in the publisher group. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em imu\+Ros\+Publisher} & The publisher to be set in the group. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classRosPublisherGroup_a7c1b3b2b98a90f8484da38fb24a559a7}{Ros\+Publisher\+Group}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classRosPublisherGroupInterface_af8621aa2254eb8b90a39349559293d5b}\label{classRosPublisherGroupInterface_af8621aa2254eb8b90a39349559293d5b} 
+\index{RosPublisherGroupInterface@{RosPublisherGroupInterface}!m\_node@{m\_node}}
+\index{m\_node@{m\_node}!RosPublisherGroupInterface@{RosPublisherGroupInterface}}
+\doxysubsubsection{\texorpdfstring{m\_node}{m\_node}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$rclcpp\+::\+Node$>$ Ros\+Publisher\+Group\+Interface\+::m\+\_\+node\hspace{0.3cm}{\ttfamily [protected]}}
+
+The ros2 Node data member. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/adi\+\_\+imu/ros\+\_\+publisher\+\_\+group\+\_\+interface.\+h\end{DoxyCompactItemize}

@@ -1,0 +1,385 @@
+\doxysection{iio\+\_\+wrapper.\+h}
+\hypertarget{iio__wrapper_8h_source}{}\label{iio__wrapper_8h_source}\index{include/adi\_imu/iio\_wrapper.h@{include/adi\_imu/iio\_wrapper.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*******************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ \ \ @file\ \ \ iio\_wrapper.h}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ \ \ @brief\ \ Wrapper\ for\ iio\ library}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ \ \ @author\ Vasile\ Holonec\ (Vasile.Holonec@analog.com)}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *******************************************************************************}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ Copyright\ 2023(c)\ Analog\ Devices,\ Inc.}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ Licensed\ under\ the\ Apache\ License,\ Version\ 2.0\ (the\ "{}License"{});}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *\ you\ may\ not\ use\ this\ file\ except\ in\ compliance\ with\ the\ License.}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ You\ may\ obtain\ a\ copy\ of\ the\ License\ at}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ \ \ \ \ http://www.apache.org/licenses/LICENSE-\/2.0}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ Unless\ required\ by\ applicable\ law\ or\ agreed\ to\ in\ writing,\ software}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ distributed\ under\ the\ License\ is\ distributed\ on\ an\ "{}AS\ IS"{}\ BASIS,}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ WITHOUT\ WARRANTIES\ OR\ CONDITIONS\ OF\ ANY\ KIND,\ either\ express\ or\ implied.}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ See\ the\ License\ for\ the\ specific\ language\ governing\ permissions\ and}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ *\ limitations\ under\ the\ License.}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ ******************************************************************************/}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#ifndef\ IIO\_WRAPPER\_H}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ IIO\_WRAPPER\_H}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#define\ IIO\_CONTEXT\_ERROR\ -\/1}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#include\ <iio.h>}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#include\ "{}adis\_data\_access.h"{}}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00035\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classIIOWrapper}{IIOWrapper}}}
+\DoxyCodeLine{00036\ \{}
+\DoxyCodeLine{00037\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00041\ \ \ \mbox{\hyperlink{classIIOWrapper_ae9b4506c5a6cb9d56e36d11c3d4fc56e}{IIOWrapper}}();}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00046\ \ \ \mbox{\hyperlink{classIIOWrapper_ab4e9232cf3ba9539db8e4bfac2e0ebf0}{\string~IIOWrapper}}();}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00055\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classIIOWrapper_aa56bb91153c46ef51c3d3d53a68cc423}{createContext}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ context);}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00065\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classIIOWrapper_ae179fe95e80ad6624c6782de04c854ed}{updateBuffer}}(uint32\_t\ data\_selection);}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00070\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classIIOWrapper_a807ef883b1b5a6119ce4ab75d21985c5}{stopBufferAcquisition}}();}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00078\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classIIOWrapper_a24d03c22a08baf0c5209d7f31c9d0533}{getBuffLinearAccelerationX}}();}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00086\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classIIOWrapper_a809c113401e38fdf0fc660735a2192e1}{getBuffLinearAccelerationY}}();}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00094\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classIIOWrapper_a41e760380fa5036a652201e2df50c889}{getBuffLinearAccelerationZ}}();}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00102\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classIIOWrapper_ab98be528a5805d948e0cbf8c81bdac26}{getBuffAngularVelocityX}}();}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00110\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classIIOWrapper_a530c457c0cd4d81951b7d174072fd75b}{getBuffAngularVelocityY}}();}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00118\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classIIOWrapper_a4d5286b33d41295f1cc6567f67b4d6d2}{getBuffAngularVelocityZ}}();}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00120\ \textcolor{preprocessor}{\#ifdef\ ADIS\_HAS\_DELTA\_BURST}}
+\DoxyCodeLine{00127\ \ \ \textcolor{keywordtype}{double}\ getBuffDeltaVelocityX();}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00135\ \ \ \textcolor{keywordtype}{double}\ getBuffDeltaVelocityY();}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00143\ \ \ \textcolor{keywordtype}{double}\ getBuffDeltaVelocityZ();}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00151\ \ \ \textcolor{keywordtype}{double}\ getBuffDeltaAngleX();}
+\DoxyCodeLine{00152\ }
+\DoxyCodeLine{00159\ \ \ \textcolor{keywordtype}{double}\ getBuffDeltaAngleY();}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00167\ \ \ \textcolor{keywordtype}{double}\ getBuffDeltaAngleZ();}
+\DoxyCodeLine{00168\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00176\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classIIOWrapper_a8636bc7c28c829538d05d5bb638c9074}{getBuffTemperature}}();}
+\DoxyCodeLine{00177\ }
+\DoxyCodeLine{00185\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classIIOWrapper_a4a4cea0c85854aef0117ce98a587b8b4}{getBuffSampleTimestamp}}(int32\_t\ \&\ sec,\ uint32\_t\ \&\ nanosec);}
+\DoxyCodeLine{00186\ }
+\DoxyCodeLine{00194\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classIIOWrapper_ad1c329ac2d3785a4c4ceee754d5b1c7c}{getConvertedLinearAccelerationX}}(\textcolor{keywordtype}{double}\ \&\ result);}
+\DoxyCodeLine{00195\ }
+\DoxyCodeLine{00203\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classIIOWrapper_a798839e37670a3ee83381c3b8e7bee9d}{getConvertedLinearAccelerationY}}(\textcolor{keywordtype}{double}\ \&\ result);}
+\DoxyCodeLine{00204\ }
+\DoxyCodeLine{00212\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classIIOWrapper_a63262c6685e600d505fc751db4f52f4e}{getConvertedLinearAccelerationZ}}(\textcolor{keywordtype}{double}\ \&\ result);}
+\DoxyCodeLine{00213\ }
+\DoxyCodeLine{00221\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classIIOWrapper_a188e946663bc7b97c34051307f4d5d27}{getConvertedAngularVelocityX}}(\textcolor{keywordtype}{double}\ \&\ result);}
+\DoxyCodeLine{00222\ }
+\DoxyCodeLine{00230\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classIIOWrapper_a1f3f03307a91115e17ee3f18323f061a}{getConvertedAngularVelocityY}}(\textcolor{keywordtype}{double}\ \&\ result);}
+\DoxyCodeLine{00231\ }
+\DoxyCodeLine{00239\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classIIOWrapper_adc9f70fada12dbe6e110a8bcddf6c539}{getConvertedAngularVelocityZ}}(\textcolor{keywordtype}{double}\ \&\ result);}
+\DoxyCodeLine{00240\ }
+\DoxyCodeLine{00248\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classIIOWrapper_a68420aad14da02a7fd8316b6c7853c03}{getConvertedDeltaAngleX}}(\textcolor{keywordtype}{double}\ \&\ result);}
+\DoxyCodeLine{00249\ }
+\DoxyCodeLine{00257\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classIIOWrapper_a58453b95cb9193b5b2813fd3c1f5e4d7}{getConvertedDeltaAngleY}}(\textcolor{keywordtype}{double}\ \&\ result);}
+\DoxyCodeLine{00258\ }
+\DoxyCodeLine{00266\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classIIOWrapper_a29160e4f1947315e1862bf1c1a0630bc}{getConvertedDeltaAngleZ}}(\textcolor{keywordtype}{double}\ \&\ result);}
+\DoxyCodeLine{00267\ }
+\DoxyCodeLine{00275\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classIIOWrapper_a6ef7ac4cd9d2b1b7e0cd9a7a44e6dd35}{getConvertedDeltaVelocityX}}(\textcolor{keywordtype}{double}\ \&\ result);}
+\DoxyCodeLine{00276\ }
+\DoxyCodeLine{00284\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classIIOWrapper_ad566dd23cded258dea92a16a88946902}{getConvertedDeltaVelocityY}}(\textcolor{keywordtype}{double}\ \&\ result);}
+\DoxyCodeLine{00285\ }
+\DoxyCodeLine{00293\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classIIOWrapper_a31a1dc7c03fc782b2eff9ae0f925e789}{getConvertedDeltaVelocityZ}}(\textcolor{keywordtype}{double}\ \&\ result);}
+\DoxyCodeLine{00294\ }
+\DoxyCodeLine{00302\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classIIOWrapper_a23f8fbda995629b864dc72bcf3ba0984}{getConvertedTemperature}}(\textcolor{keywordtype}{double}\ \&\ result);}
+\DoxyCodeLine{00303\ }
+\DoxyCodeLine{00310\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classIIOWrapper_a2cc98e4d4a651e82c7d5766f824acebd}{anglvel\_x\_calibbias}}(int32\_t\ \&\ result);}
+\DoxyCodeLine{00311\ }
+\DoxyCodeLine{00318\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classIIOWrapper_a09fa5c163037f078a83e813ef13f73e9}{update\_anglvel\_calibbias\_x}}(int32\_t\ val);}
+\DoxyCodeLine{00319\ }
+\DoxyCodeLine{00326\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classIIOWrapper_aafec41ed9294cf0ef6ac0afaf350188e}{anglvel\_y\_calibbias}}(int32\_t\ \&\ result);}
+\DoxyCodeLine{00327\ }
+\DoxyCodeLine{00334\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classIIOWrapper_a3730f3c7dcea63f4e2104a02c1e695ae}{update\_anglvel\_calibbias\_y}}(int32\_t\ val);}
+\DoxyCodeLine{00335\ }
+\DoxyCodeLine{00342\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classIIOWrapper_a84a5ecfbf0942fa175703f1a0aee8bcd}{anglvel\_z\_calibbias}}(int32\_t\ \&\ result);}
+\DoxyCodeLine{00343\ }
+\DoxyCodeLine{00350\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classIIOWrapper_a640785a86e54405eecad55a93321bc26}{update\_anglvel\_calibbias\_z}}(int32\_t\ val);}
+\DoxyCodeLine{00351\ }
+\DoxyCodeLine{00358\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classIIOWrapper_a45cbee4a2eaf700b7396a4df956ed7e8}{accel\_x\_calibbias}}(int32\_t\ \&\ result);}
+\DoxyCodeLine{00359\ }
+\DoxyCodeLine{00366\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classIIOWrapper_a371075c2f73786fc409dbfe11bb9b68f}{update\_accel\_calibbias\_x}}(int32\_t\ val);}
+\DoxyCodeLine{00367\ }
+\DoxyCodeLine{00374\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classIIOWrapper_ab069f082479643718588962ed76e48e9}{accel\_y\_calibbias}}(int32\_t\ \&\ result);}
+\DoxyCodeLine{00375\ }
+\DoxyCodeLine{00382\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classIIOWrapper_a6b81ddc7f9f7c67b15e4f8be594c0926}{update\_accel\_calibbias\_y}}(int32\_t\ val);}
+\DoxyCodeLine{00383\ }
+\DoxyCodeLine{00390\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classIIOWrapper_a777c78d431b5fc16088018b52ffa8d3a}{accel\_z\_calibbias}}(int32\_t\ \&\ result);}
+\DoxyCodeLine{00391\ }
+\DoxyCodeLine{00398\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classIIOWrapper_a4265bcbf41f4c0582e08f30f5ab63eca}{update\_accel\_calibbias\_z}}(int32\_t\ val);}
+\DoxyCodeLine{00399\ }
+\DoxyCodeLine{00400\ \textcolor{preprocessor}{\#if\ defined(ADIS1654X)\ ||\ defined(ADIS1655X)}}
+\DoxyCodeLine{00407\ \ \ \textcolor{keywordtype}{bool}\ angvel\_x\_filter\_low\_pass\_3db(uint32\_t\ \&\ result);}
+\DoxyCodeLine{00414\ \ \ \textcolor{keywordtype}{bool}\ update\_angvel\_x\_filter\_low\_pass\_3db(uint32\_t\ val);}
+\DoxyCodeLine{00415\ }
+\DoxyCodeLine{00422\ \ \ \textcolor{keywordtype}{bool}\ angvel\_y\_filter\_low\_pass\_3db(uint32\_t\ \&\ result);}
+\DoxyCodeLine{00429\ \ \ \textcolor{keywordtype}{bool}\ update\_angvel\_y\_filter\_low\_pass\_3db(uint32\_t\ val);}
+\DoxyCodeLine{00430\ }
+\DoxyCodeLine{00437\ \ \ \textcolor{keywordtype}{bool}\ angvel\_z\_filter\_low\_pass\_3db(uint32\_t\ \&\ result);}
+\DoxyCodeLine{00444\ \ \ \textcolor{keywordtype}{bool}\ update\_angvel\_z\_filter\_low\_pass\_3db(uint32\_t\ val);}
+\DoxyCodeLine{00445\ }
+\DoxyCodeLine{00452\ \ \ \textcolor{keywordtype}{bool}\ accel\_x\_filter\_low\_pass\_3db(uint32\_t\ \&\ result);}
+\DoxyCodeLine{00459\ \ \ \textcolor{keywordtype}{bool}\ update\_accel\_x\_filter\_low\_pass\_3db(uint32\_t\ val);}
+\DoxyCodeLine{00460\ }
+\DoxyCodeLine{00467\ \ \ \textcolor{keywordtype}{bool}\ accel\_y\_filter\_low\_pass\_3db(uint32\_t\ \&\ result);}
+\DoxyCodeLine{00474\ \ \ \textcolor{keywordtype}{bool}\ update\_accel\_y\_filter\_low\_pass\_3db(uint32\_t\ val);}
+\DoxyCodeLine{00475\ }
+\DoxyCodeLine{00482\ \ \ \textcolor{keywordtype}{bool}\ accel\_z\_filter\_low\_pass\_3db(uint32\_t\ \&\ result);}
+\DoxyCodeLine{00489\ \ \ \textcolor{keywordtype}{bool}\ update\_accel\_z\_filter\_low\_pass\_3db(uint32\_t\ val);}
+\DoxyCodeLine{00490\ }
+\DoxyCodeLine{00491\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00498\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classIIOWrapper_aee4ed59f8c41d2c1e1ad95d5179e0e61}{filter\_low\_pass\_3db\_frequency}}(uint32\_t\ \&\ result);}
+\DoxyCodeLine{00499\ }
+\DoxyCodeLine{00506\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classIIOWrapper_ab960b56f3b8fb3bab2f4d3e492616bca}{update\_filter\_low\_pass\_3db\_frequency}}(uint32\_t\ val);}
+\DoxyCodeLine{00507\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00508\ }
+\DoxyCodeLine{00509\ \textcolor{preprocessor}{\#ifdef\ ADIS\_HAS\_CALIB\_SCALE}}
+\DoxyCodeLine{00516\ \ \ \textcolor{keywordtype}{bool}\ accel\_x\_calibscale(int32\_t\ \&\ result);}
+\DoxyCodeLine{00523\ \ \ \textcolor{keywordtype}{bool}\ accel\_y\_calibscale(int32\_t\ \&\ result);}
+\DoxyCodeLine{00530\ \ \ \textcolor{keywordtype}{bool}\ accel\_z\_calibscale(int32\_t\ \&\ result);}
+\DoxyCodeLine{00537\ \ \ \textcolor{keywordtype}{bool}\ anglvel\_x\_calibscale(int32\_t\ \&\ result);}
+\DoxyCodeLine{00544\ \ \ \textcolor{keywordtype}{bool}\ anglvel\_y\_calibscale(int32\_t\ \&\ result);}
+\DoxyCodeLine{00551\ \ \ \textcolor{keywordtype}{bool}\ anglvel\_z\_calibscale(int32\_t\ \&\ result);}
+\DoxyCodeLine{00552\ }
+\DoxyCodeLine{00559\ \ \ \textcolor{keywordtype}{bool}\ update\_accel\_calibscale\_x(int32\_t\ val);}
+\DoxyCodeLine{00566\ \ \ \textcolor{keywordtype}{bool}\ update\_accel\_calibscale\_y(int32\_t\ val);}
+\DoxyCodeLine{00573\ \ \ \textcolor{keywordtype}{bool}\ update\_accel\_calibscale\_z(int32\_t\ val);}
+\DoxyCodeLine{00580\ \ \ \textcolor{keywordtype}{bool}\ update\_anglvel\_calibscale\_x(int32\_t\ val);}
+\DoxyCodeLine{00587\ \ \ \textcolor{keywordtype}{bool}\ update\_anglvel\_calibscale\_y(int32\_t\ val);}
+\DoxyCodeLine{00594\ \ \ \textcolor{keywordtype}{bool}\ update\_anglvel\_calibscale\_z(int32\_t\ val);}
+\DoxyCodeLine{00595\ }
+\DoxyCodeLine{00596\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00597\ }
+\DoxyCodeLine{00604\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classIIOWrapper_ac8584252d4635e9a3c00f464cc176b17}{sampling\_frequency}}(\textcolor{keywordtype}{double}\ *\ result);}
+\DoxyCodeLine{00605\ }
+\DoxyCodeLine{00612\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classIIOWrapper_a5cf1f0bfc5f5f0cf43c9707f399c2001}{update\_sampling\_frequency}}(\textcolor{keywordtype}{double}\ val);}
+\DoxyCodeLine{00613\ }
+\DoxyCodeLine{00620\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classIIOWrapper_ac818ead3ccd5f2a7c8ab59f5464cff9a}{diag\_sensor\_initialization\_failure}}(\textcolor{keywordtype}{bool}\ \&\ result);}
+\DoxyCodeLine{00621\ }
+\DoxyCodeLine{00628\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classIIOWrapper_aacdab905284a0a6ecabb1b9bcad81be9}{diag\_data\_path\_overrun}}(\textcolor{keywordtype}{bool}\ \&\ result);}
+\DoxyCodeLine{00629\ }
+\DoxyCodeLine{00636\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classIIOWrapper_aa81282a7f07974ef69c65711200f5d7a}{diag\_automatic\_reset}}(\textcolor{keywordtype}{bool}\ \&\ result);}
+\DoxyCodeLine{00637\ }
+\DoxyCodeLine{00644\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classIIOWrapper_a9950dc38bc1e56a7fc42d36b50a3e718}{diag\_flash\_memory\_update\_error}}(\textcolor{keywordtype}{bool}\ \&\ result);}
+\DoxyCodeLine{00645\ }
+\DoxyCodeLine{00652\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classIIOWrapper_a1d23815c0de4a1ad4366602a4f4bdd96}{diag\_spi\_communication\_error}}(\textcolor{keywordtype}{bool}\ \&\ result);}
+\DoxyCodeLine{00653\ }
+\DoxyCodeLine{00660\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classIIOWrapper_a11b581d355f708591f0e425507d93164}{diag\_crc\_error}}(\textcolor{keywordtype}{bool}\ \&\ result);}
+\DoxyCodeLine{00661\ }
+\DoxyCodeLine{00668\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classIIOWrapper_a88df8843b74de7c177dada4d61708fc4}{diag\_standby\_mode}}(\textcolor{keywordtype}{bool}\ \&\ result);}
+\DoxyCodeLine{00669\ }
+\DoxyCodeLine{00676\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classIIOWrapper_a6c7b7b8d0039a24ed6be2ce7b15fc814}{diag\_sensor\_self\_test\_error}}(\textcolor{keywordtype}{bool}\ \&\ result);}
+\DoxyCodeLine{00677\ }
+\DoxyCodeLine{00684\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classIIOWrapper_a39396f6d69a04202f9e859922f95fc34}{diag\_flash\_memory\_test\_error}}(\textcolor{keywordtype}{bool}\ \&\ result);}
+\DoxyCodeLine{00685\ }
+\DoxyCodeLine{00692\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classIIOWrapper_a09e0a223d200b7d2ed1731f06635b370}{diag\_clock\_error}}(\textcolor{keywordtype}{bool}\ \&\ result);}
+\DoxyCodeLine{00693\ }
+\DoxyCodeLine{00700\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classIIOWrapper_aea94b1e579314660c7dd03d82ee4c29f}{diag\_gyroscope1\_self\_test\_error}}(\textcolor{keywordtype}{bool}\ \&\ result);}
+\DoxyCodeLine{00701\ }
+\DoxyCodeLine{00708\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classIIOWrapper_aa85c0d7dbb01ff4201678d687b8adf93}{diag\_gyroscope2\_self\_test\_error}}(\textcolor{keywordtype}{bool}\ \&\ result);}
+\DoxyCodeLine{00709\ }
+\DoxyCodeLine{00716\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classIIOWrapper_a6f0b68bf91bb6bd000a570b349a4e9f4}{diag\_acceleration\_self\_test\_error}}(\textcolor{keywordtype}{bool}\ \&\ result);}
+\DoxyCodeLine{00717\ }
+\DoxyCodeLine{00724\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classIIOWrapper_a45143fbc3eba8260f9cda6870c704d19}{diag\_x\_axis\_gyroscope\_failure}}(\textcolor{keywordtype}{bool}\ \&\ result);}
+\DoxyCodeLine{00725\ }
+\DoxyCodeLine{00732\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classIIOWrapper_ab027802372011c7f7d9f59061017173c}{diag\_y\_axis\_gyroscope\_failure}}(\textcolor{keywordtype}{bool}\ \&\ result);}
+\DoxyCodeLine{00733\ }
+\DoxyCodeLine{00740\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classIIOWrapper_adc4a32825bc5982131f53e227805946b}{diag\_z\_axis\_gyroscope\_failure}}(\textcolor{keywordtype}{bool}\ \&\ result);}
+\DoxyCodeLine{00741\ }
+\DoxyCodeLine{00748\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classIIOWrapper_afd7976cbd87ab425eb6fdf1192e39e1b}{diag\_x\_axis\_accelerometer\_failure}}(\textcolor{keywordtype}{bool}\ \&\ result);}
+\DoxyCodeLine{00749\ }
+\DoxyCodeLine{00756\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classIIOWrapper_a5e040011fba86b221a028f96440ac59e}{diag\_y\_axis\_accelerometer\_failure}}(\textcolor{keywordtype}{bool}\ \&\ result);}
+\DoxyCodeLine{00757\ }
+\DoxyCodeLine{00764\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classIIOWrapper_adf039156a53b8bb0afebe4c48507c097}{diag\_z\_axis\_accelerometer\_failure}}(\textcolor{keywordtype}{bool}\ \&\ result);}
+\DoxyCodeLine{00765\ }
+\DoxyCodeLine{00772\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classIIOWrapper_aa691849d0baa2fad55deb7975a070734}{diag\_aduc\_mcu\_fault}}(\textcolor{keywordtype}{bool}\ \&\ result);}
+\DoxyCodeLine{00773\ }
+\DoxyCodeLine{00780\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classIIOWrapper_ab3a551d7da672e3c5d3cce79aac4a37c}{diag\_flash\_memory\_write\_count\_exceeded\_error}}(\textcolor{keywordtype}{bool}\ \&\ result);}
+\DoxyCodeLine{00781\ }
+\DoxyCodeLine{00788\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classIIOWrapper_aa3dfbe95f0013016b8b5056b73d1f126}{gyroscope\_measurement\_range}}(std::string\ \&\ result);}
+\DoxyCodeLine{00789\ }
+\DoxyCodeLine{00796\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classIIOWrapper_a25e63a463289dc1c7761e9ef14982cbf}{internal\_sensor\_bandwidth}}(uint32\_t\ \&\ result);}
+\DoxyCodeLine{00797\ }
+\DoxyCodeLine{00804\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classIIOWrapper_a630b1d5232285b51560a90b805339961}{update\_internal\_sensor\_bandwidth}}(uint32\_t\ val);}
+\DoxyCodeLine{00805\ }
+\DoxyCodeLine{00812\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classIIOWrapper_a67eaded963621b47f1f228a0b250a00e}{point\_of\_percussion\_alignment}}(uint32\_t\ \&\ result);}
+\DoxyCodeLine{00813\ }
+\DoxyCodeLine{00820\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classIIOWrapper_a293d23f39cf1a07b3e8056d239728dc3}{update\_point\_of\_percussion\_alignment}}(uint32\_t\ val);}
+\DoxyCodeLine{00821\ }
+\DoxyCodeLine{00828\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classIIOWrapper_a2352785dfb0a0324613bd6f99a27831b}{linear\_acceleration\_compensation}}(uint32\_t\ \&\ result);}
+\DoxyCodeLine{00829\ }
+\DoxyCodeLine{00836\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classIIOWrapper_a09fe16394d6d8b7a7ab7dbefa64ba084}{update\_linear\_acceleration\_compensation}}(uint32\_t\ val);}
+\DoxyCodeLine{00837\ }
+\DoxyCodeLine{00844\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classIIOWrapper_a4b0d75039f36c1063c12c2335c230ffd}{bias\_correction\_time\_base\_control}}(uint32\_t\ \&\ result);}
+\DoxyCodeLine{00845\ }
+\DoxyCodeLine{00852\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classIIOWrapper_a5818afde806f78c0868884d6b1f23bbf}{update\_bias\_correction\_time\_base\_control}}(uint32\_t\ val);}
+\DoxyCodeLine{00853\ }
+\DoxyCodeLine{00860\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classIIOWrapper_ab0d834e0075c408c546991934ac4ac7a}{x\_axis\_gyroscope\_bias\_correction\_enable}}(uint32\_t\ \&\ result);}
+\DoxyCodeLine{00861\ }
+\DoxyCodeLine{00868\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classIIOWrapper_acedff444962fb642b5d2417aaf5dd63a}{update\_x\_axis\_gyroscope\_bias\_correction\_enable}}(uint32\_t\ val);}
+\DoxyCodeLine{00869\ }
+\DoxyCodeLine{00876\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classIIOWrapper_a73fd94d29e90e9b46a5c47453e5a76a7}{y\_axis\_gyroscope\_bias\_correction\_enable}}(uint32\_t\ \&\ result);}
+\DoxyCodeLine{00877\ }
+\DoxyCodeLine{00884\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classIIOWrapper_a4a20c51a3a2079f1c7e887605f6f78dc}{update\_y\_axis\_gyroscope\_bias\_correction\_enable}}(uint32\_t\ val);}
+\DoxyCodeLine{00885\ }
+\DoxyCodeLine{00892\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classIIOWrapper_a00aa6acb648e5c90038132c537649773}{z\_axis\_gyroscope\_bias\_correction\_enable}}(uint32\_t\ \&\ result);}
+\DoxyCodeLine{00893\ }
+\DoxyCodeLine{00900\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classIIOWrapper_a70f3f6d8b2cdefb6a5a6cff54915c6e1}{update\_z\_axis\_gyroscope\_bias\_correction\_enable}}(uint32\_t\ val);}
+\DoxyCodeLine{00901\ }
+\DoxyCodeLine{00908\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classIIOWrapper_a62287c7a5dfdd731494ed7ba1780663d}{x\_axis\_accelerometer\_bias\_correction\_enable}}(uint32\_t\ \&\ result);}
+\DoxyCodeLine{00909\ }
+\DoxyCodeLine{00916\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classIIOWrapper_a43ae9191af8bc6da154d7b301848ac41}{update\_x\_axis\_accelerometer\_bias\_correction\_enable}}(uint32\_t\ val);}
+\DoxyCodeLine{00917\ }
+\DoxyCodeLine{00924\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classIIOWrapper_a9f393e7caf03730f7ddcd003c2556dfe}{y\_axis\_accelerometer\_bias\_correction\_enable}}(uint32\_t\ \&\ result);}
+\DoxyCodeLine{00925\ }
+\DoxyCodeLine{00932\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classIIOWrapper_ace85be9c516ad0dce1d76700c440d0e7}{update\_y\_axis\_accelerometer\_bias\_correction\_enable}}(uint32\_t\ val);}
+\DoxyCodeLine{00933\ }
+\DoxyCodeLine{00940\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classIIOWrapper_a56ca0c938bef97c190ee7ae56736fcda}{z\_axis\_accelerometer\_bias\_correction\_enable}}(uint32\_t\ \&\ result);}
+\DoxyCodeLine{00941\ }
+\DoxyCodeLine{00948\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classIIOWrapper_ad501d5b8096992254282b710ae3593bf}{update\_z\_axis\_accelerometer\_bias\_correction\_enable}}(uint32\_t\ val);}
+\DoxyCodeLine{00949\ }
+\DoxyCodeLine{00955\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classIIOWrapper_a2da8f4f3cd36e8e2cff6befcb53ecbbe}{bias\_correction\_update}}();}
+\DoxyCodeLine{00956\ }
+\DoxyCodeLine{00962\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classIIOWrapper_a2cb403633337d848e3e334460098a954}{factory\_calibration\_restore}}();}
+\DoxyCodeLine{00963\ }
+\DoxyCodeLine{00969\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classIIOWrapper_a9063348d525f98961fca0e5a8d1b2942}{sensor\_self\_test}}();}
+\DoxyCodeLine{00970\ }
+\DoxyCodeLine{00976\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classIIOWrapper_a39973a796e6e9f809b8284f011ccaa36}{flash\_memory\_update}}();}
+\DoxyCodeLine{00977\ }
+\DoxyCodeLine{00983\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classIIOWrapper_af97abb3a23be70f995eb1becb1863dfb}{flash\_memory\_test}}();}
+\DoxyCodeLine{00984\ }
+\DoxyCodeLine{00990\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classIIOWrapper_a06c8b2dd5e06296e6071515d42678338}{software\_reset}}();}
+\DoxyCodeLine{00991\ }
+\DoxyCodeLine{00998\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classIIOWrapper_a7ece889e328ab46d471031934eb93b33}{firmware\_revision}}(std::string\ \&\ result);}
+\DoxyCodeLine{00999\ }
+\DoxyCodeLine{01006\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classIIOWrapper_a392b3968397a63a0bf235bb7515f5879}{firmware\_date}}(std::string\ \&\ result);}
+\DoxyCodeLine{01007\ }
+\DoxyCodeLine{01014\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classIIOWrapper_a1f0c7c86eba809ac5e0505b12e7b8143}{product\_id}}(uint32\_t\ \&\ result);}
+\DoxyCodeLine{01015\ }
+\DoxyCodeLine{01022\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classIIOWrapper_a9d05c33bbd4eef378b584d656a56cfc7}{serial\_number}}(uint32\_t\ \&\ result);}
+\DoxyCodeLine{01023\ }
+\DoxyCodeLine{01030\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classIIOWrapper_af2bd81f3dca62979b41cf5018f72a173}{flash\_counter}}(uint32\_t\ \&\ value);}
+\DoxyCodeLine{01031\ }
+\DoxyCodeLine{01036\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classIIOWrapper_a45fe53b29bb3c69fd167caa42418b56e}{get\_scale\_accel}}();}
+\DoxyCodeLine{01037\ }
+\DoxyCodeLine{01042\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classIIOWrapper_a9155426d173e6adb8c6436598cab9d6b}{get\_scale\_anglvel}}();}
+\DoxyCodeLine{01043\ }
+\DoxyCodeLine{01048\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classIIOWrapper_a0986611e409cfa128ec0f5b5429c8b72}{get\_scale\_deltavelocity}}();}
+\DoxyCodeLine{01049\ }
+\DoxyCodeLine{01054\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classIIOWrapper_a133f8dcccf4727d7a97ba1f708c7c249}{get\_scale\_deltaangl}}();}
+\DoxyCodeLine{01055\ }
+\DoxyCodeLine{01060\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classIIOWrapper_a022888d663a4dbead44e37a84c45411b}{get\_scale\_temp}}();}
+\DoxyCodeLine{01061\ }
+\DoxyCodeLine{01062\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{01067\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classIIOWrapper_aec9b699fd6110a7795a32e84343a1c1d}{setDeltaAngleScales}}(\textcolor{keyword}{enum}\ adis\_device\_id\ dev\_id);}
+\DoxyCodeLine{01072\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classIIOWrapper_a7287fe1ab85c9aebb746dff3baf7300d}{setDeltaVelocityScales}}(\textcolor{keyword}{enum}\ adis\_device\_id\ dev\_id);}
+\DoxyCodeLine{01080\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classIIOWrapper_a3b99dc4a11bfc1044779befc29c9385a}{updateField}}(uint32\_t\ reg,\ uint32\_t\ val,\ uint32\_t\ mask);}
+\DoxyCodeLine{01081\ }
+\DoxyCodeLine{01089\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classIIOWrapper_a47cb7f7d914c9a12c51cfaa152645b07}{getRawDeltaAngleXFromDebug}}(int32\_t\ \&\ result);}
+\DoxyCodeLine{01090\ }
+\DoxyCodeLine{01098\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classIIOWrapper_adde2349c207c0d885197bb11165e6546}{getRawDeltaAngleYFromDebug}}(int32\_t\ \&\ result);}
+\DoxyCodeLine{01099\ }
+\DoxyCodeLine{01107\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classIIOWrapper_a2f8806cda1ba466fab265a45eb66815c}{getRawDeltaAngleZFromDebug}}(int32\_t\ \&\ result);}
+\DoxyCodeLine{01108\ }
+\DoxyCodeLine{01116\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classIIOWrapper_a0fe6f4ff144f0c80f1452987e383318a}{getRawDeltaVelocityXFromDebug}}(int32\_t\ \&\ result);}
+\DoxyCodeLine{01117\ }
+\DoxyCodeLine{01125\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classIIOWrapper_ae6a0f742c9dd11684e9a49fb975773e0}{getRawDeltaVelocityYFromDebug}}(int32\_t\ \&\ result);}
+\DoxyCodeLine{01126\ }
+\DoxyCodeLine{01134\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classIIOWrapper_a153ba949b8daa8514864b59538fcb64a}{getRawDeltaVelocityZFromDebug}}(int32\_t\ \&\ result);}
+\DoxyCodeLine{01135\ }
+\DoxyCodeLine{01143\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classIIOWrapper_a78ff447b7bccef0dd8abc5239ddcda27}{getConvertedDeltaAngleXFromDebug}}(\textcolor{keywordtype}{double}\ \&\ result);}
+\DoxyCodeLine{01144\ }
+\DoxyCodeLine{01152\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classIIOWrapper_aa52383a8d31690b73f74539cc617e7d7}{getConvertedDeltaAngleYFromDebug}}(\textcolor{keywordtype}{double}\ \&\ result);}
+\DoxyCodeLine{01153\ }
+\DoxyCodeLine{01161\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classIIOWrapper_adb513e9bdd99b7fcf9accec73faba53e}{getConvertedDeltaAngleZFromDebug}}(\textcolor{keywordtype}{double}\ \&\ result);}
+\DoxyCodeLine{01162\ }
+\DoxyCodeLine{01170\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classIIOWrapper_afae369c43ec0dfdb08f41e173b968f58}{getConvertedDeltaVelocityXFromDebug}}(\textcolor{keywordtype}{double}\ \&\ result);}
+\DoxyCodeLine{01171\ }
+\DoxyCodeLine{01179\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classIIOWrapper_a93c0f0e87624cc045bf571ed8d85911b}{getConvertedDeltaVelocityYFromDebug}}(\textcolor{keywordtype}{double}\ \&\ result);}
+\DoxyCodeLine{01180\ }
+\DoxyCodeLine{01188\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classIIOWrapper_a9adcb8752a2895affbab03ea3d1e2ef0}{getConvertedDeltaVelocityZFromDebug}}(\textcolor{keywordtype}{double}\ \&\ result);}
+\DoxyCodeLine{01189\ }
+\DoxyCodeLine{01191\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{struct\ }iio\_context\ *\ \mbox{\hyperlink{classIIOWrapper_aef4fe3a3f93085da695bf65639f09b87}{m\_iio\_context}};}
+\DoxyCodeLine{01192\ }
+\DoxyCodeLine{01194\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{struct\ }iio\_device\ *\ \mbox{\hyperlink{classIIOWrapper_aa54f78cb0c53f73b6562e303367b20be}{m\_dev}};}
+\DoxyCodeLine{01195\ }
+\DoxyCodeLine{01197\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{struct\ }iio\_device\ *\ \mbox{\hyperlink{classIIOWrapper_a4c656678d45e8e978480712451b69649}{m\_dev\_trigger}};}
+\DoxyCodeLine{01198\ }
+\DoxyCodeLine{01200\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{struct\ }iio\_buffer\ *\ \mbox{\hyperlink{classIIOWrapper_ac6c3cec6da827146507437ee27296a96}{m\_dev\_buffer}};}
+\DoxyCodeLine{01201\ }
+\DoxyCodeLine{01203\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{struct\ }iio\_channel\ *\ \mbox{\hyperlink{classIIOWrapper_ac1fb844f82d64a1b6e2e6cc6c089bd71}{m\_channel\_accel\_x}};}
+\DoxyCodeLine{01204\ }
+\DoxyCodeLine{01206\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{struct\ }iio\_channel\ *\ \mbox{\hyperlink{classIIOWrapper_ad1e0779435221c690f93d6d05a76f176}{m\_channel\_accel\_y}};}
+\DoxyCodeLine{01207\ }
+\DoxyCodeLine{01209\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{struct\ }iio\_channel\ *\ \mbox{\hyperlink{classIIOWrapper_aa5f24dc01a83090154c57359a4668cd9}{m\_channel\_accel\_z}};}
+\DoxyCodeLine{01210\ }
+\DoxyCodeLine{01212\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{struct\ }iio\_channel\ *\ \mbox{\hyperlink{classIIOWrapper_a9b7c68d2cd7161e853b261c3e1363ef3}{m\_channel\_anglvel\_x}};}
+\DoxyCodeLine{01213\ }
+\DoxyCodeLine{01215\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{struct\ }iio\_channel\ *\ \mbox{\hyperlink{classIIOWrapper_a1b138c4cc8238e52a68f830363a04b8d}{m\_channel\_anglvel\_y}};}
+\DoxyCodeLine{01216\ }
+\DoxyCodeLine{01218\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{struct\ }iio\_channel\ *\ \mbox{\hyperlink{classIIOWrapper_a1b2384d209272000f673f25e7134d06d}{m\_channel\_anglvel\_z}};}
+\DoxyCodeLine{01219\ }
+\DoxyCodeLine{01221\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{struct\ }iio\_channel\ *\ \mbox{\hyperlink{classIIOWrapper_ae585f76ba5a1e003c9416bc87d5d7897}{m\_channel\_deltaangl\_x}};}
+\DoxyCodeLine{01222\ }
+\DoxyCodeLine{01224\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{struct\ }iio\_channel\ *\ \mbox{\hyperlink{classIIOWrapper_a60cc79165edc458ad3af03ad976feb2d}{m\_channel\_deltaangl\_y}};}
+\DoxyCodeLine{01225\ }
+\DoxyCodeLine{01227\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{struct\ }iio\_channel\ *\ \mbox{\hyperlink{classIIOWrapper_a7f9f033ffb31d35240723713a9769a6b}{m\_channel\_deltaangl\_z}};}
+\DoxyCodeLine{01228\ }
+\DoxyCodeLine{01230\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{struct\ }iio\_channel\ *\ \mbox{\hyperlink{classIIOWrapper_a13c3a4d31efdd2d329b3acc14b697aa4}{m\_channel\_deltavelocity\_x}};}
+\DoxyCodeLine{01231\ }
+\DoxyCodeLine{01233\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{struct\ }iio\_channel\ *\ \mbox{\hyperlink{classIIOWrapper_a7fba21deedbdc14adf0f4a46cb59fdff}{m\_channel\_deltavelocity\_y}};}
+\DoxyCodeLine{01234\ }
+\DoxyCodeLine{01236\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{struct\ }iio\_channel\ *\ \mbox{\hyperlink{classIIOWrapper_a38e16f0f6f97028d0eee31b7e98d40aa}{m\_channel\_deltavelocity\_z}};}
+\DoxyCodeLine{01237\ }
+\DoxyCodeLine{01239\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{struct\ }iio\_channel\ *\ \mbox{\hyperlink{classIIOWrapper_a49a1068fef0e2c1c48096f6b88d103b7}{m\_channel\_temp}};}
+\DoxyCodeLine{01240\ }
+\DoxyCodeLine{01242\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{struct\ }iio\_channel\ *\ \mbox{\hyperlink{classIIOWrapper_a335fdbf54f6ea1f463b4b7e9e74e0cc8}{m\_channel\_timestamp}};}
+\DoxyCodeLine{01243\ }
+\DoxyCodeLine{01246\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classIIOWrapper_ac4a267304bf82229d032adf4c167c8be}{m\_scale\_accel\_x}};}
+\DoxyCodeLine{01247\ }
+\DoxyCodeLine{01250\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classIIOWrapper_a39297415934efc288f6ced765861d19d}{m\_scale\_accel\_y}};}
+\DoxyCodeLine{01251\ }
+\DoxyCodeLine{01254\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classIIOWrapper_a62c70c9017644054942d0a27c5582291}{m\_scale\_accel\_z}};}
+\DoxyCodeLine{01255\ }
+\DoxyCodeLine{01257\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classIIOWrapper_a60201aaf24995e68520d846c5446cd23}{m\_scale\_anglvel\_x}};}
+\DoxyCodeLine{01258\ }
+\DoxyCodeLine{01260\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classIIOWrapper_aabb94da5ca0c007e066898cd7767f5a2}{m\_scale\_anglvel\_y}};}
+\DoxyCodeLine{01261\ }
+\DoxyCodeLine{01263\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classIIOWrapper_acdb2f23b02ac0650e12b76a02502e725}{m\_scale\_anglvel\_z}};}
+\DoxyCodeLine{01264\ }
+\DoxyCodeLine{01266\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classIIOWrapper_a9d05021dd126ae2446d4bfc8e122d926}{m\_scale\_deltaangl\_x}};}
+\DoxyCodeLine{01267\ }
+\DoxyCodeLine{01269\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classIIOWrapper_a0a614ad2a77e11186da5c6d22743c1cc}{m\_scale\_deltaangl\_y}};}
+\DoxyCodeLine{01270\ }
+\DoxyCodeLine{01272\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classIIOWrapper_aa60f12b53d29ad7a17750da6cfe56a9b}{m\_scale\_deltaangl\_z}};}
+\DoxyCodeLine{01273\ }
+\DoxyCodeLine{01275\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classIIOWrapper_a6b769d1cfe0c7e2f09d7af4cdbea5c09}{m\_scale\_deltavelocity\_x}};}
+\DoxyCodeLine{01276\ }
+\DoxyCodeLine{01278\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classIIOWrapper_a5f29b5ac8ea9c50f38059626899f45ab}{m\_scale\_deltavelocity\_y}};}
+\DoxyCodeLine{01279\ }
+\DoxyCodeLine{01281\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classIIOWrapper_a822cfeb7635264d647df73dabd2ec4d6}{m\_scale\_deltavelocity\_z}};}
+\DoxyCodeLine{01282\ }
+\DoxyCodeLine{01284\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classIIOWrapper_ac33c30566920a17f9f0b20321c7bb4ae}{m\_scale\_temp}};}
+\DoxyCodeLine{01285\ \};}
+\DoxyCodeLine{01286\ }
+\DoxyCodeLine{01287\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ IIO\_WRAPPER\_H}}
+
+\end{DoxyCode}

@@ -1,0 +1,5 @@
+<map id="VelAngTempRosPublisherInterface" name="VelAngTempRosPublisherInterface">
+<area shape="rect" id="Node000001" title="Interface for delta velocity, delta angle and temperature publisher." alt="" coords="5,5,249,31"/>
+<area shape="rect" id="Node000002" href="$classVelAngTempRosPublisher.html" title="Class for delta velocity, delta angle and temperature publisher." alt="" coords="34,79,221,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="130,44,130,79,125,79,125,44"/>
+</map>

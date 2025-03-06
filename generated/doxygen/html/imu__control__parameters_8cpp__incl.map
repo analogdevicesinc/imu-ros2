@@ -1,0 +1,24 @@
+<map id="src/imu_control_parameters.cpp" name="src/imu_control_parameters.cpp">
+<area shape="rect" id="Node000001" title="Set ros parameter in libiio &#45; implementation." alt="" coords="555,5,785,31"/>
+<area shape="rect" id="Node000002" href="$imu__control__parameters_8h_source.html" title=" " alt="" coords="271,79,426,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="624,33,440,78,439,73,623,28"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="451,255,510,280"/>
+<area shape="poly" id="edge10_Node000001_Node000006" title=" " alt="" coords="658,33,637,54,616,80,600,115,593,145,585,175,565,208,542,232,517,250,513,245,539,227,561,205,580,173,588,143,595,113,612,77,633,50,655,29"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="627,86,713,111"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="673,31,673,72,667,72,667,31"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="738,86,789,111"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="685,29,741,75,737,79,682,33"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="813,86,877,111"/>
+<area shape="poly" id="edge11_Node000001_Node000011" title=" " alt="" coords="696,28,808,78,806,83,694,33"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,174,137,199"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="289,121,122,172,121,167,287,116"/>
+<area shape="rect" id="Node000004" href="$iio__wrapper_8h_source.html" title=" " alt="" coords="162,174,327,199"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="327,121,272,167,268,163,324,117"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="351,167,551,207"/>
+<area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="373,117,420,156,416,160,370,121"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="158,255,209,280"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="238,201,203,246,199,242,234,198"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="280,197,439,250,438,255,278,202"/>
+<area shape="rect" id="Node000007" href="$adis__data__access_8h_source.html" title=" " alt="" coords="233,255,381,280"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="256,198,292,242,287,246,252,201"/>
+</map>

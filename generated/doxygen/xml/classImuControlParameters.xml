@@ -1,0 +1,834 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classImuControlParameters" kind="class" language="C++" prot="public">
+    <compoundname>ImuControlParameters</compoundname>
+    <includes refid="imu__control__parameters_8h" local="no">imu_control_parameters.h</includes>
+    <sectiondef kind="private-type">
+      <memberdef kind="typedef" id="classImuControlParameters_1a08337927ac5d0390c065a8f8b64e11ce" prot="private" static="no">
+        <type>bool(IIOWrapper::*</type>
+        <definition>typedef bool(IIOWrapper::* ImuControlParameters::UpdateUint32Params) (uint32_t)</definition>
+        <argsstring>)(uint32_t)</argsstring>
+        <name>UpdateUint32Params</name>
+        <qualifiedname>ImuControlParameters::UpdateUint32Params</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Declare function type for parameter updating APIs of type uint32. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/imu_control_parameters.h" line="158" column="11" bodyfile="include/adi_imu/imu_control_parameters.h" bodystart="158" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classImuControlParameters_1add2e53a89e0f075df4a090fb28ea59d0" prot="private" static="no">
+        <type>std::map&lt; std::string, <ref refid="classImuControlParameters_1a08337927ac5d0390c065a8f8b64e11ce" kindref="member">UpdateUint32Params</ref> &gt;</type>
+        <definition>typedef std::map&lt;std::string, UpdateUint32Params&gt; ImuControlParameters::UpdateUint32ParamsMapType</definition>
+        <argsstring></argsstring>
+        <name>UpdateUint32ParamsMapType</name>
+        <qualifiedname>ImuControlParameters::UpdateUint32ParamsMapType</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Declare map type for parameter updating APIs of type uint32. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/imu_control_parameters.h" line="161" column="20" bodyfile="include/adi_imu/imu_control_parameters.h" bodystart="161" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classImuControlParameters_1a82802c01a3698c99b5e0bbd5117f7dd1" prot="private" static="no">
+        <type>bool(IIOWrapper::*</type>
+        <definition>typedef bool(IIOWrapper::* ImuControlParameters::GetUint32Params) (uint32_t &amp;)</definition>
+        <argsstring>)(uint32_t &amp;)</argsstring>
+        <name>GetUint32Params</name>
+        <qualifiedname>ImuControlParameters::GetUint32Params</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Declare function type for parameter reading APIs of type uint32. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/imu_control_parameters.h" line="167" column="11" bodyfile="include/adi_imu/imu_control_parameters.h" bodystart="167" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classImuControlParameters_1aca50889946b53f310ddd2cd1143c951b" prot="private" static="no">
+        <type>std::map&lt; std::string, <ref refid="classImuControlParameters_1a82802c01a3698c99b5e0bbd5117f7dd1" kindref="member">GetUint32Params</ref> &gt;</type>
+        <definition>typedef std::map&lt;std::string, GetUint32Params&gt; ImuControlParameters::GetUint32ParamsMapType</definition>
+        <argsstring></argsstring>
+        <name>GetUint32ParamsMapType</name>
+        <qualifiedname>ImuControlParameters::GetUint32ParamsMapType</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Declare map type for parameter reading APIs of type uint32. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/imu_control_parameters.h" line="170" column="20" bodyfile="include/adi_imu/imu_control_parameters.h" bodystart="170" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classImuControlParameters_1a82366b8096ef75c05b44ece86798ecce" prot="private" static="no">
+        <type>bool(IIOWrapper::*</type>
+        <definition>typedef bool(IIOWrapper::* ImuControlParameters::UpdateInt32Params) (int32_t)</definition>
+        <argsstring>)(int32_t)</argsstring>
+        <name>UpdateInt32Params</name>
+        <qualifiedname>ImuControlParameters::UpdateInt32Params</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Declare function type for parameter updating APIs of type int32. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/imu_control_parameters.h" line="176" column="11" bodyfile="include/adi_imu/imu_control_parameters.h" bodystart="176" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classImuControlParameters_1a96d9f5b54857f9de53ab8aa9e28e1433" prot="private" static="no">
+        <type>std::map&lt; std::string, <ref refid="classImuControlParameters_1a82366b8096ef75c05b44ece86798ecce" kindref="member">UpdateInt32Params</ref> &gt;</type>
+        <definition>typedef std::map&lt;std::string, UpdateInt32Params&gt; ImuControlParameters::UpdateInt32ParamsMapType</definition>
+        <argsstring></argsstring>
+        <name>UpdateInt32ParamsMapType</name>
+        <qualifiedname>ImuControlParameters::UpdateInt32ParamsMapType</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Declare map type for parameter updating APIs of type int32. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/imu_control_parameters.h" line="179" column="20" bodyfile="include/adi_imu/imu_control_parameters.h" bodystart="179" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classImuControlParameters_1a87949036708585beab3c05aeff113f32" prot="private" static="no">
+        <type>bool(IIOWrapper::*</type>
+        <definition>typedef bool(IIOWrapper::* ImuControlParameters::GetInt32Params) (int32_t &amp;)</definition>
+        <argsstring>)(int32_t &amp;)</argsstring>
+        <name>GetInt32Params</name>
+        <qualifiedname>ImuControlParameters::GetInt32Params</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Declare function type for parameter reading APIs of type int32. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/imu_control_parameters.h" line="185" column="11" bodyfile="include/adi_imu/imu_control_parameters.h" bodystart="185" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classImuControlParameters_1a54231d8005b5513dc51d079e11b88cb7" prot="private" static="no">
+        <type>std::map&lt; std::string, <ref refid="classImuControlParameters_1a87949036708585beab3c05aeff113f32" kindref="member">GetInt32Params</ref> &gt;</type>
+        <definition>typedef std::map&lt;std::string, GetInt32Params&gt; ImuControlParameters::GetInt32ParamsMapType</definition>
+        <argsstring></argsstring>
+        <name>GetInt32ParamsMapType</name>
+        <qualifiedname>ImuControlParameters::GetInt32ParamsMapType</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Declare map type for parameter reading APIs of type int32. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/imu_control_parameters.h" line="188" column="20" bodyfile="include/adi_imu/imu_control_parameters.h" bodystart="188" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classImuControlParameters_1ad9ec37d0885918285b76b0a01cc17ee8" prot="private" static="no">
+        <type>bool(IIOWrapper::*</type>
+        <definition>typedef bool(IIOWrapper::* ImuControlParameters::UpdateDoubleParams) (double)</definition>
+        <argsstring>)(double)</argsstring>
+        <name>UpdateDoubleParams</name>
+        <qualifiedname>ImuControlParameters::UpdateDoubleParams</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Declare function type for parameter updating APIs of type double. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/imu_control_parameters.h" line="194" column="11" bodyfile="include/adi_imu/imu_control_parameters.h" bodystart="194" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classImuControlParameters_1a217a4e02692f65433945b7a285b6415e" prot="private" static="no">
+        <type>std::map&lt; std::string, <ref refid="classImuControlParameters_1ad9ec37d0885918285b76b0a01cc17ee8" kindref="member">UpdateDoubleParams</ref> &gt;</type>
+        <definition>typedef std::map&lt;std::string, UpdateDoubleParams&gt; ImuControlParameters::UpdateDoubleParamsMapType</definition>
+        <argsstring></argsstring>
+        <name>UpdateDoubleParamsMapType</name>
+        <qualifiedname>ImuControlParameters::UpdateDoubleParamsMapType</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Declare map type for parameter updating APIs of type double. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/imu_control_parameters.h" line="197" column="20" bodyfile="include/adi_imu/imu_control_parameters.h" bodystart="197" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classImuControlParameters_1a261cfd80e62c8a3362414fddd9f2da93" prot="private" static="no">
+        <type>bool(IIOWrapper::*</type>
+        <definition>typedef bool(IIOWrapper::* ImuControlParameters::GetDoubleParams) (double *)</definition>
+        <argsstring>)(double *)</argsstring>
+        <name>GetDoubleParams</name>
+        <qualifiedname>ImuControlParameters::GetDoubleParams</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Declare function type for parameter reading APIs of type double. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/imu_control_parameters.h" line="203" column="11" bodyfile="include/adi_imu/imu_control_parameters.h" bodystart="203" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classImuControlParameters_1a619c7db2b3afced6b9fa7f6f770b9e17" prot="private" static="no">
+        <type>std::map&lt; std::string, <ref refid="classImuControlParameters_1a261cfd80e62c8a3362414fddd9f2da93" kindref="member">GetDoubleParams</ref> &gt;</type>
+        <definition>typedef std::map&lt;std::string, GetDoubleParams&gt; ImuControlParameters::GetDoubleParamsMapType</definition>
+        <argsstring></argsstring>
+        <name>GetDoubleParamsMapType</name>
+        <qualifiedname>ImuControlParameters::GetDoubleParamsMapType</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Declare map type for parameter reading APIs of type double. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/imu_control_parameters.h" line="206" column="20" bodyfile="include/adi_imu/imu_control_parameters.h" bodystart="206" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classImuControlParameters_1affa8e2f00d84a5f26a69f16eaf9f9c39" prot="private" static="no">
+        <type>bool(IIOWrapper::*</type>
+        <definition>typedef bool(IIOWrapper::* ImuControlParameters::ExecuteCommands) ()</definition>
+        <argsstring>)()</argsstring>
+        <name>ExecuteCommands</name>
+        <qualifiedname>ImuControlParameters::ExecuteCommands</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Declare function type for command execution APIs. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/imu_control_parameters.h" line="212" column="11" bodyfile="include/adi_imu/imu_control_parameters.h" bodystart="212" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classImuControlParameters_1af395e099df244af44911518e92f4a02b" prot="private" static="no">
+        <type>std::map&lt; std::string, <ref refid="classImuControlParameters_1affa8e2f00d84a5f26a69f16eaf9f9c39" kindref="member">ExecuteCommands</ref> &gt;</type>
+        <definition>typedef std::map&lt;std::string, ExecuteCommands&gt; ImuControlParameters::ExecuteCommandsMapType</definition>
+        <argsstring></argsstring>
+        <name>ExecuteCommandsMapType</name>
+        <qualifiedname>ImuControlParameters::ExecuteCommandsMapType</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Declare map type for command APIs. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/imu_control_parameters.h" line="215" column="20" bodyfile="include/adi_imu/imu_control_parameters.h" bodystart="215" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classImuControlParameters_1a550af7cb014cc2b4dec9e42342303f63" prot="private" static="no" mutable="no">
+        <type>std::shared_ptr&lt; rclcpp::Node &gt;</type>
+        <definition>std::shared_ptr&lt;rclcpp::Node&gt; ImuControlParameters::m_node</definition>
+        <argsstring></argsstring>
+        <name>m_node</name>
+        <qualifiedname>ImuControlParameters::m_node</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The ros2 Node data member </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/imu_control_parameters.h" line="149" column="19" bodyfile="include/adi_imu/imu_control_parameters.h" bodystart="149" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classImuControlParameters_1a1116f3c4083e6dc9dbea7e8104e6cde9" prot="private" static="no" mutable="no">
+        <type><ref refid="classIIOWrapper" kindref="compound">IIOWrapper</ref></type>
+        <definition>IIOWrapper ImuControlParameters::m_iio_wrapper</definition>
+        <argsstring></argsstring>
+        <name>m_iio_wrapper</name>
+        <qualifiedname>ImuControlParameters::m_iio_wrapper</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This data member is used to access sensor information via libiio. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/imu_control_parameters.h" line="152" column="14" bodyfile="include/adi_imu/imu_control_parameters.h" bodystart="152" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classImuControlParameters_1abfb5fd3c8fad0ce52ac726cf135c5ebb" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string ImuControlParameters::m_command_to_execute</definition>
+        <argsstring></argsstring>
+        <name>m_command_to_execute</name>
+        <qualifiedname>ImuControlParameters::m_command_to_execute</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This variable contains the current value for the command to be executed. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/imu_control_parameters.h" line="155" column="15" bodyfile="include/adi_imu/imu_control_parameters.h" bodystart="155" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classImuControlParameters_1af520e1d09d7b28678d5d3103cd1cb0d4" prot="private" static="no" mutable="no">
+        <type><ref refid="classImuControlParameters_1add2e53a89e0f075df4a090fb28ea59d0" kindref="member">UpdateUint32ParamsMapType</ref></type>
+        <definition>UpdateUint32ParamsMapType ImuControlParameters::m_func_map_update_uint32_params</definition>
+        <argsstring></argsstring>
+        <name>m_func_map_update_uint32_params</name>
+        <qualifiedname>ImuControlParameters::m_func_map_update_uint32_params</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Update parameter map which contains the update function call for each parameter of type uint32. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/imu_control_parameters.h" line="164" column="29" bodyfile="include/adi_imu/imu_control_parameters.h" bodystart="164" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classImuControlParameters_1afd5ac3df4ab613f0b3f77775b8755c4f" prot="private" static="no" mutable="no">
+        <type><ref refid="classImuControlParameters_1aca50889946b53f310ddd2cd1143c951b" kindref="member">GetUint32ParamsMapType</ref></type>
+        <definition>GetUint32ParamsMapType ImuControlParameters::m_func_map_get_uint32_params</definition>
+        <argsstring></argsstring>
+        <name>m_func_map_get_uint32_params</name>
+        <qualifiedname>ImuControlParameters::m_func_map_get_uint32_params</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Read parameter map which contains the read function call for each parameter of type uint32. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/imu_control_parameters.h" line="173" column="26" bodyfile="include/adi_imu/imu_control_parameters.h" bodystart="173" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classImuControlParameters_1a27be5741591bf0fc60fe7167257ee112" prot="private" static="no" mutable="no">
+        <type><ref refid="classImuControlParameters_1a96d9f5b54857f9de53ab8aa9e28e1433" kindref="member">UpdateInt32ParamsMapType</ref></type>
+        <definition>UpdateInt32ParamsMapType ImuControlParameters::m_func_map_update_int32_params</definition>
+        <argsstring></argsstring>
+        <name>m_func_map_update_int32_params</name>
+        <qualifiedname>ImuControlParameters::m_func_map_update_int32_params</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Update parameter map which contains the update function call for each parameter of type int32. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/imu_control_parameters.h" line="182" column="28" bodyfile="include/adi_imu/imu_control_parameters.h" bodystart="182" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classImuControlParameters_1ae8b7fda4cd0053f95fcdb17cd0d845e5" prot="private" static="no" mutable="no">
+        <type><ref refid="classImuControlParameters_1a54231d8005b5513dc51d079e11b88cb7" kindref="member">GetInt32ParamsMapType</ref></type>
+        <definition>GetInt32ParamsMapType ImuControlParameters::m_func_map_get_int32_params</definition>
+        <argsstring></argsstring>
+        <name>m_func_map_get_int32_params</name>
+        <qualifiedname>ImuControlParameters::m_func_map_get_int32_params</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Read parameter map which contains the read function call for each parameter of type int32. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/imu_control_parameters.h" line="191" column="25" bodyfile="include/adi_imu/imu_control_parameters.h" bodystart="191" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classImuControlParameters_1a56ea60d73a130a69a0dd61c1d8779e27" prot="private" static="no" mutable="no">
+        <type><ref refid="classImuControlParameters_1a217a4e02692f65433945b7a285b6415e" kindref="member">UpdateDoubleParamsMapType</ref></type>
+        <definition>UpdateDoubleParamsMapType ImuControlParameters::m_func_map_update_double_params</definition>
+        <argsstring></argsstring>
+        <name>m_func_map_update_double_params</name>
+        <qualifiedname>ImuControlParameters::m_func_map_update_double_params</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Update parameter map which contains the update function call for each parameter of type double. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/imu_control_parameters.h" line="200" column="29" bodyfile="include/adi_imu/imu_control_parameters.h" bodystart="200" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classImuControlParameters_1af56801333a7647590e9318db88c65e85" prot="private" static="no" mutable="no">
+        <type><ref refid="classImuControlParameters_1a619c7db2b3afced6b9fa7f6f770b9e17" kindref="member">GetDoubleParamsMapType</ref></type>
+        <definition>GetDoubleParamsMapType ImuControlParameters::m_func_map_get_double_params</definition>
+        <argsstring></argsstring>
+        <name>m_func_map_get_double_params</name>
+        <qualifiedname>ImuControlParameters::m_func_map_get_double_params</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Read parameter map which contains the read function call for each parameter of type double. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/imu_control_parameters.h" line="209" column="26" bodyfile="include/adi_imu/imu_control_parameters.h" bodystart="209" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classImuControlParameters_1ab5a51dfd26f3cdeeb7c2d1c1de771eb7" prot="private" static="no" mutable="no">
+        <type><ref refid="classImuControlParameters_1af395e099df244af44911518e92f4a02b" kindref="member">ExecuteCommandsMapType</ref></type>
+        <definition>ExecuteCommandsMapType ImuControlParameters::m_func_map_execute_commands</definition>
+        <argsstring></argsstring>
+        <name>m_func_map_execute_commands</name>
+        <qualifiedname>ImuControlParameters::m_func_map_execute_commands</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Command map which contains the trigger function call for each command. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/imu_control_parameters.h" line="218" column="26" bodyfile="include/adi_imu/imu_control_parameters.h" bodystart="218" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classImuControlParameters_1ab1f1a2ace21a2123c9086c6e141713da" prot="private" static="no" mutable="no">
+        <type>std::list&lt; std::string &gt;</type>
+        <definition>std::list&lt;std::string&gt; ImuControlParameters::m_attr_current_device</definition>
+        <argsstring></argsstring>
+        <name>m_attr_current_device</name>
+        <qualifiedname>ImuControlParameters::m_attr_current_device</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Attribute list which stores the current attribute names of the device. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/imu_control_parameters.h" line="221" column="13" bodyfile="include/adi_imu/imu_control_parameters.h" bodystart="221" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classImuControlParameters_1a30414b572a699d87f6d21e17a54a36ef" prot="private" static="no" mutable="no">
+        <type>std::map&lt; std::string, int32_t &gt;</type>
+        <definition>std::map&lt;std::string, int32_t&gt; ImuControlParameters::m_int32_current_params</definition>
+        <argsstring></argsstring>
+        <name>m_int32_current_params</name>
+        <qualifiedname>ImuControlParameters::m_int32_current_params</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Parameter map of type int32 which stores the current value of the parameter. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/imu_control_parameters.h" line="224" column="12" bodyfile="include/adi_imu/imu_control_parameters.h" bodystart="224" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classImuControlParameters_1a9bf1f32e4bbaaeba1a8d4d0bbc869ae2" prot="private" static="no" mutable="no">
+        <type>std::map&lt; std::string, int64_t &gt;</type>
+        <definition>std::map&lt;std::string, int64_t&gt; ImuControlParameters::m_uint32_current_params</definition>
+        <argsstring></argsstring>
+        <name>m_uint32_current_params</name>
+        <qualifiedname>ImuControlParameters::m_uint32_current_params</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Parameter map of type uint32 which stores the current value of the parameter. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/imu_control_parameters.h" line="227" column="12" bodyfile="include/adi_imu/imu_control_parameters.h" bodystart="227" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classImuControlParameters_1a7027df0c4d7cde53c39f46d3438d90e2" prot="private" static="no" mutable="no">
+        <type>std::map&lt; std::string, double &gt;</type>
+        <definition>std::map&lt;std::string, double&gt; ImuControlParameters::m_double_current_params</definition>
+        <argsstring></argsstring>
+        <name>m_double_current_params</name>
+        <qualifiedname>ImuControlParameters::m_double_current_params</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Parameter map of type double which stores the current value of the parameter. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/imu_control_parameters.h" line="230" column="12" bodyfile="include/adi_imu/imu_control_parameters.h" bodystart="230" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classImuControlParameters_1a793e0ffb6bfbea341b30d74ca854a585" prot="private" static="no" mutable="no">
+        <type>std::map&lt; std::string, std::string &gt;</type>
+        <definition>std::map&lt;std::string, std::string&gt; ImuControlParameters::m_param_description</definition>
+        <argsstring></argsstring>
+        <name>m_param_description</name>
+        <qualifiedname>ImuControlParameters::m_param_description</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Parameter map with parameter description. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/imu_control_parameters.h" line="233" column="12" bodyfile="include/adi_imu/imu_control_parameters.h" bodystart="233" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classImuControlParameters_1af0387f10c79cc939f530b9458b813a7a" prot="private" static="no" mutable="no">
+        <type>std::map&lt; std::string, rcl_interfaces::msg::IntegerRange &gt;</type>
+        <definition>std::map&lt;std::string, rcl_interfaces::msg::IntegerRange&gt; ImuControlParameters::m_param_constraints_integer</definition>
+        <argsstring></argsstring>
+        <name>m_param_constraints_integer</name>
+        <qualifiedname>ImuControlParameters::m_param_constraints_integer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Parameter map with IntegerRange for parameter constraints. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/imu_control_parameters.h" line="236" column="12" bodyfile="include/adi_imu/imu_control_parameters.h" bodystart="236" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classImuControlParameters_1ab64303326f426a54dd55a201d8e8d411" prot="private" static="no" mutable="no">
+        <type>std::map&lt; std::string, rcl_interfaces::msg::FloatingPointRange &gt;</type>
+        <definition>std::map&lt;std::string, rcl_interfaces::msg::FloatingPointRange&gt; ImuControlParameters::m_param_constraints_floating</definition>
+        <argsstring></argsstring>
+        <name>m_param_constraints_floating</name>
+        <qualifiedname>ImuControlParameters::m_param_constraints_floating</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Parameter map with FloatingPointRange for parameter constraints. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/imu_control_parameters.h" line="239" column="12" bodyfile="include/adi_imu/imu_control_parameters.h" bodystart="239" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classImuControlParameters_1ac48f67e7a3b66410fb3c4e9ea0b5dc0a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ImuControlParameters::ImuControlParameters</definition>
+        <argsstring>(std::shared_ptr&lt; rclcpp::Node &gt; &amp;node)</argsstring>
+        <name>ImuControlParameters</name>
+        <qualifiedname>ImuControlParameters::ImuControlParameters</qualifiedname>
+        <param>
+          <type>std::shared_ptr&lt; rclcpp::Node &gt; &amp;</type>
+          <declname>node</declname>
+        </param>
+        <briefdescription>
+<para>Constructor for <ref refid="classImuControlParameters" kindref="compound">ImuControlParameters</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>node</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The ros2 Node instance. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/imu_control_parameters.h" line="39" column="3" bodyfile="src/imu_control_parameters.cpp" bodystart="29" bodyend="42"/>
+      </memberdef>
+      <memberdef kind="function" id="classImuControlParameters_1a9eab68cf68a1fba0e2d0ad312e814d37" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ImuControlParameters::~ImuControlParameters</definition>
+        <argsstring>()</argsstring>
+        <name>~ImuControlParameters</name>
+        <qualifiedname>ImuControlParameters::~ImuControlParameters</qualifiedname>
+        <briefdescription>
+<para>Destructor for <ref refid="classImuControlParameters" kindref="compound">ImuControlParameters</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/imu_control_parameters.h" line="44" column="3" bodyfile="src/imu_control_parameters.cpp" bodystart="44" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="function" id="classImuControlParameters_1a3fdcf6864bdd68a06f712bef548acd24" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ImuControlParameters::handleControlParams</definition>
+        <argsstring>()</argsstring>
+        <name>handleControlParams</name>
+        <qualifiedname>ImuControlParameters::handleControlParams</qualifiedname>
+        <briefdescription>
+<para>Handle ROS parameters and perform the necessary updated in the hardware. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/imu_control_parameters.h" line="50" column="8" bodyfile="src/imu_control_parameters.cpp" bodystart="725" bodyend="731"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classImuControlParameters_1a7ddb2c0494555953182e42bd0078e8f2" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ImuControlParameters::declareAdisAttributes</definition>
+        <argsstring>()</argsstring>
+        <name>declareAdisAttributes</name>
+        <qualifiedname>ImuControlParameters::declareAdisAttributes</qualifiedname>
+        <briefdescription>
+<para>Add the list of adis parameters to m_attr_current_device. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/imu_control_parameters.h" line="56" column="8" bodyfile="src/imu_control_parameters.cpp" bodystart="46" bodyend="92"/>
+      </memberdef>
+      <memberdef kind="function" id="classImuControlParameters_1acad11bd8e1ff8ef2d5bf512877ffa32f" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ImuControlParameters::mapIIOUpdateFunctionsInt32</definition>
+        <argsstring>()</argsstring>
+        <name>mapIIOUpdateFunctionsInt32</name>
+        <qualifiedname>ImuControlParameters::mapIIOUpdateFunctionsInt32</qualifiedname>
+        <briefdescription>
+<para>Add the list of IIO update functions to m_func_map_update_int32_params map. This map contains the update APIs for each int32 type parameter. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/imu_control_parameters.h" line="63" column="8" bodyfile="src/imu_control_parameters.cpp" bodystart="94" bodyend="128"/>
+      </memberdef>
+      <memberdef kind="function" id="classImuControlParameters_1ad256c1c4af60a7fe2b6b6adbf1108e30" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ImuControlParameters::mapIIOGetFunctionsInt32</definition>
+        <argsstring>()</argsstring>
+        <name>mapIIOGetFunctionsInt32</name>
+        <qualifiedname>ImuControlParameters::mapIIOGetFunctionsInt32</qualifiedname>
+        <briefdescription>
+<para>Add the list of IIO read functions to m_func_map_get_int32_params map. This map contains the read APIs for each int32 type parameter. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/imu_control_parameters.h" line="70" column="8" bodyfile="src/imu_control_parameters.cpp" bodystart="130" bodyend="164"/>
+      </memberdef>
+      <memberdef kind="function" id="classImuControlParameters_1a0839165af2a0cc50e07ad6b55806953f" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ImuControlParameters::mapIIOUpdateFunctionsUint32</definition>
+        <argsstring>()</argsstring>
+        <name>mapIIOUpdateFunctionsUint32</name>
+        <qualifiedname>ImuControlParameters::mapIIOUpdateFunctionsUint32</qualifiedname>
+        <briefdescription>
+<para>Add the list of IIO update functions to m_func_map_update_uint32_params map. This map contains the update APIs for each uint32 type parameter. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/imu_control_parameters.h" line="77" column="8" bodyfile="src/imu_control_parameters.cpp" bodystart="166" bodyend="196"/>
+      </memberdef>
+      <memberdef kind="function" id="classImuControlParameters_1aff2a31343637952540bfe76a04728e51" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ImuControlParameters::mapIIOGetFunctionsUint32</definition>
+        <argsstring>()</argsstring>
+        <name>mapIIOGetFunctionsUint32</name>
+        <qualifiedname>ImuControlParameters::mapIIOGetFunctionsUint32</qualifiedname>
+        <briefdescription>
+<para>Add the list of IIO read functions to m_func_map_get_uint32_params map. This map contains the read APIs for each uint32 type parameter. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/imu_control_parameters.h" line="84" column="8" bodyfile="src/imu_control_parameters.cpp" bodystart="198" bodyend="228"/>
+      </memberdef>
+      <memberdef kind="function" id="classImuControlParameters_1ae6be8328df3865c9b057f7b6871612cd" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ImuControlParameters::mapIIOUpdateFunctionsDouble</definition>
+        <argsstring>()</argsstring>
+        <name>mapIIOUpdateFunctionsDouble</name>
+        <qualifiedname>ImuControlParameters::mapIIOUpdateFunctionsDouble</qualifiedname>
+        <briefdescription>
+<para>Add the list of IIO update functions to m_func_map_update_double_params map. This map contains the update APIs for each double type parameter. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/imu_control_parameters.h" line="91" column="8" bodyfile="src/imu_control_parameters.cpp" bodystart="230" bodyend="233"/>
+      </memberdef>
+      <memberdef kind="function" id="classImuControlParameters_1acfe86a041e90121d3199ea7a0daaf8ac" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ImuControlParameters::mapIIOGetFunctionsDouble</definition>
+        <argsstring>()</argsstring>
+        <name>mapIIOGetFunctionsDouble</name>
+        <qualifiedname>ImuControlParameters::mapIIOGetFunctionsDouble</qualifiedname>
+        <briefdescription>
+<para>Add the list of IIO read functions to m_func_map_get_double_params map. This map contains the read APIs for each double type parameter. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/imu_control_parameters.h" line="98" column="8" bodyfile="src/imu_control_parameters.cpp" bodystart="235" bodyend="238"/>
+      </memberdef>
+      <memberdef kind="function" id="classImuControlParameters_1a2895734d37c7278c6df4a51cbed6aa82" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ImuControlParameters::mapIIOCommandFunctions</definition>
+        <argsstring>()</argsstring>
+        <name>mapIIOCommandFunctions</name>
+        <qualifiedname>ImuControlParameters::mapIIOCommandFunctions</qualifiedname>
+        <briefdescription>
+<para>Add the list of IIO command functions to m_func_map_execute_commands map. This map contains the command APIs for which can be triggered in the hardware. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/imu_control_parameters.h" line="105" column="8" bodyfile="src/imu_control_parameters.cpp" bodystart="240" bodyend="253"/>
+      </memberdef>
+      <memberdef kind="function" id="classImuControlParameters_1a3c2c658b2e5fb2e2fe659501e7203054" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ImuControlParameters::declareParameterDescription</definition>
+        <argsstring>()</argsstring>
+        <name>declareParameterDescription</name>
+        <qualifiedname>ImuControlParameters::declareParameterDescription</qualifiedname>
+        <briefdescription>
+<para>Add a parameter description for each parameter in m_param_description. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/imu_control_parameters.h" line="111" column="8" bodyfile="src/imu_control_parameters.cpp" bodystart="255" bodyend="427"/>
+      </memberdef>
+      <memberdef kind="function" id="classImuControlParameters_1ab8aba305fccae66c9ad5f4a0f9e0aece" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ImuControlParameters::declareParameters</definition>
+        <argsstring>()</argsstring>
+        <name>declareParameters</name>
+        <qualifiedname>ImuControlParameters::declareParameters</qualifiedname>
+        <briefdescription>
+<para>Declare the ros parameters and initialize their values with values read from hardware. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/imu_control_parameters.h" line="117" column="8" bodyfile="src/imu_control_parameters.cpp" bodystart="429" bodyend="494"/>
+      </memberdef>
+      <memberdef kind="function" id="classImuControlParameters_1aa733955c32fc2253f4b14d2db1b454a2" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ImuControlParameters::updateParamsFromHardware</definition>
+        <argsstring>()</argsstring>
+        <name>updateParamsFromHardware</name>
+        <qualifiedname>ImuControlParameters::updateParamsFromHardware</qualifiedname>
+        <briefdescription>
+<para>Update all ros parameter values by reading them from hardware. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/imu_control_parameters.h" line="122" column="8" bodyfile="src/imu_control_parameters.cpp" bodystart="496" bodyend="541"/>
+      </memberdef>
+      <memberdef kind="function" id="classImuControlParameters_1a747ae2b209292e2af2de26a8cc448c61" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ImuControlParameters::handleDoubleParamChange</definition>
+        <argsstring>()</argsstring>
+        <name>handleDoubleParamChange</name>
+        <qualifiedname>ImuControlParameters::handleDoubleParamChange</qualifiedname>
+        <briefdescription>
+<para>Handles a parameter change of type double. Performs the necessary updates in the hardware and logs the result. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/imu_control_parameters.h" line="128" column="8" bodyfile="src/imu_control_parameters.cpp" bodystart="543" bodyend="592"/>
+      </memberdef>
+      <memberdef kind="function" id="classImuControlParameters_1a3cd01af35e9eae635764fac2ed0bb3e2" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ImuControlParameters::handleInt32ParamChange</definition>
+        <argsstring>()</argsstring>
+        <name>handleInt32ParamChange</name>
+        <qualifiedname>ImuControlParameters::handleInt32ParamChange</qualifiedname>
+        <briefdescription>
+<para>Handles a parameter change of type int32. Performs the necessary updates in the hardware and logs the result. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/imu_control_parameters.h" line="134" column="8" bodyfile="src/imu_control_parameters.cpp" bodystart="594" bodyend="643"/>
+      </memberdef>
+      <memberdef kind="function" id="classImuControlParameters_1a117d2fb3cdb9cb7ae668295a7615df94" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ImuControlParameters::handleUint32ParamChange</definition>
+        <argsstring>()</argsstring>
+        <name>handleUint32ParamChange</name>
+        <qualifiedname>ImuControlParameters::handleUint32ParamChange</qualifiedname>
+        <briefdescription>
+<para>Handles a parameter change of type uint32. Performs the necessary updates in the hardware and logs the result. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/imu_control_parameters.h" line="140" column="8" bodyfile="src/imu_control_parameters.cpp" bodystart="645" bodyend="696"/>
+      </memberdef>
+      <memberdef kind="function" id="classImuControlParameters_1ab456afd17772314a2bdcdb611aa6fc12" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ImuControlParameters::handleCommands</definition>
+        <argsstring>()</argsstring>
+        <name>handleCommands</name>
+        <qualifiedname>ImuControlParameters::handleCommands</qualifiedname>
+        <briefdescription>
+<para>Handles a command. Trigger the command in the hardware if necessary and logs the result. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/imu_control_parameters.h" line="146" column="8" bodyfile="src/imu_control_parameters.cpp" bodystart="698" bodyend="723"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Class for handling device parameters. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>IIOWrapper</label>
+        <link refid="classIIOWrapper"/>
+      </node>
+      <node id="1">
+        <label>ImuControlParameters</label>
+        <link refid="classImuControlParameters"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>m_iio_wrapper</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="include/adi_imu/imu_control_parameters.h" line="32" column="1" bodyfile="include/adi_imu/imu_control_parameters.h" bodystart="33" bodyend="240"/>
+    <listofallmembers>
+      <member refid="classImuControlParameters_1a7ddb2c0494555953182e42bd0078e8f2" prot="private" virt="non-virtual"><scope>ImuControlParameters</scope><name>declareAdisAttributes</name></member>
+      <member refid="classImuControlParameters_1a3c2c658b2e5fb2e2fe659501e7203054" prot="private" virt="non-virtual"><scope>ImuControlParameters</scope><name>declareParameterDescription</name></member>
+      <member refid="classImuControlParameters_1ab8aba305fccae66c9ad5f4a0f9e0aece" prot="private" virt="non-virtual"><scope>ImuControlParameters</scope><name>declareParameters</name></member>
+      <member refid="classImuControlParameters_1affa8e2f00d84a5f26a69f16eaf9f9c39" prot="private" virt="non-virtual"><scope>ImuControlParameters</scope><name>ExecuteCommands</name></member>
+      <member refid="classImuControlParameters_1af395e099df244af44911518e92f4a02b" prot="private" virt="non-virtual"><scope>ImuControlParameters</scope><name>ExecuteCommandsMapType</name></member>
+      <member refid="classImuControlParameters_1a261cfd80e62c8a3362414fddd9f2da93" prot="private" virt="non-virtual"><scope>ImuControlParameters</scope><name>GetDoubleParams</name></member>
+      <member refid="classImuControlParameters_1a619c7db2b3afced6b9fa7f6f770b9e17" prot="private" virt="non-virtual"><scope>ImuControlParameters</scope><name>GetDoubleParamsMapType</name></member>
+      <member refid="classImuControlParameters_1a87949036708585beab3c05aeff113f32" prot="private" virt="non-virtual"><scope>ImuControlParameters</scope><name>GetInt32Params</name></member>
+      <member refid="classImuControlParameters_1a54231d8005b5513dc51d079e11b88cb7" prot="private" virt="non-virtual"><scope>ImuControlParameters</scope><name>GetInt32ParamsMapType</name></member>
+      <member refid="classImuControlParameters_1a82802c01a3698c99b5e0bbd5117f7dd1" prot="private" virt="non-virtual"><scope>ImuControlParameters</scope><name>GetUint32Params</name></member>
+      <member refid="classImuControlParameters_1aca50889946b53f310ddd2cd1143c951b" prot="private" virt="non-virtual"><scope>ImuControlParameters</scope><name>GetUint32ParamsMapType</name></member>
+      <member refid="classImuControlParameters_1ab456afd17772314a2bdcdb611aa6fc12" prot="private" virt="non-virtual"><scope>ImuControlParameters</scope><name>handleCommands</name></member>
+      <member refid="classImuControlParameters_1a3fdcf6864bdd68a06f712bef548acd24" prot="public" virt="non-virtual"><scope>ImuControlParameters</scope><name>handleControlParams</name></member>
+      <member refid="classImuControlParameters_1a747ae2b209292e2af2de26a8cc448c61" prot="private" virt="non-virtual"><scope>ImuControlParameters</scope><name>handleDoubleParamChange</name></member>
+      <member refid="classImuControlParameters_1a3cd01af35e9eae635764fac2ed0bb3e2" prot="private" virt="non-virtual"><scope>ImuControlParameters</scope><name>handleInt32ParamChange</name></member>
+      <member refid="classImuControlParameters_1a117d2fb3cdb9cb7ae668295a7615df94" prot="private" virt="non-virtual"><scope>ImuControlParameters</scope><name>handleUint32ParamChange</name></member>
+      <member refid="classImuControlParameters_1ac48f67e7a3b66410fb3c4e9ea0b5dc0a" prot="public" virt="non-virtual"><scope>ImuControlParameters</scope><name>ImuControlParameters</name></member>
+      <member refid="classImuControlParameters_1ab1f1a2ace21a2123c9086c6e141713da" prot="private" virt="non-virtual"><scope>ImuControlParameters</scope><name>m_attr_current_device</name></member>
+      <member refid="classImuControlParameters_1abfb5fd3c8fad0ce52ac726cf135c5ebb" prot="private" virt="non-virtual"><scope>ImuControlParameters</scope><name>m_command_to_execute</name></member>
+      <member refid="classImuControlParameters_1a7027df0c4d7cde53c39f46d3438d90e2" prot="private" virt="non-virtual"><scope>ImuControlParameters</scope><name>m_double_current_params</name></member>
+      <member refid="classImuControlParameters_1ab5a51dfd26f3cdeeb7c2d1c1de771eb7" prot="private" virt="non-virtual"><scope>ImuControlParameters</scope><name>m_func_map_execute_commands</name></member>
+      <member refid="classImuControlParameters_1af56801333a7647590e9318db88c65e85" prot="private" virt="non-virtual"><scope>ImuControlParameters</scope><name>m_func_map_get_double_params</name></member>
+      <member refid="classImuControlParameters_1ae8b7fda4cd0053f95fcdb17cd0d845e5" prot="private" virt="non-virtual"><scope>ImuControlParameters</scope><name>m_func_map_get_int32_params</name></member>
+      <member refid="classImuControlParameters_1afd5ac3df4ab613f0b3f77775b8755c4f" prot="private" virt="non-virtual"><scope>ImuControlParameters</scope><name>m_func_map_get_uint32_params</name></member>
+      <member refid="classImuControlParameters_1a56ea60d73a130a69a0dd61c1d8779e27" prot="private" virt="non-virtual"><scope>ImuControlParameters</scope><name>m_func_map_update_double_params</name></member>
+      <member refid="classImuControlParameters_1a27be5741591bf0fc60fe7167257ee112" prot="private" virt="non-virtual"><scope>ImuControlParameters</scope><name>m_func_map_update_int32_params</name></member>
+      <member refid="classImuControlParameters_1af520e1d09d7b28678d5d3103cd1cb0d4" prot="private" virt="non-virtual"><scope>ImuControlParameters</scope><name>m_func_map_update_uint32_params</name></member>
+      <member refid="classImuControlParameters_1a1116f3c4083e6dc9dbea7e8104e6cde9" prot="private" virt="non-virtual"><scope>ImuControlParameters</scope><name>m_iio_wrapper</name></member>
+      <member refid="classImuControlParameters_1a30414b572a699d87f6d21e17a54a36ef" prot="private" virt="non-virtual"><scope>ImuControlParameters</scope><name>m_int32_current_params</name></member>
+      <member refid="classImuControlParameters_1a550af7cb014cc2b4dec9e42342303f63" prot="private" virt="non-virtual"><scope>ImuControlParameters</scope><name>m_node</name></member>
+      <member refid="classImuControlParameters_1ab64303326f426a54dd55a201d8e8d411" prot="private" virt="non-virtual"><scope>ImuControlParameters</scope><name>m_param_constraints_floating</name></member>
+      <member refid="classImuControlParameters_1af0387f10c79cc939f530b9458b813a7a" prot="private" virt="non-virtual"><scope>ImuControlParameters</scope><name>m_param_constraints_integer</name></member>
+      <member refid="classImuControlParameters_1a793e0ffb6bfbea341b30d74ca854a585" prot="private" virt="non-virtual"><scope>ImuControlParameters</scope><name>m_param_description</name></member>
+      <member refid="classImuControlParameters_1a9bf1f32e4bbaaeba1a8d4d0bbc869ae2" prot="private" virt="non-virtual"><scope>ImuControlParameters</scope><name>m_uint32_current_params</name></member>
+      <member refid="classImuControlParameters_1a2895734d37c7278c6df4a51cbed6aa82" prot="private" virt="non-virtual"><scope>ImuControlParameters</scope><name>mapIIOCommandFunctions</name></member>
+      <member refid="classImuControlParameters_1acfe86a041e90121d3199ea7a0daaf8ac" prot="private" virt="non-virtual"><scope>ImuControlParameters</scope><name>mapIIOGetFunctionsDouble</name></member>
+      <member refid="classImuControlParameters_1ad256c1c4af60a7fe2b6b6adbf1108e30" prot="private" virt="non-virtual"><scope>ImuControlParameters</scope><name>mapIIOGetFunctionsInt32</name></member>
+      <member refid="classImuControlParameters_1aff2a31343637952540bfe76a04728e51" prot="private" virt="non-virtual"><scope>ImuControlParameters</scope><name>mapIIOGetFunctionsUint32</name></member>
+      <member refid="classImuControlParameters_1ae6be8328df3865c9b057f7b6871612cd" prot="private" virt="non-virtual"><scope>ImuControlParameters</scope><name>mapIIOUpdateFunctionsDouble</name></member>
+      <member refid="classImuControlParameters_1acad11bd8e1ff8ef2d5bf512877ffa32f" prot="private" virt="non-virtual"><scope>ImuControlParameters</scope><name>mapIIOUpdateFunctionsInt32</name></member>
+      <member refid="classImuControlParameters_1a0839165af2a0cc50e07ad6b55806953f" prot="private" virt="non-virtual"><scope>ImuControlParameters</scope><name>mapIIOUpdateFunctionsUint32</name></member>
+      <member refid="classImuControlParameters_1ad9ec37d0885918285b76b0a01cc17ee8" prot="private" virt="non-virtual"><scope>ImuControlParameters</scope><name>UpdateDoubleParams</name></member>
+      <member refid="classImuControlParameters_1a217a4e02692f65433945b7a285b6415e" prot="private" virt="non-virtual"><scope>ImuControlParameters</scope><name>UpdateDoubleParamsMapType</name></member>
+      <member refid="classImuControlParameters_1a82366b8096ef75c05b44ece86798ecce" prot="private" virt="non-virtual"><scope>ImuControlParameters</scope><name>UpdateInt32Params</name></member>
+      <member refid="classImuControlParameters_1a96d9f5b54857f9de53ab8aa9e28e1433" prot="private" virt="non-virtual"><scope>ImuControlParameters</scope><name>UpdateInt32ParamsMapType</name></member>
+      <member refid="classImuControlParameters_1aa733955c32fc2253f4b14d2db1b454a2" prot="private" virt="non-virtual"><scope>ImuControlParameters</scope><name>updateParamsFromHardware</name></member>
+      <member refid="classImuControlParameters_1a08337927ac5d0390c065a8f8b64e11ce" prot="private" virt="non-virtual"><scope>ImuControlParameters</scope><name>UpdateUint32Params</name></member>
+      <member refid="classImuControlParameters_1add2e53a89e0f075df4a090fb28ea59d0" prot="private" virt="non-virtual"><scope>ImuControlParameters</scope><name>UpdateUint32ParamsMapType</name></member>
+      <member refid="classImuControlParameters_1a9eab68cf68a1fba0e2d0ad312e814d37" prot="public" virt="non-virtual"><scope>ImuControlParameters</scope><name>~ImuControlParameters</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

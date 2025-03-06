@@ -1,0 +1,9 @@
+<map id="ImuDiagRosPublisher" name="ImuDiagRosPublisher">
+<area shape="rect" id="Node000001" title="Class for diagnosis publisher for adis1657x chips." alt="" coords="155,168,317,193"/>
+<area shape="rect" id="Node000002" href="$classImuDiagRosPublisherInterface.html" title="Interface for diagnosis publisher for adis chips." alt="" coords="5,80,224,105"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="144,111,221,166,218,170,141,116"/>
+<area shape="rect" id="Node000003" href="$classRosTask.html" title="Interface for running a task in a thread." alt="" coords="77,5,152,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="117,45,117,80,112,80,112,45"/>
+<area shape="rect" id="Node000004" href="$classImuDiagDataProviderInterface.html" title="Interface for diagnosis data provider for adis chips." alt="" coords="249,80,469,105"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="332,116,254,170,251,166,329,111"/>
+</map>

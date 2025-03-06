@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classImuIdentificationDataProviderInterface" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>ImuIdentificationDataProviderInterface</compoundname>
+    <derivedcompoundref refid="classImuIdentificationDataProvider" prot="public" virt="non-virtual">ImuIdentificationDataProvider</derivedcompoundref>
+    <includes refid="imu__identification__data__provider__interface_8h" local="no">imu_identification_data_provider_interface.h</includes>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classImuIdentificationDataProviderInterface_1adc3d08505c9c45fd8ee2782963342812" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ImuIdentificationDataProviderInterface::ImuIdentificationDataProviderInterface</definition>
+        <argsstring>()</argsstring>
+        <name>ImuIdentificationDataProviderInterface</name>
+        <qualifiedname>ImuIdentificationDataProviderInterface::ImuIdentificationDataProviderInterface</qualifiedname>
+        <briefdescription>
+<para>Constructor for <ref refid="classImuIdentificationDataProviderInterface" kindref="compound">ImuIdentificationDataProviderInterface</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/imu_identification_data_provider_interface.h" line="35" column="3" bodyfile="include/adi_imu/imu_identification_data_provider_interface.h" bodystart="35" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="function" id="classImuIdentificationDataProviderInterface_1a3c20f4e190d9da755ee45499eba8dd54" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type></type>
+        <definition>virtual ImuIdentificationDataProviderInterface::~ImuIdentificationDataProviderInterface</definition>
+        <argsstring>()</argsstring>
+        <name>~ImuIdentificationDataProviderInterface</name>
+        <qualifiedname>ImuIdentificationDataProviderInterface::~ImuIdentificationDataProviderInterface</qualifiedname>
+        <briefdescription>
+<para>Destructor for <ref refid="classImuIdentificationDataProviderInterface" kindref="compound">ImuIdentificationDataProviderInterface</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/imu_identification_data_provider_interface.h" line="40" column="11" bodyfile="include/adi_imu/imu_identification_data_provider_interface.h" bodystart="40" bodyend="40"/>
+      </memberdef>
+      <memberdef kind="function" id="classImuIdentificationDataProviderInterface_1a1897dffdb20936fa8f25570eb767d9d5" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>bool</type>
+        <definition>virtual bool ImuIdentificationDataProviderInterface::getData</definition>
+        <argsstring>(adi_imu::msg::ImuIdentificationData &amp;message)=0</argsstring>
+        <name>getData</name>
+        <qualifiedname>ImuIdentificationDataProviderInterface::getData</qualifiedname>
+        <reimplementedby refid="classImuIdentificationDataProvider_1ae93f13d5654f5d83cb1b672b9984fbbb">getData</reimplementedby>
+        <param>
+          <type>adi_imu::msg::ImuIdentificationData &amp;</type>
+          <declname>message</declname>
+        </param>
+        <briefdescription>
+<para>Populate ImuIdentificationData message with identification data. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>message</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Message containing the identification data. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Return true if the message parameter is successfully populated with identification data and false otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/imu_identification_data_provider_interface.h" line="48" column="16"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Interface for identification data provider. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>ImuIdentificationDataProvider</label>
+        <link refid="classImuIdentificationDataProvider"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>ImuIdentificationDataProviderInterface</label>
+        <link refid="classImuIdentificationDataProviderInterface"/>
+      </node>
+    </inheritancegraph>
+    <location file="include/adi_imu/imu_identification_data_provider_interface.h" line="29" column="1" bodyfile="include/adi_imu/imu_identification_data_provider_interface.h" bodystart="30" bodyend="49"/>
+    <listofallmembers>
+      <member refid="classImuIdentificationDataProviderInterface_1a1897dffdb20936fa8f25570eb767d9d5" prot="public" virt="pure-virtual"><scope>ImuIdentificationDataProviderInterface</scope><name>getData</name></member>
+      <member refid="classImuIdentificationDataProviderInterface_1adc3d08505c9c45fd8ee2782963342812" prot="public" virt="non-virtual"><scope>ImuIdentificationDataProviderInterface</scope><name>ImuIdentificationDataProviderInterface</name></member>
+      <member refid="classImuIdentificationDataProviderInterface_1a3c20f4e190d9da755ee45499eba8dd54" prot="public" virt="virtual"><scope>ImuIdentificationDataProviderInterface</scope><name>~ImuIdentificationDataProviderInterface</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

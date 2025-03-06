@@ -1,0 +1,43 @@
+\doxysection{accelgyrotemp\+\_\+data\+\_\+provider\+\_\+interface.\+h}
+\hypertarget{accelgyrotemp__data__provider__interface_8h_source}{}\label{accelgyrotemp__data__provider__interface_8h_source}\index{include/adi\_imu/accelgyrotemp\_data\_provider\_interface.h@{include/adi\_imu/accelgyrotemp\_data\_provider\_interface.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*******************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ \ \ @file\ \ \ accelgyrotemp\_data\_provider\_interface.h}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ \ \ @brief\ \ Interface\ for\ providing\ acceleration,\ gyroscope\ and}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ \ \ \ \ \ \ \ \ \ \ temperature\ data\ provider.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ \ @author\ Vasile\ Holonec\ (Vasile.Holonec@analog.com)}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *******************************************************************************}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ Copyright\ 2023(c)\ Analog\ Devices,\ Inc.}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *\ Licensed\ under\ the\ Apache\ License,\ Version\ 2.0\ (the\ "{}License"{});}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ you\ may\ not\ use\ this\ file\ except\ in\ compliance\ with\ the\ License.}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ You\ may\ obtain\ a\ copy\ of\ the\ License\ at}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ \ \ \ \ http://www.apache.org/licenses/LICENSE-\/2.0}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ Unless\ required\ by\ applicable\ law\ or\ agreed\ to\ in\ writing,\ software}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ distributed\ under\ the\ License\ is\ distributed\ on\ an\ "{}AS\ IS"{}\ BASIS,}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ WITHOUT\ WARRANTIES\ OR\ CONDITIONS\ OF\ ANY\ KIND,\ either\ express\ or\ implied.}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ *\ See\ the\ License\ for\ the\ specific\ language\ governing\ permissions\ and}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ *\ limitations\ under\ the\ License.}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ ******************************************************************************/}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#ifndef\ ACCELGYROTEMP\_DATA\_PROVIDER\_INTERFACE\_H}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#define\ ACCELGYROTEMP\_DATA\_PROVIDER\_INTERFACE\_H}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#include\ "{}adi\_imu/msg/accel\_gyro\_temp\_data.hpp"{}}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00031\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classAccelGyroTempDataProviderInterface}{AccelGyroTempDataProviderInterface}}}
+\DoxyCodeLine{00032\ \{}
+\DoxyCodeLine{00033\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00037\ \ \ \mbox{\hyperlink{classAccelGyroTempDataProviderInterface_a8c99006840c27be6ebc2c83f4296095b}{AccelGyroTempDataProviderInterface}}()\ \{\}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00042\ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classAccelGyroTempDataProviderInterface_afb2081833893e32a460d658298989691}{\string~AccelGyroTempDataProviderInterface}}()\ \{\}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00050\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classAccelGyroTempDataProviderInterface_a0b20795091c2739841a9b08b647eb45b}{getData}}(adi\_imu::msg::AccelGyroTempData\ \&\ message)\ =\ 0;}
+\DoxyCodeLine{00051\ \};}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ ACCELGYROTEMP\_DATA\_PROVIDER\_INTERFACE\_H}}
+
+\end{DoxyCode}

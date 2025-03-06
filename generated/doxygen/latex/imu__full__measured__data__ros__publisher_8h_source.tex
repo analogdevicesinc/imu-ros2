@@ -1,0 +1,55 @@
+\doxysection{imu\+\_\+full\+\_\+measured\+\_\+data\+\_\+ros\+\_\+publisher.\+h}
+\hypertarget{imu__full__measured__data__ros__publisher_8h_source}{}\label{imu__full__measured__data__ros__publisher_8h_source}\index{include/adi\_imu/imu\_full\_measured\_data\_ros\_publisher.h@{include/adi\_imu/imu\_full\_measured\_data\_ros\_publisher.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*******************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ \ \ @file\ \ \ imu\_full\_measured\_data\_ros\_publisher.h}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ \ \ @brief\ \ Header\ for\ acceleration,\ gyroscope,\ temperature,\ delta\ velocity,}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ \ \ \ \ \ \ \ \ \ \ delta\ angle\ and\ temperature\ publisher.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ \ @author\ Vasile\ Holonec\ (Vasile.Holonec@analog.com)}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *******************************************************************************}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ Copyright\ 2023(c)\ Analog\ Devices,\ Inc.}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *\ Licensed\ under\ the\ Apache\ License,\ Version\ 2.0\ (the\ "{}License"{});}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ you\ may\ not\ use\ this\ file\ except\ in\ compliance\ with\ the\ License.}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ You\ may\ obtain\ a\ copy\ of\ the\ License\ at}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ \ \ \ \ http://www.apache.org/licenses/LICENSE-\/2.0}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ Unless\ required\ by\ applicable\ law\ or\ agreed\ to\ in\ writing,\ software}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ distributed\ under\ the\ License\ is\ distributed\ on\ an\ "{}AS\ IS"{}\ BASIS,}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ WITHOUT\ WARRANTIES\ OR\ CONDITIONS\ OF\ ANY\ KIND,\ either\ express\ or\ implied.}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ *\ See\ the\ License\ for\ the\ specific\ language\ governing\ permissions\ and}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ *\ limitations\ under\ the\ License.}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ ******************************************************************************/}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#ifndef\ IMU\_FULL\_MEASURED\_DATA\_ROS\_PUBLISHER\_H}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#define\ IMU\_FULL\_MEASURED\_DATA\_ROS\_PUBLISHER\_H}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#include\ <rclcpp/rclcpp.hpp>}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#include\ "{}adi\_imu/imu\_full\_measured\_data\_provider\_interface.h"{}}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#include\ "{}adi\_imu/imu\_full\_measured\_data\_ros\_publisher\_interface.h"{}}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00034\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classImuFullMeasuredDataRosPublisher}{ImuFullMeasuredDataRosPublisher}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classImuFullMeasuredDataRosPublisherInterface}{ImuFullMeasuredDataRosPublisherInterface}}}
+\DoxyCodeLine{00035\ \{}
+\DoxyCodeLine{00036\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00041\ \ \ \mbox{\hyperlink{classImuFullMeasuredDataRosPublisher}{ImuFullMeasuredDataRosPublisher}}(std::shared\_ptr<rclcpp::Node>\ \&\ node);}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00046\ \ \ \mbox{\hyperlink{classImuFullMeasuredDataRosPublisher_a8cf6829550691b33c0ca50272e8ade6d}{\string~ImuFullMeasuredDataRosPublisher}}();}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00052\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classImuFullMeasuredDataRosPublisher_a51c4795592fd41e712444552eeece31d}{setMessageProvider}}(\mbox{\hyperlink{classImuFullMeasuredDataProviderInterface}{ImuFullMeasuredDataProviderInterface}}\ *\ dataProvider)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00057\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classImuFullMeasuredDataRosPublisher_a18fa397d0a2774107bd74f29f5ecf08c}{publish}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00061\ \ \ \mbox{\hyperlink{classImuFullMeasuredDataProviderInterface}{ImuFullMeasuredDataProviderInterface}}\ *\ \mbox{\hyperlink{classImuFullMeasuredDataRosPublisher_afc917159d4d339720979adbec90c2ef5}{m\_data\_provider}};}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00064\ \ \ rclcpp::Publisher<adi\_imu::msg::ImuFullMeasuredData>::SharedPtr\ \mbox{\hyperlink{classImuFullMeasuredDataRosPublisher_aa57d65687cb70be0fbcb367eec646eb3}{m\_publisher}};}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00067\ \ \ adi\_imu::msg::ImuFullMeasuredData\ \mbox{\hyperlink{classImuFullMeasuredDataRosPublisher_a10286f173729d53b9fca60b9973d9417}{m\_message}};}
+\DoxyCodeLine{00068\ \};}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ IMU\_FULL\_MEASURED\_DATA\_ROS\_PUBLISHER\_H}}
+
+\end{DoxyCode}

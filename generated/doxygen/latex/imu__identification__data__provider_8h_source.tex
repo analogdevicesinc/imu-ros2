@@ -1,0 +1,27 @@
+\doxysection{imu\+\_\+identification\+\_\+data\+\_\+provider.\+h}
+\hypertarget{imu__identification__data__provider_8h_source}{}\label{imu__identification__data__provider_8h_source}\index{include/adi\_imu/imu\_identification\_data\_provider.h@{include/adi\_imu/imu\_identification\_data\_provider.h}}
+\mbox{\hyperlink{imu__identification__data__provider_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/***************************************************************************/}\ }
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#ifndef\ IMU\_IDENTIFICATION\_DATA\_PROVIDER\_H}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ IMU\_IDENTIFICATION\_DATA\_PROVIDER\_H}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ "{}adi\_imu/iio\_wrapper.h"{}}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#include\ "{}adi\_imu/imu\_identification\_data\_provider\_interface.h"{}}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00030\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classImuIdentificationDataProvider}{ImuIdentificationDataProvider}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classImuIdentificationDataProviderInterface}{ImuIdentificationDataProviderInterface}}}
+\DoxyCodeLine{00031\ \{}
+\DoxyCodeLine{00032\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00036\ \ \ \mbox{\hyperlink{classImuIdentificationDataProvider_a6b774b1a11a08fcdc6df1dfcb2b490d2}{ImuIdentificationDataProvider}}();}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00041\ \ \ \mbox{\hyperlink{classImuIdentificationDataProvider_ae4317cdb317f46f14a10723f767d7025}{\string~ImuIdentificationDataProvider}}();}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00049\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classImuIdentificationDataProvider_ae93f13d5654f5d83cb1b672b9984fbbb}{getData}}(adi\_imu::msg::ImuIdentificationData\ \&\ message)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00053\ \ \ \mbox{\hyperlink{classIIOWrapper}{IIOWrapper}}\ \mbox{\hyperlink{classImuIdentificationDataProvider_ab2abdffd81df3c14185e5b9115fb26f6}{m\_iio\_wrapper}};}
+\DoxyCodeLine{00054\ \};}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ IMU\_IDENTIFICATION\_DATA\_PROVIDER\_STRING\_H}}
+
+\end{DoxyCode}

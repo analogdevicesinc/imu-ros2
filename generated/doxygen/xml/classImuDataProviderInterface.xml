@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classImuDataProviderInterface" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>ImuDataProviderInterface</compoundname>
+    <derivedcompoundref refid="classImuDataProvider" prot="public" virt="non-virtual">ImuDataProvider</derivedcompoundref>
+    <includes refid="imu__data__provider__interface_8h" local="no">imu_data_provider_interface.h</includes>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classImuDataProviderInterface_1afd0d8a28e9de26552c5cac982d85a39d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ImuDataProviderInterface::ImuDataProviderInterface</definition>
+        <argsstring>()</argsstring>
+        <name>ImuDataProviderInterface</name>
+        <qualifiedname>ImuDataProviderInterface::ImuDataProviderInterface</qualifiedname>
+        <briefdescription>
+<para>Constructor for <ref refid="classImuDataProviderInterface" kindref="compound">ImuDataProviderInterface</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/imu_data_provider_interface.h" line="35" column="3" bodyfile="include/adi_imu/imu_data_provider_interface.h" bodystart="35" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="function" id="classImuDataProviderInterface_1a09c5a4c79e9e97a40daf88b9ce7b57db" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type></type>
+        <definition>virtual ImuDataProviderInterface::~ImuDataProviderInterface</definition>
+        <argsstring>()</argsstring>
+        <name>~ImuDataProviderInterface</name>
+        <qualifiedname>ImuDataProviderInterface::~ImuDataProviderInterface</qualifiedname>
+        <briefdescription>
+<para>Destructor for <ref refid="classImuDataProviderInterface" kindref="compound">ImuDataProviderInterface</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/imu_data_provider_interface.h" line="40" column="11" bodyfile="include/adi_imu/imu_data_provider_interface.h" bodystart="40" bodyend="40"/>
+      </memberdef>
+      <memberdef kind="function" id="classImuDataProviderInterface_1a308b5335b052855ce8917c2949ae1d8f" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>bool</type>
+        <definition>virtual bool ImuDataProviderInterface::getData</definition>
+        <argsstring>(sensor_msgs::msg::Imu &amp;message)=0</argsstring>
+        <name>getData</name>
+        <qualifiedname>ImuDataProviderInterface::getData</qualifiedname>
+        <reimplementedby refid="classImuDataProvider_1a9da652b7fbab948882f4bf6fcdf4c9f7">getData</reimplementedby>
+        <param>
+          <type>sensor_msgs::msg::Imu &amp;</type>
+          <declname>message</declname>
+        </param>
+        <briefdescription>
+<para>Populate Imu message with measured data. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>message</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Message containing the measured data. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Return true if the message parameter is successfully populated with measured data and false otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/imu_data_provider_interface.h" line="48" column="16"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Interface for standard message sensor_msgs::msg::Imu data provider. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>ImuDataProvider</label>
+        <link refid="classImuDataProvider"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>ImuDataProviderInterface</label>
+        <link refid="classImuDataProviderInterface"/>
+      </node>
+    </inheritancegraph>
+    <location file="include/adi_imu/imu_data_provider_interface.h" line="29" column="1" bodyfile="include/adi_imu/imu_data_provider_interface.h" bodystart="30" bodyend="49"/>
+    <listofallmembers>
+      <member refid="classImuDataProviderInterface_1a308b5335b052855ce8917c2949ae1d8f" prot="public" virt="pure-virtual"><scope>ImuDataProviderInterface</scope><name>getData</name></member>
+      <member refid="classImuDataProviderInterface_1afd0d8a28e9de26552c5cac982d85a39d" prot="public" virt="non-virtual"><scope>ImuDataProviderInterface</scope><name>ImuDataProviderInterface</name></member>
+      <member refid="classImuDataProviderInterface_1a09c5a4c79e9e97a40daf88b9ce7b57db" prot="public" virt="virtual"><scope>ImuDataProviderInterface</scope><name>~ImuDataProviderInterface</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

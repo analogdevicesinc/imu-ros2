@@ -1,0 +1,7 @@
+<map id="ImuFullMeasuredDataRosPublisher" name="ImuFullMeasuredDataRosPublisher">
+<area shape="rect" id="Node000001" title="Class for acceleration, angular velocity, delta angle, delta velocity and temperature publisher." alt="" coords="135,108,384,133"/>
+<area shape="rect" id="Node000002" href="$classImuFullMeasuredDataRosPublisherInterface.html" title="Interface for acceleration, angular velocity, delta angle, delta velocity and temperature publisher." alt="" coords="5,5,255,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="169,51,245,106,242,110,166,55"/>
+<area shape="rect" id="Node000003" href="$classImuFullMeasuredDataProviderInterface.html" title="Interface for acceleration, angular velocity, delta angle, delta velocity and temperature data provid..." alt="" coords="279,5,498,45"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="353,55,277,110,274,106,350,51"/>
+</map>

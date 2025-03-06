@@ -1,0 +1,54 @@
+\doxysection{imu\+\_\+identification\+\_\+ros\+\_\+publisher.\+h}
+\hypertarget{imu__identification__ros__publisher_8h_source}{}\label{imu__identification__ros__publisher_8h_source}\index{include/adi\_imu/imu\_identification\_ros\_publisher.h@{include/adi\_imu/imu\_identification\_ros\_publisher.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*******************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ \ \ @file\ \ \ imu\_identification\_ros\_publisher.h}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ \ \ @brief\ \ Header\ for\ imu\ identification\ publisher.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ \ \ @author\ Vasile\ Holonec\ (Vasile.Holonec@analog.com)}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *******************************************************************************}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ Copyright\ 2023(c)\ Analog\ Devices,\ Inc.}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ Licensed\ under\ the\ Apache\ License,\ Version\ 2.0\ (the\ "{}License"{});}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *\ you\ may\ not\ use\ this\ file\ except\ in\ compliance\ with\ the\ License.}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ You\ may\ obtain\ a\ copy\ of\ the\ License\ at}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ \ \ \ \ http://www.apache.org/licenses/LICENSE-\/2.0}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ Unless\ required\ by\ applicable\ law\ or\ agreed\ to\ in\ writing,\ software}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ distributed\ under\ the\ License\ is\ distributed\ on\ an\ "{}AS\ IS"{}\ BASIS,}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ WITHOUT\ WARRANTIES\ OR\ CONDITIONS\ OF\ ANY\ KIND,\ either\ express\ or\ implied.}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ See\ the\ License\ for\ the\ specific\ language\ governing\ permissions\ and}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ *\ limitations\ under\ the\ License.}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ ******************************************************************************/}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#ifndef\ IMU\_IDENTIFICATION\_ROS\_PUBLISHER\_H}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ IMU\_IDENTIFICATION\_ROS\_PUBLISHER\_H}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ <rclcpp/rclcpp.hpp>}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#include\ "{}adi\_imu/imu\_identification\_data\_provider\_interface.h"{}}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#include\ "{}adi\_imu/imu\_identification\_ros\_publisher\_interface.h"{}}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00032\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classImuIdentificationRosPublisher}{ImuIdentificationRosPublisher}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classImuIdentificationRosPublisherInterface}{ImuIdentificationRosPublisherInterface}}}
+\DoxyCodeLine{00033\ \{}
+\DoxyCodeLine{00034\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00039\ \ \ \mbox{\hyperlink{classImuIdentificationRosPublisher}{ImuIdentificationRosPublisher}}(std::shared\_ptr<rclcpp::Node>\ \&\ node);}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00044\ \ \ \mbox{\hyperlink{classImuIdentificationRosPublisher_a1b39b89870753dd7594e216293ca8d8d}{\string~ImuIdentificationRosPublisher}}();}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00050\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classImuIdentificationRosPublisher_ac4bc896dd849aa3e1c8363721a1c6238}{setMessageProvider}}(\mbox{\hyperlink{classImuIdentificationDataProviderInterface}{ImuIdentificationDataProviderInterface}}\ *\ dataProvider)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00056\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classImuIdentificationRosPublisher_a3c6ffc12c162c4ad6190e7b54b9a1bdc}{run}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00060\ \ \ \mbox{\hyperlink{classImuIdentificationDataProviderInterface}{ImuIdentificationDataProviderInterface}}\ *\ \mbox{\hyperlink{classImuIdentificationRosPublisher_a46fd341acacf04dba8e5ad9258044fda}{m\_data\_provider}};}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00063\ \ \ rclcpp::Publisher<adi\_imu::msg::ImuIdentificationData>::SharedPtr\ \mbox{\hyperlink{classImuIdentificationRosPublisher_a4f092942baae2d6d3603968fea578435}{m\_publisher}};}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00066\ \ \ adi\_imu::msg::ImuIdentificationData\ \mbox{\hyperlink{classImuIdentificationRosPublisher_a10ec8befa2046eb720334b0bd4d395eb}{m\_message}};}
+\DoxyCodeLine{00067\ \};}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ IMU\_IDENTIFICATION\_ROS\_PUBLISHER\_H}}
+
+\end{DoxyCode}

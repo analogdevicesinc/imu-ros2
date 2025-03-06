@@ -1,0 +1,78 @@
+\doxysection{Ros\+Task Class Reference}
+\hypertarget{classRosTask}{}\label{classRosTask}\index{RosTask@{RosTask}}
+
+
+Interface for running a task in a thread.  
+
+
+
+
+{\ttfamily \#include $<$ros\+\_\+task.\+h$>$}
+
+
+
+Inheritance diagram for Ros\+Task\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classRosTask__inherit__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classRosTask_a519dd722e83fba675d0e988c5d5100d1}{Ros\+Task}} ()
+\begin{DoxyCompactList}\small\item\em Constructor for \doxylink{classRosTask}{Ros\+Task}. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classRosTask_a1043013f8bb20f9c3878d4cb8d99b2fb}{\texorpdfstring{$\sim$}{\string~}\+Ros\+Task}} ()
+\begin{DoxyCompactList}\small\item\em Destructor for \doxylink{classRosTask}{Ros\+Task}. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classRosTask_a331afbcd684711c35e1488fbaad73cf2}{run}} ()=0
+\begin{DoxyCompactList}\small\item\em Method that run on a thread. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Interface for running a task in a thread. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classRosTask_a519dd722e83fba675d0e988c5d5100d1}\label{classRosTask_a519dd722e83fba675d0e988c5d5100d1} 
+\index{RosTask@{RosTask}!RosTask@{RosTask}}
+\index{RosTask@{RosTask}!RosTask@{RosTask}}
+\doxysubsubsection{\texorpdfstring{RosTask()}{RosTask()}}
+{\footnotesize\ttfamily Ros\+Task\+::\+Ros\+Task (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor for \doxylink{classRosTask}{Ros\+Task}. 
+
+This is the default constructor for interface \doxylink{classRosTask}{Ros\+Task}. \Hypertarget{classRosTask_a1043013f8bb20f9c3878d4cb8d99b2fb}\label{classRosTask_a1043013f8bb20f9c3878d4cb8d99b2fb} 
+\index{RosTask@{RosTask}!````~RosTask@{\texorpdfstring{$\sim$}{\string~}RosTask}}
+\index{````~RosTask@{\texorpdfstring{$\sim$}{\string~}RosTask}!RosTask@{RosTask}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}RosTask()}{\string~RosTask()}}
+{\footnotesize\ttfamily virtual Ros\+Task\+::\texorpdfstring{$\sim$}{\string~}\+Ros\+Task (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Destructor for \doxylink{classRosTask}{Ros\+Task}. 
+
+This is a virtual destructor for \doxylink{classRosTask}{Ros\+Task}. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classRosTask_a331afbcd684711c35e1488fbaad73cf2}\label{classRosTask_a331afbcd684711c35e1488fbaad73cf2} 
+\index{RosTask@{RosTask}!run@{run}}
+\index{run@{run}!RosTask@{RosTask}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily virtual void Ros\+Task\+::run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Method that run on a thread. 
+
+This function will run on a thread and a class that implement this method will have concurrent support. 
+
+Implemented in \mbox{\hyperlink{classImuDiagRosPublisher_aaf3056416be0e688ef7d3833c3bbfbfd}{Imu\+Diag\+Ros\+Publisher}}, \mbox{\hyperlink{classImuIdentificationRosPublisher_a3c6ffc12c162c4ad6190e7b54b9a1bdc}{Imu\+Identification\+Ros\+Publisher}}, and \mbox{\hyperlink{classRosPublisherGroup_afee0f211b77283a37fa197b39f4d1253}{Ros\+Publisher\+Group}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/adi\+\_\+imu/ros\+\_\+task.\+h\end{DoxyCompactItemize}

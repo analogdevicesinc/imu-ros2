@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_7440c80a84150c89eded6c163cdc56e5" kind="dir">
+    <compoundname>test/src</compoundname>
+    <innerfile refid="accelgyrotemp__subscriber__test_8cpp">accelgyrotemp_subscriber_test.cpp</innerfile>
+    <innerfile refid="imu__diag__subscriber__test_8cpp">imu_diag_subscriber_test.cpp</innerfile>
+    <innerfile refid="imu__full__measured__data__subscriber__test_8cpp">imu_full_measured_data_subscriber_test.cpp</innerfile>
+    <innerfile refid="imu__identification__subscriber__test_8cpp">imu_identification_subscriber_test.cpp</innerfile>
+    <innerfile refid="imu__subscriber__test_8cpp">imu_subscriber_test.cpp</innerfile>
+    <innerfile refid="utest_8cpp">utest.cpp</innerfile>
+    <innerfile refid="velangtemp__subscriber__test_8cpp">velangtemp_subscriber_test.cpp</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="test/src/"/>
+  </compounddef>
+</doxygen>

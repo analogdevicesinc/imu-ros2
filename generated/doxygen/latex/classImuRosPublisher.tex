@@ -1,0 +1,149 @@
+\doxysection{Imu\+Ros\+Publisher Class Reference}
+\hypertarget{classImuRosPublisher}{}\label{classImuRosPublisher}\index{ImuRosPublisher@{ImuRosPublisher}}
+
+
+Class for standard message sensor\+\_\+msgs\+::msg\+::\+Imu publisher.  
+
+
+
+
+{\ttfamily \#include $<$imu\+\_\+ros\+\_\+publisher.\+h$>$}
+
+
+
+Inheritance diagram for Imu\+Ros\+Publisher\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=222pt]{classImuRosPublisher__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Imu\+Ros\+Publisher\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classImuRosPublisher__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classImuRosPublisher_a4706d76ef778af74fc42f0e1987e39e5}{Imu\+Ros\+Publisher}} (std\+::shared\+\_\+ptr$<$ rclcpp\+::\+Node $>$ \&node)
+\begin{DoxyCompactList}\small\item\em Constructor for \doxylink{classImuRosPublisher}{Imu\+Ros\+Publisher}. \end{DoxyCompactList}\item 
+\Hypertarget{classImuRosPublisher_a0003f105376ae33e60ce10688d85a08b}\label{classImuRosPublisher_a0003f105376ae33e60ce10688d85a08b} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Imu\+Ros\+Publisher} ()
+\begin{DoxyCompactList}\small\item\em Destructor for \doxylink{classImuRosPublisher}{Imu\+Ros\+Publisher}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classImuRosPublisher_a78dc9501d090b81ff7de5c5f1f0d765e}{set\+Message\+Provider}} (\mbox{\hyperlink{classImuDataProviderInterface}{Imu\+Data\+Provider\+Interface}} \texorpdfstring{$\ast$}{*}data\+Provider) override
+\begin{DoxyCompactList}\small\item\em Set the message data provider. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classImuRosPublisher_aa6968af9b20c3a0616cbeafc0e5a8eda}{publish}} () override
+\begin{DoxyCompactList}\small\item\em Publish the sensor\+\_\+msgs\+::msg\+::\+Imu message. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classImuRosPublisherInterface}{Imu\+Ros\+Publisher\+Interface}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Imu\+Ros\+Publisher\+Interface} ()
+\begin{DoxyCompactList}\small\item\em Constructor for \doxylink{classImuRosPublisherInterface}{Imu\+Ros\+Publisher\+Interface}. \end{DoxyCompactList}\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Imu\+Ros\+Publisher\+Interface} ()
+\begin{DoxyCompactList}\small\item\em Destructor for \doxylink{classImuRosPublisherInterface}{Imu\+Ros\+Publisher\+Interface}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classImuDataProviderInterface}{Imu\+Data\+Provider\+Interface}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classImuRosPublisher_a436a9b31a918449c9d30daf0664b2f60}{m\+\_\+data\+\_\+provider}}
+\item 
+rclcpp\+::\+Publisher$<$ sensor\+\_\+msgs\+::msg\+::\+Imu $>$\+::\+Shared\+Ptr \mbox{\hyperlink{classImuRosPublisher_a21ebaa5902f0dd8f61567b1e56be4a71}{m\+\_\+publisher}}
+\item 
+sensor\+\_\+msgs\+::msg\+::\+Imu \mbox{\hyperlink{classImuRosPublisher_ac569c410dbef56fb611d3a11a76a78b8}{m\+\_\+message}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classImuRosPublisherInterface}{Imu\+Ros\+Publisher\+Interface}}}
+\begin{DoxyCompactItemize}
+\item 
+std\+::shared\+\_\+ptr$<$ rclcpp\+::\+Node $>$ \mbox{\hyperlink{classImuRosPublisherInterface_a1db80017d3556a4a8efb1971b187d182}{m\+\_\+node}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class for standard message sensor\+\_\+msgs\+::msg\+::\+Imu publisher. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classImuRosPublisher_a4706d76ef778af74fc42f0e1987e39e5}\label{classImuRosPublisher_a4706d76ef778af74fc42f0e1987e39e5} 
+\index{ImuRosPublisher@{ImuRosPublisher}!ImuRosPublisher@{ImuRosPublisher}}
+\index{ImuRosPublisher@{ImuRosPublisher}!ImuRosPublisher@{ImuRosPublisher}}
+\doxysubsubsection{\texorpdfstring{ImuRosPublisher()}{ImuRosPublisher()}}
+{\footnotesize\ttfamily Imu\+Ros\+Publisher\+::\+Imu\+Ros\+Publisher (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ rclcpp\+::\+Node $>$ \&}]{node }\end{DoxyParamCaption})}
+
+
+
+Constructor for \doxylink{classImuRosPublisher}{Imu\+Ros\+Publisher}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em node} & The ros2 Node instance. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classImuRosPublisher_aa6968af9b20c3a0616cbeafc0e5a8eda}\label{classImuRosPublisher_aa6968af9b20c3a0616cbeafc0e5a8eda} 
+\index{ImuRosPublisher@{ImuRosPublisher}!publish@{publish}}
+\index{publish@{publish}!ImuRosPublisher@{ImuRosPublisher}}
+\doxysubsubsection{\texorpdfstring{publish()}{publish()}}
+{\footnotesize\ttfamily void Imu\+Ros\+Publisher\+::publish (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Publish the sensor\+\_\+msgs\+::msg\+::\+Imu message. 
+
+
+
+Implements \mbox{\hyperlink{classImuRosPublisherInterface_aeda9158c26d62348fcb83181103862ce}{Imu\+Ros\+Publisher\+Interface}}.
+
+\Hypertarget{classImuRosPublisher_a78dc9501d090b81ff7de5c5f1f0d765e}\label{classImuRosPublisher_a78dc9501d090b81ff7de5c5f1f0d765e} 
+\index{ImuRosPublisher@{ImuRosPublisher}!setMessageProvider@{setMessageProvider}}
+\index{setMessageProvider@{setMessageProvider}!ImuRosPublisher@{ImuRosPublisher}}
+\doxysubsubsection{\texorpdfstring{setMessageProvider()}{setMessageProvider()}}
+{\footnotesize\ttfamily void Imu\+Ros\+Publisher\+::set\+Message\+Provider (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classImuDataProviderInterface}{Imu\+Data\+Provider\+Interface}} \texorpdfstring{$\ast$}{*}}]{data\+Provider }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Set the message data provider. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data\+Provider} & Data provider. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classImuRosPublisherInterface_a89a2e7b14c3bf6e31fd2c69f2be492f8}{Imu\+Ros\+Publisher\+Interface}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classImuRosPublisher_a436a9b31a918449c9d30daf0664b2f60}\label{classImuRosPublisher_a436a9b31a918449c9d30daf0664b2f60} 
+\index{ImuRosPublisher@{ImuRosPublisher}!m\_data\_provider@{m\_data\_provider}}
+\index{m\_data\_provider@{m\_data\_provider}!ImuRosPublisher@{ImuRosPublisher}}
+\doxysubsubsection{\texorpdfstring{m\_data\_provider}{m\_data\_provider}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classImuDataProviderInterface}{Imu\+Data\+Provider\+Interface}}\texorpdfstring{$\ast$}{*} Imu\+Ros\+Publisher\+::m\+\_\+data\+\_\+provider\hspace{0.3cm}{\ttfamily [private]}}
+
+This variable retains the data provider instance. \Hypertarget{classImuRosPublisher_ac569c410dbef56fb611d3a11a76a78b8}\label{classImuRosPublisher_ac569c410dbef56fb611d3a11a76a78b8} 
+\index{ImuRosPublisher@{ImuRosPublisher}!m\_message@{m\_message}}
+\index{m\_message@{m\_message}!ImuRosPublisher@{ImuRosPublisher}}
+\doxysubsubsection{\texorpdfstring{m\_message}{m\_message}}
+{\footnotesize\ttfamily sensor\+\_\+msgs\+::msg\+::\+Imu Imu\+Ros\+Publisher\+::m\+\_\+message\hspace{0.3cm}{\ttfamily [private]}}
+
+This variable retains the message that is published. \Hypertarget{classImuRosPublisher_a21ebaa5902f0dd8f61567b1e56be4a71}\label{classImuRosPublisher_a21ebaa5902f0dd8f61567b1e56be4a71} 
+\index{ImuRosPublisher@{ImuRosPublisher}!m\_publisher@{m\_publisher}}
+\index{m\_publisher@{m\_publisher}!ImuRosPublisher@{ImuRosPublisher}}
+\doxysubsubsection{\texorpdfstring{m\_publisher}{m\_publisher}}
+{\footnotesize\ttfamily rclcpp\+::\+Publisher$<$sensor\+\_\+msgs\+::msg\+::\+Imu$>$\+::\+Shared\+Ptr Imu\+Ros\+Publisher\+::m\+\_\+publisher\hspace{0.3cm}{\ttfamily [private]}}
+
+This variable retains the publisher instance. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/adi\+\_\+imu/imu\+\_\+ros\+\_\+publisher.\+h\item 
+src/imu\+\_\+ros\+\_\+publisher.\+cpp\end{DoxyCompactItemize}

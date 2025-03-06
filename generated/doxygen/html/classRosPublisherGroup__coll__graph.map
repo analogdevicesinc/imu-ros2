@@ -1,0 +1,17 @@
+<map id="RosPublisherGroup" name="RosPublisherGroup">
+<area shape="rect" id="Node000001" title="Class ROS publisher group." alt="" coords="756,119,901,144"/>
+<area shape="rect" id="Node000002" href="$classRosPublisherGroupInterface.html" title="Interface for publisher group." alt="" coords="273,5,475,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="489,19,609,33,672,47,733,66,779,90,814,116,811,121,776,95,731,71,671,52,608,39,489,24"/>
+<area shape="rect" id="Node000003" href="$classRosTask.html" title="Interface for running a task in a thread." alt="" coords="15,5,90,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="104,15,272,15,272,21,104,21"/>
+<area shape="rect" id="Node000004" href="$classAccelGyroTempRosPublisherInterface.html" title="Interface for acceleration, angular velocity and temperature publisher." alt="" coords="271,55,477,95"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="491,82,608,94,732,110,767,116,766,121,732,115,607,99,491,87"/>
+<area shape="rect" id="Node000005" href="$classImuRosPublisherInterface.html" title="Interface for standard message sensor_msgs::msg::Imu publisher." alt="" coords="279,120,469,145"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="483,130,756,129,756,134,483,135"/>
+<area shape="rect" id="Node000006" href="$classImuFullMeasuredDataRosPublisherInterface.html" title="Interface for acceleration, angular velocity, delta angle, delta velocity and temperature publisher." alt="" coords="249,171,499,211"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="512,189,620,182,731,165,767,154,799,142,801,147,769,159,733,170,621,187,513,194"/>
+<area shape="rect" id="Node000007" href="$classImuControlParameters.html" title="Class for handling device parameters." alt="" coords="290,236,458,261"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="471,251,532,249,598,243,666,230,731,209,757,195,780,177,815,142,818,146,783,181,759,199,733,214,667,235,599,248,532,255,472,256"/>
+<area shape="rect" id="Node000008" href="$classIIOWrapper.html" title="Wrapper class for libiio library for IMU devices." alt="" coords="5,236,100,261"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="114,246,290,246,290,251,114,251"/>
+</map>

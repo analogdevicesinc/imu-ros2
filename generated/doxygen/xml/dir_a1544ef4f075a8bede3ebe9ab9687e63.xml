@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_a1544ef4f075a8bede3ebe9ab9687e63" kind="dir">
+    <compoundname>include/adi_imu</compoundname>
+    <innerdir refid="dir_f897dffdae5e9168994c558326412029">include/adi_imu/adis1646x</innerdir>
+    <innerdir refid="dir_98aaef053e11c48c016c75edafb2a36e">include/adi_imu/adis1647x</innerdir>
+    <innerdir refid="dir_01e611c4c55ab183f3ee49589280787d">include/adi_imu/adis1650x</innerdir>
+    <innerdir refid="dir_da360a2fc6cc183084e003f06cfb6f46">include/adi_imu/adis1654x</innerdir>
+    <innerdir refid="dir_a50b4a7d8de44701c14c9201afb431e4">include/adi_imu/adis1655x</innerdir>
+    <innerdir refid="dir_f947627a4d030fd37d6937cdacb15599">include/adi_imu/adis1657x</innerdir>
+    <innerfile refid="accelgyrotemp__data__provider_8h">accelgyrotemp_data_provider.h</innerfile>
+    <innerfile refid="accelgyrotemp__data__provider__interface_8h">accelgyrotemp_data_provider_interface.h</innerfile>
+    <innerfile refid="accelgyrotemp__ros__publisher_8h">accelgyrotemp_ros_publisher.h</innerfile>
+    <innerfile refid="accelgyrotemp__ros__publisher__interface_8h">accelgyrotemp_ros_publisher_interface.h</innerfile>
+    <innerfile refid="adis__data__access_8h">adis_data_access.h</innerfile>
+    <innerfile refid="iio__wrapper_8h">iio_wrapper.h</innerfile>
+    <innerfile refid="imu__control__parameters_8h">imu_control_parameters.h</innerfile>
+    <innerfile refid="imu__data__provider_8h">imu_data_provider.h</innerfile>
+    <innerfile refid="imu__data__provider__interface_8h">imu_data_provider_interface.h</innerfile>
+    <innerfile refid="imu__diag__data__provider_8h">imu_diag_data_provider.h</innerfile>
+    <innerfile refid="imu__diag__data__provider__interface_8h">imu_diag_data_provider_interface.h</innerfile>
+    <innerfile refid="imu__diag__ros__publisher_8h">imu_diag_ros_publisher.h</innerfile>
+    <innerfile refid="imu__diag__ros__publisher__interface_8h">imu_diag_ros_publisher_interface.h</innerfile>
+    <innerfile refid="imu__full__measured__data__provider_8h">imu_full_measured_data_provider.h</innerfile>
+    <innerfile refid="imu__full__measured__data__provider__interface_8h">imu_full_measured_data_provider_interface.h</innerfile>
+    <innerfile refid="imu__full__measured__data__ros__publisher_8h">imu_full_measured_data_ros_publisher.h</innerfile>
+    <innerfile refid="imu__full__measured__data__ros__publisher__interface_8h">imu_full_measured_data_ros_publisher_interface.h</innerfile>
+    <innerfile refid="imu__identification__data__provider_8h">imu_identification_data_provider.h</innerfile>
+    <innerfile refid="imu__identification__data__provider__interface_8h">imu_identification_data_provider_interface.h</innerfile>
+    <innerfile refid="imu__identification__ros__publisher_8h">imu_identification_ros_publisher.h</innerfile>
+    <innerfile refid="imu__identification__ros__publisher__interface_8h">imu_identification_ros_publisher_interface.h</innerfile>
+    <innerfile refid="imu__ros__publisher_8h">imu_ros_publisher.h</innerfile>
+    <innerfile refid="imu__ros__publisher__interface_8h">imu_ros_publisher_interface.h</innerfile>
+    <innerfile refid="ros__publisher__group_8h">ros_publisher_group.h</innerfile>
+    <innerfile refid="ros__publisher__group__interface_8h">ros_publisher_group_interface.h</innerfile>
+    <innerfile refid="ros__task_8h">ros_task.h</innerfile>
+    <innerfile refid="velangtemp__data__provider_8h">velangtemp_data_provider.h</innerfile>
+    <innerfile refid="velangtemp__data__provider__interface_8h">velangtemp_data_provider_interface.h</innerfile>
+    <innerfile refid="velangtemp__ros__publisher_8h">velangtemp_ros_publisher.h</innerfile>
+    <innerfile refid="velangtemp__ros__publisher__interface_8h">velangtemp_ros_publisher_interface.h</innerfile>
+    <innerfile refid="worker__thread_8h">worker_thread.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/adi_imu/"/>
+  </compounddef>
+</doxygen>

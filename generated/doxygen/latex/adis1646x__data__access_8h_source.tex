@@ -1,0 +1,74 @@
+\doxysection{adis1646x\+\_\+data\+\_\+access.\+h}
+\hypertarget{adis1646x__data__access_8h_source}{}\label{adis1646x__data__access_8h_source}\index{include/adi\_imu/adis1646x/adis1646x\_data\_access.h@{include/adi\_imu/adis1646x/adis1646x\_data\_access.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ ADIS1646X\_DATA\_ACCESS\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ ADIS1646X\_DATA\_ACCESS\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#define\ ADIS\_FLS\_MEM\_ENDURANCE\ 10000}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#define\ ADIS\_MAX\_SAMP\_FREQ\ 2100.0}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ ADIS\_DIAG\_STAT\_ADDR\ 0x02}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#define\ ADIS\_DATA\_PATH\_OVERRUN\_POS\ 1}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ ADIS\_FLS\_MEM\_UPDATE\_FAIL\_POS\ 2}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#define\ ADIS\_SPI\_COMM\_ERR\_POS\ 3}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#define\ ADIS\_STDBY\_MODE\_POS\ 4}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#define\ ADIS\_SNSR\_FAIL\_POS\ 5}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#define\ ADIS\_MEM\_FAIL\_POS\ 6}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ ADIS\_CLK\_ERR\_POS\ 7}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#define\ ADIS\_DATA\_PATH\_OVERRUN\ (1\ <<\ ADIS\_DATA\_PATH\_OVERRUN\_POS)}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#define\ ADIS\_FLS\_MEM\_UPDATE\_FAIL\ (1\ <<\ ADIS\_FLS\_MEM\_UPDATE\_FAIL\_POS)}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#define\ ADIS\_SPI\_COMM\_ERR\ (1\ <<\ ADIS\_SPI\_COMM\_ERR\_POS)}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#define\ ADIS\_STDBY\_MODE\ (1\ <<\ ADIS\_STDBY\_MODE\_POS)}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ ADIS\_SNSR\_FAIL\ (1\ <<\ ADIS\_SNSR\_FAIL\_POS)}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#define\ ADIS\_MEM\_FAIL\ (1\ <<\ ADIS\_MEM\_FAIL\_POS)}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ ADIS\_CLK\_ERR\ (1\ <<\ ADIS\_CLK\_ERR\_POS)}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#define\ ADIS\_RANG\_MDL\_ADDR\ 0x5E}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#define\ ADIS\_GYRO\_MEAS\_RANG\_POS\ 2}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#define\ ADIS\_GYRO\_MEAS\_RANG\ (3\ <<\ ADIS\_GYRO\_MEAS\_RANG\_POS)}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#define\ ADIS\_MSC\_CTRL\_ADDR\ 0x60}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#define\ ADIS\_DR\_POL\_POS\ 0}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#define\ ADIS\_SYNC\_POL\_POS\ 1}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#define\ ADIS\_LN\_ACCL\_COMP\_POS\ 7}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#define\ ADIS\_DR\_POL\ (1\ <<\ ADIS\_DR\_POL\_POS)}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#define\ ADIS\_SYNC\_POL\ (1\ <<\ ADIS\_SYNC\_POL\_POS)}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#define\ ADIS\_LN\_ACCL\_COMP\ (1\ <<\ ADIS\_LN\_ACCL\_COMP\_POS)}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#define\ ADIS\_NULL\_CNFG\_ADDR\ 0x66}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#define\ ADIS\_TIME\_BASE\_CONTROL\_POS\ 0}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#define\ ADIS\_X\_AXIS\_GYRO\_BIAS\_CORR\_EN\_POS\ 8}}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#define\ ADIS\_Y\_AXIS\_GYRO\_BIAS\_CORR\_EN\_POS\ 9}}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#define\ ADIS\_Z\_AXIS\_GYRO\_BIAS\_CORR\_EN\_POS\ 10}}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#define\ ADIS\_X\_AXIS\_ACCEL\_BIAS\_CORR\_EN\_POS\ 11}}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#define\ ADIS\_Y\_AXIS\_ACCEL\_BIAS\_CORR\_EN\_POS\ 12}}
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#define\ ADIS\_Z\_AXIS\_ACCEL\_BIAS\_CORR\_EN\_POS\ 13}}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#define\ ADIS\_TIME\_BASE\_CONTROL\ 0xF}}
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#define\ ADIS\_X\_AXIS\_GYRO\_BIAS\_CORR\_EN\ (1\ <<\ ADIS\_X\_AXIS\_GYRO\_BIAS\_CORR\_EN\_POS)}}
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#define\ ADIS\_Y\_AXIS\_GYRO\_BIAS\_CORR\_EN\ (1\ <<\ ADIS\_Y\_AXIS\_GYRO\_BIAS\_CORR\_EN\_POS)}}
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#define\ ADIS\_Z\_AXIS\_GYRO\_BIAS\_CORR\_EN\ (1\ <<\ ADIS\_Z\_AXIS\_GYRO\_BIAS\_CORR\_EN\_POS)}}
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#define\ ADIS\_X\_AXIS\_ACCEL\_BIAS\_CORR\_EN\ (1\ <<\ ADIS\_X\_AXIS\_ACCEL\_BIAS\_CORR\_EN\_POS)}}
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#define\ ADIS\_Y\_AXIS\_ACCEL\_BIAS\_CORR\_EN\ (1\ <<\ ADIS\_Y\_AXIS\_ACCEL\_BIAS\_CORR\_EN\_POS)}}
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\#define\ ADIS\_Z\_AXIS\_ACCEL\_BIAS\_CORR\_EN\ (1\ <<\ ADIS\_Z\_AXIS\_ACCEL\_BIAS\_CORR\_EN\_POS)}}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \textcolor{preprocessor}{\#define\ ADIS\_GLOB\_CMD\_ADDR\ 0x68}}
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\#define\ ADIS\_BIAS\_CORRECTION\_UPDATE\ (1\ <<\ 0)}}
+\DoxyCodeLine{00058\ \textcolor{preprocessor}{\#define\ ADIS\_FACTORY\_CALIBRATION\_RESTORE\ (1\ <<\ 1)}}
+\DoxyCodeLine{00059\ \textcolor{preprocessor}{\#define\ ADIS\_SENSOR\_SELF\_TEST\ (1\ <<\ 2)}}
+\DoxyCodeLine{00060\ \textcolor{preprocessor}{\#define\ ADIS\_FLASH\_MEMORY\_UPDATE\ (1\ <<\ 3)}}
+\DoxyCodeLine{00061\ \textcolor{preprocessor}{\#define\ ADIS\_FLASH\_MEMORY\_TEST\ (1\ <<\ 4)}}
+\DoxyCodeLine{00062\ \textcolor{preprocessor}{\#define\ ADIS\_SOFTWARE\_RESET\_CMD\ (1\ <<\ 7)}}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \textcolor{preprocessor}{\#define\ ADIS\_PT\_OF\_PERC\_REG\_ADDR\ ADIS\_MSC\_CTRL\_ADDR}}
+\DoxyCodeLine{00065\ \textcolor{preprocessor}{\#define\ ADIS\_PT\_OF\_PERC\_ALGNMNT\_POS\ 6}}
+\DoxyCodeLine{00066\ \textcolor{preprocessor}{\#define\ ADIS\_PT\_OF\_PERC\_ALGNMNT\ (1\ <<\ ADIS\_PT\_OF\_PERC\_ALGNMNT\_POS)}}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

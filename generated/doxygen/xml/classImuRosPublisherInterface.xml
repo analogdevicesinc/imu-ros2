@@ -1,0 +1,128 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classImuRosPublisherInterface" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>ImuRosPublisherInterface</compoundname>
+    <derivedcompoundref refid="classImuRosPublisher" prot="public" virt="non-virtual">ImuRosPublisher</derivedcompoundref>
+    <includes refid="imu__ros__publisher__interface_8h" local="no">imu_ros_publisher_interface.h</includes>
+    <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="classImuRosPublisherInterface_1a1db80017d3556a4a8efb1971b187d182" prot="protected" static="no" mutable="no">
+        <type>std::shared_ptr&lt; rclcpp::Node &gt;</type>
+        <definition>std::shared_ptr&lt;rclcpp::Node&gt; ImuRosPublisherInterface::m_node</definition>
+        <argsstring></argsstring>
+        <name>m_node</name>
+        <qualifiedname>ImuRosPublisherInterface::m_node</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The ros2 Node data member. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/imu_ros_publisher_interface.h" line="58" column="19" bodyfile="include/adi_imu/imu_ros_publisher_interface.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classImuRosPublisherInterface_1a31b100cb8a9da5c0f385f1438c04a64b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ImuRosPublisherInterface::ImuRosPublisherInterface</definition>
+        <argsstring>()</argsstring>
+        <name>ImuRosPublisherInterface</name>
+        <qualifiedname>ImuRosPublisherInterface::ImuRosPublisherInterface</qualifiedname>
+        <briefdescription>
+<para>Constructor for <ref refid="classImuRosPublisherInterface" kindref="compound">ImuRosPublisherInterface</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/imu_ros_publisher_interface.h" line="38" column="3" bodyfile="include/adi_imu/imu_ros_publisher_interface.h" bodystart="38" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="classImuRosPublisherInterface_1a7867f11bfbb64c03895533c8d627cb3f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type></type>
+        <definition>virtual ImuRosPublisherInterface::~ImuRosPublisherInterface</definition>
+        <argsstring>()</argsstring>
+        <name>~ImuRosPublisherInterface</name>
+        <qualifiedname>ImuRosPublisherInterface::~ImuRosPublisherInterface</qualifiedname>
+        <briefdescription>
+<para>Destructor for <ref refid="classImuRosPublisherInterface" kindref="compound">ImuRosPublisherInterface</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/imu_ros_publisher_interface.h" line="43" column="11" bodyfile="include/adi_imu/imu_ros_publisher_interface.h" bodystart="43" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="classImuRosPublisherInterface_1a89a2e7b14c3bf6e31fd2c69f2be492f8" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void ImuRosPublisherInterface::setMessageProvider</definition>
+        <argsstring>(ImuDataProviderInterface *dataProvider)=0</argsstring>
+        <name>setMessageProvider</name>
+        <qualifiedname>ImuRosPublisherInterface::setMessageProvider</qualifiedname>
+        <reimplementedby refid="classImuRosPublisher_1a78dc9501d090b81ff7de5c5f1f0d765e">setMessageProvider</reimplementedby>
+        <param>
+          <type><ref refid="classImuDataProviderInterface" kindref="compound">ImuDataProviderInterface</ref> *</type>
+          <declname>dataProvider</declname>
+        </param>
+        <briefdescription>
+<para>Set the message data provider. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dataProvider</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Data provider. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/imu_ros_publisher_interface.h" line="49" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classImuRosPublisherInterface_1aeda9158c26d62348fcb83181103862ce" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void ImuRosPublisherInterface::publish</definition>
+        <argsstring>()=0</argsstring>
+        <name>publish</name>
+        <qualifiedname>ImuRosPublisherInterface::publish</qualifiedname>
+        <reimplementedby refid="classImuRosPublisher_1aa6968af9b20c3a0616cbeafc0e5a8eda">publish</reimplementedby>
+        <briefdescription>
+<para>Publish the sensor_msgs::msg::Imu message. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/imu_ros_publisher_interface.h" line="54" column="16"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Interface for standard message sensor_msgs::msg::Imu publisher. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>ImuRosPublisher</label>
+        <link refid="classImuRosPublisher"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>ImuRosPublisherInterface</label>
+        <link refid="classImuRosPublisherInterface"/>
+      </node>
+    </inheritancegraph>
+    <location file="include/adi_imu/imu_ros_publisher_interface.h" line="32" column="1" bodyfile="include/adi_imu/imu_ros_publisher_interface.h" bodystart="33" bodyend="59"/>
+    <listofallmembers>
+      <member refid="classImuRosPublisherInterface_1a31b100cb8a9da5c0f385f1438c04a64b" prot="public" virt="non-virtual"><scope>ImuRosPublisherInterface</scope><name>ImuRosPublisherInterface</name></member>
+      <member refid="classImuRosPublisherInterface_1a1db80017d3556a4a8efb1971b187d182" prot="protected" virt="non-virtual"><scope>ImuRosPublisherInterface</scope><name>m_node</name></member>
+      <member refid="classImuRosPublisherInterface_1aeda9158c26d62348fcb83181103862ce" prot="public" virt="pure-virtual"><scope>ImuRosPublisherInterface</scope><name>publish</name></member>
+      <member refid="classImuRosPublisherInterface_1a89a2e7b14c3bf6e31fd2c69f2be492f8" prot="public" virt="pure-virtual"><scope>ImuRosPublisherInterface</scope><name>setMessageProvider</name></member>
+      <member refid="classImuRosPublisherInterface_1a7867f11bfbb64c03895533c8d627cb3f" prot="public" virt="virtual"><scope>ImuRosPublisherInterface</scope><name>~ImuRosPublisherInterface</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

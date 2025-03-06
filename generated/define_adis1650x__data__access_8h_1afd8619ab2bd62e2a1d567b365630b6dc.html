@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Define ADIS_FLASH_MEMORY_UPDATE &#8212; adi_imu 0.0.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8e8a900e" />
+    <link rel="stylesheet" type="text/css" href="../_static/app.min.css?v=3d3703ae" />
+    <link rel="stylesheet" type="text/css" href="../_static/collapsible-lists/css/tree_view.css?v=a885cde7" />
+    <script src="../_static/documentation_options.js?v=d45e8c67"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script defer="" src="../_static/app.umd.js?v=dcfbb431"></script>
+    <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js?v=73120307"></script>
+    <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js?v=660e4f45"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Define ADIS_FLASH_MEMORY_UPDATE" href="define_adis1654x__data__access_8h_1afd8619ab2bd62e2a1d567b365630b6dc.html" />
+    <link rel="prev" title="Define ADIS_FLASH_MEMORY_UPDATE" href="define_adis1647x__data__access_8h_1afd8619ab2bd62e2a1d567b365630b6dc.html" />
+   
+  
+  <meta name="repository" content="imu_ros2">
+  <meta name="version" content="0.0">
+  
+
+
+<style>
+  body {
+    
+  }
+
+  body.dark {
+    
+  }
+
+  @media (prefers-color-scheme: dark) {
+    body:not(.light) {
+      
+    }
+  }
+</style>
+  </head><body>
+  <input type="checkbox" id="input-show-toc">
+  <input type="checkbox" id="input-show-localtoc">
+  <input type="checkbox" id="input-show-repotoc">
+
+  
+  <div class="search-area">
+    <form action="" method="get">
+      <input type="text" name="q" aria-labelledby="search-documentation" value="" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" role="search" placeholder="Search"/>
+      <button value="search" class="icon"></button>
+      <span id="search-progress"></span>
+    </form>
+  </div>
+  
+
+  <header>
+    <div id="left">
+      <label id="show-sidebar" class="icon" for="input-show-toc" title="Show/hide index"></label>
+    </div>
+    <div id="right">
+      <span>
+        <a id="logo-org" href="https://analog.com"></a>
+        <div class="vertical-divider"></div>
+        <label id="show-repotoc" for="input-show-repotoc" title="Show/hide docs" tabindex="0">Docs</label>
+        <a id="logo" href="../index.html">
+          <div>adi_imu</div>
+        </a>
+      </span>
+      <span class="reverse">
+        <label id="show-localtoc" class="icon" for="input-show-localtoc" title="Show/hide contents"></label>
+      </span>
+    </div>
+  </header>
+
+
+  <div class="repotoc-tree overlay">
+    <root/>
+
+  </div>
+    <div class="localtoc">
+      <div class="tocwrapper">
+        <div>
+          <div class="localtoc-header"></div>
+          <a id="scroll-up" href="#top-anchor" title="Back to top"></a>
+        </div>
+        <nav>
+          <ul>
+<li><a class="reference internal" href="#">Define ADIS_FLASH_MEMORY_UPDATE</a><ul>
+<li><a class="reference internal" href="#define-documentation">Define Documentation</a><ul>
+<li><a class="reference internal" href="#c.ADIS_FLASH_MEMORY_UPDATE"><code class="docutils literal notranslate"><span class="pre">ADIS_FLASH_MEMORY_UPDATE</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </nav>
+      </div>
+    </div>
+
+  
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+    <a id="no-logo" href="../index.html">
+      adi_imu
+    </a><input id="input-switch-toc" type="checkbox">
+<label id="show-repotoc" for="input-switch-toc">
+All content
+</label>
+<label id="show-toc" for="input-switch-toc">
+Content on this topic
+</label>
+<div class="repotoc-tree">
+  <root/>
+
+</div>
+<div class="toc-tree">
+  <html>
+  <body><ul class="current">
+<li class="toctree-l1 current"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-1" id="toctree-collapse-1" checked=""/><div class="collapse"><a class="reference internal" href="index.html">C++ API</a><label for="toctree-collapse-1"><div class="icon"></div></label></div><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="namespace_std.html">Namespace std</a></li>
+<li class="toctree-l2"><a class="reference internal" href="namespace_testing.html">Namespace testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classAccelGyroTempDataProvider.html">Class AccelGyroTempDataProvider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classAccelGyroTempDataProviderInterface.html">Class AccelGyroTempDataProviderInterface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classAccelGyroTempRosPublisher.html">Class AccelGyroTempRosPublisher</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classAccelGyroTempRosPublisherInterface.html">Class AccelGyroTempRosPublisherInterface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classAccelGyroTempSubscriberTest.html">Class AccelGyroTempSubscriberTest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classIIOWrapper.html">Class IIOWrapper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classImuControlParameters.html">Class ImuControlParameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classImuDataProvider.html">Class ImuDataProvider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classImuDataProviderInterface.html">Class ImuDataProviderInterface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classImuDiagDataProvider.html">Class ImuDiagDataProvider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classImuDiagDataProviderInterface.html">Class ImuDiagDataProviderInterface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classImuDiagRosPublisher.html">Class ImuDiagRosPublisher</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classImuDiagRosPublisherInterface.html">Class ImuDiagRosPublisherInterface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classImuDiagSubscriberTest.html">Class ImuDiagSubscriberTest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classImuFullMeasuredDataProvider.html">Class ImuFullMeasuredDataProvider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classImuFullMeasuredDataProviderInterface.html">Class ImuFullMeasuredDataProviderInterface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classImuFullMeasuredDataRosPublisher.html">Class ImuFullMeasuredDataRosPublisher</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classImuFullMeasuredDataRosPublisherInterface.html">Class ImuFullMeasuredDataRosPublisherInterface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classImuFullMeasuredDataSubscriberTest.html">Class ImuFullMeasuredDataSubscriberTest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classImuIdentificationDataProvider.html">Class ImuIdentificationDataProvider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classImuIdentificationDataProviderInterface.html">Class ImuIdentificationDataProviderInterface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classImuIdentificationRosPublisher.html">Class ImuIdentificationRosPublisher</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classImuIdentificationRosPublisherInterface.html">Class ImuIdentificationRosPublisherInterface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classImuIdentificationSubscriberTest.html">Class ImuIdentificationSubscriberTest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classImuRosPublisher.html">Class ImuRosPublisher</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classImuRosPublisherInterface.html">Class ImuRosPublisherInterface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classImuSubscriberTest.html">Class ImuSubscriberTest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classRosPublisherGroup.html">Class RosPublisherGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classRosPublisherGroupInterface.html">Class RosPublisherGroupInterface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classRosTask.html">Class RosTask</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classVelAngTempDataProvider.html">Class VelAngTempDataProvider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classVelAngTempDataProviderInterface.html">Class VelAngTempDataProviderInterface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classVelAngTempRosPublisher.html">Class VelAngTempRosPublisher</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classVelAngTempRosPublisherInterface.html">Class VelAngTempRosPublisherInterface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classVelAngTempSubscriberTest.html">Class VelAngTempSubscriberTest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classWorkerThread.html">Class WorkerThread</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_iio__wrapper_8cpp_1a06fc87d81c62e9abb8790b6e5713c55b.html">Enum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_adis__data__access_8h_1a7e7f41a754d681f5d5e014fd70e5bf42.html">Enum adis_device_id</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_iio__wrapper_8cpp_1a9fb0463243d8a11004e5f95022d5f188.html">Function demux_sample</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_imu__ros2__node_8cpp_1a0ddf1224851353fc92bfbff6f499fa97.html">Function main(int, char *)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_utest_8cpp_1a3c04138a5bfe5d72780bb7e82a18e627.html">Function main(int, char **)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_accelgyrotemp__subscriber__test_8cpp_1aed21fd35654fb44d147ad6e67c01c282.html">Function TEST(AccelGyroTempSubscriberTest, test_accelgyrotemp_publisher)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_imu__diag__subscriber__test_8cpp_1adffb6846a41cab166116402c28dc7fd0.html">Function TEST(ImuDiagSubscriberTest, test_imu__diag_data_publisher)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_imu__full__measured__data__subscriber__test_8cpp_1a9e0af4b163a8c34a3a2d6857596edf2b.html">Function TEST(ImuFullMeasuredDataSubscriberTest, test_imu_full_measured_data_publisher)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_imu__identification__subscriber__test_8cpp_1a0fc96a7839a89415f4f747a0a4450795.html">Function TEST(ImuIdentificationSubscriberTest, test_imu_identification_publisher)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_imu__subscriber__test_8cpp_1a8a5f8dee9a30cfd5b32180c995f50b94.html">Function TEST(ImuSubscriberTest, test_imu_publisher)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_utest_8cpp_1a77ee4e035805c51131e12f78ba09e0c7.html">Function TEST(TestSuite, myworkcell_core_framework)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_iio__wrapper_8cpp_1a9c684a2e63c59045ea4d135add263bb9.html">Variable buff_data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_iio__wrapper_8cpp_1a1532e6c5918d0afd3d2b45eaff3f6f68.html">Variable buff_read_idx</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_iio__wrapper_8cpp_1a51e5bf2f116b1e09c8b9ed29bb4e326b.html">Variable buff_write_idx</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_iio__wrapper_8cpp_1a60e90dbaa463bf8637eb6f63512b97d1.html">Variable current_data_selection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_iio__wrapper_8cpp_1a80b9e2e5df0b6e005c30488d59b6d97a.html">Variable has_delta_channels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_iio__wrapper_8cpp_1ae29e0ad226de4f0dd3fefa66453759e6.html">Variable has_timestamp_channel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_iio__wrapper_8cpp_1ad00387e7a9a10b544928c5afc4ded5b7.html">Variable no_of_samp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_iio__wrapper_8cpp_1a4ce011ebc45fa44e68df76ab78144541.html">Variable samp_freq</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis__data__access_8h_1af7ebb793628d0706a8127f3ef7f71c96.html">Define ACCEL_GYRO_BUFFERED_DATA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1650x__data__access_8h_1aa0ab12bf392baffb16784cbf1244c1da.html">Define ADIS_ACCEL_FAIL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1650x__data__access_8h_1a7de21adcdc1e23b89d3f67185bfa2033.html">Define ADIS_ACCEL_FAIL_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1654x__data__access_8h_1a1cb648cc32e5b8064e92616eb7ee8981.html">Define ADIS_ACCEL_X_FAIL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1655x__data__access_8h_1a1cb648cc32e5b8064e92616eb7ee8981.html">Define ADIS_ACCEL_X_FAIL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1657x__data__access_8h_1a1cb648cc32e5b8064e92616eb7ee8981.html">Define ADIS_ACCEL_X_FAIL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1654x__data__access_8h_1a8d5e28ac9ff4dec409b502e687212b78.html">Define ADIS_ACCEL_X_FAIL_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1655x__data__access_8h_1a8d5e28ac9ff4dec409b502e687212b78.html">Define ADIS_ACCEL_X_FAIL_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1657x__data__access_8h_1a8d5e28ac9ff4dec409b502e687212b78.html">Define ADIS_ACCEL_X_FAIL_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1654x__data__access_8h_1a15c4fe94c4ea712c992b30ee919196e6.html">Define ADIS_ACCEL_Y_FAIL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1655x__data__access_8h_1a15c4fe94c4ea712c992b30ee919196e6.html">Define ADIS_ACCEL_Y_FAIL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1657x__data__access_8h_1a15c4fe94c4ea712c992b30ee919196e6.html">Define ADIS_ACCEL_Y_FAIL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1654x__data__access_8h_1a5c1f9f933fd311c1914f27c525039368.html">Define ADIS_ACCEL_Y_FAIL_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1655x__data__access_8h_1a5c1f9f933fd311c1914f27c525039368.html">Define ADIS_ACCEL_Y_FAIL_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1657x__data__access_8h_1a5c1f9f933fd311c1914f27c525039368.html">Define ADIS_ACCEL_Y_FAIL_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1654x__data__access_8h_1ae3b6e96bc844d22f014145eb83e7637b.html">Define ADIS_ACCEL_Z_FAIL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1655x__data__access_8h_1ae3b6e96bc844d22f014145eb83e7637b.html">Define ADIS_ACCEL_Z_FAIL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1657x__data__access_8h_1ae3b6e96bc844d22f014145eb83e7637b.html">Define ADIS_ACCEL_Z_FAIL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1654x__data__access_8h_1a9ae4fe31ecfcebf11d523e3648ca6d0c.html">Define ADIS_ACCEL_Z_FAIL_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1655x__data__access_8h_1a9ae4fe31ecfcebf11d523e3648ca6d0c.html">Define ADIS_ACCEL_Z_FAIL_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1657x__data__access_8h_1a9ae4fe31ecfcebf11d523e3648ca6d0c.html">Define ADIS_ACCEL_Z_FAIL_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1657x__data__access_8h_1ab5b4ec5daba8e2c9cc05638f4e0db216.html">Define ADIS_ADUC_MCU_FAULT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1657x__data__access_8h_1ae96990560d4448740f72ebb590c772e9.html">Define ADIS_ADUC_MCU_FAULT_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1646x__data__access_8h_1a5838435bca4544693bbc1794fb107840.html">Define ADIS_BIAS_CORRECTION_UPDATE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1647x__data__access_8h_1a5838435bca4544693bbc1794fb107840.html">Define ADIS_BIAS_CORRECTION_UPDATE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1654x__data__access_8h_1a5838435bca4544693bbc1794fb107840.html">Define ADIS_BIAS_CORRECTION_UPDATE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1657x__data__access_8h_1a5838435bca4544693bbc1794fb107840.html">Define ADIS_BIAS_CORRECTION_UPDATE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1654x__data__access_8h_1aa966a977f542fce36f90c38ca3937cff.html">Define ADIS_BIAS_CORRECTION_UPDATE_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1646x__data__access_8h_1a6dc53845d4c9a34ba8a7e61af639c7f7.html">Define ADIS_CLK_ERR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1647x__data__access_8h_1a6dc53845d4c9a34ba8a7e61af639c7f7.html">Define ADIS_CLK_ERR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1650x__data__access_8h_1a6dc53845d4c9a34ba8a7e61af639c7f7.html">Define ADIS_CLK_ERR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1654x__data__access_8h_1a6dc53845d4c9a34ba8a7e61af639c7f7.html">Define ADIS_CLK_ERR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1655x__data__access_8h_1a6dc53845d4c9a34ba8a7e61af639c7f7.html">Define ADIS_CLK_ERR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1657x__data__access_8h_1a6dc53845d4c9a34ba8a7e61af639c7f7.html">Define ADIS_CLK_ERR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1646x__data__access_8h_1a711244651992562599a6e2aef79840ef.html">Define ADIS_CLK_ERR_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1647x__data__access_8h_1a711244651992562599a6e2aef79840ef.html">Define ADIS_CLK_ERR_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1650x__data__access_8h_1a711244651992562599a6e2aef79840ef.html">Define ADIS_CLK_ERR_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1654x__data__access_8h_1a711244651992562599a6e2aef79840ef.html">Define ADIS_CLK_ERR_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1655x__data__access_8h_1a711244651992562599a6e2aef79840ef.html">Define ADIS_CLK_ERR_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1657x__data__access_8h_1a711244651992562599a6e2aef79840ef.html">Define ADIS_CLK_ERR_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1654x__data__access_8h_1a0d42788fa708f312aea01cafdfc6545c.html">Define ADIS_CRC_ERROR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1655x__data__access_8h_1a0d42788fa708f312aea01cafdfc6545c.html">Define ADIS_CRC_ERROR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1654x__data__access_8h_1a891fbdefc9c49f7c48644c936780fe30.html">Define ADIS_CRC_ERROR_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1655x__data__access_8h_1a891fbdefc9c49f7c48644c936780fe30.html">Define ADIS_CRC_ERROR_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1646x__data__access_8h_1af78561af97a99686e7dde925118158ee.html">Define ADIS_DATA_PATH_OVERRUN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1647x__data__access_8h_1af78561af97a99686e7dde925118158ee.html">Define ADIS_DATA_PATH_OVERRUN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1650x__data__access_8h_1af78561af97a99686e7dde925118158ee.html">Define ADIS_DATA_PATH_OVERRUN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1654x__data__access_8h_1af78561af97a99686e7dde925118158ee.html">Define ADIS_DATA_PATH_OVERRUN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1655x__data__access_8h_1af78561af97a99686e7dde925118158ee.html">Define ADIS_DATA_PATH_OVERRUN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1657x__data__access_8h_1af78561af97a99686e7dde925118158ee.html">Define ADIS_DATA_PATH_OVERRUN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1646x__data__access_8h_1a09a94278ab55807d945576205a217a1f.html">Define ADIS_DATA_PATH_OVERRUN_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1647x__data__access_8h_1a09a94278ab55807d945576205a217a1f.html">Define ADIS_DATA_PATH_OVERRUN_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1650x__data__access_8h_1a09a94278ab55807d945576205a217a1f.html">Define ADIS_DATA_PATH_OVERRUN_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1654x__data__access_8h_1a09a94278ab55807d945576205a217a1f.html">Define ADIS_DATA_PATH_OVERRUN_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1655x__data__access_8h_1a09a94278ab55807d945576205a217a1f.html">Define ADIS_DATA_PATH_OVERRUN_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1657x__data__access_8h_1a09a94278ab55807d945576205a217a1f.html">Define ADIS_DATA_PATH_OVERRUN_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis__data__access_8h_1a9907c8632f57dcb52a14aeca9f37b95e.html">Define ADIS_DELTANG_X_LOW_REG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis__data__access_8h_1a77c03018a07f424b5bb59b9abae1370e.html">Define ADIS_DELTANG_X_OUT_REG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis__data__access_8h_1a6db74bc3c65462215509033871b8b7ba.html">Define ADIS_DELTANG_Y_LOW_REG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis__data__access_8h_1af995534d48f84616b8f891b1f80e42aa.html">Define ADIS_DELTANG_Y_OUT_REG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis__data__access_8h_1a4a57beb4a3f1c2dca596a2b5620870f1.html">Define ADIS_DELTANG_Z_LOW_REG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis__data__access_8h_1ac96a965db88f8207b70e11cb216777c3.html">Define ADIS_DELTANG_Z_OUT_REG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis__data__access_8h_1a5ba7518320997cc54f1d62803e7b04af.html">Define ADIS_DELTVEL_X_LOW_REG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis__data__access_8h_1a2e1d1883eb1b483b9100e0c625504fa0.html">Define ADIS_DELTVEL_X_OUT_REG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis__data__access_8h_1afdad557a4795807a90968e8dc04f4c84.html">Define ADIS_DELTVEL_Y_LOW_REG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis__data__access_8h_1abf1e29eddc1d8cc50cbb4c6c123e8268.html">Define ADIS_DELTVEL_Y_OUT_REG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis__data__access_8h_1a111f7d2f1ec7a1c2346d533e343d280d.html">Define ADIS_DELTVEL_Z_LOW_REG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis__data__access_8h_1a1d5a5bc288cd1c5fce6d113af0438e62.html">Define ADIS_DELTVEL_Z_OUT_REG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1646x__data__access_8h_1a00888b371d916c5ea39793dd670a61c1.html">Define ADIS_DIAG_STAT_ADDR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1647x__data__access_8h_1a00888b371d916c5ea39793dd670a61c1.html">Define ADIS_DIAG_STAT_ADDR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1650x__data__access_8h_1a00888b371d916c5ea39793dd670a61c1.html">Define ADIS_DIAG_STAT_ADDR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1654x__data__access_8h_1a00888b371d916c5ea39793dd670a61c1.html">Define ADIS_DIAG_STAT_ADDR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1655x__data__access_8h_1a00888b371d916c5ea39793dd670a61c1.html">Define ADIS_DIAG_STAT_ADDR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1657x__data__access_8h_1a00888b371d916c5ea39793dd670a61c1.html">Define ADIS_DIAG_STAT_ADDR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1654x__data__access_8h_1ae98d2b0b2f6c4dc2cdd12295d448ff86.html">Define ADIS_DIAG_STAT_ADDR_WITHOUT_PAGE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1655x__data__access_8h_1ae98d2b0b2f6c4dc2cdd12295d448ff86.html">Define ADIS_DIAG_STAT_ADDR_WITHOUT_PAGE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1654x__data__access_8h_1a5e9411b1861401c5dc9a55e71ebeccf2.html">Define ADIS_DIAG_STAT_PAGE_ID</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1655x__data__access_8h_1a5e9411b1861401c5dc9a55e71ebeccf2.html">Define ADIS_DIAG_STAT_PAGE_ID</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1654x__data__access_8h_1a91a0e935064b9d07fc7a5e798c0a4858.html">Define ADIS_DIAG_STS_PAGE_ID</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1655x__data__access_8h_1a91a0e935064b9d07fc7a5e798c0a4858.html">Define ADIS_DIAG_STS_PAGE_ID</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1654x__data__access_8h_1a98bc997623f154a9033bb81de383858e.html">Define ADIS_DIAG_STS_REG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1655x__data__access_8h_1a98bc997623f154a9033bb81de383858e.html">Define ADIS_DIAG_STS_REG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1654x__data__access_8h_1a2835be66ac0fd1ea1ce3f19abb13f4b6.html">Define ADIS_DIAG_STS_REG_WITHOUT_PAGE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1655x__data__access_8h_1a2835be66ac0fd1ea1ce3f19abb13f4b6.html">Define ADIS_DIAG_STS_REG_WITHOUT_PAGE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1646x__data__access_8h_1a546191746e8a4d114668f06f5ba11805.html">Define ADIS_DR_POL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1647x__data__access_8h_1a546191746e8a4d114668f06f5ba11805.html">Define ADIS_DR_POL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1650x__data__access_8h_1a546191746e8a4d114668f06f5ba11805.html">Define ADIS_DR_POL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1657x__data__access_8h_1a546191746e8a4d114668f06f5ba11805.html">Define ADIS_DR_POL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1646x__data__access_8h_1a03b31b1843125a101b31acced6455c31.html">Define ADIS_DR_POL_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1647x__data__access_8h_1a03b31b1843125a101b31acced6455c31.html">Define ADIS_DR_POL_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1650x__data__access_8h_1a03b31b1843125a101b31acced6455c31.html">Define ADIS_DR_POL_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1657x__data__access_8h_1a03b31b1843125a101b31acced6455c31.html">Define ADIS_DR_POL_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1646x__data__access_8h_1adb8aba739dc68b9d1c69b9225d769b3c.html">Define ADIS_FACTORY_CALIBRATION_RESTORE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1647x__data__access_8h_1adb8aba739dc68b9d1c69b9225d769b3c.html">Define ADIS_FACTORY_CALIBRATION_RESTORE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1650x__data__access_8h_1adb8aba739dc68b9d1c69b9225d769b3c.html">Define ADIS_FACTORY_CALIBRATION_RESTORE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1654x__data__access_8h_1adb8aba739dc68b9d1c69b9225d769b3c.html">Define ADIS_FACTORY_CALIBRATION_RESTORE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1655x__data__access_8h_1adb8aba739dc68b9d1c69b9225d769b3c.html">Define ADIS_FACTORY_CALIBRATION_RESTORE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1657x__data__access_8h_1adb8aba739dc68b9d1c69b9225d769b3c.html">Define ADIS_FACTORY_CALIBRATION_RESTORE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1654x__data__access_8h_1ac9644c3f3e356c4e335eb3c3be4f4318.html">Define ADIS_FACTORY_CALIBRATION_RESTORE_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1655x__data__access_8h_1ac9644c3f3e356c4e335eb3c3be4f4318.html">Define ADIS_FACTORY_CALIBRATION_RESTORE_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1646x__data__access_8h_1a61ed1ff604e65466d9fb37adfdbe4a04.html">Define ADIS_FLASH_MEMORY_TEST</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1647x__data__access_8h_1a61ed1ff604e65466d9fb37adfdbe4a04.html">Define ADIS_FLASH_MEMORY_TEST</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1650x__data__access_8h_1a61ed1ff604e65466d9fb37adfdbe4a04.html">Define ADIS_FLASH_MEMORY_TEST</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1657x__data__access_8h_1a61ed1ff604e65466d9fb37adfdbe4a04.html">Define ADIS_FLASH_MEMORY_TEST</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1646x__data__access_8h_1afd8619ab2bd62e2a1d567b365630b6dc.html">Define ADIS_FLASH_MEMORY_UPDATE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1647x__data__access_8h_1afd8619ab2bd62e2a1d567b365630b6dc.html">Define ADIS_FLASH_MEMORY_UPDATE</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Define ADIS_FLASH_MEMORY_UPDATE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1654x__data__access_8h_1afd8619ab2bd62e2a1d567b365630b6dc.html">Define ADIS_FLASH_MEMORY_UPDATE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1655x__data__access_8h_1afd8619ab2bd62e2a1d567b365630b6dc.html">Define ADIS_FLASH_MEMORY_UPDATE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1657x__data__access_8h_1afd8619ab2bd62e2a1d567b365630b6dc.html">Define ADIS_FLASH_MEMORY_UPDATE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1654x__data__access_8h_1a8bbd979256a753044b0c0e88a5693732.html">Define ADIS_FLASH_MEMORY_UPDATE_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1655x__data__access_8h_1a8bbd979256a753044b0c0e88a5693732.html">Define ADIS_FLASH_MEMORY_UPDATE_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1646x__data__access_8h_1ac690976b9d8a5cef6ae4f66ec6272253.html">Define ADIS_FLS_MEM_ENDURANCE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1647x__data__access_8h_1ac690976b9d8a5cef6ae4f66ec6272253.html">Define ADIS_FLS_MEM_ENDURANCE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1650x__data__access_8h_1ac690976b9d8a5cef6ae4f66ec6272253.html">Define ADIS_FLS_MEM_ENDURANCE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1654x__data__access_8h_1ac690976b9d8a5cef6ae4f66ec6272253.html">Define ADIS_FLS_MEM_ENDURANCE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1655x__data__access_8h_1ac690976b9d8a5cef6ae4f66ec6272253.html">Define ADIS_FLS_MEM_ENDURANCE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1657x__data__access_8h_1ac690976b9d8a5cef6ae4f66ec6272253.html">Define ADIS_FLS_MEM_ENDURANCE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1646x__data__access_8h_1a3e3b49f9f8d7253f2a05f4af14fe2e77.html">Define ADIS_FLS_MEM_UPDATE_FAIL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1647x__data__access_8h_1a3e3b49f9f8d7253f2a05f4af14fe2e77.html">Define ADIS_FLS_MEM_UPDATE_FAIL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1650x__data__access_8h_1a3e3b49f9f8d7253f2a05f4af14fe2e77.html">Define ADIS_FLS_MEM_UPDATE_FAIL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1654x__data__access_8h_1a3e3b49f9f8d7253f2a05f4af14fe2e77.html">Define ADIS_FLS_MEM_UPDATE_FAIL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1655x__data__access_8h_1a3e3b49f9f8d7253f2a05f4af14fe2e77.html">Define ADIS_FLS_MEM_UPDATE_FAIL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1657x__data__access_8h_1a3e3b49f9f8d7253f2a05f4af14fe2e77.html">Define ADIS_FLS_MEM_UPDATE_FAIL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1646x__data__access_8h_1ab130fcdec49a87835b96266890f18ae7.html">Define ADIS_FLS_MEM_UPDATE_FAIL_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1647x__data__access_8h_1ab130fcdec49a87835b96266890f18ae7.html">Define ADIS_FLS_MEM_UPDATE_FAIL_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1650x__data__access_8h_1ab130fcdec49a87835b96266890f18ae7.html">Define ADIS_FLS_MEM_UPDATE_FAIL_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1654x__data__access_8h_1ab130fcdec49a87835b96266890f18ae7.html">Define ADIS_FLS_MEM_UPDATE_FAIL_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1655x__data__access_8h_1ab130fcdec49a87835b96266890f18ae7.html">Define ADIS_FLS_MEM_UPDATE_FAIL_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1657x__data__access_8h_1ab130fcdec49a87835b96266890f18ae7.html">Define ADIS_FLS_MEM_UPDATE_FAIL_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1646x__data__access_8h_1a42c62d46224ce68df7ada715c77be950.html">Define ADIS_GLOB_CMD_ADDR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1647x__data__access_8h_1a42c62d46224ce68df7ada715c77be950.html">Define ADIS_GLOB_CMD_ADDR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1650x__data__access_8h_1a42c62d46224ce68df7ada715c77be950.html">Define ADIS_GLOB_CMD_ADDR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1654x__data__access_8h_1a42c62d46224ce68df7ada715c77be950.html">Define ADIS_GLOB_CMD_ADDR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1655x__data__access_8h_1a42c62d46224ce68df7ada715c77be950.html">Define ADIS_GLOB_CMD_ADDR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1657x__data__access_8h_1a42c62d46224ce68df7ada715c77be950.html">Define ADIS_GLOB_CMD_ADDR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1654x__data__access_8h_1a7b4215a68a01ce69902ba6a30cf8510a.html">Define ADIS_GLOB_CMD_ADDR_WITHOUT_PAGE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1655x__data__access_8h_1a7b4215a68a01ce69902ba6a30cf8510a.html">Define ADIS_GLOB_CMD_ADDR_WITHOUT_PAGE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1654x__data__access_8h_1a4757a9230418cb2c36434564b41e747c.html">Define ADIS_GLOB_CMD_PAGE_ID</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1655x__data__access_8h_1a4757a9230418cb2c36434564b41e747c.html">Define ADIS_GLOB_CMD_PAGE_ID</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1650x__data__access_8h_1a2af0cbe3a7579a5b0341e7d7bb08097a.html">Define ADIS_GYRO1_FAIL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1650x__data__access_8h_1a4a99cce87e73761d8e4a1b4a57c2fc48.html">Define ADIS_GYRO1_FAIL_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1650x__data__access_8h_1acd186737612f7996e67408ed3f64fac1.html">Define ADIS_GYRO2_FAIL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1650x__data__access_8h_1ab6bf37624d01522e9e6d73ff0186625e.html">Define ADIS_GYRO2_FAIL_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1654x__data__access_8h_1ad5866956ffd11792c984e6416a68e333.html">Define ADIS_GYRO_ACCEL_FAIL_REG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1655x__data__access_8h_1ad5866956ffd11792c984e6416a68e333.html">Define ADIS_GYRO_ACCEL_FAIL_REG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1657x__data__access_8h_1ad5866956ffd11792c984e6416a68e333.html">Define ADIS_GYRO_ACCEL_FAIL_REG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1646x__data__access_8h_1a00ab4e91230687d83816c45dbc49e185.html">Define ADIS_GYRO_MEAS_RANG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1647x__data__access_8h_1a00ab4e91230687d83816c45dbc49e185.html">Define ADIS_GYRO_MEAS_RANG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1650x__data__access_8h_1a00ab4e91230687d83816c45dbc49e185.html">Define ADIS_GYRO_MEAS_RANG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1654x__data__access_8h_1a00ab4e91230687d83816c45dbc49e185.html">Define ADIS_GYRO_MEAS_RANG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1657x__data__access_8h_1a00ab4e91230687d83816c45dbc49e185.html">Define ADIS_GYRO_MEAS_RANG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1646x__data__access_8h_1a7de18cb23c2daf40857df9945d5a3a7c.html">Define ADIS_GYRO_MEAS_RANG_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1647x__data__access_8h_1a7de18cb23c2daf40857df9945d5a3a7c.html">Define ADIS_GYRO_MEAS_RANG_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1650x__data__access_8h_1a7de18cb23c2daf40857df9945d5a3a7c.html">Define ADIS_GYRO_MEAS_RANG_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1654x__data__access_8h_1a7de18cb23c2daf40857df9945d5a3a7c.html">Define ADIS_GYRO_MEAS_RANG_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1657x__data__access_8h_1a7de18cb23c2daf40857df9945d5a3a7c.html">Define ADIS_GYRO_MEAS_RANG_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1654x__data__access_8h_1a82f646d0754f1163f13a7b03d3e3ad8a.html">Define ADIS_GYRO_X_FAIL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1655x__data__access_8h_1a82f646d0754f1163f13a7b03d3e3ad8a.html">Define ADIS_GYRO_X_FAIL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1657x__data__access_8h_1a82f646d0754f1163f13a7b03d3e3ad8a.html">Define ADIS_GYRO_X_FAIL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1654x__data__access_8h_1aa0392d5f5f66a6a2870deec118af7046.html">Define ADIS_GYRO_X_FAIL_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1655x__data__access_8h_1aa0392d5f5f66a6a2870deec118af7046.html">Define ADIS_GYRO_X_FAIL_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1657x__data__access_8h_1aa0392d5f5f66a6a2870deec118af7046.html">Define ADIS_GYRO_X_FAIL_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1654x__data__access_8h_1a2078895656358fb28f2ac6c427946bef.html">Define ADIS_GYRO_Y_FAIL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1655x__data__access_8h_1a2078895656358fb28f2ac6c427946bef.html">Define ADIS_GYRO_Y_FAIL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1657x__data__access_8h_1a2078895656358fb28f2ac6c427946bef.html">Define ADIS_GYRO_Y_FAIL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1654x__data__access_8h_1a9c5172d2087f8e637ed977adf6f4b1af.html">Define ADIS_GYRO_Y_FAIL_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1655x__data__access_8h_1a9c5172d2087f8e637ed977adf6f4b1af.html">Define ADIS_GYRO_Y_FAIL_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1657x__data__access_8h_1a9c5172d2087f8e637ed977adf6f4b1af.html">Define ADIS_GYRO_Y_FAIL_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1654x__data__access_8h_1acd8829aa75c3606ae877530053b2d8c4.html">Define ADIS_GYRO_Z_FAIL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1655x__data__access_8h_1acd8829aa75c3606ae877530053b2d8c4.html">Define ADIS_GYRO_Z_FAIL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1657x__data__access_8h_1acd8829aa75c3606ae877530053b2d8c4.html">Define ADIS_GYRO_Z_FAIL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1654x__data__access_8h_1a67dd79bc04aa2b04d3decef65f795aa1.html">Define ADIS_GYRO_Z_FAIL_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1655x__data__access_8h_1a67dd79bc04aa2b04d3decef65f795aa1.html">Define ADIS_GYRO_Z_FAIL_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1657x__data__access_8h_1a67dd79bc04aa2b04d3decef65f795aa1.html">Define ADIS_GYRO_Z_FAIL_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1654x__data__access_8h_1ae94276ad20caa596349f5ce0579072b4.html">Define ADIS_HAS_CALIB_SCALE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1655x__data__access_8h_1ae94276ad20caa596349f5ce0579072b4.html">Define ADIS_HAS_CALIB_SCALE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1647x__data__access_8h_1a9a628803e86d5dd2ee521147498012df.html">Define ADIS_HAS_DELTA_BURST</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1650x__data__access_8h_1a9a628803e86d5dd2ee521147498012df.html">Define ADIS_HAS_DELTA_BURST</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1654x__data__access_8h_1a9a628803e86d5dd2ee521147498012df.html">Define ADIS_HAS_DELTA_BURST</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1655x__data__access_8h_1a9a628803e86d5dd2ee521147498012df.html">Define ADIS_HAS_DELTA_BURST</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1657x__data__access_8h_1a9a628803e86d5dd2ee521147498012df.html">Define ADIS_HAS_DELTA_BURST</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1646x__data__access_8h_1a4f5a40c8b6cd32847d823496f80c24f3.html">Define ADIS_LN_ACCL_COMP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1647x__data__access_8h_1a4f5a40c8b6cd32847d823496f80c24f3.html">Define ADIS_LN_ACCL_COMP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1650x__data__access_8h_1a4f5a40c8b6cd32847d823496f80c24f3.html">Define ADIS_LN_ACCL_COMP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1657x__data__access_8h_1a4f5a40c8b6cd32847d823496f80c24f3.html">Define ADIS_LN_ACCL_COMP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1646x__data__access_8h_1a129695383e48c5c2593f5f1123db6012.html">Define ADIS_LN_ACCL_COMP_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1647x__data__access_8h_1a129695383e48c5c2593f5f1123db6012.html">Define ADIS_LN_ACCL_COMP_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1650x__data__access_8h_1a129695383e48c5c2593f5f1123db6012.html">Define ADIS_LN_ACCL_COMP_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1657x__data__access_8h_1a129695383e48c5c2593f5f1123db6012.html">Define ADIS_LN_ACCL_COMP_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1646x__data__access_8h_1a069236f3929ff9561ceeec01e6601743.html">Define ADIS_MAX_SAMP_FREQ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1647x__data__access_8h_1a069236f3929ff9561ceeec01e6601743.html">Define ADIS_MAX_SAMP_FREQ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1650x__data__access_8h_1a069236f3929ff9561ceeec01e6601743.html">Define ADIS_MAX_SAMP_FREQ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1654x__data__access_8h_1a069236f3929ff9561ceeec01e6601743.html">Define ADIS_MAX_SAMP_FREQ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1655x__data__access_8h_1a069236f3929ff9561ceeec01e6601743.html">Define ADIS_MAX_SAMP_FREQ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1657x__data__access_8h_1a069236f3929ff9561ceeec01e6601743.html">Define ADIS_MAX_SAMP_FREQ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1646x__data__access_8h_1a9d998165da056cc3a2b600ab8382d7cf.html">Define ADIS_MEM_FAIL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1647x__data__access_8h_1a9d998165da056cc3a2b600ab8382d7cf.html">Define ADIS_MEM_FAIL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1650x__data__access_8h_1a9d998165da056cc3a2b600ab8382d7cf.html">Define ADIS_MEM_FAIL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1654x__data__access_8h_1a9d998165da056cc3a2b600ab8382d7cf.html">Define ADIS_MEM_FAIL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1655x__data__access_8h_1a9d998165da056cc3a2b600ab8382d7cf.html">Define ADIS_MEM_FAIL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1657x__data__access_8h_1a9d998165da056cc3a2b600ab8382d7cf.html">Define ADIS_MEM_FAIL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1646x__data__access_8h_1ac4a5fdbfc1a3c7d391a3cc174025276b.html">Define ADIS_MEM_FAIL_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1647x__data__access_8h_1ac4a5fdbfc1a3c7d391a3cc174025276b.html">Define ADIS_MEM_FAIL_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1650x__data__access_8h_1ac4a5fdbfc1a3c7d391a3cc174025276b.html">Define ADIS_MEM_FAIL_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1654x__data__access_8h_1ac4a5fdbfc1a3c7d391a3cc174025276b.html">Define ADIS_MEM_FAIL_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1655x__data__access_8h_1ac4a5fdbfc1a3c7d391a3cc174025276b.html">Define ADIS_MEM_FAIL_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1657x__data__access_8h_1ac4a5fdbfc1a3c7d391a3cc174025276b.html">Define ADIS_MEM_FAIL_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1646x__data__access_8h_1a14b8fca2d7cfd5bb1baf0a4c23658b35.html">Define ADIS_MSC_CTRL_ADDR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1647x__data__access_8h_1a14b8fca2d7cfd5bb1baf0a4c23658b35.html">Define ADIS_MSC_CTRL_ADDR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1650x__data__access_8h_1a14b8fca2d7cfd5bb1baf0a4c23658b35.html">Define ADIS_MSC_CTRL_ADDR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1657x__data__access_8h_1a14b8fca2d7cfd5bb1baf0a4c23658b35.html">Define ADIS_MSC_CTRL_ADDR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1646x__data__access_8h_1a750299fcfc067f2cf82f3d6cd86c0543.html">Define ADIS_NULL_CNFG_ADDR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1647x__data__access_8h_1a750299fcfc067f2cf82f3d6cd86c0543.html">Define ADIS_NULL_CNFG_ADDR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1654x__data__access_8h_1a750299fcfc067f2cf82f3d6cd86c0543.html">Define ADIS_NULL_CNFG_ADDR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1657x__data__access_8h_1a750299fcfc067f2cf82f3d6cd86c0543.html">Define ADIS_NULL_CNFG_ADDR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1654x__data__access_8h_1a2a288c4be0d9fd83ce63e85d00020069.html">Define ADIS_NULL_CNFG_ADDR_WITHOUT_PAGE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1654x__data__access_8h_1a73a8238df11ab5183c583676e86d6fc9.html">Define ADIS_NULL_CNFG_PAGE_ID</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1654x__data__access_8h_1a01c63e5371bb331a0cec0ef2bfa1f74a.html">Define ADIS_PAGE_ID_VAL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1655x__data__access_8h_1a01c63e5371bb331a0cec0ef2bfa1f74a.html">Define ADIS_PAGE_ID_VAL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1646x__data__access_8h_1a224472ceeefad7128e0a436bf855bb48.html">Define ADIS_PT_OF_PERC_ALGNMNT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1647x__data__access_8h_1a224472ceeefad7128e0a436bf855bb48.html">Define ADIS_PT_OF_PERC_ALGNMNT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1650x__data__access_8h_1a224472ceeefad7128e0a436bf855bb48.html">Define ADIS_PT_OF_PERC_ALGNMNT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1654x__data__access_8h_1a224472ceeefad7128e0a436bf855bb48.html">Define ADIS_PT_OF_PERC_ALGNMNT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1655x__data__access_8h_1a224472ceeefad7128e0a436bf855bb48.html">Define ADIS_PT_OF_PERC_ALGNMNT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1657x__data__access_8h_1a224472ceeefad7128e0a436bf855bb48.html">Define ADIS_PT_OF_PERC_ALGNMNT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1646x__data__access_8h_1a53a01d7e65d04e2e78b9b815b870d56d.html">Define ADIS_PT_OF_PERC_ALGNMNT_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1647x__data__access_8h_1a53a01d7e65d04e2e78b9b815b870d56d.html">Define ADIS_PT_OF_PERC_ALGNMNT_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1650x__data__access_8h_1a53a01d7e65d04e2e78b9b815b870d56d.html">Define ADIS_PT_OF_PERC_ALGNMNT_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1654x__data__access_8h_1a53a01d7e65d04e2e78b9b815b870d56d.html">Define ADIS_PT_OF_PERC_ALGNMNT_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1655x__data__access_8h_1a53a01d7e65d04e2e78b9b815b870d56d.html">Define ADIS_PT_OF_PERC_ALGNMNT_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1657x__data__access_8h_1a53a01d7e65d04e2e78b9b815b870d56d.html">Define ADIS_PT_OF_PERC_ALGNMNT_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1654x__data__access_8h_1a49aeef7ae805605e86704d04777f5eb6.html">Define ADIS_PT_OF_PERC_PAGE_ID</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1655x__data__access_8h_1a49aeef7ae805605e86704d04777f5eb6.html">Define ADIS_PT_OF_PERC_PAGE_ID</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1646x__data__access_8h_1a5af76feaa70560f735e4a7f783cf0adb.html">Define ADIS_PT_OF_PERC_REG_ADDR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1647x__data__access_8h_1a5af76feaa70560f735e4a7f783cf0adb.html">Define ADIS_PT_OF_PERC_REG_ADDR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1650x__data__access_8h_1a5af76feaa70560f735e4a7f783cf0adb.html">Define ADIS_PT_OF_PERC_REG_ADDR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1654x__data__access_8h_1a5af76feaa70560f735e4a7f783cf0adb.html">Define ADIS_PT_OF_PERC_REG_ADDR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1655x__data__access_8h_1a5af76feaa70560f735e4a7f783cf0adb.html">Define ADIS_PT_OF_PERC_REG_ADDR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1657x__data__access_8h_1a5af76feaa70560f735e4a7f783cf0adb.html">Define ADIS_PT_OF_PERC_REG_ADDR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1654x__data__access_8h_1aa286cb33e0d323469caed40cb3e3e2ca.html">Define ADIS_PT_OF_PERC_REG_ADDR_WITHOUT_PAGE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1655x__data__access_8h_1aa286cb33e0d323469caed40cb3e3e2ca.html">Define ADIS_PT_OF_PERC_REG_ADDR_WITHOUT_PAGE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1646x__data__access_8h_1a969eacbc2d25e3c2468eb5cc6f638b27.html">Define ADIS_RANG_MDL_ADDR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1647x__data__access_8h_1a969eacbc2d25e3c2468eb5cc6f638b27.html">Define ADIS_RANG_MDL_ADDR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1650x__data__access_8h_1a969eacbc2d25e3c2468eb5cc6f638b27.html">Define ADIS_RANG_MDL_ADDR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1654x__data__access_8h_1a969eacbc2d25e3c2468eb5cc6f638b27.html">Define ADIS_RANG_MDL_ADDR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1655x__data__access_8h_1a969eacbc2d25e3c2468eb5cc6f638b27.html">Define ADIS_RANG_MDL_ADDR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1657x__data__access_8h_1a969eacbc2d25e3c2468eb5cc6f638b27.html">Define ADIS_RANG_MDL_ADDR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1654x__data__access_8h_1a9764135e724dd6b0d5295705212d7c78.html">Define ADIS_RANG_MDL_ADDR_WITHOUT_PAGE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1655x__data__access_8h_1a9764135e724dd6b0d5295705212d7c78.html">Define ADIS_RANG_MDL_ADDR_WITHOUT_PAGE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1654x__data__access_8h_1ad6cb370f6b0d4ecf6dbf23aae2a07ef1.html">Define ADIS_RANG_MDL_PAGE_ID</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1655x__data__access_8h_1ad6cb370f6b0d4ecf6dbf23aae2a07ef1.html">Define ADIS_RANG_MDL_PAGE_ID</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1650x__data__access_8h_1a714dc7aeb55b8002ba422dc01def4e14.html">Define ADIS_SENS_BW</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1657x__data__access_8h_1a714dc7aeb55b8002ba422dc01def4e14.html">Define ADIS_SENS_BW</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1650x__data__access_8h_1ae3b1461272ec2f057ff52aec4793bea2.html">Define ADIS_SENS_BW_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1657x__data__access_8h_1ae3b1461272ec2f057ff52aec4793bea2.html">Define ADIS_SENS_BW_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1646x__data__access_8h_1af8122b7e93db959412609be1644d5963.html">Define ADIS_SENSOR_SELF_TEST</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1647x__data__access_8h_1af8122b7e93db959412609be1644d5963.html">Define ADIS_SENSOR_SELF_TEST</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1650x__data__access_8h_1af8122b7e93db959412609be1644d5963.html">Define ADIS_SENSOR_SELF_TEST</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1654x__data__access_8h_1af8122b7e93db959412609be1644d5963.html">Define ADIS_SENSOR_SELF_TEST</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1655x__data__access_8h_1af8122b7e93db959412609be1644d5963.html">Define ADIS_SENSOR_SELF_TEST</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1657x__data__access_8h_1af8122b7e93db959412609be1644d5963.html">Define ADIS_SENSOR_SELF_TEST</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1654x__data__access_8h_1af857040cb01ed2bfdc347c0dfb3d0687.html">Define ADIS_SENSOR_SELF_TEST_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1655x__data__access_8h_1af857040cb01ed2bfdc347c0dfb3d0687.html">Define ADIS_SENSOR_SELF_TEST_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1646x__data__access_8h_1a281251c2e8612a1cc81613e4cd89ac15.html">Define ADIS_SNSR_FAIL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1647x__data__access_8h_1a281251c2e8612a1cc81613e4cd89ac15.html">Define ADIS_SNSR_FAIL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1650x__data__access_8h_1a281251c2e8612a1cc81613e4cd89ac15.html">Define ADIS_SNSR_FAIL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1654x__data__access_8h_1a281251c2e8612a1cc81613e4cd89ac15.html">Define ADIS_SNSR_FAIL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1655x__data__access_8h_1a281251c2e8612a1cc81613e4cd89ac15.html">Define ADIS_SNSR_FAIL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1657x__data__access_8h_1a281251c2e8612a1cc81613e4cd89ac15.html">Define ADIS_SNSR_FAIL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1646x__data__access_8h_1ae011746534d120c56d97a65d875d098d.html">Define ADIS_SNSR_FAIL_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1647x__data__access_8h_1ae011746534d120c56d97a65d875d098d.html">Define ADIS_SNSR_FAIL_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1650x__data__access_8h_1ae011746534d120c56d97a65d875d098d.html">Define ADIS_SNSR_FAIL_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1654x__data__access_8h_1ae011746534d120c56d97a65d875d098d.html">Define ADIS_SNSR_FAIL_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1655x__data__access_8h_1ae011746534d120c56d97a65d875d098d.html">Define ADIS_SNSR_FAIL_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1657x__data__access_8h_1ae011746534d120c56d97a65d875d098d.html">Define ADIS_SNSR_FAIL_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1657x__data__access_8h_1aa5f772a63cffc192e44e90d5185d1dcd.html">Define ADIS_SNSR_INIT_FAIL_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1646x__data__access_8h_1a192f1694df557e9c92ec39d58caccbf3.html">Define ADIS_SOFTWARE_RESET_CMD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1647x__data__access_8h_1a192f1694df557e9c92ec39d58caccbf3.html">Define ADIS_SOFTWARE_RESET_CMD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1650x__data__access_8h_1a192f1694df557e9c92ec39d58caccbf3.html">Define ADIS_SOFTWARE_RESET_CMD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1654x__data__access_8h_1a192f1694df557e9c92ec39d58caccbf3.html">Define ADIS_SOFTWARE_RESET_CMD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1655x__data__access_8h_1a192f1694df557e9c92ec39d58caccbf3.html">Define ADIS_SOFTWARE_RESET_CMD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1657x__data__access_8h_1a192f1694df557e9c92ec39d58caccbf3.html">Define ADIS_SOFTWARE_RESET_CMD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1654x__data__access_8h_1a14928c73e1bf067891ee3ddb5dd72008.html">Define ADIS_SOFTWARE_RESET_CMD_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1655x__data__access_8h_1a14928c73e1bf067891ee3ddb5dd72008.html">Define ADIS_SOFTWARE_RESET_CMD_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1646x__data__access_8h_1aba2d908cda71325077530f1b0d6f0d6d.html">Define ADIS_SPI_COMM_ERR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1647x__data__access_8h_1aba2d908cda71325077530f1b0d6f0d6d.html">Define ADIS_SPI_COMM_ERR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1650x__data__access_8h_1aba2d908cda71325077530f1b0d6f0d6d.html">Define ADIS_SPI_COMM_ERR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1654x__data__access_8h_1aba2d908cda71325077530f1b0d6f0d6d.html">Define ADIS_SPI_COMM_ERR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1655x__data__access_8h_1aba2d908cda71325077530f1b0d6f0d6d.html">Define ADIS_SPI_COMM_ERR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1657x__data__access_8h_1aba2d908cda71325077530f1b0d6f0d6d.html">Define ADIS_SPI_COMM_ERR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1646x__data__access_8h_1a294bb27581a93538420931d6cafc54df.html">Define ADIS_SPI_COMM_ERR_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1647x__data__access_8h_1a294bb27581a93538420931d6cafc54df.html">Define ADIS_SPI_COMM_ERR_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1650x__data__access_8h_1a294bb27581a93538420931d6cafc54df.html">Define ADIS_SPI_COMM_ERR_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1654x__data__access_8h_1a294bb27581a93538420931d6cafc54df.html">Define ADIS_SPI_COMM_ERR_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1655x__data__access_8h_1a294bb27581a93538420931d6cafc54df.html">Define ADIS_SPI_COMM_ERR_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1657x__data__access_8h_1a294bb27581a93538420931d6cafc54df.html">Define ADIS_SPI_COMM_ERR_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1646x__data__access_8h_1a74d6285b6fd090ae939c250e0c8bce5a.html">Define ADIS_STDBY_MODE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1647x__data__access_8h_1a74d6285b6fd090ae939c250e0c8bce5a.html">Define ADIS_STDBY_MODE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1650x__data__access_8h_1a74d6285b6fd090ae939c250e0c8bce5a.html">Define ADIS_STDBY_MODE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1657x__data__access_8h_1a74d6285b6fd090ae939c250e0c8bce5a.html">Define ADIS_STDBY_MODE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1646x__data__access_8h_1a26e094f2d1fa49356716838465b09ac4.html">Define ADIS_STDBY_MODE_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1647x__data__access_8h_1a26e094f2d1fa49356716838465b09ac4.html">Define ADIS_STDBY_MODE_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1650x__data__access_8h_1a26e094f2d1fa49356716838465b09ac4.html">Define ADIS_STDBY_MODE_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1657x__data__access_8h_1a26e094f2d1fa49356716838465b09ac4.html">Define ADIS_STDBY_MODE_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1646x__data__access_8h_1a4021b1a2f6e85d91a0e9cc5e8cc01555.html">Define ADIS_SYNC_POL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1647x__data__access_8h_1a4021b1a2f6e85d91a0e9cc5e8cc01555.html">Define ADIS_SYNC_POL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1650x__data__access_8h_1a4021b1a2f6e85d91a0e9cc5e8cc01555.html">Define ADIS_SYNC_POL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1657x__data__access_8h_1a4021b1a2f6e85d91a0e9cc5e8cc01555.html">Define ADIS_SYNC_POL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1646x__data__access_8h_1ae78df4bcff713178bf8121d87f2be467.html">Define ADIS_SYNC_POL_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1647x__data__access_8h_1ae78df4bcff713178bf8121d87f2be467.html">Define ADIS_SYNC_POL_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1650x__data__access_8h_1ae78df4bcff713178bf8121d87f2be467.html">Define ADIS_SYNC_POL_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1657x__data__access_8h_1ae78df4bcff713178bf8121d87f2be467.html">Define ADIS_SYNC_POL_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1646x__data__access_8h_1a8984972ab7d4ee7a96445d852d50000e.html">Define ADIS_TIME_BASE_CONTROL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1647x__data__access_8h_1a8984972ab7d4ee7a96445d852d50000e.html">Define ADIS_TIME_BASE_CONTROL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1654x__data__access_8h_1a8984972ab7d4ee7a96445d852d50000e.html">Define ADIS_TIME_BASE_CONTROL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1657x__data__access_8h_1a8984972ab7d4ee7a96445d852d50000e.html">Define ADIS_TIME_BASE_CONTROL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1646x__data__access_8h_1a621e0a62b72e598f9d3f4e65b2cd9a6e.html">Define ADIS_TIME_BASE_CONTROL_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1647x__data__access_8h_1a621e0a62b72e598f9d3f4e65b2cd9a6e.html">Define ADIS_TIME_BASE_CONTROL_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1654x__data__access_8h_1a621e0a62b72e598f9d3f4e65b2cd9a6e.html">Define ADIS_TIME_BASE_CONTROL_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1657x__data__access_8h_1a621e0a62b72e598f9d3f4e65b2cd9a6e.html">Define ADIS_TIME_BASE_CONTROL_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1654x__data__access_8h_1a0e1eaa323fab2efb23a2c2a72fcd8244.html">Define ADIS_WDG_TIMER_FLAG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1655x__data__access_8h_1a0e1eaa323fab2efb23a2c2a72fcd8244.html">Define ADIS_WDG_TIMER_FLAG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1654x__data__access_8h_1abb5e2c83d09395d7e4f325b48702e931.html">Define ADIS_WDG_TIMER_FLAG_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1655x__data__access_8h_1abb5e2c83d09395d7e4f325b48702e931.html">Define ADIS_WDG_TIMER_FLAG_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1646x__data__access_8h_1ae59fdd84ddeaf2656416fb2cca7056c5.html">Define ADIS_X_AXIS_ACCEL_BIAS_CORR_EN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1647x__data__access_8h_1ae59fdd84ddeaf2656416fb2cca7056c5.html">Define ADIS_X_AXIS_ACCEL_BIAS_CORR_EN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1654x__data__access_8h_1ae59fdd84ddeaf2656416fb2cca7056c5.html">Define ADIS_X_AXIS_ACCEL_BIAS_CORR_EN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1657x__data__access_8h_1ae59fdd84ddeaf2656416fb2cca7056c5.html">Define ADIS_X_AXIS_ACCEL_BIAS_CORR_EN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1646x__data__access_8h_1abc41fbd02548f66f16860ad314df865e.html">Define ADIS_X_AXIS_ACCEL_BIAS_CORR_EN_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1647x__data__access_8h_1abc41fbd02548f66f16860ad314df865e.html">Define ADIS_X_AXIS_ACCEL_BIAS_CORR_EN_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1654x__data__access_8h_1abc41fbd02548f66f16860ad314df865e.html">Define ADIS_X_AXIS_ACCEL_BIAS_CORR_EN_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1657x__data__access_8h_1abc41fbd02548f66f16860ad314df865e.html">Define ADIS_X_AXIS_ACCEL_BIAS_CORR_EN_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1646x__data__access_8h_1a635a2b39aacb456fd01fedb5f3b426e1.html">Define ADIS_X_AXIS_GYRO_BIAS_CORR_EN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1647x__data__access_8h_1a635a2b39aacb456fd01fedb5f3b426e1.html">Define ADIS_X_AXIS_GYRO_BIAS_CORR_EN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1654x__data__access_8h_1a635a2b39aacb456fd01fedb5f3b426e1.html">Define ADIS_X_AXIS_GYRO_BIAS_CORR_EN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1657x__data__access_8h_1a635a2b39aacb456fd01fedb5f3b426e1.html">Define ADIS_X_AXIS_GYRO_BIAS_CORR_EN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1646x__data__access_8h_1ae6681abe9ef9c79d8a731f1d335e0ff1.html">Define ADIS_X_AXIS_GYRO_BIAS_CORR_EN_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1647x__data__access_8h_1ae6681abe9ef9c79d8a731f1d335e0ff1.html">Define ADIS_X_AXIS_GYRO_BIAS_CORR_EN_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1654x__data__access_8h_1ae6681abe9ef9c79d8a731f1d335e0ff1.html">Define ADIS_X_AXIS_GYRO_BIAS_CORR_EN_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1657x__data__access_8h_1ae6681abe9ef9c79d8a731f1d335e0ff1.html">Define ADIS_X_AXIS_GYRO_BIAS_CORR_EN_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1646x__data__access_8h_1ab29c3b9af01dcd2468e73ff6978755fe.html">Define ADIS_Y_AXIS_ACCEL_BIAS_CORR_EN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1647x__data__access_8h_1ab29c3b9af01dcd2468e73ff6978755fe.html">Define ADIS_Y_AXIS_ACCEL_BIAS_CORR_EN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1654x__data__access_8h_1ab29c3b9af01dcd2468e73ff6978755fe.html">Define ADIS_Y_AXIS_ACCEL_BIAS_CORR_EN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1657x__data__access_8h_1ab29c3b9af01dcd2468e73ff6978755fe.html">Define ADIS_Y_AXIS_ACCEL_BIAS_CORR_EN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1646x__data__access_8h_1a5541994fa8dbe8f8dbe162b330dd0eeb.html">Define ADIS_Y_AXIS_ACCEL_BIAS_CORR_EN_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1647x__data__access_8h_1a5541994fa8dbe8f8dbe162b330dd0eeb.html">Define ADIS_Y_AXIS_ACCEL_BIAS_CORR_EN_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1654x__data__access_8h_1a5541994fa8dbe8f8dbe162b330dd0eeb.html">Define ADIS_Y_AXIS_ACCEL_BIAS_CORR_EN_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1657x__data__access_8h_1a5541994fa8dbe8f8dbe162b330dd0eeb.html">Define ADIS_Y_AXIS_ACCEL_BIAS_CORR_EN_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1646x__data__access_8h_1ac3f927c9b7bba8116d8d322f07e7b877.html">Define ADIS_Y_AXIS_GYRO_BIAS_CORR_EN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1647x__data__access_8h_1ac3f927c9b7bba8116d8d322f07e7b877.html">Define ADIS_Y_AXIS_GYRO_BIAS_CORR_EN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1654x__data__access_8h_1ac3f927c9b7bba8116d8d322f07e7b877.html">Define ADIS_Y_AXIS_GYRO_BIAS_CORR_EN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1657x__data__access_8h_1ac3f927c9b7bba8116d8d322f07e7b877.html">Define ADIS_Y_AXIS_GYRO_BIAS_CORR_EN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1646x__data__access_8h_1a40a6c3e755173290e0c3cfd5a0437144.html">Define ADIS_Y_AXIS_GYRO_BIAS_CORR_EN_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1647x__data__access_8h_1a40a6c3e755173290e0c3cfd5a0437144.html">Define ADIS_Y_AXIS_GYRO_BIAS_CORR_EN_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1654x__data__access_8h_1a40a6c3e755173290e0c3cfd5a0437144.html">Define ADIS_Y_AXIS_GYRO_BIAS_CORR_EN_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1657x__data__access_8h_1a40a6c3e755173290e0c3cfd5a0437144.html">Define ADIS_Y_AXIS_GYRO_BIAS_CORR_EN_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1646x__data__access_8h_1a9336901cfc5976260595d3e84d2fbda9.html">Define ADIS_Z_AXIS_ACCEL_BIAS_CORR_EN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1647x__data__access_8h_1a9336901cfc5976260595d3e84d2fbda9.html">Define ADIS_Z_AXIS_ACCEL_BIAS_CORR_EN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1654x__data__access_8h_1a9336901cfc5976260595d3e84d2fbda9.html">Define ADIS_Z_AXIS_ACCEL_BIAS_CORR_EN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1657x__data__access_8h_1a9336901cfc5976260595d3e84d2fbda9.html">Define ADIS_Z_AXIS_ACCEL_BIAS_CORR_EN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1646x__data__access_8h_1acd43a3a718106e3ee2ccad55e755970b.html">Define ADIS_Z_AXIS_ACCEL_BIAS_CORR_EN_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1647x__data__access_8h_1acd43a3a718106e3ee2ccad55e755970b.html">Define ADIS_Z_AXIS_ACCEL_BIAS_CORR_EN_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1654x__data__access_8h_1acd43a3a718106e3ee2ccad55e755970b.html">Define ADIS_Z_AXIS_ACCEL_BIAS_CORR_EN_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1657x__data__access_8h_1acd43a3a718106e3ee2ccad55e755970b.html">Define ADIS_Z_AXIS_ACCEL_BIAS_CORR_EN_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1646x__data__access_8h_1a57132b62a29d1e8741b8db97215c883e.html">Define ADIS_Z_AXIS_GYRO_BIAS_CORR_EN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1647x__data__access_8h_1a57132b62a29d1e8741b8db97215c883e.html">Define ADIS_Z_AXIS_GYRO_BIAS_CORR_EN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1654x__data__access_8h_1a57132b62a29d1e8741b8db97215c883e.html">Define ADIS_Z_AXIS_GYRO_BIAS_CORR_EN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1657x__data__access_8h_1a57132b62a29d1e8741b8db97215c883e.html">Define ADIS_Z_AXIS_GYRO_BIAS_CORR_EN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1646x__data__access_8h_1a269e180b447f46ce02556c0b89d1fff5.html">Define ADIS_Z_AXIS_GYRO_BIAS_CORR_EN_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1647x__data__access_8h_1a269e180b447f46ce02556c0b89d1fff5.html">Define ADIS_Z_AXIS_GYRO_BIAS_CORR_EN_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1654x__data__access_8h_1a269e180b447f46ce02556c0b89d1fff5.html">Define ADIS_Z_AXIS_GYRO_BIAS_CORR_EN_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis1657x__data__access_8h_1a269e180b447f46ce02556c0b89d1fff5.html">Define ADIS_Z_AXIS_GYRO_BIAS_CORR_EN_POS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis__data__access_8h_1a493949af5fb07ec429f621f893bea101.html">Define DELTAVEL_DELTAANG_BUFFERED_DATA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis__data__access_8h_1ac121f6277a38d37f56ca4bc4bf416f84.html">Define FULL_MEASURED_DATA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_iio__wrapper_8h_1ab70d8c3d394df58fe73a31949cee087d.html">Define IIO_CONTEXT_ERROR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_adis__data__access_8h_1aacb2143ae4f9106bda2217285cc97fa0.html">Define IMU_STD_MSG_DATA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_iio__wrapper_8cpp_1a2caa0716e56afb87d491d87fb4460b62.html">Define MAX_NO_OF_SAMPLES</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dir_include.html">Directory include</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dir_include_adi_imu.html">Directory adi_imu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dir_include_adi_imu_adis1646x.html">Directory adis1646x</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dir_include_adi_imu_adis1647x.html">Directory adis1647x</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dir_include_adi_imu_adis1650x.html">Directory adis1650x</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dir_include_adi_imu_adis1654x.html">Directory adis1654x</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dir_include_adi_imu_adis1655x.html">Directory adis1655x</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dir_include_adi_imu_adis1657x.html">Directory adis1657x</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dir_src.html">Directory src</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dir_test.html">Directory test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dir_test_src.html">Directory src</a></li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-1-1" id="toctree-collapse-1-1"/><div class="collapse"><a class="reference internal" href="file_src_accelgyrotemp_data_provider.cpp.html">File accelgyrotemp_data_provider.cpp</a><label for="toctree-collapse-1-1"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_src_accelgyrotemp_data_provider.cpp.html">Program Listing for File accelgyrotemp_data_provider.cpp</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-1-2" id="toctree-collapse-1-2"/><div class="collapse"><a class="reference internal" href="file_include_adi_imu_accelgyrotemp_data_provider.h.html">File accelgyrotemp_data_provider.h</a><label for="toctree-collapse-1-2"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_include_adi_imu_accelgyrotemp_data_provider.h.html">Program Listing for File accelgyrotemp_data_provider.h</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-1-3" id="toctree-collapse-1-3"/><div class="collapse"><a class="reference internal" href="file_include_adi_imu_accelgyrotemp_data_provider_interface.h.html">File accelgyrotemp_data_provider_interface.h</a><label for="toctree-collapse-1-3"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_include_adi_imu_accelgyrotemp_data_provider_interface.h.html">Program Listing for File accelgyrotemp_data_provider_interface.h</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-1-4" id="toctree-collapse-1-4"/><div class="collapse"><a class="reference internal" href="file_src_accelgyrotemp_ros_publisher.cpp.html">File accelgyrotemp_ros_publisher.cpp</a><label for="toctree-collapse-1-4"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_src_accelgyrotemp_ros_publisher.cpp.html">Program Listing for File accelgyrotemp_ros_publisher.cpp</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-1-5" id="toctree-collapse-1-5"/><div class="collapse"><a class="reference internal" href="file_include_adi_imu_accelgyrotemp_ros_publisher.h.html">File accelgyrotemp_ros_publisher.h</a><label for="toctree-collapse-1-5"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_include_adi_imu_accelgyrotemp_ros_publisher.h.html">Program Listing for File accelgyrotemp_ros_publisher.h</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-1-6" id="toctree-collapse-1-6"/><div class="collapse"><a class="reference internal" href="file_include_adi_imu_accelgyrotemp_ros_publisher_interface.h.html">File accelgyrotemp_ros_publisher_interface.h</a><label for="toctree-collapse-1-6"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_include_adi_imu_accelgyrotemp_ros_publisher_interface.h.html">Program Listing for File accelgyrotemp_ros_publisher_interface.h</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-1-7" id="toctree-collapse-1-7"/><div class="collapse"><a class="reference internal" href="file_test_src_accelgyrotemp_subscriber_test.cpp.html">File accelgyrotemp_subscriber_test.cpp</a><label for="toctree-collapse-1-7"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_test_src_accelgyrotemp_subscriber_test.cpp.html">Program Listing for File accelgyrotemp_subscriber_test.cpp</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-1-8" id="toctree-collapse-1-8"/><div class="collapse"><a class="reference internal" href="file_include_adi_imu_adis1646x_adis1646x_data_access.h.html">File adis1646x_data_access.h</a><label for="toctree-collapse-1-8"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_include_adi_imu_adis1646x_adis1646x_data_access.h.html">Program Listing for File adis1646x_data_access.h</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-1-9" id="toctree-collapse-1-9"/><div class="collapse"><a class="reference internal" href="file_include_adi_imu_adis1647x_adis1647x_data_access.h.html">File adis1647x_data_access.h</a><label for="toctree-collapse-1-9"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_include_adi_imu_adis1647x_adis1647x_data_access.h.html">Program Listing for File adis1647x_data_access.h</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-1-10" id="toctree-collapse-1-10"/><div class="collapse"><a class="reference internal" href="file_include_adi_imu_adis1650x_adis1650x_data_access.h.html">File adis1650x_data_access.h</a><label for="toctree-collapse-1-10"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_include_adi_imu_adis1650x_adis1650x_data_access.h.html">Program Listing for File adis1650x_data_access.h</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-1-11" id="toctree-collapse-1-11"/><div class="collapse"><a class="reference internal" href="file_include_adi_imu_adis1654x_adis1654x_data_access.h.html">File adis1654x_data_access.h</a><label for="toctree-collapse-1-11"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_include_adi_imu_adis1654x_adis1654x_data_access.h.html">Program Listing for File adis1654x_data_access.h</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-1-12" id="toctree-collapse-1-12"/><div class="collapse"><a class="reference internal" href="file_include_adi_imu_adis1655x_adis1655x_data_access.h.html">File adis1655x_data_access.h</a><label for="toctree-collapse-1-12"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_include_adi_imu_adis1655x_adis1655x_data_access.h.html">Program Listing for File adis1655x_data_access.h</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-1-13" id="toctree-collapse-1-13"/><div class="collapse"><a class="reference internal" href="file_include_adi_imu_adis1657x_adis1657x_data_access.h.html">File adis1657x_data_access.h</a><label for="toctree-collapse-1-13"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_include_adi_imu_adis1657x_adis1657x_data_access.h.html">Program Listing for File adis1657x_data_access.h</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-1-14" id="toctree-collapse-1-14"/><div class="collapse"><a class="reference internal" href="file_include_adi_imu_adis_data_access.h.html">File adis_data_access.h</a><label for="toctree-collapse-1-14"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_include_adi_imu_adis_data_access.h.html">Program Listing for File adis_data_access.h</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-1-15" id="toctree-collapse-1-15"/><div class="collapse"><a class="reference internal" href="file_src_iio_wrapper.cpp.html">File iio_wrapper.cpp</a><label for="toctree-collapse-1-15"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_src_iio_wrapper.cpp.html">Program Listing for File iio_wrapper.cpp</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-1-16" id="toctree-collapse-1-16"/><div class="collapse"><a class="reference internal" href="file_include_adi_imu_iio_wrapper.h.html">File iio_wrapper.h</a><label for="toctree-collapse-1-16"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_include_adi_imu_iio_wrapper.h.html">Program Listing for File iio_wrapper.h</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-1-17" id="toctree-collapse-1-17"/><div class="collapse"><a class="reference internal" href="file_src_imu_control_parameters.cpp.html">File imu_control_parameters.cpp</a><label for="toctree-collapse-1-17"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_src_imu_control_parameters.cpp.html">Program Listing for File imu_control_parameters.cpp</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-1-18" id="toctree-collapse-1-18"/><div class="collapse"><a class="reference internal" href="file_include_adi_imu_imu_control_parameters.h.html">File imu_control_parameters.h</a><label for="toctree-collapse-1-18"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_include_adi_imu_imu_control_parameters.h.html">Program Listing for File imu_control_parameters.h</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-1-19" id="toctree-collapse-1-19"/><div class="collapse"><a class="reference internal" href="file_src_imu_data_provider.cpp.html">File imu_data_provider.cpp</a><label for="toctree-collapse-1-19"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_src_imu_data_provider.cpp.html">Program Listing for File imu_data_provider.cpp</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-1-20" id="toctree-collapse-1-20"/><div class="collapse"><a class="reference internal" href="file_include_adi_imu_imu_data_provider.h.html">File imu_data_provider.h</a><label for="toctree-collapse-1-20"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_include_adi_imu_imu_data_provider.h.html">Program Listing for File imu_data_provider.h</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-1-21" id="toctree-collapse-1-21"/><div class="collapse"><a class="reference internal" href="file_include_adi_imu_imu_data_provider_interface.h.html">File imu_data_provider_interface.h</a><label for="toctree-collapse-1-21"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_include_adi_imu_imu_data_provider_interface.h.html">Program Listing for File imu_data_provider_interface.h</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-1-22" id="toctree-collapse-1-22"/><div class="collapse"><a class="reference internal" href="file_src_imu_diag_data_provider.cpp.html">File imu_diag_data_provider.cpp</a><label for="toctree-collapse-1-22"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_src_imu_diag_data_provider.cpp.html">Program Listing for File imu_diag_data_provider.cpp</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-1-23" id="toctree-collapse-1-23"/><div class="collapse"><a class="reference internal" href="file_include_adi_imu_imu_diag_data_provider.h.html">File imu_diag_data_provider.h</a><label for="toctree-collapse-1-23"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_include_adi_imu_imu_diag_data_provider.h.html">Program Listing for File imu_diag_data_provider.h</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-1-24" id="toctree-collapse-1-24"/><div class="collapse"><a class="reference internal" href="file_include_adi_imu_imu_diag_data_provider_interface.h.html">File imu_diag_data_provider_interface.h</a><label for="toctree-collapse-1-24"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_include_adi_imu_imu_diag_data_provider_interface.h.html">Program Listing for File imu_diag_data_provider_interface.h</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-1-25" id="toctree-collapse-1-25"/><div class="collapse"><a class="reference internal" href="file_src_imu_diag_ros_publisher.cpp.html">File imu_diag_ros_publisher.cpp</a><label for="toctree-collapse-1-25"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_src_imu_diag_ros_publisher.cpp.html">Program Listing for File imu_diag_ros_publisher.cpp</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-1-26" id="toctree-collapse-1-26"/><div class="collapse"><a class="reference internal" href="file_include_adi_imu_imu_diag_ros_publisher.h.html">File imu_diag_ros_publisher.h</a><label for="toctree-collapse-1-26"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_include_adi_imu_imu_diag_ros_publisher.h.html">Program Listing for File imu_diag_ros_publisher.h</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-1-27" id="toctree-collapse-1-27"/><div class="collapse"><a class="reference internal" href="file_include_adi_imu_imu_diag_ros_publisher_interface.h.html">File imu_diag_ros_publisher_interface.h</a><label for="toctree-collapse-1-27"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_include_adi_imu_imu_diag_ros_publisher_interface.h.html">Program Listing for File imu_diag_ros_publisher_interface.h</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-1-28" id="toctree-collapse-1-28"/><div class="collapse"><a class="reference internal" href="file_test_src_imu_diag_subscriber_test.cpp.html">File imu_diag_subscriber_test.cpp</a><label for="toctree-collapse-1-28"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_test_src_imu_diag_subscriber_test.cpp.html">Program Listing for File imu_diag_subscriber_test.cpp</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-1-29" id="toctree-collapse-1-29"/><div class="collapse"><a class="reference internal" href="file_src_imu_full_measured_data_provider.cpp.html">File imu_full_measured_data_provider.cpp</a><label for="toctree-collapse-1-29"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_src_imu_full_measured_data_provider.cpp.html">Program Listing for File imu_full_measured_data_provider.cpp</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-1-30" id="toctree-collapse-1-30"/><div class="collapse"><a class="reference internal" href="file_include_adi_imu_imu_full_measured_data_provider.h.html">File imu_full_measured_data_provider.h</a><label for="toctree-collapse-1-30"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_include_adi_imu_imu_full_measured_data_provider.h.html">Program Listing for File imu_full_measured_data_provider.h</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-1-31" id="toctree-collapse-1-31"/><div class="collapse"><a class="reference internal" href="file_include_adi_imu_imu_full_measured_data_provider_interface.h.html">File imu_full_measured_data_provider_interface.h</a><label for="toctree-collapse-1-31"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_include_adi_imu_imu_full_measured_data_provider_interface.h.html">Program Listing for File imu_full_measured_data_provider_interface.h</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-1-32" id="toctree-collapse-1-32"/><div class="collapse"><a class="reference internal" href="file_src_imu_full_measured_data_ros_publisher.cpp.html">File imu_full_measured_data_ros_publisher.cpp</a><label for="toctree-collapse-1-32"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_src_imu_full_measured_data_ros_publisher.cpp.html">Program Listing for File imu_full_measured_data_ros_publisher.cpp</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-1-33" id="toctree-collapse-1-33"/><div class="collapse"><a class="reference internal" href="file_include_adi_imu_imu_full_measured_data_ros_publisher.h.html">File imu_full_measured_data_ros_publisher.h</a><label for="toctree-collapse-1-33"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_include_adi_imu_imu_full_measured_data_ros_publisher.h.html">Program Listing for File imu_full_measured_data_ros_publisher.h</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-1-34" id="toctree-collapse-1-34"/><div class="collapse"><a class="reference internal" href="file_include_adi_imu_imu_full_measured_data_ros_publisher_interface.h.html">File imu_full_measured_data_ros_publisher_interface.h</a><label for="toctree-collapse-1-34"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_include_adi_imu_imu_full_measured_data_ros_publisher_interface.h.html">Program Listing for File imu_full_measured_data_ros_publisher_interface.h</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-1-35" id="toctree-collapse-1-35"/><div class="collapse"><a class="reference internal" href="file_test_src_imu_full_measured_data_subscriber_test.cpp.html">File imu_full_measured_data_subscriber_test.cpp</a><label for="toctree-collapse-1-35"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_test_src_imu_full_measured_data_subscriber_test.cpp.html">Program Listing for File imu_full_measured_data_subscriber_test.cpp</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-1-36" id="toctree-collapse-1-36"/><div class="collapse"><a class="reference internal" href="file_src_imu_identification_data_provider.cpp.html">File imu_identification_data_provider.cpp</a><label for="toctree-collapse-1-36"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_src_imu_identification_data_provider.cpp.html">Program Listing for File imu_identification_data_provider.cpp</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-1-37" id="toctree-collapse-1-37"/><div class="collapse"><a class="reference internal" href="file_include_adi_imu_imu_identification_data_provider.h.html">File imu_identification_data_provider.h</a><label for="toctree-collapse-1-37"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_include_adi_imu_imu_identification_data_provider.h.html">Program Listing for File imu_identification_data_provider.h</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-1-38" id="toctree-collapse-1-38"/><div class="collapse"><a class="reference internal" href="file_include_adi_imu_imu_identification_data_provider_interface.h.html">File imu_identification_data_provider_interface.h</a><label for="toctree-collapse-1-38"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_include_adi_imu_imu_identification_data_provider_interface.h.html">Program Listing for File imu_identification_data_provider_interface.h</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-1-39" id="toctree-collapse-1-39"/><div class="collapse"><a class="reference internal" href="file_src_imu_identification_ros_publisher.cpp.html">File imu_identification_ros_publisher.cpp</a><label for="toctree-collapse-1-39"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_src_imu_identification_ros_publisher.cpp.html">Program Listing for File imu_identification_ros_publisher.cpp</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-1-40" id="toctree-collapse-1-40"/><div class="collapse"><a class="reference internal" href="file_include_adi_imu_imu_identification_ros_publisher.h.html">File imu_identification_ros_publisher.h</a><label for="toctree-collapse-1-40"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_include_adi_imu_imu_identification_ros_publisher.h.html">Program Listing for File imu_identification_ros_publisher.h</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-1-41" id="toctree-collapse-1-41"/><div class="collapse"><a class="reference internal" href="file_include_adi_imu_imu_identification_ros_publisher_interface.h.html">File imu_identification_ros_publisher_interface.h</a><label for="toctree-collapse-1-41"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_include_adi_imu_imu_identification_ros_publisher_interface.h.html">Program Listing for File imu_identification_ros_publisher_interface.h</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-1-42" id="toctree-collapse-1-42"/><div class="collapse"><a class="reference internal" href="file_test_src_imu_identification_subscriber_test.cpp.html">File imu_identification_subscriber_test.cpp</a><label for="toctree-collapse-1-42"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_test_src_imu_identification_subscriber_test.cpp.html">Program Listing for File imu_identification_subscriber_test.cpp</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-1-43" id="toctree-collapse-1-43"/><div class="collapse"><a class="reference internal" href="file_src_imu_ros2_node.cpp.html">File imu_ros2_node.cpp</a><label for="toctree-collapse-1-43"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_src_imu_ros2_node.cpp.html">Program Listing for File imu_ros2_node.cpp</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-1-44" id="toctree-collapse-1-44"/><div class="collapse"><a class="reference internal" href="file_src_imu_ros_publisher.cpp.html">File imu_ros_publisher.cpp</a><label for="toctree-collapse-1-44"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_src_imu_ros_publisher.cpp.html">Program Listing for File imu_ros_publisher.cpp</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-1-45" id="toctree-collapse-1-45"/><div class="collapse"><a class="reference internal" href="file_include_adi_imu_imu_ros_publisher.h.html">File imu_ros_publisher.h</a><label for="toctree-collapse-1-45"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_include_adi_imu_imu_ros_publisher.h.html">Program Listing for File imu_ros_publisher.h</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-1-46" id="toctree-collapse-1-46"/><div class="collapse"><a class="reference internal" href="file_include_adi_imu_imu_ros_publisher_interface.h.html">File imu_ros_publisher_interface.h</a><label for="toctree-collapse-1-46"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_include_adi_imu_imu_ros_publisher_interface.h.html">Program Listing for File imu_ros_publisher_interface.h</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-1-47" id="toctree-collapse-1-47"/><div class="collapse"><a class="reference internal" href="file_test_src_imu_subscriber_test.cpp.html">File imu_subscriber_test.cpp</a><label for="toctree-collapse-1-47"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_test_src_imu_subscriber_test.cpp.html">Program Listing for File imu_subscriber_test.cpp</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-1-48" id="toctree-collapse-1-48"/><div class="collapse"><a class="reference internal" href="file_src_ros_publisher_group.cpp.html">File ros_publisher_group.cpp</a><label for="toctree-collapse-1-48"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_src_ros_publisher_group.cpp.html">Program Listing for File ros_publisher_group.cpp</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-1-49" id="toctree-collapse-1-49"/><div class="collapse"><a class="reference internal" href="file_include_adi_imu_ros_publisher_group.h.html">File ros_publisher_group.h</a><label for="toctree-collapse-1-49"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_include_adi_imu_ros_publisher_group.h.html">Program Listing for File ros_publisher_group.h</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-1-50" id="toctree-collapse-1-50"/><div class="collapse"><a class="reference internal" href="file_include_adi_imu_ros_publisher_group_interface.h.html">File ros_publisher_group_interface.h</a><label for="toctree-collapse-1-50"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_include_adi_imu_ros_publisher_group_interface.h.html">Program Listing for File ros_publisher_group_interface.h</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-1-51" id="toctree-collapse-1-51"/><div class="collapse"><a class="reference internal" href="file_include_adi_imu_ros_task.h.html">File ros_task.h</a><label for="toctree-collapse-1-51"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_include_adi_imu_ros_task.h.html">Program Listing for File ros_task.h</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-1-52" id="toctree-collapse-1-52"/><div class="collapse"><a class="reference internal" href="file_test_src_utest.cpp.html">File utest.cpp</a><label for="toctree-collapse-1-52"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_test_src_utest.cpp.html">Program Listing for File utest.cpp</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-1-53" id="toctree-collapse-1-53"/><div class="collapse"><a class="reference internal" href="file_src_velangtemp_data_provider.cpp.html">File velangtemp_data_provider.cpp</a><label for="toctree-collapse-1-53"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_src_velangtemp_data_provider.cpp.html">Program Listing for File velangtemp_data_provider.cpp</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-1-54" id="toctree-collapse-1-54"/><div class="collapse"><a class="reference internal" href="file_include_adi_imu_velangtemp_data_provider.h.html">File velangtemp_data_provider.h</a><label for="toctree-collapse-1-54"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_include_adi_imu_velangtemp_data_provider.h.html">Program Listing for File velangtemp_data_provider.h</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-1-55" id="toctree-collapse-1-55"/><div class="collapse"><a class="reference internal" href="file_include_adi_imu_velangtemp_data_provider_interface.h.html">File velangtemp_data_provider_interface.h</a><label for="toctree-collapse-1-55"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_include_adi_imu_velangtemp_data_provider_interface.h.html">Program Listing for File velangtemp_data_provider_interface.h</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-1-56" id="toctree-collapse-1-56"/><div class="collapse"><a class="reference internal" href="file_src_velangtemp_ros_publisher.cpp.html">File velangtemp_ros_publisher.cpp</a><label for="toctree-collapse-1-56"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_src_velangtemp_ros_publisher.cpp.html">Program Listing for File velangtemp_ros_publisher.cpp</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-1-57" id="toctree-collapse-1-57"/><div class="collapse"><a class="reference internal" href="file_include_adi_imu_velangtemp_ros_publisher.h.html">File velangtemp_ros_publisher.h</a><label for="toctree-collapse-1-57"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_include_adi_imu_velangtemp_ros_publisher.h.html">Program Listing for File velangtemp_ros_publisher.h</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-1-58" id="toctree-collapse-1-58"/><div class="collapse"><a class="reference internal" href="file_include_adi_imu_velangtemp_ros_publisher_interface.h.html">File velangtemp_ros_publisher_interface.h</a><label for="toctree-collapse-1-58"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_include_adi_imu_velangtemp_ros_publisher_interface.h.html">Program Listing for File velangtemp_ros_publisher_interface.h</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-1-59" id="toctree-collapse-1-59"/><div class="collapse"><a class="reference internal" href="file_test_src_velangtemp_subscriber_test.cpp.html">File velangtemp_subscriber_test.cpp</a><label for="toctree-collapse-1-59"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_test_src_velangtemp_subscriber_test.cpp.html">Program Listing for File velangtemp_subscriber_test.cpp</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-1-60" id="toctree-collapse-1-60"/><div class="collapse"><a class="reference internal" href="file_src_worker_thread.cpp.html">File worker_thread.cpp</a><label for="toctree-collapse-1-60"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_src_worker_thread.cpp.html">Program Listing for File worker_thread.cpp</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-1-61" id="toctree-collapse-1-61"/><div class="collapse"><a class="reference internal" href="file_include_adi_imu_worker_thread.h.html">File worker_thread.h</a><label for="toctree-collapse-1-61"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_include_adi_imu_worker_thread.h.html">Program Listing for File worker_thread.h</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-2" id="toctree-collapse-2"/><div class="collapse"><a class="reference internal" href="../interfaces/message_definitions.html">Message Definitions</a><label for="toctree-collapse-2"><div class="icon"></div></label></div><ul>
+<li class="toctree-l2"><a class="reference internal" href="../interfaces/msg/AccelGyroTempData.html">AccelGyroTempData</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../interfaces/msg/ImuFullMeasuredData.html">ImuFullMeasuredData</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../interfaces/msg/ImuIdentificationData.html">ImuIdentificationData</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../interfaces/msg/VelAngTempData.html">VelAngTempData</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-3" id="toctree-collapse-3"/><div class="collapse"><a class="reference internal" href="../standards.html">Standard Documents</a><label for="toctree-collapse-3"><div class="icon"></div></label></div><ul>
+<li class="toctree-l2"><a class="reference internal" href="../standard_docs/CONTRIBUTING.html">CONTRIBUTING</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../standard_docs/LICENSE.html">LICENSE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../standard_docs/PACKAGE.html">PACKAGE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../standard_docs/README.html">README</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
+</ul>
+</body>
+</html>
+
+</div>
+        </div>
+      </div>
+
+  <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper" id="top-anchor">
+          <div class="body" role="main">
+            
+  <section id="define-adis-flash-memory-update">
+<span id="exhale-define-adis1650x-data-access-8h-1afd8619ab2bd62e2a1d567b365630b6dc"></span><h1>Define ADIS_FLASH_MEMORY_UPDATE<a class="headerlink" href="#define-adis-flash-memory-update" title="Link to this heading"></a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_include_adi_imu_adis1650x_adis1650x_data_access.h.html#file-include-adi-imu-adis1650x-adis1650x-data-access-h"><span class="std std-ref">File adis1650x_data_access.h</span></a></p></li>
+</ul>
+<section id="define-documentation">
+<h2>Define Documentation<a class="headerlink" href="#define-documentation" title="Link to this heading"></a></h2>
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.ADIS_FLASH_MEMORY_UPDATE">
+<span class="target" id="adis1646x__data__access_8h_1afd8619ab2bd62e2a1d567b365630b6dc"></span><span class="sig-name descname"><span class="n"><span class="pre">ADIS_FLASH_MEMORY_UPDATE</span></span></span><br /></dt>
+<dd></dd></dl>
+
+</section>
+</section>
+
+
+          </div>
+              <div class="related">
+                &nbsp;
+    <a href="define_adis1647x__data__access_8h_1afd8619ab2bd62e2a1d567b365630b6dc.html" title="Previous document (Alt+Shift+LeftArrow)" class="prev">Define ADIS_FLASH_MEMORY_UPDATE</a>
+    <a href="define_adis1654x__data__access_8h_1afd8619ab2bd62e2a1d567b365630b6dc.html" title="Next document (Alt+Shift+RightArrow)" class="next">Define ADIS_FLASH_MEMORY_UPDATE</a>
+              </div>
+          
+        </div>
+      </div>
+  </div>
+
+  <div id="vertical-border"></div>
+
+  <label id="cancel-area-show-toc" for="input-show-toc"></label>
+  <label id="cancel-area-show-localtoc" for="input-show-localtoc"></label>
+    <footer>
+      &#169;2025, Analog Devices, Inc.
+      
+      |
+      Made with <a href="https://www.sphinx-doc.org/">Sphinx</a>
+      &amp; <a href="https://github.com/analogdevicesinc/doctools">Doctools</a>
+      
+    </footer>
+  </body>
+</html>

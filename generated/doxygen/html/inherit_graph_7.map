@@ -1,0 +1,5 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="Node000000" href="$classImuFullMeasuredDataRosPublisherInterface.html" title="Interface for acceleration, angular velocity, delta angle, delta velocity and temperature publisher." alt="" coords="5,5,255,45"/>
+<area shape="rect" id="Node000001" href="$classImuFullMeasuredDataRosPublisher.html" title="Class for acceleration, angular velocity, delta angle, delta velocity and temperature publisher." alt="" coords="303,13,552,38"/>
+<area shape="poly" id="edge6_Node000000_Node000001" title=" " alt="" coords="268,23,303,23,303,28,268,28"/>
+</map>

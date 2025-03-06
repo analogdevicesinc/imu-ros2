@@ -1,0 +1,92 @@
+\doxysection{Vel\+Ang\+Temp\+Ros\+Publisher\+Interface Class Reference}
+\hypertarget{classVelAngTempRosPublisherInterface}{}\label{classVelAngTempRosPublisherInterface}\index{VelAngTempRosPublisherInterface@{VelAngTempRosPublisherInterface}}
+
+
+Interface for delta velocity, delta angle and temperature publisher.  
+
+
+
+
+{\ttfamily \#include $<$velangtemp\+\_\+ros\+\_\+publisher\+\_\+interface.\+h$>$}
+
+
+
+Inheritance diagram for Vel\+Ang\+Temp\+Ros\+Publisher\+Interface\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=263pt]{classVelAngTempRosPublisherInterface__inherit__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classVelAngTempRosPublisherInterface_ac4840670a590e00d6a6f9108e81db019}\label{classVelAngTempRosPublisherInterface_ac4840670a590e00d6a6f9108e81db019} 
+{\bfseries Vel\+Ang\+Temp\+Ros\+Publisher\+Interface} ()
+\begin{DoxyCompactList}\small\item\em Constructor for \doxylink{classVelAngTempRosPublisherInterface}{Vel\+Ang\+Temp\+Ros\+Publisher\+Interface}. \end{DoxyCompactList}\item 
+\Hypertarget{classVelAngTempRosPublisherInterface_a36feb8b97fbd8e2ea430d4609c4f62e1}\label{classVelAngTempRosPublisherInterface_a36feb8b97fbd8e2ea430d4609c4f62e1} 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Vel\+Ang\+Temp\+Ros\+Publisher\+Interface} ()
+\begin{DoxyCompactList}\small\item\em Destructor for \doxylink{classVelAngTempRosPublisherInterface}{Vel\+Ang\+Temp\+Ros\+Publisher\+Interface}. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classVelAngTempRosPublisherInterface_a5fb51d73442921eb29f3052b8db018a9}{set\+Message\+Provider}} (\mbox{\hyperlink{classVelAngTempDataProviderInterface}{Vel\+Ang\+Temp\+Data\+Provider\+Interface}} \texorpdfstring{$\ast$}{*}data\+Provider)=0
+\begin{DoxyCompactList}\small\item\em Set the message data provider. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classVelAngTempRosPublisherInterface_a3bf1cfbe81422dbbe70bf42cafe78b69}{publish}} ()=0
+\begin{DoxyCompactList}\small\item\em Publish the Vel\+Ang\+Temp\+Data message. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::shared\+\_\+ptr$<$ rclcpp\+::\+Node $>$ \mbox{\hyperlink{classVelAngTempRosPublisherInterface_a70429e77f0f6a5715b8bf399d0b14626}{m\+\_\+node}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Interface for delta velocity, delta angle and temperature publisher. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classVelAngTempRosPublisherInterface_a3bf1cfbe81422dbbe70bf42cafe78b69}\label{classVelAngTempRosPublisherInterface_a3bf1cfbe81422dbbe70bf42cafe78b69} 
+\index{VelAngTempRosPublisherInterface@{VelAngTempRosPublisherInterface}!publish@{publish}}
+\index{publish@{publish}!VelAngTempRosPublisherInterface@{VelAngTempRosPublisherInterface}}
+\doxysubsubsection{\texorpdfstring{publish()}{publish()}}
+{\footnotesize\ttfamily virtual void Vel\+Ang\+Temp\+Ros\+Publisher\+Interface\+::publish (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Publish the Vel\+Ang\+Temp\+Data message. 
+
+
+
+Implemented in \mbox{\hyperlink{classVelAngTempRosPublisher_a3729886cf0214c86a6ee9296d58c0dc3}{Vel\+Ang\+Temp\+Ros\+Publisher}}.
+
+\Hypertarget{classVelAngTempRosPublisherInterface_a5fb51d73442921eb29f3052b8db018a9}\label{classVelAngTempRosPublisherInterface_a5fb51d73442921eb29f3052b8db018a9} 
+\index{VelAngTempRosPublisherInterface@{VelAngTempRosPublisherInterface}!setMessageProvider@{setMessageProvider}}
+\index{setMessageProvider@{setMessageProvider}!VelAngTempRosPublisherInterface@{VelAngTempRosPublisherInterface}}
+\doxysubsubsection{\texorpdfstring{setMessageProvider()}{setMessageProvider()}}
+{\footnotesize\ttfamily virtual void Vel\+Ang\+Temp\+Ros\+Publisher\+Interface\+::set\+Message\+Provider (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classVelAngTempDataProviderInterface}{Vel\+Ang\+Temp\+Data\+Provider\+Interface}} \texorpdfstring{$\ast$}{*}}]{data\+Provider }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Set the message data provider. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data\+Provider} & Data provider. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classVelAngTempRosPublisher_a539b342de4cc1eeefb0591fe731950e1}{Vel\+Ang\+Temp\+Ros\+Publisher}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classVelAngTempRosPublisherInterface_a70429e77f0f6a5715b8bf399d0b14626}\label{classVelAngTempRosPublisherInterface_a70429e77f0f6a5715b8bf399d0b14626} 
+\index{VelAngTempRosPublisherInterface@{VelAngTempRosPublisherInterface}!m\_node@{m\_node}}
+\index{m\_node@{m\_node}!VelAngTempRosPublisherInterface@{VelAngTempRosPublisherInterface}}
+\doxysubsubsection{\texorpdfstring{m\_node}{m\_node}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$rclcpp\+::\+Node$>$ Vel\+Ang\+Temp\+Ros\+Publisher\+Interface\+::m\+\_\+node\hspace{0.3cm}{\ttfamily [protected]}}
+
+The ros2 Node data member. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/adi\+\_\+imu/velangtemp\+\_\+ros\+\_\+publisher\+\_\+interface.\+h\end{DoxyCompactItemize}

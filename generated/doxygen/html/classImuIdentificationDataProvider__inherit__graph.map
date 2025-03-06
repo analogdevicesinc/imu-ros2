@@ -1,0 +1,5 @@
+<map id="ImuIdentificationDataProvider" name="ImuIdentificationDataProvider">
+<area shape="rect" id="Node000001" title="Class for identification data provider." alt="" coords="5,93,223,119"/>
+<area shape="rect" id="Node000002" href="$classImuIdentificationDataProviderInterface.html" title="Interface for identification data provider." alt="" coords="5,5,223,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="117,59,117,93,111,93,111,59"/>
+</map>

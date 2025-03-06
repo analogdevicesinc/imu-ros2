@@ -1,0 +1,753 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="adis1655x__data__access_8h" kind="file" language="C++">
+    <compoundname>adis1655x_data_access.h</compoundname>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="adis1655x__data__access_8h_1a9a628803e86d5dd2ee521147498012df" prot="public" static="no">
+        <name>ADIS_HAS_DELTA_BURST</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/adis1655x/adis1655x_data_access.h" line="5" column="9" bodyfile="include/adi_imu/adis1655x/adis1655x_data_access.h" bodystart="5" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="adis1655x__data__access_8h_1ae94276ad20caa596349f5ce0579072b4" prot="public" static="no">
+        <name>ADIS_HAS_CALIB_SCALE</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/adis1655x/adis1655x_data_access.h" line="8" column="9" bodyfile="include/adi_imu/adis1655x/adis1655x_data_access.h" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="adis1655x__data__access_8h_1ac690976b9d8a5cef6ae4f66ec6272253" prot="public" static="no">
+        <name>ADIS_FLS_MEM_ENDURANCE</name>
+        <initializer>100000</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/adis1655x/adis1655x_data_access.h" line="10" column="9" bodyfile="include/adi_imu/adis1655x/adis1655x_data_access.h" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="adis1655x__data__access_8h_1a069236f3929ff9561ceeec01e6601743" prot="public" static="no">
+        <name>ADIS_MAX_SAMP_FREQ</name>
+        <initializer>4250.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/adis1655x/adis1655x_data_access.h" line="11" column="9" bodyfile="include/adi_imu/adis1655x/adis1655x_data_access.h" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="adis1655x__data__access_8h_1a01c63e5371bb331a0cec0ef2bfa1f74a" prot="public" static="no">
+        <name>ADIS_PAGE_ID_VAL</name>
+        <initializer>0x80</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/adis1655x/adis1655x_data_access.h" line="14" column="9" bodyfile="include/adi_imu/adis1655x/adis1655x_data_access.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="adis1655x__data__access_8h_1a4757a9230418cb2c36434564b41e747c" prot="public" static="no">
+        <name>ADIS_GLOB_CMD_PAGE_ID</name>
+        <initializer>0x00</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/adis1655x/adis1655x_data_access.h" line="17" column="9" bodyfile="include/adi_imu/adis1655x/adis1655x_data_access.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="adis1655x__data__access_8h_1a7b4215a68a01ce69902ba6a30cf8510a" prot="public" static="no">
+        <name>ADIS_GLOB_CMD_ADDR_WITHOUT_PAGE</name>
+        <initializer>0x50</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/adis1655x/adis1655x_data_access.h" line="18" column="9" bodyfile="include/adi_imu/adis1655x/adis1655x_data_access.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="adis1655x__data__access_8h_1a42c62d46224ce68df7ada715c77be950" prot="public" static="no">
+        <name>ADIS_GLOB_CMD_ADDR</name>
+        <initializer>  (ADIS_PAGE_ID_VAL * ADIS_PT_OF_PERC_PAGE_ID + ADIS_GLOB_CMD_ADDR_WITHOUT_PAGE)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/adis1655x/adis1655x_data_access.h" line="19" column="9" bodyfile="include/adi_imu/adis1655x/adis1655x_data_access.h" bodystart="19" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="define" id="adis1655x__data__access_8h_1af857040cb01ed2bfdc347c0dfb3d0687" prot="public" static="no">
+        <name>ADIS_SENSOR_SELF_TEST_POS</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/adis1655x/adis1655x_data_access.h" line="22" column="9" bodyfile="include/adi_imu/adis1655x/adis1655x_data_access.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="adis1655x__data__access_8h_1a8bbd979256a753044b0c0e88a5693732" prot="public" static="no">
+        <name>ADIS_FLASH_MEMORY_UPDATE_POS</name>
+        <initializer>3</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/adis1655x/adis1655x_data_access.h" line="23" column="9" bodyfile="include/adi_imu/adis1655x/adis1655x_data_access.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="adis1655x__data__access_8h_1ac9644c3f3e356c4e335eb3c3be4f4318" prot="public" static="no">
+        <name>ADIS_FACTORY_CALIBRATION_RESTORE_POS</name>
+        <initializer>2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/adis1655x/adis1655x_data_access.h" line="24" column="9" bodyfile="include/adi_imu/adis1655x/adis1655x_data_access.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="adis1655x__data__access_8h_1a14928c73e1bf067891ee3ddb5dd72008" prot="public" static="no">
+        <name>ADIS_SOFTWARE_RESET_CMD_POS</name>
+        <initializer>5</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/adis1655x/adis1655x_data_access.h" line="25" column="9" bodyfile="include/adi_imu/adis1655x/adis1655x_data_access.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="adis1655x__data__access_8h_1af8122b7e93db959412609be1644d5963" prot="public" static="no">
+        <name>ADIS_SENSOR_SELF_TEST</name>
+        <initializer>(1 &lt;&lt; ADIS_SENSOR_SELF_TEST_POS)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/adis1655x/adis1655x_data_access.h" line="27" column="9" bodyfile="include/adi_imu/adis1655x/adis1655x_data_access.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="adis1655x__data__access_8h_1afd8619ab2bd62e2a1d567b365630b6dc" prot="public" static="no">
+        <name>ADIS_FLASH_MEMORY_UPDATE</name>
+        <initializer>(1 &lt;&lt; ADIS_FLASH_MEMORY_UPDATE_POS)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/adis1655x/adis1655x_data_access.h" line="28" column="9" bodyfile="include/adi_imu/adis1655x/adis1655x_data_access.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="adis1655x__data__access_8h_1adb8aba739dc68b9d1c69b9225d769b3c" prot="public" static="no">
+        <name>ADIS_FACTORY_CALIBRATION_RESTORE</name>
+        <initializer>(1 &lt;&lt; ADIS_FACTORY_CALIBRATION_RESTORE_POS)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/adis1655x/adis1655x_data_access.h" line="29" column="9" bodyfile="include/adi_imu/adis1655x/adis1655x_data_access.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="adis1655x__data__access_8h_1a192f1694df557e9c92ec39d58caccbf3" prot="public" static="no">
+        <name>ADIS_SOFTWARE_RESET_CMD</name>
+        <initializer>(1 &lt;&lt; ADIS_SOFTWARE_RESET_CMD_POS)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/adis1655x/adis1655x_data_access.h" line="30" column="9" bodyfile="include/adi_imu/adis1655x/adis1655x_data_access.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="adis1655x__data__access_8h_1a5e9411b1861401c5dc9a55e71ebeccf2" prot="public" static="no">
+        <name>ADIS_DIAG_STAT_PAGE_ID</name>
+        <initializer>0x00</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/adis1655x/adis1655x_data_access.h" line="33" column="9" bodyfile="include/adi_imu/adis1655x/adis1655x_data_access.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="adis1655x__data__access_8h_1ae98d2b0b2f6c4dc2cdd12295d448ff86" prot="public" static="no">
+        <name>ADIS_DIAG_STAT_ADDR_WITHOUT_PAGE</name>
+        <initializer>0x0E</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/adis1655x/adis1655x_data_access.h" line="34" column="9" bodyfile="include/adi_imu/adis1655x/adis1655x_data_access.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="adis1655x__data__access_8h_1a00888b371d916c5ea39793dd670a61c1" prot="public" static="no">
+        <name>ADIS_DIAG_STAT_ADDR</name>
+        <initializer>  (ADIS_PAGE_ID_VAL * ADIS_DIAG_STAT_PAGE_ID + ADIS_DIAG_STAT_ADDR_WITHOUT_PAGE)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/adis1655x/adis1655x_data_access.h" line="35" column="9" bodyfile="include/adi_imu/adis1655x/adis1655x_data_access.h" bodystart="35" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="define" id="adis1655x__data__access_8h_1ac4a5fdbfc1a3c7d391a3cc174025276b" prot="public" static="no">
+        <name>ADIS_MEM_FAIL_POS</name>
+        <initializer>0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/adis1655x/adis1655x_data_access.h" line="38" column="9" bodyfile="include/adi_imu/adis1655x/adis1655x_data_access.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="adis1655x__data__access_8h_1a891fbdefc9c49f7c48644c936780fe30" prot="public" static="no">
+        <name>ADIS_CRC_ERROR_POS</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/adis1655x/adis1655x_data_access.h" line="39" column="9" bodyfile="include/adi_imu/adis1655x/adis1655x_data_access.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="adis1655x__data__access_8h_1ab130fcdec49a87835b96266890f18ae7" prot="public" static="no">
+        <name>ADIS_FLS_MEM_UPDATE_FAIL_POS</name>
+        <initializer>2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/adis1655x/adis1655x_data_access.h" line="40" column="9" bodyfile="include/adi_imu/adis1655x/adis1655x_data_access.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="adis1655x__data__access_8h_1ae011746534d120c56d97a65d875d098d" prot="public" static="no">
+        <name>ADIS_SNSR_FAIL_POS</name>
+        <initializer>4</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/adis1655x/adis1655x_data_access.h" line="41" column="9" bodyfile="include/adi_imu/adis1655x/adis1655x_data_access.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="adis1655x__data__access_8h_1a294bb27581a93538420931d6cafc54df" prot="public" static="no">
+        <name>ADIS_SPI_COMM_ERR_POS</name>
+        <initializer>6</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/adis1655x/adis1655x_data_access.h" line="42" column="9" bodyfile="include/adi_imu/adis1655x/adis1655x_data_access.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="adis1655x__data__access_8h_1a09a94278ab55807d945576205a217a1f" prot="public" static="no">
+        <name>ADIS_DATA_PATH_OVERRUN_POS</name>
+        <initializer>7</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/adis1655x/adis1655x_data_access.h" line="43" column="9" bodyfile="include/adi_imu/adis1655x/adis1655x_data_access.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="adis1655x__data__access_8h_1a711244651992562599a6e2aef79840ef" prot="public" static="no">
+        <name>ADIS_CLK_ERR_POS</name>
+        <initializer>10</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/adis1655x/adis1655x_data_access.h" line="44" column="9" bodyfile="include/adi_imu/adis1655x/adis1655x_data_access.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="adis1655x__data__access_8h_1abb5e2c83d09395d7e4f325b48702e931" prot="public" static="no">
+        <name>ADIS_WDG_TIMER_FLAG_POS</name>
+        <initializer>15</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/adis1655x/adis1655x_data_access.h" line="45" column="9" bodyfile="include/adi_imu/adis1655x/adis1655x_data_access.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="adis1655x__data__access_8h_1a9d998165da056cc3a2b600ab8382d7cf" prot="public" static="no">
+        <name>ADIS_MEM_FAIL</name>
+        <initializer>(1 &lt;&lt; ADIS_MEM_FAIL_POS)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/adis1655x/adis1655x_data_access.h" line="47" column="9" bodyfile="include/adi_imu/adis1655x/adis1655x_data_access.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="adis1655x__data__access_8h_1a0d42788fa708f312aea01cafdfc6545c" prot="public" static="no">
+        <name>ADIS_CRC_ERROR</name>
+        <initializer>(1 &lt;&lt; ADIS_CRC_ERROR_POS)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/adis1655x/adis1655x_data_access.h" line="48" column="9" bodyfile="include/adi_imu/adis1655x/adis1655x_data_access.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="adis1655x__data__access_8h_1a3e3b49f9f8d7253f2a05f4af14fe2e77" prot="public" static="no">
+        <name>ADIS_FLS_MEM_UPDATE_FAIL</name>
+        <initializer>(1 &lt;&lt; ADIS_FLS_MEM_UPDATE_FAIL_POS)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/adis1655x/adis1655x_data_access.h" line="49" column="9" bodyfile="include/adi_imu/adis1655x/adis1655x_data_access.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="adis1655x__data__access_8h_1a281251c2e8612a1cc81613e4cd89ac15" prot="public" static="no">
+        <name>ADIS_SNSR_FAIL</name>
+        <initializer>(1 &lt;&lt; ADIS_SNSR_FAIL_POS)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/adis1655x/adis1655x_data_access.h" line="50" column="9" bodyfile="include/adi_imu/adis1655x/adis1655x_data_access.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="adis1655x__data__access_8h_1aba2d908cda71325077530f1b0d6f0d6d" prot="public" static="no">
+        <name>ADIS_SPI_COMM_ERR</name>
+        <initializer>(1 &lt;&lt; ADIS_SPI_COMM_ERR_POS)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/adis1655x/adis1655x_data_access.h" line="51" column="9" bodyfile="include/adi_imu/adis1655x/adis1655x_data_access.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="adis1655x__data__access_8h_1af78561af97a99686e7dde925118158ee" prot="public" static="no">
+        <name>ADIS_DATA_PATH_OVERRUN</name>
+        <initializer>(1 &lt;&lt; ADIS_DATA_PATH_OVERRUN_POS)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/adis1655x/adis1655x_data_access.h" line="52" column="9" bodyfile="include/adi_imu/adis1655x/adis1655x_data_access.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="adis1655x__data__access_8h_1a6dc53845d4c9a34ba8a7e61af639c7f7" prot="public" static="no">
+        <name>ADIS_CLK_ERR</name>
+        <initializer>(1 &lt;&lt; ADIS_CLK_ERR_POS)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/adis1655x/adis1655x_data_access.h" line="53" column="9" bodyfile="include/adi_imu/adis1655x/adis1655x_data_access.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="adis1655x__data__access_8h_1a0e1eaa323fab2efb23a2c2a72fcd8244" prot="public" static="no">
+        <name>ADIS_WDG_TIMER_FLAG</name>
+        <initializer>(1 &lt;&lt; ADIS_WDG_TIMER_FLAG_POS)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/adis1655x/adis1655x_data_access.h" line="54" column="9" bodyfile="include/adi_imu/adis1655x/adis1655x_data_access.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="adis1655x__data__access_8h_1a91a0e935064b9d07fc7a5e798c0a4858" prot="public" static="no">
+        <name>ADIS_DIAG_STS_PAGE_ID</name>
+        <initializer>0x00</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/adis1655x/adis1655x_data_access.h" line="57" column="9" bodyfile="include/adi_imu/adis1655x/adis1655x_data_access.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="adis1655x__data__access_8h_1a2835be66ac0fd1ea1ce3f19abb13f4b6" prot="public" static="no">
+        <name>ADIS_DIAG_STS_REG_WITHOUT_PAGE</name>
+        <initializer>0x0F</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/adis1655x/adis1655x_data_access.h" line="58" column="9" bodyfile="include/adi_imu/adis1655x/adis1655x_data_access.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="adis1655x__data__access_8h_1a98bc997623f154a9033bb81de383858e" prot="public" static="no">
+        <name>ADIS_DIAG_STS_REG</name>
+        <initializer>  (ADIS_PAGE_ID_VAL * ADIS_DIAG_STS_PAGE_ID + ADIS_DIAG_STS_REG_WITHOUT_PAGE)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/adis1655x/adis1655x_data_access.h" line="59" column="9" bodyfile="include/adi_imu/adis1655x/adis1655x_data_access.h" bodystart="59" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="define" id="adis1655x__data__access_8h_1ad5866956ffd11792c984e6416a68e333" prot="public" static="no">
+        <name>ADIS_GYRO_ACCEL_FAIL_REG</name>
+        <initializer>ADIS_DIAG_STS_REG</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/adis1655x/adis1655x_data_access.h" line="62" column="9" bodyfile="include/adi_imu/adis1655x/adis1655x_data_access.h" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="adis1655x__data__access_8h_1aa0392d5f5f66a6a2870deec118af7046" prot="public" static="no">
+        <name>ADIS_GYRO_X_FAIL_POS</name>
+        <initializer>0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/adis1655x/adis1655x_data_access.h" line="63" column="9" bodyfile="include/adi_imu/adis1655x/adis1655x_data_access.h" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="adis1655x__data__access_8h_1a9c5172d2087f8e637ed977adf6f4b1af" prot="public" static="no">
+        <name>ADIS_GYRO_Y_FAIL_POS</name>
+        <initializer>2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/adis1655x/adis1655x_data_access.h" line="64" column="9" bodyfile="include/adi_imu/adis1655x/adis1655x_data_access.h" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="adis1655x__data__access_8h_1a67dd79bc04aa2b04d3decef65f795aa1" prot="public" static="no">
+        <name>ADIS_GYRO_Z_FAIL_POS</name>
+        <initializer>4</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/adis1655x/adis1655x_data_access.h" line="65" column="9" bodyfile="include/adi_imu/adis1655x/adis1655x_data_access.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="adis1655x__data__access_8h_1a8d5e28ac9ff4dec409b502e687212b78" prot="public" static="no">
+        <name>ADIS_ACCEL_X_FAIL_POS</name>
+        <initializer>6</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/adis1655x/adis1655x_data_access.h" line="66" column="9" bodyfile="include/adi_imu/adis1655x/adis1655x_data_access.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="adis1655x__data__access_8h_1a5c1f9f933fd311c1914f27c525039368" prot="public" static="no">
+        <name>ADIS_ACCEL_Y_FAIL_POS</name>
+        <initializer>8</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/adis1655x/adis1655x_data_access.h" line="67" column="9" bodyfile="include/adi_imu/adis1655x/adis1655x_data_access.h" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="adis1655x__data__access_8h_1a9ae4fe31ecfcebf11d523e3648ca6d0c" prot="public" static="no">
+        <name>ADIS_ACCEL_Z_FAIL_POS</name>
+        <initializer>10</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/adis1655x/adis1655x_data_access.h" line="68" column="9" bodyfile="include/adi_imu/adis1655x/adis1655x_data_access.h" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="adis1655x__data__access_8h_1a82f646d0754f1163f13a7b03d3e3ad8a" prot="public" static="no">
+        <name>ADIS_GYRO_X_FAIL</name>
+        <initializer>(3 &lt;&lt; ADIS_GYRO_X_FAIL_POS)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/adis1655x/adis1655x_data_access.h" line="70" column="9" bodyfile="include/adi_imu/adis1655x/adis1655x_data_access.h" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="adis1655x__data__access_8h_1a2078895656358fb28f2ac6c427946bef" prot="public" static="no">
+        <name>ADIS_GYRO_Y_FAIL</name>
+        <initializer>(3 &lt;&lt; ADIS_GYRO_Y_FAIL_POS)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/adis1655x/adis1655x_data_access.h" line="71" column="9" bodyfile="include/adi_imu/adis1655x/adis1655x_data_access.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="adis1655x__data__access_8h_1acd8829aa75c3606ae877530053b2d8c4" prot="public" static="no">
+        <name>ADIS_GYRO_Z_FAIL</name>
+        <initializer>(3 &lt;&lt; ADIS_GYRO_Z_FAIL_POS)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/adis1655x/adis1655x_data_access.h" line="72" column="9" bodyfile="include/adi_imu/adis1655x/adis1655x_data_access.h" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="adis1655x__data__access_8h_1a1cb648cc32e5b8064e92616eb7ee8981" prot="public" static="no">
+        <name>ADIS_ACCEL_X_FAIL</name>
+        <initializer>(3 &lt;&lt; ADIS_ACCEL_X_FAIL_POS)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/adis1655x/adis1655x_data_access.h" line="73" column="9" bodyfile="include/adi_imu/adis1655x/adis1655x_data_access.h" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="adis1655x__data__access_8h_1a15c4fe94c4ea712c992b30ee919196e6" prot="public" static="no">
+        <name>ADIS_ACCEL_Y_FAIL</name>
+        <initializer>(3 &lt;&lt; ADIS_ACCEL_Y_FAIL_POS)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/adis1655x/adis1655x_data_access.h" line="74" column="9" bodyfile="include/adi_imu/adis1655x/adis1655x_data_access.h" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="adis1655x__data__access_8h_1ae3b6e96bc844d22f014145eb83e7637b" prot="public" static="no">
+        <name>ADIS_ACCEL_Z_FAIL</name>
+        <initializer>(3 &lt;&lt; ADIS_ACCEL_Z_FAIL_POS)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/adis1655x/adis1655x_data_access.h" line="75" column="9" bodyfile="include/adi_imu/adis1655x/adis1655x_data_access.h" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="adis1655x__data__access_8h_1ad6cb370f6b0d4ecf6dbf23aae2a07ef1" prot="public" static="no">
+        <name>ADIS_RANG_MDL_PAGE_ID</name>
+        <initializer>0x00</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/adis1655x/adis1655x_data_access.h" line="78" column="9" bodyfile="include/adi_imu/adis1655x/adis1655x_data_access.h" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="adis1655x__data__access_8h_1a9764135e724dd6b0d5295705212d7c78" prot="public" static="no">
+        <name>ADIS_RANG_MDL_ADDR_WITHOUT_PAGE</name>
+        <initializer>0x10</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/adis1655x/adis1655x_data_access.h" line="79" column="9" bodyfile="include/adi_imu/adis1655x/adis1655x_data_access.h" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="adis1655x__data__access_8h_1a969eacbc2d25e3c2468eb5cc6f638b27" prot="public" static="no">
+        <name>ADIS_RANG_MDL_ADDR</name>
+        <initializer>  (ADIS_PAGE_ID_VAL * ADIS_RANG_MDL_PAGE_ID + ADIS_RANG_MDL_ADDR_WITHOUT_PAGE)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/adis1655x/adis1655x_data_access.h" line="80" column="9" bodyfile="include/adi_imu/adis1655x/adis1655x_data_access.h" bodystart="80" bodyend="81"/>
+      </memberdef>
+      <memberdef kind="define" id="adis1655x__data__access_8h_1a49aeef7ae805605e86704d04777f5eb6" prot="public" static="no">
+        <name>ADIS_PT_OF_PERC_PAGE_ID</name>
+        <initializer>0x00</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/adis1655x/adis1655x_data_access.h" line="84" column="9" bodyfile="include/adi_imu/adis1655x/adis1655x_data_access.h" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="adis1655x__data__access_8h_1aa286cb33e0d323469caed40cb3e3e2ca" prot="public" static="no">
+        <name>ADIS_PT_OF_PERC_REG_ADDR_WITHOUT_PAGE</name>
+        <initializer>0x52</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/adis1655x/adis1655x_data_access.h" line="85" column="9" bodyfile="include/adi_imu/adis1655x/adis1655x_data_access.h" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="adis1655x__data__access_8h_1a5af76feaa70560f735e4a7f783cf0adb" prot="public" static="no">
+        <name>ADIS_PT_OF_PERC_REG_ADDR</name>
+        <initializer>  (ADIS_PAGE_ID_VAL * ADIS_PT_OF_PERC_PAGE_ID + ADIS_PT_OF_PERC_REG_ADDR_WITHOUT_PAGE)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/adis1655x/adis1655x_data_access.h" line="86" column="9" bodyfile="include/adi_imu/adis1655x/adis1655x_data_access.h" bodystart="86" bodyend="87"/>
+      </memberdef>
+      <memberdef kind="define" id="adis1655x__data__access_8h_1a53a01d7e65d04e2e78b9b815b870d56d" prot="public" static="no">
+        <name>ADIS_PT_OF_PERC_ALGNMNT_POS</name>
+        <initializer>4</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/adis1655x/adis1655x_data_access.h" line="88" column="9" bodyfile="include/adi_imu/adis1655x/adis1655x_data_access.h" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="adis1655x__data__access_8h_1a224472ceeefad7128e0a436bf855bb48" prot="public" static="no">
+        <name>ADIS_PT_OF_PERC_ALGNMNT</name>
+        <initializer>(1 &lt;&lt; ADIS_PT_OF_PERC_ALGNMNT_POS)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/adis1655x/adis1655x_data_access.h" line="89" column="9" bodyfile="include/adi_imu/adis1655x/adis1655x_data_access.h" bodystart="89" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>ADIS1655X_DATA_ACCESS_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ADIS1655X_DATA_ACCESS_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="comment">//<sp/>has<sp/>delta<sp/>channels</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ADIS_HAS_DELTA_BURST</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="comment">//<sp/>has<sp/>calibration<sp/>scale<sp/>channel</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ADIS_HAS_CALIB_SCALE</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ADIS_FLS_MEM_ENDURANCE<sp/>100000</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ADIS_MAX_SAMP_FREQ<sp/>4250.0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="comment">//<sp/>value<sp/>to<sp/>add<sp/>to<sp/>reg<sp/>addr<sp/>per<sp/>page</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ADIS_PAGE_ID_VAL<sp/>0x80</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="comment">//<sp/>global<sp/>commands</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ADIS_GLOB_CMD_PAGE_ID<sp/>0x00</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ADIS_GLOB_CMD_ADDR_WITHOUT_PAGE<sp/>0x50</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ADIS_GLOB_CMD_ADDR<sp/>\</highlight></codeline>
+<codeline lineno="20"><highlight class="preprocessor"><sp/><sp/>(ADIS_PAGE_ID_VAL<sp/>*<sp/>ADIS_PT_OF_PERC_PAGE_ID<sp/>+<sp/>ADIS_GLOB_CMD_ADDR_WITHOUT_PAGE)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ADIS_SENSOR_SELF_TEST_POS<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ADIS_FLASH_MEMORY_UPDATE_POS<sp/>3</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ADIS_FACTORY_CALIBRATION_RESTORE_POS<sp/>2</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ADIS_SOFTWARE_RESET_CMD_POS<sp/>5</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ADIS_SENSOR_SELF_TEST<sp/>(1<sp/>&lt;&lt;<sp/>ADIS_SENSOR_SELF_TEST_POS)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ADIS_FLASH_MEMORY_UPDATE<sp/>(1<sp/>&lt;&lt;<sp/>ADIS_FLASH_MEMORY_UPDATE_POS)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ADIS_FACTORY_CALIBRATION_RESTORE<sp/>(1<sp/>&lt;&lt;<sp/>ADIS_FACTORY_CALIBRATION_RESTORE_POS)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ADIS_SOFTWARE_RESET_CMD<sp/>(1<sp/>&lt;&lt;<sp/>ADIS_SOFTWARE_RESET_CMD_POS)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="comment">//<sp/>status<sp/>and<sp/>error<sp/>flag<sp/>indication</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ADIS_DIAG_STAT_PAGE_ID<sp/>0x00</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ADIS_DIAG_STAT_ADDR_WITHOUT_PAGE<sp/>0x0E</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ADIS_DIAG_STAT_ADDR<sp/>\</highlight></codeline>
+<codeline lineno="36"><highlight class="preprocessor"><sp/><sp/>(ADIS_PAGE_ID_VAL<sp/>*<sp/>ADIS_DIAG_STAT_PAGE_ID<sp/>+<sp/>ADIS_DIAG_STAT_ADDR_WITHOUT_PAGE)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ADIS_MEM_FAIL_POS<sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ADIS_CRC_ERROR_POS<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ADIS_FLS_MEM_UPDATE_FAIL_POS<sp/>2</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ADIS_SNSR_FAIL_POS<sp/>4</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ADIS_SPI_COMM_ERR_POS<sp/>6</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ADIS_DATA_PATH_OVERRUN_POS<sp/>7</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ADIS_CLK_ERR_POS<sp/>10</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ADIS_WDG_TIMER_FLAG_POS<sp/>15</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ADIS_MEM_FAIL<sp/>(1<sp/>&lt;&lt;<sp/>ADIS_MEM_FAIL_POS)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ADIS_CRC_ERROR<sp/>(1<sp/>&lt;&lt;<sp/>ADIS_CRC_ERROR_POS)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ADIS_FLS_MEM_UPDATE_FAIL<sp/>(1<sp/>&lt;&lt;<sp/>ADIS_FLS_MEM_UPDATE_FAIL_POS)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ADIS_SNSR_FAIL<sp/>(1<sp/>&lt;&lt;<sp/>ADIS_SNSR_FAIL_POS)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ADIS_SPI_COMM_ERR<sp/>(1<sp/>&lt;&lt;<sp/>ADIS_SPI_COMM_ERR_POS)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ADIS_DATA_PATH_OVERRUN<sp/>(1<sp/>&lt;&lt;<sp/>ADIS_DATA_PATH_OVERRUN_POS)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ADIS_CLK_ERR<sp/>(1<sp/>&lt;&lt;<sp/>ADIS_CLK_ERR_POS)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ADIS_WDG_TIMER_FLAG<sp/>(1<sp/>&lt;&lt;<sp/>ADIS_WDG_TIMER_FLAG_POS)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight><highlight class="comment">//<sp/>self<sp/>test<sp/>error<sp/>flags</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ADIS_DIAG_STS_PAGE_ID<sp/>0x00</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ADIS_DIAG_STS_REG_WITHOUT_PAGE<sp/>0x0F</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ADIS_DIAG_STS_REG<sp/>\</highlight></codeline>
+<codeline lineno="60"><highlight class="preprocessor"><sp/><sp/>(ADIS_PAGE_ID_VAL<sp/>*<sp/>ADIS_DIAG_STS_PAGE_ID<sp/>+<sp/>ADIS_DIAG_STS_REG_WITHOUT_PAGE)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ADIS_GYRO_ACCEL_FAIL_REG<sp/>ADIS_DIAG_STS_REG</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ADIS_GYRO_X_FAIL_POS<sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ADIS_GYRO_Y_FAIL_POS<sp/>2</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ADIS_GYRO_Z_FAIL_POS<sp/>4</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ADIS_ACCEL_X_FAIL_POS<sp/>6</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ADIS_ACCEL_Y_FAIL_POS<sp/>8</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ADIS_ACCEL_Z_FAIL_POS<sp/>10</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ADIS_GYRO_X_FAIL<sp/>(3<sp/>&lt;&lt;<sp/>ADIS_GYRO_X_FAIL_POS)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ADIS_GYRO_Y_FAIL<sp/>(3<sp/>&lt;&lt;<sp/>ADIS_GYRO_Y_FAIL_POS)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ADIS_GYRO_Z_FAIL<sp/>(3<sp/>&lt;&lt;<sp/>ADIS_GYRO_Z_FAIL_POS)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ADIS_ACCEL_X_FAIL<sp/>(3<sp/>&lt;&lt;<sp/>ADIS_ACCEL_X_FAIL_POS)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ADIS_ACCEL_Y_FAIL<sp/>(3<sp/>&lt;&lt;<sp/>ADIS_ACCEL_Y_FAIL_POS)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ADIS_ACCEL_Z_FAIL<sp/>(3<sp/>&lt;&lt;<sp/>ADIS_ACCEL_Z_FAIL_POS)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight><highlight class="comment">//<sp/>measurement<sp/>range<sp/>identifier</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ADIS_RANG_MDL_PAGE_ID<sp/>0x00</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ADIS_RANG_MDL_ADDR_WITHOUT_PAGE<sp/>0x10</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ADIS_RANG_MDL_ADDR<sp/>\</highlight></codeline>
+<codeline lineno="81"><highlight class="preprocessor"><sp/><sp/>(ADIS_PAGE_ID_VAL<sp/>*<sp/>ADIS_RANG_MDL_PAGE_ID<sp/>+<sp/>ADIS_RANG_MDL_ADDR_WITHOUT_PAGE)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight><highlight class="comment">//<sp/>point<sp/>of<sp/>percussion</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ADIS_PT_OF_PERC_PAGE_ID<sp/>0x00</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ADIS_PT_OF_PERC_REG_ADDR_WITHOUT_PAGE<sp/>0x52</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ADIS_PT_OF_PERC_REG_ADDR<sp/>\</highlight></codeline>
+<codeline lineno="87"><highlight class="preprocessor"><sp/><sp/>(ADIS_PAGE_ID_VAL<sp/>*<sp/>ADIS_PT_OF_PERC_PAGE_ID<sp/>+<sp/>ADIS_PT_OF_PERC_REG_ADDR_WITHOUT_PAGE)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ADIS_PT_OF_PERC_ALGNMNT_POS<sp/>4</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ADIS_PT_OF_PERC_ALGNMNT<sp/>(1<sp/>&lt;&lt;<sp/>ADIS_PT_OF_PERC_ALGNMNT_POS)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="include/adi_imu/adis1655x/adis1655x_data_access.h"/>
+  </compounddef>
+</doxygen>

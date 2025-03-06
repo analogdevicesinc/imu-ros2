@@ -1,0 +1,5 @@
+<map id="ImuSubscriberTest" name="ImuSubscriberTest">
+<area shape="rect" id="Node000001" title="Class for testing sensor_msgs::msg::Imu." alt="" coords="5,79,147,104"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="25,5,127,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="79,44,79,79,73,79,73,44"/>
+</map>

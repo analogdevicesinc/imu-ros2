@@ -1,0 +1,97 @@
+\doxysection{Accel\+Gyro\+Temp\+Data\+Provider Class Reference}
+\hypertarget{classAccelGyroTempDataProvider}{}\label{classAccelGyroTempDataProvider}\index{AccelGyroTempDataProvider@{AccelGyroTempDataProvider}}
+
+
+Class for acceleration, angular velocity and temperature buffered data provider.  
+
+
+
+
+{\ttfamily \#include $<$accelgyrotemp\+\_\+data\+\_\+provider.\+h$>$}
+
+
+
+Inheritance diagram for Accel\+Gyro\+Temp\+Data\+Provider\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=236pt]{classAccelGyroTempDataProvider__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Accel\+Gyro\+Temp\+Data\+Provider\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=334pt]{classAccelGyroTempDataProvider__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classAccelGyroTempDataProvider_ad3afbaaf055db6e75d94205295f8290f}\label{classAccelGyroTempDataProvider_ad3afbaaf055db6e75d94205295f8290f} 
+{\bfseries Accel\+Gyro\+Temp\+Data\+Provider} ()
+\begin{DoxyCompactList}\small\item\em Constructor for \doxylink{classAccelGyroTempDataProvider}{Accel\+Gyro\+Temp\+Data\+Provider}. \end{DoxyCompactList}\item 
+\Hypertarget{classAccelGyroTempDataProvider_a46a788cd8ee9b14c04eb564003ddeb31}\label{classAccelGyroTempDataProvider_a46a788cd8ee9b14c04eb564003ddeb31} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Accel\+Gyro\+Temp\+Data\+Provider} ()
+\begin{DoxyCompactList}\small\item\em Destructor for \doxylink{classAccelGyroTempDataProvider}{Accel\+Gyro\+Temp\+Data\+Provider}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classAccelGyroTempDataProvider_af67881b4ea267e67689a2e5af672d947}{get\+Data}} (adi\+\_\+imu\+::msg\+::\+Accel\+Gyro\+Temp\+Data \&message) override
+\begin{DoxyCompactList}\small\item\em Populate Accel\+Gyro\+Temp\+Data message with measured data. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classAccelGyroTempDataProviderInterface}{Accel\+Gyro\+Temp\+Data\+Provider\+Interface}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Accel\+Gyro\+Temp\+Data\+Provider\+Interface} ()
+\begin{DoxyCompactList}\small\item\em Constructor for \doxylink{classAccelGyroTempDataProviderInterface}{Accel\+Gyro\+Temp\+Data\+Provider\+Interface}. \end{DoxyCompactList}\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Accel\+Gyro\+Temp\+Data\+Provider\+Interface} ()
+\begin{DoxyCompactList}\small\item\em Destructor for \doxylink{classAccelGyroTempDataProviderInterface}{Accel\+Gyro\+Temp\+Data\+Provider\+Interface}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classIIOWrapper}{IIOWrapper}} \mbox{\hyperlink{classAccelGyroTempDataProvider_acb8ae19c02d11f1aec5c69c11638cc91}{m\+\_\+iio\+\_\+wrapper}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class for acceleration, angular velocity and temperature buffered data provider. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classAccelGyroTempDataProvider_af67881b4ea267e67689a2e5af672d947}\label{classAccelGyroTempDataProvider_af67881b4ea267e67689a2e5af672d947} 
+\index{AccelGyroTempDataProvider@{AccelGyroTempDataProvider}!getData@{getData}}
+\index{getData@{getData}!AccelGyroTempDataProvider@{AccelGyroTempDataProvider}}
+\doxysubsubsection{\texorpdfstring{getData()}{getData()}}
+{\footnotesize\ttfamily bool Accel\+Gyro\+Temp\+Data\+Provider\+::get\+Data (\begin{DoxyParamCaption}\item[{adi\+\_\+imu\+::msg\+::\+Accel\+Gyro\+Temp\+Data \&}]{message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Populate Accel\+Gyro\+Temp\+Data message with measured data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & Message containing the measured data. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return true if the message parameter is successfully populated with measured data and false otherwise. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classAccelGyroTempDataProviderInterface_a0b20795091c2739841a9b08b647eb45b}{Accel\+Gyro\+Temp\+Data\+Provider\+Interface}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classAccelGyroTempDataProvider_acb8ae19c02d11f1aec5c69c11638cc91}\label{classAccelGyroTempDataProvider_acb8ae19c02d11f1aec5c69c11638cc91} 
+\index{AccelGyroTempDataProvider@{AccelGyroTempDataProvider}!m\_iio\_wrapper@{m\_iio\_wrapper}}
+\index{m\_iio\_wrapper@{m\_iio\_wrapper}!AccelGyroTempDataProvider@{AccelGyroTempDataProvider}}
+\doxysubsubsection{\texorpdfstring{m\_iio\_wrapper}{m\_iio\_wrapper}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classIIOWrapper}{IIOWrapper}} Accel\+Gyro\+Temp\+Data\+Provider\+::m\+\_\+iio\+\_\+wrapper\hspace{0.3cm}{\ttfamily [private]}}
+
+This data member is used to access sensor information via libiio. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/adi\+\_\+imu/accelgyrotemp\+\_\+data\+\_\+provider.\+h\item 
+src/accelgyrotemp\+\_\+data\+\_\+provider.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,7 @@
+<map id="VelAngTempRosPublisher" name="VelAngTempRosPublisher">
+<area shape="rect" id="Node000001" title="Class for delta velocity, delta angle and temperature publisher." alt="" coords="169,93,355,119"/>
+<area shape="rect" id="Node000002" href="$classVelAngTempRosPublisherInterface.html" title="Interface for delta velocity, delta angle and temperature publisher." alt="" coords="5,5,249,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="159,36,245,91,242,95,156,40"/>
+<area shape="rect" id="Node000003" href="$classVelAngTempDataProviderInterface.html" title="Interface for delta angle, delta velocity and temperature buffered data provider." alt="" coords="274,5,519,31"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="368,40,282,95,279,91,365,36"/>
+</map>

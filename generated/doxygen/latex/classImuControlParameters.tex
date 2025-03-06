@@ -1,0 +1,367 @@
+\doxysection{Imu\+Control\+Parameters Class Reference}
+\hypertarget{classImuControlParameters}{}\label{classImuControlParameters}\index{ImuControlParameters@{ImuControlParameters}}
+
+
+Class for handling device parameters.  
+
+
+
+
+{\ttfamily \#include $<$imu\+\_\+control\+\_\+parameters.\+h$>$}
+
+
+
+Collaboration diagram for Imu\+Control\+Parameters\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=219pt]{classImuControlParameters__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classImuControlParameters_ac48f67e7a3b66410fb3c4e9ea0b5dc0a}{Imu\+Control\+Parameters}} (std\+::shared\+\_\+ptr$<$ rclcpp\+::\+Node $>$ \&node)
+\begin{DoxyCompactList}\small\item\em Constructor for \doxylink{classImuControlParameters}{Imu\+Control\+Parameters}. \end{DoxyCompactList}\item 
+\Hypertarget{classImuControlParameters_a9eab68cf68a1fba0e2d0ad312e814d37}\label{classImuControlParameters_a9eab68cf68a1fba0e2d0ad312e814d37} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Imu\+Control\+Parameters} ()
+\begin{DoxyCompactList}\small\item\em Destructor for \doxylink{classImuControlParameters}{Imu\+Control\+Parameters}. \end{DoxyCompactList}\item 
+\Hypertarget{classImuControlParameters_a3fdcf6864bdd68a06f712bef548acd24}\label{classImuControlParameters_a3fdcf6864bdd68a06f712bef548acd24} 
+void {\bfseries handle\+Control\+Params} ()
+\begin{DoxyCompactList}\small\item\em Handle ROS parameters and perform the necessary updated in the hardware. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef bool(IIOWrapper\+::\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classImuControlParameters_a08337927ac5d0390c065a8f8b64e11ce}{Update\+Uint32\+Params}}) (uint32\+\_\+t)
+\item 
+typedef std\+::map$<$ std\+::string, \mbox{\hyperlink{classImuControlParameters_a08337927ac5d0390c065a8f8b64e11ce}{Update\+Uint32\+Params}} $>$ \mbox{\hyperlink{classImuControlParameters_add2e53a89e0f075df4a090fb28ea59d0}{Update\+Uint32\+Params\+Map\+Type}}
+\item 
+typedef bool(IIOWrapper\+::\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classImuControlParameters_a82802c01a3698c99b5e0bbd5117f7dd1}{Get\+Uint32\+Params}}) (uint32\+\_\+t \&)
+\item 
+typedef std\+::map$<$ std\+::string, \mbox{\hyperlink{classImuControlParameters_a82802c01a3698c99b5e0bbd5117f7dd1}{Get\+Uint32\+Params}} $>$ \mbox{\hyperlink{classImuControlParameters_aca50889946b53f310ddd2cd1143c951b}{Get\+Uint32\+Params\+Map\+Type}}
+\item 
+typedef bool(IIOWrapper\+::\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classImuControlParameters_a82366b8096ef75c05b44ece86798ecce}{Update\+Int32\+Params}}) (int32\+\_\+t)
+\item 
+typedef std\+::map$<$ std\+::string, \mbox{\hyperlink{classImuControlParameters_a82366b8096ef75c05b44ece86798ecce}{Update\+Int32\+Params}} $>$ \mbox{\hyperlink{classImuControlParameters_a96d9f5b54857f9de53ab8aa9e28e1433}{Update\+Int32\+Params\+Map\+Type}}
+\item 
+typedef bool(IIOWrapper\+::\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classImuControlParameters_a87949036708585beab3c05aeff113f32}{Get\+Int32\+Params}}) (int32\+\_\+t \&)
+\item 
+typedef std\+::map$<$ std\+::string, \mbox{\hyperlink{classImuControlParameters_a87949036708585beab3c05aeff113f32}{Get\+Int32\+Params}} $>$ \mbox{\hyperlink{classImuControlParameters_a54231d8005b5513dc51d079e11b88cb7}{Get\+Int32\+Params\+Map\+Type}}
+\item 
+typedef bool(IIOWrapper\+::\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classImuControlParameters_ad9ec37d0885918285b76b0a01cc17ee8}{Update\+Double\+Params}}) (double)
+\item 
+typedef std\+::map$<$ std\+::string, \mbox{\hyperlink{classImuControlParameters_ad9ec37d0885918285b76b0a01cc17ee8}{Update\+Double\+Params}} $>$ \mbox{\hyperlink{classImuControlParameters_a217a4e02692f65433945b7a285b6415e}{Update\+Double\+Params\+Map\+Type}}
+\item 
+typedef bool(IIOWrapper\+::\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classImuControlParameters_a261cfd80e62c8a3362414fddd9f2da93}{Get\+Double\+Params}}) (double \texorpdfstring{$\ast$}{*})
+\item 
+typedef std\+::map$<$ std\+::string, \mbox{\hyperlink{classImuControlParameters_a261cfd80e62c8a3362414fddd9f2da93}{Get\+Double\+Params}} $>$ \mbox{\hyperlink{classImuControlParameters_a619c7db2b3afced6b9fa7f6f770b9e17}{Get\+Double\+Params\+Map\+Type}}
+\item 
+typedef bool(IIOWrapper\+::\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classImuControlParameters_affa8e2f00d84a5f26a69f16eaf9f9c39}{Execute\+Commands}}) ()
+\item 
+typedef std\+::map$<$ std\+::string, \mbox{\hyperlink{classImuControlParameters_affa8e2f00d84a5f26a69f16eaf9f9c39}{Execute\+Commands}} $>$ \mbox{\hyperlink{classImuControlParameters_af395e099df244af44911518e92f4a02b}{Execute\+Commands\+Map\+Type}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classImuControlParameters_a7ddb2c0494555953182e42bd0078e8f2}\label{classImuControlParameters_a7ddb2c0494555953182e42bd0078e8f2} 
+void {\bfseries declare\+Adis\+Attributes} ()
+\begin{DoxyCompactList}\small\item\em Add the list of adis parameters to m\+\_\+attr\+\_\+current\+\_\+device. \end{DoxyCompactList}\item 
+\Hypertarget{classImuControlParameters_acad11bd8e1ff8ef2d5bf512877ffa32f}\label{classImuControlParameters_acad11bd8e1ff8ef2d5bf512877ffa32f} 
+void {\bfseries map\+IIOUpdate\+Functions\+Int32} ()
+\begin{DoxyCompactList}\small\item\em Add the list of IIO update functions to m\+\_\+func\+\_\+map\+\_\+update\+\_\+int32\+\_\+params map. This map contains the update APIs for each int32 type parameter. \end{DoxyCompactList}\item 
+\Hypertarget{classImuControlParameters_ad256c1c4af60a7fe2b6b6adbf1108e30}\label{classImuControlParameters_ad256c1c4af60a7fe2b6b6adbf1108e30} 
+void {\bfseries map\+IIOGet\+Functions\+Int32} ()
+\begin{DoxyCompactList}\small\item\em Add the list of IIO read functions to m\+\_\+func\+\_\+map\+\_\+get\+\_\+int32\+\_\+params map. This map contains the read APIs for each int32 type parameter. \end{DoxyCompactList}\item 
+\Hypertarget{classImuControlParameters_a0839165af2a0cc50e07ad6b55806953f}\label{classImuControlParameters_a0839165af2a0cc50e07ad6b55806953f} 
+void {\bfseries map\+IIOUpdate\+Functions\+Uint32} ()
+\begin{DoxyCompactList}\small\item\em Add the list of IIO update functions to m\+\_\+func\+\_\+map\+\_\+update\+\_\+uint32\+\_\+params map. This map contains the update APIs for each uint32 type parameter. \end{DoxyCompactList}\item 
+\Hypertarget{classImuControlParameters_aff2a31343637952540bfe76a04728e51}\label{classImuControlParameters_aff2a31343637952540bfe76a04728e51} 
+void {\bfseries map\+IIOGet\+Functions\+Uint32} ()
+\begin{DoxyCompactList}\small\item\em Add the list of IIO read functions to m\+\_\+func\+\_\+map\+\_\+get\+\_\+uint32\+\_\+params map. This map contains the read APIs for each uint32 type parameter. \end{DoxyCompactList}\item 
+\Hypertarget{classImuControlParameters_ae6be8328df3865c9b057f7b6871612cd}\label{classImuControlParameters_ae6be8328df3865c9b057f7b6871612cd} 
+void {\bfseries map\+IIOUpdate\+Functions\+Double} ()
+\begin{DoxyCompactList}\small\item\em Add the list of IIO update functions to m\+\_\+func\+\_\+map\+\_\+update\+\_\+double\+\_\+params map. This map contains the update APIs for each double type parameter. \end{DoxyCompactList}\item 
+\Hypertarget{classImuControlParameters_acfe86a041e90121d3199ea7a0daaf8ac}\label{classImuControlParameters_acfe86a041e90121d3199ea7a0daaf8ac} 
+void {\bfseries map\+IIOGet\+Functions\+Double} ()
+\begin{DoxyCompactList}\small\item\em Add the list of IIO read functions to m\+\_\+func\+\_\+map\+\_\+get\+\_\+double\+\_\+params map. This map contains the read APIs for each double type parameter. \end{DoxyCompactList}\item 
+\Hypertarget{classImuControlParameters_a2895734d37c7278c6df4a51cbed6aa82}\label{classImuControlParameters_a2895734d37c7278c6df4a51cbed6aa82} 
+void {\bfseries map\+IIOCommand\+Functions} ()
+\begin{DoxyCompactList}\small\item\em Add the list of IIO command functions to m\+\_\+func\+\_\+map\+\_\+execute\+\_\+commands map. This map contains the command APIs for which can be triggered in the hardware. \end{DoxyCompactList}\item 
+\Hypertarget{classImuControlParameters_a3c2c658b2e5fb2e2fe659501e7203054}\label{classImuControlParameters_a3c2c658b2e5fb2e2fe659501e7203054} 
+void {\bfseries declare\+Parameter\+Description} ()
+\begin{DoxyCompactList}\small\item\em Add a parameter description for each parameter in m\+\_\+param\+\_\+description. \end{DoxyCompactList}\item 
+\Hypertarget{classImuControlParameters_ab8aba305fccae66c9ad5f4a0f9e0aece}\label{classImuControlParameters_ab8aba305fccae66c9ad5f4a0f9e0aece} 
+void {\bfseries declare\+Parameters} ()
+\begin{DoxyCompactList}\small\item\em Declare the ros parameters and initialize their values with values read from hardware. \end{DoxyCompactList}\item 
+\Hypertarget{classImuControlParameters_aa733955c32fc2253f4b14d2db1b454a2}\label{classImuControlParameters_aa733955c32fc2253f4b14d2db1b454a2} 
+void {\bfseries update\+Params\+From\+Hardware} ()
+\begin{DoxyCompactList}\small\item\em Update all ros parameter values by reading them from hardware. \end{DoxyCompactList}\item 
+\Hypertarget{classImuControlParameters_a747ae2b209292e2af2de26a8cc448c61}\label{classImuControlParameters_a747ae2b209292e2af2de26a8cc448c61} 
+void {\bfseries handle\+Double\+Param\+Change} ()
+\begin{DoxyCompactList}\small\item\em Handles a parameter change of type double. Performs the necessary updates in the hardware and logs the result. \end{DoxyCompactList}\item 
+\Hypertarget{classImuControlParameters_a3cd01af35e9eae635764fac2ed0bb3e2}\label{classImuControlParameters_a3cd01af35e9eae635764fac2ed0bb3e2} 
+void {\bfseries handle\+Int32\+Param\+Change} ()
+\begin{DoxyCompactList}\small\item\em Handles a parameter change of type int32. Performs the necessary updates in the hardware and logs the result. \end{DoxyCompactList}\item 
+\Hypertarget{classImuControlParameters_a117d2fb3cdb9cb7ae668295a7615df94}\label{classImuControlParameters_a117d2fb3cdb9cb7ae668295a7615df94} 
+void {\bfseries handle\+Uint32\+Param\+Change} ()
+\begin{DoxyCompactList}\small\item\em Handles a parameter change of type uint32. Performs the necessary updates in the hardware and logs the result. \end{DoxyCompactList}\item 
+\Hypertarget{classImuControlParameters_ab456afd17772314a2bdcdb611aa6fc12}\label{classImuControlParameters_ab456afd17772314a2bdcdb611aa6fc12} 
+void {\bfseries handle\+Commands} ()
+\begin{DoxyCompactList}\small\item\em Handles a command. Trigger the command in the hardware if necessary and logs the result. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::shared\+\_\+ptr$<$ rclcpp\+::\+Node $>$ \mbox{\hyperlink{classImuControlParameters_a550af7cb014cc2b4dec9e42342303f63}{m\+\_\+node}}
+\item 
+\mbox{\hyperlink{classIIOWrapper}{IIOWrapper}} \mbox{\hyperlink{classImuControlParameters_a1116f3c4083e6dc9dbea7e8104e6cde9}{m\+\_\+iio\+\_\+wrapper}}
+\item 
+std\+::string \mbox{\hyperlink{classImuControlParameters_abfb5fd3c8fad0ce52ac726cf135c5ebb}{m\+\_\+command\+\_\+to\+\_\+execute}}
+\item 
+\mbox{\hyperlink{classImuControlParameters_add2e53a89e0f075df4a090fb28ea59d0}{Update\+Uint32\+Params\+Map\+Type}} \mbox{\hyperlink{classImuControlParameters_af520e1d09d7b28678d5d3103cd1cb0d4}{m\+\_\+func\+\_\+map\+\_\+update\+\_\+uint32\+\_\+params}}
+\item 
+\mbox{\hyperlink{classImuControlParameters_aca50889946b53f310ddd2cd1143c951b}{Get\+Uint32\+Params\+Map\+Type}} \mbox{\hyperlink{classImuControlParameters_afd5ac3df4ab613f0b3f77775b8755c4f}{m\+\_\+func\+\_\+map\+\_\+get\+\_\+uint32\+\_\+params}}
+\item 
+\mbox{\hyperlink{classImuControlParameters_a96d9f5b54857f9de53ab8aa9e28e1433}{Update\+Int32\+Params\+Map\+Type}} \mbox{\hyperlink{classImuControlParameters_a27be5741591bf0fc60fe7167257ee112}{m\+\_\+func\+\_\+map\+\_\+update\+\_\+int32\+\_\+params}}
+\item 
+\mbox{\hyperlink{classImuControlParameters_a54231d8005b5513dc51d079e11b88cb7}{Get\+Int32\+Params\+Map\+Type}} \mbox{\hyperlink{classImuControlParameters_ae8b7fda4cd0053f95fcdb17cd0d845e5}{m\+\_\+func\+\_\+map\+\_\+get\+\_\+int32\+\_\+params}}
+\item 
+\mbox{\hyperlink{classImuControlParameters_a217a4e02692f65433945b7a285b6415e}{Update\+Double\+Params\+Map\+Type}} \mbox{\hyperlink{classImuControlParameters_a56ea60d73a130a69a0dd61c1d8779e27}{m\+\_\+func\+\_\+map\+\_\+update\+\_\+double\+\_\+params}}
+\item 
+\mbox{\hyperlink{classImuControlParameters_a619c7db2b3afced6b9fa7f6f770b9e17}{Get\+Double\+Params\+Map\+Type}} \mbox{\hyperlink{classImuControlParameters_af56801333a7647590e9318db88c65e85}{m\+\_\+func\+\_\+map\+\_\+get\+\_\+double\+\_\+params}}
+\item 
+\mbox{\hyperlink{classImuControlParameters_af395e099df244af44911518e92f4a02b}{Execute\+Commands\+Map\+Type}} \mbox{\hyperlink{classImuControlParameters_ab5a51dfd26f3cdeeb7c2d1c1de771eb7}{m\+\_\+func\+\_\+map\+\_\+execute\+\_\+commands}}
+\item 
+std\+::list$<$ std\+::string $>$ \mbox{\hyperlink{classImuControlParameters_ab1f1a2ace21a2123c9086c6e141713da}{m\+\_\+attr\+\_\+current\+\_\+device}}
+\item 
+std\+::map$<$ std\+::string, int32\+\_\+t $>$ \mbox{\hyperlink{classImuControlParameters_a30414b572a699d87f6d21e17a54a36ef}{m\+\_\+int32\+\_\+current\+\_\+params}}
+\item 
+std\+::map$<$ std\+::string, int64\+\_\+t $>$ \mbox{\hyperlink{classImuControlParameters_a9bf1f32e4bbaaeba1a8d4d0bbc869ae2}{m\+\_\+uint32\+\_\+current\+\_\+params}}
+\item 
+std\+::map$<$ std\+::string, double $>$ \mbox{\hyperlink{classImuControlParameters_a7027df0c4d7cde53c39f46d3438d90e2}{m\+\_\+double\+\_\+current\+\_\+params}}
+\item 
+std\+::map$<$ std\+::string, std\+::string $>$ \mbox{\hyperlink{classImuControlParameters_a793e0ffb6bfbea341b30d74ca854a585}{m\+\_\+param\+\_\+description}}
+\item 
+std\+::map$<$ std\+::string, rcl\+\_\+interfaces\+::msg\+::\+Integer\+Range $>$ \mbox{\hyperlink{classImuControlParameters_af0387f10c79cc939f530b9458b813a7a}{m\+\_\+param\+\_\+constraints\+\_\+integer}}
+\item 
+std\+::map$<$ std\+::string, rcl\+\_\+interfaces\+::msg\+::\+Floating\+Point\+Range $>$ \mbox{\hyperlink{classImuControlParameters_ab64303326f426a54dd55a201d8e8d411}{m\+\_\+param\+\_\+constraints\+\_\+floating}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class for handling device parameters. 
+
+\doxysubsection{Member Typedef Documentation}
+\Hypertarget{classImuControlParameters_affa8e2f00d84a5f26a69f16eaf9f9c39}\label{classImuControlParameters_affa8e2f00d84a5f26a69f16eaf9f9c39} 
+\index{ImuControlParameters@{ImuControlParameters}!ExecuteCommands@{ExecuteCommands}}
+\index{ExecuteCommands@{ExecuteCommands}!ImuControlParameters@{ImuControlParameters}}
+\doxysubsubsection{\texorpdfstring{ExecuteCommands}{ExecuteCommands}}
+{\footnotesize\ttfamily typedef bool(IIOWrapper\+::\texorpdfstring{$\ast$}{*} Imu\+Control\+Parameters\+::\+Execute\+Commands) ()\hspace{0.3cm}{\ttfamily [private]}}
+
+Declare function type for command execution APIs. \Hypertarget{classImuControlParameters_af395e099df244af44911518e92f4a02b}\label{classImuControlParameters_af395e099df244af44911518e92f4a02b} 
+\index{ImuControlParameters@{ImuControlParameters}!ExecuteCommandsMapType@{ExecuteCommandsMapType}}
+\index{ExecuteCommandsMapType@{ExecuteCommandsMapType}!ImuControlParameters@{ImuControlParameters}}
+\doxysubsubsection{\texorpdfstring{ExecuteCommandsMapType}{ExecuteCommandsMapType}}
+{\footnotesize\ttfamily typedef std\+::map$<$std\+::string, \mbox{\hyperlink{classImuControlParameters_affa8e2f00d84a5f26a69f16eaf9f9c39}{Execute\+Commands}}$>$ \mbox{\hyperlink{classImuControlParameters_af395e099df244af44911518e92f4a02b}{Imu\+Control\+Parameters\+::\+Execute\+Commands\+Map\+Type}}\hspace{0.3cm}{\ttfamily [private]}}
+
+Declare map type for command APIs. \Hypertarget{classImuControlParameters_a261cfd80e62c8a3362414fddd9f2da93}\label{classImuControlParameters_a261cfd80e62c8a3362414fddd9f2da93} 
+\index{ImuControlParameters@{ImuControlParameters}!GetDoubleParams@{GetDoubleParams}}
+\index{GetDoubleParams@{GetDoubleParams}!ImuControlParameters@{ImuControlParameters}}
+\doxysubsubsection{\texorpdfstring{GetDoubleParams}{GetDoubleParams}}
+{\footnotesize\ttfamily typedef bool(IIOWrapper\+::\texorpdfstring{$\ast$}{*} Imu\+Control\+Parameters\+::\+Get\+Double\+Params) (double \texorpdfstring{$\ast$}{*})\hspace{0.3cm}{\ttfamily [private]}}
+
+Declare function type for parameter reading APIs of type double. \Hypertarget{classImuControlParameters_a619c7db2b3afced6b9fa7f6f770b9e17}\label{classImuControlParameters_a619c7db2b3afced6b9fa7f6f770b9e17} 
+\index{ImuControlParameters@{ImuControlParameters}!GetDoubleParamsMapType@{GetDoubleParamsMapType}}
+\index{GetDoubleParamsMapType@{GetDoubleParamsMapType}!ImuControlParameters@{ImuControlParameters}}
+\doxysubsubsection{\texorpdfstring{GetDoubleParamsMapType}{GetDoubleParamsMapType}}
+{\footnotesize\ttfamily typedef std\+::map$<$std\+::string, \mbox{\hyperlink{classImuControlParameters_a261cfd80e62c8a3362414fddd9f2da93}{Get\+Double\+Params}}$>$ \mbox{\hyperlink{classImuControlParameters_a619c7db2b3afced6b9fa7f6f770b9e17}{Imu\+Control\+Parameters\+::\+Get\+Double\+Params\+Map\+Type}}\hspace{0.3cm}{\ttfamily [private]}}
+
+Declare map type for parameter reading APIs of type double. \Hypertarget{classImuControlParameters_a87949036708585beab3c05aeff113f32}\label{classImuControlParameters_a87949036708585beab3c05aeff113f32} 
+\index{ImuControlParameters@{ImuControlParameters}!GetInt32Params@{GetInt32Params}}
+\index{GetInt32Params@{GetInt32Params}!ImuControlParameters@{ImuControlParameters}}
+\doxysubsubsection{\texorpdfstring{GetInt32Params}{GetInt32Params}}
+{\footnotesize\ttfamily typedef bool(IIOWrapper\+::\texorpdfstring{$\ast$}{*} Imu\+Control\+Parameters\+::\+Get\+Int32\+Params) (int32\+\_\+t \&)\hspace{0.3cm}{\ttfamily [private]}}
+
+Declare function type for parameter reading APIs of type int32. \Hypertarget{classImuControlParameters_a54231d8005b5513dc51d079e11b88cb7}\label{classImuControlParameters_a54231d8005b5513dc51d079e11b88cb7} 
+\index{ImuControlParameters@{ImuControlParameters}!GetInt32ParamsMapType@{GetInt32ParamsMapType}}
+\index{GetInt32ParamsMapType@{GetInt32ParamsMapType}!ImuControlParameters@{ImuControlParameters}}
+\doxysubsubsection{\texorpdfstring{GetInt32ParamsMapType}{GetInt32ParamsMapType}}
+{\footnotesize\ttfamily typedef std\+::map$<$std\+::string, \mbox{\hyperlink{classImuControlParameters_a87949036708585beab3c05aeff113f32}{Get\+Int32\+Params}}$>$ \mbox{\hyperlink{classImuControlParameters_a54231d8005b5513dc51d079e11b88cb7}{Imu\+Control\+Parameters\+::\+Get\+Int32\+Params\+Map\+Type}}\hspace{0.3cm}{\ttfamily [private]}}
+
+Declare map type for parameter reading APIs of type int32. \Hypertarget{classImuControlParameters_a82802c01a3698c99b5e0bbd5117f7dd1}\label{classImuControlParameters_a82802c01a3698c99b5e0bbd5117f7dd1} 
+\index{ImuControlParameters@{ImuControlParameters}!GetUint32Params@{GetUint32Params}}
+\index{GetUint32Params@{GetUint32Params}!ImuControlParameters@{ImuControlParameters}}
+\doxysubsubsection{\texorpdfstring{GetUint32Params}{GetUint32Params}}
+{\footnotesize\ttfamily typedef bool(IIOWrapper\+::\texorpdfstring{$\ast$}{*} Imu\+Control\+Parameters\+::\+Get\+Uint32\+Params) (uint32\+\_\+t \&)\hspace{0.3cm}{\ttfamily [private]}}
+
+Declare function type for parameter reading APIs of type uint32. \Hypertarget{classImuControlParameters_aca50889946b53f310ddd2cd1143c951b}\label{classImuControlParameters_aca50889946b53f310ddd2cd1143c951b} 
+\index{ImuControlParameters@{ImuControlParameters}!GetUint32ParamsMapType@{GetUint32ParamsMapType}}
+\index{GetUint32ParamsMapType@{GetUint32ParamsMapType}!ImuControlParameters@{ImuControlParameters}}
+\doxysubsubsection{\texorpdfstring{GetUint32ParamsMapType}{GetUint32ParamsMapType}}
+{\footnotesize\ttfamily typedef std\+::map$<$std\+::string, \mbox{\hyperlink{classImuControlParameters_a82802c01a3698c99b5e0bbd5117f7dd1}{Get\+Uint32\+Params}}$>$ \mbox{\hyperlink{classImuControlParameters_aca50889946b53f310ddd2cd1143c951b}{Imu\+Control\+Parameters\+::\+Get\+Uint32\+Params\+Map\+Type}}\hspace{0.3cm}{\ttfamily [private]}}
+
+Declare map type for parameter reading APIs of type uint32. \Hypertarget{classImuControlParameters_ad9ec37d0885918285b76b0a01cc17ee8}\label{classImuControlParameters_ad9ec37d0885918285b76b0a01cc17ee8} 
+\index{ImuControlParameters@{ImuControlParameters}!UpdateDoubleParams@{UpdateDoubleParams}}
+\index{UpdateDoubleParams@{UpdateDoubleParams}!ImuControlParameters@{ImuControlParameters}}
+\doxysubsubsection{\texorpdfstring{UpdateDoubleParams}{UpdateDoubleParams}}
+{\footnotesize\ttfamily typedef bool(IIOWrapper\+::\texorpdfstring{$\ast$}{*} Imu\+Control\+Parameters\+::\+Update\+Double\+Params) (double)\hspace{0.3cm}{\ttfamily [private]}}
+
+Declare function type for parameter updating APIs of type double. \Hypertarget{classImuControlParameters_a217a4e02692f65433945b7a285b6415e}\label{classImuControlParameters_a217a4e02692f65433945b7a285b6415e} 
+\index{ImuControlParameters@{ImuControlParameters}!UpdateDoubleParamsMapType@{UpdateDoubleParamsMapType}}
+\index{UpdateDoubleParamsMapType@{UpdateDoubleParamsMapType}!ImuControlParameters@{ImuControlParameters}}
+\doxysubsubsection{\texorpdfstring{UpdateDoubleParamsMapType}{UpdateDoubleParamsMapType}}
+{\footnotesize\ttfamily typedef std\+::map$<$std\+::string, \mbox{\hyperlink{classImuControlParameters_ad9ec37d0885918285b76b0a01cc17ee8}{Update\+Double\+Params}}$>$ \mbox{\hyperlink{classImuControlParameters_a217a4e02692f65433945b7a285b6415e}{Imu\+Control\+Parameters\+::\+Update\+Double\+Params\+Map\+Type}}\hspace{0.3cm}{\ttfamily [private]}}
+
+Declare map type for parameter updating APIs of type double. \Hypertarget{classImuControlParameters_a82366b8096ef75c05b44ece86798ecce}\label{classImuControlParameters_a82366b8096ef75c05b44ece86798ecce} 
+\index{ImuControlParameters@{ImuControlParameters}!UpdateInt32Params@{UpdateInt32Params}}
+\index{UpdateInt32Params@{UpdateInt32Params}!ImuControlParameters@{ImuControlParameters}}
+\doxysubsubsection{\texorpdfstring{UpdateInt32Params}{UpdateInt32Params}}
+{\footnotesize\ttfamily typedef bool(IIOWrapper\+::\texorpdfstring{$\ast$}{*} Imu\+Control\+Parameters\+::\+Update\+Int32\+Params) (int32\+\_\+t)\hspace{0.3cm}{\ttfamily [private]}}
+
+Declare function type for parameter updating APIs of type int32. \Hypertarget{classImuControlParameters_a96d9f5b54857f9de53ab8aa9e28e1433}\label{classImuControlParameters_a96d9f5b54857f9de53ab8aa9e28e1433} 
+\index{ImuControlParameters@{ImuControlParameters}!UpdateInt32ParamsMapType@{UpdateInt32ParamsMapType}}
+\index{UpdateInt32ParamsMapType@{UpdateInt32ParamsMapType}!ImuControlParameters@{ImuControlParameters}}
+\doxysubsubsection{\texorpdfstring{UpdateInt32ParamsMapType}{UpdateInt32ParamsMapType}}
+{\footnotesize\ttfamily typedef std\+::map$<$std\+::string, \mbox{\hyperlink{classImuControlParameters_a82366b8096ef75c05b44ece86798ecce}{Update\+Int32\+Params}}$>$ \mbox{\hyperlink{classImuControlParameters_a96d9f5b54857f9de53ab8aa9e28e1433}{Imu\+Control\+Parameters\+::\+Update\+Int32\+Params\+Map\+Type}}\hspace{0.3cm}{\ttfamily [private]}}
+
+Declare map type for parameter updating APIs of type int32. \Hypertarget{classImuControlParameters_a08337927ac5d0390c065a8f8b64e11ce}\label{classImuControlParameters_a08337927ac5d0390c065a8f8b64e11ce} 
+\index{ImuControlParameters@{ImuControlParameters}!UpdateUint32Params@{UpdateUint32Params}}
+\index{UpdateUint32Params@{UpdateUint32Params}!ImuControlParameters@{ImuControlParameters}}
+\doxysubsubsection{\texorpdfstring{UpdateUint32Params}{UpdateUint32Params}}
+{\footnotesize\ttfamily typedef bool(IIOWrapper\+::\texorpdfstring{$\ast$}{*} Imu\+Control\+Parameters\+::\+Update\+Uint32\+Params) (uint32\+\_\+t)\hspace{0.3cm}{\ttfamily [private]}}
+
+Declare function type for parameter updating APIs of type uint32. \Hypertarget{classImuControlParameters_add2e53a89e0f075df4a090fb28ea59d0}\label{classImuControlParameters_add2e53a89e0f075df4a090fb28ea59d0} 
+\index{ImuControlParameters@{ImuControlParameters}!UpdateUint32ParamsMapType@{UpdateUint32ParamsMapType}}
+\index{UpdateUint32ParamsMapType@{UpdateUint32ParamsMapType}!ImuControlParameters@{ImuControlParameters}}
+\doxysubsubsection{\texorpdfstring{UpdateUint32ParamsMapType}{UpdateUint32ParamsMapType}}
+{\footnotesize\ttfamily typedef std\+::map$<$std\+::string, \mbox{\hyperlink{classImuControlParameters_a08337927ac5d0390c065a8f8b64e11ce}{Update\+Uint32\+Params}}$>$ \mbox{\hyperlink{classImuControlParameters_add2e53a89e0f075df4a090fb28ea59d0}{Imu\+Control\+Parameters\+::\+Update\+Uint32\+Params\+Map\+Type}}\hspace{0.3cm}{\ttfamily [private]}}
+
+Declare map type for parameter updating APIs of type uint32. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classImuControlParameters_ac48f67e7a3b66410fb3c4e9ea0b5dc0a}\label{classImuControlParameters_ac48f67e7a3b66410fb3c4e9ea0b5dc0a} 
+\index{ImuControlParameters@{ImuControlParameters}!ImuControlParameters@{ImuControlParameters}}
+\index{ImuControlParameters@{ImuControlParameters}!ImuControlParameters@{ImuControlParameters}}
+\doxysubsubsection{\texorpdfstring{ImuControlParameters()}{ImuControlParameters()}}
+{\footnotesize\ttfamily Imu\+Control\+Parameters\+::\+Imu\+Control\+Parameters (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ rclcpp\+::\+Node $>$ \&}]{node }\end{DoxyParamCaption})}
+
+
+
+Constructor for \doxylink{classImuControlParameters}{Imu\+Control\+Parameters}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em node} & The ros2 Node instance. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classImuControlParameters_ab1f1a2ace21a2123c9086c6e141713da}\label{classImuControlParameters_ab1f1a2ace21a2123c9086c6e141713da} 
+\index{ImuControlParameters@{ImuControlParameters}!m\_attr\_current\_device@{m\_attr\_current\_device}}
+\index{m\_attr\_current\_device@{m\_attr\_current\_device}!ImuControlParameters@{ImuControlParameters}}
+\doxysubsubsection{\texorpdfstring{m\_attr\_current\_device}{m\_attr\_current\_device}}
+{\footnotesize\ttfamily std\+::list$<$std\+::string$>$ Imu\+Control\+Parameters\+::m\+\_\+attr\+\_\+current\+\_\+device\hspace{0.3cm}{\ttfamily [private]}}
+
+Attribute list which stores the current attribute names of the device. \Hypertarget{classImuControlParameters_abfb5fd3c8fad0ce52ac726cf135c5ebb}\label{classImuControlParameters_abfb5fd3c8fad0ce52ac726cf135c5ebb} 
+\index{ImuControlParameters@{ImuControlParameters}!m\_command\_to\_execute@{m\_command\_to\_execute}}
+\index{m\_command\_to\_execute@{m\_command\_to\_execute}!ImuControlParameters@{ImuControlParameters}}
+\doxysubsubsection{\texorpdfstring{m\_command\_to\_execute}{m\_command\_to\_execute}}
+{\footnotesize\ttfamily std\+::string Imu\+Control\+Parameters\+::m\+\_\+command\+\_\+to\+\_\+execute\hspace{0.3cm}{\ttfamily [private]}}
+
+This variable contains the current value for the command to be executed. \Hypertarget{classImuControlParameters_a7027df0c4d7cde53c39f46d3438d90e2}\label{classImuControlParameters_a7027df0c4d7cde53c39f46d3438d90e2} 
+\index{ImuControlParameters@{ImuControlParameters}!m\_double\_current\_params@{m\_double\_current\_params}}
+\index{m\_double\_current\_params@{m\_double\_current\_params}!ImuControlParameters@{ImuControlParameters}}
+\doxysubsubsection{\texorpdfstring{m\_double\_current\_params}{m\_double\_current\_params}}
+{\footnotesize\ttfamily std\+::map$<$std\+::string, double$>$ Imu\+Control\+Parameters\+::m\+\_\+double\+\_\+current\+\_\+params\hspace{0.3cm}{\ttfamily [private]}}
+
+Parameter map of type double which stores the current value of the parameter. \Hypertarget{classImuControlParameters_ab5a51dfd26f3cdeeb7c2d1c1de771eb7}\label{classImuControlParameters_ab5a51dfd26f3cdeeb7c2d1c1de771eb7} 
+\index{ImuControlParameters@{ImuControlParameters}!m\_func\_map\_execute\_commands@{m\_func\_map\_execute\_commands}}
+\index{m\_func\_map\_execute\_commands@{m\_func\_map\_execute\_commands}!ImuControlParameters@{ImuControlParameters}}
+\doxysubsubsection{\texorpdfstring{m\_func\_map\_execute\_commands}{m\_func\_map\_execute\_commands}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classImuControlParameters_af395e099df244af44911518e92f4a02b}{Execute\+Commands\+Map\+Type}} Imu\+Control\+Parameters\+::m\+\_\+func\+\_\+map\+\_\+execute\+\_\+commands\hspace{0.3cm}{\ttfamily [private]}}
+
+Command map which contains the trigger function call for each command. \Hypertarget{classImuControlParameters_af56801333a7647590e9318db88c65e85}\label{classImuControlParameters_af56801333a7647590e9318db88c65e85} 
+\index{ImuControlParameters@{ImuControlParameters}!m\_func\_map\_get\_double\_params@{m\_func\_map\_get\_double\_params}}
+\index{m\_func\_map\_get\_double\_params@{m\_func\_map\_get\_double\_params}!ImuControlParameters@{ImuControlParameters}}
+\doxysubsubsection{\texorpdfstring{m\_func\_map\_get\_double\_params}{m\_func\_map\_get\_double\_params}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classImuControlParameters_a619c7db2b3afced6b9fa7f6f770b9e17}{Get\+Double\+Params\+Map\+Type}} Imu\+Control\+Parameters\+::m\+\_\+func\+\_\+map\+\_\+get\+\_\+double\+\_\+params\hspace{0.3cm}{\ttfamily [private]}}
+
+Read parameter map which contains the read function call for each parameter of type double. \Hypertarget{classImuControlParameters_ae8b7fda4cd0053f95fcdb17cd0d845e5}\label{classImuControlParameters_ae8b7fda4cd0053f95fcdb17cd0d845e5} 
+\index{ImuControlParameters@{ImuControlParameters}!m\_func\_map\_get\_int32\_params@{m\_func\_map\_get\_int32\_params}}
+\index{m\_func\_map\_get\_int32\_params@{m\_func\_map\_get\_int32\_params}!ImuControlParameters@{ImuControlParameters}}
+\doxysubsubsection{\texorpdfstring{m\_func\_map\_get\_int32\_params}{m\_func\_map\_get\_int32\_params}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classImuControlParameters_a54231d8005b5513dc51d079e11b88cb7}{Get\+Int32\+Params\+Map\+Type}} Imu\+Control\+Parameters\+::m\+\_\+func\+\_\+map\+\_\+get\+\_\+int32\+\_\+params\hspace{0.3cm}{\ttfamily [private]}}
+
+Read parameter map which contains the read function call for each parameter of type int32. \Hypertarget{classImuControlParameters_afd5ac3df4ab613f0b3f77775b8755c4f}\label{classImuControlParameters_afd5ac3df4ab613f0b3f77775b8755c4f} 
+\index{ImuControlParameters@{ImuControlParameters}!m\_func\_map\_get\_uint32\_params@{m\_func\_map\_get\_uint32\_params}}
+\index{m\_func\_map\_get\_uint32\_params@{m\_func\_map\_get\_uint32\_params}!ImuControlParameters@{ImuControlParameters}}
+\doxysubsubsection{\texorpdfstring{m\_func\_map\_get\_uint32\_params}{m\_func\_map\_get\_uint32\_params}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classImuControlParameters_aca50889946b53f310ddd2cd1143c951b}{Get\+Uint32\+Params\+Map\+Type}} Imu\+Control\+Parameters\+::m\+\_\+func\+\_\+map\+\_\+get\+\_\+uint32\+\_\+params\hspace{0.3cm}{\ttfamily [private]}}
+
+Read parameter map which contains the read function call for each parameter of type uint32. \Hypertarget{classImuControlParameters_a56ea60d73a130a69a0dd61c1d8779e27}\label{classImuControlParameters_a56ea60d73a130a69a0dd61c1d8779e27} 
+\index{ImuControlParameters@{ImuControlParameters}!m\_func\_map\_update\_double\_params@{m\_func\_map\_update\_double\_params}}
+\index{m\_func\_map\_update\_double\_params@{m\_func\_map\_update\_double\_params}!ImuControlParameters@{ImuControlParameters}}
+\doxysubsubsection{\texorpdfstring{m\_func\_map\_update\_double\_params}{m\_func\_map\_update\_double\_params}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classImuControlParameters_a217a4e02692f65433945b7a285b6415e}{Update\+Double\+Params\+Map\+Type}} Imu\+Control\+Parameters\+::m\+\_\+func\+\_\+map\+\_\+update\+\_\+double\+\_\+params\hspace{0.3cm}{\ttfamily [private]}}
+
+Update parameter map which contains the update function call for each parameter of type double. \Hypertarget{classImuControlParameters_a27be5741591bf0fc60fe7167257ee112}\label{classImuControlParameters_a27be5741591bf0fc60fe7167257ee112} 
+\index{ImuControlParameters@{ImuControlParameters}!m\_func\_map\_update\_int32\_params@{m\_func\_map\_update\_int32\_params}}
+\index{m\_func\_map\_update\_int32\_params@{m\_func\_map\_update\_int32\_params}!ImuControlParameters@{ImuControlParameters}}
+\doxysubsubsection{\texorpdfstring{m\_func\_map\_update\_int32\_params}{m\_func\_map\_update\_int32\_params}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classImuControlParameters_a96d9f5b54857f9de53ab8aa9e28e1433}{Update\+Int32\+Params\+Map\+Type}} Imu\+Control\+Parameters\+::m\+\_\+func\+\_\+map\+\_\+update\+\_\+int32\+\_\+params\hspace{0.3cm}{\ttfamily [private]}}
+
+Update parameter map which contains the update function call for each parameter of type int32. \Hypertarget{classImuControlParameters_af520e1d09d7b28678d5d3103cd1cb0d4}\label{classImuControlParameters_af520e1d09d7b28678d5d3103cd1cb0d4} 
+\index{ImuControlParameters@{ImuControlParameters}!m\_func\_map\_update\_uint32\_params@{m\_func\_map\_update\_uint32\_params}}
+\index{m\_func\_map\_update\_uint32\_params@{m\_func\_map\_update\_uint32\_params}!ImuControlParameters@{ImuControlParameters}}
+\doxysubsubsection{\texorpdfstring{m\_func\_map\_update\_uint32\_params}{m\_func\_map\_update\_uint32\_params}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classImuControlParameters_add2e53a89e0f075df4a090fb28ea59d0}{Update\+Uint32\+Params\+Map\+Type}} Imu\+Control\+Parameters\+::m\+\_\+func\+\_\+map\+\_\+update\+\_\+uint32\+\_\+params\hspace{0.3cm}{\ttfamily [private]}}
+
+Update parameter map which contains the update function call for each parameter of type uint32. \Hypertarget{classImuControlParameters_a1116f3c4083e6dc9dbea7e8104e6cde9}\label{classImuControlParameters_a1116f3c4083e6dc9dbea7e8104e6cde9} 
+\index{ImuControlParameters@{ImuControlParameters}!m\_iio\_wrapper@{m\_iio\_wrapper}}
+\index{m\_iio\_wrapper@{m\_iio\_wrapper}!ImuControlParameters@{ImuControlParameters}}
+\doxysubsubsection{\texorpdfstring{m\_iio\_wrapper}{m\_iio\_wrapper}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classIIOWrapper}{IIOWrapper}} Imu\+Control\+Parameters\+::m\+\_\+iio\+\_\+wrapper\hspace{0.3cm}{\ttfamily [private]}}
+
+This data member is used to access sensor information via libiio. \Hypertarget{classImuControlParameters_a30414b572a699d87f6d21e17a54a36ef}\label{classImuControlParameters_a30414b572a699d87f6d21e17a54a36ef} 
+\index{ImuControlParameters@{ImuControlParameters}!m\_int32\_current\_params@{m\_int32\_current\_params}}
+\index{m\_int32\_current\_params@{m\_int32\_current\_params}!ImuControlParameters@{ImuControlParameters}}
+\doxysubsubsection{\texorpdfstring{m\_int32\_current\_params}{m\_int32\_current\_params}}
+{\footnotesize\ttfamily std\+::map$<$std\+::string, int32\+\_\+t$>$ Imu\+Control\+Parameters\+::m\+\_\+int32\+\_\+current\+\_\+params\hspace{0.3cm}{\ttfamily [private]}}
+
+Parameter map of type int32 which stores the current value of the parameter. \Hypertarget{classImuControlParameters_a550af7cb014cc2b4dec9e42342303f63}\label{classImuControlParameters_a550af7cb014cc2b4dec9e42342303f63} 
+\index{ImuControlParameters@{ImuControlParameters}!m\_node@{m\_node}}
+\index{m\_node@{m\_node}!ImuControlParameters@{ImuControlParameters}}
+\doxysubsubsection{\texorpdfstring{m\_node}{m\_node}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$rclcpp\+::\+Node$>$ Imu\+Control\+Parameters\+::m\+\_\+node\hspace{0.3cm}{\ttfamily [private]}}
+
+The ros2 Node data member \Hypertarget{classImuControlParameters_ab64303326f426a54dd55a201d8e8d411}\label{classImuControlParameters_ab64303326f426a54dd55a201d8e8d411} 
+\index{ImuControlParameters@{ImuControlParameters}!m\_param\_constraints\_floating@{m\_param\_constraints\_floating}}
+\index{m\_param\_constraints\_floating@{m\_param\_constraints\_floating}!ImuControlParameters@{ImuControlParameters}}
+\doxysubsubsection{\texorpdfstring{m\_param\_constraints\_floating}{m\_param\_constraints\_floating}}
+{\footnotesize\ttfamily std\+::map$<$std\+::string, rcl\+\_\+interfaces\+::msg\+::\+Floating\+Point\+Range$>$ Imu\+Control\+Parameters\+::m\+\_\+param\+\_\+constraints\+\_\+floating\hspace{0.3cm}{\ttfamily [private]}}
+
+Parameter map with Floating\+Point\+Range for parameter constraints. \Hypertarget{classImuControlParameters_af0387f10c79cc939f530b9458b813a7a}\label{classImuControlParameters_af0387f10c79cc939f530b9458b813a7a} 
+\index{ImuControlParameters@{ImuControlParameters}!m\_param\_constraints\_integer@{m\_param\_constraints\_integer}}
+\index{m\_param\_constraints\_integer@{m\_param\_constraints\_integer}!ImuControlParameters@{ImuControlParameters}}
+\doxysubsubsection{\texorpdfstring{m\_param\_constraints\_integer}{m\_param\_constraints\_integer}}
+{\footnotesize\ttfamily std\+::map$<$std\+::string, rcl\+\_\+interfaces\+::msg\+::\+Integer\+Range$>$ Imu\+Control\+Parameters\+::m\+\_\+param\+\_\+constraints\+\_\+integer\hspace{0.3cm}{\ttfamily [private]}}
+
+Parameter map with Integer\+Range for parameter constraints. \Hypertarget{classImuControlParameters_a793e0ffb6bfbea341b30d74ca854a585}\label{classImuControlParameters_a793e0ffb6bfbea341b30d74ca854a585} 
+\index{ImuControlParameters@{ImuControlParameters}!m\_param\_description@{m\_param\_description}}
+\index{m\_param\_description@{m\_param\_description}!ImuControlParameters@{ImuControlParameters}}
+\doxysubsubsection{\texorpdfstring{m\_param\_description}{m\_param\_description}}
+{\footnotesize\ttfamily std\+::map$<$std\+::string, std\+::string$>$ Imu\+Control\+Parameters\+::m\+\_\+param\+\_\+description\hspace{0.3cm}{\ttfamily [private]}}
+
+Parameter map with parameter description. \Hypertarget{classImuControlParameters_a9bf1f32e4bbaaeba1a8d4d0bbc869ae2}\label{classImuControlParameters_a9bf1f32e4bbaaeba1a8d4d0bbc869ae2} 
+\index{ImuControlParameters@{ImuControlParameters}!m\_uint32\_current\_params@{m\_uint32\_current\_params}}
+\index{m\_uint32\_current\_params@{m\_uint32\_current\_params}!ImuControlParameters@{ImuControlParameters}}
+\doxysubsubsection{\texorpdfstring{m\_uint32\_current\_params}{m\_uint32\_current\_params}}
+{\footnotesize\ttfamily std\+::map$<$std\+::string, int64\+\_\+t$>$ Imu\+Control\+Parameters\+::m\+\_\+uint32\+\_\+current\+\_\+params\hspace{0.3cm}{\ttfamily [private]}}
+
+Parameter map of type uint32 which stores the current value of the parameter. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/adi\+\_\+imu/imu\+\_\+control\+\_\+parameters.\+h\item 
+src/\mbox{\hyperlink{imu__control__parameters_8cpp}{imu\+\_\+control\+\_\+parameters.\+cpp}}\end{DoxyCompactItemize}

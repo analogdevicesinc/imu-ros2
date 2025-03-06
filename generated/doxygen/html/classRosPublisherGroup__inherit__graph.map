@@ -1,0 +1,7 @@
+<map id="RosPublisherGroup" name="RosPublisherGroup">
+<area shape="rect" id="Node000001" title="Class ROS publisher group." alt="" coords="34,152,179,177"/>
+<area shape="rect" id="Node000002" href="$classRosPublisherGroupInterface.html" title="Interface for publisher group." alt="" coords="5,79,208,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="109,118,109,152,104,152,104,118"/>
+<area shape="rect" id="Node000003" href="$classRosTask.html" title="Interface for running a task in a thread." alt="" coords="69,5,144,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="109,44,109,79,104,79,104,44"/>
+</map>

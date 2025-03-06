@@ -1,0 +1,116 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classRosTask" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>RosTask</compoundname>
+    <derivedcompoundref refid="classImuDiagRosPublisherInterface" prot="public" virt="non-virtual">ImuDiagRosPublisherInterface</derivedcompoundref>
+    <derivedcompoundref refid="classImuIdentificationRosPublisherInterface" prot="public" virt="non-virtual">ImuIdentificationRosPublisherInterface</derivedcompoundref>
+    <derivedcompoundref refid="classRosPublisherGroupInterface" prot="public" virt="non-virtual">RosPublisherGroupInterface</derivedcompoundref>
+    <includes refid="ros__task_8h" local="no">ros_task.h</includes>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRosTask_1a519dd722e83fba675d0e988c5d5100d1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>RosTask::RosTask</definition>
+        <argsstring>()</argsstring>
+        <name>RosTask</name>
+        <qualifiedname>RosTask::RosTask</qualifiedname>
+        <briefdescription>
+<para>Constructor for <ref refid="classRosTask" kindref="compound">RosTask</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This is the default constructor for interface <ref refid="classRosTask" kindref="compound">RosTask</ref>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/ros_task.h" line="37" column="3" bodyfile="include/adi_imu/ros_task.h" bodystart="37" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="classRosTask_1a1043013f8bb20f9c3878d4cb8d99b2fb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type></type>
+        <definition>virtual RosTask::~RosTask</definition>
+        <argsstring>()</argsstring>
+        <name>~RosTask</name>
+        <qualifiedname>RosTask::~RosTask</qualifiedname>
+        <briefdescription>
+<para>Destructor for <ref refid="classRosTask" kindref="compound">RosTask</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This is a virtual destructor for <ref refid="classRosTask" kindref="compound">RosTask</ref>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/ros_task.h" line="45" column="11" bodyfile="include/adi_imu/ros_task.h" bodystart="45" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="function" id="classRosTask_1a331afbcd684711c35e1488fbaad73cf2" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void RosTask::run</definition>
+        <argsstring>()=0</argsstring>
+        <name>run</name>
+        <qualifiedname>RosTask::run</qualifiedname>
+        <reimplementedby refid="classImuDiagRosPublisher_1aaf3056416be0e688ef7d3833c3bbfbfd">run</reimplementedby>
+        <reimplementedby refid="classImuIdentificationRosPublisher_1a3c6ffc12c162c4ad6190e7b54b9a1bdc">run</reimplementedby>
+        <reimplementedby refid="classRosPublisherGroup_1afee0f211b77283a37fa197b39f4d1253">run</reimplementedby>
+        <briefdescription>
+<para>Method that run on a thread. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function will run on a thread and a class that implement this method will have concurrent support. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/ros_task.h" line="54" column="16"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Interface for running a task in a thread. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>ImuDiagRosPublisher</label>
+        <link refid="classImuDiagRosPublisher"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>ImuDiagRosPublisherInterface</label>
+        <link refid="classImuDiagRosPublisherInterface"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>ImuIdentificationRosPublisher</label>
+        <link refid="classImuIdentificationRosPublisher"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>ImuIdentificationRosPublisherInterface</label>
+        <link refid="classImuIdentificationRosPublisherInterface"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>RosPublisherGroup</label>
+        <link refid="classRosPublisherGroup"/>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>RosPublisherGroupInterface</label>
+        <link refid="classRosPublisherGroupInterface"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>RosTask</label>
+        <link refid="classRosTask"/>
+      </node>
+    </inheritancegraph>
+    <location file="include/adi_imu/ros_task.h" line="27" column="1" bodyfile="include/adi_imu/ros_task.h" bodystart="28" bodyend="55"/>
+    <listofallmembers>
+      <member refid="classRosTask_1a519dd722e83fba675d0e988c5d5100d1" prot="public" virt="non-virtual"><scope>RosTask</scope><name>RosTask</name></member>
+      <member refid="classRosTask_1a331afbcd684711c35e1488fbaad73cf2" prot="public" virt="pure-virtual"><scope>RosTask</scope><name>run</name></member>
+      <member refid="classRosTask_1a1043013f8bb20f9c3878d4cb8d99b2fb" prot="public" virt="virtual"><scope>RosTask</scope><name>~RosTask</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

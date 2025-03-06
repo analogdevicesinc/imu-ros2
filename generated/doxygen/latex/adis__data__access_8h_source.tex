@@ -1,0 +1,83 @@
+\doxysection{adis\+\_\+data\+\_\+access.\+h}
+\hypertarget{adis__data__access_8h_source}{}\label{adis__data__access_8h_source}\index{include/adi\_imu/adis\_data\_access.h@{include/adi\_imu/adis\_data\_access.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ ADIS\_DATA\_ACCESS\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ ADIS\_DATA\_ACCESS\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#define\ DELTAVEL\_DELTAANG\_BUFFERED\_DATA\ 0}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#define\ ACCEL\_GYRO\_BUFFERED\_DATA\ 1}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ IMU\_STD\_MSG\_DATA\ 2}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ FULL\_MEASURED\_DATA\ 3}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ ADIS\_DELTANG\_X\_LOW\_REG\ 0x24}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#define\ ADIS\_DELTANG\_X\_OUT\_REG\ 0x26}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#define\ ADIS\_DELTANG\_Y\_LOW\_REG\ 0x28}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#define\ ADIS\_DELTANG\_Y\_OUT\_REG\ 0x2A}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#define\ ADIS\_DELTANG\_Z\_LOW\_REG\ 0x2C}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ ADIS\_DELTANG\_Z\_OUT\_REG\ 0x2E}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#define\ ADIS\_DELTVEL\_X\_LOW\_REG\ 0x30}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#define\ ADIS\_DELTVEL\_X\_OUT\_REG\ 0x32}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#define\ ADIS\_DELTVEL\_Y\_LOW\_REG\ 0x34}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#define\ ADIS\_DELTVEL\_Y\_OUT\_REG\ 0x36}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#define\ ADIS\_DELTVEL\_Z\_LOW\_REG\ 0x38}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ ADIS\_DELTVEL\_Z\_OUT\_REG\ 0x3A}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{enum}\ adis\_device\_id}
+\DoxyCodeLine{00023\ \{}
+\DoxyCodeLine{00024\ \ \ ADIS16465\_1,}
+\DoxyCodeLine{00025\ \ \ ADIS16465\_2,}
+\DoxyCodeLine{00026\ \ \ ADIS16465\_3,}
+\DoxyCodeLine{00027\ \ \ ADIS16467\_1,}
+\DoxyCodeLine{00028\ \ \ ADIS16467\_2,}
+\DoxyCodeLine{00029\ \ \ ADIS16467\_3,}
+\DoxyCodeLine{00030\ \ \ ADIS16470,}
+\DoxyCodeLine{00031\ \ \ ADIS16475\_1,}
+\DoxyCodeLine{00032\ \ \ ADIS16475\_2,}
+\DoxyCodeLine{00033\ \ \ ADIS16475\_3,}
+\DoxyCodeLine{00034\ \ \ ADIS16477\_1,}
+\DoxyCodeLine{00035\ \ \ ADIS16477\_2,}
+\DoxyCodeLine{00036\ \ \ ADIS16477\_3,}
+\DoxyCodeLine{00037\ \ \ ADIS16500,}
+\DoxyCodeLine{00038\ \ \ ADIS16501,}
+\DoxyCodeLine{00039\ \ \ ADIS16505\_1,}
+\DoxyCodeLine{00040\ \ \ ADIS16505\_2,}
+\DoxyCodeLine{00041\ \ \ ADIS16505\_3,}
+\DoxyCodeLine{00042\ \ \ ADIS16507\_1,}
+\DoxyCodeLine{00043\ \ \ ADIS16507\_2,}
+\DoxyCodeLine{00044\ \ \ ADIS16507\_3,}
+\DoxyCodeLine{00045\ \ \ ADIS16545\_1,}
+\DoxyCodeLine{00046\ \ \ ADIS16545\_2,}
+\DoxyCodeLine{00047\ \ \ ADIS16545\_3,}
+\DoxyCodeLine{00048\ \ \ ADIS16547\_1,}
+\DoxyCodeLine{00049\ \ \ ADIS16547\_2,}
+\DoxyCodeLine{00050\ \ \ ADIS16547\_3,}
+\DoxyCodeLine{00051\ \ \ ADIS16550,}
+\DoxyCodeLine{00052\ \ \ ADIS16550W,}
+\DoxyCodeLine{00053\ \ \ ADIS16575\_2,}
+\DoxyCodeLine{00054\ \ \ ADIS16575\_3,}
+\DoxyCodeLine{00055\ \ \ ADIS16576\_2,}
+\DoxyCodeLine{00056\ \ \ ADIS16576\_3,}
+\DoxyCodeLine{00057\ \ \ ADIS16577\_2,}
+\DoxyCodeLine{00058\ \ \ ADIS16577\_3,}
+\DoxyCodeLine{00059\ \};}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \textcolor{preprocessor}{\#if\ defined(ADIS1646X)}}
+\DoxyCodeLine{00062\ \textcolor{preprocessor}{\#include\ "{}adis1646x/adis1646x\_data\_access.h"{}}}
+\DoxyCodeLine{00063\ \textcolor{preprocessor}{\#elif\ defined(ADIS1647X)}}
+\DoxyCodeLine{00064\ \textcolor{preprocessor}{\#include\ "{}adis1647x/adis1647x\_data\_access.h"{}}}
+\DoxyCodeLine{00065\ \textcolor{preprocessor}{\#elif\ defined(ADIS1650X)}}
+\DoxyCodeLine{00066\ \textcolor{preprocessor}{\#include\ "{}adis1650x/adis1650x\_data\_access.h"{}}}
+\DoxyCodeLine{00067\ \textcolor{preprocessor}{\#elif\ defined(ADIS1654X)}}
+\DoxyCodeLine{00068\ \textcolor{preprocessor}{\#include\ "{}adis1654x/adis1654x\_data\_access.h"{}}}
+\DoxyCodeLine{00069\ \textcolor{preprocessor}{\#elif\ defined(ADIS1655X)}}
+\DoxyCodeLine{00070\ \textcolor{preprocessor}{\#include\ "{}adis1655x/adis1655x\_data\_access.h"{}}}
+\DoxyCodeLine{00071\ \textcolor{preprocessor}{\#elif\ defined(ADIS1657X)}}
+\DoxyCodeLine{00072\ \textcolor{preprocessor}{\#include\ "{}adis1657x/adis1657x\_data\_access.h"{}}}
+\DoxyCodeLine{00073\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00074\ \textcolor{preprocessor}{\#error\ "{}No\ device\ defined."{}}}
+\DoxyCodeLine{00075\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

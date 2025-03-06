@@ -1,0 +1,202 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="imu__control__parameters_8h" kind="file" language="C++">
+    <compoundname>imu_control_parameters.h</compoundname>
+    <includes local="no">rclcpp/rclcpp.hpp</includes>
+    <includes refid="iio__wrapper_8h" local="yes">adi_imu/iio_wrapper.h</includes>
+    <includes local="yes">rcl_interfaces/msg/set_parameters_result.hpp</includes>
+    <includedby refid="imu__control__parameters_8cpp" local="yes">src/imu_control_parameters.cpp</includedby>
+    <includedby refid="imu__ros2__node_8cpp" local="yes">src/imu_ros2_node.cpp</includedby>
+    <includedby refid="ros__publisher__group_8cpp" local="yes">src/ros_publisher_group.cpp</includedby>
+    <incdepgraph>
+      <node id="6">
+        <label>adis_data_access.h</label>
+        <link refid="adis__data__access_8h_source"/>
+      </node>
+      <node id="3">
+        <label>adi_imu/iio_wrapper.h</label>
+        <link refid="iio__wrapper_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>include/adi_imu/imu_control_parameters.h</label>
+        <link refid="imu__control__parameters_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>iio.h</label>
+      </node>
+      <node id="7">
+        <label>rcl_interfaces/msg/set_parameters_result.hpp</label>
+      </node>
+      <node id="2">
+        <label>rclcpp/rclcpp.hpp</label>
+      </node>
+      <node id="5">
+        <label>string</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="1">
+        <label>include/adi_imu/imu_control_parameters.h</label>
+        <link refid="imu__control__parameters_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>src/imu_control_parameters.cpp</label>
+        <link refid="imu__control__parameters_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classImuControlParameters" prot="public">ImuControlParameters</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*******************************************************************************</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/><sp/><sp/>@file<sp/><sp/><sp/>imu_control_parameters.h</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/><sp/><sp/>@brief<sp/><sp/>Set<sp/>ros<sp/>parameter<sp/>in<sp/>libiio</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*<sp/><sp/><sp/>@author<sp/>Vasile<sp/>Holonec<sp/>(Vasile.Holonec@analog.com)</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*******************************************************************************</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>2023(c)<sp/>Analog<sp/>Devices,<sp/>Inc.</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/>Licensed<sp/>under<sp/>the<sp/>Apache<sp/>License,<sp/>Version<sp/>2.0<sp/>(the<sp/>&quot;License&quot;);</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*<sp/>you<sp/>may<sp/>not<sp/>use<sp/>this<sp/>file<sp/>except<sp/>in<sp/>compliance<sp/>with<sp/>the<sp/>License.</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/>You<sp/>may<sp/>obtain<sp/>a<sp/>copy<sp/>of<sp/>the<sp/>License<sp/>at</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/>http://www.apache.org/licenses/LICENSE-2.0</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/>Unless<sp/>required<sp/>by<sp/>applicable<sp/>law<sp/>or<sp/>agreed<sp/>to<sp/>in<sp/>writing,<sp/>software</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/>distributed<sp/>under<sp/>the<sp/>License<sp/>is<sp/>distributed<sp/>on<sp/>an<sp/>&quot;AS<sp/>IS&quot;<sp/>BASIS,</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*<sp/>WITHOUT<sp/>WARRANTIES<sp/>OR<sp/>CONDITIONS<sp/>OF<sp/>ANY<sp/>KIND,<sp/>either<sp/>express<sp/>or<sp/>implied.</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*<sp/>See<sp/>the<sp/>License<sp/>for<sp/>the<sp/>specific<sp/>language<sp/>governing<sp/>permissions<sp/>and</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/>limitations<sp/>under<sp/>the<sp/>License.</highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>******************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>IMU_CONTROL_PARAMETERS_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>IMU_CONTROL_PARAMETERS_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;rclcpp/rclcpp.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;adi_imu/iio_wrapper.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;rcl_interfaces/msg/set_parameters_result.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32" refid="classImuControlParameters" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classImuControlParameters" kindref="compound">ImuControlParameters</ref></highlight></codeline>
+<codeline lineno="33"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><ref refid="classImuControlParameters" kindref="compound">ImuControlParameters</ref>(std::shared_ptr&lt;rclcpp::Node&gt;<sp/>&amp;<sp/>node);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><ref refid="classImuControlParameters_1a9eab68cf68a1fba0e2d0ad312e814d37" kindref="member">~ImuControlParameters</ref>();</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classImuControlParameters_1a3fdcf6864bdd68a06f712bef548acd24" kindref="member">handleControlParams</ref>();</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classImuControlParameters_1a7ddb2c0494555953182e42bd0078e8f2" kindref="member">declareAdisAttributes</ref>();</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classImuControlParameters_1acad11bd8e1ff8ef2d5bf512877ffa32f" kindref="member">mapIIOUpdateFunctionsInt32</ref>();</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classImuControlParameters_1ad256c1c4af60a7fe2b6b6adbf1108e30" kindref="member">mapIIOGetFunctionsInt32</ref>();</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classImuControlParameters_1a0839165af2a0cc50e07ad6b55806953f" kindref="member">mapIIOUpdateFunctionsUint32</ref>();</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classImuControlParameters_1aff2a31343637952540bfe76a04728e51" kindref="member">mapIIOGetFunctionsUint32</ref>();</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classImuControlParameters_1ae6be8328df3865c9b057f7b6871612cd" kindref="member">mapIIOUpdateFunctionsDouble</ref>();</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classImuControlParameters_1acfe86a041e90121d3199ea7a0daaf8ac" kindref="member">mapIIOGetFunctionsDouble</ref>();</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classImuControlParameters_1a2895734d37c7278c6df4a51cbed6aa82" kindref="member">mapIIOCommandFunctions</ref>();</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classImuControlParameters_1a3c2c658b2e5fb2e2fe659501e7203054" kindref="member">declareParameterDescription</ref>();</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classImuControlParameters_1ab8aba305fccae66c9ad5f4a0f9e0aece" kindref="member">declareParameters</ref>();</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classImuControlParameters_1aa733955c32fc2253f4b14d2db1b454a2" kindref="member">updateParamsFromHardware</ref>();</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classImuControlParameters_1a747ae2b209292e2af2de26a8cc448c61" kindref="member">handleDoubleParamChange</ref>();</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classImuControlParameters_1a3cd01af35e9eae635764fac2ed0bb3e2" kindref="member">handleInt32ParamChange</ref>();</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"></highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classImuControlParameters_1a117d2fb3cdb9cb7ae668295a7615df94" kindref="member">handleUint32ParamChange</ref>();</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classImuControlParameters_1ab456afd17772314a2bdcdb611aa6fc12" kindref="member">handleCommands</ref>();</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"></highlight></codeline>
+<codeline lineno="149" refid="classImuControlParameters_1a550af7cb014cc2b4dec9e42342303f63" refkind="member"><highlight class="normal"><sp/><sp/>std::shared_ptr&lt;rclcpp::Node&gt;<sp/><ref refid="classImuControlParameters_1a550af7cb014cc2b4dec9e42342303f63" kindref="member">m_node</ref>;</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"></highlight></codeline>
+<codeline lineno="152" refid="classImuControlParameters_1a1116f3c4083e6dc9dbea7e8104e6cde9" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="classIIOWrapper" kindref="compound">IIOWrapper</ref><sp/><ref refid="classImuControlParameters_1a1116f3c4083e6dc9dbea7e8104e6cde9" kindref="member">m_iio_wrapper</ref>;</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"></highlight></codeline>
+<codeline lineno="155" refid="classImuControlParameters_1abfb5fd3c8fad0ce52ac726cf135c5ebb" refkind="member"><highlight class="normal"><sp/><sp/>std::string<sp/><ref refid="classImuControlParameters_1abfb5fd3c8fad0ce52ac726cf135c5ebb" kindref="member">m_command_to_execute</ref>;</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"></highlight></codeline>
+<codeline lineno="158" refid="classImuControlParameters_1a08337927ac5d0390c065a8f8b64e11ce" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>bool<sp/>(<ref refid="classIIOWrapper" kindref="compound">IIOWrapper</ref>::*<ref refid="classImuControlParameters_1a08337927ac5d0390c065a8f8b64e11ce" kindref="member">UpdateUint32Params</ref>)(uint32_t);</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"></highlight></codeline>
+<codeline lineno="161" refid="classImuControlParameters_1add2e53a89e0f075df4a090fb28ea59d0" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>std::map&lt;std::string,<sp/>UpdateUint32Params&gt;<sp/><ref refid="classImuControlParameters_1add2e53a89e0f075df4a090fb28ea59d0" kindref="member">UpdateUint32ParamsMapType</ref>;</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"></highlight></codeline>
+<codeline lineno="164" refid="classImuControlParameters_1af520e1d09d7b28678d5d3103cd1cb0d4" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="classImuControlParameters_1add2e53a89e0f075df4a090fb28ea59d0" kindref="member">UpdateUint32ParamsMapType</ref><sp/><ref refid="classImuControlParameters_1af520e1d09d7b28678d5d3103cd1cb0d4" kindref="member">m_func_map_update_uint32_params</ref>;</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"></highlight></codeline>
+<codeline lineno="167" refid="classImuControlParameters_1a82802c01a3698c99b5e0bbd5117f7dd1" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>bool<sp/>(<ref refid="classIIOWrapper" kindref="compound">IIOWrapper</ref>::*<ref refid="classImuControlParameters_1a82802c01a3698c99b5e0bbd5117f7dd1" kindref="member">GetUint32Params</ref>)(uint32_t<sp/>&amp;);</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"></highlight></codeline>
+<codeline lineno="170" refid="classImuControlParameters_1aca50889946b53f310ddd2cd1143c951b" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>std::map&lt;std::string,<sp/>GetUint32Params&gt;<sp/><ref refid="classImuControlParameters_1aca50889946b53f310ddd2cd1143c951b" kindref="member">GetUint32ParamsMapType</ref>;</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"></highlight></codeline>
+<codeline lineno="173" refid="classImuControlParameters_1afd5ac3df4ab613f0b3f77775b8755c4f" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="classImuControlParameters_1aca50889946b53f310ddd2cd1143c951b" kindref="member">GetUint32ParamsMapType</ref><sp/><ref refid="classImuControlParameters_1afd5ac3df4ab613f0b3f77775b8755c4f" kindref="member">m_func_map_get_uint32_params</ref>;</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"></highlight></codeline>
+<codeline lineno="176" refid="classImuControlParameters_1a82366b8096ef75c05b44ece86798ecce" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>bool<sp/>(<ref refid="classIIOWrapper" kindref="compound">IIOWrapper</ref>::*<ref refid="classImuControlParameters_1a82366b8096ef75c05b44ece86798ecce" kindref="member">UpdateInt32Params</ref>)(int32_t);</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"></highlight></codeline>
+<codeline lineno="179" refid="classImuControlParameters_1a96d9f5b54857f9de53ab8aa9e28e1433" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>std::map&lt;std::string,<sp/>UpdateInt32Params&gt;<sp/><ref refid="classImuControlParameters_1a96d9f5b54857f9de53ab8aa9e28e1433" kindref="member">UpdateInt32ParamsMapType</ref>;</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"></highlight></codeline>
+<codeline lineno="182" refid="classImuControlParameters_1a27be5741591bf0fc60fe7167257ee112" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="classImuControlParameters_1a96d9f5b54857f9de53ab8aa9e28e1433" kindref="member">UpdateInt32ParamsMapType</ref><sp/><ref refid="classImuControlParameters_1a27be5741591bf0fc60fe7167257ee112" kindref="member">m_func_map_update_int32_params</ref>;</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"></highlight></codeline>
+<codeline lineno="185" refid="classImuControlParameters_1a87949036708585beab3c05aeff113f32" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>bool<sp/>(<ref refid="classIIOWrapper" kindref="compound">IIOWrapper</ref>::*<ref refid="classImuControlParameters_1a87949036708585beab3c05aeff113f32" kindref="member">GetInt32Params</ref>)(int32_t<sp/>&amp;);</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"></highlight></codeline>
+<codeline lineno="188" refid="classImuControlParameters_1a54231d8005b5513dc51d079e11b88cb7" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>std::map&lt;std::string,<sp/>GetInt32Params&gt;<sp/><ref refid="classImuControlParameters_1a54231d8005b5513dc51d079e11b88cb7" kindref="member">GetInt32ParamsMapType</ref>;</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"></highlight></codeline>
+<codeline lineno="191" refid="classImuControlParameters_1ae8b7fda4cd0053f95fcdb17cd0d845e5" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="classImuControlParameters_1a54231d8005b5513dc51d079e11b88cb7" kindref="member">GetInt32ParamsMapType</ref><sp/><ref refid="classImuControlParameters_1ae8b7fda4cd0053f95fcdb17cd0d845e5" kindref="member">m_func_map_get_int32_params</ref>;</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"></highlight></codeline>
+<codeline lineno="194" refid="classImuControlParameters_1ad9ec37d0885918285b76b0a01cc17ee8" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>bool<sp/>(<ref refid="classIIOWrapper" kindref="compound">IIOWrapper</ref>::*<ref refid="classImuControlParameters_1ad9ec37d0885918285b76b0a01cc17ee8" kindref="member">UpdateDoubleParams</ref>)(double);</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"></highlight></codeline>
+<codeline lineno="197" refid="classImuControlParameters_1a217a4e02692f65433945b7a285b6415e" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>std::map&lt;std::string,<sp/>UpdateDoubleParams&gt;<sp/><ref refid="classImuControlParameters_1a217a4e02692f65433945b7a285b6415e" kindref="member">UpdateDoubleParamsMapType</ref>;</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"></highlight></codeline>
+<codeline lineno="200" refid="classImuControlParameters_1a56ea60d73a130a69a0dd61c1d8779e27" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="classImuControlParameters_1a217a4e02692f65433945b7a285b6415e" kindref="member">UpdateDoubleParamsMapType</ref><sp/><ref refid="classImuControlParameters_1a56ea60d73a130a69a0dd61c1d8779e27" kindref="member">m_func_map_update_double_params</ref>;</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"></highlight></codeline>
+<codeline lineno="203" refid="classImuControlParameters_1a261cfd80e62c8a3362414fddd9f2da93" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>bool<sp/>(<ref refid="classIIOWrapper" kindref="compound">IIOWrapper</ref>::*<ref refid="classImuControlParameters_1a261cfd80e62c8a3362414fddd9f2da93" kindref="member">GetDoubleParams</ref>)(double<sp/>*);</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"></highlight></codeline>
+<codeline lineno="206" refid="classImuControlParameters_1a619c7db2b3afced6b9fa7f6f770b9e17" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>std::map&lt;std::string,<sp/>GetDoubleParams&gt;<sp/><ref refid="classImuControlParameters_1a619c7db2b3afced6b9fa7f6f770b9e17" kindref="member">GetDoubleParamsMapType</ref>;</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"></highlight></codeline>
+<codeline lineno="209" refid="classImuControlParameters_1af56801333a7647590e9318db88c65e85" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="classImuControlParameters_1a619c7db2b3afced6b9fa7f6f770b9e17" kindref="member">GetDoubleParamsMapType</ref><sp/><ref refid="classImuControlParameters_1af56801333a7647590e9318db88c65e85" kindref="member">m_func_map_get_double_params</ref>;</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"></highlight></codeline>
+<codeline lineno="212" refid="classImuControlParameters_1affa8e2f00d84a5f26a69f16eaf9f9c39" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>bool<sp/>(<ref refid="classIIOWrapper" kindref="compound">IIOWrapper</ref>::*<ref refid="classImuControlParameters_1affa8e2f00d84a5f26a69f16eaf9f9c39" kindref="member">ExecuteCommands</ref>)();</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"></highlight></codeline>
+<codeline lineno="215" refid="classImuControlParameters_1af395e099df244af44911518e92f4a02b" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>std::map&lt;std::string,<sp/>ExecuteCommands&gt;<sp/><ref refid="classImuControlParameters_1af395e099df244af44911518e92f4a02b" kindref="member">ExecuteCommandsMapType</ref>;</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"></highlight></codeline>
+<codeline lineno="218" refid="classImuControlParameters_1ab5a51dfd26f3cdeeb7c2d1c1de771eb7" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="classImuControlParameters_1af395e099df244af44911518e92f4a02b" kindref="member">ExecuteCommandsMapType</ref><sp/><ref refid="classImuControlParameters_1ab5a51dfd26f3cdeeb7c2d1c1de771eb7" kindref="member">m_func_map_execute_commands</ref>;</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"></highlight></codeline>
+<codeline lineno="221" refid="classImuControlParameters_1ab1f1a2ace21a2123c9086c6e141713da" refkind="member"><highlight class="normal"><sp/><sp/>std::list&lt;std::string&gt;<sp/><ref refid="classImuControlParameters_1ab1f1a2ace21a2123c9086c6e141713da" kindref="member">m_attr_current_device</ref>;</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"></highlight></codeline>
+<codeline lineno="224" refid="classImuControlParameters_1a30414b572a699d87f6d21e17a54a36ef" refkind="member"><highlight class="normal"><sp/><sp/>std::map&lt;std::string,<sp/>int32_t&gt;<sp/><ref refid="classImuControlParameters_1a30414b572a699d87f6d21e17a54a36ef" kindref="member">m_int32_current_params</ref>;</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"></highlight></codeline>
+<codeline lineno="227" refid="classImuControlParameters_1a9bf1f32e4bbaaeba1a8d4d0bbc869ae2" refkind="member"><highlight class="normal"><sp/><sp/>std::map&lt;std::string,<sp/>int64_t&gt;<sp/><ref refid="classImuControlParameters_1a9bf1f32e4bbaaeba1a8d4d0bbc869ae2" kindref="member">m_uint32_current_params</ref>;</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"></highlight></codeline>
+<codeline lineno="230" refid="classImuControlParameters_1a7027df0c4d7cde53c39f46d3438d90e2" refkind="member"><highlight class="normal"><sp/><sp/>std::map&lt;std::string,<sp/>double&gt;<sp/><ref refid="classImuControlParameters_1a7027df0c4d7cde53c39f46d3438d90e2" kindref="member">m_double_current_params</ref>;</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"></highlight></codeline>
+<codeline lineno="233" refid="classImuControlParameters_1a793e0ffb6bfbea341b30d74ca854a585" refkind="member"><highlight class="normal"><sp/><sp/>std::map&lt;std::string,<sp/>std::string&gt;<sp/><ref refid="classImuControlParameters_1a793e0ffb6bfbea341b30d74ca854a585" kindref="member">m_param_description</ref>;</highlight></codeline>
+<codeline lineno="234"><highlight class="normal"></highlight></codeline>
+<codeline lineno="236" refid="classImuControlParameters_1af0387f10c79cc939f530b9458b813a7a" refkind="member"><highlight class="normal"><sp/><sp/>std::map&lt;std::string,<sp/>rcl_interfaces::msg::IntegerRange&gt;<sp/><ref refid="classImuControlParameters_1af0387f10c79cc939f530b9458b813a7a" kindref="member">m_param_constraints_integer</ref>;</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"></highlight></codeline>
+<codeline lineno="239" refid="classImuControlParameters_1ab64303326f426a54dd55a201d8e8d411" refkind="member"><highlight class="normal"><sp/><sp/>std::map&lt;std::string,<sp/>rcl_interfaces::msg::FloatingPointRange&gt;<sp/><ref refid="classImuControlParameters_1ab64303326f426a54dd55a201d8e8d411" kindref="member">m_param_constraints_floating</ref>;</highlight></codeline>
+<codeline lineno="240"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="241"><highlight class="normal"></highlight></codeline>
+<codeline lineno="242"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/></highlight><highlight class="comment">//<sp/>IMU_CONTROL_PARAMETERS_H</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="include/adi_imu/imu_control_parameters.h"/>
+  </compounddef>
+</doxygen>

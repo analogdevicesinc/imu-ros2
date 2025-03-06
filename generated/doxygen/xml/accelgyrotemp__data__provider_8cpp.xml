@@ -1,0 +1,105 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="accelgyrotemp__data__provider_8cpp" kind="file" language="C++">
+    <compoundname>accelgyrotemp_data_provider.cpp</compoundname>
+    <includes refid="accelgyrotemp__data__provider_8h" local="yes">adi_imu/accelgyrotemp_data_provider.h</includes>
+    <incdepgraph>
+      <node id="2">
+        <label>adi_imu/accelgyrotemp_data_provider.h</label>
+        <link refid="accelgyrotemp__data__provider_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>adi_imu/accelgyrotemp_data_provider_interface.h</label>
+        <link refid="accelgyrotemp__data__provider__interface_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>adis_data_access.h</label>
+        <link refid="adis__data__access_8h_source"/>
+      </node>
+      <node id="5">
+        <label>adi_imu/iio_wrapper.h</label>
+        <link refid="iio__wrapper_8h_source"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>src/accelgyrotemp_data_provider.cpp</label>
+        <link refid="accelgyrotemp__data__provider_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>adi_imu/msg/accel_gyro_temp_data.hpp</label>
+      </node>
+      <node id="6">
+        <label>iio.h</label>
+      </node>
+      <node id="7">
+        <label>string</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*******************************************************************************</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/><sp/><sp/>@file<sp/><sp/><sp/>accelgyrotemp_data_provider.cpp</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/><sp/><sp/>@brief<sp/><sp/>Implementation<sp/>for<sp/>providing<sp/>acceleration,<sp/>gyroscope<sp/>and</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>temperature<sp/>data<sp/>provider.</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/><sp/><sp/>@author<sp/>Vasile<sp/>Holonec<sp/>(Vasile.Holonec@analog.com)</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*******************************************************************************</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>2023(c)<sp/>Analog<sp/>Devices,<sp/>Inc.</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*<sp/>Licensed<sp/>under<sp/>the<sp/>Apache<sp/>License,<sp/>Version<sp/>2.0<sp/>(the<sp/>&quot;License&quot;);</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/>you<sp/>may<sp/>not<sp/>use<sp/>this<sp/>file<sp/>except<sp/>in<sp/>compliance<sp/>with<sp/>the<sp/>License.</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/>You<sp/>may<sp/>obtain<sp/>a<sp/>copy<sp/>of<sp/>the<sp/>License<sp/>at</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/>http://www.apache.org/licenses/LICENSE-2.0</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/>Unless<sp/>required<sp/>by<sp/>applicable<sp/>law<sp/>or<sp/>agreed<sp/>to<sp/>in<sp/>writing,<sp/>software</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*<sp/>distributed<sp/>under<sp/>the<sp/>License<sp/>is<sp/>distributed<sp/>on<sp/>an<sp/>&quot;AS<sp/>IS&quot;<sp/>BASIS,</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*<sp/>WITHOUT<sp/>WARRANTIES<sp/>OR<sp/>CONDITIONS<sp/>OF<sp/>ANY<sp/>KIND,<sp/>either<sp/>express<sp/>or<sp/>implied.</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/>See<sp/>the<sp/>License<sp/>for<sp/>the<sp/>specific<sp/>language<sp/>governing<sp/>permissions<sp/>and</highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*<sp/>limitations<sp/>under<sp/>the<sp/>License.</highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>******************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;adi_imu/accelgyrotemp_data_provider.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><ref refid="classAccelGyroTempDataProvider_1ad3afbaaf055db6e75d94205295f8290f" kindref="member">AccelGyroTempDataProvider::AccelGyroTempDataProvider</ref>()<sp/>{}</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><ref refid="classAccelGyroTempDataProvider_1a46a788cd8ee9b14c04eb564003ddeb31" kindref="member">AccelGyroTempDataProvider::~AccelGyroTempDataProvider</ref>()<sp/>{}</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classAccelGyroTempDataProvider_1af67881b4ea267e67689a2e5af672d947" kindref="member">AccelGyroTempDataProvider::getData</ref>(adi_imu::msg::AccelGyroTempData<sp/>&amp;<sp/>message)</highlight></codeline>
+<codeline lineno="29"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!<ref refid="classAccelGyroTempDataProvider_1acb8ae19c02d11f1aec5c69c11638cc91" kindref="member">m_iio_wrapper</ref>.<ref refid="classIIOWrapper_1ae179fe95e80ad6624c6782de04c854ed" kindref="member">updateBuffer</ref>(ACCEL_GYRO_BUFFERED_DATA))<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/>message.linear_acceleration.x<sp/>=<sp/><ref refid="classAccelGyroTempDataProvider_1acb8ae19c02d11f1aec5c69c11638cc91" kindref="member">m_iio_wrapper</ref>.<ref refid="classIIOWrapper_1a24d03c22a08baf0c5209d7f31c9d0533" kindref="member">getBuffLinearAccelerationX</ref>();</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/>message.linear_acceleration.y<sp/>=<sp/><ref refid="classAccelGyroTempDataProvider_1acb8ae19c02d11f1aec5c69c11638cc91" kindref="member">m_iio_wrapper</ref>.<ref refid="classIIOWrapper_1a809c113401e38fdf0fc660735a2192e1" kindref="member">getBuffLinearAccelerationY</ref>();</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/>message.linear_acceleration.z<sp/>=<sp/><ref refid="classAccelGyroTempDataProvider_1acb8ae19c02d11f1aec5c69c11638cc91" kindref="member">m_iio_wrapper</ref>.<ref refid="classIIOWrapper_1a41e760380fa5036a652201e2df50c889" kindref="member">getBuffLinearAccelerationZ</ref>();</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/>message.angular_velocity.x<sp/>=<sp/><ref refid="classAccelGyroTempDataProvider_1acb8ae19c02d11f1aec5c69c11638cc91" kindref="member">m_iio_wrapper</ref>.<ref refid="classIIOWrapper_1ab98be528a5805d948e0cbf8c81bdac26" kindref="member">getBuffAngularVelocityX</ref>();</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/>message.angular_velocity.y<sp/>=<sp/><ref refid="classAccelGyroTempDataProvider_1acb8ae19c02d11f1aec5c69c11638cc91" kindref="member">m_iio_wrapper</ref>.<ref refid="classIIOWrapper_1a530c457c0cd4d81951b7d174072fd75b" kindref="member">getBuffAngularVelocityY</ref>();</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/>message.angular_velocity.z<sp/>=<sp/><ref refid="classAccelGyroTempDataProvider_1acb8ae19c02d11f1aec5c69c11638cc91" kindref="member">m_iio_wrapper</ref>.<ref refid="classIIOWrapper_1a4d5286b33d41295f1cc6567f67b4d6d2" kindref="member">getBuffAngularVelocityZ</ref>();</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/>message.temperature<sp/>=<sp/><ref refid="classAccelGyroTempDataProvider_1acb8ae19c02d11f1aec5c69c11638cc91" kindref="member">m_iio_wrapper</ref>.<ref refid="classIIOWrapper_1a8636bc7c28c829538d05d5bb638c9074" kindref="member">getBuffTemperature</ref>();</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/>message.header.frame_id<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;accelgyrotempdata&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><ref refid="classAccelGyroTempDataProvider_1acb8ae19c02d11f1aec5c69c11638cc91" kindref="member">m_iio_wrapper</ref>.<ref refid="classIIOWrapper_1a4a4cea0c85854aef0117ce98a587b8b4" kindref="member">getBuffSampleTimestamp</ref>(message.header.stamp.sec,<sp/>message.header.stamp.nanosec);</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="src/accelgyrotemp_data_provider.cpp"/>
+  </compounddef>
+</doxygen>

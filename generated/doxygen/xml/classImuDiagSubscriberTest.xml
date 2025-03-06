@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classImuDiagSubscriberTest" kind="class" language="C++" prot="public">
+    <compoundname>ImuDiagSubscriberTest</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">testing::Test</basecompoundref>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classImuDiagSubscriberTest_1a1d24997802245f251c335872a82c4400" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void ImuDiagSubscriberTest::SetUpTestCase</definition>
+        <argsstring>()</argsstring>
+        <name>SetUpTestCase</name>
+        <qualifiedname>ImuDiagSubscriberTest::SetUpTestCase</qualifiedname>
+        <briefdescription>
+<para>Set up the test case. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="test/src/imu_diag_subscriber_test.cpp" line="42" column="15" bodyfile="test/src/imu_diag_subscriber_test.cpp" bodystart="42" bodyend="42"/>
+      </memberdef>
+      <memberdef kind="function" id="classImuDiagSubscriberTest_1ac47054a39336903feb6c016608add700" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void ImuDiagSubscriberTest::TearDownTestCase</definition>
+        <argsstring>()</argsstring>
+        <name>TearDownTestCase</name>
+        <qualifiedname>ImuDiagSubscriberTest::TearDownTestCase</qualifiedname>
+        <briefdescription>
+<para>Tear down the test case. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="test/src/imu_diag_subscriber_test.cpp" line="47" column="15" bodyfile="test/src/imu_diag_subscriber_test.cpp" bodystart="47" bodyend="47"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Class for testing ImuDiagData. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>This class instantiates a subscriber node and listens to data on ImuDiagData topic and compares it against a range of expected values. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>ImuDiagSubscriberTest</label>
+        <link refid="classImuDiagSubscriberTest"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>testing::Test</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>ImuDiagSubscriberTest</label>
+        <link refid="classImuDiagSubscriberTest"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>testing::Test</label>
+      </node>
+    </collaborationgraph>
+    <location file="test/src/imu_diag_subscriber_test.cpp" line="36" column="1" bodyfile="test/src/imu_diag_subscriber_test.cpp" bodystart="37" bodyend="48"/>
+    <listofallmembers>
+      <member refid="classImuDiagSubscriberTest_1a1d24997802245f251c335872a82c4400" prot="public" virt="non-virtual"><scope>ImuDiagSubscriberTest</scope><name>SetUpTestCase</name></member>
+      <member refid="classImuDiagSubscriberTest_1ac47054a39336903feb6c016608add700" prot="public" virt="non-virtual"><scope>ImuDiagSubscriberTest</scope><name>TearDownTestCase</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

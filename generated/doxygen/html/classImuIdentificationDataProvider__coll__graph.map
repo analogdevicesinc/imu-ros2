@@ -1,0 +1,7 @@
+<map id="ImuIdentificationDataProvider" name="ImuIdentificationDataProvider">
+<area shape="rect" id="Node000001" title="Class for identification data provider." alt="" coords="95,108,312,133"/>
+<area shape="rect" id="Node000002" href="$classImuIdentificationDataProviderInterface.html" title="Interface for identification data provider." alt="" coords="5,5,223,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="143,53,194,106,190,109,140,57"/>
+<area shape="rect" id="Node000003" href="$classIIOWrapper.html" title="Wrapper class for libiio library for IMU devices." alt="" coords="247,13,341,38"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="275,50,216,110,213,106,271,46"/>
+</map>

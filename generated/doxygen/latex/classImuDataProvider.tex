@@ -1,0 +1,97 @@
+\doxysection{Imu\+Data\+Provider Class Reference}
+\hypertarget{classImuDataProvider}{}\label{classImuDataProvider}\index{ImuDataProvider@{ImuDataProvider}}
+
+
+Class for standard message sensor\+\_\+msgs\+::msg\+::\+Imu data provider.  
+
+
+
+
+{\ttfamily \#include $<$imu\+\_\+data\+\_\+provider.\+h$>$}
+
+
+
+Inheritance diagram for Imu\+Data\+Provider\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=223pt]{classImuDataProvider__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Imu\+Data\+Provider\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=325pt]{classImuDataProvider__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classImuDataProvider_a7b58260bd62baf3000a1870ec0e07e67}\label{classImuDataProvider_a7b58260bd62baf3000a1870ec0e07e67} 
+{\bfseries Imu\+Data\+Provider} ()
+\begin{DoxyCompactList}\small\item\em Constructor for \doxylink{classImuDataProvider}{Imu\+Data\+Provider}. \end{DoxyCompactList}\item 
+\Hypertarget{classImuDataProvider_acfac62b4c0d1ba677cb6b31367545eec}\label{classImuDataProvider_acfac62b4c0d1ba677cb6b31367545eec} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Imu\+Data\+Provider} ()
+\begin{DoxyCompactList}\small\item\em Destructor for \doxylink{classImuDataProvider}{Imu\+Data\+Provider}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classImuDataProvider_a9da652b7fbab948882f4bf6fcdf4c9f7}{get\+Data}} (sensor\+\_\+msgs\+::msg\+::\+Imu \&message) override
+\begin{DoxyCompactList}\small\item\em Populate Imu message with measured data. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classImuDataProviderInterface}{Imu\+Data\+Provider\+Interface}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Imu\+Data\+Provider\+Interface} ()
+\begin{DoxyCompactList}\small\item\em Constructor for \doxylink{classImuDataProviderInterface}{Imu\+Data\+Provider\+Interface}. \end{DoxyCompactList}\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Imu\+Data\+Provider\+Interface} ()
+\begin{DoxyCompactList}\small\item\em Destructor for \doxylink{classImuDataProviderInterface}{Imu\+Data\+Provider\+Interface}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classIIOWrapper}{IIOWrapper}} \mbox{\hyperlink{classImuDataProvider_a1492459cc251d51ce04f5556864d4fbf}{m\+\_\+iio\+\_\+wrapper}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class for standard message sensor\+\_\+msgs\+::msg\+::\+Imu data provider. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classImuDataProvider_a9da652b7fbab948882f4bf6fcdf4c9f7}\label{classImuDataProvider_a9da652b7fbab948882f4bf6fcdf4c9f7} 
+\index{ImuDataProvider@{ImuDataProvider}!getData@{getData}}
+\index{getData@{getData}!ImuDataProvider@{ImuDataProvider}}
+\doxysubsubsection{\texorpdfstring{getData()}{getData()}}
+{\footnotesize\ttfamily bool Imu\+Data\+Provider\+::get\+Data (\begin{DoxyParamCaption}\item[{sensor\+\_\+msgs\+::msg\+::\+Imu \&}]{message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Populate Imu message with measured data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & Message containing the measured data. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return true if the message parameter is successfully populated with measured data and false otherwise. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classImuDataProviderInterface_a308b5335b052855ce8917c2949ae1d8f}{Imu\+Data\+Provider\+Interface}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classImuDataProvider_a1492459cc251d51ce04f5556864d4fbf}\label{classImuDataProvider_a1492459cc251d51ce04f5556864d4fbf} 
+\index{ImuDataProvider@{ImuDataProvider}!m\_iio\_wrapper@{m\_iio\_wrapper}}
+\index{m\_iio\_wrapper@{m\_iio\_wrapper}!ImuDataProvider@{ImuDataProvider}}
+\doxysubsubsection{\texorpdfstring{m\_iio\_wrapper}{m\_iio\_wrapper}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classIIOWrapper}{IIOWrapper}} Imu\+Data\+Provider\+::m\+\_\+iio\+\_\+wrapper\hspace{0.3cm}{\ttfamily [private]}}
+
+This data member is used to access sensor information via libiio. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/adi\+\_\+imu/imu\+\_\+data\+\_\+provider.\+h\item 
+src/imu\+\_\+data\+\_\+provider.\+cpp\end{DoxyCompactItemize}

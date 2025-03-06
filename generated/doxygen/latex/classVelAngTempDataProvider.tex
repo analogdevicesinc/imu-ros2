@@ -1,0 +1,97 @@
+\doxysection{Vel\+Ang\+Temp\+Data\+Provider Class Reference}
+\hypertarget{classVelAngTempDataProvider}{}\label{classVelAngTempDataProvider}\index{VelAngTempDataProvider@{VelAngTempDataProvider}}
+
+
+Class for delta angle, delta velocity and temperature buffered data provider.  
+
+
+
+
+{\ttfamily \#include $<$velangtemp\+\_\+data\+\_\+provider.\+h$>$}
+
+
+
+Inheritance diagram for Vel\+Ang\+Temp\+Data\+Provider\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=264pt]{classVelAngTempDataProvider__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Vel\+Ang\+Temp\+Data\+Provider\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classVelAngTempDataProvider__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classVelAngTempDataProvider_ae94b88e60be8b88f38ce395c93b22d4c}\label{classVelAngTempDataProvider_ae94b88e60be8b88f38ce395c93b22d4c} 
+{\bfseries Vel\+Ang\+Temp\+Data\+Provider} ()
+\begin{DoxyCompactList}\small\item\em Constructor for \doxylink{classVelAngTempDataProvider}{Vel\+Ang\+Temp\+Data\+Provider}. \end{DoxyCompactList}\item 
+\Hypertarget{classVelAngTempDataProvider_aaa957dfc12e03ccdf7453b8e98b34573}\label{classVelAngTempDataProvider_aaa957dfc12e03ccdf7453b8e98b34573} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Vel\+Ang\+Temp\+Data\+Provider} ()
+\begin{DoxyCompactList}\small\item\em Destructor for \doxylink{classVelAngTempDataProvider}{Vel\+Ang\+Temp\+Data\+Provider}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classVelAngTempDataProvider_a3a41a957fd644e599139450d5abffb9f}{get\+Data}} (adi\+\_\+imu\+::msg\+::\+Vel\+Ang\+Temp\+Data \&message) override
+\begin{DoxyCompactList}\small\item\em Populate Vel\+Ang\+Temp\+Data message with measured data. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classVelAngTempDataProviderInterface}{Vel\+Ang\+Temp\+Data\+Provider\+Interface}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Vel\+Ang\+Temp\+Data\+Provider\+Interface} ()
+\begin{DoxyCompactList}\small\item\em Constructor for \doxylink{classVelAngTempDataProviderInterface}{Vel\+Ang\+Temp\+Data\+Provider\+Interface}. \end{DoxyCompactList}\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Vel\+Ang\+Temp\+Data\+Provider\+Interface} ()
+\begin{DoxyCompactList}\small\item\em Destructor for \doxylink{classVelAngTempDataProviderInterface}{Vel\+Ang\+Temp\+Data\+Provider\+Interface}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classIIOWrapper}{IIOWrapper}} \mbox{\hyperlink{classVelAngTempDataProvider_a1c8afa5aad73fd438814807e594df22d}{m\+\_\+iio\+\_\+wrapper}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class for delta angle, delta velocity and temperature buffered data provider. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classVelAngTempDataProvider_a3a41a957fd644e599139450d5abffb9f}\label{classVelAngTempDataProvider_a3a41a957fd644e599139450d5abffb9f} 
+\index{VelAngTempDataProvider@{VelAngTempDataProvider}!getData@{getData}}
+\index{getData@{getData}!VelAngTempDataProvider@{VelAngTempDataProvider}}
+\doxysubsubsection{\texorpdfstring{getData()}{getData()}}
+{\footnotesize\ttfamily bool Vel\+Ang\+Temp\+Data\+Provider\+::get\+Data (\begin{DoxyParamCaption}\item[{adi\+\_\+imu\+::msg\+::\+Vel\+Ang\+Temp\+Data \&}]{message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Populate Vel\+Ang\+Temp\+Data message with measured data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & Message containing the measured data. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return true if the message parameter is successfully populated with measured data and false otherwise. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classVelAngTempDataProviderInterface_a209118f87b8ae0b7a2a2085f3c9c95e0}{Vel\+Ang\+Temp\+Data\+Provider\+Interface}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classVelAngTempDataProvider_a1c8afa5aad73fd438814807e594df22d}\label{classVelAngTempDataProvider_a1c8afa5aad73fd438814807e594df22d} 
+\index{VelAngTempDataProvider@{VelAngTempDataProvider}!m\_iio\_wrapper@{m\_iio\_wrapper}}
+\index{m\_iio\_wrapper@{m\_iio\_wrapper}!VelAngTempDataProvider@{VelAngTempDataProvider}}
+\doxysubsubsection{\texorpdfstring{m\_iio\_wrapper}{m\_iio\_wrapper}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classIIOWrapper}{IIOWrapper}} Vel\+Ang\+Temp\+Data\+Provider\+::m\+\_\+iio\+\_\+wrapper\hspace{0.3cm}{\ttfamily [private]}}
+
+This data member is used to access sensor information via libiio. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/adi\+\_\+imu/velangtemp\+\_\+data\+\_\+provider.\+h\item 
+src/velangtemp\+\_\+data\+\_\+provider.\+cpp\end{DoxyCompactItemize}
