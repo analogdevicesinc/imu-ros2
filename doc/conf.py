@@ -119,6 +119,11 @@ rosdoc2_settings = {
 
     # Support markdown
     'support_markdown': True,
+
+    # Allow additional extensions. If true, at runtime rosdoc2 will check to see if
+    # non-default extensions are installed, and if so allow them. If false, only
+    # extensions loaded by default by Sphinx or rosdoc2 installs are allowed.
+    'allow_other_extensions': True,
 }
 
 # -- External docs configuration -----------------------------------------------
@@ -155,7 +160,7 @@ intersphinx_disabled_reftypes = ["*"]
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-# html_static_path = ['images',]
+html_static_path = ['doc/images',]
 
 # Custom sidebar templates, must be a dictionary that maps document names
 # to template names.
