@@ -135,8 +135,8 @@ int IIOWrapper::createContext(const char * context)
     "adis16470",   "adis16475-1", "adis16475-2", "adis16475-3", "adis16477-1", "adis16477-2",
     "adis16477-3", "adis16500",   "adis16501",   "adis16505-1", "adis16505-2", "adis16505-3",
     "adis16507-1", "adis16507-2", "adis16507-3", "adis16545-1", "adis16545-2", "adis16545-3",
-    "adis16547-1", "adis16547-2", "adis16547-3", "adis16550",   "adis16550w",  "adis16575-2",
-    "adis16575-3", "adis16576-2", "adis16576-3", "adis16577-2", "adis16577-3"};
+    "adis16547-1", "adis16547-2", "adis16547-3", "adis16550",   "adis16575-2", "adis16575-3",
+    "adis16576-2", "adis16576-3", "adis16577-2", "adis16577-3"};
 
   uint8_t dev_id = 0;
 
@@ -293,7 +293,6 @@ void IIOWrapper::setDeltaAngleScales(enum adis_device_id id)
     case ADIS16505_2:
     case ADIS16507_2:
     case ADIS16550:
-    case ADIS16550W:
       m_scale_deltaangl_x = 0.000000006;
       m_scale_deltaangl_y = 0.000000006;
       m_scale_deltaangl_z = 0.000000006;
@@ -380,7 +379,6 @@ void IIOWrapper::setDeltaVelocityScales(enum adis_device_id id)
       return;
     case ADIS16501:
     case ADIS16550:
-    case ADIS16550W:
       m_scale_deltavelocity_x = 0.000000058;
       m_scale_deltavelocity_y = 0.000000058;
       m_scale_deltavelocity_z = 0.000000058;
