@@ -10,8 +10,7 @@ on:
   merge_group:
   push:
     branches:
-      - humble
-      - humble-develop
+      - humble*
       - main
 
 jobs:
