@@ -3,6 +3,8 @@ name: Build ROS2 package
 env:
   DEVICE_ID: adis16505-2
   PACKAGE_NAME: "adi_imu"
+  # Builds the package for the Rolling distribution using the source code from the humble branch.
+  DEV_BRANCH: "humble"
 
 on:
   push:
@@ -52,6 +54,7 @@ jobs:
           target-ros2-distro: ${{ matrix.ros_distribution }}
           skip-tests: true # TODO: Enable tests if any (TBD)
           import-token: ${{ secrets.GITHUB_TOKEN }}
+          ref: ${{ env.DEV_BRANCH }}
 
       - name: Store the build logs
         uses: actions/upload-artifact@v4
