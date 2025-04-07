@@ -846,7 +846,6 @@
     <member refid="adis__data__access_8h_1a7e7f41a754d681f5d5e014fd70e5bf42a7c36cd62a612966ac58215c60ba4fb52" kind="enumvalue"><name>ADIS16547_2</name></member>
     <member refid="adis__data__access_8h_1a7e7f41a754d681f5d5e014fd70e5bf42afdb44df99d798238d4a261ab6fda1f9f" kind="enumvalue"><name>ADIS16547_3</name></member>
     <member refid="adis__data__access_8h_1a7e7f41a754d681f5d5e014fd70e5bf42a7aa6eeb6ba5cc96d3cc4c91caf4b2c4b" kind="enumvalue"><name>ADIS16550</name></member>
-    <member refid="adis__data__access_8h_1a7e7f41a754d681f5d5e014fd70e5bf42a67241ad797780cb08a7b439859261b4d" kind="enumvalue"><name>ADIS16550W</name></member>
     <member refid="adis__data__access_8h_1a7e7f41a754d681f5d5e014fd70e5bf42a852648ef46d4a553fa3bf40e720b8e96" kind="enumvalue"><name>ADIS16575_2</name></member>
     <member refid="adis__data__access_8h_1a7e7f41a754d681f5d5e014fd70e5bf42a276397badcce8c11dadf83485b5d28e5" kind="enumvalue"><name>ADIS16575_3</name></member>
     <member refid="adis__data__access_8h_1a7e7f41a754d681f5d5e014fd70e5bf42a92c674d45e85632a18da6b531c8cd37e" kind="enumvalue"><name>ADIS16576_2</name></member>

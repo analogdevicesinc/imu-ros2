@@ -461,13 +461,6 @@
           <detaileddescription>
           </detaileddescription>
         </enumvalue>
-        <enumvalue id="adis__data__access_8h_1a7e7f41a754d681f5d5e014fd70e5bf42a67241ad797780cb08a7b439859261b4d" prot="public">
-          <name>ADIS16550W</name>
-          <briefdescription>
-          </briefdescription>
-          <detaileddescription>
-          </detaileddescription>
-        </enumvalue>
         <enumvalue id="adis__data__access_8h_1a7e7f41a754d681f5d5e014fd70e5bf42a852648ef46d4a553fa3bf40e720b8e96" prot="public">
           <name>ADIS16575_2</name>
           <briefdescription>
@@ -516,7 +509,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/adis_data_access.h" line="22" column="1" bodyfile="include/adi_imu/adis_data_access.h" bodystart="23" bodyend="59"/>
+        <location file="include/adi_imu/adis_data_access.h" line="22" column="1" bodyfile="include/adi_imu/adis_data_access.h" bodystart="23" bodyend="58"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -575,32 +568,31 @@
 <codeline lineno="49"><highlight class="normal"><sp/><sp/>ADIS16547_2,</highlight></codeline>
 <codeline lineno="50"><highlight class="normal"><sp/><sp/>ADIS16547_3,</highlight></codeline>
 <codeline lineno="51"><highlight class="normal"><sp/><sp/>ADIS16550,</highlight></codeline>
-<codeline lineno="52"><highlight class="normal"><sp/><sp/>ADIS16550W,</highlight></codeline>
-<codeline lineno="53"><highlight class="normal"><sp/><sp/>ADIS16575_2,</highlight></codeline>
-<codeline lineno="54"><highlight class="normal"><sp/><sp/>ADIS16575_3,</highlight></codeline>
-<codeline lineno="55"><highlight class="normal"><sp/><sp/>ADIS16576_2,</highlight></codeline>
-<codeline lineno="56"><highlight class="normal"><sp/><sp/>ADIS16576_3,</highlight></codeline>
-<codeline lineno="57"><highlight class="normal"><sp/><sp/>ADIS16577_2,</highlight></codeline>
-<codeline lineno="58"><highlight class="normal"><sp/><sp/>ADIS16577_3,</highlight></codeline>
-<codeline lineno="59"><highlight class="normal">};</highlight></codeline>
-<codeline lineno="60"><highlight class="normal"></highlight></codeline>
-<codeline lineno="61"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(ADIS1646X)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="62"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;adis1646x/adis1646x_data_access.h&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="63"><highlight class="normal"></highlight><highlight class="preprocessor">#elif<sp/>defined(ADIS1647X)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="64"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;adis1647x/adis1647x_data_access.h&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="65"><highlight class="normal"></highlight><highlight class="preprocessor">#elif<sp/>defined(ADIS1650X)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="66"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;adis1650x/adis1650x_data_access.h&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="67"><highlight class="normal"></highlight><highlight class="preprocessor">#elif<sp/>defined(ADIS1654X)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="68"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;adis1654x/adis1654x_data_access.h&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="69"><highlight class="normal"></highlight><highlight class="preprocessor">#elif<sp/>defined(ADIS1655X)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="70"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;adis1655x/adis1655x_data_access.h&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="71"><highlight class="normal"></highlight><highlight class="preprocessor">#elif<sp/>defined(ADIS1657X)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="72"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;adis1657x/adis1657x_data_access.h&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="73"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="74"><highlight class="normal"></highlight><highlight class="preprocessor">#error<sp/>&quot;No<sp/>device<sp/>defined.&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="75"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="76"><highlight class="normal"></highlight></codeline>
-<codeline lineno="77"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/>ADIS16575_2,</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/>ADIS16575_3,</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/>ADIS16576_2,</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/>ADIS16576_3,</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/>ADIS16577_2,</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/>ADIS16577_3,</highlight></codeline>
+<codeline lineno="58"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(ADIS1646X)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;adis1646x/adis1646x_data_access.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight><highlight class="preprocessor">#elif<sp/>defined(ADIS1647X)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;adis1647x/adis1647x_data_access.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight><highlight class="preprocessor">#elif<sp/>defined(ADIS1650X)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;adis1650x/adis1650x_data_access.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight><highlight class="preprocessor">#elif<sp/>defined(ADIS1654X)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;adis1654x/adis1654x_data_access.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight><highlight class="preprocessor">#elif<sp/>defined(ADIS1655X)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;adis1655x/adis1655x_data_access.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight><highlight class="preprocessor">#elif<sp/>defined(ADIS1657X)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;adis1657x/adis1657x_data_access.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight><highlight class="preprocessor">#error<sp/>&quot;No<sp/>device<sp/>defined.&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
     </programlisting>
     <location file="include/adi_imu/adis_data_access.h"/>
   </compounddef>
