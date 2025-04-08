@@ -4,9 +4,14 @@
   <name>adi_imu</name>
   <version>0.0.1</version>
   <description>Publisher for ADI IMUs</description>
-  <maintainer email="ramona.gradinariu@analog.com">rbolboac</maintainer>
-  <maintainer email="Adrian.Stanea@analog.com">astanea</maintainer>
+  <maintainer email="Adrian.Stanea@analog.com">Analog Devices</maintainer>
   <license>Apache License Version 2.0</license>
+
+  <url type="repository">https://github.com/analogdevicesinc/imu_ros2</url>
+  <url type="website">https://analogdevicesinc.github.io/imu_ros2/</url>
+  <url type="bugtracker">https://github.com/analogdevicesinc/imu_ros2/issues</url>
+
+  <author email="ramona.gradinariu@analog.com">rbolboac</author>
 
   <depend>ament_cmake</depend>
   <depend>rclcpp</depend>
