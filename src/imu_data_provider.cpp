@@ -30,13 +30,13 @@ bool ImuDataProvider::getData(sensor_msgs::msg::Imu & message)
 {
   if (!m_iio_wrapper.updateBuffer(ACCEL_GYRO_BUFFERED_DATA)) return false;
 
-  message.linear_acceleration.x = m_iio_wrapper.getBuffLinearAccelerationX();
-  message.linear_acceleration.y = m_iio_wrapper.getBuffLinearAccelerationY();
-  message.linear_acceleration.z = m_iio_wrapper.getBuffLinearAccelerationZ();
+  message.linear_acceleration.x = - m_iio_wrapper.getBuffLinearAccelerationY();
+  message.linear_acceleration.y = - m_iio_wrapper.getBuffLinearAccelerationX();
+  message.linear_acceleration.z = - m_iio_wrapper.getBuffLinearAccelerationZ();
 
   message.angular_velocity.x = m_iio_wrapper.getBuffAngularVelocityX();
   message.angular_velocity.y = m_iio_wrapper.getBuffAngularVelocityY();
-  message.angular_velocity.z = m_iio_wrapper.getBuffAngularVelocityZ();
+  message.angular_velocity.z = - m_iio_wrapper.getBuffAngularVelocityZ();
 
   message.header.frame_id = "imu";
   m_iio_wrapper.getBuffSampleTimestamp(message.header.stamp.sec, message.header.stamp.nanosec);

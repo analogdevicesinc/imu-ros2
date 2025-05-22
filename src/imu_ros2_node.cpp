@@ -35,7 +35,7 @@
 #include "adi_imu/velangtemp_data_provider.h"
 #include "adi_imu/velangtemp_ros_publisher.h"
 #endif
-
+#define MINIMAL_PUB 1
 #include "adi_imu/worker_thread.h"
 #include "rclcpp/rclcpp.hpp"
 
@@ -108,29 +108,35 @@ int main(int argc, char * argv[])
 
   RosTask * publisher_group_task = dynamic_cast<RosTask *>(publisher_group);
 
+#ifndef MINIMAL_PUB
   ImuIdentificationDataProviderInterface * ident_data_provider =
     new ImuIdentificationDataProvider();
   ImuIdentificationRosPublisherInterface * ident_publisher =
     new ImuIdentificationRosPublisher(imu_node);
   ident_publisher->setMessageProvider(ident_data_provider);
   RosTask * ident_task = dynamic_cast<RosTask *>(ident_publisher);
+#endif
 
   ImuDiagDataProviderInterface * diag_data_provider = nullptr;
   ImuDiagRosPublisherInterface * diag_publisher = nullptr;
   RosTask * diag_task = nullptr;
 
+#ifndef MINIMAL_PUB
   diag_data_provider = new ImuDiagDataProvider();
   diag_publisher = new ImuDiagRosPublisher(imu_node);
   diag_publisher->setMessageProvider(diag_data_provider);
 
   diag_task = dynamic_cast<RosTask *>(diag_publisher);
+#endif
 
   WorkerThread publisher_group_thread(publisher_group_task);
+#ifndef MINIMAL_PUB
   WorkerThread ident_thread(ident_task);
   WorkerThread diag_thread(diag_task);
 
   diag_thread.join();
   ident_thread.join();
+#endif
   publisher_group_thread.join();
 
   delete ctrl_params;
@@ -140,8 +146,10 @@ int main(int argc, char * argv[])
 #endif
   delete imu_std_publisher;
   delete full_data_publisher;
+#ifndef MINIMAL_PUB
   delete ident_publisher;
   delete diag_publisher;
+#endif
 
   rclcpp::shutdown();
 
