@@ -35,7 +35,6 @@
 #include "adi_imu/velangtemp_data_provider.h"
 #include "adi_imu/velangtemp_ros_publisher.h"
 #endif
-#define MINIMAL_PUB 1
 #include "adi_imu/worker_thread.h"
 #include "rclcpp/rclcpp.hpp"
 
@@ -52,6 +51,13 @@ int main(int argc, char * argv[])
   rclcpp::init(argc, argv);
 
   std::shared_ptr<rclcpp::Node> imu_node = rclcpp::Node::make_shared("adi_imu_node");
+
+  auto minimal_pub_desc = rcl_interfaces::msg::ParameterDescriptor{};
+  minimal_pub_desc.description = 
+  "\nIf true, only standard IMU data is published on /imu." 
+  "\nDefault is false (publish identification and diagnostic data).";
+  imu_node->declare_parameter<bool>("minimal_pub", false, minimal_pub_desc);
+  bool minimal_pub = imu_node->get_parameter("minimal_pub").get_parameter_value().get<bool>();
 
   std::thread::id this_id = std::this_thread::get_id();
   std::cout << "mainthread " << this_id << " running...\n";
@@ -108,35 +114,31 @@ int main(int argc, char * argv[])
 
   RosTask * publisher_group_task = dynamic_cast<RosTask *>(publisher_group);
 
-#ifndef MINIMAL_PUB
-  ImuIdentificationDataProviderInterface * ident_data_provider =
-    new ImuIdentificationDataProvider();
-  ImuIdentificationRosPublisherInterface * ident_publisher =
-    new ImuIdentificationRosPublisher(imu_node);
-  ident_publisher->setMessageProvider(ident_data_provider);
-  RosTask * ident_task = dynamic_cast<RosTask *>(ident_publisher);
-#endif
+  if (!minimal_pub) {
+    ImuIdentificationDataProviderInterface * ident_data_provider =
+      new ImuIdentificationDataProvider();
+    ImuIdentificationRosPublisherInterface * ident_publisher =
+      new ImuIdentificationRosPublisher(imu_node);
+    ident_publisher->setMessageProvider(ident_data_provider);
+    RosTask * ident_task = dynamic_cast<RosTask *>(ident_publisher);
 
-  ImuDiagDataProviderInterface * diag_data_provider = nullptr;
-  ImuDiagRosPublisherInterface * diag_publisher = nullptr;
-  RosTask * diag_task = nullptr;
+    ImuDiagDataProviderInterface * diag_data_provider = new ImuDiagDataProvider();
+    ImuDiagRosPublisherInterface * diag_publisher = new ImuDiagRosPublisher(imu_node);
+    diag_publisher->setMessageProvider(diag_data_provider);
 
-#ifndef MINIMAL_PUB
-  diag_data_provider = new ImuDiagDataProvider();
-  diag_publisher = new ImuDiagRosPublisher(imu_node);
-  diag_publisher->setMessageProvider(diag_data_provider);
+    RosTask * diag_task = dynamic_cast<RosTask *>(diag_publisher);
 
-  diag_task = dynamic_cast<RosTask *>(diag_publisher);
-#endif
+    WorkerThread ident_thread(ident_task);
+    WorkerThread diag_thread(diag_task);
+
+    diag_thread.join();
+    ident_thread.join();
+
+    delete ident_publisher;
+    delete diag_publisher;
+  }
 
   WorkerThread publisher_group_thread(publisher_group_task);
-#ifndef MINIMAL_PUB
-  WorkerThread ident_thread(ident_task);
-  WorkerThread diag_thread(diag_task);
-
-  diag_thread.join();
-  ident_thread.join();
-#endif
   publisher_group_thread.join();
 
   delete ctrl_params;
@@ -146,10 +148,6 @@ int main(int argc, char * argv[])
 #endif
   delete imu_std_publisher;
   delete full_data_publisher;
-#ifndef MINIMAL_PUB
-  delete ident_publisher;
-  delete diag_publisher;
-#endif
 
   rclcpp::shutdown();
 
