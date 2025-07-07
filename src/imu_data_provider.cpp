@@ -22,6 +22,9 @@
 
 #include <sensor_msgs/msg/imu.hpp>
 
+namespace adi_imu
+{
+
 ImuDataProvider::ImuDataProvider() {}
 
 ImuDataProvider::~ImuDataProvider() {}
@@ -45,3 +48,5 @@ bool ImuDataProvider::getData(sensor_msgs::msg::Imu & message)
 
   return true;
 }
+
+}  // namespace adi_imu

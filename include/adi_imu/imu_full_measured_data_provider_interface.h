@@ -24,6 +24,8 @@
 
 #include "adi_imu/msg/imu_full_measured_data.hpp"
 
+namespace adi_imu
+{
 /**
  * @brief Interface for acceleration, angular velocity, delta angle, delta
  * velocity and temperature data provider.
@@ -49,5 +51,7 @@ public:
    */
   virtual bool getData(adi_imu::msg::ImuFullMeasuredData & message) = 0;
 };
+
+}  // namespace adi_imu
 
 #endif  // IMU_FULL_MEASURED_DATA_PROVIDER_INTERFACE_H

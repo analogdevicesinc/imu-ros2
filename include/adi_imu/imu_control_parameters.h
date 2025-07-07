@@ -25,7 +25,10 @@
 
 #include "adi_imu/iio_wrapper.h"
 #include "rcl_interfaces/msg/set_parameters_result.hpp"
+#include "adi_imu/adis_register_map.h"
 
+namespace adi_imu
+{
 /**
  * @brief Class for handling device parameters.
  */
@@ -36,7 +39,8 @@ public:
    * @brief Constructor for ImuControlParameters.
    * @param node The ros2 Node instance.
    */
-  ImuControlParameters(std::shared_ptr<rclcpp::Node> & node);
+  ImuControlParameters(std::shared_ptr<rclcpp::Node> & node,
+                       std::shared_ptr<ADISRegisterMap> & device_descriptor);
 
   /**
    * @brief Destructor for ImuControlParameters.
@@ -237,6 +241,11 @@ private:
 
   /*! Parameter map with FloatingPointRange for parameter constraints. */
   std::map<std::string, rcl_interfaces::msg::FloatingPointRange> m_param_constraints_floating;
+
+  /*! This variable retains the ADIS register map configuration and capabilities */
+  std::shared_ptr<ADISRegisterMap> m_device_descriptor;
 };
+
+}  // namespace adi_imu
 
 #endif  // IMU_CONTROL_PARAMETERS_H

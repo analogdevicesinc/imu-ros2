@@ -25,6 +25,9 @@
 
 #include "adi_imu/ros_task.h"
 
+namespace adi_imu
+{
+
 /**
  * @brief Class for running a task in a thread.
  */
@@ -51,5 +54,7 @@ private:
   /*! This data member will run the method run on a thread. */
   RosTask * m_rosTask;
 };
+
+}  // namespace adi_imu
 
 #endif  // WORKER_THREAD_H

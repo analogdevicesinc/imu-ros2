@@ -24,6 +24,9 @@
 
 #include "adi_imu/msg/vel_ang_temp_data.hpp"
 
+namespace adi_imu
+{
+
 /**
  * @brief Interface for delta angle, delta velocity and temperature buffered
  * data provider.
@@ -49,5 +52,7 @@ public:
    */
   virtual bool getData(adi_imu::msg::VelAngTempData & message) = 0;
 };
+
+}  // namespace adi_imu
 
 #endif  // VELANGTEMP_DATA_PROVIDER_INTERFACE_H

@@ -25,6 +25,10 @@
 #include <rclcpp/rclcpp.hpp>
 
 #include "adi_imu/ros_task.h"
+#include "adi_imu/adis_register_map.h"
+
+namespace adi_imu
+{
 
 class ImuDiagDataProviderInterface;
 
@@ -50,9 +54,17 @@ public:
    */
   virtual void setMessageProvider(ImuDiagDataProviderInterface * dataProvider) = 0;
 
+  /**
+   * @brief Set the device descriptor that defines the device's capabilities, register layout
+   * and supported features.
+   */
+  virtual void setDeviceDescriptor(std::shared_ptr<ADISRegisterMap> device_descriptor) = 0;
+
 protected:
   /*! The ros2 Node data member. */
   std::shared_ptr<rclcpp::Node> m_node;
 };
+
+}  // namespace adi_imu
 
 #endif  // IMU_DIAG_ROS_PUBLISHER_INTERFACE_H

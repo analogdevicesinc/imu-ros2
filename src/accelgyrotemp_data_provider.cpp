@@ -21,6 +21,9 @@
 
 #include "adi_imu/accelgyrotemp_data_provider.h"
 
+namespace adi_imu
+{
+
 AccelGyroTempDataProvider::AccelGyroTempDataProvider() {}
 
 AccelGyroTempDataProvider::~AccelGyroTempDataProvider() {}
@@ -44,3 +47,5 @@ bool AccelGyroTempDataProvider::getData(adi_imu::msg::AccelGyroTempData & messag
 
   return true;
 }
+
+}  // namespace adi_imu

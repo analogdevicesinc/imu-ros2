@@ -24,6 +24,9 @@
 #include <chrono>
 #include <thread>
 
+namespace adi_imu
+{
+
 VelAngTempRosPublisher::VelAngTempRosPublisher(std::shared_ptr<rclcpp::Node> & node)
 {
   m_node = node;
@@ -50,3 +53,5 @@ void VelAngTempRosPublisher::publish()
       rclcpp::get_logger("velangtemp_ros_publisher"),
       "error reading delta angle, delta velocity and temperature buffered data");
 }
+
+}  // namespace adi_imu

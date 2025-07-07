@@ -24,6 +24,9 @@
 
 #include "adi_imu/msg/accel_gyro_temp_data.hpp"
 
+namespace adi_imu
+{
+
 /**
  * @brief Interface for acceleration, angular velocity and temperature
  * buffered data provider.
@@ -49,5 +52,7 @@ public:
    */
   virtual bool getData(adi_imu::msg::AccelGyroTempData & message) = 0;
 };
+
+}  // namespace adi_imu
 
 #endif  // ACCELGYROTEMP_DATA_PROVIDER_INTERFACE_H

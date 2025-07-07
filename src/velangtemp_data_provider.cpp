@@ -21,14 +21,17 @@
 
 #include "adi_imu/velangtemp_data_provider.h"
 
+namespace adi_imu
+{
+
 VelAngTempDataProvider::VelAngTempDataProvider() {}
 
 VelAngTempDataProvider::~VelAngTempDataProvider() {}
 
 bool VelAngTempDataProvider::getData(adi_imu::msg::VelAngTempData & message)
 {
-#ifdef ADIS_HAS_DELTA_BURST
-  if (!m_iio_wrapper.updateBuffer(DELTAVEL_DELTAANG_BUFFERED_DATA)) return false;
+  if (!m_iio_wrapper.updateBuffer(DELTAVEL_DELTAANG_BUFFERED_DATA))
+    return false;
 
   message.delta_angle.x = m_iio_wrapper.getBuffDeltaAngleX();
   message.delta_angle.y = m_iio_wrapper.getBuffDeltaAngleY();
@@ -44,7 +47,6 @@ bool VelAngTempDataProvider::getData(adi_imu::msg::VelAngTempData & message)
   m_iio_wrapper.getBuffSampleTimestamp(message.header.stamp.sec, message.header.stamp.nanosec);
 
   return true;
-#else
-  return false;
-#endif
 }
+
+}  // namespace adi_imu

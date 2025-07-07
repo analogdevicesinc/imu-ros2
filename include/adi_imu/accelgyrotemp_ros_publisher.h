@@ -26,6 +26,8 @@
 #include "adi_imu/accelgyrotemp_data_provider_interface.h"
 #include "adi_imu/accelgyrotemp_ros_publisher_interface.h"
 
+namespace adi_imu
+{
 /**
  * @brief Class for acceleration, angular velocity and temperature publisher.
  */
@@ -64,5 +66,7 @@ private:
   /*! This variable retains the message that is published. */
   adi_imu::msg::AccelGyroTempData m_message;
 };
+
+}  // namespace adi_imu
 
 #endif  // ACCELGYROTEMP_ROS_SUBSCRIBER_H

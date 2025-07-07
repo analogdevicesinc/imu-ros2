@@ -21,6 +21,9 @@
 #ifndef ROS_TASK_H
 #define ROS_TASK_H
 
+namespace adi_imu
+{
+
 /**
  * @brief Interface for running a task in a thread.
  */
@@ -53,5 +56,7 @@ public:
    */
   virtual void run() = 0;
 };
+
+}  // namespace adi_imu
 
 #endif  // ROS_TASK_H

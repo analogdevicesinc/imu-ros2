@@ -26,6 +26,9 @@
 #include "adi_imu/velangtemp_data_provider_interface.h"
 #include "adi_imu/velangtemp_ros_publisher_interface.h"
 
+namespace adi_imu
+{
+
 /**
  * @brief Class for delta velocity, delta angle and temperature publisher.
  */
@@ -64,5 +67,7 @@ private:
   /*! This variable retains the message that is published. */
   adi_imu::msg::VelAngTempData m_message;
 };
+
+}  // namespace adi_imu
 
 #endif  // VELANGTEMP_ROS_PUBLISHER_H

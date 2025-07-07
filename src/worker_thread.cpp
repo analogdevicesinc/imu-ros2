@@ -20,6 +20,9 @@
 
 #include "adi_imu/worker_thread.h"
 
+namespace adi_imu
+{
+
 WorkerThread::WorkerThread(RosTask * rosTask)
 : std::thread([this] { this->runTask(); }), m_rosTask(rosTask)
 {
@@ -28,3 +31,5 @@ WorkerThread::WorkerThread(RosTask * rosTask)
 WorkerThread::~WorkerThread() {}
 
 void WorkerThread::runTask() { m_rosTask->run(); }
+
+}  // namespace adi_imu

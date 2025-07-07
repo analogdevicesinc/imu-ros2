@@ -20,6 +20,9 @@
 
 #include "adi_imu/imu_identification_data_provider.h"
 
+namespace adi_imu
+{
+
 ImuIdentificationDataProvider::ImuIdentificationDataProvider() {}
 
 ImuIdentificationDataProvider::~ImuIdentificationDataProvider() {}
@@ -38,3 +41,5 @@ bool ImuIdentificationDataProvider::getData(adi_imu::msg::ImuIdentificationData 
 
   return m_iio_wrapper.gyroscope_measurement_range(message.gyroscope_measurement_range);
 }
+
+}  // namespace adi_imu

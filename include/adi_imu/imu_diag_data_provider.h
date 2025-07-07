@@ -24,6 +24,8 @@
 #include "adi_imu/iio_wrapper.h"
 #include "imu_diag_data_provider_interface.h"
 
+namespace adi_imu
+{
 /**
  * @brief Class for diagnosis data provider for adis chips.
  */
@@ -46,11 +48,25 @@ public:
    * @return Return true if the message parameter is successfully populated with
    * diagnosis data and false otherwise.
    */
-  bool getData(adi_imu::msg::ImuDiagData & message) override;
+  bool getData(adi_imu::msg::ImuDiagDataADIS1646X & message) override;
+  bool getData(adi_imu::msg::ImuDiagDataADIS1647X & message) override;
+  bool getData(adi_imu::msg::ImuDiagDataADIS1650X & message) override;
+  bool getData(adi_imu::msg::ImuDiagDataADIS1654X & message) override;
+  bool getData(adi_imu::msg::ImuDiagDataADIS1655X & message) override;
+  bool getData(adi_imu::msg::ImuDiagDataADIS1657X & message) override;
 
 private:
   /*! This data member is used to access sensor information via libiio. */
   IIOWrapper m_iio_wrapper;
+
+  template<typename MessageType>
+  bool populateCommonFields(MessageType& message);
+
+  template<typename MessageType>
+  bool populateAxisFailureFields(MessageType& message);
+
 };
+
+}  // namespace adi_imu
 
 #endif  // IMU_DIAG_DATA_PROVIDER_H

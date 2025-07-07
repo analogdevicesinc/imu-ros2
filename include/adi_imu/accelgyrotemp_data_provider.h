@@ -25,6 +25,8 @@
 #include "adi_imu/accelgyrotemp_data_provider_interface.h"
 #include "adi_imu/iio_wrapper.h"
 
+namespace adi_imu
+{
 /**
  * @brief Class for acceleration, angular velocity and temperature
  * buffered data provider.
@@ -54,5 +56,7 @@ private:
   /*! This data member is used to access sensor information via libiio. */
   IIOWrapper m_iio_wrapper;
 };
+
+}  // namespace adi_imu
 
 #endif  // ACCELGYROTEMP_DATA_PROVIDER_H

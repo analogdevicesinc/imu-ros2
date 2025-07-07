@@ -26,6 +26,9 @@
 #include "adi_imu/imu_identification_data_provider_interface.h"
 #include "adi_imu/imu_identification_ros_publisher_interface.h"
 
+namespace adi_imu
+{
+
 /**
  * @brief Class for identification publisher.
  */
@@ -65,5 +68,7 @@ private:
   /*! This variable retains the message that is published. */
   adi_imu::msg::ImuIdentificationData m_message;
 };
+
+}  // namespace adi_imu
 
 #endif  // IMU_IDENTIFICATION_ROS_PUBLISHER_H

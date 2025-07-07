@@ -24,6 +24,9 @@
 #include <chrono>
 #include <thread>
 
+namespace adi_imu
+{
+
 ImuFullMeasuredDataRosPublisher::ImuFullMeasuredDataRosPublisher(
   std::shared_ptr<rclcpp::Node> & node)
 {
@@ -51,3 +54,5 @@ void ImuFullMeasuredDataRosPublisher::publish()
       rclcpp::get_logger("imu_full_measured_data_ros_publisher"),
       "error reading full measured data");
 }
+
+}  // namespace adi_imu

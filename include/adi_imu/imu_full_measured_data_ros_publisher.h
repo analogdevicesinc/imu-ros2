@@ -27,6 +27,9 @@
 #include "adi_imu/imu_full_measured_data_provider_interface.h"
 #include "adi_imu/imu_full_measured_data_ros_publisher_interface.h"
 
+namespace adi_imu
+{
+
 /**
  * @brief Class for acceleration, angular velocity, delta angle, delta velocity
  * and temperature publisher.
@@ -66,5 +69,7 @@ private:
   /*! This variable retains the message that is published. */
   adi_imu::msg::ImuFullMeasuredData m_message;
 };
+
+}  // namespace adi_imu
 
 #endif  // IMU_FULL_MEASURED_DATA_ROS_PUBLISHER_H

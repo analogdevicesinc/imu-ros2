@@ -24,6 +24,9 @@
 #include "adi_imu/iio_wrapper.h"
 #include "adi_imu/imu_data_provider_interface.h"
 
+namespace adi_imu
+{
+
 /**
  * @brief Class for standard message sensor_msgs::msg::Imu data provider.
  */
@@ -52,5 +55,7 @@ private:
   /*! This data member is used to access sensor information via libiio. */
   IIOWrapper m_iio_wrapper;
 };
+
+}  // namespace adi_imu
 
 #endif  // IMU_DATA_PROVIDER_H

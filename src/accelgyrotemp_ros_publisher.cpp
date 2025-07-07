@@ -24,6 +24,9 @@
 #include <chrono>
 #include <thread>
 
+namespace adi_imu
+{
+
 AccelGyroTempRosPublisher::AccelGyroTempRosPublisher(std::shared_ptr<rclcpp::Node> & node)
 {
   m_node = node;
@@ -51,3 +54,5 @@ void AccelGyroTempRosPublisher::publish()
       rclcpp::get_logger("accelgyrotemp_ros_publisher"),
       "error reading accelerometer, gyroscope and temperature buffered data");
 }
+
+}  // namespace adi_imu

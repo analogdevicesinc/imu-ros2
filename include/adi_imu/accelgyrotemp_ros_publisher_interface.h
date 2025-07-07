@@ -24,6 +24,9 @@
 #include <memory>
 #include <rclcpp/rclcpp.hpp>
 
+namespace adi_imu
+{
+
 class AccelGyroTempDataProviderInterface;
 
 /**
@@ -58,5 +61,7 @@ protected:
   /*! The ros2 Node data member. */
   std::shared_ptr<rclcpp::Node> m_node;
 };
+
+}  // namespace adi_imu
 
 #endif  // ACCELGYROTEMP_ROS_PUBLISHER_INTERFACE_H

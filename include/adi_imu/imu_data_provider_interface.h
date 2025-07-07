@@ -23,6 +23,9 @@
 
 #include <sensor_msgs/msg/imu.hpp>
 
+namespace adi_imu
+{
+
 /**
  * @brief Interface for standard message sensor_msgs::msg::Imu data provider.
  */
@@ -47,5 +50,7 @@ public:
    */
   virtual bool getData(sensor_msgs::msg::Imu & message) = 0;
 };
+
+}  // namespace adi_imu
 
 #endif  // IMU_DATA_PROVIDER_INTERFACE_H

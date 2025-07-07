@@ -22,6 +22,10 @@
 
 #include <thread>
 
+
+namespace adi_imu
+{
+
 ImuIdentificationRosPublisher::ImuIdentificationRosPublisher(std::shared_ptr<rclcpp::Node> & node)
 {
   m_node = node;
@@ -60,3 +64,5 @@ void ImuIdentificationRosPublisher::run()
     rclcpp::get_logger("imu_identification_ros_publisher"),
     "endThread: ImuIdentificationRosPublisher");
 }
+
+}  // namespace adi_imu

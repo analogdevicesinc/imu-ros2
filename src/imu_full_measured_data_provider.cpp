@@ -21,6 +21,9 @@
 
 #include "adi_imu/imu_full_measured_data_provider.h"
 
+namespace adi_imu
+{
+
 ImuFullMeasuredDataProvider::ImuFullMeasuredDataProvider() {}
 
 ImuFullMeasuredDataProvider::~ImuFullMeasuredDataProvider() {}
@@ -57,3 +60,5 @@ bool ImuFullMeasuredDataProvider::getData(adi_imu::msg::ImuFullMeasuredData & da
 
   return m_iio_wrapper.getConvertedTemperature(data.temperature);
 }
+
+}  // namespace adi_imu

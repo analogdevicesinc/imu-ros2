@@ -23,6 +23,9 @@
 #include <chrono>
 #include <thread>
 
+namespace adi_imu
+{
+
 ImuRosPublisher::ImuRosPublisher(std::shared_ptr<rclcpp::Node> & node)
 {
   m_node = node;
@@ -48,3 +51,5 @@ void ImuRosPublisher::publish()
     RCLCPP_INFO(
       rclcpp::get_logger("imu_ros_publisher"), "error reading standard imu buffered data");
 }
+
+}  // namespace adi_imu

@@ -26,6 +26,9 @@
 
 #include "adi_imu/ros_task.h"
 
+namespace adi_imu
+{
+
 class ImuIdentificationDataProviderInterface;
 
 /**
@@ -54,5 +57,7 @@ protected:
   /*! The ros2 Node data member. */
   std::shared_ptr<rclcpp::Node> m_node;
 };
+
+}  // namespace adi_imu
 
 #endif  // IMU_IDENTIFICATION_ROS_PUBLISHER_INTERFACE_H

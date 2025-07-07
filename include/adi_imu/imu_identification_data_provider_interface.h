@@ -23,6 +23,9 @@
 
 #include "adi_imu/msg/imu_identification_data.hpp"
 
+namespace adi_imu
+{
+
 /**
  * @brief Interface for identification data provider.
  */
@@ -47,5 +50,7 @@ public:
    */
   virtual bool getData(adi_imu::msg::ImuIdentificationData & message) = 0;
 };
+
+}  // namespace adi_imu
 
 #endif  // IMU_IDENTIFICATION_DATA_PROVIDER_INTERFACE_H

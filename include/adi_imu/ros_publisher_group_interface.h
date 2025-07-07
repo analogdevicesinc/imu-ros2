@@ -25,7 +25,10 @@
 #include <rclcpp/rclcpp.hpp>
 
 #include "adi_imu/ros_task.h"
-#include "adis_data_access.h"
+#include "adi_imu/adis_register_map.h"
+
+namespace adi_imu
+{
 
 class AccelGyroTempRosPublisherInterface;
 class ImuRosPublisherInterface;
@@ -56,14 +59,12 @@ public:
   virtual void setAccelGyroTempRosPublisher(
     AccelGyroTempRosPublisherInterface * accelGyroTempRosPublisher) = 0;
 
-#ifdef ADIS_HAS_DELTA_BURST
   /**
    * @brief Sets the velAngTempRosPublisher publisher in the publisher group.
    * @param velAngTempRosPublisher The publisher to be set in the group.
    */
   virtual void setVelAngTempRosPublisher(
     VelAngTempRosPublisherInterface * velAngTempRosPublisher) = 0;
-#endif
 
   /**
    * @brief Sets the imuRosPublisher publisher in the publisher group.
@@ -91,5 +92,7 @@ protected:
   /*! The ros2 Node data member. */
   std::shared_ptr<rclcpp::Node> m_node;
 };
+
+}  // namespace adi_imu
 
 #endif  // ROS_PUBLISHER_GROUP_INTERFACE_H

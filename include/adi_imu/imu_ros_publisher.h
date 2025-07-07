@@ -26,6 +26,9 @@
 #include "adi_imu/imu_data_provider_interface.h"
 #include "adi_imu/imu_ros_publisher_interface.h"
 
+namespace adi_imu
+{
+
 /**
  * @brief Class for standard message sensor_msgs::msg::Imu publisher.
  */
@@ -64,5 +67,7 @@ private:
   /*! This variable retains the message that is published. */
   sensor_msgs::msg::Imu m_message;
 };
+
+}  // namespace adi_imu
 
 #endif  // IMU_ROS_PUBLISHER_H

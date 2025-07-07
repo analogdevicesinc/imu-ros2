@@ -23,8 +23,11 @@
 
 #include <rclcpp/rclcpp.hpp>
 
-#include "imu_diag_data_provider_interface.h"
-#include "imu_diag_ros_publisher_interface.h"
+#include "adi_imu/imu_diag_data_provider_interface.h"
+#include "adi_imu/imu_diag_ros_publisher_interface.h"
+
+namespace adi_imu
+{
 
 /**
  * @brief Class for diagnosis publisher for adis1657x chips.
@@ -50,6 +53,12 @@ public:
   void setMessageProvider(ImuDiagDataProviderInterface * dataProvider) override;
 
   /**
+   * @brief Set the device descriptor that defines the device's capabilities, register layout
+   * and supported features.
+   */
+  void setDeviceDescriptor(std::shared_ptr<ADISRegisterMap> device_descriptor) override;
+
+  /**
    * @brief Run the thread responsible for publishing ImuDiagData message.
    */
   void run() override;
@@ -57,12 +66,27 @@ public:
 private:
   /*! This variable retains the data provider instance. */
   ImuDiagDataProviderInterface * m_data_provider;
+  std::shared_ptr<ADISRegisterMap> m_device_descriptor;
+  std::string m_device_family;
+
 
   /*! This variable retains the publisher instance. */
-  rclcpp::Publisher<adi_imu::msg::ImuDiagData>::SharedPtr m_publisher;
+  rclcpp::Publisher<adi_imu::msg::ImuDiagDataADIS1646X>::SharedPtr m_publisher_1646X;
+  rclcpp::Publisher<adi_imu::msg::ImuDiagDataADIS1647X>::SharedPtr m_publisher_1647X;
+  rclcpp::Publisher<adi_imu::msg::ImuDiagDataADIS1650X>::SharedPtr m_publisher_1650X;
+  rclcpp::Publisher<adi_imu::msg::ImuDiagDataADIS1654X>::SharedPtr m_publisher_1654X;
+  rclcpp::Publisher<adi_imu::msg::ImuDiagDataADIS1655X>::SharedPtr m_publisher_1655X;
+  rclcpp::Publisher<adi_imu::msg::ImuDiagDataADIS1657X>::SharedPtr m_publisher_1657X;
 
   /*! This variable retains the message that is published. */
-  adi_imu::msg::ImuDiagData m_message;
+  adi_imu::msg::ImuDiagDataADIS1646X m_message_1646X;
+  adi_imu::msg::ImuDiagDataADIS1647X m_message_1647X;
+  adi_imu::msg::ImuDiagDataADIS1650X m_message_1650X;
+  adi_imu::msg::ImuDiagDataADIS1654X m_message_1654X;
+  adi_imu::msg::ImuDiagDataADIS1655X m_message_1655X;
+  adi_imu::msg::ImuDiagDataADIS1657X m_message_1657X;
 };
+
+}  // namespace adi_imu
 
 #endif  // IMU_DIAG_ROS_PUBLISHER_H

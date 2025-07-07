@@ -25,6 +25,9 @@
 #include <memory>
 #include <rclcpp/rclcpp.hpp>
 
+namespace adi_imu
+{
+
 class ImuFullMeasuredDataProviderInterface;
 
 /**
@@ -59,5 +62,7 @@ protected:
   /*! The ros2 Node data member. */
   std::shared_ptr<rclcpp::Node> m_node;
 };
+
+}  // namespace adi_imu
 
 #endif  // IMU_FULL_MEASURED_DATA_ROS_PUBLISHER_INTERFACE_H

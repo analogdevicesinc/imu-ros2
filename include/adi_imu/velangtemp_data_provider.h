@@ -25,6 +25,9 @@
 #include "adi_imu/iio_wrapper.h"
 #include "adi_imu/velangtemp_data_provider_interface.h"
 
+namespace adi_imu
+{
+
 /**
  * @brief Class for delta angle, delta velocity and temperature buffered
  * data provider.
@@ -54,5 +57,7 @@ private:
   /*! This data member is used to access sensor information via libiio. */
   IIOWrapper m_iio_wrapper;
 };
+
+}  // namespace adi_imu
 
 #endif  // VELANGTEMP_DATA_PROVIDER_H
