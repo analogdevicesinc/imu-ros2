@@ -23,8 +23,11 @@
 #include <chrono>
 #include <rclcpp/rclcpp.hpp>
 
-#include "adi_imu/adis_data_access.h"
-#include "adi_imu/msg/imu_diag_data.hpp"
+#include "adi_imu/iio_wrapper.h"
+#include "adi_imu/adis_device_factory.h"
+#include "adi_imu/adis_register_map.h"
+
+#include "adi_imu/msg/imu_diag_data_adis1650_x.hpp"
 
 /**
  * @brief Class for testing ImuDiagData.
@@ -54,85 +57,51 @@ public:
  * ImuDiagData topic and compares it against a range of expected
  * values.
  */
-TEST(ImuDiagSubscriberTest, test_imu__diag_data_publisher)
+TEST(ImuDiagSubscriberTest, test_imu_diag_data_publisher_adis1650x)
 {
   auto node = rclcpp::Node::make_shared("test_imudiagdata_publisher");
+
+  node->declare_parameter("iio_context_string", "local:");
+  node->declare_parameter("imu_device_name", "unknown");
+
+  std::string context =
+    node->get_parameter("iio_context_string").get_parameter_value().get<std::string>();
+  std::string device_name =
+    node->get_parameter("imu_device_name").get_parameter_value().get<std::string>();
+
+  auto device_descriptor = adi_imu::ADISDeviceFactory::make(device_name);
+  if (device_descriptor->getDeviceFamily() != "adis1650x") {
+    GTEST_SKIP() << "Test skipped, device is not " << device_descriptor->getDeviceFamily()
+                 << "family.";
+  }
 
   std::string topic = "imudiagdata";
   bool callbackExecuted = false;
 
-  auto callback = [&callbackExecuted](adi_imu::msg::ImuDiagData msg) -> void {
+  auto callback = [&callbackExecuted,
+                   &device_descriptor](adi_imu::msg::ImuDiagDataADIS1650X msg) -> void {
 
-#ifdef ADIS_SNSR_INIT_FAIL
-    ASSERT_TRUE(msg.diag_sensor_initialization_failure == false);
-#endif
-#ifdef ADIS_DATA_PATH_OVERRUN
     ASSERT_TRUE(msg.diag_data_path_overrun == false);
-#endif
-#ifdef ADIS_WDG_TIMER_FLAG
-    ASSERT_TRUE(msg.diag_automatic_reset == false);
-#endif
-#ifdef ADIS_FLS_MEM_UPDATE_FAIL
     ASSERT_TRUE(msg.diag_flash_memory_update_error == false);
-#endif
-#ifdef ADIS_SPI_COMM_ERR
     ASSERT_TRUE(msg.diag_spi_communication_error == false);
-#endif
-#ifdef ADIS_CRC_ERROR
-    ASSERT_TRUE(msg.diag_crc_error == false);
-#endif
-#ifdef ADIS_STDBY_MODE
     ASSERT_TRUE(msg.diag_standby_mode == false);
-#endif
-#ifdef ADIS_SNSR_FAIL
     ASSERT_TRUE(msg.diag_sensor_self_test_error == false);
-#endif
-#ifdef ADIS_MEM_FAIL
     ASSERT_TRUE(msg.diag_flash_memory_test_error == false);
-#endif
-#ifdef ADIS_CLK_ERR
     ASSERT_TRUE(msg.diag_clock_error == false);
-#endif
-#ifdef ADIS_ACCEL_FAIL
     ASSERT_TRUE(msg.diag_acceleration_self_test_error == false);
-#endif
-#ifdef ADIS_GYRO1_FAIL
     ASSERT_TRUE(msg.diag_gyroscope1_self_test_error == false);
-#endif
-#ifdef ADIS_GYRO2_FAIL
     ASSERT_TRUE(msg.diag_gyroscope2_self_test_error == false);
-#endif
-#ifdef ADIS_GYRO_X_FAIL
-    ASSERT_TRUE(msg.diag_x_axis_gyroscope_failure == false);
-#endif
-#ifdef ADIS_GYRO_Y_FAIL
-    ASSERT_TRUE(msg.diag_y_axis_gyroscope_failure == false);
-#endif
-#ifdef ADIS_GYRO_Z_FAIL
-    ASSERT_TRUE(msg.diag_z_axis_gyroscope_failure == false);
-#endif
-#ifdef ADIS_ACCEL_X_FAIL
-    ASSERT_TRUE(msg.diag_x_axis_accelerometer_failure == false);
-#endif
-#ifdef ADIS_ACCEL_Y_FAIL
-    ASSERT_TRUE(msg.diag_y_axis_accelerometer_failure == false);
-#endif
-#ifdef ADIS_ACCEL_Z_FAIL
-    ASSERT_TRUE(msg.diag_z_axis_accelerometer_failure == false);
-#endif
-#ifdef ADIS_ADUC_MCU_FAULT
-    ASSERT_TRUE(msg.diag_aduc_mcu_fault == false);
-#endif
     ASSERT_TRUE(msg.diag_flash_memory_write_count_exceeded_error == false);
+    ASSERT_TRUE(
+      msg.flash_counter < device_descriptor->get(adi_imu::ADISRegister::FLS_MEM_ENDURANCE));
 
-    ASSERT_TRUE(msg.flash_counter < ADIS_FLS_MEM_ENDURANCE);
     callbackExecuted = true;
   };
 
   rclcpp::executors::SingleThreadedExecutor executor;
   executor.add_node(node);
 
-  auto subscriber = node->create_subscription<adi_imu::msg::ImuDiagData>(topic, 10, callback);
+  auto subscriber = node->create_subscription<adi_imu::msg::ImuDiagDataADIS1650X>(topic, 10, callback);
 
   std::chrono::seconds sec(1);
 

@@ -24,6 +24,9 @@
 #include <rclcpp/rclcpp.hpp>
 
 #include "adi_imu/iio_wrapper.h"
+#include "adi_imu/adis_device_factory.h"
+#include "adi_imu/adis_register_map.h"
+
 #include "adi_imu/msg/imu_full_measured_data.hpp"
 
 /**
@@ -56,16 +59,21 @@ public:
  */
 TEST(ImuFullMeasuredDataSubscriberTest, test_imu_full_measured_data_publisher)
 {
-  IIOWrapper iio_wrapper;
+  adi_imu::IIOWrapper iio_wrapper;
 
   auto node = rclcpp::Node::make_shared("test_imufullmeasureddata_publisher");
 
   node->declare_parameter("iio_context_string", "local:");
+  node->declare_parameter("imu_device_name", "unknown");
 
   std::string context =
     node->get_parameter("iio_context_string").get_parameter_value().get<std::string>();
-  IIOWrapper m_iio_wrapper;
-  m_iio_wrapper.createContext(context.c_str());
+  std::string device_name =
+    node->get_parameter("imu_device_name").get_parameter_value().get<std::string>();
+  auto device_descriptor = adi_imu::ADISDeviceFactory::make(device_name);
+
+  iio_wrapper.setDeviceDescriptor(device_descriptor);
+  iio_wrapper.createContext(context.c_str());
 
   std::string topic = "imufullmeasureddata";
 
