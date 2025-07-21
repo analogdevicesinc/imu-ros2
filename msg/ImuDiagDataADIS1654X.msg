@@ -33,9 +33,6 @@ bool diag_automatic_reset
 # if true, while operating in scaled sync mode, indicates the sampling time is not scaling correctly
 bool diag_clock_error
 
-# if true, indicates the occurrence of a processing overrun
-bool diag_processing_overrun
-
 # if true, the most recent imu memory flash failed
 bool diag_flash_memory_test_error
 
@@ -47,9 +44,6 @@ bool diag_spi_communication_error
 
 # if true, indicates failure on CRC calculation
 bool diag_crc_error
-
-#if true, indicates the device booted up using the backup memory bank
-bool diag_boot_mem_fail
 
 # if true, a failure occurred on x axis gyroscope
 bool diag_x_axis_gyroscope_failure
