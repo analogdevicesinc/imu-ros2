@@ -40,6 +40,10 @@
 #include "adi_imu/adis_device_factory.h"
 #include "adi_imu/adis_register_map.h"
 
+#include "adi_imu/imu_diag_ros_publisher_factory.h"
+#include "adi_imu/adis_register_map.h"
+
+
 
 /**
  * @brief main function to run imu-ros2
@@ -134,15 +138,22 @@ int main(int argc, char* argv[])
   adi_imu::RosTask* ident_task = dynamic_cast<adi_imu::RosTask*>(ident_publisher);
 
   adi_imu::ImuDiagDataProviderInterface* diag_data_provider = nullptr;
-  adi_imu::ImuDiagRosPublisherInterface* diag_publisher = nullptr;
+  std::unique_ptr<adi_imu::ImuDiagRosPublisherInterface> diag_publisher = nullptr;
   adi_imu::RosTask* diag_task = nullptr;
 
   diag_data_provider = new adi_imu::ImuDiagDataProvider();
-  diag_publisher = new adi_imu::ImuDiagRosPublisher(imu_node);
-  diag_publisher->setMessageProvider(diag_data_provider);
-  diag_publisher->setDeviceDescriptor(device_descriptor);
 
-  diag_task = dynamic_cast<adi_imu::RosTask*>(diag_publisher);
+  try {
+    diag_publisher = adi_imu::ImuDiagPublisherFactory::make(device_descriptor, imu_node);
+    diag_publisher->setMessageProvider(diag_data_provider);
+    diag_publisher->setDeviceDescriptor(device_descriptor);
+
+    diag_task = dynamic_cast<adi_imu::RosTask*>(diag_publisher.get());
+  } catch (const std::exception& e) {
+    RCLCPP_ERROR(imu_node->get_logger(), "Failed to create diag publisher: %s", e.what());
+  }
+
+  diag_task = dynamic_cast<adi_imu::RosTask*>(diag_publisher.get());
 
   adi_imu::WorkerThread publisher_group_thread(publisher_group_task);
   adi_imu::WorkerThread ident_thread(ident_task);
@@ -161,7 +172,7 @@ int main(int argc, char* argv[])
   delete imu_std_publisher;
   delete full_data_publisher;
   delete ident_publisher;
-  delete diag_publisher;
+  // delete diag_publisher;
 
   rclcpp::shutdown();
 

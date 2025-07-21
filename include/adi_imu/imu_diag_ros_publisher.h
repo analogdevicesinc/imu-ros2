@@ -32,6 +32,7 @@ namespace adi_imu
 /**
  * @brief Class for diagnosis publisher for adis1657x chips.
  */
+template<typename DiagMsgType>
 class ImuDiagRosPublisher : public ImuDiagRosPublisherInterface
 {
 public:
@@ -39,29 +40,59 @@ public:
    * @brief Constructor for ImuDiagRosPublisher.
    * @param node The ros2 Node instance.
    */
-  ImuDiagRosPublisher(std::shared_ptr<rclcpp::Node> & node);
+  ImuDiagRosPublisher(std::shared_ptr<rclcpp::Node> & node)
+  {
+    m_node = node;
+    m_publisher = m_node->create_publisher<DiagMsgType>("imudiagdata", 10);
+  }
 
   /**
    * @brief Destructor for ImuDiagRosPublisher.
    */
-  ~ImuDiagRosPublisher();
+  ~ImuDiagRosPublisher() { delete m_data_provider; }
 
   /**
    * @brief Set the message data provider.
    * @param dataProvider Data provider.
    */
-  void setMessageProvider(ImuDiagDataProviderInterface * dataProvider) override;
+  void setMessageProvider(ImuDiagDataProviderInterface * dataProvider) override
+  {
+    m_data_provider = dataProvider;
+  }
 
   /**
    * @brief Set the device descriptor that defines the device's capabilities, register layout
    * and supported features.
    */
-  void setDeviceDescriptor(std::shared_ptr<ADISRegisterMap> device_descriptor) override;
+  void setDeviceDescriptor(std::shared_ptr<ADISRegisterMap> device_descriptor) override
+  {
+    m_device_descriptor = device_descriptor;
+    m_device_family = m_device_descriptor->getDeviceFamily();
+  }
 
   /**
    * @brief Run the thread responsible for publishing ImuDiagData message.
    */
-  void run() override;
+  void run() override
+  {
+    std::thread::id this_id = std::this_thread::get_id();
+    std::cout << "thread " << this_id << " started...\n";
+    RCLCPP_INFO(rclcpp::get_logger("imu_diag_ros_publisher"), "startThread: ImuDiagRosPublisher");
+
+    while (rclcpp::ok()) {
+      if (m_publisher && m_data_provider && m_data_provider->getData(m_message)) {
+        rclcpp::Time now = m_node->get_clock()->now();
+        m_message.header.stamp = now;
+        m_publisher->publish(m_message);
+      } else {
+        RCLCPP_INFO(rclcpp::get_logger("imu_diag_ros_publisher"), "error reading diagnosis data");
+      }
+    }
+
+    this_id = std::this_thread::get_id();
+    std::cout << "thread " << this_id << " ended...\n";
+    RCLCPP_INFO(rclcpp::get_logger("imu_diag_ros_publisher"), "endThread: ImuDiagRosPublisher");
+  }
 
 private:
   /*! This variable retains the data provider instance. */
@@ -69,22 +100,11 @@ private:
   std::shared_ptr<ADISRegisterMap> m_device_descriptor;
   std::string m_device_family;
 
-
   /*! This variable retains the publisher instance. */
-  rclcpp::Publisher<adi_imu::msg::ImuDiagDataADIS1646X>::SharedPtr m_publisher_1646X;
-  rclcpp::Publisher<adi_imu::msg::ImuDiagDataADIS1647X>::SharedPtr m_publisher_1647X;
-  rclcpp::Publisher<adi_imu::msg::ImuDiagDataADIS1650X>::SharedPtr m_publisher_1650X;
-  rclcpp::Publisher<adi_imu::msg::ImuDiagDataADIS1654X>::SharedPtr m_publisher_1654X;
-  rclcpp::Publisher<adi_imu::msg::ImuDiagDataADIS1655X>::SharedPtr m_publisher_1655X;
-  rclcpp::Publisher<adi_imu::msg::ImuDiagDataADIS1657X>::SharedPtr m_publisher_1657X;
+  typename rclcpp::Publisher<DiagMsgType>::SharedPtr m_publisher;
 
   /*! This variable retains the message that is published. */
-  adi_imu::msg::ImuDiagDataADIS1646X m_message_1646X;
-  adi_imu::msg::ImuDiagDataADIS1647X m_message_1647X;
-  adi_imu::msg::ImuDiagDataADIS1650X m_message_1650X;
-  adi_imu::msg::ImuDiagDataADIS1654X m_message_1654X;
-  adi_imu::msg::ImuDiagDataADIS1655X m_message_1655X;
-  adi_imu::msg::ImuDiagDataADIS1657X m_message_1657X;
+  DiagMsgType m_message;
 };
 
 }  // namespace adi_imu
