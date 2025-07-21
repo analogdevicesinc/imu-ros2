@@ -1,17 +1,23 @@
 name: Build ROS2 package
 
 env:
-  DEVICE_ID: adis16505-2
   PACKAGE_NAME: "adi_imu"
-  # Builds the package for the Jazzy distribution using the source code from the humble branch.
-  DEV_BRANCH: "humble"
 
 on:
+  workflow_dispatch:
+  pull_request:
+  merge_group:
   push:
     branches:
+      - humble*
       - jazzy*
-  schedule:
-    - cron: '0 0 * * 0'
+      - rolling*
+      - ci-*
+
+# Cancel in-progress runs for the same branch/PR
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   build-package:
@@ -21,11 +27,21 @@ jobs:
       fail-fast: false
       matrix:
         ros_distribution:
+          - humble
           - jazzy
+          - rolling
         include:
+          # Humble Hawksbill (May 2022 - May 2027) - Ubuntu 22.04 (Jammy)
+          - docker_image: ubuntu:jammy
+            ros_distribution: humble
+            ros_version: 2
           # Jazzy Jalisco (May 2024 - May 2029)
           - docker_image: ubuntu:noble
             ros_distribution: jazzy
+            ros_version: 2
+          # Rolling Ridley (No End-Of-Life)
+          - docker_image: ubuntu:noble
+            ros_distribution: rolling
             ros_version: 2
 
     container:
@@ -54,7 +70,6 @@ jobs:
           target-ros2-distro: ${{ matrix.ros_distribution }}
           skip-tests: true # TODO: Enable tests if any (TBD)
           import-token: ${{ secrets.GITHUB_TOKEN }}
-          ref: ${{ env.DEV_BRANCH }}
 
       - name: Store the build logs
         uses: actions/upload-artifact@v4
