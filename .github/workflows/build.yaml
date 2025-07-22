@@ -74,6 +74,6 @@ jobs:
       - name: Store the build logs
         uses: actions/upload-artifact@v4
         with:
-          name: colcon-logs
+          name: colcon-logs-${{ matrix.ros_distribution }}
           path: ${{ steps.action_ros_ci_step.outputs.ros-workspace-directory-name }}/log
         if: always() # upload the logs even when the build fails
