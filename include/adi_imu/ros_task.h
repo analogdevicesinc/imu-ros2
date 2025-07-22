@@ -17,8 +17,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef ROS_TASK_H
-#define ROS_TASK_H
+#ifndef ADI_IMU__ROS_TASK_H_
+#define ADI_IMU__ROS_TASK_H_
 
 namespace adi_imu
 {
@@ -58,4 +58,4 @@ public:
 
 }  // namespace adi_imu
 
-#endif  // ROS_TASK_H
+#endif  // ADI_IMU__ROS_TASK_H_

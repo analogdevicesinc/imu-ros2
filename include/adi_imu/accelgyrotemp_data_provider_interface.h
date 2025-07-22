@@ -18,8 +18,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef ACCELGYROTEMP_DATA_PROVIDER_INTERFACE_H
-#define ACCELGYROTEMP_DATA_PROVIDER_INTERFACE_H
+#ifndef ADI_IMU__ACCELGYROTEMP_DATA_PROVIDER_INTERFACE_H_
+#define ADI_IMU__ACCELGYROTEMP_DATA_PROVIDER_INTERFACE_H_
 
 #include "adi_imu/msg/accel_gyro_temp_data.hpp"
 
@@ -54,4 +54,4 @@ public:
 
 }  // namespace adi_imu
 
-#endif  // ACCELGYROTEMP_DATA_PROVIDER_INTERFACE_H
+#endif  // ADI_IMU__ACCELGYROTEMP_DATA_PROVIDER_INTERFACE_H_

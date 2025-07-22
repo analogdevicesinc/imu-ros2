@@ -2,7 +2,7 @@
  *   @file   imu_control_parameters.h
  *   @brief  Set ros parameter in libiio
  *   @author Vasile Holonec (Vasile.Holonec@analog.com)
-*******************************************************************************/
+ *******************************************************************************/
 // Copyright 2023 Analog Devices, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -17,8 +17,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef IMU_CONTROL_PARAMETERS_H
-#define IMU_CONTROL_PARAMETERS_H
+#ifndef ADI_IMU__IMU_CONTROL_PARAMETERS_H_
+#define ADI_IMU__IMU_CONTROL_PARAMETERS_H_
+
+#include <list>
+#include <map>
+#include <memory>
+#include <string>
 
 #include "adi_imu/adis_register_map.h"
 #include "adi_imu/iio_wrapper.h"
@@ -162,7 +167,7 @@ private:
   /*! Declare map type for parameter updating APIs of type uint32. */
   typedef std::map<std::string, UpdateUint32Params> UpdateUint32ParamsMapType;
 
-  /*! Update parameter map which contains the update function call for each parameter of type uint32. */
+  /*! Update parameter map containing update function call for each parameter of type uint32. */
   UpdateUint32ParamsMapType m_func_map_update_uint32_params;
 
   /*! Declare function type for parameter reading APIs of type uint32. */
@@ -171,7 +176,7 @@ private:
   /*! Declare map type for parameter reading APIs of type uint32. */
   typedef std::map<std::string, GetUint32Params> GetUint32ParamsMapType;
 
-  /*! Read parameter map which contains the read function call for each parameter of type uint32. */
+  /*! Read parameter map containing the read function call for each parameter of type uint32. */
   GetUint32ParamsMapType m_func_map_get_uint32_params;
 
   /*! Declare function type for parameter updating APIs of type int32. */
@@ -180,7 +185,7 @@ private:
   /*! Declare map type for parameter updating APIs of type int32. */
   typedef std::map<std::string, UpdateInt32Params> UpdateInt32ParamsMapType;
 
-  /*! Update parameter map which contains the update function call for each parameter of type int32. */
+  /*! Update parameter map containing the update function call for each parameter of type int32. */
   UpdateInt32ParamsMapType m_func_map_update_int32_params;
 
   /*! Declare function type for parameter reading APIs of type int32. */
@@ -189,7 +194,7 @@ private:
   /*! Declare map type for parameter reading APIs of type int32. */
   typedef std::map<std::string, GetInt32Params> GetInt32ParamsMapType;
 
-  /*! Read parameter map which contains the read function call for each parameter of type int32. */
+  /*! Read parameter map containing the read function call for each parameter of type int32. */
   GetInt32ParamsMapType m_func_map_get_int32_params;
 
   /*! Declare function type for parameter updating APIs of type double. */
@@ -198,7 +203,7 @@ private:
   /*! Declare map type for parameter updating APIs of type double. */
   typedef std::map<std::string, UpdateDoubleParams> UpdateDoubleParamsMapType;
 
-  /*! Update parameter map which contains the update function call for each parameter of type double. */
+  /*! Update parameter map containing the update function call for each parameter of type double. */
   UpdateDoubleParamsMapType m_func_map_update_double_params;
 
   /*! Declare function type for parameter reading APIs of type double. */
@@ -207,7 +212,7 @@ private:
   /*! Declare map type for parameter reading APIs of type double. */
   typedef std::map<std::string, GetDoubleParams> GetDoubleParamsMapType;
 
-  /*! Read parameter map which contains the read function call for each parameter of type double. */
+  /*! Read parameter map containing the read function call for each parameter of type double. */
   GetDoubleParamsMapType m_func_map_get_double_params;
 
   /*! Declare function type for command execution APIs. */
@@ -216,7 +221,7 @@ private:
   /*! Declare map type for command APIs. */
   typedef std::map<std::string, ExecuteCommands> ExecuteCommandsMapType;
 
-  /*! Command map which contains the trigger function call for each command. */
+  /*! Command map containing the trigger function call for each command. */
   ExecuteCommandsMapType m_func_map_execute_commands;
 
   /*! Attribute list which stores the current attribute names of the device. */
@@ -246,4 +251,4 @@ private:
 
 }  // namespace adi_imu
 
-#endif  // IMU_CONTROL_PARAMETERS_H
+#endif  // ADI_IMU__IMU_CONTROL_PARAMETERS_H_

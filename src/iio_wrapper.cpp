@@ -1,4 +1,4 @@
-/***************************************************************************/ /**
+/*******************************************************************************
  *   @file   iio_wrapper.cpp
  *   @brief  Implementation for iio wrapper library
  *   @author Vasile Holonec (Vasile.Holonec@analog.com)

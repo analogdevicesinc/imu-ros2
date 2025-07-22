@@ -48,10 +48,11 @@ void AccelGyroTempRosPublisher::publish()
       m_message.header.stamp = now;
     }
     m_publisher->publish(m_message);
-  } else
+  } else {
     RCLCPP_INFO(
       rclcpp::get_logger("accelgyrotemp_ros_publisher"),
       "error reading accelerometer, gyroscope and temperature buffered data");
+  }
 }
 
 }  // namespace adi_imu

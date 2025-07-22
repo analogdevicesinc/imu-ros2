@@ -17,8 +17,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef IMU_DIAG_ROS_PUBLISHER_H
-#define IMU_DIAG_ROS_PUBLISHER_H
+#ifndef ADI_IMU__IMU_DIAG_ROS_PUBLISHER_H_
+#define ADI_IMU__IMU_DIAG_ROS_PUBLISHER_H_
+
+#include <memory>
+#include <string>
 
 #include "adi_imu/imu_diag_data_provider_interface.h"
 #include "adi_imu/imu_diag_ros_publisher_interface.h"
@@ -38,7 +41,7 @@ public:
    * @brief Constructor for ImuDiagRosPublisher.
    * @param node The ros2 Node instance.
    */
-  ImuDiagRosPublisher(std::shared_ptr<rclcpp::Node> & node)
+  explicit ImuDiagRosPublisher(std::shared_ptr<rclcpp::Node> & node)
   {
     m_node = node;
     m_publisher = m_node->create_publisher<DiagMsgType>("imudiagdata", 10);
@@ -107,4 +110,4 @@ private:
 
 }  // namespace adi_imu
 
-#endif  // IMU_DIAG_ROS_PUBLISHER_H
+#endif  // ADI_IMU__IMU_DIAG_ROS_PUBLISHER_H_

@@ -18,8 +18,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef IMU_FULL_MEASURED_DATA_PROVIDER_INTERFACE_H
-#define IMU_FULL_MEASURED_DATA_PROVIDER_INTERFACE_H
+#ifndef ADI_IMU__IMU_FULL_MEASURED_DATA_PROVIDER_INTERFACE_H_
+#define ADI_IMU__IMU_FULL_MEASURED_DATA_PROVIDER_INTERFACE_H_
 
 #include "adi_imu/msg/imu_full_measured_data.hpp"
 
@@ -53,4 +53,4 @@ public:
 
 }  // namespace adi_imu
 
-#endif  // IMU_FULL_MEASURED_DATA_PROVIDER_INTERFACE_H
+#endif  // ADI_IMU__IMU_FULL_MEASURED_DATA_PROVIDER_INTERFACE_H_

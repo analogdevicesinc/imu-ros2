@@ -18,8 +18,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef VELANGTEMP_DATA_PROVIDER_INTERFACE_H
-#define VELANGTEMP_DATA_PROVIDER_INTERFACE_H
+#ifndef ADI_IMU__VELANGTEMP_DATA_PROVIDER_INTERFACE_H_
+#define ADI_IMU__VELANGTEMP_DATA_PROVIDER_INTERFACE_H_
 
 #include "adi_imu/msg/vel_ang_temp_data.hpp"
 
@@ -54,4 +54,4 @@ public:
 
 }  // namespace adi_imu
 
-#endif  // VELANGTEMP_DATA_PROVIDER_INTERFACE_H
+#endif  // ADI_IMU__VELANGTEMP_DATA_PROVIDER_INTERFACE_H_

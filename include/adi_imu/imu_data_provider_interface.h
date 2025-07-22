@@ -17,8 +17,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef IMU_DATA_PROVIDER_INTERFACE_H
-#define IMU_DATA_PROVIDER_INTERFACE_H
+#ifndef ADI_IMU__IMU_DATA_PROVIDER_INTERFACE_H_
+#define ADI_IMU__IMU_DATA_PROVIDER_INTERFACE_H_
 
 #include <sensor_msgs/msg/imu.hpp>
 
@@ -52,4 +52,4 @@ public:
 
 }  // namespace adi_imu
 
-#endif  // IMU_DATA_PROVIDER_INTERFACE_H
+#endif  // ADI_IMU__IMU_DATA_PROVIDER_INTERFACE_H_

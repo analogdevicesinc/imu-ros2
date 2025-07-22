@@ -17,9 +17,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef VELANGTEMP_ROS_PUBLISHER_H
-#define VELANGTEMP_ROS_PUBLISHER_H
+#ifndef ADI_IMU__VELANGTEMP_ROS_PUBLISHER_H_
+#define ADI_IMU__VELANGTEMP_ROS_PUBLISHER_H_
 
+#include <memory>
 #include <rclcpp/rclcpp.hpp>
 
 #include "adi_imu/velangtemp_data_provider_interface.h"
@@ -38,7 +39,7 @@ public:
    * @brief Constructor for VelAngTempRosPublisher.
    * @param node The ros2 Node instance.
    */
-  VelAngTempRosPublisher(std::shared_ptr<rclcpp::Node> & node);
+  explicit VelAngTempRosPublisher(std::shared_ptr<rclcpp::Node> & node);
 
   /**
    * @brief Destructor for VelAngTempRosPublisher.
@@ -69,4 +70,4 @@ private:
 
 }  // namespace adi_imu
 
-#endif  // VELANGTEMP_ROS_PUBLISHER_H
+#endif  // ADI_IMU__VELANGTEMP_ROS_PUBLISHER_H_

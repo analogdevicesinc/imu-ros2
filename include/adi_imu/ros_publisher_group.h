@@ -17,9 +17,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef ROS_PUBLISHER_GROUP_H
-#define ROS_PUBLISHER_GROUP_H
+#ifndef ADI_IMU__ROS_PUBLISHER_GROUP_H_
+#define ADI_IMU__ROS_PUBLISHER_GROUP_H_
 
+#include <memory>
 #include <rclcpp/rclcpp.hpp>
 
 #include "adi_imu/ros_publisher_group_interface.h"
@@ -37,7 +38,7 @@ public:
    * @brief Constructor for RosPublisherGroup.
    * @param node The ros2 Node instance.
    */
-  RosPublisherGroup(std::shared_ptr<rclcpp::Node> & node);
+  explicit RosPublisherGroup(std::shared_ptr<rclcpp::Node> & node);
 
   /**
    * @brief Destructor for RosPublisherGroup.
@@ -100,4 +101,4 @@ private:
 
 }  // namespace adi_imu
 
-#endif  // ROS_PUBLISHER_GROUP_H
+#endif  // ADI_IMU__ROS_PUBLISHER_GROUP_H_

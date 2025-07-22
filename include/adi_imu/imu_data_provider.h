@@ -17,8 +17,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef IMU_DATA_PROVIDER_H
-#define IMU_DATA_PROVIDER_H
+#ifndef ADI_IMU__IMU_DATA_PROVIDER_H_
+#define ADI_IMU__IMU_DATA_PROVIDER_H_
 
 #include "adi_imu/iio_wrapper.h"
 #include "adi_imu/imu_data_provider_interface.h"
@@ -57,4 +57,4 @@ private:
 
 }  // namespace adi_imu
 
-#endif  // IMU_DATA_PROVIDER_H
+#endif  // ADI_IMU__IMU_DATA_PROVIDER_H_

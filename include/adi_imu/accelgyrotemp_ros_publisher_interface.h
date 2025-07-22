@@ -17,8 +17,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef ACCELGYROTEMP_ROS_PUBLISHER_INTERFACE_H
-#define ACCELGYROTEMP_ROS_PUBLISHER_INTERFACE_H
+#ifndef ADI_IMU__ACCELGYROTEMP_ROS_PUBLISHER_INTERFACE_H_
+#define ADI_IMU__ACCELGYROTEMP_ROS_PUBLISHER_INTERFACE_H_
 
 #include <memory>
 #include <rclcpp/rclcpp.hpp>
@@ -63,4 +63,4 @@ protected:
 
 }  // namespace adi_imu
 
-#endif  // ACCELGYROTEMP_ROS_PUBLISHER_INTERFACE_H
+#endif  // ADI_IMU__ACCELGYROTEMP_ROS_PUBLISHER_INTERFACE_H_

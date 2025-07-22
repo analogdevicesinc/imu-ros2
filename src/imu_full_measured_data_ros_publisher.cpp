@@ -48,10 +48,11 @@ void ImuFullMeasuredDataRosPublisher::publish()
     rclcpp::Time now = m_node->get_clock()->now();
     m_message.header.stamp = now;
     m_publisher->publish(m_message);
-  } else
+  } else {
     RCLCPP_INFO(
       rclcpp::get_logger("imu_full_measured_data_ros_publisher"),
       "error reading full measured data");
+  }
 }
 
 }  // namespace adi_imu

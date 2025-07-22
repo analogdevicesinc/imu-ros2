@@ -46,9 +46,10 @@ void ImuRosPublisher::publish()
       m_message.header.stamp = now;
     }
     m_publisher->publish(m_message);
-  } else
+  } else {
     RCLCPP_INFO(
       rclcpp::get_logger("imu_ros_publisher"), "error reading standard imu buffered data");
+  }
 }
 
 }  // namespace adi_imu

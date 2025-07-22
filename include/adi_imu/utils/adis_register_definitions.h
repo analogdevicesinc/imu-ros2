@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef ADIS_REGISTER_DEFINITIONS_H
-#define ADIS_REGISTER_DEFINITIONS_H
+#ifndef ADI_IMU__UTILS__ADIS_REGISTER_DEFINITIONS_H_
+#define ADI_IMU__UTILS__ADIS_REGISTER_DEFINITIONS_H_
 
 #include <cstdint>
 #include <string>
@@ -163,7 +163,7 @@ enum class ADISRegister : uint32_t
   SYNC_POL_POS,
   SENS_BW_POS,
   LN_ACCL_COMP_POS,
-  TIME_BASE_CONTROL_POS,  // TODO
+  TIME_BASE_CONTROL_POS,
   X_AXIS_GYRO_BIAS_CORR_EN_POS,
   Y_AXIS_GYRO_BIAS_CORR_EN_POS,
   Z_AXIS_GYRO_BIAS_CORR_EN_POS,
@@ -365,4 +365,4 @@ const std::unordered_map<ADISRegister, std::string> registerNames = {
 
 }  // namespace adi_imu
 
-#endif  // ADIS_REGISTER_DEFINITIONS_H
+#endif  // ADI_IMU__UTILS__ADIS_REGISTER_DEFINITIONS_H_

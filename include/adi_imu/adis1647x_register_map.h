@@ -12,10 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef ADIS1647X_REGISTER_MAP_H
-#define ADIS1647X_REGISTER_MAP_H
+#ifndef ADI_IMU__ADIS1647X_REGISTER_MAP_H_
+#define ADI_IMU__ADIS1647X_REGISTER_MAP_H_
 
-#include "adis_register_map.h"
+#include "adi_imu/adis_register_map.h"
 
 namespace adi_imu
 {
@@ -31,4 +31,4 @@ private:
 
 }  // namespace adi_imu
 
-#endif  // ADIS1647X_REGISTER_MAP_H
+#endif  // ADI_IMU__ADIS1647X_REGISTER_MAP_H_

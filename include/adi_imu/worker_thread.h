@@ -17,8 +17,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef WORKER_THREAD_H
-#define WORKER_THREAD_H
+#ifndef ADI_IMU__WORKER_THREAD_H_
+#define ADI_IMU__WORKER_THREAD_H_
 
 #include <thread>
 
@@ -37,7 +37,7 @@ public:
    * @brief Constructor for WorkerThread.
    * @param rosTask A class that implements RosTask interface.
    */
-  WorkerThread(RosTask * rosTask);
+  explicit WorkerThread(RosTask * rosTask);
 
   /**
    * @brief Destructor for WorkerThread.
@@ -56,4 +56,4 @@ private:
 
 }  // namespace adi_imu
 
-#endif  // WORKER_THREAD_H
+#endif  // ADI_IMU__WORKER_THREAD_H_

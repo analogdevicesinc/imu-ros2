@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef ADIS_DEVICE_FACTORY_H
-#define ADIS_DEVICE_FACTORY_H
+#ifndef ADI_IMU__ADIS_DEVICE_FACTORY_H_
+#define ADI_IMU__ADIS_DEVICE_FACTORY_H_
 
 #include <memory>
 #include <string>
@@ -34,4 +34,4 @@ public:
 
 }  // namespace adi_imu
 
-#endif  // ADIS_DEVICE_FACTORY_H
+#endif  // ADI_IMU__ADIS_DEVICE_FACTORY_H_

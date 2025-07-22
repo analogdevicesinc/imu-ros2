@@ -1,4 +1,4 @@
-/***************************************************************************/ /**
+/*******************************************************************************
  *   @file   imu_identification_data_provider.h
  *   @brief  Header for providing imu identification data.
  *   @author Vasile Holonec (Vasile.Holonec@analog.com)
@@ -17,8 +17,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef IMU_IDENTIFICATION_DATA_PROVIDER_H
-#define IMU_IDENTIFICATION_DATA_PROVIDER_H
+#ifndef ADI_IMU__IMU_IDENTIFICATION_DATA_PROVIDER_H_
+#define ADI_IMU__IMU_IDENTIFICATION_DATA_PROVIDER_H_
 
 #include "adi_imu/iio_wrapper.h"
 #include "adi_imu/imu_identification_data_provider_interface.h"
@@ -57,4 +57,4 @@ private:
 
 }  // namespace adi_imu
 
-#endif  // IMU_IDENTIFICATION_DATA_PROVIDER_STRING_H
+#endif  // ADI_IMU__IMU_IDENTIFICATION_DATA_PROVIDER_H_

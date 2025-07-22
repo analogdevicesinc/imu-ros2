@@ -47,10 +47,11 @@ void VelAngTempRosPublisher::publish()
       m_message.header.stamp = now;
     }
     m_publisher->publish(m_message);
-  } else
+  } else {
     RCLCPP_INFO(
       rclcpp::get_logger("velangtemp_ros_publisher"),
       "error reading delta angle, delta velocity and temperature buffered data");
+  }
 }
 
 }  // namespace adi_imu

@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef IMU_DIAG_ROS_PUBLISHER_FACTORY_H
-#define IMU_DIAG_ROS_PUBLISHER_FACTORY_H
+#ifndef ADI_IMU__IMU_DIAG_ROS_PUBLISHER_FACTORY_H_
+#define ADI_IMU__IMU_DIAG_ROS_PUBLISHER_FACTORY_H_
 
 #include <memory>
 #include <string>
@@ -60,4 +60,4 @@ public:
 
 }  // namespace adi_imu
 
-#endif  // IMU_DIAG_ROS_PUBLISHER_FACTORY_H
+#endif  // ADI_IMU__IMU_DIAG_ROS_PUBLISHER_FACTORY_H_

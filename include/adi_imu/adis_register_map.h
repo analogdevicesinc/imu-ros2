@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef ADIS_REGISTER_MAP_H
-#define ADIS_REGISTER_MAP_H
+#ifndef ADI_IMU__ADIS_REGISTER_MAP_H_
+#define ADI_IMU__ADIS_REGISTER_MAP_H_
 
 #include <algorithm>
 #include <cstdint>
@@ -31,7 +31,7 @@ namespace adi_imu
 class ADISRegisterMap
 {
 protected:
-  ADISRegisterMap(adis_device_id device_id);
+  explicit ADISRegisterMap(adis_device_id device_id);
 
 public:
   void initialize();
@@ -54,7 +54,7 @@ protected:
   virtual void computeBitMasks() final;
   virtual void postComputeBitmask() final;
   virtual void initializeConstants() = 0;
-  virtual void overwriteRegisters(){};
+  virtual void overwriteRegisters() {}
 
 protected:
   std::unordered_map<ADISRegister, uint32_t> m_register_map;
@@ -66,4 +66,4 @@ protected:
 
 }  // namespace adi_imu
 
-#endif  // ADIS_REGISTER_MAP_H
+#endif  // ADI_IMU__ADIS_REGISTER_MAP_H_

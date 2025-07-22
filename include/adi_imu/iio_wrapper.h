@@ -17,14 +17,16 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef IIO_WRAPPER_H
-#define IIO_WRAPPER_H
+#ifndef ADI_IMU__IIO_WRAPPER_H_
+#define ADI_IMU__IIO_WRAPPER_H_
 
 #define IIO_CONTEXT_ERROR -1
 
 #include <iio.h>
 
+#include <memory>
 #include <string>
+#include <vector>
 
 #include "adi_imu/adis_register_map.h"
 
@@ -1330,4 +1332,4 @@ public:
 
 }  // namespace adi_imu
 
-#endif  // IIO_WRAPPER_H
+#endif  // ADI_IMU__IIO_WRAPPER_H_

@@ -17,9 +17,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef IMU_IDENTIFICATION_ROS_PUBLISHER_H
-#define IMU_IDENTIFICATION_ROS_PUBLISHER_H
+#ifndef ADI_IMU__IMU_IDENTIFICATION_ROS_PUBLISHER_H_
+#define ADI_IMU__IMU_IDENTIFICATION_ROS_PUBLISHER_H_
 
+#include <memory>
 #include <rclcpp/rclcpp.hpp>
 
 #include "adi_imu/imu_identification_data_provider_interface.h"
@@ -38,7 +39,7 @@ public:
    * @brief Constructor for ImuIdentificationRosPublisher.
    * @param node The ros2 Node instance.
    */
-  ImuIdentificationRosPublisher(std::shared_ptr<rclcpp::Node> & node);
+  explicit ImuIdentificationRosPublisher(std::shared_ptr<rclcpp::Node> & node);
 
   /**
    * @brief Destructor for ImuIdentificationRosPublisher.
@@ -70,4 +71,4 @@ private:
 
 }  // namespace adi_imu
 
-#endif  // IMU_IDENTIFICATION_ROS_PUBLISHER_H
+#endif  // ADI_IMU__IMU_IDENTIFICATION_ROS_PUBLISHER_H_

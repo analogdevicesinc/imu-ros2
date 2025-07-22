@@ -1,4 +1,4 @@
-/***************************************************************************/ /**
+/*******************************************************************************
  *   @file   imu_control_parameters.cpp
  *   @brief  Set ros parameter in libiio - implementation
  *   @author Vasile Holonec (Vasile.Holonec@analog.com)
@@ -127,7 +127,6 @@ void ImuControlParameters::mapIIOUpdateFunctionsInt32()
   if (
     m_device_descriptor->getDeviceFamily() == "adis1654x" ||
     m_device_descriptor->getDeviceFamily() == "adis1655x") {
-    // TODO: update function references to match map key
     m_func_map_update_uint32_params["angvel_x_filter_low_pass_3db"] =
       &IIOWrapper::update_angvel_x_filter_low_pass_3db;
     m_func_map_update_uint32_params["angvel_y_filter_low_pass_3db"] =
