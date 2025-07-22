@@ -59,12 +59,11 @@ private:
   /*! This data member is used to access sensor information via libiio. */
   IIOWrapper m_iio_wrapper;
 
-  template<typename MessageType>
-  bool populateCommonFields(MessageType& message);
+  template <typename MessageType>
+  bool populateCommonFields(MessageType & message);
 
-  template<typename MessageType>
-  bool populateAxisFailureFields(MessageType& message);
-
+  template <typename MessageType>
+  bool populateAxisFailureFields(MessageType & message);
 };
 
 }  // namespace adi_imu

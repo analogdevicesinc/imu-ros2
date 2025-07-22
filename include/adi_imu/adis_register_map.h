@@ -1,13 +1,13 @@
 #ifndef ADIS_REGISTER_MAP_H
 #define ADIS_REGISTER_MAP_H
 
-#include <iostream>
-#include <unordered_map>
+#include <algorithm>
 #include <cstdint>
+#include <iostream>
 #include <memory>
 #include <string>
+#include <unordered_map>
 #include <vector>
-#include <algorithm>
 
 #include "adi_imu/utils/adis_register_definitions.h"
 

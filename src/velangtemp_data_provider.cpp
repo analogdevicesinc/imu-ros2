@@ -30,8 +30,7 @@ VelAngTempDataProvider::~VelAngTempDataProvider() {}
 
 bool VelAngTempDataProvider::getData(adi_imu::msg::VelAngTempData & message)
 {
-  if (!m_iio_wrapper.updateBuffer(DELTAVEL_DELTAANG_BUFFERED_DATA))
-    return false;
+  if (!m_iio_wrapper.updateBuffer(DELTAVEL_DELTAANG_BUFFERED_DATA)) return false;
 
   message.delta_angle.x = m_iio_wrapper.getBuffDeltaAngleX();
   message.delta_angle.y = m_iio_wrapper.getBuffDeltaAngleY();

@@ -21,13 +21,13 @@
 #ifndef IMU_DIAG_DATA_PROVIDER_INTERFACE_H
 #define IMU_DIAG_DATA_PROVIDER_INTERFACE_H
 
+#include "adi_imu/adis_register_map.h"
 #include "adi_imu/msg/imu_diag_data_adis1646_x.hpp"
 #include "adi_imu/msg/imu_diag_data_adis1647_x.hpp"
 #include "adi_imu/msg/imu_diag_data_adis1650_x.hpp"
 #include "adi_imu/msg/imu_diag_data_adis1654_x.hpp"
 #include "adi_imu/msg/imu_diag_data_adis1655_x.hpp"
 #include "adi_imu/msg/imu_diag_data_adis1657_x.hpp"
-#include "adi_imu/adis_register_map.h"
 
 namespace adi_imu
 {

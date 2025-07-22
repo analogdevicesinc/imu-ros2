@@ -53,4 +53,4 @@ void Adis1646xRegisterMap::initializeConstants()
   set(ADISRegister::PT_OF_PERC_ALGNMNT_POS, 6);
 }
 
-} // namespace adi_imu
+}  // namespace adi_imu

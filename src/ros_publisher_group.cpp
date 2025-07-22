@@ -90,17 +90,17 @@ void RosPublisherGroup::run()
           m_accelGyroTempRosPublisher->publish();
         }
         break;
-      case DELTAVEL_DELTAANG_BUFFERED_DATA: // CRASH!!! - reads from index out of bounds
+      case DELTAVEL_DELTAANG_BUFFERED_DATA:  // CRASH!!! - reads from index out of bounds
         if (m_velAngTempRosPublisher != nullptr) {
           m_velAngTempRosPublisher->publish();
         }
         break;
-      case IMU_STD_MSG_DATA: // data is fetched using mode  ACCEL_GYRO_BUFFERED_DATA
+      case IMU_STD_MSG_DATA:  // data is fetched using mode  ACCEL_GYRO_BUFFERED_DATA
         if (m_imuRosPublisher != nullptr) {
           m_imuRosPublisher->publish();
         }
         break;
-      case FULL_MEASURED_DATA: // reads attr directly or from debug
+      case FULL_MEASURED_DATA:  // reads attr directly or from debug
         if (m_imuFullMeasuredDataRosPublisher != nullptr) {
           m_imuFullMeasuredDataRosPublisher->publish();
         }

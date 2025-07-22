@@ -30,8 +30,7 @@ namespace adi_imu
 {
 
 ImuControlParameters::ImuControlParameters(
-  std::shared_ptr<rclcpp::Node> & node,
-  std::shared_ptr<ADISRegisterMap> & device_descriptor)
+  std::shared_ptr<rclcpp::Node> & node, std::shared_ptr<ADISRegisterMap> & device_descriptor)
 {
   m_node = node;
   m_device_descriptor = device_descriptor;
@@ -50,7 +49,6 @@ ImuControlParameters::ImuControlParameters(
 
 ImuControlParameters::~ImuControlParameters() {}
 
-
 void ImuControlParameters::declareAdisAttributes()
 {
   m_attr_current_device.push_back("anglvel_calibbias_x");
@@ -60,8 +58,7 @@ void ImuControlParameters::declareAdisAttributes()
   m_attr_current_device.push_back("accel_calibbias_y");
   m_attr_current_device.push_back("accel_calibbias_z");
 
-  if (m_device_descriptor->has(ADISRegister::HAS_CALIB_SCALE))
-  {
+  if (m_device_descriptor->has(ADISRegister::HAS_CALIB_SCALE)) {
     m_attr_current_device.push_back("anglvel_calibscale_x");
     m_attr_current_device.push_back("anglvel_calibscale_y");
     m_attr_current_device.push_back("anglvel_calibscale_z");
@@ -70,22 +67,18 @@ void ImuControlParameters::declareAdisAttributes()
     m_attr_current_device.push_back("accel_calibscale_z");
   }
 
-  if (m_device_descriptor->has(ADISRegister::SENS_BW))
-  {
+  if (m_device_descriptor->has(ADISRegister::SENS_BW)) {
     m_attr_current_device.push_back("internal_sensor_bandwidth");
   }
 
-  if (m_device_descriptor->has(ADISRegister::PT_OF_PERC_REG_ADDR))
-  {
+  if (m_device_descriptor->has(ADISRegister::PT_OF_PERC_REG_ADDR)) {
     m_attr_current_device.push_back("point_of_percussion_alignment");
   }
 
-  if (m_device_descriptor->has(ADISRegister::MSC_CTRL_ADDR))
-  {
+  if (m_device_descriptor->has(ADISRegister::MSC_CTRL_ADDR)) {
     m_attr_current_device.push_back("linear_acceleration_compensation");
   }
-  if (m_device_descriptor->has(ADISRegister::NULL_CNFG_ADDR))
-  {
+  if (m_device_descriptor->has(ADISRegister::NULL_CNFG_ADDR)) {
     m_attr_current_device.push_back("bias_correction_time_base_control");
     m_attr_current_device.push_back("x_axis_gyroscope_bias_correction_enable");
     m_attr_current_device.push_back("y_axis_accelerometer_bias_correction_enable");
@@ -95,17 +88,16 @@ void ImuControlParameters::declareAdisAttributes()
     m_attr_current_device.push_back("z_axis_gyroscope_bias_correction_enable");
   }
 
-  if (m_device_descriptor->getDeviceFamily() == "adis1654x" ||
-      m_device_descriptor->getDeviceFamily() == "adis1655x")
-  {
+  if (
+    m_device_descriptor->getDeviceFamily() == "adis1654x" ||
+    m_device_descriptor->getDeviceFamily() == "adis1655x") {
     m_attr_current_device.push_back("angvel_x_filter_low_pass_3db");
     m_attr_current_device.push_back("angvel_y_filter_low_pass_3db");
     m_attr_current_device.push_back("angvel_z_filter_low_pass_3db");
     m_attr_current_device.push_back("accel_x_filter_low_pass_3db");
     m_attr_current_device.push_back("accel_y_filter_low_pass_3db");
     m_attr_current_device.push_back("accel_z_filter_low_pass_3db");
-  } else
-  {
+  } else {
     m_attr_current_device.push_back("filter_low_pass_3db_frequency");
   }
 
@@ -121,20 +113,21 @@ void ImuControlParameters::mapIIOUpdateFunctionsInt32()
   m_func_map_update_int32_params["anglvel_calibbias_y"] = &IIOWrapper::update_anglvel_calibbias_y;
   m_func_map_update_int32_params["anglvel_calibbias_z"] = &IIOWrapper::update_anglvel_calibbias_z;
 
-  if (m_device_descriptor->has(ADISRegister::HAS_CALIB_SCALE))
-  {
+  if (m_device_descriptor->has(ADISRegister::HAS_CALIB_SCALE)) {
     m_func_map_update_int32_params["accel_calibscale_x"] = &IIOWrapper::update_accel_calibscale_x;
     m_func_map_update_int32_params["accel_calibscale_y"] = &IIOWrapper::update_accel_calibscale_y;
     m_func_map_update_int32_params["accel_calibscale_z"] = &IIOWrapper::update_accel_calibscale_z;
-    m_func_map_update_int32_params["anglvel_calibscale_x"] = &IIOWrapper::update_anglvel_calibscale_x;
-    m_func_map_update_int32_params["anglvel_calibscale_y"] = &IIOWrapper::update_anglvel_calibscale_y;
-    m_func_map_update_int32_params["anglvel_calibscale_z"] = &IIOWrapper::update_anglvel_calibscale_z;
-
+    m_func_map_update_int32_params["anglvel_calibscale_x"] =
+      &IIOWrapper::update_anglvel_calibscale_x;
+    m_func_map_update_int32_params["anglvel_calibscale_y"] =
+      &IIOWrapper::update_anglvel_calibscale_y;
+    m_func_map_update_int32_params["anglvel_calibscale_z"] =
+      &IIOWrapper::update_anglvel_calibscale_z;
   }
 
-  if (m_device_descriptor->getDeviceFamily() == "adis1654x" ||
-      m_device_descriptor->getDeviceFamily() == "adis1655x")
-  {
+  if (
+    m_device_descriptor->getDeviceFamily() == "adis1654x" ||
+    m_device_descriptor->getDeviceFamily() == "adis1655x") {
     // TODO: update function references to match map key
     m_func_map_update_uint32_params["angvel_x_filter_low_pass_3db"] =
       &IIOWrapper::update_angvel_x_filter_low_pass_3db;
@@ -148,8 +141,7 @@ void ImuControlParameters::mapIIOUpdateFunctionsInt32()
       &IIOWrapper::update_accel_y_filter_low_pass_3db;
     m_func_map_update_uint32_params["accel_z_filter_low_pass_3db"] =
       &IIOWrapper::update_accel_z_filter_low_pass_3db;
-  } else
-  {
+  } else {
     m_func_map_update_uint32_params["filter_low_pass_3db_frequency"] =
       &IIOWrapper::update_filter_low_pass_3db_frequency;
   }
@@ -164,19 +156,18 @@ void ImuControlParameters::mapIIOGetFunctionsInt32()
   m_func_map_get_int32_params["anglvel_calibbias_y"] = &IIOWrapper::anglvel_y_calibbias;
   m_func_map_get_int32_params["anglvel_calibbias_z"] = &IIOWrapper::anglvel_z_calibbias;
 
-  if (m_device_descriptor->has(ADISRegister::HAS_CALIB_SCALE))
-  {
-  m_func_map_get_int32_params["accel_calibscale_x"] = &IIOWrapper::accel_x_calibscale;
-  m_func_map_get_int32_params["accel_calibscale_y"] = &IIOWrapper::accel_y_calibscale;
-  m_func_map_get_int32_params["accel_calibscale_z"] = &IIOWrapper::accel_z_calibscale;
-  m_func_map_get_int32_params["anglvel_calibscale_x"] = &IIOWrapper::anglvel_x_calibscale;
-  m_func_map_get_int32_params["anglvel_calibscale_y"] = &IIOWrapper::anglvel_y_calibscale;
-  m_func_map_get_int32_params["anglvel_calibscale_z"] = &IIOWrapper::anglvel_z_calibscale;
+  if (m_device_descriptor->has(ADISRegister::HAS_CALIB_SCALE)) {
+    m_func_map_get_int32_params["accel_calibscale_x"] = &IIOWrapper::accel_x_calibscale;
+    m_func_map_get_int32_params["accel_calibscale_y"] = &IIOWrapper::accel_y_calibscale;
+    m_func_map_get_int32_params["accel_calibscale_z"] = &IIOWrapper::accel_z_calibscale;
+    m_func_map_get_int32_params["anglvel_calibscale_x"] = &IIOWrapper::anglvel_x_calibscale;
+    m_func_map_get_int32_params["anglvel_calibscale_y"] = &IIOWrapper::anglvel_y_calibscale;
+    m_func_map_get_int32_params["anglvel_calibscale_z"] = &IIOWrapper::anglvel_z_calibscale;
   }
 
-  if (m_device_descriptor->getDeviceFamily() == "adis1654x" ||
-      m_device_descriptor->getDeviceFamily() == "adis1655x")
-  {
+  if (
+    m_device_descriptor->getDeviceFamily() == "adis1654x" ||
+    m_device_descriptor->getDeviceFamily() == "adis1655x") {
     m_func_map_get_uint32_params["angvel_x_filter_low_pass_3db"] =
       &IIOWrapper::angvel_x_filter_low_pass_3db;
     m_func_map_get_uint32_params["angvel_y_filter_low_pass_3db"] =
@@ -189,8 +180,7 @@ void ImuControlParameters::mapIIOGetFunctionsInt32()
       &IIOWrapper::accel_y_filter_low_pass_3db;
     m_func_map_get_uint32_params["accel_z_filter_low_pass_3db"] =
       &IIOWrapper::accel_z_filter_low_pass_3db;
-  } else
-  {
+  } else {
     m_func_map_get_uint32_params["filter_low_pass_3db_frequency"] =
       &IIOWrapper::filter_low_pass_3db_frequency;
   }
@@ -198,65 +188,57 @@ void ImuControlParameters::mapIIOGetFunctionsInt32()
 
 void ImuControlParameters::mapIIOUpdateFunctionsUint32()
 {
-  if (m_device_descriptor->has(ADISRegister::SENS_BW))
-  {
+  if (m_device_descriptor->has(ADISRegister::SENS_BW)) {
     m_func_map_update_uint32_params["internal_sensor_bandwidth"] =
       &IIOWrapper::update_internal_sensor_bandwidth;
   }
 
-  if (m_device_descriptor->has(ADISRegister::PT_OF_PERC_ALGNMNT))
-  {
+  if (m_device_descriptor->has(ADISRegister::PT_OF_PERC_ALGNMNT)) {
     m_func_map_update_uint32_params["point_of_percussion_alignment"] =
       &IIOWrapper::update_point_of_percussion_alignment;
   }
 
-  if (m_device_descriptor->has(ADISRegister::MSC_CTRL_ADDR))
-  {
+  if (m_device_descriptor->has(ADISRegister::MSC_CTRL_ADDR)) {
     m_func_map_update_uint32_params["linear_acceleration_compensation"] =
-    &IIOWrapper::update_linear_acceleration_compensation;
+      &IIOWrapper::update_linear_acceleration_compensation;
   }
 
-  if (m_device_descriptor->has(ADISRegister::NULL_CNFG_ADDR))
-  {
-  m_func_map_update_uint32_params["bias_correction_time_base_control"] =
-    &IIOWrapper::update_bias_correction_time_base_control;
-  m_func_map_update_uint32_params["x_axis_gyroscope_bias_correction_enable"] =
-    &IIOWrapper::update_x_axis_gyroscope_bias_correction_enable;
-  m_func_map_update_uint32_params["y_axis_gyroscope_bias_correction_enable"] =
-    &IIOWrapper::update_y_axis_gyroscope_bias_correction_enable;
-  m_func_map_update_uint32_params["z_axis_gyroscope_bias_correction_enable"] =
-    &IIOWrapper::update_z_axis_gyroscope_bias_correction_enable;
-  m_func_map_update_uint32_params["x_axis_accelerometer_bias_correction_enable"] =
-    &IIOWrapper::update_x_axis_accelerometer_bias_correction_enable;
-  m_func_map_update_uint32_params["y_axis_accelerometer_bias_correction_enable"] =
-    &IIOWrapper::update_y_axis_accelerometer_bias_correction_enable;
-  m_func_map_update_uint32_params["z_axis_accelerometer_bias_correction_enable"] =
-    &IIOWrapper::update_z_axis_accelerometer_bias_correction_enable;
+  if (m_device_descriptor->has(ADISRegister::NULL_CNFG_ADDR)) {
+    m_func_map_update_uint32_params["bias_correction_time_base_control"] =
+      &IIOWrapper::update_bias_correction_time_base_control;
+    m_func_map_update_uint32_params["x_axis_gyroscope_bias_correction_enable"] =
+      &IIOWrapper::update_x_axis_gyroscope_bias_correction_enable;
+    m_func_map_update_uint32_params["y_axis_gyroscope_bias_correction_enable"] =
+      &IIOWrapper::update_y_axis_gyroscope_bias_correction_enable;
+    m_func_map_update_uint32_params["z_axis_gyroscope_bias_correction_enable"] =
+      &IIOWrapper::update_z_axis_gyroscope_bias_correction_enable;
+    m_func_map_update_uint32_params["x_axis_accelerometer_bias_correction_enable"] =
+      &IIOWrapper::update_x_axis_accelerometer_bias_correction_enable;
+    m_func_map_update_uint32_params["y_axis_accelerometer_bias_correction_enable"] =
+      &IIOWrapper::update_y_axis_accelerometer_bias_correction_enable;
+    m_func_map_update_uint32_params["z_axis_accelerometer_bias_correction_enable"] =
+      &IIOWrapper::update_z_axis_accelerometer_bias_correction_enable;
   }
 }
 
 void ImuControlParameters::mapIIOGetFunctionsUint32()
 {
-  if (m_device_descriptor->has(ADISRegister::SENS_BW))
-  {
+  if (m_device_descriptor->has(ADISRegister::SENS_BW)) {
     m_func_map_get_uint32_params["internal_sensor_bandwidth"] =
       &IIOWrapper::internal_sensor_bandwidth;
   }
 
-  if (m_device_descriptor->has(ADISRegister::PT_OF_PERC_REG_ADDR))
-  {
+  if (m_device_descriptor->has(ADISRegister::PT_OF_PERC_REG_ADDR)) {
     m_func_map_get_uint32_params["point_of_percussion_alignment"] =
       &IIOWrapper::point_of_percussion_alignment;
   }
 
-  if (m_device_descriptor->has(ADISRegister::MSC_CTRL_ADDR))
-  {
+  if (m_device_descriptor->has(ADISRegister::MSC_CTRL_ADDR)) {
     m_func_map_get_uint32_params["linear_acceleration_compensation"] =
       &IIOWrapper::linear_acceleration_compensation;
   }
 
-  if (m_device_descriptor->has(ADISRegister::NULL_CNFG_ADDR))
-  {
+  if (m_device_descriptor->has(ADISRegister::NULL_CNFG_ADDR)) {
     m_func_map_get_uint32_params["bias_correction_time_base_control"] =
       &IIOWrapper::bias_correction_time_base_control;
     m_func_map_get_uint32_params["x_axis_gyroscope_bias_correction_enable"] =
@@ -288,8 +270,7 @@ void ImuControlParameters::mapIIOCommandFunctions()
 {
   m_func_map_execute_commands["software_reset"] = &IIOWrapper::software_reset;
 
-  if (m_device_descriptor->has(ADISRegister::FLASH_MEMORY_TEST))
-  {
+  if (m_device_descriptor->has(ADISRegister::FLASH_MEMORY_TEST)) {
     m_func_map_execute_commands["flash_memory_test"] = &IIOWrapper::flash_memory_test;
   }
   m_func_map_execute_commands["flash_memory_update"] = &IIOWrapper::flash_memory_update;
@@ -297,8 +278,7 @@ void ImuControlParameters::mapIIOCommandFunctions()
   m_func_map_execute_commands["factory_calibration_restore"] =
     &IIOWrapper::factory_calibration_restore;
 
-  if (m_device_descriptor->has(ADISRegister::BIAS_CORRECTION_UPDATE))
-  {
+  if (m_device_descriptor->has(ADISRegister::BIAS_CORRECTION_UPDATE)) {
     m_func_map_execute_commands["bias_correction_update"] = &IIOWrapper::bias_correction_update;
   }
 }
@@ -312,12 +292,10 @@ void ImuControlParameters::declareParameterDescription()
 
   auto param_range_0_720 = rcl_interfaces::msg::IntegerRange{};
   auto param_range_100_300 = rcl_interfaces::msg::IntegerRange{};
-  if (m_device_descriptor->getDeviceFamily() != "adis1654x")
-  {
+  if (m_device_descriptor->getDeviceFamily() != "adis1654x") {
     param_range_0_720.from_value = 0;
     param_range_0_720.to_value = 720;
-  } else
-  {
+  } else {
     param_range_100_300.from_value = 0;
     param_range_100_300.to_value = 300;
   }
@@ -328,11 +306,9 @@ void ImuControlParameters::declareParameterDescription()
   param_range_01.step = 1;
 
   auto param_range_03 = rcl_interfaces::msg::IntegerRange{};
-  if (m_device_descriptor->has(ADISRegister::HAS_DELTA_BURST))
-  {
+  if (m_device_descriptor->has(ADISRegister::HAS_DELTA_BURST)) {
     param_range_03.from_value = 0;
-  } else
-  {
+  } else {
     param_range_03.from_value = 1;
   }
 
@@ -357,15 +333,17 @@ void ImuControlParameters::declareParameterDescription()
   m_param_description["accel_calibbias_z"] = "z-axis acceleration offset correction";
   m_param_constraints_integer["accel_calibbias_z"] = param_range_calibbias;
 
-  if (m_device_descriptor->getDeviceFamily() == "adis1654x")
-  {
-    m_param_description["angvel_x_filter_low_pass_3db"] = "X angular velocity low pass 3db frequency";
+  if (m_device_descriptor->getDeviceFamily() == "adis1654x") {
+    m_param_description["angvel_x_filter_low_pass_3db"] =
+      "X angular velocity low pass 3db frequency";
     m_param_constraints_integer["angvel_x_filter_low_pass_3db"] = param_range_100_300;
 
-    m_param_description["angvel_y_filter_low_pass_3db"] = "Y angular velocity low pass 3db frequency";
+    m_param_description["angvel_y_filter_low_pass_3db"] =
+      "Y angular velocity low pass 3db frequency";
     m_param_constraints_integer["angvel_y_filter_low_pass_3db"] = param_range_100_300;
 
-    m_param_description["angvel_z_filter_low_pass_3db"] = "Z angular velocity low pass 3db frequency";
+    m_param_description["angvel_z_filter_low_pass_3db"] =
+      "Z angular velocity low pass 3db frequency";
     m_param_constraints_integer["angvel_z_filter_low_pass_3db"] = param_range_100_300;
 
     m_param_description["accel_x_filter_low_pass_3db"] = "X acceleration low pass 3db frequency";
@@ -376,14 +354,12 @@ void ImuControlParameters::declareParameterDescription()
 
     m_param_description["accel_z_filter_low_pass_3db"] = "Z acceleration low pass 3db frequency";
     m_param_constraints_integer["accel_z_filter_low_pass_3db"] = param_range_100_300;
-  } else
-  {
+  } else {
     m_param_description["filter_low_pass_3db_frequency"] = "Low pass 3db frequency";
     m_param_constraints_integer["filter_low_pass_3db_frequency"] = param_range_0_720;
   }
 
-  if (m_device_descriptor->has(ADISRegister::HAS_CALIB_SCALE))
-  {
+  if (m_device_descriptor->has(ADISRegister::HAS_CALIB_SCALE)) {
     m_param_description["anglvel_calibscale_x"] = "x-axis angular velocity scale correction";
     m_param_constraints_integer["anglvel_calibscale_x"] = param_range_calibbias;
 
@@ -403,29 +379,25 @@ void ImuControlParameters::declareParameterDescription()
     m_param_constraints_integer["accel_calibscale_z"] = param_range_calibbias;
   }
 
-  if (m_device_descriptor->has(ADISRegister::SENS_BW))
-  {
+  if (m_device_descriptor->has(ADISRegister::SENS_BW)) {
     m_param_description["internal_sensor_bandwidth"] =
       "\n0: wide bandwidth"
       "\n1: 370 Hz";
     m_param_constraints_integer["internal_sensor_bandwidth"] = param_range_01;
   }
-  if (m_device_descriptor->has(ADISRegister::PT_OF_PERC_REG_ADDR))
-  {
+  if (m_device_descriptor->has(ADISRegister::PT_OF_PERC_REG_ADDR)) {
     m_param_description["point_of_percussion_alignment"] =
       "\n0: point of percussion alignment disable"
       "\n1: point of percussion alignment enable";
     m_param_constraints_integer["point_of_percussion_alignment"] = param_range_01;
   }
-  if (m_device_descriptor->has(ADISRegister::MSC_CTRL_ADDR))
-  {
+  if (m_device_descriptor->has(ADISRegister::MSC_CTRL_ADDR)) {
     m_param_description["linear_acceleration_compensation"] =
       "\n0: linear acceleration compensation disable"
       "\n1: linear acceleration compensation enable";
     m_param_constraints_integer["linear_acceleration_compensation"] = param_range_01;
   }
-  if (m_device_descriptor->has(ADISRegister::NULL_CNFG_ADDR))
-  {
+  if (m_device_descriptor->has(ADISRegister::NULL_CNFG_ADDR)) {
     auto param_range_0_12 = rcl_interfaces::msg::IntegerRange{};
     param_range_0_12.from_value = 0;
     param_range_0_12.to_value = 12;
@@ -467,8 +439,7 @@ void ImuControlParameters::declareParameterDescription()
 
   m_param_description["measured_data_topic_selection"] = "\nmeasured_data_topic_selection values:";
 
-  if (m_device_descriptor->has(ADISRegister::HAS_DELTA_BURST))
-  {
+  if (m_device_descriptor->has(ADISRegister::HAS_DELTA_BURST)) {
     m_param_description["measured_data_topic_selection"].append(
       "\n0: measured data is published on /velangtempdata topic");
   }
@@ -542,20 +513,16 @@ void ImuControlParameters::declareParameters()
   param_desc.description =
     "\ncommand_to_execute values:"
     "\nsoftware_reset: performs a software reset on the device";
-  if (m_device_descriptor->has(ADISRegister::FLASH_MEMORY_TEST))
-  {
+  if (m_device_descriptor->has(ADISRegister::FLASH_MEMORY_TEST)) {
     param_desc.description.append(
-      "\nflash_memory_test: performs a flash memory test on the device"
-    );
+      "\nflash_memory_test: performs a flash memory test on the device");
   }
   param_desc.description.append(
     "\nflash_memory_update: performs a flash memory update on the device"
     "\nsensor_self_test: performs a sensor self test on the device"
     "\nfactory_calibration_restore: performs a factory calibration "
-    "restore on the device"
-  );
-  if (m_device_descriptor->has(ADISRegister::BIAS_CORRECTION_UPDATE))
-  {
+    "restore on the device");
+  if (m_device_descriptor->has(ADISRegister::BIAS_CORRECTION_UPDATE)) {
     param_desc.description.append(
       "\nbias_correction_update: triggers a bias correction, using the bias "
       "correction factors");

@@ -21,10 +21,9 @@
 #ifndef IMU_DIAG_ROS_PUBLISHER_H
 #define IMU_DIAG_ROS_PUBLISHER_H
 
-#include <rclcpp/rclcpp.hpp>
-
 #include "adi_imu/imu_diag_data_provider_interface.h"
 #include "adi_imu/imu_diag_ros_publisher_interface.h"
+#include "rclcpp/rclcpp.hpp"
 
 namespace adi_imu
 {
@@ -32,7 +31,7 @@ namespace adi_imu
 /**
  * @brief Class for diagnosis publisher for adis1657x chips.
  */
-template<typename DiagMsgType>
+template <typename DiagMsgType>
 class ImuDiagRosPublisher : public ImuDiagRosPublisherInterface
 {
 public:

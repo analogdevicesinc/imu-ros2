@@ -24,8 +24,8 @@
 #include <memory>
 #include <rclcpp/rclcpp.hpp>
 
-#include "adi_imu/ros_task.h"
 #include "adi_imu/adis_register_map.h"
+#include "adi_imu/ros_task.h"
 
 namespace adi_imu
 {

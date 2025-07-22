@@ -29,37 +29,29 @@ ImuDiagDataProvider::ImuDiagDataProvider() {}
 
 ImuDiagDataProvider::~ImuDiagDataProvider() {}
 
-
 bool ImuDiagDataProvider::getData(adi_imu::msg::ImuDiagDataADIS1646X & message)
 {
-  if(!populateCommonFields(message))
-    return false;
+  if (!populateCommonFields(message)) return false;
 
-  if (!m_iio_wrapper.diag_standby_mode(message.diag_standby_mode))
-    return false;
+  if (!m_iio_wrapper.diag_standby_mode(message.diag_standby_mode)) return false;
 
   return true;
 }
 
 bool ImuDiagDataProvider::getData(adi_imu::msg::ImuDiagDataADIS1647X & message)
 {
-  if(!populateCommonFields(message))
-  return false;
+  if (!populateCommonFields(message)) return false;
 
-  if (!m_iio_wrapper.diag_standby_mode(message.diag_standby_mode))
-    return false;
+  if (!m_iio_wrapper.diag_standby_mode(message.diag_standby_mode)) return false;
 
   return true;
-
 }
 
 bool ImuDiagDataProvider::getData(adi_imu::msg::ImuDiagDataADIS1650X & message)
 {
-  if(!populateCommonFields(message))
-    return false;
+  if (!populateCommonFields(message)) return false;
 
-  if (!m_iio_wrapper.diag_standby_mode(message.diag_standby_mode))
-    return false;
+  if (!m_iio_wrapper.diag_standby_mode(message.diag_standby_mode)) return false;
 
   if (!m_iio_wrapper.diag_acceleration_self_test_error(message.diag_acceleration_self_test_error))
     return false;
@@ -75,51 +67,39 @@ bool ImuDiagDataProvider::getData(adi_imu::msg::ImuDiagDataADIS1650X & message)
 
 bool ImuDiagDataProvider::getData(adi_imu::msg::ImuDiagDataADIS1654X & message)
 {
-  if(!populateCommonFields(message))
-    return false;
+  if (!populateCommonFields(message)) return false;
 
-  if(!populateAxisFailureFields(message))
-    return false;
+  if (!populateAxisFailureFields(message)) return false;
 
-  if (!m_iio_wrapper.diag_automatic_reset(message.diag_automatic_reset))
-    return false;
+  if (!m_iio_wrapper.diag_automatic_reset(message.diag_automatic_reset)) return false;
 
-  if (!m_iio_wrapper.diag_crc_error(message.diag_crc_error))
-    return false;
+  if (!m_iio_wrapper.diag_crc_error(message.diag_crc_error)) return false;
 
   return true;
 }
 
 bool ImuDiagDataProvider::getData(adi_imu::msg::ImuDiagDataADIS1655X & message)
 {
-  if(!populateCommonFields(message))
-    return false;
+  if (!populateCommonFields(message)) return false;
 
-  if(!populateAxisFailureFields(message))
-    return false;
+  if (!populateAxisFailureFields(message)) return false;
 
-  if (!m_iio_wrapper.diag_automatic_reset(message.diag_automatic_reset))
-    return false;
+  if (!m_iio_wrapper.diag_automatic_reset(message.diag_automatic_reset)) return false;
 
-  if (!m_iio_wrapper.diag_crc_error(message.diag_crc_error))
-    return false;
+  if (!m_iio_wrapper.diag_crc_error(message.diag_crc_error)) return false;
 
   return true;
 }
 
 bool ImuDiagDataProvider::getData(adi_imu::msg::ImuDiagDataADIS1657X & message)
 {
-  if(!populateCommonFields(message))
-    return false;
+  if (!populateCommonFields(message)) return false;
 
-  if(!populateAxisFailureFields(message))
-    return false;
+  if (!populateAxisFailureFields(message)) return false;
 
-  if (!m_iio_wrapper.diag_standby_mode(message.diag_standby_mode))
-    return false;
+  if (!m_iio_wrapper.diag_standby_mode(message.diag_standby_mode)) return false;
 
-  if (!m_iio_wrapper.diag_aduc_mcu_fault(message.diag_aduc_mcu_fault))
-    return false;
+  if (!m_iio_wrapper.diag_aduc_mcu_fault(message.diag_aduc_mcu_fault)) return false;
 
   if (!m_iio_wrapper.diag_sensor_initialization_failure(message.diag_sensor_initialization_failure))
     return false;
@@ -127,18 +107,15 @@ bool ImuDiagDataProvider::getData(adi_imu::msg::ImuDiagDataADIS1657X & message)
   return true;
 }
 
-
-template<typename MessageType>
-bool ImuDiagDataProvider::populateCommonFields(MessageType& message)
+template <typename MessageType>
+bool ImuDiagDataProvider::populateCommonFields(MessageType & message)
 {
   // Set common header
   message.header.frame_id = "imudiagdata";
 
   // Universal fields present in ALL ADIS device families
-  if (!m_iio_wrapper.diag_clock_error(message.diag_clock_error))
-    return false;
-  if (!m_iio_wrapper.diag_data_path_overrun(message.diag_data_path_overrun))
-    return false;
+  if (!m_iio_wrapper.diag_clock_error(message.diag_clock_error)) return false;
+  if (!m_iio_wrapper.diag_data_path_overrun(message.diag_data_path_overrun)) return false;
   if (!m_iio_wrapper.diag_flash_memory_test_error(message.diag_flash_memory_test_error))
     return false;
   if (!m_iio_wrapper.diag_flash_memory_update_error(message.diag_flash_memory_update_error))
@@ -146,19 +123,17 @@ bool ImuDiagDataProvider::populateCommonFields(MessageType& message)
   if (!m_iio_wrapper.diag_flash_memory_write_count_exceeded_error(
         message.diag_flash_memory_write_count_exceeded_error))
     return false;
-  if (!m_iio_wrapper.diag_sensor_self_test_error(message.diag_sensor_self_test_error))
-    return false;
+  if (!m_iio_wrapper.diag_sensor_self_test_error(message.diag_sensor_self_test_error)) return false;
   if (!m_iio_wrapper.diag_spi_communication_error(message.diag_spi_communication_error))
     return false;
-  if (!m_iio_wrapper.flash_counter(message.flash_counter))
-    return false;
+  if (!m_iio_wrapper.flash_counter(message.flash_counter)) return false;
 
   return true;
 }
 
 // Helper method for axis failure fields (1654X, 1655X, 1657X)
-template<typename MessageType>
-bool ImuDiagDataProvider::populateAxisFailureFields(MessageType& message)
+template <typename MessageType>
+bool ImuDiagDataProvider::populateAxisFailureFields(MessageType & message)
 {
   if (!m_iio_wrapper.diag_x_axis_accelerometer_failure(message.diag_x_axis_accelerometer_failure))
     return false;

@@ -20,10 +20,13 @@
 
 #include "adi_imu/accelgyrotemp_data_provider.h"
 #include "adi_imu/accelgyrotemp_ros_publisher.h"
+#include "adi_imu/adis_device_factory.h"
+#include "adi_imu/adis_register_map.h"
 #include "adi_imu/imu_control_parameters.h"
 #include "adi_imu/imu_data_provider.h"
 #include "adi_imu/imu_diag_data_provider.h"
 #include "adi_imu/imu_diag_ros_publisher.h"
+#include "adi_imu/imu_diag_ros_publisher_factory.h"
 #include "adi_imu/imu_full_measured_data_provider.h"
 #include "adi_imu/imu_full_measured_data_ros_publisher.h"
 #include "adi_imu/imu_identification_data_provider.h"
@@ -33,17 +36,8 @@
 #include "adi_imu/ros_publisher_group_interface.h"
 #include "adi_imu/velangtemp_data_provider.h"
 #include "adi_imu/velangtemp_ros_publisher.h"
-
 #include "adi_imu/worker_thread.h"
 #include "rclcpp/rclcpp.hpp"
-
-#include "adi_imu/adis_device_factory.h"
-#include "adi_imu/adis_register_map.h"
-
-#include "adi_imu/imu_diag_ros_publisher_factory.h"
-#include "adi_imu/adis_register_map.h"
-
-
 
 /**
  * @brief main function to run imu-ros2
@@ -52,7 +46,7 @@
  * @return Should not return if successful (will run continuously), error code
  * otherwise.
  */
-int main(int argc, char* argv[])
+int main(int argc, char * argv[])
 {
   int ret;
   rclcpp::init(argc, argv);
@@ -65,64 +59,69 @@ int main(int argc, char* argv[])
 
   auto iio_context_param_desc = rcl_interfaces::msg::ParameterDescriptor{};
   iio_context_param_desc.description =
-      "\nDefault value is \'local:\', to be used when the adi_imu node is running locally."
-      "\nIf the adi_imu node is running remotely, please use \'ip:rpi_ip_address\',";
+    "\nDefault value is \'local:\', to be used when the adi_imu node is running locally."
+    "\nIf the adi_imu node is running remotely, please use \'ip:rpi_ip_address\',";
 
   imu_node->declare_parameter("iio_context_string", "local:", iio_context_param_desc);
 
   auto imu_device_name_param_desc = rcl_interfaces::msg::ParameterDescriptor{};
   imu_device_name_param_desc.description =
-      "\nSet the IMU device name from the list of supported devices, e.g. 'adis16545-3'.";
+    "\nSet the IMU device name from the list of supported devices, e.g. 'adis16545-3'.";
   imu_node->declare_parameter("imu_device_name", "unknown", imu_device_name_param_desc);
 
-  auto imu_device_name = imu_node->get_parameter("imu_device_name").get_parameter_value().get<std::string>();
+  auto imu_device_name =
+    imu_node->get_parameter("imu_device_name").get_parameter_value().get<std::string>();
   auto device_descriptor = adi_imu::ADISDeviceFactory::make(imu_device_name);
 
   /* First make sure IIO context is available */
-  std::string context = imu_node->get_parameter("iio_context_string").get_parameter_value().get<std::string>();
+  std::string context =
+    imu_node->get_parameter("iio_context_string").get_parameter_value().get<std::string>();
   adi_imu::IIOWrapper m_iio_wrapper;
   m_iio_wrapper.setDeviceDescriptor(device_descriptor);
   ret = m_iio_wrapper.createContext(context.c_str());
 
-  if (ret)
-  {
+  if (ret) {
     std::runtime_error("Error IIO context, exiting ROS2 node");
     rclcpp::shutdown();
     return 0;
   }
-  adi_imu::ImuControlParameters* ctrl_params = new adi_imu::ImuControlParameters(imu_node, device_descriptor);
+  adi_imu::ImuControlParameters * ctrl_params =
+    new adi_imu::ImuControlParameters(imu_node, device_descriptor);
 
-  adi_imu::AccelGyroTempDataProviderInterface* accel_gyro_data_provider = new adi_imu::AccelGyroTempDataProvider();
-  adi_imu::AccelGyroTempRosPublisherInterface* accel_gyro_publisher = new adi_imu::AccelGyroTempRosPublisher(imu_node);
+  adi_imu::AccelGyroTempDataProviderInterface * accel_gyro_data_provider =
+    new adi_imu::AccelGyroTempDataProvider();
+  adi_imu::AccelGyroTempRosPublisherInterface * accel_gyro_publisher =
+    new adi_imu::AccelGyroTempRosPublisher(imu_node);
   accel_gyro_publisher->setMessageProvider(accel_gyro_data_provider);
 
-  adi_imu::ImuDataProviderInterface* imu_std_data_provider = new adi_imu::ImuDataProvider();
-  adi_imu::ImuRosPublisherInterface* imu_std_publisher = new adi_imu::ImuRosPublisher(imu_node);
+  adi_imu::ImuDataProviderInterface * imu_std_data_provider = new adi_imu::ImuDataProvider();
+  adi_imu::ImuRosPublisherInterface * imu_std_publisher = new adi_imu::ImuRosPublisher(imu_node);
   imu_std_publisher->setMessageProvider(imu_std_data_provider);
 
-  adi_imu::VelAngTempDataProviderInterface* vel_ang_data_provider = nullptr;
-  adi_imu::VelAngTempRosPublisherInterface* vel_ang_publisher = nullptr;
+  adi_imu::VelAngTempDataProviderInterface * vel_ang_data_provider = nullptr;
+  adi_imu::VelAngTempRosPublisherInterface * vel_ang_publisher = nullptr;
 
-  if( device_descriptor->has(adi_imu::ADISRegister::HAS_DELTA_BURST))
-  {
+  if (device_descriptor->has(adi_imu::ADISRegister::HAS_DELTA_BURST)) {
     vel_ang_data_provider = new adi_imu::VelAngTempDataProvider();
     vel_ang_publisher = new adi_imu::VelAngTempRosPublisher(imu_node);
     vel_ang_publisher->setMessageProvider(vel_ang_data_provider);
   } else {
-    RCLCPP_INFO(imu_node->get_logger(), "Device does not support delta burst, skipping VelAngTemp publisher.");
+    RCLCPP_INFO(
+      imu_node->get_logger(),
+      "Device does not support delta burst, skipping VelAngTemp publisher.");
   }
 
-  adi_imu::ImuFullMeasuredDataProviderInterface* full_data_provider = new adi_imu::ImuFullMeasuredDataProvider();
-  adi_imu::ImuFullMeasuredDataRosPublisherInterface* full_data_publisher = new adi_imu::ImuFullMeasuredDataRosPublisher(imu_node);
+  adi_imu::ImuFullMeasuredDataProviderInterface * full_data_provider =
+    new adi_imu::ImuFullMeasuredDataProvider();
+  adi_imu::ImuFullMeasuredDataRosPublisherInterface * full_data_publisher =
+    new adi_imu::ImuFullMeasuredDataRosPublisher(imu_node);
   full_data_publisher->setMessageProvider(full_data_provider);
 
-  adi_imu::RosPublisherGroupInterface* publisher_group = new adi_imu::RosPublisherGroup(imu_node);
+  adi_imu::RosPublisherGroupInterface * publisher_group = new adi_imu::RosPublisherGroup(imu_node);
   publisher_group->setAccelGyroTempRosPublisher(accel_gyro_publisher);
-  if (vel_ang_publisher != nullptr)
-  {
+  if (vel_ang_publisher != nullptr) {
     publisher_group->setVelAngTempRosPublisher(vel_ang_publisher);
-  } else
-  {
+  } else {
     RCLCPP_INFO(imu_node->get_logger(), "VelAngTemp publisher is null, skipping.");
   }
 
@@ -130,16 +129,18 @@ int main(int argc, char* argv[])
   publisher_group->setImuFullMeasuredDataRosPublisher(full_data_publisher);
   publisher_group->setImuControlParameters(ctrl_params);
 
-  adi_imu::RosTask* publisher_group_task = dynamic_cast<adi_imu::RosTask*>(publisher_group);
+  adi_imu::RosTask * publisher_group_task = dynamic_cast<adi_imu::RosTask *>(publisher_group);
 
-  adi_imu::ImuIdentificationDataProviderInterface* ident_data_provider = new adi_imu::ImuIdentificationDataProvider();
-  adi_imu::ImuIdentificationRosPublisherInterface* ident_publisher = new adi_imu::ImuIdentificationRosPublisher(imu_node);
+  adi_imu::ImuIdentificationDataProviderInterface * ident_data_provider =
+    new adi_imu::ImuIdentificationDataProvider();
+  adi_imu::ImuIdentificationRosPublisherInterface * ident_publisher =
+    new adi_imu::ImuIdentificationRosPublisher(imu_node);
   ident_publisher->setMessageProvider(ident_data_provider);
-  adi_imu::RosTask* ident_task = dynamic_cast<adi_imu::RosTask*>(ident_publisher);
+  adi_imu::RosTask * ident_task = dynamic_cast<adi_imu::RosTask *>(ident_publisher);
 
-  adi_imu::ImuDiagDataProviderInterface* diag_data_provider = nullptr;
+  adi_imu::ImuDiagDataProviderInterface * diag_data_provider = nullptr;
   std::unique_ptr<adi_imu::ImuDiagRosPublisherInterface> diag_publisher = nullptr;
-  adi_imu::RosTask* diag_task = nullptr;
+  adi_imu::RosTask * diag_task = nullptr;
 
   diag_data_provider = new adi_imu::ImuDiagDataProvider();
 
@@ -148,12 +149,12 @@ int main(int argc, char* argv[])
     diag_publisher->setMessageProvider(diag_data_provider);
     diag_publisher->setDeviceDescriptor(device_descriptor);
 
-    diag_task = dynamic_cast<adi_imu::RosTask*>(diag_publisher.get());
-  } catch (const std::exception& e) {
+    diag_task = dynamic_cast<adi_imu::RosTask *>(diag_publisher.get());
+  } catch (const std::exception & e) {
     RCLCPP_ERROR(imu_node->get_logger(), "Failed to create diag publisher: %s", e.what());
   }
 
-  diag_task = dynamic_cast<adi_imu::RosTask*>(diag_publisher.get());
+  diag_task = dynamic_cast<adi_imu::RosTask *>(diag_publisher.get());
 
   adi_imu::WorkerThread publisher_group_thread(publisher_group_task);
   adi_imu::WorkerThread ident_thread(ident_task);
@@ -165,8 +166,7 @@ int main(int argc, char* argv[])
 
   delete ctrl_params;
   delete accel_gyro_publisher;
-  if( device_descriptor->has(adi_imu::ADISRegister::HAS_DELTA_BURST))
-  {
+  if (device_descriptor->has(adi_imu::ADISRegister::HAS_DELTA_BURST)) {
     delete vel_ang_publisher;
   }
   delete imu_std_publisher;

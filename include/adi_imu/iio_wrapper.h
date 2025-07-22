@@ -32,7 +32,6 @@
 namespace adi_imu
 {
 
-
 /**
  * @brief Wrapper class for libiio library for IMU devices
  */
@@ -48,7 +47,6 @@ public:
    * @brief Destructor for IIOWrapper.
    */
   ~IIOWrapper();
-
 
   /**
    * @brief Set the device descriptor that defines the device's capabilities, register layout
@@ -597,7 +595,6 @@ public:
    * false if not.
    */
   bool update_anglvel_calibscale_z(int32_t val);
-
 
   /**
    * @brief Get sampling frequency.
@@ -1302,16 +1299,15 @@ private:
   static uint32_t CHAN_ACCEL_Z;
   static uint32_t CHAN_TEMP;
 
-  static uint32_t  CHAN_DELTA_ANGL_X;
-  static uint32_t  CHAN_DELTA_ANGL_Y;
-  static uint32_t  CHAN_DELTA_ANGL_Z;
-  static uint32_t  CHAN_DELTA_VEL_X;
-  static uint32_t  CHAN_DELTA_VEL_Y;
-  static uint32_t  CHAN_DELTA_VEL_Z;
+  static uint32_t CHAN_DELTA_ANGL_X;
+  static uint32_t CHAN_DELTA_ANGL_Y;
+  static uint32_t CHAN_DELTA_ANGL_Z;
+  static uint32_t CHAN_DELTA_VEL_X;
+  static uint32_t CHAN_DELTA_VEL_Y;
+  static uint32_t CHAN_DELTA_VEL_Z;
 
   static uint32_t CHAN_DATA_TIMESTAMP;
   static uint32_t NO_OF_CHANS;
-
 
   /*! Buffer write index.  */
   static uint32_t buff_write_idx;
@@ -1328,6 +1324,7 @@ private:
 
   static bool has_delta_channels;
   static bool has_timestamp_channel;
+
 public:
   static ssize_t demux_sample(const struct iio_channel * chn, void * sample, size_t size, void * d);
 };

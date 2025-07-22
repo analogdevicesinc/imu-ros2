@@ -23,10 +23,9 @@
 #include <chrono>
 #include <rclcpp/rclcpp.hpp>
 
-#include "adi_imu/iio_wrapper.h"
 #include "adi_imu/adis_device_factory.h"
 #include "adi_imu/adis_register_map.h"
-
+#include "adi_imu/iio_wrapper.h"
 #include "adi_imu/msg/imu_full_measured_data.hpp"
 
 /**

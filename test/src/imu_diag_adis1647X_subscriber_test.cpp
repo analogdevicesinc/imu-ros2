@@ -23,10 +23,9 @@
 #include <chrono>
 #include <rclcpp/rclcpp.hpp>
 
-#include "adi_imu/iio_wrapper.h"
 #include "adi_imu/adis_device_factory.h"
 #include "adi_imu/adis_register_map.h"
-
+#include "adi_imu/iio_wrapper.h"
 #include "adi_imu/msg/imu_diag_data_adis1647_x.hpp"
 
 /**
@@ -80,7 +79,6 @@ TEST(ImuDiagSubscriberTest, test_imu_diag_data_publisher_adis1647x)
 
   auto callback = [&callbackExecuted,
                    &device_descriptor](adi_imu::msg::ImuDiagDataADIS1647X msg) -> void {
-
     ASSERT_TRUE(msg.diag_data_path_overrun == false);
     ASSERT_TRUE(msg.diag_flash_memory_update_error == false);
     ASSERT_TRUE(msg.diag_spi_communication_error == false);
@@ -98,7 +96,8 @@ TEST(ImuDiagSubscriberTest, test_imu_diag_data_publisher_adis1647x)
   rclcpp::executors::SingleThreadedExecutor executor;
   executor.add_node(node);
 
-  auto subscriber = node->create_subscription<adi_imu::msg::ImuDiagDataADIS1647X>(topic, 10, callback);
+  auto subscriber =
+    node->create_subscription<adi_imu::msg::ImuDiagDataADIS1647X>(topic, 10, callback);
 
   std::chrono::seconds sec(1);
 

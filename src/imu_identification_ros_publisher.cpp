@@ -22,7 +22,6 @@
 
 #include <thread>
 
-
 namespace adi_imu
 {
 

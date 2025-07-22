@@ -19,11 +19,12 @@
  *******************************************************************************/
 
 #include "adi_imu/iio_wrapper.h"
-#include "adi_imu/utils/adis_register_definitions.h"
-#include "adi_imu/adis_register_map.h"
-#include "adi_imu/utils/adis_device_registry.h"
 
 #include <rclcpp/rclcpp.hpp>
+
+#include "adi_imu/adis_register_map.h"
+#include "adi_imu/utils/adis_device_registry.h"
+#include "adi_imu/utils/adis_register_definitions.h"
 
 namespace adi_imu
 {
@@ -89,7 +90,7 @@ uint32_t IIOWrapper::NO_OF_CHANS = 14;
 
 uint32_t IIOWrapper::buff_write_idx = 0;
 uint32_t IIOWrapper::buff_read_idx = MAX_NO_OF_SAMPLES;
-std::vector<std::vector<uint32_t>> IIOWrapper::buff_data {};
+std::vector<std::vector<uint32_t>> IIOWrapper::buff_data{};
 double IIOWrapper::samp_freq = 2000.0;
 uint32_t IIOWrapper::no_of_samp = MAX_NO_OF_SAMPLES;
 uint32_t IIOWrapper::current_data_selection = FULL_MEASURED_DATA;
@@ -97,10 +98,7 @@ uint32_t IIOWrapper::current_data_selection = FULL_MEASURED_DATA;
 bool IIOWrapper::has_delta_channels = true;
 bool IIOWrapper::has_timestamp_channel = false;
 
-
-IIOWrapper::IIOWrapper()
-{
-}
+IIOWrapper::IIOWrapper() {}
 
 void IIOWrapper::setDeviceDescriptor(std::shared_ptr<ADISRegisterMap> device_descriptor)
 {
@@ -135,7 +133,8 @@ int IIOWrapper::createContext(const char * context)
     RCLCPP_INFO(rclcpp::get_logger("rclcpp_iiowrapper"), "IIO context is null");
     return IIO_CONTEXT_ERROR;
   }
-  RCLCPP_INFO(rclcpp::get_logger("rclcpp_iiowrapper"), "IIO context created successfully from: %s", context);
+  RCLCPP_INFO(
+    rclcpp::get_logger("rclcpp_iiowrapper"), "IIO context created successfully from: %s", context);
 
   iio_context_set_timeout(m_iio_context, 5000);
 
@@ -149,7 +148,8 @@ int IIOWrapper::createContext(const char * context)
     m_iio_context = nullptr;
 
     RCLCPP_WARN(
-      rclcpp::get_logger("rclcpp_iiowrapper"), "Device %s not found in IIO context.", dev_name.c_str());
+      rclcpp::get_logger("rclcpp_iiowrapper"), "Device %s not found in IIO context.",
+      dev_name.c_str());
     return IIO_CONTEXT_ERROR;
   }
   RCLCPP_INFO(rclcpp::get_logger("rclcpp_iiowrapper"), "Found device: %s", dev_name.c_str());
@@ -172,8 +172,7 @@ int IIOWrapper::createContext(const char * context)
         triggerName.c_str(), dev_name.c_str());
       return IIO_CONTEXT_ERROR;
     }
-    RCLCPP_INFO(
-      rclcpp::get_logger("rclcpp_iiowrapper"), "Found trigger: %s", triggerName.c_str());
+    RCLCPP_INFO(rclcpp::get_logger("rclcpp_iiowrapper"), "Found trigger: %s", triggerName.c_str());
   }
   iio_device_set_trigger(m_dev, m_dev_trigger);
 
@@ -272,31 +271,26 @@ int IIOWrapper::createContext(const char * context)
   }
 
   // Initialize buffer for channel readings
-  auto max_element = std::max_element(
-    channel_buffer_idx.begin(), channel_buffer_idx.end());
+  auto max_element = std::max_element(channel_buffer_idx.begin(), channel_buffer_idx.end());
   // Buffer size calculation:
   // +1: Convert from max index (0-based) to required array size
   // +1: Extra slot for 64-bit timestamp upper 32 bits (uses CHAN_DATA_TIMESTAMP + 1)
-  NO_OF_CHANS = *max_element + 1 + 1; // +1 for timestamp channel
+  NO_OF_CHANS = *max_element + 1 + 1;  // +1 for timestamp channel
   if (!buff_data.empty()) {
     buff_data.clear();
   }
   buff_data.resize(NO_OF_CHANS, std::vector<uint32_t>(MAX_NO_OF_SAMPLES, 0));
 
-  if (m_channel_temp)
-    iio_channel_enable(m_channel_temp);
+  if (m_channel_temp) iio_channel_enable(m_channel_temp);
   if (m_channel_timestamp) {
     iio_channel_enable(m_channel_timestamp);
     has_timestamp_channel = true;
   }
 
   // Initialize channel scales
-  if (m_channel_accel_x)
-    iio_channel_attr_read_double(m_channel_accel_x, "scale", &m_scale_accel_x);
-  if (m_channel_accel_y)
-    iio_channel_attr_read_double(m_channel_accel_y, "scale", &m_scale_accel_y);
-  if (m_channel_accel_z)
-    iio_channel_attr_read_double(m_channel_accel_z, "scale", &m_scale_accel_z);
+  if (m_channel_accel_x) iio_channel_attr_read_double(m_channel_accel_x, "scale", &m_scale_accel_x);
+  if (m_channel_accel_y) iio_channel_attr_read_double(m_channel_accel_y, "scale", &m_scale_accel_y);
+  if (m_channel_accel_z) iio_channel_attr_read_double(m_channel_accel_z, "scale", &m_scale_accel_z);
 
   if (m_channel_anglvel_x)
     iio_channel_attr_read_double(m_channel_anglvel_x, "scale", &m_scale_anglvel_x);
@@ -484,7 +478,7 @@ ssize_t IIOWrapper::demux_sample(
     if (!has_timestamp_channel) {
       /* timestamp channel is not available, have to update buff_write_idx for last
       * read channel */
-      if(m_device_descriptor->has(ADISRegister::HAS_DELTA_BURST)) {
+      if (m_device_descriptor->has(ADISRegister::HAS_DELTA_BURST)) {
         if (iio_channel_get_index(chn) == CHAN_DELTA_VEL_Z) buff_write_idx++;
       }
     }
@@ -507,8 +501,8 @@ bool IIOWrapper::updateBuffer(uint32_t data_selection)
   if (current_data_selection != data_selection) {
     stopBufferAcquisition();
     if (data_selection == ACCEL_GYRO_BUFFERED_DATA) {
-      if(m_device_descriptor->has(ADISRegister::HAS_DELTA_BURST)) {
-        if(has_delta_channels) {
+      if (m_device_descriptor->has(ADISRegister::HAS_DELTA_BURST)) {
+        if (has_delta_channels) {
           iio_channel_disable(m_channel_deltaangl_x);
           iio_channel_disable(m_channel_deltaangl_y);
           iio_channel_disable(m_channel_deltaangl_z);
@@ -530,7 +524,7 @@ bool IIOWrapper::updateBuffer(uint32_t data_selection)
       iio_channel_disable(m_channel_anglvel_x);
       iio_channel_disable(m_channel_anglvel_y);
       iio_channel_disable(m_channel_anglvel_z);
-      if(m_device_descriptor->has(ADISRegister::HAS_DELTA_BURST)) {
+      if (m_device_descriptor->has(ADISRegister::HAS_DELTA_BURST)) {
         if (has_delta_channels) {
           iio_channel_enable(m_channel_deltaangl_x);
           iio_channel_enable(m_channel_deltaangl_y);
@@ -786,8 +780,8 @@ bool IIOWrapper::getRawDeltaAngleXFromDebug(int32_t & result)
 
   if (!m_dev) return false;
 
-  int ret = iio_device_reg_read(
-    m_dev, m_device_descriptor->get(ADISRegister::DELTANG_X_LOW_REG), &reg_low);
+  int ret =
+    iio_device_reg_read(m_dev, m_device_descriptor->get(ADISRegister::DELTANG_X_LOW_REG), &reg_low);
   if (ret) return false;
 
   ret = iio_device_reg_read(
@@ -829,8 +823,8 @@ bool IIOWrapper::getRawDeltaAngleYFromDebug(int32_t & result)
 
   if (!m_dev) return false;
 
-  int ret = iio_device_reg_read(
-    m_dev, m_device_descriptor->get(ADISRegister::DELTANG_Y_LOW_REG), &reg_low);
+  int ret =
+    iio_device_reg_read(m_dev, m_device_descriptor->get(ADISRegister::DELTANG_Y_LOW_REG), &reg_low);
   if (ret) return false;
 
   ret = iio_device_reg_read(
@@ -872,8 +866,8 @@ bool IIOWrapper::getRawDeltaAngleZFromDebug(int32_t & result)
 
   if (!m_dev) return false;
 
-  int ret = iio_device_reg_read(
-    m_dev, m_device_descriptor->get(ADISRegister::DELTANG_Z_LOW_REG), &reg_low);
+  int ret =
+    iio_device_reg_read(m_dev, m_device_descriptor->get(ADISRegister::DELTANG_Z_LOW_REG), &reg_low);
   if (ret) return false;
 
   ret = iio_device_reg_read(
@@ -915,8 +909,8 @@ bool IIOWrapper::getRawDeltaVelocityXFromDebug(int32_t & result)
 
   if (!m_dev) return false;
 
-  int ret = iio_device_reg_read(
-    m_dev, m_device_descriptor->get(ADISRegister::DELTVEL_X_LOW_REG), &reg_low);
+  int ret =
+    iio_device_reg_read(m_dev, m_device_descriptor->get(ADISRegister::DELTVEL_X_LOW_REG), &reg_low);
   if (ret) return false;
 
   ret = iio_device_reg_read(
@@ -958,8 +952,8 @@ bool IIOWrapper::getRawDeltaVelocityYFromDebug(int32_t & result)
 
   if (!m_dev) return false;
 
-  int ret = iio_device_reg_read(
-    m_dev, m_device_descriptor->get(ADISRegister::DELTVEL_Y_LOW_REG), &reg_low);
+  int ret =
+    iio_device_reg_read(m_dev, m_device_descriptor->get(ADISRegister::DELTVEL_Y_LOW_REG), &reg_low);
   if (ret) return false;
 
   ret = iio_device_reg_read(
@@ -1001,8 +995,8 @@ bool IIOWrapper::getRawDeltaVelocityZFromDebug(int32_t & result)
 
   if (!m_dev) return false;
 
-  int ret = iio_device_reg_read(
-    m_dev, m_device_descriptor->get(ADISRegister::DELTVEL_Z_LOW_REG), &reg_low);
+  int ret =
+    iio_device_reg_read(m_dev, m_device_descriptor->get(ADISRegister::DELTVEL_Z_LOW_REG), &reg_low);
   if (ret) return false;
 
   ret = iio_device_reg_read(
@@ -1455,11 +1449,12 @@ bool IIOWrapper::diag_sensor_initialization_failure(bool & result)
 
   if (!m_dev) return false;
 
-  int ret = iio_device_reg_read(
-    m_dev, m_device_descriptor->get(ADISRegister::DIAG_STAT_ADDR), &reg_val);
+  int ret =
+    iio_device_reg_read(m_dev, m_device_descriptor->get(ADISRegister::DIAG_STAT_ADDR), &reg_val);
   if (ret) return false;
 
-  reg_val = (reg_val & m_device_descriptor->get(ADISRegister::SNSR_INIT_FAIL)) >> m_device_descriptor->get(ADISRegister::SNSR_FAIL_POS);
+  reg_val = (reg_val & m_device_descriptor->get(ADISRegister::SNSR_INIT_FAIL)) >>
+            m_device_descriptor->get(ADISRegister::SNSR_FAIL_POS);
 
   result = reg_val;
 
@@ -1472,8 +1467,8 @@ bool IIOWrapper::diag_data_path_overrun(bool & result)
 
   if (!m_dev) return false;
 
-  int ret = iio_device_reg_read(
-    m_dev, m_device_descriptor->get(ADISRegister::DIAG_STAT_ADDR), &reg_val);
+  int ret =
+    iio_device_reg_read(m_dev, m_device_descriptor->get(ADISRegister::DIAG_STAT_ADDR), &reg_val);
   if (ret) return false;
 
   reg_val = (reg_val & m_device_descriptor->get(ADISRegister::DATA_PATH_OVERRUN)) >>
@@ -1489,8 +1484,8 @@ bool IIOWrapper::diag_automatic_reset(bool & result)
 
   if (!m_dev) return false;
 
-  int ret = iio_device_reg_read(
-    m_dev, m_device_descriptor->get(ADISRegister::DIAG_STAT_ADDR), &reg_val);
+  int ret =
+    iio_device_reg_read(m_dev, m_device_descriptor->get(ADISRegister::DIAG_STAT_ADDR), &reg_val);
   if (ret) return false;
 
   reg_val = (reg_val & m_device_descriptor->get(ADISRegister::WDG_TIMER_FLAG)) >>
@@ -1506,8 +1501,8 @@ bool IIOWrapper::diag_flash_memory_update_error(bool & result)
 
   if (!m_dev) return false;
 
-  int ret = iio_device_reg_read(
-    m_dev, m_device_descriptor->get(ADISRegister::DIAG_STAT_ADDR), &reg_val);
+  int ret =
+    iio_device_reg_read(m_dev, m_device_descriptor->get(ADISRegister::DIAG_STAT_ADDR), &reg_val);
   if (ret) return false;
 
   reg_val = (reg_val & m_device_descriptor->get(ADISRegister::FLS_MEM_UPDATE_FAIL)) >>
@@ -1523,8 +1518,8 @@ bool IIOWrapper::diag_spi_communication_error(bool & result)
 
   if (!m_dev) return false;
 
-  int ret = iio_device_reg_read(
-    m_dev, m_device_descriptor->get(ADISRegister::DIAG_STAT_ADDR), &reg_val);
+  int ret =
+    iio_device_reg_read(m_dev, m_device_descriptor->get(ADISRegister::DIAG_STAT_ADDR), &reg_val);
   if (ret) return false;
 
   reg_val = (reg_val & m_device_descriptor->get(ADISRegister::SPI_COMM_ERR)) >>
@@ -1540,8 +1535,8 @@ bool IIOWrapper::diag_crc_error(bool & result)
 
   if (!m_dev) return false;
 
-  int ret = iio_device_reg_read(
-    m_dev, m_device_descriptor->get(ADISRegister::DIAG_STAT_ADDR), &reg_val);
+  int ret =
+    iio_device_reg_read(m_dev, m_device_descriptor->get(ADISRegister::DIAG_STAT_ADDR), &reg_val);
   if (ret) return false;
 
   reg_val = (reg_val & m_device_descriptor->get(ADISRegister::CRC_ERROR)) >>
@@ -1557,8 +1552,8 @@ bool IIOWrapper::diag_standby_mode(bool & result)
 
   if (!m_dev) return false;
 
-  int ret = iio_device_reg_read(
-    m_dev, m_device_descriptor->get(ADISRegister::DIAG_STAT_ADDR), &reg_val);
+  int ret =
+    iio_device_reg_read(m_dev, m_device_descriptor->get(ADISRegister::DIAG_STAT_ADDR), &reg_val);
   if (ret) return false;
 
   reg_val = (reg_val & m_device_descriptor->get(ADISRegister::STDBY_MODE)) >>
@@ -1574,8 +1569,8 @@ bool IIOWrapper::diag_sensor_self_test_error(bool & result)
 
   if (!m_dev) return false;
 
-  int ret = iio_device_reg_read(
-    m_dev, m_device_descriptor->get(ADISRegister::DIAG_STAT_ADDR), &reg_val);
+  int ret =
+    iio_device_reg_read(m_dev, m_device_descriptor->get(ADISRegister::DIAG_STAT_ADDR), &reg_val);
   if (ret) return false;
 
   reg_val = (reg_val & m_device_descriptor->get(ADISRegister::SNSR_FAIL)) >>
@@ -1591,8 +1586,8 @@ bool IIOWrapper::diag_flash_memory_test_error(bool & result)
 
   if (!m_dev) return false;
 
-  int ret = iio_device_reg_read(
-    m_dev, m_device_descriptor->get(ADISRegister::DIAG_STAT_ADDR), &reg_val);
+  int ret =
+    iio_device_reg_read(m_dev, m_device_descriptor->get(ADISRegister::DIAG_STAT_ADDR), &reg_val);
   if (ret) return false;
 
   reg_val = (reg_val & m_device_descriptor->get(ADISRegister::MEM_FAIL)) >>
@@ -1608,8 +1603,8 @@ bool IIOWrapper::diag_clock_error(bool & result)
 
   if (!m_dev) return false;
 
-  int ret = iio_device_reg_read(
-    m_dev, m_device_descriptor->get(ADISRegister::DIAG_STAT_ADDR), &reg_val);
+  int ret =
+    iio_device_reg_read(m_dev, m_device_descriptor->get(ADISRegister::DIAG_STAT_ADDR), &reg_val);
   if (ret) return false;
 
   reg_val = (reg_val & m_device_descriptor->get(ADISRegister::CLK_ERR)) >>
@@ -1625,8 +1620,8 @@ bool IIOWrapper::diag_gyroscope1_self_test_error(bool & result)
 
   if (!m_dev) return false;
 
-  int ret = iio_device_reg_read(
-    m_dev, m_device_descriptor->get(ADISRegister::DIAG_STAT_ADDR), &reg_val);
+  int ret =
+    iio_device_reg_read(m_dev, m_device_descriptor->get(ADISRegister::DIAG_STAT_ADDR), &reg_val);
   if (ret) return false;
 
   reg_val = (reg_val & m_device_descriptor->get(ADISRegister::GYRO1_FAIL)) >>
@@ -1642,8 +1637,8 @@ bool IIOWrapper::diag_gyroscope2_self_test_error(bool & result)
 
   if (!m_dev) return false;
 
-  int ret = iio_device_reg_read(
-    m_dev, m_device_descriptor->get(ADISRegister::DIAG_STAT_ADDR), &reg_val);
+  int ret =
+    iio_device_reg_read(m_dev, m_device_descriptor->get(ADISRegister::DIAG_STAT_ADDR), &reg_val);
   if (ret) return false;
 
   reg_val = (reg_val & m_device_descriptor->get(ADISRegister::GYRO2_FAIL)) >>
@@ -1659,8 +1654,8 @@ bool IIOWrapper::diag_acceleration_self_test_error(bool & result)
 
   if (!m_dev) return false;
 
-  int ret = iio_device_reg_read(
-    m_dev, m_device_descriptor->get(ADISRegister::DIAG_STAT_ADDR), &reg_val);
+  int ret =
+    iio_device_reg_read(m_dev, m_device_descriptor->get(ADISRegister::DIAG_STAT_ADDR), &reg_val);
   if (ret) return false;
 
   reg_val = (reg_val & m_device_descriptor->get(ADISRegister::ACCEL_FAIL)) >>
@@ -1778,8 +1773,8 @@ bool IIOWrapper::diag_aduc_mcu_fault(bool & result)
 
   if (!m_dev) return false;
 
-  int ret = iio_device_reg_read(
-    m_dev, m_device_descriptor->get(ADISRegister::DIAG_STAT_ADDR), &reg_val);
+  int ret =
+    iio_device_reg_read(m_dev, m_device_descriptor->get(ADISRegister::DIAG_STAT_ADDR), &reg_val);
   if (ret) return false;
 
   reg_val = (reg_val & m_device_descriptor->get(ADISRegister::ADUC_MCU_FAULT)) >>
@@ -1805,8 +1800,8 @@ bool IIOWrapper::gyroscope_measurement_range(std::string & result)
 
   if (!m_dev) return false;
 
-  int ret = iio_device_reg_read(
-    m_dev, m_device_descriptor->get(ADISRegister::RANG_MDL_ADDR), &reg_val);
+  int ret =
+    iio_device_reg_read(m_dev, m_device_descriptor->get(ADISRegister::RANG_MDL_ADDR), &reg_val);
   if (ret) return false;
 
   if (m_device_descriptor->getDeviceFamily() == "adis1655x") {
@@ -1840,8 +1835,8 @@ bool IIOWrapper::internal_sensor_bandwidth(uint32_t & result)
 {
   if (!m_dev) return false;
 
-  int ret = iio_device_reg_read(
-    m_dev, m_device_descriptor->get(ADISRegister::MSC_CTRL_ADDR), &result);
+  int ret =
+    iio_device_reg_read(m_dev, m_device_descriptor->get(ADISRegister::MSC_CTRL_ADDR), &result);
   if (ret) return false;
 
   result = (result & m_device_descriptor->get(ADISRegister::SENS_BW)) >>
@@ -1882,8 +1877,8 @@ bool IIOWrapper::linear_acceleration_compensation(uint32_t & result)
 {
   if (!m_dev) return false;
 
-  int ret = iio_device_reg_read(
-    m_dev, m_device_descriptor->get(ADISRegister::MSC_CTRL_ADDR), &result);
+  int ret =
+    iio_device_reg_read(m_dev, m_device_descriptor->get(ADISRegister::MSC_CTRL_ADDR), &result);
   if (ret) return false;
 
   result = (result & m_device_descriptor->get(ADISRegister::LN_ACCL_COMP)) >>
@@ -1903,8 +1898,8 @@ bool IIOWrapper::bias_correction_time_base_control(uint32_t & result)
 {
   if (!m_dev) return false;
 
-  int ret = iio_device_reg_read(
-    m_dev, m_device_descriptor->get(ADISRegister::NULL_CNFG_ADDR), &result);
+  int ret =
+    iio_device_reg_read(m_dev, m_device_descriptor->get(ADISRegister::NULL_CNFG_ADDR), &result);
   if (ret) return false;
 
   result = (result & m_device_descriptor->get(ADISRegister::TIME_BASE_CONTROL)) >>
@@ -1917,15 +1912,15 @@ bool IIOWrapper::update_bias_correction_time_base_control(uint32_t val)
   return updateField(
     m_device_descriptor->get(ADISRegister::NULL_CNFG_ADDR),
     val << m_device_descriptor->get(ADISRegister::TIME_BASE_CONTROL_POS),
-     m_device_descriptor->get(ADISRegister::TIME_BASE_CONTROL));
+    m_device_descriptor->get(ADISRegister::TIME_BASE_CONTROL));
 }
 
 bool IIOWrapper::x_axis_gyroscope_bias_correction_enable(uint32_t & result)
 {
   if (!m_dev) return false;
 
-  int ret = iio_device_reg_read(
-    m_dev, m_device_descriptor->get(ADISRegister::NULL_CNFG_ADDR), &result);
+  int ret =
+    iio_device_reg_read(m_dev, m_device_descriptor->get(ADISRegister::NULL_CNFG_ADDR), &result);
   if (ret) return false;
 
   result = (result & m_device_descriptor->get(ADISRegister::X_AXIS_GYRO_BIAS_CORR_EN)) >>
@@ -1945,8 +1940,8 @@ bool IIOWrapper::y_axis_gyroscope_bias_correction_enable(uint32_t & result)
 {
   if (!m_dev) return false;
 
-  int ret = iio_device_reg_read(
-    m_dev, m_device_descriptor->get(ADISRegister::NULL_CNFG_ADDR), &result);
+  int ret =
+    iio_device_reg_read(m_dev, m_device_descriptor->get(ADISRegister::NULL_CNFG_ADDR), &result);
   if (ret) return false;
 
   result = (result & m_device_descriptor->get(ADISRegister::Y_AXIS_GYRO_BIAS_CORR_EN)) >>
@@ -1966,8 +1961,8 @@ bool IIOWrapper::z_axis_gyroscope_bias_correction_enable(uint32_t & result)
 {
   if (!m_dev) return false;
 
-  int ret = iio_device_reg_read(
-    m_dev, m_device_descriptor->get(ADISRegister::NULL_CNFG_ADDR), &result);
+  int ret =
+    iio_device_reg_read(m_dev, m_device_descriptor->get(ADISRegister::NULL_CNFG_ADDR), &result);
   if (ret) return false;
 
   result = (result & m_device_descriptor->get(ADISRegister::Z_AXIS_GYRO_BIAS_CORR_EN)) >>
@@ -1987,8 +1982,8 @@ bool IIOWrapper::x_axis_accelerometer_bias_correction_enable(uint32_t & result)
 {
   if (!m_dev) return false;
 
-  int ret = iio_device_reg_read(
-    m_dev, m_device_descriptor->get(ADISRegister::NULL_CNFG_ADDR), &result);
+  int ret =
+    iio_device_reg_read(m_dev, m_device_descriptor->get(ADISRegister::NULL_CNFG_ADDR), &result);
   if (ret) return false;
 
   result = (result & m_device_descriptor->get(ADISRegister::X_AXIS_ACCEL_BIAS_CORR_EN)) >>
@@ -2008,8 +2003,8 @@ bool IIOWrapper::y_axis_accelerometer_bias_correction_enable(uint32_t & result)
 {
   if (!m_dev) return false;
 
-  int ret = iio_device_reg_read(
-    m_dev, m_device_descriptor->get(ADISRegister::NULL_CNFG_ADDR), &result);
+  int ret =
+    iio_device_reg_read(m_dev, m_device_descriptor->get(ADISRegister::NULL_CNFG_ADDR), &result);
   if (ret) return false;
 
   result = (result & m_device_descriptor->get(ADISRegister::Y_AXIS_ACCEL_BIAS_CORR_EN)) >>
@@ -2029,8 +2024,8 @@ bool IIOWrapper::z_axis_accelerometer_bias_correction_enable(uint32_t & result)
 {
   if (!m_dev) return false;
 
-  int ret = iio_device_reg_read(
-    m_dev, m_device_descriptor->get(ADISRegister::NULL_CNFG_ADDR), &result);
+  int ret =
+    iio_device_reg_read(m_dev, m_device_descriptor->get(ADISRegister::NULL_CNFG_ADDR), &result);
   if (ret) return false;
 
   result = (result & m_device_descriptor->get(ADISRegister::Z_AXIS_ACCEL_BIAS_CORR_EN)) >>
@@ -2052,8 +2047,7 @@ bool IIOWrapper::bias_correction_update()
 
   uint16_t cmd = m_device_descriptor->get(ADISRegister::BIAS_CORRECTION_UPDATE);
   return (
-    iio_device_reg_write(
-      m_dev, m_device_descriptor->get(ADISRegister::GLOB_CMD_ADDR), cmd) == 0);
+    iio_device_reg_write(m_dev, m_device_descriptor->get(ADISRegister::GLOB_CMD_ADDR), cmd) == 0);
 }
 
 bool IIOWrapper::factory_calibration_restore()
@@ -2062,8 +2056,7 @@ bool IIOWrapper::factory_calibration_restore()
 
   uint16_t cmd = m_device_descriptor->get(ADISRegister::FACTORY_CALIBRATION_RESTORE);
   return (
-    iio_device_reg_write(
-      m_dev, m_device_descriptor->get(ADISRegister::GLOB_CMD_ADDR), cmd) == 0);
+    iio_device_reg_write(m_dev, m_device_descriptor->get(ADISRegister::GLOB_CMD_ADDR), cmd) == 0);
 }
 
 bool IIOWrapper::sensor_self_test()
@@ -2072,8 +2065,7 @@ bool IIOWrapper::sensor_self_test()
 
   uint16_t cmd = m_device_descriptor->get(ADISRegister::SENSOR_SELF_TEST);
   return (
-    iio_device_reg_write(
-      m_dev, m_device_descriptor->get(ADISRegister::GLOB_CMD_ADDR), cmd) == 0);
+    iio_device_reg_write(m_dev, m_device_descriptor->get(ADISRegister::GLOB_CMD_ADDR), cmd) == 0);
 }
 
 bool IIOWrapper::flash_memory_update()
@@ -2082,8 +2074,7 @@ bool IIOWrapper::flash_memory_update()
 
   uint16_t cmd = m_device_descriptor->get(ADISRegister::FLASH_MEMORY_UPDATE);
   return (
-    iio_device_reg_write(
-      m_dev, m_device_descriptor->get(ADISRegister::GLOB_CMD_ADDR), cmd) == 0);
+    iio_device_reg_write(m_dev, m_device_descriptor->get(ADISRegister::GLOB_CMD_ADDR), cmd) == 0);
 }
 
 bool IIOWrapper::flash_memory_test()
@@ -2092,8 +2083,7 @@ bool IIOWrapper::flash_memory_test()
 
   uint16_t cmd = m_device_descriptor->get(ADISRegister::FLASH_MEMORY_TEST);
   return (
-    iio_device_reg_write(
-      m_dev, m_device_descriptor->get(ADISRegister::GLOB_CMD_ADDR), cmd) == 0);
+    iio_device_reg_write(m_dev, m_device_descriptor->get(ADISRegister::GLOB_CMD_ADDR), cmd) == 0);
 }
 
 bool IIOWrapper::software_reset()
@@ -2102,8 +2092,7 @@ bool IIOWrapper::software_reset()
 
   uint16_t cmd = m_device_descriptor->get(ADISRegister::SOFTWARE_RESET_CMD);
   return (
-    iio_device_reg_write(
-      m_dev, m_device_descriptor->get(ADISRegister::GLOB_CMD_ADDR), cmd) == 0);
+    iio_device_reg_write(m_dev, m_device_descriptor->get(ADISRegister::GLOB_CMD_ADDR), cmd) == 0);
 }
 
 bool IIOWrapper::firmware_revision(std::string & result)

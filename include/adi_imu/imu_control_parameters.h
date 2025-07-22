@@ -21,11 +21,10 @@
 #ifndef IMU_CONTROL_PARAMETERS_H
 #define IMU_CONTROL_PARAMETERS_H
 
-#include <rclcpp/rclcpp.hpp>
-
+#include "adi_imu/adis_register_map.h"
 #include "adi_imu/iio_wrapper.h"
 #include "rcl_interfaces/msg/set_parameters_result.hpp"
-#include "adi_imu/adis_register_map.h"
+#include "rclcpp/rclcpp.hpp"
 
 namespace adi_imu
 {
@@ -39,8 +38,8 @@ public:
    * @brief Constructor for ImuControlParameters.
    * @param node The ros2 Node instance.
    */
-  ImuControlParameters(std::shared_ptr<rclcpp::Node> & node,
-                       std::shared_ptr<ADISRegisterMap> & device_descriptor);
+  ImuControlParameters(
+    std::shared_ptr<rclcpp::Node> & node, std::shared_ptr<ADISRegisterMap> & device_descriptor);
 
   /**
    * @brief Destructor for ImuControlParameters.

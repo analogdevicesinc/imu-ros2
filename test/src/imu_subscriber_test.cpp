@@ -24,9 +24,9 @@
 #include <rclcpp/rclcpp.hpp>
 #include <sensor_msgs/msg/imu.hpp>
 
-#include "adi_imu/iio_wrapper.h"
 #include "adi_imu/adis_device_factory.h"
 #include "adi_imu/adis_register_map.h"
+#include "adi_imu/iio_wrapper.h"
 
 /**
  * @brief Class for testing sensor_msgs::msg::Imu.

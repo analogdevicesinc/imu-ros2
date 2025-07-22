@@ -14,7 +14,6 @@ public:
 private:
   void initializeConstants() override;
   void overwriteRegisters() override;
-
 };
 
 }  // namespace adi_imu
