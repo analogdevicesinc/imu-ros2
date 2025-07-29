@@ -41,8 +41,7 @@ ament_add_gtest(adi_imu_test_node utest_launch.test src/utest.cpp
                                       src/imu_diag_adis1657X_subscriber_test.cpp
                                       src/velangtemp_subscriber_test.cpp
                                       src/accelgyrotemp_subscriber_test.cpp
-                                      ${FILES_H} ${FILES_CPP}
-                                  )
+                                      ${FILES_H} ${FILES_CPP})
 
 target_include_directories(adi_imu_test_node PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
