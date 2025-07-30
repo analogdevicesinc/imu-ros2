@@ -113,7 +113,20 @@ if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
   find_package(ament_cmake_gtest REQUIRED)
   ament_lint_auto_find_test_dependencies()
-  add_subdirectory(test)
+
+  # Only build integration tests when explicitly enabled
+  if(DEFINED ENV{IMU_ROS2_ENABLE_HW_TESTS})
+    set(BUILD_INTEGRATION_TESTS ON)
+  else()
+    set(BUILD_INTEGRATION_TESTS OFF)
+  endif()
+
+  if(BUILD_INTEGRATION_TESTS)
+    message(STATUS "Building integration tests")
+    add_subdirectory(test)
+  else()
+    message(STATUS "Integration tests disabled. Set IMU_ROS2_ENABLE_HW_TESTS=1 environment variable to enable")
+  endif()
 endif()
 
 # ==============================================================================

@@ -231,6 +231,11 @@ connected to (e.g. on Raspberry Pi), run the following command to start the adi_
 For executing system tests, run the following commands, after the adi_imu node
 has been started:
 
+.. warning::
+        Hardware tests must be explicitly enabled by setting the environment variable
+        `IMU_ROS2_ENABLE_HW_TESTS=1` before running the `colcon build` command.
+        By default, only lint tests are enabled.
+
 .. code-block:: bash
 
         # Store the ADIS under test name
@@ -292,6 +297,11 @@ start the adi_imu node:
 
 For executing system tests, run the following commands, after the adi_imu node
 has been started:
+
+.. warning::
+        Hardware tests must be explicitly enabled by setting the environment variable
+        `IMU_ROS2_ENABLE_HW_TESTS=1` before running the `colcon build` command.
+        By default, only lint tests are enabled.
 
 .. code-block:: bash
 
