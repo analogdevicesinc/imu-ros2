@@ -2,30 +2,32 @@
  *   @file   ros_publisher_group_interface.h
  *   @brief  Interface for a group of publishers.
  *   @author Vasile Holonec (Vasile.Holonec@analog.com)
- *******************************************************************************
- * Copyright 2023(c) Analog Devices, Inc.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- ******************************************************************************/
+*******************************************************************************/
+// Copyright 2023 Analog Devices, Inc.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
 
-#ifndef ROS_PUBLISHER_GROUP_INTERFACE_H
-#define ROS_PUBLISHER_GROUP_INTERFACE_H
+#ifndef ADI_IMU__ROS_PUBLISHER_GROUP_INTERFACE_H_
+#define ADI_IMU__ROS_PUBLISHER_GROUP_INTERFACE_H_
 
 #include <memory>
 #include <rclcpp/rclcpp.hpp>
 
+#include "adi_imu/adis_register_map.h"
 #include "adi_imu/ros_task.h"
-#include "adis_data_access.h"
+
+namespace adi_imu
+{
 
 class AccelGyroTempRosPublisherInterface;
 class ImuRosPublisherInterface;
@@ -56,14 +58,12 @@ public:
   virtual void setAccelGyroTempRosPublisher(
     AccelGyroTempRosPublisherInterface * accelGyroTempRosPublisher) = 0;
 
-#ifdef ADIS_HAS_DELTA_BURST
   /**
    * @brief Sets the velAngTempRosPublisher publisher in the publisher group.
    * @param velAngTempRosPublisher The publisher to be set in the group.
    */
   virtual void setVelAngTempRosPublisher(
     VelAngTempRosPublisherInterface * velAngTempRosPublisher) = 0;
-#endif
 
   /**
    * @brief Sets the imuRosPublisher publisher in the publisher group.
@@ -92,4 +92,6 @@ protected:
   std::shared_ptr<rclcpp::Node> m_node;
 };
 
-#endif  // ROS_PUBLISHER_GROUP_INTERFACE_H
+}  // namespace adi_imu
+
+#endif  // ADI_IMU__ROS_PUBLISHER_GROUP_INTERFACE_H_

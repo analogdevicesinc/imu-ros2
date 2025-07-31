@@ -2,28 +2,31 @@
  *   @file   ros_publisher_group.h
  *   @brief  Header for acceleration, gyroscope and temperature publisher.
  *   @author Vasile Holonec (Vasile.Holonec@analog.com)
- *******************************************************************************
- * Copyright 2023(c) Analog Devices, Inc.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- ******************************************************************************/
+*******************************************************************************/
+// Copyright 2023 Analog Devices, Inc.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
 
-#ifndef ROS_PUBLISHER_GROUP_H
-#define ROS_PUBLISHER_GROUP_H
+#ifndef ADI_IMU__ROS_PUBLISHER_GROUP_H_
+#define ADI_IMU__ROS_PUBLISHER_GROUP_H_
 
+#include <memory>
 #include <rclcpp/rclcpp.hpp>
 
 #include "adi_imu/ros_publisher_group_interface.h"
+
+namespace adi_imu
+{
 
 /**
  * @brief Class ROS publisher group.
@@ -35,7 +38,7 @@ public:
    * @brief Constructor for RosPublisherGroup.
    * @param node The ros2 Node instance.
    */
-  RosPublisherGroup(std::shared_ptr<rclcpp::Node> & node);
+  explicit RosPublisherGroup(std::shared_ptr<rclcpp::Node> & node);
 
   /**
    * @brief Destructor for RosPublisherGroup.
@@ -49,13 +52,11 @@ public:
   void setAccelGyroTempRosPublisher(
     AccelGyroTempRosPublisherInterface * accelGyroTempRosPublisher) override;
 
-#ifdef ADIS_HAS_DELTA_BURST
   /**
    * @brief Sets the velAngTempRosPublisher publisher in the publisher group.
    * @param velAngTempRosPublisher The publisher to be set in the group.
    */
   void setVelAngTempRosPublisher(VelAngTempRosPublisherInterface * velAngTempRosPublisher) override;
-#endif
 
   /**
    * @brief Sets the imuRosPublisher publisher in the publisher group.
@@ -88,10 +89,8 @@ public:
 private:
   /*! Variable to retain AccelGyroTemp message provider. */
   AccelGyroTempRosPublisherInterface * m_accelGyroTempRosPublisher;
-#ifdef ADIS_HAS_DELTA_BURST
   /*! Variable to retain VelAngTemp message provider. */
   VelAngTempRosPublisherInterface * m_velAngTempRosPublisher;
-#endif
   /*! Variable to retain Imu message provider. */
   ImuRosPublisherInterface * m_imuRosPublisher;
   /*! Variable to retain ImuFullMeasuredData message provider. */
@@ -100,4 +99,6 @@ private:
   ImuControlParameters * m_imuControlParameters;
 };
 
-#endif  // ROS_PUBLISHER_GROUP_H
+}  // namespace adi_imu
+
+#endif  // ADI_IMU__ROS_PUBLISHER_GROUP_H_

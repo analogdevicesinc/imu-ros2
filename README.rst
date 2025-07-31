@@ -27,7 +27,7 @@ To help you quickly get started with the adi_iio package, we have organized
 detailed documentation into several sections:
 
 * For information on **prerequisites, repository setup, and building the package**,
-  please refer to the `Using imu-ros2 repository`_ section.
+  please refer to the `Using imu_ros2 repository`_ section.
 * For information on **running the adi_imu node with a local client or a remote client**,
   please refer to the `Run adi_imu node`_ section.
 * For information on **topics, parameters, and examples**, please refer to the
@@ -95,7 +95,7 @@ Applications
 * Virtual/augmented reality
 * Internet of Moving Things
 
-Using imu-ros2 repository
+Using imu_ros2 repository
 -------------------------
 
 This repository implements a ROS2 node that reads data from ADI IMU devices and
@@ -105,13 +105,13 @@ the IMU devices.
 Prerequisites
 ^^^^^^^^^^^^^
 
-imu-ros2 can be used with ROS2 humble distribution. To install it you may follow
+imu_ros2 can be used with ROS2 humble distribution. To install it you may follow
 the documentation available here: https://docs.ros.org/en/humble/Installation.html
 
-imu-ros2 is using LibIIO v0.25. To install LibIIO you may follow the documentation
+imu_ros2 is using LibIIO v0.25. To install LibIIO you may follow the documentation
 available here: https://wiki.analog.com/resources/tools-software/linux-software/libiio
 
-imu-ros2 is compatible with adis16475 Linux Kernel Driver which can be found here:
+imu_ros2 is compatible with adis16475 Linux Kernel Driver which can be found here:
 https://github.com/torvalds/linux/blob/master/drivers/iio/imu/adis16475.c
 
 
@@ -195,38 +195,9 @@ Go to src folder (either in ros2_ws or in your project), and clone the adi_imu r
 
 .. code-block:: bash
 
-        git clone https://github.com/analogdevicesinc/imu-ros2.git
+        git clone https://github.com/analogdevicesinc/imu_ros2.git
 
-Go back to your main project folder or ros2_ws folder and export the following environment variable,
-based on the IMU chip:
-
-.. code-block:: bash
-
-        export DEVICE_ID={IMU_chip}
-
-        IMU_chip available options are:
-        adis16465-1, adis16465-2, adis16465-3,
-        adis16467-1, adis16467-2, adis16467-3,
-        adis16470,
-        adis16475-1, adis16475-2, adis16475-3,
-        adis16477-1, adis16477-2, adis16477-3,
-        adis16500,
-        adis16501,
-        adis16505-1, adis16505-2, adis16505-3,
-        adis16507-1, adis16507-2, adis16507-3,
-        adis16545-1, adis16545-2, adis16545-3,
-        adis16547-1, adis16547-2, adis16547-3,
-        adis16575-2, adis16575-3,
-        adis16576-2, adis16576-3,
-        adis16577-2, adis16577-3.
-
-In order select adis16505-2 IMU, run the following command:
-
-.. code-block:: bash
-
-        export DEVICE_ID=adis16505-2
-
-After DEVICE_ID variable is exported, run the following command:
+Go back to your main project folder or ros2_ws folder and run the following command:
 
 .. code-block:: bash
 
@@ -234,7 +205,7 @@ After DEVICE_ID variable is exported, run the following command:
 
 Check wether the build is successful.
 
-.. _runn_adi_imu_node:
+.. _run_adi_imu_node:
 
 
 Run adi_imu node
@@ -249,7 +220,8 @@ connected to (e.g. on Raspberry Pi), run the following command to start the adi_
 .. code-block:: bash
 
         source install/setup.sh
-        ros2 run adi_imu adi_imu_node
+        ros2 run adi_imu adi_imu_node --ros-args \
+                -p imu_device_name:="<your_imu_device_name>"
 
 .. warning::
         Please make sure you are running the commands above with sudo.
@@ -259,33 +231,52 @@ connected to (e.g. on Raspberry Pi), run the following command to start the adi_
 For executing system tests, run the following commands, after the adi_imu node
 has been started:
 
+.. warning::
+        Hardware tests must be explicitly enabled by setting the environment variable
+        `IMU_ROS2_ENABLE_HW_TESTS=1` before running the `colcon build` command.
+        By default, only lint tests are enabled.
 
 .. code-block:: bash
+
+        # Store the ADIS under test name
+        export IMU_DEVICE_NAME="<ADIS_DEVICE_NAME>"
 
         source install/setup.sh
         cd install/adi_imu/lib/adi_imu_test
 
         # set measured_data_topic_selection to 0 to test VelAngTempSubscriber (not available for adis1646x)
         ros2 param set /adi_imu_node measured_data_topic_selection 0
-        ./adi_imu_test_node --gtest_filter="VelAngTempSubscriberTest*"
+        ./adi_imu_test_node \
+                --gtest_filter="VelAngTempSubscriberTest*" \
+                --ros-args -p imu_device_name:=${IMU_DEVICE_NAME}
 
         # set measured_data_topic_selection to 1 to test AccelGyroTempSubscriber
         ros2 param set /adi_imu_node measured_data_topic_selection 1
-        ./adi_imu_test_node --gtest_filter="AccelGyroTempSubscriberTest*"
+        ./adi_imu_test_node \
+                --gtest_filter="AccelGyroTempSubscriberTest*" \
+                --ros-args -p imu_device_name:=${IMU_DEVICE_NAME}
 
         # set measured_data_topic_selection to 2 to test ImuSubscriber
         ros2 param set /adi_imu_node measured_data_topic_selection 2
-        ./adi_imu_test_node --gtest_filter="ImuSubscriberTest*"
+        ./adi_imu_test_node \
+                --gtest_filter="ImuSubscriberTest*" \
+                --ros-args -p imu_device_name:=${IMU_DEVICE_NAME}
 
         # set measured_data_topic_selection to 3 to test ImuFullMeasuredDataSubscriber
         ros2 param set /adi_imu_node measured_data_topic_selection 3
-        ./adi_imu_test_node --gtest_filter="ImuFullMeasuredDataSubscriberTest*"
+        ./adi_imu_test_node \
+                --gtest_filter="ImuFullMeasuredDataSubscriberTest*" \
+                --ros-args -p imu_device_name:=${IMU_DEVICE_NAME}
 
         # test ImuIdentificationSubscriber
-        ./adi_imu_test_node --gtest_filter="ImuIdentificationSubscriberTest*"
+        ./adi_imu_test_node \
+                --gtest_filter="ImuIdentificationSubscriberTest*" \
+                --ros-args -p imu_device_name:=${IMU_DEVICE_NAME}
 
         # test ImuDiagSubscriber
-        ./adi_imu_test_node --gtest_filter="ImuDiagSubscriberTest*"
+        ./adi_imu_test_node \
+                --gtest_filter="ImuDiagSubscriberTest*" \
+                --ros-args -p imu_device_name:=${IMU_DEVICE_NAME}
 
 Run adi_imu node with remote client
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -300,37 +291,72 @@ start the adi_imu node:
 .. code-block:: bash
 
         source install/setup.sh
-        ros2 run adi_imu adi_imu_node --ros-args -p iio_context_string:="ip:'processing_unit_IP_address'"
+        ros2 run adi_imu adi_imu_node --ros-args \
+                -p imu_device_name:="<your_imu_device_name>" \
+                -p iio_context_string:="ip:'processing_unit_IP_address'"
 
 For executing system tests, run the following commands, after the adi_imu node
 has been started:
 
+.. warning::
+        Hardware tests must be explicitly enabled by setting the environment variable
+        `IMU_ROS2_ENABLE_HW_TESTS=1` before running the `colcon build` command.
+        By default, only lint tests are enabled.
+
 .. code-block:: bash
+
+        # Store the URI and ADIS under test names
+        export IIO_CONTEXT_STRING="ip:<processing_unit_IPv4_address>"
+        export IMU_DEVICE_NAME="<ADIS_DEVICE_NAME>"
 
         source install/setup.sh
         cd install/adi_imu/lib/adi_imu_test
 
         # set measured_data_topic_selection to 0 to test VelAngTempSubscriber (not available for adis1646x)
         ros2 param set /adi_imu_node measured_data_topic_selection 0
-        ./adi_imu_test_node --gtest_filter="VelAngTempSubscriberTest*" --ros-args -p iio_context_string:="ip:'processing_unit_IP_address'"
+        ./adi_imu_test_node \
+                --gtest_filter="VelAngTempSubscriberTest*" \
+                --ros-args \
+                        -p iio_context_string:=${IIO_CONTEXT_STRING} \
+                        -p imu_device_name:=${IMU_DEVICE_NAME}
 
         # set measured_data_topic_selection to 1 to test AccelGyroTempSubscriber
         ros2 param set /adi_imu_node measured_data_topic_selection 1
-        ./adi_imu_test_node --gtest_filter="AccelGyroTempSubscriberTest*" --ros-args -p iio_context_string:="ip:'processing_unit_IP_address'"
+        ./adi_imu_test_node \
+                --gtest_filter="AccelGyroTempSubscriberTest*" \
+                --ros-args \
+                        -p iio_context_string:=${IIO_CONTEXT_STRING} \
+                        -p imu_device_name:=${IMU_DEVICE_NAME}
 
         # set measured_data_topic_selection to 2 to test ImuSubscriber
         ros2 param set /adi_imu_node measured_data_topic_selection 2
-        ./adi_imu_test_node --gtest_filter="ImuSubscriberTest*" --ros-args -p iio_context_string:="ip:'processing_unit_IP_address'"
+        ./adi_imu_test_node \
+                --gtest_filter="ImuSubscriberTest*" \
+                --ros-args \
+                        -p iio_context_string:=${IIO_CONTEXT_STRING} \
+                        -p imu_device_name:=${IMU_DEVICE_NAME}
 
         # set measured_data_topic_selection to 3 to test ImuFullMeasuredDataSubscriber
         ros2 param set /adi_imu_node measured_data_topic_selection 3
-        ./adi_imu_test_node --gtest_filter="ImuFullMeasuredDataSubscriberTest*" --ros-args -p iio_context_string:="ip:'processing_unit_IP_address'"
+        ./adi_imu_test_node \
+                --gtest_filter="ImuFullMeasuredDataSubscriberTest*" \
+                --ros-args \
+                        -p iio_context_string:=${IIO_CONTEXT_STRING} \
+                        -p imu_device_name:=${IMU_DEVICE_NAME}
 
         # test ImuIdentificationSubscriber
-        ./adi_imu_test_node --gtest_filter="ImuIdentificationSubscriberTest*" --ros-args -p iio_context_string:="ip:'processing_unit_IP_address'"
+        ./adi_imu_test_node \
+                --gtest_filter="ImuIdentificationSubscriberTest*" \
+                --ros-args \
+                        -p iio_context_string:=${IIO_CONTEXT_STRING} \
+                        -p imu_device_name:=${IMU_DEVICE_NAME}
 
         # test ImuDiagSubscriber
-        ./adi_imu_test_node --gtest_filter="ImuDiagSubscriberTest*" --ros-args -p iio_context_string:="ip:'processing_unit_IP_address'"
+        ./adi_imu_test_node \
+                --gtest_filter="ImuDiagSubscriberTest*" \
+                --ros-args \
+                        -p iio_context_string:=${IIO_CONTEXT_STRING} \
+                        -p imu_device_name:=${IMU_DEVICE_NAME}
 
 
 adi_imu node description
@@ -411,6 +437,38 @@ This topic has the following definition:
 Node parameters
 ^^^^^^^^^^^^^^^
 
+imu_device_name
+"""""""""""""""
+
+The adi_imu node requires the name of the IMU device to be set using the
+**imu_device_name** parameter. This parameter is used at runtime to identify
+the specific ADIS device and load its supported capabilities, including available
+parameters, measurement ranges, and feature sets.
+
+**Supported Device Names:**
+
+The following device names are supported (case-sensitive):
+
+* ``adis16465-1``, ``adis16465-2``, ``adis16465-3``
+* ``adis16467-1``, ``adis16467-2``, ``adis16467-3``
+* ``adis16470``
+* ``adis16475-1``, ``adis16475-2``, ``adis16475-3``
+* ``adis16477-1``, ``adis16477-2``, ``adis16477-3``
+* ``adis16500``
+* ``adis16501``
+* ``adis16505-1``, ``adis16505-2``, ``adis16505-3``
+* ``adis16507-1``, ``adis16507-2``, ``adis16507-3``
+* ``adis16545-1``, ``adis16545-2``, ``adis16545-3``
+* ``adis16547-1``, ``adis16547-2``, ``adis16547-3``
+* ``adis16550``
+* ``adis16575-2``, ``adis16575-3``
+* ``adis16576-2``, ``adis16576-3``
+* ``adis16577-2``, ``adis16577-3``
+
+
+iio_context_string
+""""""""""""""""""
+
 The adi_imu driver is using LibIIO and thus a LibIIO context should be given when
 starting the node, using **iio_context_string** parameter.
 If the parameter is not set, the default value will be used, which is 'local:',
@@ -418,6 +476,9 @@ suitable for running the adi_imu node on the Raspberry Pi.
 If the adi_imu node is not running on the Raspberry Pi, the parameter should
 be given when starting the adi_imu node and it should have the following format:
 'ip:rpi_ip_address', where rpi_ip_address is the IP address of the Raspberry Pi.
+
+measured_data_topic_selection
+"""""""""""""""""""""""""""""
 
 The adi_imu driver can publish the measured data in various mode, based on
 **measured_data_topic_selection** parameter value, as shown below:
@@ -431,7 +492,7 @@ IMU parameters
 ^^^^^^^^^^^^^^
 
 The adi_imu driver allows for IMU configuration. Not all parameters
-are available for a device. See https://github.com/analogdevicesinc/imu-ros2/tree/main/config for
+are available for a device. See https://github.com/analogdevicesinc/imu_ros2/tree/main/config for
 chip specific configuration.
 
 +---------------------------------------------+------------------------------------------------------------+----------------+-------------------------------------------------------------------------------------------------------------------------------+------------------------+------------------------+-------------------------------------------------------+--------------------------------------------------+------------------------+
@@ -954,7 +1015,6 @@ EVAL-ADISIMU1-RPIZ using Mounting Slot I with P7 Connector:
                 0.0
                 0.0
                 0.0
-                0.0
 
 **Topic echo imufullmeasureddata**
 
@@ -1052,9 +1112,9 @@ EVAL-ADISIMU1-RPIZ using Mounting Slot I with P7 Connector:
 Using adi_imu node with imu-tools
 ----------------------------------
 
-imu-ros2 repository offers a launch file which can be used to visualize
+imu_ros2 repository offers a launch file which can be used to visualize
 in rviz the imu filtered data, using a Madgwick filter implemented in imu-tools
-ros package. Below you may find the steps to achieve this, assuming imu-ros2 sources
+ros package. Below you may find the steps to achieve this, assuming imu_ros2 sources
 and dependencies are already available.
 
 First install imu-tools and rviz2 packages:
@@ -1063,42 +1123,31 @@ First install imu-tools and rviz2 packages:
 
         ➜ sudo apt-get install ros-humble-imu-tools ros-humble-rviz2
 
-Identify the IP address of the processing unit to which
-the IMU is connected to (e.g. Raspberry Pi) then update the iio_context_string
-in launch/imu_with_madgwick_filter_rviz.launch.py:
-
-.. code-block:: bash
-
-        adi_imu_node = launch_ros.actions.Node(
-                package='adi_imu',
-                executable='adi_imu_node',
-                parameters=[{'measured_data_topic_selection': 2},
-                        # the IP address of the processing unit to which the IMU is connected to
-                        {'iio_context_string': "ip:192.168.0.1"},],
-                remappings=[('/imu','/imu/data_raw')],
-                output='screen'
-                )
-
-Rebuild imu-ros2 package:
-
-.. code-block:: bash
-
-        colcon build
-
-Then launch the imu_with_madgwick_filter_rviz.launch file:
+Identify the IP address of the processing unit to which the IMU is connected to
+(e.g. Raspberry Pi) and determine your specific ADIS device name. Then launch the
+`imu_with_madgwick_filter_rviz.launch` file with the required arguments:
 
 .. code-block:: bash
 
         source install/setup.sh
-        ros2 launch adi_imu imu_with_madgwick_filter_rviz.launch.py
+        ros2 launch adi_imu imu_with_madgwick_filter_rviz.launch.py \
+            iio_context_string:="ip:192.168.0.1" \
+            imu_device_name:="adis16545-3"
+
+.. tip::
+    You can see all available launch arguments and their descriptions by running:
+
+    .. code-block:: bash
+
+        ros2 launch adi_imu imu_with_madgwick_filter_rviz.launch.py --show-args
 
 
 IMU and TOF sensor fusion
 -------------------------
 
-imu-ros2 repository offers a launch file which can be used to visualize
+imu_ros2 repository offers a launch file which can be used to visualize
 in rviz the ToF point cloud fused with imu filtered data.
-Below you may find the steps to achieve this, assuming imu-ros2 sources
+Below you may find the steps to achieve this, assuming imu_ros2 sources
 and dependencies are already available.
 
 First install imu-tools and rviz2 packages:
@@ -1110,32 +1159,21 @@ First install imu-tools and rviz2 packages:
 Secondly install tof-ros2 package by following the steps from:
 https://github.com/analogdevicesinc/tof-ros2#readme
 
-Identify the IP address of the processing unit to which
-the IMU is connected to (e.g. Raspberry Pi) then update the iio_context_string
-in launch/imu_tof_fusion.launch.py:
 
-.. code-block:: bash
-
-        adi_imu_node = launch_ros.actions.Node(
-                package='adi_imu',
-                executable='adi_imu_node',
-                parameters=[{'measured_data_topic_selection': 2},
-                        # the IP address of the processing unit to which the IMU is connected to
-                        {'iio_context_string': "ip:192.168.0.1"},],
-                remappings=[('/imu','/imu/data_raw')],
-                output='screen'
-                )
-
-Rebuild imu-ros2 package:
-
-.. code-block:: bash
-
-        colcon build
-
-Then launch the imu_tof_fusion.launch file:
+Identify the IP address of the processing unit to which the IMU is connected to
+(e.g. Raspberry Pi) and determine your specific ADIS device name. Then launch the
+imu_tof_fusion.launch file with the required arguments:
 
 .. code-block:: bash
 
         source install/setup.sh
-        ros2 launch adi_imu imu_tof_fusion.launch.py
+        ros2 launch adi_imu imu_tof_fusion.launch.py \
+            iio_context_string:="ip:192.168.0.1" \
+            imu_device_name:="adis16545-3"
 
+.. tip::
+    You can see all available launch arguments and their descriptions by running:
+
+    .. code-block:: bash
+
+        ros2 launch adi_imu imu_tof_fusion.launch.py --show-args

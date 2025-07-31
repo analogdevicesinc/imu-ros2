@@ -2,27 +2,28 @@
 *   @file   velangtemp_subscriber_test.cpp
 *   @brief  Test vel ang temp publisher
 *   @author Vasile Holonec (Vasile.Holonec@analog.com)
-********************************************************************************
-* Copyright 2023(c) Analog Devices, Inc.
-
-* Licensed under the Apache License, Version 2.0 (the "License");
-* you may not use this file except in compliance with the License.
-* You may obtain a copy of the License at
-*
-*     http://www.apache.org/licenses/LICENSE-2.0
-*
-* Unless required by applicable law or agreed to in writing, software
-* distributed under the License is distributed on an "AS IS" BASIS,
-* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-* See the License for the specific language governing permissions and
-* limitations under the License.
 *******************************************************************************/
+// Copyright 2023 Analog Devices, Inc.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
 
 #include <gtest/gtest.h>
 
 #include <chrono>
 #include <rclcpp/rclcpp.hpp>
 
+#include "adi_imu/adis_device_factory.h"
+#include "adi_imu/adis_register_map.h"
 #include "adi_imu/iio_wrapper.h"
 #include "adi_imu/msg/vel_ang_temp_data.hpp"
 
@@ -54,19 +55,27 @@ public:
  * VelAngTempData topic and compares it against a range of expected
  * values.
  */
-#ifdef ADIS_HAS_DELTA_BURST
 TEST(VelAngTempSubscriberTest, test_velangtemp_publisher)
 {
-  IIOWrapper iio_wrapper;
+  adi_imu::IIOWrapper iio_wrapper;
 
   auto node = rclcpp::Node::make_shared("test_velangtempdata_publisher");
 
   node->declare_parameter("iio_context_string", "local:");
+  node->declare_parameter("imu_device_name", "unknown");
 
   std::string context =
     node->get_parameter("iio_context_string").get_parameter_value().get<std::string>();
-  IIOWrapper m_iio_wrapper;
-  m_iio_wrapper.createContext(context.c_str());
+  std::string device_name =
+    node->get_parameter("imu_device_name").get_parameter_value().get<std::string>();
+  auto device_descriptor = adi_imu::ADISDeviceFactory::make(device_name);
+
+  if (!device_descriptor->has(adi_imu::ADISRegister::HAS_DELTA_BURST)) {
+    GTEST_SKIP() << "Device does not support delta burst mode.";
+  }
+
+  iio_wrapper.setDeviceDescriptor(device_descriptor);
+  iio_wrapper.createContext(context.c_str());
 
   std::string topic = "velangtempdata";
 
@@ -122,4 +131,3 @@ TEST(VelAngTempSubscriberTest, test_velangtemp_publisher)
 
   while (!callbackExecuted) executor.spin_once(sec);
 }
-#endif

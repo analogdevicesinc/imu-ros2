@@ -2,21 +2,20 @@
  *   @file   ros_publisher_group.cpp
  *   @brief  Implementation for group of publishers.
  *   @author Vasile Holonec (Vasile.Holonec@analog.com)
- *******************************************************************************
- * Copyright 2023(c) Analog Devices, Inc.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- ******************************************************************************/
+*******************************************************************************/
+// Copyright 2023 Analog Devices, Inc.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
 
 #include "adi_imu/ros_publisher_group.h"
 
@@ -27,11 +26,20 @@
 #include "adi_imu/imu_control_parameters.h"
 #include "adi_imu/imu_full_measured_data_ros_publisher_interface.h"
 #include "adi_imu/imu_ros_publisher_interface.h"
-#ifdef ADIS_HAS_DELTA_BURST
 #include "adi_imu/velangtemp_ros_publisher_interface.h"
-#endif
 
-RosPublisherGroup::RosPublisherGroup(std::shared_ptr<rclcpp::Node> & node) { m_node = node; }
+namespace adi_imu
+{
+
+RosPublisherGroup::RosPublisherGroup(std::shared_ptr<rclcpp::Node> & node)
+{
+  m_node = node;
+  m_accelGyroTempRosPublisher = nullptr;
+  m_velAngTempRosPublisher = nullptr;
+  m_imuRosPublisher = nullptr;
+  m_imuFullMeasuredDataRosPublisher = nullptr;
+  m_imuControlParameters = nullptr;
+}
 
 RosPublisherGroup::~RosPublisherGroup() {}
 
@@ -41,13 +49,11 @@ void RosPublisherGroup::setAccelGyroTempRosPublisher(
   m_accelGyroTempRosPublisher = accelGyroTempRosPublisher;
 }
 
-#ifdef ADIS_HAS_DELTA_BURST
 void RosPublisherGroup::setVelAngTempRosPublisher(
   VelAngTempRosPublisherInterface * velAngTempRosPublisher)
 {
   m_velAngTempRosPublisher = velAngTempRosPublisher;
 }
-#endif
 
 void RosPublisherGroup::setImuRosPublisher(ImuRosPublisherInterface * imuRosPublisher)
 {
@@ -79,18 +85,24 @@ void RosPublisherGroup::run()
 
     switch (measuredDataSelection) {
       case ACCEL_GYRO_BUFFERED_DATA:
-        m_accelGyroTempRosPublisher->publish();
+        if (m_accelGyroTempRosPublisher != nullptr) {
+          m_accelGyroTempRosPublisher->publish();
+        }
         break;
-#ifdef ADIS_HAS_DELTA_BURST
-      case DELTAVEL_DELTAANG_BUFFERED_DATA:
-        m_velAngTempRosPublisher->publish();
+      case DELTAVEL_DELTAANG_BUFFERED_DATA:  // CRASH!!! - reads from index out of bounds
+        if (m_velAngTempRosPublisher != nullptr) {
+          m_velAngTempRosPublisher->publish();
+        }
         break;
-#endif
-      case IMU_STD_MSG_DATA:
-        m_imuRosPublisher->publish();
+      case IMU_STD_MSG_DATA:  // data is fetched using mode  ACCEL_GYRO_BUFFERED_DATA
+        if (m_imuRosPublisher != nullptr) {
+          m_imuRosPublisher->publish();
+        }
         break;
-      case FULL_MEASURED_DATA:
-        m_imuFullMeasuredDataRosPublisher->publish();
+      case FULL_MEASURED_DATA:  // reads attr directly or from debug
+        if (m_imuFullMeasuredDataRosPublisher != nullptr) {
+          m_imuFullMeasuredDataRosPublisher->publish();
+        }
         break;
       default: {
         RCLCPP_INFO(
@@ -109,3 +121,5 @@ void RosPublisherGroup::run()
   std::cout << "thread " << this_id << " ended...\n";
   RCLCPP_INFO(rclcpp::get_logger("ros_publisher_group"), "endThread: RosPublisherGroup");
 }
+
+}  // namespace adi_imu

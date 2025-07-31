@@ -2,30 +2,36 @@
  *   @file   imu_control_parameters.h
  *   @brief  Set ros parameter in libiio
  *   @author Vasile Holonec (Vasile.Holonec@analog.com)
- *******************************************************************************
- * Copyright 2023(c) Analog Devices, Inc.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- ******************************************************************************/
+ *******************************************************************************/
+// Copyright 2023 Analog Devices, Inc.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
 
-#ifndef IMU_CONTROL_PARAMETERS_H
-#define IMU_CONTROL_PARAMETERS_H
+#ifndef ADI_IMU__IMU_CONTROL_PARAMETERS_H_
+#define ADI_IMU__IMU_CONTROL_PARAMETERS_H_
 
-#include <rclcpp/rclcpp.hpp>
+#include <list>
+#include <map>
+#include <memory>
+#include <string>
 
+#include "adi_imu/adis_register_map.h"
 #include "adi_imu/iio_wrapper.h"
 #include "rcl_interfaces/msg/set_parameters_result.hpp"
+#include "rclcpp/rclcpp.hpp"
 
+namespace adi_imu
+{
 /**
  * @brief Class for handling device parameters.
  */
@@ -36,7 +42,8 @@ public:
    * @brief Constructor for ImuControlParameters.
    * @param node The ros2 Node instance.
    */
-  ImuControlParameters(std::shared_ptr<rclcpp::Node> & node);
+  ImuControlParameters(
+    std::shared_ptr<rclcpp::Node> & node, std::shared_ptr<ADISRegisterMap> & device_descriptor);
 
   /**
    * @brief Destructor for ImuControlParameters.
@@ -160,7 +167,7 @@ private:
   /*! Declare map type for parameter updating APIs of type uint32. */
   typedef std::map<std::string, UpdateUint32Params> UpdateUint32ParamsMapType;
 
-  /*! Update parameter map which contains the update function call for each parameter of type uint32. */
+  /*! Update parameter map containing update function call for each parameter of type uint32. */
   UpdateUint32ParamsMapType m_func_map_update_uint32_params;
 
   /*! Declare function type for parameter reading APIs of type uint32. */
@@ -169,7 +176,7 @@ private:
   /*! Declare map type for parameter reading APIs of type uint32. */
   typedef std::map<std::string, GetUint32Params> GetUint32ParamsMapType;
 
-  /*! Read parameter map which contains the read function call for each parameter of type uint32. */
+  /*! Read parameter map containing the read function call for each parameter of type uint32. */
   GetUint32ParamsMapType m_func_map_get_uint32_params;
 
   /*! Declare function type for parameter updating APIs of type int32. */
@@ -178,7 +185,7 @@ private:
   /*! Declare map type for parameter updating APIs of type int32. */
   typedef std::map<std::string, UpdateInt32Params> UpdateInt32ParamsMapType;
 
-  /*! Update parameter map which contains the update function call for each parameter of type int32. */
+  /*! Update parameter map containing the update function call for each parameter of type int32. */
   UpdateInt32ParamsMapType m_func_map_update_int32_params;
 
   /*! Declare function type for parameter reading APIs of type int32. */
@@ -187,7 +194,7 @@ private:
   /*! Declare map type for parameter reading APIs of type int32. */
   typedef std::map<std::string, GetInt32Params> GetInt32ParamsMapType;
 
-  /*! Read parameter map which contains the read function call for each parameter of type int32. */
+  /*! Read parameter map containing the read function call for each parameter of type int32. */
   GetInt32ParamsMapType m_func_map_get_int32_params;
 
   /*! Declare function type for parameter updating APIs of type double. */
@@ -196,7 +203,7 @@ private:
   /*! Declare map type for parameter updating APIs of type double. */
   typedef std::map<std::string, UpdateDoubleParams> UpdateDoubleParamsMapType;
 
-  /*! Update parameter map which contains the update function call for each parameter of type double. */
+  /*! Update parameter map containing the update function call for each parameter of type double. */
   UpdateDoubleParamsMapType m_func_map_update_double_params;
 
   /*! Declare function type for parameter reading APIs of type double. */
@@ -205,7 +212,7 @@ private:
   /*! Declare map type for parameter reading APIs of type double. */
   typedef std::map<std::string, GetDoubleParams> GetDoubleParamsMapType;
 
-  /*! Read parameter map which contains the read function call for each parameter of type double. */
+  /*! Read parameter map containing the read function call for each parameter of type double. */
   GetDoubleParamsMapType m_func_map_get_double_params;
 
   /*! Declare function type for command execution APIs. */
@@ -214,7 +221,7 @@ private:
   /*! Declare map type for command APIs. */
   typedef std::map<std::string, ExecuteCommands> ExecuteCommandsMapType;
 
-  /*! Command map which contains the trigger function call for each command. */
+  /*! Command map containing the trigger function call for each command. */
   ExecuteCommandsMapType m_func_map_execute_commands;
 
   /*! Attribute list which stores the current attribute names of the device. */
@@ -237,6 +244,11 @@ private:
 
   /*! Parameter map with FloatingPointRange for parameter constraints. */
   std::map<std::string, rcl_interfaces::msg::FloatingPointRange> m_param_constraints_floating;
+
+  /*! This variable retains the ADIS register map configuration and capabilities */
+  std::shared_ptr<ADISRegisterMap> m_device_descriptor;
 };
 
-#endif  // IMU_CONTROL_PARAMETERS_H
+}  // namespace adi_imu
+
+#endif  // ADI_IMU__IMU_CONTROL_PARAMETERS_H_

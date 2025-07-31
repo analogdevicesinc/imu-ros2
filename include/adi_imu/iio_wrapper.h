@@ -2,32 +2,36 @@
  *   @file   iio_wrapper.h
  *   @brief  Wrapper for iio library
  *   @author Vasile Holonec (Vasile.Holonec@analog.com)
- *******************************************************************************
- * Copyright 2023(c) Analog Devices, Inc.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- ******************************************************************************/
+*******************************************************************************/
+// Copyright 2023 Analog Devices, Inc.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
 
-#ifndef IIO_WRAPPER_H
-#define IIO_WRAPPER_H
+#ifndef ADI_IMU__IIO_WRAPPER_H_
+#define ADI_IMU__IIO_WRAPPER_H_
 
 #define IIO_CONTEXT_ERROR -1
 
 #include <iio.h>
 
+#include <memory>
 #include <string>
+#include <vector>
 
-#include "adis_data_access.h"
+#include "adi_imu/adis_register_map.h"
+
+namespace adi_imu
+{
 
 /**
  * @brief Wrapper class for libiio library for IMU devices
@@ -44,6 +48,12 @@ public:
    * @brief Destructor for IIOWrapper.
    */
   ~IIOWrapper();
+
+  /**
+   * @brief Set the device descriptor that defines the device's capabilities, register layout
+   * and supported features.
+   */
+  void setDeviceDescriptor(std::shared_ptr<ADISRegisterMap> device_descriptor);
 
   /**
    * @brief create IIO context based on the given context string and search for
@@ -117,7 +127,6 @@ public:
    */
   double getBuffAngularVelocityZ();
 
-#ifdef ADIS_HAS_DELTA_BURST
   /**
    * @brief Get delta velocity on x axis with buffer reads; in this case
    * the retrieved samples are continuous if the function is called fast enough
@@ -165,7 +174,6 @@ public:
    * @return Return the delta angle on z axis in radians.
    */
   double getBuffDeltaAngleZ();
-#endif
 
   /**
    * @brief Get temperature with buffer reads; in this case
@@ -397,7 +405,6 @@ public:
    */
   bool update_accel_calibbias_z(int32_t val);
 
-#if defined(ADIS1654X) || defined(ADIS1655X)
   /**
    * @brief Get low pass 3db frequency data for x angular velocity.
    * @param result low pass 3db frequency value.
@@ -488,7 +495,6 @@ public:
    */
   bool update_accel_z_filter_low_pass_3db(uint32_t val);
 
-#else
   /**
    * @brief Get low pass 3db frequency data.
    * @param result low pass 3db frequency value.
@@ -504,9 +510,7 @@ public:
    * false if not.
    */
   bool update_filter_low_pass_3db_frequency(uint32_t val);
-#endif
 
-#ifdef ADIS_HAS_CALIB_SCALE
   /**
    * @brief Get linear acceleration calibration scale on x axis.
    * @param result linear acceleration calibration scale on x axis.
@@ -592,8 +596,6 @@ public:
    * false if not.
    */
   bool update_anglvel_calibscale_z(int32_t val);
-
-#endif
 
   /**
    * @brief Get sampling frequency.
@@ -1064,12 +1066,12 @@ private:
    * @brief Sets manually the delta angle scales based on the device id.
    * @param dev Device id for which the scales are set.
    */
-  void setDeltaAngleScales(enum adis_device_id dev_id);
+  void setDeltaAngleScales(adis_device_id dev_id);
   /**
    * @brief Sets manually the delta velocity scales based on the device id.
    * @param dev Device id for which the scales are set.
    */
-  void setDeltaVelocityScales(enum adis_device_id dev_id);
+  void setDeltaVelocityScales(adis_device_id dev_id);
   /**
    * @brief Update a field in the register map.
    * @param reg The register address where the field is located
@@ -1282,6 +1284,52 @@ private:
 
   /*! This variable retains the scale for the temperature raw value */
   static double m_scale_temp;
+
+  /*! This variable retains the offset for the temperature raw value */
+  static long long m_offset_temp;
+
+  /*! This variable retains the ADIS register map configuration and capabilities */
+  static std::shared_ptr<ADISRegisterMap> m_device_descriptor;
+
+  // Channel identifiers for buffered readings
+  static uint32_t CHAN_GYRO_X;
+  static uint32_t CHAN_GYRO_Y;
+  static uint32_t CHAN_GYRO_Z;
+  static uint32_t CHAN_ACCEL_X;
+  static uint32_t CHAN_ACCEL_Y;
+  static uint32_t CHAN_ACCEL_Z;
+  static uint32_t CHAN_TEMP;
+
+  static uint32_t CHAN_DELTA_ANGL_X;
+  static uint32_t CHAN_DELTA_ANGL_Y;
+  static uint32_t CHAN_DELTA_ANGL_Z;
+  static uint32_t CHAN_DELTA_VEL_X;
+  static uint32_t CHAN_DELTA_VEL_Y;
+  static uint32_t CHAN_DELTA_VEL_Z;
+
+  static uint32_t CHAN_DATA_TIMESTAMP;
+  static uint32_t NO_OF_CHANS;
+
+  /*! Buffer write index.  */
+  static uint32_t buff_write_idx;
+  /*! Buffer read index.  */
+  static uint32_t buff_read_idx;
+  /*! Buffer containing the read data. */
+  static std::vector<std::vector<uint32_t>> buff_data;
+  /*! Sampling frequency of the device. */
+  static double samp_freq;
+  /*! Number of samples to be read at once. */
+  static uint32_t no_of_samp;
+  /*! Current set data selection. */
+  static uint32_t current_data_selection;
+
+  static bool has_delta_channels;
+  static bool has_timestamp_channel;
+
+public:
+  static ssize_t demux_sample(const struct iio_channel * chn, void * sample, size_t size, void * d);
 };
 
-#endif  // IIO_WRAPPER_H
+}  // namespace adi_imu
+
+#endif  // ADI_IMU__IIO_WRAPPER_H_

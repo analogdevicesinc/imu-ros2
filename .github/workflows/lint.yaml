@@ -1,0 +1,64 @@
+name: Lint ROS2 package
+
+on:
+  workflow_dispatch:
+  pull_request:
+  merge_group:
+  push:
+
+env:
+  PACKAGE_NAME: "adi_imu"
+
+# Cancel in-progress runs for the same branch/PR
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  ament_lint:
+    runs-on: ubuntu-22.04
+    strategy:
+      fail-fast: false
+      matrix:
+        ros_distribution:
+          # Humble Hawksbill (May 2022 - May 2027) - Ubuntu 22.04 (Jammy)
+          - humble
+        linter:
+          - copyright
+          - pep257
+          - xmllint
+          - cppcheck
+          - lint_cmake
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup ROS environment
+        uses: ros-tooling/setup-ros@v0.7
+        with:
+          required-ros-distributions: ${{ matrix.ros_distribution }}
+          use-ros2-testing: false
+
+      - name: Run Linter
+        env:
+          AMENT_CPPCHECK_ALLOW_SLOW_VERSIONS: 1
+        uses: ros-tooling/action-ros-lint@master
+        with:
+          linter: ${{ matrix.linter }}
+          distribution: ${{ matrix.ros_distribution }}
+          package-name: ${{ env.PACKAGE_NAME }}
+          arguments: |
+            ${{ matrix.linter == 'cppcheck' && ' --language=c++ ' || '' }}
+
+  formatting-check:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Run clang-format style check
+      uses: jidicula/clang-format-action@v4.15.0
+      with:
+        clang-format-version: '14'
