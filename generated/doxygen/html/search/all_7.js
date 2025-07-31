@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['handlecommands_0',['handleCommands',['../classImuControlParameters.html#ab456afd17772314a2bdcdb611aa6fc12',1,'ImuControlParameters']]],
-  ['handlecontrolparams_1',['handleControlParams',['../classImuControlParameters.html#a3fdcf6864bdd68a06f712bef548acd24',1,'ImuControlParameters']]],
-  ['handledoubleparamchange_2',['handleDoubleParamChange',['../classImuControlParameters.html#a747ae2b209292e2af2de26a8cc448c61',1,'ImuControlParameters']]],
-  ['handleint32paramchange_3',['handleInt32ParamChange',['../classImuControlParameters.html#a3cd01af35e9eae635764fac2ed0bb3e2',1,'ImuControlParameters']]],
-  ['handleuint32paramchange_4',['handleUint32ParamChange',['../classImuControlParameters.html#a117d2fb3cdb9cb7ae668295a7615df94',1,'ImuControlParameters']]]
+  ['handlecommands_0',['handleCommands',['../classadi__imu_1_1ImuControlParameters.html#af0d5a5e38d972582fef16a8d9aa71f49',1,'adi_imu::ImuControlParameters']]],
+  ['handlecontrolparams_1',['handleControlParams',['../classadi__imu_1_1ImuControlParameters.html#a005b70e576aedfa6456e3fbdcbbcaaed',1,'adi_imu::ImuControlParameters']]],
+  ['handledoubleparamchange_2',['handleDoubleParamChange',['../classadi__imu_1_1ImuControlParameters.html#a7a9e4c3e1caa28aa60cdeffc13c56626',1,'adi_imu::ImuControlParameters']]],
+  ['handleint32paramchange_3',['handleInt32ParamChange',['../classadi__imu_1_1ImuControlParameters.html#a1dcfed93e7d94cc4bd8c04a1a65a3d3a',1,'adi_imu::ImuControlParameters']]],
+  ['handleuint32paramchange_4',['handleUint32ParamChange',['../classadi__imu_1_1ImuControlParameters.html#ad0c01f8a86dc400b6f339b67241ebf97',1,'adi_imu::ImuControlParameters']]]
 ];

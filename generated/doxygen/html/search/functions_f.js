@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['velangtempdataprovider_0',['VelAngTempDataProvider',['../classVelAngTempDataProvider.html#ae94b88e60be8b88f38ce395c93b22d4c',1,'VelAngTempDataProvider']]],
-  ['velangtempdataproviderinterface_1',['VelAngTempDataProviderInterface',['../classVelAngTempDataProviderInterface.html#a45fd34f04fab06fdca49c5625569ce35',1,'VelAngTempDataProviderInterface']]],
-  ['velangtemprospublisher_2',['VelAngTempRosPublisher',['../classVelAngTempRosPublisher.html#ad222a6358968546c8a5eb6c4a8102ef3',1,'VelAngTempRosPublisher']]],
-  ['velangtemprospublisherinterface_3',['VelAngTempRosPublisherInterface',['../classVelAngTempRosPublisherInterface.html#ac4840670a590e00d6a6f9108e81db019',1,'VelAngTempRosPublisherInterface']]]
+  ['velangtempdataprovider_0',['VelAngTempDataProvider',['../classadi__imu_1_1VelAngTempDataProvider.html#a698cb764427cb7b8969d549b66a7d3d9',1,'adi_imu::VelAngTempDataProvider']]],
+  ['velangtempdataproviderinterface_1',['VelAngTempDataProviderInterface',['../classadi__imu_1_1VelAngTempDataProviderInterface.html#a8c619652e5600d65455384beaf019cc6',1,'adi_imu::VelAngTempDataProviderInterface']]],
+  ['velangtemprospublisher_2',['VelAngTempRosPublisher',['../classadi__imu_1_1VelAngTempRosPublisher.html#a78ca8bddb7d11ffab85519e22e2687c9',1,'adi_imu::VelAngTempRosPublisher']]],
+  ['velangtemprospublisherinterface_3',['VelAngTempRosPublisherInterface',['../classadi__imu_1_1VelAngTempRosPublisherInterface.html#a19131c5961639a683ed414a4f2c06224',1,'adi_imu::VelAngTempRosPublisherInterface']]]
 ];

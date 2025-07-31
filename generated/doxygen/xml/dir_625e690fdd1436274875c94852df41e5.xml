@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_625e690fdd1436274875c94852df41e5" kind="dir">
+    <compoundname>include/adi_imu/utils</compoundname>
+    <innerfile refid="adis__device__registry_8h">adis_device_registry.h</innerfile>
+    <innerfile refid="adis__register__definitions_8h">adis_register_definitions.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/adi_imu/utils/"/>
+  </compounddef>
+</doxygen>

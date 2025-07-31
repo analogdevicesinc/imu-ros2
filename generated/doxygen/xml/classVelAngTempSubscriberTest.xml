@@ -17,7 +17,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="test/src/velangtemp_subscriber_test.cpp" line="42" column="15" bodyfile="test/src/velangtemp_subscriber_test.cpp" bodystart="42" bodyend="42"/>
+        <location file="test/src/velangtemp_subscriber_test.cpp" line="43" column="15" bodyfile="test/src/velangtemp_subscriber_test.cpp" bodystart="43" bodyend="43"/>
       </memberdef>
       <memberdef kind="function" id="classVelAngTempSubscriberTest_1abfd9acc8721263a9c7106e1b2d69886f" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -32,7 +32,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="test/src/velangtemp_subscriber_test.cpp" line="47" column="15" bodyfile="test/src/velangtemp_subscriber_test.cpp" bodystart="47" bodyend="47"/>
+        <location file="test/src/velangtemp_subscriber_test.cpp" line="48" column="15" bodyfile="test/src/velangtemp_subscriber_test.cpp" bodystart="48" bodyend="48"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -63,7 +63,7 @@
         <label>testing::Test</label>
       </node>
     </collaborationgraph>
-    <location file="test/src/velangtemp_subscriber_test.cpp" line="36" column="1" bodyfile="test/src/velangtemp_subscriber_test.cpp" bodystart="37" bodyend="48"/>
+    <location file="test/src/velangtemp_subscriber_test.cpp" line="37" column="1" bodyfile="test/src/velangtemp_subscriber_test.cpp" bodystart="38" bodyend="49"/>
     <listofallmembers>
       <member refid="classVelAngTempSubscriberTest_1a6644c917bb2f0286416a9f4295028977" prot="public" virt="non-virtual"><scope>VelAngTempSubscriberTest</scope><name>SetUpTestCase</name></member>
       <member refid="classVelAngTempSubscriberTest_1abfd9acc8721263a9c7106e1b2d69886f" prot="public" virt="non-virtual"><scope>VelAngTempSubscriberTest</scope><name>TearDownTestCase</name></member>

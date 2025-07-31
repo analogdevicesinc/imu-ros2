@@ -6,49 +6,53 @@
 \DoxyCodeLine{00002\ \textcolor{comment}{\ *\ \ \ @file\ \ \ accelgyrotemp\_ros\_publisher.h}}
 \DoxyCodeLine{00003\ \textcolor{comment}{\ *\ \ \ @brief\ \ Header\ for\ acceleration,\ gyroscope\ and\ temperature\ publisher.}}
 \DoxyCodeLine{00004\ \textcolor{comment}{\ *\ \ \ @author\ Vasile\ Holonec\ (Vasile.Holonec@analog.com)}}
-\DoxyCodeLine{00005\ \textcolor{comment}{\ *******************************************************************************}}
-\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ Copyright\ 2023(c)\ Analog\ Devices,\ Inc.}}
-\DoxyCodeLine{00007\ \textcolor{comment}{\ *}}
-\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ Licensed\ under\ the\ Apache\ License,\ Version\ 2.0\ (the\ "{}License"{});}}
-\DoxyCodeLine{00009\ \textcolor{comment}{\ *\ you\ may\ not\ use\ this\ file\ except\ in\ compliance\ with\ the\ License.}}
-\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ You\ may\ obtain\ a\ copy\ of\ the\ License\ at}}
-\DoxyCodeLine{00011\ \textcolor{comment}{\ *}}
-\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ \ \ \ \ http://www.apache.org/licenses/LICENSE-\/2.0}}
-\DoxyCodeLine{00013\ \textcolor{comment}{\ *}}
-\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ Unless\ required\ by\ applicable\ law\ or\ agreed\ to\ in\ writing,\ software}}
-\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ distributed\ under\ the\ License\ is\ distributed\ on\ an\ "{}AS\ IS"{}\ BASIS,}}
-\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ WITHOUT\ WARRANTIES\ OR\ CONDITIONS\ OF\ ANY\ KIND,\ either\ express\ or\ implied.}}
-\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ See\ the\ License\ for\ the\ specific\ language\ governing\ permissions\ and}}
-\DoxyCodeLine{00018\ \textcolor{comment}{\ *\ limitations\ under\ the\ License.}}
-\DoxyCodeLine{00019\ \textcolor{comment}{\ ******************************************************************************/}}
-\DoxyCodeLine{00020\ }
-\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#ifndef\ ACCELGYROTEMP\_ROS\_SUBSCRIBER\_H}}
-\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ ACCELGYROTEMP\_ROS\_SUBSCRIBER\_H}}
-\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00005\ \textcolor{comment}{*******************************************************************************/}}
+\DoxyCodeLine{00006\ \textcolor{comment}{//\ Copyright\ 2023\ Analog\ Devices,\ Inc.}}
+\DoxyCodeLine{00007\ \textcolor{comment}{//}}
+\DoxyCodeLine{00008\ \textcolor{comment}{//\ Licensed\ under\ the\ Apache\ License,\ Version\ 2.0\ (the\ "{}License"{});}}
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ you\ may\ not\ use\ this\ file\ except\ in\ compliance\ with\ the\ License.}}
+\DoxyCodeLine{00010\ \textcolor{comment}{//\ You\ may\ obtain\ a\ copy\ of\ the\ License\ at}}
+\DoxyCodeLine{00011\ \textcolor{comment}{//}}
+\DoxyCodeLine{00012\ \textcolor{comment}{//\ \ \ \ \ http://www.apache.org/licenses/LICENSE-\/2.0}}
+\DoxyCodeLine{00013\ \textcolor{comment}{//}}
+\DoxyCodeLine{00014\ \textcolor{comment}{//\ Unless\ required\ by\ applicable\ law\ or\ agreed\ to\ in\ writing,\ software}}
+\DoxyCodeLine{00015\ \textcolor{comment}{//\ distributed\ under\ the\ License\ is\ distributed\ on\ an\ "{}AS\ IS"{}\ BASIS,}}
+\DoxyCodeLine{00016\ \textcolor{comment}{//\ WITHOUT\ WARRANTIES\ OR\ CONDITIONS\ OF\ ANY\ KIND,\ either\ express\ or\ implied.}}
+\DoxyCodeLine{00017\ \textcolor{comment}{//\ See\ the\ License\ for\ the\ specific\ language\ governing\ permissions\ and}}
+\DoxyCodeLine{00018\ \textcolor{comment}{//\ limitations\ under\ the\ License.}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#ifndef\ ADI\_IMU\_\_ACCELGYROTEMP\_ROS\_PUBLISHER\_H\_}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#define\ ADI\_IMU\_\_ACCELGYROTEMP\_ROS\_PUBLISHER\_H\_}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ <memory>}}
 \DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ <rclcpp/rclcpp.hpp>}}
 \DoxyCodeLine{00025\ }
 \DoxyCodeLine{00026\ \textcolor{preprocessor}{\#include\ "{}adi\_imu/accelgyrotemp\_data\_provider\_interface.h"{}}}
 \DoxyCodeLine{00027\ \textcolor{preprocessor}{\#include\ "{}adi\_imu/accelgyrotemp\_ros\_publisher\_interface.h"{}}}
 \DoxyCodeLine{00028\ }
-\DoxyCodeLine{00032\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classAccelGyroTempRosPublisher}{AccelGyroTempRosPublisher}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classAccelGyroTempRosPublisherInterface}{AccelGyroTempRosPublisherInterface}}}
-\DoxyCodeLine{00033\ \{}
-\DoxyCodeLine{00034\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00039\ \ \ \mbox{\hyperlink{classAccelGyroTempRosPublisher}{AccelGyroTempRosPublisher}}(std::shared\_ptr<rclcpp::Node>\ \&\ node);}
-\DoxyCodeLine{00040\ }
-\DoxyCodeLine{00044\ \ \ \mbox{\hyperlink{classAccelGyroTempRosPublisher_a074d147f93dc242ce7b254064f9b34ea}{\string~AccelGyroTempRosPublisher}}();}
-\DoxyCodeLine{00045\ }
-\DoxyCodeLine{00050\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classAccelGyroTempRosPublisher_ade22dbc3766732e4bfa2281454ec0029}{setMessageProvider}}(\mbox{\hyperlink{classAccelGyroTempDataProviderInterface}{AccelGyroTempDataProviderInterface}}\ *\ dataProvider)\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00051\ }
-\DoxyCodeLine{00055\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classAccelGyroTempRosPublisher_a4cfabbaac2eb9326afb28d95649c5154}{publish}}()\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00056\ }
-\DoxyCodeLine{00057\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00059\ \ \ \mbox{\hyperlink{classAccelGyroTempDataProviderInterface}{AccelGyroTempDataProviderInterface}}\ *\ \mbox{\hyperlink{classAccelGyroTempRosPublisher_a435e229211446240df0fa4cbecaba9b8}{m\_data\_provider}};}
-\DoxyCodeLine{00060\ }
-\DoxyCodeLine{00062\ \ \ rclcpp::Publisher<adi\_imu::msg::AccelGyroTempData>::SharedPtr\ \mbox{\hyperlink{classAccelGyroTempRosPublisher_a3ec3d01c3a5ba585e3e4284ab4ea3838}{m\_publisher}};}
-\DoxyCodeLine{00063\ }
-\DoxyCodeLine{00065\ \ \ adi\_imu::msg::AccelGyroTempData\ \mbox{\hyperlink{classAccelGyroTempRosPublisher_a99abaebe7b2e85d944980bf960777f02}{m\_message}};}
-\DoxyCodeLine{00066\ \};}
-\DoxyCodeLine{00067\ }
-\DoxyCodeLine{00068\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ ACCELGYROTEMP\_ROS\_SUBSCRIBER\_H}}
+\DoxyCodeLine{00029\ \textcolor{keyword}{namespace\ }adi\_imu}
+\DoxyCodeLine{00030\ \{}
+\DoxyCodeLine{00034\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classadi__imu_1_1AccelGyroTempRosPublisher}{AccelGyroTempRosPublisher}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classadi__imu_1_1AccelGyroTempRosPublisherInterface}{AccelGyroTempRosPublisherInterface}}}
+\DoxyCodeLine{00035\ \{}
+\DoxyCodeLine{00036\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00041\ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classadi__imu_1_1AccelGyroTempRosPublisher}{AccelGyroTempRosPublisher}}(std::shared\_ptr<rclcpp::Node>\ \&\ node);}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00046\ \ \ \mbox{\hyperlink{classadi__imu_1_1AccelGyroTempRosPublisher_ae757fad91cbf739270084bfe7f0c68ae}{\string~AccelGyroTempRosPublisher}}();}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00052\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classadi__imu_1_1AccelGyroTempRosPublisher_ac2ae64fe792cb88a5921abe068f395af}{setMessageProvider}}(\mbox{\hyperlink{classadi__imu_1_1AccelGyroTempDataProviderInterface}{AccelGyroTempDataProviderInterface}}\ *\ dataProvider)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00057\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classadi__imu_1_1AccelGyroTempRosPublisher_ab6cea9e16cf5842894db9f389302fd94}{publish}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00061\ \ \ \mbox{\hyperlink{classadi__imu_1_1AccelGyroTempDataProviderInterface}{AccelGyroTempDataProviderInterface}}\ *\ \mbox{\hyperlink{classadi__imu_1_1AccelGyroTempRosPublisher_a53e26314b69d2ecb0a0a5b3bf403dcb1}{m\_data\_provider}};}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00064\ \ \ rclcpp::Publisher<adi\_imu::msg::AccelGyroTempData>::SharedPtr\ \mbox{\hyperlink{classadi__imu_1_1AccelGyroTempRosPublisher_ac7e253ea51a397a6ff2ae8a9f21ee676}{m\_publisher}};}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00067\ \ \ adi\_imu::msg::AccelGyroTempData\ \mbox{\hyperlink{classadi__imu_1_1AccelGyroTempRosPublisher_a8c4c9f1919aa59aea9a2e216a1ba1e39}{m\_message}};}
+\DoxyCodeLine{00068\ \};}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \}\ \ \textcolor{comment}{//\ namespace\ adi\_imu}}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ ADI\_IMU\_\_ACCELGYROTEMP\_ROS\_PUBLISHER\_H\_}}
 
 \end{DoxyCode}

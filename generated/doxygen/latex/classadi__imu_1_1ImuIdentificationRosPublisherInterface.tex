@@ -1,0 +1,95 @@
+\doxysection{adi\+\_\+imu\+::Imu\+Identification\+Ros\+Publisher\+Interface Class Reference}
+\hypertarget{classadi__imu_1_1ImuIdentificationRosPublisherInterface}{}\label{classadi__imu_1_1ImuIdentificationRosPublisherInterface}\index{adi\_imu::ImuIdentificationRosPublisherInterface@{adi\_imu::ImuIdentificationRosPublisherInterface}}
+
+
+Interface for identification publisher.  
+
+
+
+
+{\ttfamily \#include $<$imu\+\_\+identification\+\_\+ros\+\_\+publisher\+\_\+interface.\+h$>$}
+
+
+
+Inheritance diagram for adi\+\_\+imu\+::Imu\+Identification\+Ros\+Publisher\+Interface\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=224pt]{classadi__imu_1_1ImuIdentificationRosPublisherInterface__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for adi\+\_\+imu\+::Imu\+Identification\+Ros\+Publisher\+Interface\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=224pt]{classadi__imu_1_1ImuIdentificationRosPublisherInterface__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classadi__imu_1_1ImuIdentificationRosPublisherInterface_ac7630f8094ef600488f22448da251204}\label{classadi__imu_1_1ImuIdentificationRosPublisherInterface_ac7630f8094ef600488f22448da251204} 
+{\bfseries Imu\+Identification\+Ros\+Publisher\+Interface} ()
+\begin{DoxyCompactList}\small\item\em Constructor for \doxylink{classadi__imu_1_1ImuIdentificationRosPublisherInterface}{Imu\+Identification\+Ros\+Publisher\+Interface}. \end{DoxyCompactList}\item 
+\Hypertarget{classadi__imu_1_1ImuIdentificationRosPublisherInterface_abc431d1c879e37da1184f86207de322b}\label{classadi__imu_1_1ImuIdentificationRosPublisherInterface_abc431d1c879e37da1184f86207de322b} 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Imu\+Identification\+Ros\+Publisher\+Interface} ()
+\begin{DoxyCompactList}\small\item\em Destructor for \doxylink{classadi__imu_1_1ImuIdentificationRosPublisherInterface}{Imu\+Identification\+Ros\+Publisher\+Interface}. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classadi__imu_1_1ImuIdentificationRosPublisherInterface_a6af884f8c710072375eeb84bf467c11d}{set\+Message\+Provider}} (\mbox{\hyperlink{classadi__imu_1_1ImuIdentificationDataProviderInterface}{Imu\+Identification\+Data\+Provider\+Interface}} \texorpdfstring{$\ast$}{*}data\+Provider)=0
+\begin{DoxyCompactList}\small\item\em Set the message data provider. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classadi__imu_1_1RosTask}{adi\+\_\+imu\+::\+Ros\+Task}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classadi__imu_1_1RosTask_aabef10d9a1f8ec699ee8b4fdeec8f7fa}{Ros\+Task}} ()
+\begin{DoxyCompactList}\small\item\em Constructor for \doxylink{classadi__imu_1_1RosTask}{Ros\+Task}. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classadi__imu_1_1RosTask_ad36570b4d84c20ec267c433c9122c010}{\texorpdfstring{$\sim$}{\string~}\+Ros\+Task}} ()
+\begin{DoxyCompactList}\small\item\em Destructor for \doxylink{classadi__imu_1_1RosTask}{Ros\+Task}. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classadi__imu_1_1RosTask_a8750563a3003820f2a7da10dc467b055}{run}} ()=0
+\begin{DoxyCompactList}\small\item\em Method that run on a thread. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::shared\+\_\+ptr$<$ rclcpp\+::\+Node $>$ \mbox{\hyperlink{classadi__imu_1_1ImuIdentificationRosPublisherInterface_a578ed20564a05adc96f2a6bfbfd6fcf2}{m\+\_\+node}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Interface for identification publisher. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classadi__imu_1_1ImuIdentificationRosPublisherInterface_a6af884f8c710072375eeb84bf467c11d}\label{classadi__imu_1_1ImuIdentificationRosPublisherInterface_a6af884f8c710072375eeb84bf467c11d} 
+\index{adi\_imu::ImuIdentificationRosPublisherInterface@{adi\_imu::ImuIdentificationRosPublisherInterface}!setMessageProvider@{setMessageProvider}}
+\index{setMessageProvider@{setMessageProvider}!adi\_imu::ImuIdentificationRosPublisherInterface@{adi\_imu::ImuIdentificationRosPublisherInterface}}
+\doxysubsubsection{\texorpdfstring{setMessageProvider()}{setMessageProvider()}}
+{\footnotesize\ttfamily virtual void adi\+\_\+imu\+::\+Imu\+Identification\+Ros\+Publisher\+Interface\+::set\+Message\+Provider (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classadi__imu_1_1ImuIdentificationDataProviderInterface}{Imu\+Identification\+Data\+Provider\+Interface}} \texorpdfstring{$\ast$}{*}}]{data\+Provider }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Set the message data provider. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data\+Provider} & Data provider. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classadi__imu_1_1ImuIdentificationRosPublisher_ac19b157c0dbeda4ff01054076d1e06da}{adi\+\_\+imu\+::\+Imu\+Identification\+Ros\+Publisher}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classadi__imu_1_1ImuIdentificationRosPublisherInterface_a578ed20564a05adc96f2a6bfbfd6fcf2}\label{classadi__imu_1_1ImuIdentificationRosPublisherInterface_a578ed20564a05adc96f2a6bfbfd6fcf2} 
+\index{adi\_imu::ImuIdentificationRosPublisherInterface@{adi\_imu::ImuIdentificationRosPublisherInterface}!m\_node@{m\_node}}
+\index{m\_node@{m\_node}!adi\_imu::ImuIdentificationRosPublisherInterface@{adi\_imu::ImuIdentificationRosPublisherInterface}}
+\doxysubsubsection{\texorpdfstring{m\_node}{m\_node}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$rclcpp\+::\+Node$>$ adi\+\_\+imu\+::\+Imu\+Identification\+Ros\+Publisher\+Interface\+::m\+\_\+node\hspace{0.3cm}{\ttfamily [protected]}}
+
+The ros2 Node data member. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/adi\+\_\+imu/imu\+\_\+identification\+\_\+ros\+\_\+publisher\+\_\+interface.\+h\end{DoxyCompactItemize}

@@ -1,0 +1,134 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classadi__imu_1_1VelAngTempDataProvider" kind="class" language="C++" prot="public">
+    <compoundname>adi_imu::VelAngTempDataProvider</compoundname>
+    <basecompoundref refid="classadi__imu_1_1VelAngTempDataProviderInterface" prot="public" virt="non-virtual">adi_imu::VelAngTempDataProviderInterface</basecompoundref>
+    <includes refid="velangtemp__data__provider_8h" local="no">velangtemp_data_provider.h</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classadi__imu_1_1VelAngTempDataProvider_1a5dd4dec8be1993f0fa81cf3a0b9a9066" prot="private" static="no" mutable="no">
+        <type><ref refid="classadi__imu_1_1IIOWrapper" kindref="compound">IIOWrapper</ref></type>
+        <definition>IIOWrapper adi_imu::VelAngTempDataProvider::m_iio_wrapper</definition>
+        <argsstring></argsstring>
+        <name>m_iio_wrapper</name>
+        <qualifiedname>adi_imu::VelAngTempDataProvider::m_iio_wrapper</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This data member is used to access sensor information via libiio. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/velangtemp_data_provider.h" line="57" column="14" bodyfile="include/adi_imu/velangtemp_data_provider.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classadi__imu_1_1VelAngTempDataProvider_1a698cb764427cb7b8969d549b66a7d3d9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>adi_imu::VelAngTempDataProvider::VelAngTempDataProvider</definition>
+        <argsstring>()</argsstring>
+        <name>VelAngTempDataProvider</name>
+        <qualifiedname>adi_imu::VelAngTempDataProvider::VelAngTempDataProvider</qualifiedname>
+        <briefdescription>
+<para>Constructor for <ref refid="classadi__imu_1_1VelAngTempDataProvider" kindref="compound">VelAngTempDataProvider</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/velangtemp_data_provider.h" line="40" column="3" bodyfile="src/velangtemp_data_provider.cpp" bodystart="26" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="function" id="classadi__imu_1_1VelAngTempDataProvider_1a4afe61106eaa1fd376224a0277db8d76" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>adi_imu::VelAngTempDataProvider::~VelAngTempDataProvider</definition>
+        <argsstring>()</argsstring>
+        <name>~VelAngTempDataProvider</name>
+        <qualifiedname>adi_imu::VelAngTempDataProvider::~VelAngTempDataProvider</qualifiedname>
+        <briefdescription>
+<para>Destructor for <ref refid="classadi__imu_1_1VelAngTempDataProvider" kindref="compound">VelAngTempDataProvider</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/velangtemp_data_provider.h" line="45" column="3" bodyfile="src/velangtemp_data_provider.cpp" bodystart="28" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="function" id="classadi__imu_1_1VelAngTempDataProvider_1afc9536d9b23029586092177e8b531aad" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool adi_imu::VelAngTempDataProvider::getData</definition>
+        <argsstring>(adi_imu::msg::VelAngTempData &amp;message) override</argsstring>
+        <name>getData</name>
+        <qualifiedname>adi_imu::VelAngTempDataProvider::getData</qualifiedname>
+        <reimplements refid="classadi__imu_1_1VelAngTempDataProviderInterface_1a8dd4bbddf4f56e1b570798519deac35b">getData</reimplements>
+        <param>
+          <type>adi_imu::msg::VelAngTempData &amp;</type>
+          <declname>message</declname>
+        </param>
+        <briefdescription>
+<para>Populate VelAngTempData message with measured data. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>message</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Message containing the measured data. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Return true if the message parameter is successfully populated with measured data and false otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/velangtemp_data_provider.h" line="53" column="8" bodyfile="src/velangtemp_data_provider.cpp" bodystart="30" bodyend="48"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Class for delta angle, delta velocity and temperature buffered data provider. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>adi_imu::VelAngTempDataProvider</label>
+        <link refid="classadi__imu_1_1VelAngTempDataProvider"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>adi_imu::VelAngTempDataProviderInterface</label>
+        <link refid="classadi__imu_1_1VelAngTempDataProviderInterface"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>adi_imu::IIOWrapper</label>
+        <link refid="classadi__imu_1_1IIOWrapper"/>
+      </node>
+      <node id="1">
+        <label>adi_imu::VelAngTempDataProvider</label>
+        <link refid="classadi__imu_1_1VelAngTempDataProvider"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>m_iio_wrapper</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>adi_imu::VelAngTempDataProviderInterface</label>
+        <link refid="classadi__imu_1_1VelAngTempDataProviderInterface"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/adi_imu/velangtemp_data_provider.h" line="34" column="1" bodyfile="include/adi_imu/velangtemp_data_provider.h" bodystart="35" bodyend="58"/>
+    <listofallmembers>
+      <member refid="classadi__imu_1_1VelAngTempDataProvider_1afc9536d9b23029586092177e8b531aad" prot="public" virt="virtual"><scope>adi_imu::VelAngTempDataProvider</scope><name>getData</name></member>
+      <member refid="classadi__imu_1_1VelAngTempDataProvider_1a5dd4dec8be1993f0fa81cf3a0b9a9066" prot="private" virt="non-virtual"><scope>adi_imu::VelAngTempDataProvider</scope><name>m_iio_wrapper</name></member>
+      <member refid="classadi__imu_1_1VelAngTempDataProvider_1a698cb764427cb7b8969d549b66a7d3d9" prot="public" virt="non-virtual"><scope>adi_imu::VelAngTempDataProvider</scope><name>VelAngTempDataProvider</name></member>
+      <member refid="classadi__imu_1_1VelAngTempDataProviderInterface_1a8c619652e5600d65455384beaf019cc6" prot="public" virt="non-virtual"><scope>adi_imu::VelAngTempDataProvider</scope><name>VelAngTempDataProviderInterface</name></member>
+      <member refid="classadi__imu_1_1VelAngTempDataProvider_1a4afe61106eaa1fd376224a0277db8d76" prot="public" virt="non-virtual"><scope>adi_imu::VelAngTempDataProvider</scope><name>~VelAngTempDataProvider</name></member>
+      <member refid="classadi__imu_1_1VelAngTempDataProviderInterface_1a1fe6c3fbaa4dd935daa6217d5869b995" prot="public" virt="virtual"><scope>adi_imu::VelAngTempDataProvider</scope><name>~VelAngTempDataProviderInterface</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

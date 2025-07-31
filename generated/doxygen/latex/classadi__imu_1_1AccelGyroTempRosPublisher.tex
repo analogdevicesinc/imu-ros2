@@ -1,0 +1,149 @@
+\doxysection{adi\+\_\+imu\+::Accel\+Gyro\+Temp\+Ros\+Publisher Class Reference}
+\hypertarget{classadi__imu_1_1AccelGyroTempRosPublisher}{}\label{classadi__imu_1_1AccelGyroTempRosPublisher}\index{adi\_imu::AccelGyroTempRosPublisher@{adi\_imu::AccelGyroTempRosPublisher}}
+
+
+Class for acceleration, angular velocity and temperature publisher.  
+
+
+
+
+{\ttfamily \#include $<$accelgyrotemp\+\_\+ros\+\_\+publisher.\+h$>$}
+
+
+
+Inheritance diagram for adi\+\_\+imu\+::Accel\+Gyro\+Temp\+Ros\+Publisher\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=235pt]{classadi__imu_1_1AccelGyroTempRosPublisher__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for adi\+\_\+imu\+::Accel\+Gyro\+Temp\+Ros\+Publisher\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classadi__imu_1_1AccelGyroTempRosPublisher__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classadi__imu_1_1AccelGyroTempRosPublisher_aff9ccd12afc92de9a41463edebfc7594}{Accel\+Gyro\+Temp\+Ros\+Publisher}} (std\+::shared\+\_\+ptr$<$ rclcpp\+::\+Node $>$ \&node)
+\begin{DoxyCompactList}\small\item\em Constructor for \doxylink{classadi__imu_1_1AccelGyroTempRosPublisher}{Accel\+Gyro\+Temp\+Ros\+Publisher}. \end{DoxyCompactList}\item 
+\Hypertarget{classadi__imu_1_1AccelGyroTempRosPublisher_ae757fad91cbf739270084bfe7f0c68ae}\label{classadi__imu_1_1AccelGyroTempRosPublisher_ae757fad91cbf739270084bfe7f0c68ae} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Accel\+Gyro\+Temp\+Ros\+Publisher} ()
+\begin{DoxyCompactList}\small\item\em Destructor for \doxylink{classadi__imu_1_1AccelGyroTempRosPublisher}{Accel\+Gyro\+Temp\+Ros\+Publisher}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classadi__imu_1_1AccelGyroTempRosPublisher_ac2ae64fe792cb88a5921abe068f395af}{set\+Message\+Provider}} (\mbox{\hyperlink{classadi__imu_1_1AccelGyroTempDataProviderInterface}{Accel\+Gyro\+Temp\+Data\+Provider\+Interface}} \texorpdfstring{$\ast$}{*}data\+Provider) override
+\begin{DoxyCompactList}\small\item\em Set the message data provider. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classadi__imu_1_1AccelGyroTempRosPublisher_ab6cea9e16cf5842894db9f389302fd94}{publish}} () override
+\begin{DoxyCompactList}\small\item\em Publish the Accel\+Gyro\+Temp\+Data message. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classadi__imu_1_1AccelGyroTempRosPublisherInterface}{adi\+\_\+imu\+::\+Accel\+Gyro\+Temp\+Ros\+Publisher\+Interface}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Accel\+Gyro\+Temp\+Ros\+Publisher\+Interface} ()
+\begin{DoxyCompactList}\small\item\em Constructor for \doxylink{classadi__imu_1_1AccelGyroTempRosPublisherInterface}{Accel\+Gyro\+Temp\+Ros\+Publisher\+Interface}. \end{DoxyCompactList}\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Accel\+Gyro\+Temp\+Ros\+Publisher\+Interface} ()
+\begin{DoxyCompactList}\small\item\em Destructor for \doxylink{classadi__imu_1_1AccelGyroTempRosPublisherInterface}{Accel\+Gyro\+Temp\+Ros\+Publisher\+Interface}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classadi__imu_1_1AccelGyroTempDataProviderInterface}{Accel\+Gyro\+Temp\+Data\+Provider\+Interface}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classadi__imu_1_1AccelGyroTempRosPublisher_a53e26314b69d2ecb0a0a5b3bf403dcb1}{m\+\_\+data\+\_\+provider}}
+\item 
+rclcpp\+::\+Publisher$<$ adi\+\_\+imu\+::msg\+::\+Accel\+Gyro\+Temp\+Data $>$\+::\+Shared\+Ptr \mbox{\hyperlink{classadi__imu_1_1AccelGyroTempRosPublisher_ac7e253ea51a397a6ff2ae8a9f21ee676}{m\+\_\+publisher}}
+\item 
+adi\+\_\+imu\+::msg\+::\+Accel\+Gyro\+Temp\+Data \mbox{\hyperlink{classadi__imu_1_1AccelGyroTempRosPublisher_a8c4c9f1919aa59aea9a2e216a1ba1e39}{m\+\_\+message}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classadi__imu_1_1AccelGyroTempRosPublisherInterface}{adi\+\_\+imu\+::\+Accel\+Gyro\+Temp\+Ros\+Publisher\+Interface}}}
+\begin{DoxyCompactItemize}
+\item 
+std\+::shared\+\_\+ptr$<$ rclcpp\+::\+Node $>$ \mbox{\hyperlink{classadi__imu_1_1AccelGyroTempRosPublisherInterface_a3980b78df28495efa342af1defe7eb0e}{m\+\_\+node}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class for acceleration, angular velocity and temperature publisher. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classadi__imu_1_1AccelGyroTempRosPublisher_aff9ccd12afc92de9a41463edebfc7594}\label{classadi__imu_1_1AccelGyroTempRosPublisher_aff9ccd12afc92de9a41463edebfc7594} 
+\index{adi\_imu::AccelGyroTempRosPublisher@{adi\_imu::AccelGyroTempRosPublisher}!AccelGyroTempRosPublisher@{AccelGyroTempRosPublisher}}
+\index{AccelGyroTempRosPublisher@{AccelGyroTempRosPublisher}!adi\_imu::AccelGyroTempRosPublisher@{adi\_imu::AccelGyroTempRosPublisher}}
+\doxysubsubsection{\texorpdfstring{AccelGyroTempRosPublisher()}{AccelGyroTempRosPublisher()}}
+{\footnotesize\ttfamily adi\+\_\+imu\+::\+Accel\+Gyro\+Temp\+Ros\+Publisher\+::\+Accel\+Gyro\+Temp\+Ros\+Publisher (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ rclcpp\+::\+Node $>$ \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Constructor for \doxylink{classadi__imu_1_1AccelGyroTempRosPublisher}{Accel\+Gyro\+Temp\+Ros\+Publisher}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em node} & The ros2 Node instance. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classadi__imu_1_1AccelGyroTempRosPublisher_ab6cea9e16cf5842894db9f389302fd94}\label{classadi__imu_1_1AccelGyroTempRosPublisher_ab6cea9e16cf5842894db9f389302fd94} 
+\index{adi\_imu::AccelGyroTempRosPublisher@{adi\_imu::AccelGyroTempRosPublisher}!publish@{publish}}
+\index{publish@{publish}!adi\_imu::AccelGyroTempRosPublisher@{adi\_imu::AccelGyroTempRosPublisher}}
+\doxysubsubsection{\texorpdfstring{publish()}{publish()}}
+{\footnotesize\ttfamily void adi\+\_\+imu\+::\+Accel\+Gyro\+Temp\+Ros\+Publisher\+::publish (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Publish the Accel\+Gyro\+Temp\+Data message. 
+
+
+
+Implements \mbox{\hyperlink{classadi__imu_1_1AccelGyroTempRosPublisherInterface_a31ab9cae4c33db3e483b1bff951b6cf3}{adi\+\_\+imu\+::\+Accel\+Gyro\+Temp\+Ros\+Publisher\+Interface}}.
+
+\Hypertarget{classadi__imu_1_1AccelGyroTempRosPublisher_ac2ae64fe792cb88a5921abe068f395af}\label{classadi__imu_1_1AccelGyroTempRosPublisher_ac2ae64fe792cb88a5921abe068f395af} 
+\index{adi\_imu::AccelGyroTempRosPublisher@{adi\_imu::AccelGyroTempRosPublisher}!setMessageProvider@{setMessageProvider}}
+\index{setMessageProvider@{setMessageProvider}!adi\_imu::AccelGyroTempRosPublisher@{adi\_imu::AccelGyroTempRosPublisher}}
+\doxysubsubsection{\texorpdfstring{setMessageProvider()}{setMessageProvider()}}
+{\footnotesize\ttfamily void adi\+\_\+imu\+::\+Accel\+Gyro\+Temp\+Ros\+Publisher\+::set\+Message\+Provider (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classadi__imu_1_1AccelGyroTempDataProviderInterface}{Accel\+Gyro\+Temp\+Data\+Provider\+Interface}} \texorpdfstring{$\ast$}{*}}]{data\+Provider }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Set the message data provider. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data\+Provider} & Data provider. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classadi__imu_1_1AccelGyroTempRosPublisherInterface_a3a9f758da0865eb864787c8adbf8d58a}{adi\+\_\+imu\+::\+Accel\+Gyro\+Temp\+Ros\+Publisher\+Interface}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classadi__imu_1_1AccelGyroTempRosPublisher_a53e26314b69d2ecb0a0a5b3bf403dcb1}\label{classadi__imu_1_1AccelGyroTempRosPublisher_a53e26314b69d2ecb0a0a5b3bf403dcb1} 
+\index{adi\_imu::AccelGyroTempRosPublisher@{adi\_imu::AccelGyroTempRosPublisher}!m\_data\_provider@{m\_data\_provider}}
+\index{m\_data\_provider@{m\_data\_provider}!adi\_imu::AccelGyroTempRosPublisher@{adi\_imu::AccelGyroTempRosPublisher}}
+\doxysubsubsection{\texorpdfstring{m\_data\_provider}{m\_data\_provider}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classadi__imu_1_1AccelGyroTempDataProviderInterface}{Accel\+Gyro\+Temp\+Data\+Provider\+Interface}}\texorpdfstring{$\ast$}{*} adi\+\_\+imu\+::\+Accel\+Gyro\+Temp\+Ros\+Publisher\+::m\+\_\+data\+\_\+provider\hspace{0.3cm}{\ttfamily [private]}}
+
+This variable retains the data provider instance. \Hypertarget{classadi__imu_1_1AccelGyroTempRosPublisher_a8c4c9f1919aa59aea9a2e216a1ba1e39}\label{classadi__imu_1_1AccelGyroTempRosPublisher_a8c4c9f1919aa59aea9a2e216a1ba1e39} 
+\index{adi\_imu::AccelGyroTempRosPublisher@{adi\_imu::AccelGyroTempRosPublisher}!m\_message@{m\_message}}
+\index{m\_message@{m\_message}!adi\_imu::AccelGyroTempRosPublisher@{adi\_imu::AccelGyroTempRosPublisher}}
+\doxysubsubsection{\texorpdfstring{m\_message}{m\_message}}
+{\footnotesize\ttfamily adi\+\_\+imu\+::msg\+::\+Accel\+Gyro\+Temp\+Data adi\+\_\+imu\+::\+Accel\+Gyro\+Temp\+Ros\+Publisher\+::m\+\_\+message\hspace{0.3cm}{\ttfamily [private]}}
+
+This variable retains the message that is published. \Hypertarget{classadi__imu_1_1AccelGyroTempRosPublisher_ac7e253ea51a397a6ff2ae8a9f21ee676}\label{classadi__imu_1_1AccelGyroTempRosPublisher_ac7e253ea51a397a6ff2ae8a9f21ee676} 
+\index{adi\_imu::AccelGyroTempRosPublisher@{adi\_imu::AccelGyroTempRosPublisher}!m\_publisher@{m\_publisher}}
+\index{m\_publisher@{m\_publisher}!adi\_imu::AccelGyroTempRosPublisher@{adi\_imu::AccelGyroTempRosPublisher}}
+\doxysubsubsection{\texorpdfstring{m\_publisher}{m\_publisher}}
+{\footnotesize\ttfamily rclcpp\+::\+Publisher$<$adi\+\_\+imu\+::msg\+::\+Accel\+Gyro\+Temp\+Data$>$\+::\+Shared\+Ptr adi\+\_\+imu\+::\+Accel\+Gyro\+Temp\+Ros\+Publisher\+::m\+\_\+publisher\hspace{0.3cm}{\ttfamily [private]}}
+
+This variable retains the publisher instance. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/adi\+\_\+imu/accelgyrotemp\+\_\+ros\+\_\+publisher.\+h\item 
+src/accelgyrotemp\+\_\+ros\+\_\+publisher.\+cpp\end{DoxyCompactItemize}

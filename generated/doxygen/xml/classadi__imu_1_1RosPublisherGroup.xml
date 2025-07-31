@@ -1,0 +1,401 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classadi__imu_1_1RosPublisherGroup" kind="class" language="C++" prot="public">
+    <compoundname>adi_imu::RosPublisherGroup</compoundname>
+    <basecompoundref refid="classadi__imu_1_1RosPublisherGroupInterface" prot="public" virt="non-virtual">adi_imu::RosPublisherGroupInterface</basecompoundref>
+    <includes refid="ros__publisher__group_8h" local="no">ros_publisher_group.h</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classadi__imu_1_1RosPublisherGroup_1a1e8390831ef3806eb82459847bb51517" prot="private" static="no" mutable="no">
+        <type><ref refid="classadi__imu_1_1AccelGyroTempRosPublisherInterface" kindref="compound">AccelGyroTempRosPublisherInterface</ref> *</type>
+        <definition>AccelGyroTempRosPublisherInterface* adi_imu::RosPublisherGroup::m_accelGyroTempRosPublisher</definition>
+        <argsstring></argsstring>
+        <name>m_accelGyroTempRosPublisher</name>
+        <qualifiedname>adi_imu::RosPublisherGroup::m_accelGyroTempRosPublisher</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Variable to retain AccelGyroTemp message provider. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/ros_publisher_group.h" line="91" column="39" bodyfile="include/adi_imu/ros_publisher_group.h" bodystart="91" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classadi__imu_1_1RosPublisherGroup_1a5a1763a78e806d718a1a34ae08b12ead" prot="private" static="no" mutable="no">
+        <type><ref refid="classadi__imu_1_1VelAngTempRosPublisherInterface" kindref="compound">VelAngTempRosPublisherInterface</ref> *</type>
+        <definition>VelAngTempRosPublisherInterface* adi_imu::RosPublisherGroup::m_velAngTempRosPublisher</definition>
+        <argsstring></argsstring>
+        <name>m_velAngTempRosPublisher</name>
+        <qualifiedname>adi_imu::RosPublisherGroup::m_velAngTempRosPublisher</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Variable to retain VelAngTemp message provider. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/ros_publisher_group.h" line="93" column="36" bodyfile="include/adi_imu/ros_publisher_group.h" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classadi__imu_1_1RosPublisherGroup_1a17190ae9754c04e1690db19b159c5cfb" prot="private" static="no" mutable="no">
+        <type><ref refid="classadi__imu_1_1ImuRosPublisherInterface" kindref="compound">ImuRosPublisherInterface</ref> *</type>
+        <definition>ImuRosPublisherInterface* adi_imu::RosPublisherGroup::m_imuRosPublisher</definition>
+        <argsstring></argsstring>
+        <name>m_imuRosPublisher</name>
+        <qualifiedname>adi_imu::RosPublisherGroup::m_imuRosPublisher</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Variable to retain Imu message provider. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/ros_publisher_group.h" line="95" column="29" bodyfile="include/adi_imu/ros_publisher_group.h" bodystart="95" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classadi__imu_1_1RosPublisherGroup_1ae09989811efe5b5f0bd669d65d19909c" prot="private" static="no" mutable="no">
+        <type><ref refid="classadi__imu_1_1ImuFullMeasuredDataRosPublisherInterface" kindref="compound">ImuFullMeasuredDataRosPublisherInterface</ref> *</type>
+        <definition>ImuFullMeasuredDataRosPublisherInterface* adi_imu::RosPublisherGroup::m_imuFullMeasuredDataRosPublisher</definition>
+        <argsstring></argsstring>
+        <name>m_imuFullMeasuredDataRosPublisher</name>
+        <qualifiedname>adi_imu::RosPublisherGroup::m_imuFullMeasuredDataRosPublisher</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Variable to retain ImuFullMeasuredData message provider. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/ros_publisher_group.h" line="97" column="45" bodyfile="include/adi_imu/ros_publisher_group.h" bodystart="97" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classadi__imu_1_1RosPublisherGroup_1a027b60e12cea69b1e0b296a27b368947" prot="private" static="no" mutable="no">
+        <type><ref refid="classadi__imu_1_1ImuControlParameters" kindref="compound">ImuControlParameters</ref> *</type>
+        <definition>ImuControlParameters* adi_imu::RosPublisherGroup::m_imuControlParameters</definition>
+        <argsstring></argsstring>
+        <name>m_imuControlParameters</name>
+        <qualifiedname>adi_imu::RosPublisherGroup::m_imuControlParameters</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Variable to retain m_imuControlParameters instance. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/ros_publisher_group.h" line="99" column="25" bodyfile="include/adi_imu/ros_publisher_group.h" bodystart="99" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classadi__imu_1_1RosPublisherGroup_1abc68b4fd204a1d2d35aeaa559322be81" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>adi_imu::RosPublisherGroup::RosPublisherGroup</definition>
+        <argsstring>(std::shared_ptr&lt; rclcpp::Node &gt; &amp;node)</argsstring>
+        <name>RosPublisherGroup</name>
+        <qualifiedname>adi_imu::RosPublisherGroup::RosPublisherGroup</qualifiedname>
+        <param>
+          <type>std::shared_ptr&lt; rclcpp::Node &gt; &amp;</type>
+          <declname>node</declname>
+        </param>
+        <briefdescription>
+<para>Constructor for <ref refid="classadi__imu_1_1RosPublisherGroup" kindref="compound">RosPublisherGroup</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>node</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The ros2 Node instance. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/ros_publisher_group.h" line="41" column="12" bodyfile="src/ros_publisher_group.cpp" bodystart="34" bodyend="42"/>
+      </memberdef>
+      <memberdef kind="function" id="classadi__imu_1_1RosPublisherGroup_1aad749ded6ca50ed1b28921e31058167b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>adi_imu::RosPublisherGroup::~RosPublisherGroup</definition>
+        <argsstring>()</argsstring>
+        <name>~RosPublisherGroup</name>
+        <qualifiedname>adi_imu::RosPublisherGroup::~RosPublisherGroup</qualifiedname>
+        <briefdescription>
+<para>Destructor for <ref refid="classadi__imu_1_1RosPublisherGroup" kindref="compound">RosPublisherGroup</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/ros_publisher_group.h" line="46" column="3" bodyfile="src/ros_publisher_group.cpp" bodystart="44" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="function" id="classadi__imu_1_1RosPublisherGroup_1a24478a5865a28b992fa7d4cbaf20e2b8" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void adi_imu::RosPublisherGroup::setAccelGyroTempRosPublisher</definition>
+        <argsstring>(AccelGyroTempRosPublisherInterface *accelGyroTempRosPublisher) override</argsstring>
+        <name>setAccelGyroTempRosPublisher</name>
+        <qualifiedname>adi_imu::RosPublisherGroup::setAccelGyroTempRosPublisher</qualifiedname>
+        <reimplements refid="classadi__imu_1_1RosPublisherGroupInterface_1a17957c09311092a6e90c11990ae04d0b">setAccelGyroTempRosPublisher</reimplements>
+        <param>
+          <type><ref refid="classadi__imu_1_1AccelGyroTempRosPublisherInterface" kindref="compound">AccelGyroTempRosPublisherInterface</ref> *</type>
+          <declname>accelGyroTempRosPublisher</declname>
+        </param>
+        <briefdescription>
+<para>Sets the accelGyroTempRosPublisher publisher in the publisher group. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>accelGyroTempRosPublisher</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The publisher to be set in the group. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/ros_publisher_group.h" line="52" column="8" bodyfile="src/ros_publisher_group.cpp" bodystart="46" bodyend="50"/>
+      </memberdef>
+      <memberdef kind="function" id="classadi__imu_1_1RosPublisherGroup_1a149ea8a81129b5f5a44bc1290555a212" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void adi_imu::RosPublisherGroup::setVelAngTempRosPublisher</definition>
+        <argsstring>(VelAngTempRosPublisherInterface *velAngTempRosPublisher) override</argsstring>
+        <name>setVelAngTempRosPublisher</name>
+        <qualifiedname>adi_imu::RosPublisherGroup::setVelAngTempRosPublisher</qualifiedname>
+        <reimplements refid="classadi__imu_1_1RosPublisherGroupInterface_1ae3ec040724937cfe3aeed66af8199528">setVelAngTempRosPublisher</reimplements>
+        <param>
+          <type><ref refid="classadi__imu_1_1VelAngTempRosPublisherInterface" kindref="compound">VelAngTempRosPublisherInterface</ref> *</type>
+          <declname>velAngTempRosPublisher</declname>
+        </param>
+        <briefdescription>
+<para>Sets the velAngTempRosPublisher publisher in the publisher group. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>velAngTempRosPublisher</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The publisher to be set in the group. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/ros_publisher_group.h" line="59" column="8" bodyfile="src/ros_publisher_group.cpp" bodystart="52" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="function" id="classadi__imu_1_1RosPublisherGroup_1a1ba5fdbdb53e9d9f604e8718949d3e6f" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void adi_imu::RosPublisherGroup::setImuRosPublisher</definition>
+        <argsstring>(ImuRosPublisherInterface *imuRosPublisher) override</argsstring>
+        <name>setImuRosPublisher</name>
+        <qualifiedname>adi_imu::RosPublisherGroup::setImuRosPublisher</qualifiedname>
+        <reimplements refid="classadi__imu_1_1RosPublisherGroupInterface_1ac65aa4a6e97319c086f9ee67ff584589">setImuRosPublisher</reimplements>
+        <param>
+          <type><ref refid="classadi__imu_1_1ImuRosPublisherInterface" kindref="compound">ImuRosPublisherInterface</ref> *</type>
+          <declname>imuRosPublisher</declname>
+        </param>
+        <briefdescription>
+<para>Sets the imuRosPublisher publisher in the publisher group. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>imuRosPublisher</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The publisher to be set in the group. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/ros_publisher_group.h" line="65" column="8" bodyfile="src/ros_publisher_group.cpp" bodystart="58" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="function" id="classadi__imu_1_1RosPublisherGroup_1ae8a88f04c2611c70fb16cbfca23933bd" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void adi_imu::RosPublisherGroup::setImuFullMeasuredDataRosPublisher</definition>
+        <argsstring>(ImuFullMeasuredDataRosPublisherInterface *imuFullMeasuredDataRosPublisher) override</argsstring>
+        <name>setImuFullMeasuredDataRosPublisher</name>
+        <qualifiedname>adi_imu::RosPublisherGroup::setImuFullMeasuredDataRosPublisher</qualifiedname>
+        <reimplements refid="classadi__imu_1_1RosPublisherGroupInterface_1a3206f5b8fddf38fa2306017bc6a3561c">setImuFullMeasuredDataRosPublisher</reimplements>
+        <param>
+          <type><ref refid="classadi__imu_1_1ImuFullMeasuredDataRosPublisherInterface" kindref="compound">ImuFullMeasuredDataRosPublisherInterface</ref> *</type>
+          <declname>imuFullMeasuredDataRosPublisher</declname>
+        </param>
+        <briefdescription>
+<para>Sets the imuFullMeasuredDataRosPublisher publisher in the publisher group. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>imuFullMeasuredDataRosPublisher</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The imuFullMeasuredDataRosPublisher to be set in the group. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/ros_publisher_group.h" line="73" column="8" bodyfile="src/ros_publisher_group.cpp" bodystart="63" bodyend="67"/>
+      </memberdef>
+      <memberdef kind="function" id="classadi__imu_1_1RosPublisherGroup_1a17d4a99ac21d09fe31c9acd54927a217" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void adi_imu::RosPublisherGroup::setImuControlParameters</definition>
+        <argsstring>(ImuControlParameters *imuControlParameters) override</argsstring>
+        <name>setImuControlParameters</name>
+        <qualifiedname>adi_imu::RosPublisherGroup::setImuControlParameters</qualifiedname>
+        <reimplements refid="classadi__imu_1_1RosPublisherGroupInterface_1a517de488d98bc902b59a7b6382c500f8">setImuControlParameters</reimplements>
+        <param>
+          <type><ref refid="classadi__imu_1_1ImuControlParameters" kindref="compound">ImuControlParameters</ref> *</type>
+          <declname>imuControlParameters</declname>
+        </param>
+        <briefdescription>
+<para>Sets the imuControlParameters instance in the publisher group. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>imuControlParameters</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The imuControlParameters instance to be set in the group. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/ros_publisher_group.h" line="81" column="8" bodyfile="src/ros_publisher_group.cpp" bodystart="69" bodyend="72"/>
+      </memberdef>
+      <memberdef kind="function" id="classadi__imu_1_1RosPublisherGroup_1a061ea62ae21d14c58d2deb4da2aed10e" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void adi_imu::RosPublisherGroup::run</definition>
+        <argsstring>() override</argsstring>
+        <name>run</name>
+        <qualifiedname>adi_imu::RosPublisherGroup::run</qualifiedname>
+        <reimplements refid="classadi__imu_1_1RosTask_1a8750563a3003820f2a7da10dc467b055">run</reimplements>
+        <briefdescription>
+<para>Run the thread responsible for publishing messages and for performing parameter configuration. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/ros_publisher_group.h" line="87" column="8" bodyfile="src/ros_publisher_group.cpp" bodystart="74" bodyend="123"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Class ROS publisher group. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>adi_imu::RosPublisherGroup</label>
+        <link refid="classadi__imu_1_1RosPublisherGroup"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>adi_imu::RosPublisherGroupInterface</label>
+        <link refid="classadi__imu_1_1RosPublisherGroupInterface"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>adi_imu::RosTask</label>
+        <link refid="classadi__imu_1_1RosTask"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="4">
+        <label>adi_imu::AccelGyroTempRosPublisherInterface</label>
+        <link refid="classadi__imu_1_1AccelGyroTempRosPublisherInterface"/>
+      </node>
+      <node id="9">
+        <label>adi_imu::IIOWrapper</label>
+        <link refid="classadi__imu_1_1IIOWrapper"/>
+      </node>
+      <node id="8">
+        <label>adi_imu::ImuControlParameters</label>
+        <link refid="classadi__imu_1_1ImuControlParameters"/>
+        <childnode refid="9" relation="usage">
+          <edgelabel>m_iio_wrapper</edgelabel>
+        </childnode>
+      </node>
+      <node id="7">
+        <label>adi_imu::ImuFullMeasuredDataRosPublisherInterface</label>
+        <link refid="classadi__imu_1_1ImuFullMeasuredDataRosPublisherInterface"/>
+      </node>
+      <node id="6">
+        <label>adi_imu::ImuRosPublisherInterface</label>
+        <link refid="classadi__imu_1_1ImuRosPublisherInterface"/>
+      </node>
+      <node id="1">
+        <label>adi_imu::RosPublisherGroup</label>
+        <link refid="classadi__imu_1_1RosPublisherGroup"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>m_accelGyroTempRosPublisher</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>m_velAngTempRosPublisher</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>m_imuRosPublisher</edgelabel>
+        </childnode>
+        <childnode refid="7" relation="usage">
+          <edgelabel>m_imuFullMeasuredDataRosPublisher</edgelabel>
+        </childnode>
+        <childnode refid="8" relation="usage">
+          <edgelabel>m_imuControlParameters</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>adi_imu::RosPublisherGroupInterface</label>
+        <link refid="classadi__imu_1_1RosPublisherGroupInterface"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>adi_imu::RosTask</label>
+        <link refid="classadi__imu_1_1RosTask"/>
+      </node>
+      <node id="5">
+        <label>adi_imu::VelAngTempRosPublisherInterface</label>
+        <link refid="classadi__imu_1_1VelAngTempRosPublisherInterface"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/adi_imu/ros_publisher_group.h" line="34" column="1" bodyfile="include/adi_imu/ros_publisher_group.h" bodystart="35" bodyend="100"/>
+    <listofallmembers>
+      <member refid="classadi__imu_1_1RosPublisherGroup_1a1e8390831ef3806eb82459847bb51517" prot="private" virt="non-virtual"><scope>adi_imu::RosPublisherGroup</scope><name>m_accelGyroTempRosPublisher</name></member>
+      <member refid="classadi__imu_1_1RosPublisherGroup_1a027b60e12cea69b1e0b296a27b368947" prot="private" virt="non-virtual"><scope>adi_imu::RosPublisherGroup</scope><name>m_imuControlParameters</name></member>
+      <member refid="classadi__imu_1_1RosPublisherGroup_1ae09989811efe5b5f0bd669d65d19909c" prot="private" virt="non-virtual"><scope>adi_imu::RosPublisherGroup</scope><name>m_imuFullMeasuredDataRosPublisher</name></member>
+      <member refid="classadi__imu_1_1RosPublisherGroup_1a17190ae9754c04e1690db19b159c5cfb" prot="private" virt="non-virtual"><scope>adi_imu::RosPublisherGroup</scope><name>m_imuRosPublisher</name></member>
+      <member refid="classadi__imu_1_1RosPublisherGroupInterface_1a061d21fc0fffa91e419d514d3d3ea374" prot="protected" virt="non-virtual"><scope>adi_imu::RosPublisherGroup</scope><name>m_node</name></member>
+      <member refid="classadi__imu_1_1RosPublisherGroup_1a5a1763a78e806d718a1a34ae08b12ead" prot="private" virt="non-virtual"><scope>adi_imu::RosPublisherGroup</scope><name>m_velAngTempRosPublisher</name></member>
+      <member refid="classadi__imu_1_1RosPublisherGroup_1abc68b4fd204a1d2d35aeaa559322be81" prot="public" virt="non-virtual"><scope>adi_imu::RosPublisherGroup</scope><name>RosPublisherGroup</name></member>
+      <member refid="classadi__imu_1_1RosPublisherGroupInterface_1a2ca919139293ef8f66a261b95754e7ae" prot="public" virt="non-virtual"><scope>adi_imu::RosPublisherGroup</scope><name>RosPublisherGroupInterface</name></member>
+      <member refid="classadi__imu_1_1RosTask_1aabef10d9a1f8ec699ee8b4fdeec8f7fa" prot="public" virt="non-virtual"><scope>adi_imu::RosPublisherGroup</scope><name>RosTask</name></member>
+      <member refid="classadi__imu_1_1RosPublisherGroup_1a061ea62ae21d14c58d2deb4da2aed10e" prot="public" virt="virtual"><scope>adi_imu::RosPublisherGroup</scope><name>run</name></member>
+      <member refid="classadi__imu_1_1RosPublisherGroup_1a24478a5865a28b992fa7d4cbaf20e2b8" prot="public" virt="virtual"><scope>adi_imu::RosPublisherGroup</scope><name>setAccelGyroTempRosPublisher</name></member>
+      <member refid="classadi__imu_1_1RosPublisherGroup_1a17d4a99ac21d09fe31c9acd54927a217" prot="public" virt="virtual"><scope>adi_imu::RosPublisherGroup</scope><name>setImuControlParameters</name></member>
+      <member refid="classadi__imu_1_1RosPublisherGroup_1ae8a88f04c2611c70fb16cbfca23933bd" prot="public" virt="virtual"><scope>adi_imu::RosPublisherGroup</scope><name>setImuFullMeasuredDataRosPublisher</name></member>
+      <member refid="classadi__imu_1_1RosPublisherGroup_1a1ba5fdbdb53e9d9f604e8718949d3e6f" prot="public" virt="virtual"><scope>adi_imu::RosPublisherGroup</scope><name>setImuRosPublisher</name></member>
+      <member refid="classadi__imu_1_1RosPublisherGroup_1a149ea8a81129b5f5a44bc1290555a212" prot="public" virt="virtual"><scope>adi_imu::RosPublisherGroup</scope><name>setVelAngTempRosPublisher</name></member>
+      <member refid="classadi__imu_1_1RosPublisherGroup_1aad749ded6ca50ed1b28921e31058167b" prot="public" virt="non-virtual"><scope>adi_imu::RosPublisherGroup</scope><name>~RosPublisherGroup</name></member>
+      <member refid="classadi__imu_1_1RosPublisherGroupInterface_1a935b3a511919ed7bf395ef03507fe709" prot="public" virt="virtual"><scope>adi_imu::RosPublisherGroup</scope><name>~RosPublisherGroupInterface</name></member>
+      <member refid="classadi__imu_1_1RosTask_1ad36570b4d84c20ec267c433c9122c010" prot="public" virt="virtual"><scope>adi_imu::RosPublisherGroup</scope><name>~RosTask</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,7 @@
+<map id="adi_imu::AccelGyroTempRosPublisher" name="adi_imu::AccelGyroTempRosPublisher">
+<area shape="rect" id="Node000001" title="Class for acceleration, angular velocity and temperature publisher." alt="" coords="383,37,589,77"/>
+<area shape="rect" id="Node000002" href="$classadi__imu_1_1AccelGyroTempRosPublisherInterface.html" title="Interface for acceleration, angular velocity and temperature publisher." alt="" coords="9,5,216,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="230,33,382,46,382,51,230,38"/>
+<area shape="rect" id="Node000003" href="$classadi__imu_1_1AccelGyroTempDataProviderInterface.html" title="Interface for acceleration, angular velocity and temperature buffered data provider." alt="" coords="5,69,220,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="233,76,382,64,382,69,234,82"/>
+</map>

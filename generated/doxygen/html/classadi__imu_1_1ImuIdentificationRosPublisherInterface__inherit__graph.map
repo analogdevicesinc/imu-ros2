@@ -1,0 +1,7 @@
+<map id="adi_imu::ImuIdentificationRosPublisherInterface" name="adi_imu::ImuIdentificationRosPublisherInterface">
+<area shape="rect" id="Node000001" title="Interface for identification publisher." alt="" coords="5,79,197,119"/>
+<area shape="rect" id="Node000003" href="$classadi__imu_1_1ImuIdentificationRosPublisher.html" title="Class for identification publisher." alt="" coords="5,167,197,207"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="104,133,104,166,99,166,99,133"/>
+<area shape="rect" id="Node000002" href="$classadi__imu_1_1RosTask.html" title="Interface for running a task in a thread." alt="" coords="34,5,169,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="104,44,104,79,99,79,99,44"/>
+</map>

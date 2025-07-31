@@ -1,0 +1,5 @@
+<map id="adi_imu::ImuDiagDataProvider" name="adi_imu::ImuDiagDataProvider">
+<area shape="rect" id="Node000001" title="Class for diagnosis data provider for adis chips." alt="" coords="5,93,228,119"/>
+<area shape="rect" id="Node000002" href="$classadi__imu_1_1ImuDiagDataProviderInterface.html" title="Interface for diagnosis data provider for adis chips." alt="" coords="5,5,228,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="119,59,119,93,114,93,114,59"/>
+</map>

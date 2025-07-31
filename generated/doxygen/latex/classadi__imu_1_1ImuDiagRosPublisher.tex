@@ -1,0 +1,186 @@
+\doxysection{adi\+\_\+imu\+::Imu\+Diag\+Ros\+Publisher\texorpdfstring{$<$}{<} Diag\+Msg\+Type \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{classadi__imu_1_1ImuDiagRosPublisher}{}\label{classadi__imu_1_1ImuDiagRosPublisher}\index{adi\_imu::ImuDiagRosPublisher$<$ DiagMsgType $>$@{adi\_imu::ImuDiagRosPublisher$<$ DiagMsgType $>$}}
+
+
+Class for diagnosis publisher for adis1657x chips.  
+
+
+
+
+{\ttfamily \#include $<$imu\+\_\+diag\+\_\+ros\+\_\+publisher.\+h$>$}
+
+
+
+Inheritance diagram for adi\+\_\+imu\+::Imu\+Diag\+Ros\+Publisher\texorpdfstring{$<$}{<} Diag\+Msg\+Type \texorpdfstring{$>$}{>}\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=246pt]{classadi__imu_1_1ImuDiagRosPublisher__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for adi\+\_\+imu\+::Imu\+Diag\+Ros\+Publisher\texorpdfstring{$<$}{<} Diag\+Msg\+Type \texorpdfstring{$>$}{>}\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classadi__imu_1_1ImuDiagRosPublisher__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classadi__imu_1_1ImuDiagRosPublisher_adcc4cff1a692c803570f45eeee603bb2}{Imu\+Diag\+Ros\+Publisher}} (std\+::shared\+\_\+ptr$<$ rclcpp\+::\+Node $>$ \&node)
+\begin{DoxyCompactList}\small\item\em Constructor for \doxylink{classadi__imu_1_1ImuDiagRosPublisher}{Imu\+Diag\+Ros\+Publisher}. \end{DoxyCompactList}\item 
+\Hypertarget{classadi__imu_1_1ImuDiagRosPublisher_a7726b7d82a177c3f9ffc2aa285b6c976}\label{classadi__imu_1_1ImuDiagRosPublisher_a7726b7d82a177c3f9ffc2aa285b6c976} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Imu\+Diag\+Ros\+Publisher} ()
+\begin{DoxyCompactList}\small\item\em Destructor for \doxylink{classadi__imu_1_1ImuDiagRosPublisher}{Imu\+Diag\+Ros\+Publisher}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classadi__imu_1_1ImuDiagRosPublisher_a8189bd2e6eca85cdc9a6e657c45a1851}{set\+Message\+Provider}} (\mbox{\hyperlink{classadi__imu_1_1ImuDiagDataProviderInterface}{Imu\+Diag\+Data\+Provider\+Interface}} \texorpdfstring{$\ast$}{*}data\+Provider) override
+\begin{DoxyCompactList}\small\item\em Set the message data provider. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classadi__imu_1_1ImuDiagRosPublisher_ad420bc72e0b9b558b28ba0d4db22b55a}{set\+Device\+Descriptor}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classadi__imu_1_1ADISRegisterMap}{ADISRegister\+Map}} $>$ device\+\_\+descriptor) override
+\begin{DoxyCompactList}\small\item\em Set the device descriptor that defines the device\textquotesingle{}s capabilities, register layout and supported features. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classadi__imu_1_1ImuDiagRosPublisher_a7a316507121ad77cf66b5b8cd63cd6ce}{run}} () override
+\begin{DoxyCompactList}\small\item\em Run the thread responsible for publishing Imu\+Diag\+Data message. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classadi__imu_1_1ImuDiagRosPublisherInterface}{adi\+\_\+imu\+::\+Imu\+Diag\+Ros\+Publisher\+Interface}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Imu\+Diag\+Ros\+Publisher\+Interface} ()
+\begin{DoxyCompactList}\small\item\em Constructor for \doxylink{classadi__imu_1_1ImuDiagRosPublisherInterface}{Imu\+Diag\+Ros\+Publisher\+Interface}. \end{DoxyCompactList}\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Imu\+Diag\+Ros\+Publisher\+Interface} ()
+\begin{DoxyCompactList}\small\item\em Destructor for \doxylink{classadi__imu_1_1ImuDiagRosPublisherInterface}{Imu\+Diag\+Ros\+Publisher\+Interface}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classadi__imu_1_1RosTask}{adi\+\_\+imu\+::\+Ros\+Task}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classadi__imu_1_1RosTask_aabef10d9a1f8ec699ee8b4fdeec8f7fa}{Ros\+Task}} ()
+\begin{DoxyCompactList}\small\item\em Constructor for \doxylink{classadi__imu_1_1RosTask}{Ros\+Task}. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classadi__imu_1_1RosTask_ad36570b4d84c20ec267c433c9122c010}{\texorpdfstring{$\sim$}{\string~}\+Ros\+Task}} ()
+\begin{DoxyCompactList}\small\item\em Destructor for \doxylink{classadi__imu_1_1RosTask}{Ros\+Task}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classadi__imu_1_1ImuDiagDataProviderInterface}{Imu\+Diag\+Data\+Provider\+Interface}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classadi__imu_1_1ImuDiagRosPublisher_a39d6e60a057bed0f0f91fcc8ac0a5f92}{m\+\_\+data\+\_\+provider}}
+\item 
+\Hypertarget{classadi__imu_1_1ImuDiagRosPublisher_a2ca41e1e6d06e5e7d8de50dadd2fa966}\label{classadi__imu_1_1ImuDiagRosPublisher_a2ca41e1e6d06e5e7d8de50dadd2fa966} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classadi__imu_1_1ADISRegisterMap}{ADISRegister\+Map}} $>$ {\bfseries m\+\_\+device\+\_\+descriptor}
+\item 
+\Hypertarget{classadi__imu_1_1ImuDiagRosPublisher_af163a1202e4398190e6f7b7e1540499f}\label{classadi__imu_1_1ImuDiagRosPublisher_af163a1202e4398190e6f7b7e1540499f} 
+std\+::string {\bfseries m\+\_\+device\+\_\+family}
+\item 
+rclcpp\+::\+Publisher$<$ Diag\+Msg\+Type $>$\+::\+Shared\+Ptr \mbox{\hyperlink{classadi__imu_1_1ImuDiagRosPublisher_acb58091aa9533ae6ae709e952d898c5f}{m\+\_\+publisher}}
+\item 
+Diag\+Msg\+Type \mbox{\hyperlink{classadi__imu_1_1ImuDiagRosPublisher_a912ce1f1442866b99be10b72891a0641}{m\+\_\+message}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classadi__imu_1_1ImuDiagRosPublisherInterface}{adi\+\_\+imu\+::\+Imu\+Diag\+Ros\+Publisher\+Interface}}}
+\begin{DoxyCompactItemize}
+\item 
+std\+::shared\+\_\+ptr$<$ rclcpp\+::\+Node $>$ \mbox{\hyperlink{classadi__imu_1_1ImuDiagRosPublisherInterface_a9e6cd4f4bfa7cb1f54b94d79e7ca2901}{m\+\_\+node}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename Diag\+Msg\+Type$>$\newline
+class adi\+\_\+imu\+::\+Imu\+Diag\+Ros\+Publisher$<$ Diag\+Msg\+Type $>$}
+Class for diagnosis publisher for adis1657x chips. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classadi__imu_1_1ImuDiagRosPublisher_adcc4cff1a692c803570f45eeee603bb2}\label{classadi__imu_1_1ImuDiagRosPublisher_adcc4cff1a692c803570f45eeee603bb2} 
+\index{adi\_imu::ImuDiagRosPublisher$<$ DiagMsgType $>$@{adi\_imu::ImuDiagRosPublisher$<$ DiagMsgType $>$}!ImuDiagRosPublisher@{ImuDiagRosPublisher}}
+\index{ImuDiagRosPublisher@{ImuDiagRosPublisher}!adi\_imu::ImuDiagRosPublisher$<$ DiagMsgType $>$@{adi\_imu::ImuDiagRosPublisher$<$ DiagMsgType $>$}}
+\doxysubsubsection{\texorpdfstring{ImuDiagRosPublisher()}{ImuDiagRosPublisher()}}
+{\footnotesize\ttfamily template$<$typename Diag\+Msg\+Type $>$ \\
+\mbox{\hyperlink{classadi__imu_1_1ImuDiagRosPublisher}{adi\+\_\+imu\+::\+Imu\+Diag\+Ros\+Publisher}}$<$ Diag\+Msg\+Type $>$\+::\+Imu\+Diag\+Ros\+Publisher (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ rclcpp\+::\+Node $>$ \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+Constructor for \doxylink{classadi__imu_1_1ImuDiagRosPublisher}{Imu\+Diag\+Ros\+Publisher}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em node} & The ros2 Node instance. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classadi__imu_1_1ImuDiagRosPublisher_a7a316507121ad77cf66b5b8cd63cd6ce}\label{classadi__imu_1_1ImuDiagRosPublisher_a7a316507121ad77cf66b5b8cd63cd6ce} 
+\index{adi\_imu::ImuDiagRosPublisher$<$ DiagMsgType $>$@{adi\_imu::ImuDiagRosPublisher$<$ DiagMsgType $>$}!run@{run}}
+\index{run@{run}!adi\_imu::ImuDiagRosPublisher$<$ DiagMsgType $>$@{adi\_imu::ImuDiagRosPublisher$<$ DiagMsgType $>$}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily template$<$typename Diag\+Msg\+Type $>$ \\
+void \mbox{\hyperlink{classadi__imu_1_1ImuDiagRosPublisher}{adi\+\_\+imu\+::\+Imu\+Diag\+Ros\+Publisher}}$<$ Diag\+Msg\+Type $>$\+::run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Run the thread responsible for publishing Imu\+Diag\+Data message. 
+
+
+
+Implements \mbox{\hyperlink{classadi__imu_1_1RosTask_a8750563a3003820f2a7da10dc467b055}{adi\+\_\+imu\+::\+Ros\+Task}}.
+
+\Hypertarget{classadi__imu_1_1ImuDiagRosPublisher_ad420bc72e0b9b558b28ba0d4db22b55a}\label{classadi__imu_1_1ImuDiagRosPublisher_ad420bc72e0b9b558b28ba0d4db22b55a} 
+\index{adi\_imu::ImuDiagRosPublisher$<$ DiagMsgType $>$@{adi\_imu::ImuDiagRosPublisher$<$ DiagMsgType $>$}!setDeviceDescriptor@{setDeviceDescriptor}}
+\index{setDeviceDescriptor@{setDeviceDescriptor}!adi\_imu::ImuDiagRosPublisher$<$ DiagMsgType $>$@{adi\_imu::ImuDiagRosPublisher$<$ DiagMsgType $>$}}
+\doxysubsubsection{\texorpdfstring{setDeviceDescriptor()}{setDeviceDescriptor()}}
+{\footnotesize\ttfamily template$<$typename Diag\+Msg\+Type $>$ \\
+void \mbox{\hyperlink{classadi__imu_1_1ImuDiagRosPublisher}{adi\+\_\+imu\+::\+Imu\+Diag\+Ros\+Publisher}}$<$ Diag\+Msg\+Type $>$\+::set\+Device\+Descriptor (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classadi__imu_1_1ADISRegisterMap}{ADISRegister\+Map}} $>$}]{device\+\_\+descriptor }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Set the device descriptor that defines the device\textquotesingle{}s capabilities, register layout and supported features. 
+
+
+
+Implements \mbox{\hyperlink{classadi__imu_1_1ImuDiagRosPublisherInterface_adfb4570c9eddbc0a4eea8e20da1908be}{adi\+\_\+imu\+::\+Imu\+Diag\+Ros\+Publisher\+Interface}}.
+
+\Hypertarget{classadi__imu_1_1ImuDiagRosPublisher_a8189bd2e6eca85cdc9a6e657c45a1851}\label{classadi__imu_1_1ImuDiagRosPublisher_a8189bd2e6eca85cdc9a6e657c45a1851} 
+\index{adi\_imu::ImuDiagRosPublisher$<$ DiagMsgType $>$@{adi\_imu::ImuDiagRosPublisher$<$ DiagMsgType $>$}!setMessageProvider@{setMessageProvider}}
+\index{setMessageProvider@{setMessageProvider}!adi\_imu::ImuDiagRosPublisher$<$ DiagMsgType $>$@{adi\_imu::ImuDiagRosPublisher$<$ DiagMsgType $>$}}
+\doxysubsubsection{\texorpdfstring{setMessageProvider()}{setMessageProvider()}}
+{\footnotesize\ttfamily template$<$typename Diag\+Msg\+Type $>$ \\
+void \mbox{\hyperlink{classadi__imu_1_1ImuDiagRosPublisher}{adi\+\_\+imu\+::\+Imu\+Diag\+Ros\+Publisher}}$<$ Diag\+Msg\+Type $>$\+::set\+Message\+Provider (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classadi__imu_1_1ImuDiagDataProviderInterface}{Imu\+Diag\+Data\+Provider\+Interface}} \texorpdfstring{$\ast$}{*}}]{data\+Provider }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Set the message data provider. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data\+Provider} & Data provider. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classadi__imu_1_1ImuDiagRosPublisherInterface_a499545e0835f5a6699386272f73d5760}{adi\+\_\+imu\+::\+Imu\+Diag\+Ros\+Publisher\+Interface}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classadi__imu_1_1ImuDiagRosPublisher_a39d6e60a057bed0f0f91fcc8ac0a5f92}\label{classadi__imu_1_1ImuDiagRosPublisher_a39d6e60a057bed0f0f91fcc8ac0a5f92} 
+\index{adi\_imu::ImuDiagRosPublisher$<$ DiagMsgType $>$@{adi\_imu::ImuDiagRosPublisher$<$ DiagMsgType $>$}!m\_data\_provider@{m\_data\_provider}}
+\index{m\_data\_provider@{m\_data\_provider}!adi\_imu::ImuDiagRosPublisher$<$ DiagMsgType $>$@{adi\_imu::ImuDiagRosPublisher$<$ DiagMsgType $>$}}
+\doxysubsubsection{\texorpdfstring{m\_data\_provider}{m\_data\_provider}}
+{\footnotesize\ttfamily template$<$typename Diag\+Msg\+Type $>$ \\
+\mbox{\hyperlink{classadi__imu_1_1ImuDiagDataProviderInterface}{Imu\+Diag\+Data\+Provider\+Interface}}\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classadi__imu_1_1ImuDiagRosPublisher}{adi\+\_\+imu\+::\+Imu\+Diag\+Ros\+Publisher}}$<$ Diag\+Msg\+Type $>$\+::m\+\_\+data\+\_\+provider\hspace{0.3cm}{\ttfamily [private]}}
+
+This variable retains the data provider instance. \Hypertarget{classadi__imu_1_1ImuDiagRosPublisher_a912ce1f1442866b99be10b72891a0641}\label{classadi__imu_1_1ImuDiagRosPublisher_a912ce1f1442866b99be10b72891a0641} 
+\index{adi\_imu::ImuDiagRosPublisher$<$ DiagMsgType $>$@{adi\_imu::ImuDiagRosPublisher$<$ DiagMsgType $>$}!m\_message@{m\_message}}
+\index{m\_message@{m\_message}!adi\_imu::ImuDiagRosPublisher$<$ DiagMsgType $>$@{adi\_imu::ImuDiagRosPublisher$<$ DiagMsgType $>$}}
+\doxysubsubsection{\texorpdfstring{m\_message}{m\_message}}
+{\footnotesize\ttfamily template$<$typename Diag\+Msg\+Type $>$ \\
+Diag\+Msg\+Type \mbox{\hyperlink{classadi__imu_1_1ImuDiagRosPublisher}{adi\+\_\+imu\+::\+Imu\+Diag\+Ros\+Publisher}}$<$ Diag\+Msg\+Type $>$\+::m\+\_\+message\hspace{0.3cm}{\ttfamily [private]}}
+
+This variable retains the message that is published. \Hypertarget{classadi__imu_1_1ImuDiagRosPublisher_acb58091aa9533ae6ae709e952d898c5f}\label{classadi__imu_1_1ImuDiagRosPublisher_acb58091aa9533ae6ae709e952d898c5f} 
+\index{adi\_imu::ImuDiagRosPublisher$<$ DiagMsgType $>$@{adi\_imu::ImuDiagRosPublisher$<$ DiagMsgType $>$}!m\_publisher@{m\_publisher}}
+\index{m\_publisher@{m\_publisher}!adi\_imu::ImuDiagRosPublisher$<$ DiagMsgType $>$@{adi\_imu::ImuDiagRosPublisher$<$ DiagMsgType $>$}}
+\doxysubsubsection{\texorpdfstring{m\_publisher}{m\_publisher}}
+{\footnotesize\ttfamily template$<$typename Diag\+Msg\+Type $>$ \\
+rclcpp\+::\+Publisher$<$Diag\+Msg\+Type$>$\+::\+Shared\+Ptr \mbox{\hyperlink{classadi__imu_1_1ImuDiagRosPublisher}{adi\+\_\+imu\+::\+Imu\+Diag\+Ros\+Publisher}}$<$ Diag\+Msg\+Type $>$\+::m\+\_\+publisher\hspace{0.3cm}{\ttfamily [private]}}
+
+This variable retains the publisher instance. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/adi\+\_\+imu/imu\+\_\+diag\+\_\+ros\+\_\+publisher.\+h\end{DoxyCompactItemize}

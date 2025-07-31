@@ -1,0 +1,5 @@
+<map id="adi_imu::Adis1655xRegisterMap" name="adi_imu::Adis1655xRegisterMap">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,79,237,104"/>
+<area shape="rect" id="Node000002" href="$classadi__imu_1_1ADISRegisterMap.html" title=" " alt="" coords="24,5,219,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="124,44,124,79,119,79,119,44"/>
+</map>

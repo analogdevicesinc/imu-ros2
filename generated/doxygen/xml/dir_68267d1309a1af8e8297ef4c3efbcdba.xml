@@ -2,13 +2,21 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
   <compounddef id="dir_68267d1309a1af8e8297ef4c3efbcdba" kind="dir">
     <compoundname>src</compoundname>
+    <innerdir refid="dir_313caf1132e152dd9b58bea13a4052ca">src/utils</innerdir>
     <innerfile refid="accelgyrotemp__data__provider_8cpp">accelgyrotemp_data_provider.cpp</innerfile>
     <innerfile refid="accelgyrotemp__ros__publisher_8cpp">accelgyrotemp_ros_publisher.cpp</innerfile>
+    <innerfile refid="adis1646x__register__map_8cpp">adis1646x_register_map.cpp</innerfile>
+    <innerfile refid="adis1647x__register__map_8cpp">adis1647x_register_map.cpp</innerfile>
+    <innerfile refid="adis1650x__register__map_8cpp">adis1650x_register_map.cpp</innerfile>
+    <innerfile refid="adis1654x__register__map_8cpp">adis1654x_register_map.cpp</innerfile>
+    <innerfile refid="adis1655x__register__map_8cpp">adis1655x_register_map.cpp</innerfile>
+    <innerfile refid="adis1657x__register__map_8cpp">adis1657x_register_map.cpp</innerfile>
+    <innerfile refid="adis__device__factory_8cpp">adis_device_factory.cpp</innerfile>
+    <innerfile refid="adis__register__map_8cpp">adis_register_map.cpp</innerfile>
     <innerfile refid="iio__wrapper_8cpp">iio_wrapper.cpp</innerfile>
     <innerfile refid="imu__control__parameters_8cpp">imu_control_parameters.cpp</innerfile>
     <innerfile refid="imu__data__provider_8cpp">imu_data_provider.cpp</innerfile>
     <innerfile refid="imu__diag__data__provider_8cpp">imu_diag_data_provider.cpp</innerfile>
-    <innerfile refid="imu__diag__ros__publisher_8cpp">imu_diag_ros_publisher.cpp</innerfile>
     <innerfile refid="imu__full__measured__data__provider_8cpp">imu_full_measured_data_provider.cpp</innerfile>
     <innerfile refid="imu__full__measured__data__ros__publisher_8cpp">imu_full_measured_data_ros_publisher.cpp</innerfile>
     <innerfile refid="imu__identification__data__provider_8cpp">imu_identification_data_provider.cpp</innerfile>

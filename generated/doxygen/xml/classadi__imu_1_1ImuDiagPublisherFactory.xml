@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classadi__imu_1_1ImuDiagPublisherFactory" kind="class" language="C++" prot="public">
+    <compoundname>adi_imu::ImuDiagPublisherFactory</compoundname>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classadi__imu_1_1ImuDiagPublisherFactory_1a0d9b074366347a29c4291bf9fe94a634" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::unique_ptr&lt; <ref refid="classadi__imu_1_1ImuDiagRosPublisherInterface" kindref="compound">ImuDiagRosPublisherInterface</ref> &gt;</type>
+        <definition>static std::unique_ptr&lt; ImuDiagRosPublisherInterface &gt; adi_imu::ImuDiagPublisherFactory::make</definition>
+        <argsstring>(std::shared_ptr&lt; ADISRegisterMap &gt; device_descriptor, std::shared_ptr&lt; rclcpp::Node &gt; &amp;node)</argsstring>
+        <name>make</name>
+        <qualifiedname>adi_imu::ImuDiagPublisherFactory::make</qualifiedname>
+        <param>
+          <type>std::shared_ptr&lt; <ref refid="classadi__imu_1_1ADISRegisterMap" kindref="compound">ADISRegisterMap</ref> &gt;</type>
+          <declname>device_descriptor</declname>
+        </param>
+        <param>
+          <type>std::shared_ptr&lt; rclcpp::Node &gt; &amp;</type>
+          <declname>node</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/imu_diag_ros_publisher_factory.h" line="38" column="26" bodyfile="include/adi_imu/imu_diag_ros_publisher_factory.h" bodystart="38" bodyend="58"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/adi_imu/imu_diag_ros_publisher_factory.h" line="35" column="1" bodyfile="include/adi_imu/imu_diag_ros_publisher_factory.h" bodystart="36" bodyend="59"/>
+    <listofallmembers>
+      <member refid="classadi__imu_1_1ImuDiagPublisherFactory_1a0d9b074366347a29c4291bf9fe94a634" prot="public" virt="non-virtual"><scope>adi_imu::ImuDiagPublisherFactory</scope><name>make</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,166 @@
+\doxysection{adi\+\_\+imu\+::Imu\+Diag\+Data\+Provider Class Reference}
+\hypertarget{classadi__imu_1_1ImuDiagDataProvider}{}\label{classadi__imu_1_1ImuDiagDataProvider}\index{adi\_imu::ImuDiagDataProvider@{adi\_imu::ImuDiagDataProvider}}
+
+
+Class for diagnosis data provider for adis chips.  
+
+
+
+
+{\ttfamily \#include $<$imu\+\_\+diag\+\_\+data\+\_\+provider.\+h$>$}
+
+
+
+Inheritance diagram for adi\+\_\+imu\+::Imu\+Diag\+Data\+Provider\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=247pt]{classadi__imu_1_1ImuDiagDataProvider__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for adi\+\_\+imu\+::Imu\+Diag\+Data\+Provider\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classadi__imu_1_1ImuDiagDataProvider__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classadi__imu_1_1ImuDiagDataProvider_a52c913e911ebb3c696b4d4ed50480ecc}\label{classadi__imu_1_1ImuDiagDataProvider_a52c913e911ebb3c696b4d4ed50480ecc} 
+{\bfseries Imu\+Diag\+Data\+Provider} ()
+\begin{DoxyCompactList}\small\item\em Constructor for \doxylink{classadi__imu_1_1ImuDiagDataProvider}{Imu\+Diag\+Data\+Provider}. \end{DoxyCompactList}\item 
+\Hypertarget{classadi__imu_1_1ImuDiagDataProvider_a0309749e878a7c8673e51effe58cde60}\label{classadi__imu_1_1ImuDiagDataProvider_a0309749e878a7c8673e51effe58cde60} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Imu\+Diag\+Data\+Provider} ()
+\begin{DoxyCompactList}\small\item\em Destructor for \doxylink{classadi__imu_1_1ImuDiagDataProvider}{Imu\+Diag\+Data\+Provider}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classadi__imu_1_1ImuDiagDataProvider_a6c47e14c646e62efb74d571baae0c9d0}{get\+Data}} (adi\+\_\+imu\+::msg\+::\+Imu\+Diag\+Data\+ADIS1646X \&message) override
+\begin{DoxyCompactList}\small\item\em Populate Imu\+Diag\+Data message with diagnosis data. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classadi__imu_1_1ImuDiagDataProvider_a1c8d0028dcb8d7a92ce0b29c72bc9a8a}{get\+Data}} (adi\+\_\+imu\+::msg\+::\+Imu\+Diag\+Data\+ADIS1647X \&message) override
+\item 
+bool \mbox{\hyperlink{classadi__imu_1_1ImuDiagDataProvider_a21886db995509131278d6b5667052106}{get\+Data}} (adi\+\_\+imu\+::msg\+::\+Imu\+Diag\+Data\+ADIS1650X \&message) override
+\item 
+bool \mbox{\hyperlink{classadi__imu_1_1ImuDiagDataProvider_a21ca1a12bc26106d3699c81e6ba5a64f}{get\+Data}} (adi\+\_\+imu\+::msg\+::\+Imu\+Diag\+Data\+ADIS1654X \&message) override
+\item 
+bool \mbox{\hyperlink{classadi__imu_1_1ImuDiagDataProvider_ae296991d22cfa361413745b044733095}{get\+Data}} (adi\+\_\+imu\+::msg\+::\+Imu\+Diag\+Data\+ADIS1655X \&message) override
+\item 
+bool \mbox{\hyperlink{classadi__imu_1_1ImuDiagDataProvider_a3e5021dfd3c8beba52c082d551531ef2}{get\+Data}} (adi\+\_\+imu\+::msg\+::\+Imu\+Diag\+Data\+ADIS1657X \&message) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classadi__imu_1_1ImuDiagDataProviderInterface}{adi\+\_\+imu\+::\+Imu\+Diag\+Data\+Provider\+Interface}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Imu\+Diag\+Data\+Provider\+Interface} ()
+\begin{DoxyCompactList}\small\item\em Constructor for \doxylink{classadi__imu_1_1ImuDiagDataProviderInterface}{Imu\+Diag\+Data\+Provider\+Interface}. \end{DoxyCompactList}\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Imu\+Diag\+Data\+Provider\+Interface} ()
+\begin{DoxyCompactList}\small\item\em Destructor for \doxylink{classadi__imu_1_1ImuDiagDataProviderInterface}{Imu\+Diag\+Data\+Provider\+Interface}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classadi__imu_1_1ImuDiagDataProvider_a39eac6dd3d5013ee2d45aecb6e196bdc}\label{classadi__imu_1_1ImuDiagDataProvider_a39eac6dd3d5013ee2d45aecb6e196bdc} 
+{\footnotesize template$<$typename Message\+Type $>$ }\\bool {\bfseries populate\+Common\+Fields} (Message\+Type \&message)
+\item 
+\Hypertarget{classadi__imu_1_1ImuDiagDataProvider_ad8a3f03510cb7c58c6b2af3d93e29fb8}\label{classadi__imu_1_1ImuDiagDataProvider_ad8a3f03510cb7c58c6b2af3d93e29fb8} 
+{\footnotesize template$<$typename Message\+Type $>$ }\\bool {\bfseries populate\+Axis\+Failure\+Fields} (Message\+Type \&message)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classadi__imu_1_1IIOWrapper}{IIOWrapper}} \mbox{\hyperlink{classadi__imu_1_1ImuDiagDataProvider_aab67309b2d57202c1efc8ffe936d43f3}{m\+\_\+iio\+\_\+wrapper}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class for diagnosis data provider for adis chips. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classadi__imu_1_1ImuDiagDataProvider_a6c47e14c646e62efb74d571baae0c9d0}\label{classadi__imu_1_1ImuDiagDataProvider_a6c47e14c646e62efb74d571baae0c9d0} 
+\index{adi\_imu::ImuDiagDataProvider@{adi\_imu::ImuDiagDataProvider}!getData@{getData}}
+\index{getData@{getData}!adi\_imu::ImuDiagDataProvider@{adi\_imu::ImuDiagDataProvider}}
+\doxysubsubsection{\texorpdfstring{getData()}{getData()}\hspace{0.1cm}{\footnotesize\ttfamily [1/6]}}
+{\footnotesize\ttfamily bool adi\+\_\+imu\+::\+Imu\+Diag\+Data\+Provider\+::get\+Data (\begin{DoxyParamCaption}\item[{adi\+\_\+imu\+::msg\+::\+Imu\+Diag\+Data\+ADIS1646X \&}]{message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Populate Imu\+Diag\+Data message with diagnosis data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & Message containing the diagnosis data. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return true if the message parameter is successfully populated with diagnosis data and false otherwise. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classadi__imu_1_1ImuDiagDataProviderInterface_ab0cbc77a9139a3ba30364927d3b3995d}{adi\+\_\+imu\+::\+Imu\+Diag\+Data\+Provider\+Interface}}.
+
+\Hypertarget{classadi__imu_1_1ImuDiagDataProvider_a1c8d0028dcb8d7a92ce0b29c72bc9a8a}\label{classadi__imu_1_1ImuDiagDataProvider_a1c8d0028dcb8d7a92ce0b29c72bc9a8a} 
+\index{adi\_imu::ImuDiagDataProvider@{adi\_imu::ImuDiagDataProvider}!getData@{getData}}
+\index{getData@{getData}!adi\_imu::ImuDiagDataProvider@{adi\_imu::ImuDiagDataProvider}}
+\doxysubsubsection{\texorpdfstring{getData()}{getData()}\hspace{0.1cm}{\footnotesize\ttfamily [2/6]}}
+{\footnotesize\ttfamily bool adi\+\_\+imu\+::\+Imu\+Diag\+Data\+Provider\+::get\+Data (\begin{DoxyParamCaption}\item[{adi\+\_\+imu\+::msg\+::\+Imu\+Diag\+Data\+ADIS1647X \&}]{message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classadi__imu_1_1ImuDiagDataProviderInterface}{adi\+\_\+imu\+::\+Imu\+Diag\+Data\+Provider\+Interface}}.
+
+\Hypertarget{classadi__imu_1_1ImuDiagDataProvider_a21886db995509131278d6b5667052106}\label{classadi__imu_1_1ImuDiagDataProvider_a21886db995509131278d6b5667052106} 
+\index{adi\_imu::ImuDiagDataProvider@{adi\_imu::ImuDiagDataProvider}!getData@{getData}}
+\index{getData@{getData}!adi\_imu::ImuDiagDataProvider@{adi\_imu::ImuDiagDataProvider}}
+\doxysubsubsection{\texorpdfstring{getData()}{getData()}\hspace{0.1cm}{\footnotesize\ttfamily [3/6]}}
+{\footnotesize\ttfamily bool adi\+\_\+imu\+::\+Imu\+Diag\+Data\+Provider\+::get\+Data (\begin{DoxyParamCaption}\item[{adi\+\_\+imu\+::msg\+::\+Imu\+Diag\+Data\+ADIS1650X \&}]{message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classadi__imu_1_1ImuDiagDataProviderInterface}{adi\+\_\+imu\+::\+Imu\+Diag\+Data\+Provider\+Interface}}.
+
+\Hypertarget{classadi__imu_1_1ImuDiagDataProvider_a21ca1a12bc26106d3699c81e6ba5a64f}\label{classadi__imu_1_1ImuDiagDataProvider_a21ca1a12bc26106d3699c81e6ba5a64f} 
+\index{adi\_imu::ImuDiagDataProvider@{adi\_imu::ImuDiagDataProvider}!getData@{getData}}
+\index{getData@{getData}!adi\_imu::ImuDiagDataProvider@{adi\_imu::ImuDiagDataProvider}}
+\doxysubsubsection{\texorpdfstring{getData()}{getData()}\hspace{0.1cm}{\footnotesize\ttfamily [4/6]}}
+{\footnotesize\ttfamily bool adi\+\_\+imu\+::\+Imu\+Diag\+Data\+Provider\+::get\+Data (\begin{DoxyParamCaption}\item[{adi\+\_\+imu\+::msg\+::\+Imu\+Diag\+Data\+ADIS1654X \&}]{message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classadi__imu_1_1ImuDiagDataProviderInterface}{adi\+\_\+imu\+::\+Imu\+Diag\+Data\+Provider\+Interface}}.
+
+\Hypertarget{classadi__imu_1_1ImuDiagDataProvider_ae296991d22cfa361413745b044733095}\label{classadi__imu_1_1ImuDiagDataProvider_ae296991d22cfa361413745b044733095} 
+\index{adi\_imu::ImuDiagDataProvider@{adi\_imu::ImuDiagDataProvider}!getData@{getData}}
+\index{getData@{getData}!adi\_imu::ImuDiagDataProvider@{adi\_imu::ImuDiagDataProvider}}
+\doxysubsubsection{\texorpdfstring{getData()}{getData()}\hspace{0.1cm}{\footnotesize\ttfamily [5/6]}}
+{\footnotesize\ttfamily bool adi\+\_\+imu\+::\+Imu\+Diag\+Data\+Provider\+::get\+Data (\begin{DoxyParamCaption}\item[{adi\+\_\+imu\+::msg\+::\+Imu\+Diag\+Data\+ADIS1655X \&}]{message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classadi__imu_1_1ImuDiagDataProviderInterface}{adi\+\_\+imu\+::\+Imu\+Diag\+Data\+Provider\+Interface}}.
+
+\Hypertarget{classadi__imu_1_1ImuDiagDataProvider_a3e5021dfd3c8beba52c082d551531ef2}\label{classadi__imu_1_1ImuDiagDataProvider_a3e5021dfd3c8beba52c082d551531ef2} 
+\index{adi\_imu::ImuDiagDataProvider@{adi\_imu::ImuDiagDataProvider}!getData@{getData}}
+\index{getData@{getData}!adi\_imu::ImuDiagDataProvider@{adi\_imu::ImuDiagDataProvider}}
+\doxysubsubsection{\texorpdfstring{getData()}{getData()}\hspace{0.1cm}{\footnotesize\ttfamily [6/6]}}
+{\footnotesize\ttfamily bool adi\+\_\+imu\+::\+Imu\+Diag\+Data\+Provider\+::get\+Data (\begin{DoxyParamCaption}\item[{adi\+\_\+imu\+::msg\+::\+Imu\+Diag\+Data\+ADIS1657X \&}]{message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classadi__imu_1_1ImuDiagDataProviderInterface}{adi\+\_\+imu\+::\+Imu\+Diag\+Data\+Provider\+Interface}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classadi__imu_1_1ImuDiagDataProvider_aab67309b2d57202c1efc8ffe936d43f3}\label{classadi__imu_1_1ImuDiagDataProvider_aab67309b2d57202c1efc8ffe936d43f3} 
+\index{adi\_imu::ImuDiagDataProvider@{adi\_imu::ImuDiagDataProvider}!m\_iio\_wrapper@{m\_iio\_wrapper}}
+\index{m\_iio\_wrapper@{m\_iio\_wrapper}!adi\_imu::ImuDiagDataProvider@{adi\_imu::ImuDiagDataProvider}}
+\doxysubsubsection{\texorpdfstring{m\_iio\_wrapper}{m\_iio\_wrapper}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classadi__imu_1_1IIOWrapper}{IIOWrapper}} adi\+\_\+imu\+::\+Imu\+Diag\+Data\+Provider\+::m\+\_\+iio\+\_\+wrapper\hspace{0.3cm}{\ttfamily [private]}}
+
+This data member is used to access sensor information via libiio. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/adi\+\_\+imu/imu\+\_\+diag\+\_\+data\+\_\+provider.\+h\item 
+src/imu\+\_\+diag\+\_\+data\+\_\+provider.\+cpp\end{DoxyCompactItemize}

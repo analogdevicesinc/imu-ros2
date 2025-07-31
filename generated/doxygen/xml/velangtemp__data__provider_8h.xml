@@ -4,11 +4,28 @@
     <compoundname>velangtemp_data_provider.h</compoundname>
     <includes refid="iio__wrapper_8h" local="yes">adi_imu/iio_wrapper.h</includes>
     <includes refid="velangtemp__data__provider__interface_8h" local="yes">adi_imu/velangtemp_data_provider_interface.h</includes>
+    <includedby refid="imu__ros2__node_8cpp" local="yes">src/imu_ros2_node.cpp</includedby>
     <includedby refid="velangtemp__data__provider_8cpp" local="yes">src/velangtemp_data_provider.cpp</includedby>
     <incdepgraph>
-      <node id="5">
-        <label>adis_data_access.h</label>
-        <link refid="adis__data__access_8h_source"/>
+      <node id="7">
+        <label>adi_imu/adis_register_map.h</label>
+        <link refid="adis__register__map_8h_source"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
       </node>
       <node id="2">
         <label>adi_imu/iio_wrapper.h</label>
@@ -19,32 +36,65 @@
         </childnode>
         <childnode refid="5" relation="include">
         </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>adi_imu/utils/adis_register_definitions.h</label>
+        <link refid="adis__register__definitions_8h_source"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
       </node>
       <node id="1">
         <label>include/adi_imu/velangtemp_data_provider.h</label>
         <link refid="velangtemp__data__provider_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
-        <childnode refid="6" relation="include">
+        <childnode refid="13" relation="include">
         </childnode>
       </node>
-      <node id="6">
+      <node id="13">
         <label>adi_imu/velangtemp_data_provider_interface.h</label>
         <link refid="velangtemp__data__provider__interface_8h_source"/>
-        <childnode refid="7" relation="include">
+        <childnode refid="14" relation="include">
         </childnode>
       </node>
-      <node id="7">
+      <node id="14">
         <label>adi_imu/msg/vel_ang_temp_data.hpp</label>
+      </node>
+      <node id="8">
+        <label>algorithm</label>
+      </node>
+      <node id="9">
+        <label>cstdint</label>
       </node>
       <node id="3">
         <label>iio.h</label>
       </node>
+      <node id="10">
+        <label>iostream</label>
+      </node>
       <node id="4">
+        <label>memory</label>
+      </node>
+      <node id="5">
         <label>string</label>
       </node>
+      <node id="11">
+        <label>unordered_map</label>
+      </node>
+      <node id="6">
+        <label>vector</label>
+      </node>
     </incdepgraph>
-    <innerclass refid="classVelAngTempDataProvider" prot="public">VelAngTempDataProvider</innerclass>
+    <innerclass refid="classadi__imu_1_1VelAngTempDataProvider" prot="public">adi_imu::VelAngTempDataProvider</innerclass>
+    <innernamespace refid="namespaceadi__imu">adi_imu</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
@@ -55,42 +105,46 @@
 <codeline lineno="3"><highlight class="comment"><sp/>*<sp/><sp/><sp/>@brief<sp/><sp/>Header<sp/>for<sp/>providing<sp/>temperature,<sp/>delta<sp/>velocity<sp/>and<sp/>delta<sp/>angle</highlight></codeline>
 <codeline lineno="4"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>data.</highlight></codeline>
 <codeline lineno="5"><highlight class="comment"><sp/>*<sp/><sp/><sp/>@author<sp/>Vasile<sp/>Holonec<sp/>(Vasile.Holonec@analog.com)</highlight></codeline>
-<codeline lineno="6"><highlight class="comment"><sp/>*******************************************************************************</highlight></codeline>
-<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>2023(c)<sp/>Analog<sp/>Devices,<sp/>Inc.</highlight></codeline>
-<codeline lineno="8"><highlight class="comment"><sp/>*</highlight></codeline>
-<codeline lineno="9"><highlight class="comment"><sp/>*<sp/>Licensed<sp/>under<sp/>the<sp/>Apache<sp/>License,<sp/>Version<sp/>2.0<sp/>(the<sp/>&quot;License&quot;);</highlight></codeline>
-<codeline lineno="10"><highlight class="comment"><sp/>*<sp/>you<sp/>may<sp/>not<sp/>use<sp/>this<sp/>file<sp/>except<sp/>in<sp/>compliance<sp/>with<sp/>the<sp/>License.</highlight></codeline>
-<codeline lineno="11"><highlight class="comment"><sp/>*<sp/>You<sp/>may<sp/>obtain<sp/>a<sp/>copy<sp/>of<sp/>the<sp/>License<sp/>at</highlight></codeline>
-<codeline lineno="12"><highlight class="comment"><sp/>*</highlight></codeline>
-<codeline lineno="13"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/>http://www.apache.org/licenses/LICENSE-2.0</highlight></codeline>
-<codeline lineno="14"><highlight class="comment"><sp/>*</highlight></codeline>
-<codeline lineno="15"><highlight class="comment"><sp/>*<sp/>Unless<sp/>required<sp/>by<sp/>applicable<sp/>law<sp/>or<sp/>agreed<sp/>to<sp/>in<sp/>writing,<sp/>software</highlight></codeline>
-<codeline lineno="16"><highlight class="comment"><sp/>*<sp/>distributed<sp/>under<sp/>the<sp/>License<sp/>is<sp/>distributed<sp/>on<sp/>an<sp/>&quot;AS<sp/>IS&quot;<sp/>BASIS,</highlight></codeline>
-<codeline lineno="17"><highlight class="comment"><sp/>*<sp/>WITHOUT<sp/>WARRANTIES<sp/>OR<sp/>CONDITIONS<sp/>OF<sp/>ANY<sp/>KIND,<sp/>either<sp/>express<sp/>or<sp/>implied.</highlight></codeline>
-<codeline lineno="18"><highlight class="comment"><sp/>*<sp/>See<sp/>the<sp/>License<sp/>for<sp/>the<sp/>specific<sp/>language<sp/>governing<sp/>permissions<sp/>and</highlight></codeline>
-<codeline lineno="19"><highlight class="comment"><sp/>*<sp/>limitations<sp/>under<sp/>the<sp/>License.</highlight></codeline>
-<codeline lineno="20"><highlight class="comment"><sp/>******************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="21"><highlight class="normal"></highlight></codeline>
-<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>VELANGTEMP_DATA_PROVIDER_H</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>VELANGTEMP_DATA_PROVIDER_H</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="24"><highlight class="normal"></highlight></codeline>
-<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;adi_imu/iio_wrapper.h&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;adi_imu/velangtemp_data_provider_interface.h&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="27"><highlight class="normal"></highlight></codeline>
-<codeline lineno="32" refid="classVelAngTempDataProvider" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classVelAngTempDataProvider" kindref="compound">VelAngTempDataProvider</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classVelAngTempDataProviderInterface" kindref="compound">VelAngTempDataProviderInterface</ref></highlight></codeline>
-<codeline lineno="33"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="34"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="38"><highlight class="normal"><sp/><sp/><ref refid="classVelAngTempDataProvider_1ae94b88e60be8b88f38ce395c93b22d4c" kindref="member">VelAngTempDataProvider</ref>();</highlight></codeline>
-<codeline lineno="39"><highlight class="normal"></highlight></codeline>
-<codeline lineno="43"><highlight class="normal"><sp/><sp/><ref refid="classVelAngTempDataProvider_1aaa957dfc12e03ccdf7453b8e98b34573" kindref="member">~VelAngTempDataProvider</ref>();</highlight></codeline>
-<codeline lineno="44"><highlight class="normal"></highlight></codeline>
-<codeline lineno="51"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classVelAngTempDataProvider_1a3a41a957fd644e599139450d5abffb9f" kindref="member">getData</ref>(adi_imu::msg::VelAngTempData<sp/>&amp;<sp/>message)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="52"><highlight class="normal"></highlight></codeline>
-<codeline lineno="53"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="55" refid="classVelAngTempDataProvider_1a1c8afa5aad73fd438814807e594df22d" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="classIIOWrapper" kindref="compound">IIOWrapper</ref><sp/><ref refid="classVelAngTempDataProvider_1a1c8afa5aad73fd438814807e594df22d" kindref="member">m_iio_wrapper</ref>;</highlight></codeline>
-<codeline lineno="56"><highlight class="normal">};</highlight></codeline>
-<codeline lineno="57"><highlight class="normal"></highlight></codeline>
-<codeline lineno="58"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/></highlight><highlight class="comment">//<sp/>VELANGTEMP_DATA_PROVIDER_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="comment">*******************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Copyright<sp/>2023<sp/>Analog<sp/>Devices,<sp/>Inc.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Licensed<sp/>under<sp/>the<sp/>Apache<sp/>License,<sp/>Version<sp/>2.0<sp/>(the<sp/>&quot;License&quot;);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="comment">//<sp/>you<sp/>may<sp/>not<sp/>use<sp/>this<sp/>file<sp/>except<sp/>in<sp/>compliance<sp/>with<sp/>the<sp/>License.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="comment">//<sp/>You<sp/>may<sp/>obtain<sp/>a<sp/>copy<sp/>of<sp/>the<sp/>License<sp/>at</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>http://www.apache.org/licenses/LICENSE-2.0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Unless<sp/>required<sp/>by<sp/>applicable<sp/>law<sp/>or<sp/>agreed<sp/>to<sp/>in<sp/>writing,<sp/>software</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="comment">//<sp/>distributed<sp/>under<sp/>the<sp/>License<sp/>is<sp/>distributed<sp/>on<sp/>an<sp/>&quot;AS<sp/>IS&quot;<sp/>BASIS,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="comment">//<sp/>WITHOUT<sp/>WARRANTIES<sp/>OR<sp/>CONDITIONS<sp/>OF<sp/>ANY<sp/>KIND,<sp/>either<sp/>express<sp/>or<sp/>implied.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="comment">//<sp/>See<sp/>the<sp/>License<sp/>for<sp/>the<sp/>specific<sp/>language<sp/>governing<sp/>permissions<sp/>and</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="comment">//<sp/>limitations<sp/>under<sp/>the<sp/>License.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>ADI_IMU__VELANGTEMP_DATA_PROVIDER_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ADI_IMU__VELANGTEMP_DATA_PROVIDER_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;adi_imu/iio_wrapper.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;adi_imu/velangtemp_data_provider_interface.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">adi_imu</highlight></codeline>
+<codeline lineno="28"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34" refid="classadi__imu_1_1VelAngTempDataProvider" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classadi__imu_1_1VelAngTempDataProvider" kindref="compound">VelAngTempDataProvider</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classadi__imu_1_1VelAngTempDataProviderInterface" kindref="compound">VelAngTempDataProviderInterface</ref></highlight></codeline>
+<codeline lineno="35"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><ref refid="classadi__imu_1_1VelAngTempDataProvider_1a698cb764427cb7b8969d549b66a7d3d9" kindref="member">VelAngTempDataProvider</ref>();</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><ref refid="classadi__imu_1_1VelAngTempDataProvider_1a4afe61106eaa1fd376224a0277db8d76" kindref="member">~VelAngTempDataProvider</ref>();</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classadi__imu_1_1VelAngTempDataProvider_1afc9536d9b23029586092177e8b531aad" kindref="member">getData</ref>(adi_imu::msg::VelAngTempData<sp/>&amp;<sp/>message)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="57" refid="classadi__imu_1_1VelAngTempDataProvider_1a5dd4dec8be1993f0fa81cf3a0b9a9066" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="classadi__imu_1_1IIOWrapper" kindref="compound">IIOWrapper</ref><sp/><ref refid="classadi__imu_1_1VelAngTempDataProvider_1a5dd4dec8be1993f0fa81cf3a0b9a9066" kindref="member">m_iio_wrapper</ref>;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>adi_imu</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/></highlight><highlight class="comment">//<sp/>ADI_IMU__VELANGTEMP_DATA_PROVIDER_H_</highlight><highlight class="normal"></highlight></codeline>
     </programlisting>
     <location file="include/adi_imu/velangtemp_data_provider.h"/>
   </compounddef>

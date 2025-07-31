@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta content="Classes" name="description" />
+
+    <title>Namespace adi_imu &#8212; adi_imu 0.0.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8e8a900e" />
+    <link rel="stylesheet" type="text/css" href="../_static/app.min.css?v=04bde29a" />
+    <link rel="stylesheet" type="text/css" href="../_static/collapsible-lists/css/tree_view.css?v=a885cde7" />
+    <script async="async" src="../_static/app.umd.js?v=470d438e"></script>
+    <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js?v=73120307"></script>
+    <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js?v=660e4f45"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Namespace std" href="namespace_std.html" />
+    <link rel="prev" title="C++ API" href="index.html" />
+   
+  
+  
+  <meta name="repository" content="imu_ros2">
+  <meta name="version" content="0.0">
+  
+    <meta name="page_source_suffix" content=".rst">
+  
+  
+
+
+<style>
+  body {
+    
+  }
+
+  body.dark {
+    
+  }
+
+  @media (prefers-color-scheme: dark) {
+    body:not(.light) {
+      
+    }
+  }
+</style>
+  </head><body>
+  <input type="checkbox" id="input-show-toc">
+  <input type="checkbox" id="input-show-localtoc">
+  <input type="checkbox" id="input-show-repotoc">
+
+  
+  <div class="search-area">
+    <form action="" method="get">
+      <input type="text" name="q" aria-labelledby="search-documentation" value="" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" role="search" placeholder="Search"/>
+      <button class="icon"></button>
+    </form>
+  </div>
+  
+
+  <header>
+    <div id="left">
+      <label id="show-sidebar" class="icon" for="input-show-toc" title="Show/hide index"></label>
+    </div>
+    <div id="right">
+      <span>
+        <a id="logo-org" href="https://analog.com" aria-label="Analog Devices Inc. landing page"></a>
+        <div class="vertical-divider"></div>
+        
+        <label id="show-repotoc" for="input-show-repotoc" title="Show/hide docs" tabindex="0">Docs</label>
+        
+        <a id="logo" href="../index.html">
+          <div>adi_imu</div>
+        </a>
+      </span>
+      <span class="reverse">
+        <label id="show-localtoc" class="icon" for="input-show-localtoc" title="Show/hide contents"></label>
+      </span>
+    </div>
+  </header>
+
+
+  <div class="repotoc-tree overlay">
+    <root/>
+
+  </div>
+    <div class="localtoc">
+      <div class="tocwrapper">
+        <div>
+          <div class="localtoc-header"></div>
+          <a id="scroll-up" href="#top-anchor" title="Back to top"></a>
+        </div>
+        <nav>
+          <ul>
+<li><a class="reference internal" href="#">Namespace adi_imu</a><ul>
+<li><a class="reference internal" href="#classes">Classes</a></li>
+<li><a class="reference internal" href="#enums">Enums</a></li>
+<li><a class="reference internal" href="#variables">Variables</a></li>
+</ul>
+</li>
+</ul>
+
+        </nav>
+      </div>
+    </div>
+
+  
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+    <a id="no-logo" href="../index.html">
+      adi_imu
+    </a><input id="input-switch-toc" type="checkbox">
+<label id="show-repotoc" for="input-switch-toc">
+All content
+</label>
+<label id="show-toc" for="input-switch-toc">
+Content on this topic
+</label>
+<div class="repotoc-tree">
+  <root/>
+
+</div>
+<div class="toc-tree">
+  <html>
+  <body><ul class="current">
+<li class="toctree-l1"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-1" id="toctree-collapse-1"/><div class="collapse"><a class="reference internal" href="../__links.html">Links</a><label for="toctree-collapse-1"><div class="icon"></div></label></div><ul>
+<li class="toctree-l2"><a class="reference external" href="https://index.ros.org/p/adi_imu">Rosindex</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://github.com/analogdevicesinc/imu_ros2">Repository</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://analogdevicesinc.github.io/imu_ros2/">Website</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://github.com/analogdevicesinc/imu_ros2/issues">Bugtracker</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-2" id="toctree-collapse-2" checked=""/><div class="collapse"><a class="reference internal" href="index.html">C++ API</a><label for="toctree-collapse-2"><div class="icon"></div></label></div><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Namespace adi_imu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="namespace_std.html">Namespace std</a></li>
+<li class="toctree-l2"><a class="reference internal" href="namespace_testing.html">Namespace testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classAccelGyroTempSubscriberTest.html">Class AccelGyroTempSubscriberTest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classadi__imu_1_1AccelGyroTempDataProvider.html">Class AccelGyroTempDataProvider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classadi__imu_1_1AccelGyroTempDataProviderInterface.html">Class AccelGyroTempDataProviderInterface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classadi__imu_1_1AccelGyroTempRosPublisher.html">Class AccelGyroTempRosPublisher</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classadi__imu_1_1AccelGyroTempRosPublisherInterface.html">Class AccelGyroTempRosPublisherInterface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classadi__imu_1_1Adis1646xRegisterMap.html">Class Adis1646xRegisterMap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classadi__imu_1_1Adis1647xRegisterMap.html">Class Adis1647xRegisterMap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classadi__imu_1_1Adis1650xRegisterMap.html">Class Adis1650xRegisterMap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classadi__imu_1_1Adis1654xRegisterMap.html">Class Adis1654xRegisterMap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classadi__imu_1_1Adis1655xRegisterMap.html">Class Adis1655xRegisterMap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classadi__imu_1_1Adis1657xRegisterMap.html">Class Adis1657xRegisterMap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classadi__imu_1_1ADISDeviceFactory.html">Class ADISDeviceFactory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classadi__imu_1_1ADISDeviceRegistry.html">Class ADISDeviceRegistry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classadi__imu_1_1ADISRegisterMap.html">Class ADISRegisterMap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classadi__imu_1_1IIOWrapper.html">Class IIOWrapper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classadi__imu_1_1ImuControlParameters.html">Class ImuControlParameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classadi__imu_1_1ImuDataProvider.html">Class ImuDataProvider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classadi__imu_1_1ImuDataProviderInterface.html">Class ImuDataProviderInterface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classadi__imu_1_1ImuDiagDataProvider.html">Class ImuDiagDataProvider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classadi__imu_1_1ImuDiagDataProviderInterface.html">Class ImuDiagDataProviderInterface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classadi__imu_1_1ImuDiagPublisherFactory.html">Class ImuDiagPublisherFactory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classadi__imu_1_1ImuDiagRosPublisher.html">Template Class ImuDiagRosPublisher</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classadi__imu_1_1ImuDiagRosPublisherInterface.html">Class ImuDiagRosPublisherInterface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classadi__imu_1_1ImuFullMeasuredDataProvider.html">Class ImuFullMeasuredDataProvider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classadi__imu_1_1ImuFullMeasuredDataProviderInterface.html">Class ImuFullMeasuredDataProviderInterface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classadi__imu_1_1ImuFullMeasuredDataRosPublisher.html">Class ImuFullMeasuredDataRosPublisher</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classadi__imu_1_1ImuFullMeasuredDataRosPublisherInterface.html">Class ImuFullMeasuredDataRosPublisherInterface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classadi__imu_1_1ImuIdentificationDataProvider.html">Class ImuIdentificationDataProvider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classadi__imu_1_1ImuIdentificationDataProviderInterface.html">Class ImuIdentificationDataProviderInterface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classadi__imu_1_1ImuIdentificationRosPublisher.html">Class ImuIdentificationRosPublisher</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classadi__imu_1_1ImuIdentificationRosPublisherInterface.html">Class ImuIdentificationRosPublisherInterface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classadi__imu_1_1ImuRosPublisher.html">Class ImuRosPublisher</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classadi__imu_1_1ImuRosPublisherInterface.html">Class ImuRosPublisherInterface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classadi__imu_1_1RosPublisherGroup.html">Class RosPublisherGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classadi__imu_1_1RosPublisherGroupInterface.html">Class RosPublisherGroupInterface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classadi__imu_1_1RosTask.html">Class RosTask</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classadi__imu_1_1VelAngTempDataProvider.html">Class VelAngTempDataProvider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classadi__imu_1_1VelAngTempDataProviderInterface.html">Class VelAngTempDataProviderInterface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classadi__imu_1_1VelAngTempRosPublisher.html">Class VelAngTempRosPublisher</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classadi__imu_1_1VelAngTempRosPublisherInterface.html">Class VelAngTempRosPublisherInterface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classadi__imu_1_1WorkerThread.html">Class WorkerThread</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classImuDiagSubscriberTest.html">Class ImuDiagSubscriberTest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classImuFullMeasuredDataSubscriberTest.html">Class ImuFullMeasuredDataSubscriberTest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classImuIdentificationSubscriberTest.html">Class ImuIdentificationSubscriberTest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classImuSubscriberTest.html">Class ImuSubscriberTest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classVelAngTempSubscriberTest.html">Class VelAngTempSubscriberTest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_adis__register__definitions_8h_1a90eb23ef06b4280c01e9457e425d6a6b.html">Enum adis_device_id</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451d.html">Enum ADISRegister</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_imu__ros2__node_8cpp_1a0ddf1224851353fc92bfbff6f499fa97.html">Function main(int, char *)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_utest_8cpp_1a3c04138a5bfe5d72780bb7e82a18e627.html">Function main(int, char **)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_accelgyrotemp__subscriber__test_8cpp_1aed21fd35654fb44d147ad6e67c01c282.html">Function TEST(AccelGyroTempSubscriberTest, test_accelgyrotemp_publisher)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_imu__diag__adis1646X__subscriber__test_8cpp_1ac4232ed0bb5f1790c8b13dc0378cce51.html">Function TEST(ImuDiagSubscriberTest, test_imu_diag_data_publisher_adis1646x)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_imu__diag__adis1647X__subscriber__test_8cpp_1a41cbc93ff2a0d99ff08c08cbf6efbf38.html">Function TEST(ImuDiagSubscriberTest, test_imu_diag_data_publisher_adis1647x)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_imu__diag__adis1650X__subscriber__test_8cpp_1ac57ba9c3a610ae72b3984d47be8981d5.html">Function TEST(ImuDiagSubscriberTest, test_imu_diag_data_publisher_adis1650x)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_imu__diag__adis1654X__subscriber__test_8cpp_1ad176c114ded41cc979854acd6861f7c2.html">Function TEST(ImuDiagSubscriberTest, test_imu_diag_data_publisher_adis1654x)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_imu__diag__adis1655X__subscriber__test_8cpp_1a599198d78e7a770e7d5d40730dca194f.html">Function TEST(ImuDiagSubscriberTest, test_imu_diag_data_publisher_adis1655x)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_imu__diag__adis1657X__subscriber__test_8cpp_1a846e5264c5c491ccc9ac449187b32b0f.html">Function TEST(ImuDiagSubscriberTest, test_imu_diag_data_publisher_adis1657x)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_imu__full__measured__data__subscriber__test_8cpp_1a9e0af4b163a8c34a3a2d6857596edf2b.html">Function TEST(ImuFullMeasuredDataSubscriberTest, test_imu_full_measured_data_publisher)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_imu__identification__subscriber__test_8cpp_1a0fc96a7839a89415f4f747a0a4450795.html">Function TEST(ImuIdentificationSubscriberTest, test_imu_identification_publisher)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_imu__subscriber__test_8cpp_1a8a5f8dee9a30cfd5b32180c995f50b94.html">Function TEST(ImuSubscriberTest, test_imu_publisher)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_utest_8cpp_1a77ee4e035805c51131e12f78ba09e0c7.html">Function TEST(TestSuite, myworkcell_core_framework)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_velangtemp__subscriber__test_8cpp_1ab9a1c19c051d555fd1c814f067e38027.html">Function TEST(VelAngTempSubscriberTest, test_velangtemp_publisher)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_adis__register__definitions_8h_1a0089f9ce1367c2acbd46240019edbbb9.html">Variable ACCEL_GYRO_BUFFERED_DATA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_adis__register__definitions_8h_1a7dfad2cb7a05467d966f48540258aba7.html">Variable adi_imu::registerNames</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_adis__register__definitions_8h_1a291aa3bb0dd14bf85622f92f79d48ad8.html">Variable DELTAVEL_DELTAANG_BUFFERED_DATA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_adis__register__definitions_8h_1afb966bab1ee8af0c5ffc0bd7d8ba3897.html">Variable FULL_MEASURED_DATA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_adis__register__definitions_8h_1a1fcb3437a6649659b15cec0920c264d1.html">Variable IMU_STD_MSG_DATA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_iio__wrapper_8h_1ab70d8c3d394df58fe73a31949cee087d.html">Define IIO_CONTEXT_ERROR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="define_iio__wrapper_8cpp_1a2caa0716e56afb87d491d87fb4460b62.html">Define MAX_NO_OF_SAMPLES</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dir_include.html">Directory include</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dir_include_adi_imu.html">Directory adi_imu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dir_include_adi_imu_utils.html">Directory utils</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dir_src.html">Directory src</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dir_src_utils.html">Directory utils</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dir_test.html">Directory test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dir_test_src.html">Directory src</a></li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-2-1" id="toctree-collapse-2-1"/><div class="collapse"><a class="reference internal" href="file_src_accelgyrotemp_data_provider.cpp.html">File accelgyrotemp_data_provider.cpp</a><label for="toctree-collapse-2-1"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_src_accelgyrotemp_data_provider.cpp.html">Program Listing for File accelgyrotemp_data_provider.cpp</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-2-2" id="toctree-collapse-2-2"/><div class="collapse"><a class="reference internal" href="file_include_adi_imu_accelgyrotemp_data_provider.h.html">File accelgyrotemp_data_provider.h</a><label for="toctree-collapse-2-2"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_include_adi_imu_accelgyrotemp_data_provider.h.html">Program Listing for File accelgyrotemp_data_provider.h</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-2-3" id="toctree-collapse-2-3"/><div class="collapse"><a class="reference internal" href="file_include_adi_imu_accelgyrotemp_data_provider_interface.h.html">File accelgyrotemp_data_provider_interface.h</a><label for="toctree-collapse-2-3"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_include_adi_imu_accelgyrotemp_data_provider_interface.h.html">Program Listing for File accelgyrotemp_data_provider_interface.h</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-2-4" id="toctree-collapse-2-4"/><div class="collapse"><a class="reference internal" href="file_src_accelgyrotemp_ros_publisher.cpp.html">File accelgyrotemp_ros_publisher.cpp</a><label for="toctree-collapse-2-4"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_src_accelgyrotemp_ros_publisher.cpp.html">Program Listing for File accelgyrotemp_ros_publisher.cpp</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-2-5" id="toctree-collapse-2-5"/><div class="collapse"><a class="reference internal" href="file_include_adi_imu_accelgyrotemp_ros_publisher.h.html">File accelgyrotemp_ros_publisher.h</a><label for="toctree-collapse-2-5"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_include_adi_imu_accelgyrotemp_ros_publisher.h.html">Program Listing for File accelgyrotemp_ros_publisher.h</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-2-6" id="toctree-collapse-2-6"/><div class="collapse"><a class="reference internal" href="file_include_adi_imu_accelgyrotemp_ros_publisher_interface.h.html">File accelgyrotemp_ros_publisher_interface.h</a><label for="toctree-collapse-2-6"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_include_adi_imu_accelgyrotemp_ros_publisher_interface.h.html">Program Listing for File accelgyrotemp_ros_publisher_interface.h</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-2-7" id="toctree-collapse-2-7"/><div class="collapse"><a class="reference internal" href="file_test_src_accelgyrotemp_subscriber_test.cpp.html">File accelgyrotemp_subscriber_test.cpp</a><label for="toctree-collapse-2-7"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_test_src_accelgyrotemp_subscriber_test.cpp.html">Program Listing for File accelgyrotemp_subscriber_test.cpp</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-2-8" id="toctree-collapse-2-8"/><div class="collapse"><a class="reference internal" href="file_src_adis1646x_register_map.cpp.html">File adis1646x_register_map.cpp</a><label for="toctree-collapse-2-8"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_src_adis1646x_register_map.cpp.html">Program Listing for File adis1646x_register_map.cpp</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-2-9" id="toctree-collapse-2-9"/><div class="collapse"><a class="reference internal" href="file_include_adi_imu_adis1646x_register_map.h.html">File adis1646x_register_map.h</a><label for="toctree-collapse-2-9"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_include_adi_imu_adis1646x_register_map.h.html">Program Listing for File adis1646x_register_map.h</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-2-10" id="toctree-collapse-2-10"/><div class="collapse"><a class="reference internal" href="file_src_adis1647x_register_map.cpp.html">File adis1647x_register_map.cpp</a><label for="toctree-collapse-2-10"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_src_adis1647x_register_map.cpp.html">Program Listing for File adis1647x_register_map.cpp</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-2-11" id="toctree-collapse-2-11"/><div class="collapse"><a class="reference internal" href="file_include_adi_imu_adis1647x_register_map.h.html">File adis1647x_register_map.h</a><label for="toctree-collapse-2-11"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_include_adi_imu_adis1647x_register_map.h.html">Program Listing for File adis1647x_register_map.h</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-2-12" id="toctree-collapse-2-12"/><div class="collapse"><a class="reference internal" href="file_src_adis1650x_register_map.cpp.html">File adis1650x_register_map.cpp</a><label for="toctree-collapse-2-12"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_src_adis1650x_register_map.cpp.html">Program Listing for File adis1650x_register_map.cpp</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-2-13" id="toctree-collapse-2-13"/><div class="collapse"><a class="reference internal" href="file_include_adi_imu_adis1650x_register_map.h.html">File adis1650x_register_map.h</a><label for="toctree-collapse-2-13"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_include_adi_imu_adis1650x_register_map.h.html">Program Listing for File adis1650x_register_map.h</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-2-14" id="toctree-collapse-2-14"/><div class="collapse"><a class="reference internal" href="file_src_adis1654x_register_map.cpp.html">File adis1654x_register_map.cpp</a><label for="toctree-collapse-2-14"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_src_adis1654x_register_map.cpp.html">Program Listing for File adis1654x_register_map.cpp</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-2-15" id="toctree-collapse-2-15"/><div class="collapse"><a class="reference internal" href="file_include_adi_imu_adis1654x_register_map.h.html">File adis1654x_register_map.h</a><label for="toctree-collapse-2-15"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_include_adi_imu_adis1654x_register_map.h.html">Program Listing for File adis1654x_register_map.h</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-2-16" id="toctree-collapse-2-16"/><div class="collapse"><a class="reference internal" href="file_src_adis1655x_register_map.cpp.html">File adis1655x_register_map.cpp</a><label for="toctree-collapse-2-16"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_src_adis1655x_register_map.cpp.html">Program Listing for File adis1655x_register_map.cpp</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-2-17" id="toctree-collapse-2-17"/><div class="collapse"><a class="reference internal" href="file_include_adi_imu_adis1655x_register_map.h.html">File adis1655x_register_map.h</a><label for="toctree-collapse-2-17"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_include_adi_imu_adis1655x_register_map.h.html">Program Listing for File adis1655x_register_map.h</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-2-18" id="toctree-collapse-2-18"/><div class="collapse"><a class="reference internal" href="file_src_adis1657x_register_map.cpp.html">File adis1657x_register_map.cpp</a><label for="toctree-collapse-2-18"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_src_adis1657x_register_map.cpp.html">Program Listing for File adis1657x_register_map.cpp</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-2-19" id="toctree-collapse-2-19"/><div class="collapse"><a class="reference internal" href="file_include_adi_imu_adis1657x_register_map.h.html">File adis1657x_register_map.h</a><label for="toctree-collapse-2-19"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_include_adi_imu_adis1657x_register_map.h.html">Program Listing for File adis1657x_register_map.h</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-2-20" id="toctree-collapse-2-20"/><div class="collapse"><a class="reference internal" href="file_src_adis_device_factory.cpp.html">File adis_device_factory.cpp</a><label for="toctree-collapse-2-20"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_src_adis_device_factory.cpp.html">Program Listing for File adis_device_factory.cpp</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-2-21" id="toctree-collapse-2-21"/><div class="collapse"><a class="reference internal" href="file_include_adi_imu_adis_device_factory.h.html">File adis_device_factory.h</a><label for="toctree-collapse-2-21"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_include_adi_imu_adis_device_factory.h.html">Program Listing for File adis_device_factory.h</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-2-22" id="toctree-collapse-2-22"/><div class="collapse"><a class="reference internal" href="file_src_utils_adis_device_registry.cpp.html">File adis_device_registry.cpp</a><label for="toctree-collapse-2-22"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_src_utils_adis_device_registry.cpp.html">Program Listing for File adis_device_registry.cpp</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-2-23" id="toctree-collapse-2-23"/><div class="collapse"><a class="reference internal" href="file_include_adi_imu_utils_adis_device_registry.h.html">File adis_device_registry.h</a><label for="toctree-collapse-2-23"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_include_adi_imu_utils_adis_device_registry.h.html">Program Listing for File adis_device_registry.h</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-2-24" id="toctree-collapse-2-24"/><div class="collapse"><a class="reference internal" href="file_include_adi_imu_utils_adis_register_definitions.h.html">File adis_register_definitions.h</a><label for="toctree-collapse-2-24"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_include_adi_imu_utils_adis_register_definitions.h.html">Program Listing for File adis_register_definitions.h</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-2-25" id="toctree-collapse-2-25"/><div class="collapse"><a class="reference internal" href="file_src_adis_register_map.cpp.html">File adis_register_map.cpp</a><label for="toctree-collapse-2-25"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_src_adis_register_map.cpp.html">Program Listing for File adis_register_map.cpp</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-2-26" id="toctree-collapse-2-26"/><div class="collapse"><a class="reference internal" href="file_include_adi_imu_adis_register_map.h.html">File adis_register_map.h</a><label for="toctree-collapse-2-26"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_include_adi_imu_adis_register_map.h.html">Program Listing for File adis_register_map.h</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-2-27" id="toctree-collapse-2-27"/><div class="collapse"><a class="reference internal" href="file_src_iio_wrapper.cpp.html">File iio_wrapper.cpp</a><label for="toctree-collapse-2-27"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_src_iio_wrapper.cpp.html">Program Listing for File iio_wrapper.cpp</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-2-28" id="toctree-collapse-2-28"/><div class="collapse"><a class="reference internal" href="file_include_adi_imu_iio_wrapper.h.html">File iio_wrapper.h</a><label for="toctree-collapse-2-28"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_include_adi_imu_iio_wrapper.h.html">Program Listing for File iio_wrapper.h</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-2-29" id="toctree-collapse-2-29"/><div class="collapse"><a class="reference internal" href="file_src_imu_control_parameters.cpp.html">File imu_control_parameters.cpp</a><label for="toctree-collapse-2-29"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_src_imu_control_parameters.cpp.html">Program Listing for File imu_control_parameters.cpp</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-2-30" id="toctree-collapse-2-30"/><div class="collapse"><a class="reference internal" href="file_include_adi_imu_imu_control_parameters.h.html">File imu_control_parameters.h</a><label for="toctree-collapse-2-30"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_include_adi_imu_imu_control_parameters.h.html">Program Listing for File imu_control_parameters.h</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-2-31" id="toctree-collapse-2-31"/><div class="collapse"><a class="reference internal" href="file_src_imu_data_provider.cpp.html">File imu_data_provider.cpp</a><label for="toctree-collapse-2-31"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_src_imu_data_provider.cpp.html">Program Listing for File imu_data_provider.cpp</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-2-32" id="toctree-collapse-2-32"/><div class="collapse"><a class="reference internal" href="file_include_adi_imu_imu_data_provider.h.html">File imu_data_provider.h</a><label for="toctree-collapse-2-32"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_include_adi_imu_imu_data_provider.h.html">Program Listing for File imu_data_provider.h</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-2-33" id="toctree-collapse-2-33"/><div class="collapse"><a class="reference internal" href="file_include_adi_imu_imu_data_provider_interface.h.html">File imu_data_provider_interface.h</a><label for="toctree-collapse-2-33"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_include_adi_imu_imu_data_provider_interface.h.html">Program Listing for File imu_data_provider_interface.h</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-2-34" id="toctree-collapse-2-34"/><div class="collapse"><a class="reference internal" href="file_test_src_imu_diag_adis1646X_subscriber_test.cpp.html">File imu_diag_adis1646X_subscriber_test.cpp</a><label for="toctree-collapse-2-34"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_test_src_imu_diag_adis1646X_subscriber_test.cpp.html">Program Listing for File imu_diag_adis1646X_subscriber_test.cpp</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-2-35" id="toctree-collapse-2-35"/><div class="collapse"><a class="reference internal" href="file_test_src_imu_diag_adis1647X_subscriber_test.cpp.html">File imu_diag_adis1647X_subscriber_test.cpp</a><label for="toctree-collapse-2-35"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_test_src_imu_diag_adis1647X_subscriber_test.cpp.html">Program Listing for File imu_diag_adis1647X_subscriber_test.cpp</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-2-36" id="toctree-collapse-2-36"/><div class="collapse"><a class="reference internal" href="file_test_src_imu_diag_adis1650X_subscriber_test.cpp.html">File imu_diag_adis1650X_subscriber_test.cpp</a><label for="toctree-collapse-2-36"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_test_src_imu_diag_adis1650X_subscriber_test.cpp.html">Program Listing for File imu_diag_adis1650X_subscriber_test.cpp</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-2-37" id="toctree-collapse-2-37"/><div class="collapse"><a class="reference internal" href="file_test_src_imu_diag_adis1654X_subscriber_test.cpp.html">File imu_diag_adis1654X_subscriber_test.cpp</a><label for="toctree-collapse-2-37"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_test_src_imu_diag_adis1654X_subscriber_test.cpp.html">Program Listing for File imu_diag_adis1654X_subscriber_test.cpp</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-2-38" id="toctree-collapse-2-38"/><div class="collapse"><a class="reference internal" href="file_test_src_imu_diag_adis1655X_subscriber_test.cpp.html">File imu_diag_adis1655X_subscriber_test.cpp</a><label for="toctree-collapse-2-38"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_test_src_imu_diag_adis1655X_subscriber_test.cpp.html">Program Listing for File imu_diag_adis1655X_subscriber_test.cpp</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-2-39" id="toctree-collapse-2-39"/><div class="collapse"><a class="reference internal" href="file_test_src_imu_diag_adis1657X_subscriber_test.cpp.html">File imu_diag_adis1657X_subscriber_test.cpp</a><label for="toctree-collapse-2-39"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_test_src_imu_diag_adis1657X_subscriber_test.cpp.html">Program Listing for File imu_diag_adis1657X_subscriber_test.cpp</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-2-40" id="toctree-collapse-2-40"/><div class="collapse"><a class="reference internal" href="file_src_imu_diag_data_provider.cpp.html">File imu_diag_data_provider.cpp</a><label for="toctree-collapse-2-40"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_src_imu_diag_data_provider.cpp.html">Program Listing for File imu_diag_data_provider.cpp</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-2-41" id="toctree-collapse-2-41"/><div class="collapse"><a class="reference internal" href="file_include_adi_imu_imu_diag_data_provider.h.html">File imu_diag_data_provider.h</a><label for="toctree-collapse-2-41"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_include_adi_imu_imu_diag_data_provider.h.html">Program Listing for File imu_diag_data_provider.h</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-2-42" id="toctree-collapse-2-42"/><div class="collapse"><a class="reference internal" href="file_include_adi_imu_imu_diag_data_provider_interface.h.html">File imu_diag_data_provider_interface.h</a><label for="toctree-collapse-2-42"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_include_adi_imu_imu_diag_data_provider_interface.h.html">Program Listing for File imu_diag_data_provider_interface.h</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-2-43" id="toctree-collapse-2-43"/><div class="collapse"><a class="reference internal" href="file_include_adi_imu_imu_diag_ros_publisher.h.html">File imu_diag_ros_publisher.h</a><label for="toctree-collapse-2-43"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_include_adi_imu_imu_diag_ros_publisher.h.html">Program Listing for File imu_diag_ros_publisher.h</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-2-44" id="toctree-collapse-2-44"/><div class="collapse"><a class="reference internal" href="file_include_adi_imu_imu_diag_ros_publisher_factory.h.html">File imu_diag_ros_publisher_factory.h</a><label for="toctree-collapse-2-44"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_include_adi_imu_imu_diag_ros_publisher_factory.h.html">Program Listing for File imu_diag_ros_publisher_factory.h</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-2-45" id="toctree-collapse-2-45"/><div class="collapse"><a class="reference internal" href="file_include_adi_imu_imu_diag_ros_publisher_interface.h.html">File imu_diag_ros_publisher_interface.h</a><label for="toctree-collapse-2-45"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_include_adi_imu_imu_diag_ros_publisher_interface.h.html">Program Listing for File imu_diag_ros_publisher_interface.h</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-2-46" id="toctree-collapse-2-46"/><div class="collapse"><a class="reference internal" href="file_src_imu_full_measured_data_provider.cpp.html">File imu_full_measured_data_provider.cpp</a><label for="toctree-collapse-2-46"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_src_imu_full_measured_data_provider.cpp.html">Program Listing for File imu_full_measured_data_provider.cpp</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-2-47" id="toctree-collapse-2-47"/><div class="collapse"><a class="reference internal" href="file_include_adi_imu_imu_full_measured_data_provider.h.html">File imu_full_measured_data_provider.h</a><label for="toctree-collapse-2-47"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_include_adi_imu_imu_full_measured_data_provider.h.html">Program Listing for File imu_full_measured_data_provider.h</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-2-48" id="toctree-collapse-2-48"/><div class="collapse"><a class="reference internal" href="file_include_adi_imu_imu_full_measured_data_provider_interface.h.html">File imu_full_measured_data_provider_interface.h</a><label for="toctree-collapse-2-48"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_include_adi_imu_imu_full_measured_data_provider_interface.h.html">Program Listing for File imu_full_measured_data_provider_interface.h</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-2-49" id="toctree-collapse-2-49"/><div class="collapse"><a class="reference internal" href="file_src_imu_full_measured_data_ros_publisher.cpp.html">File imu_full_measured_data_ros_publisher.cpp</a><label for="toctree-collapse-2-49"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_src_imu_full_measured_data_ros_publisher.cpp.html">Program Listing for File imu_full_measured_data_ros_publisher.cpp</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-2-50" id="toctree-collapse-2-50"/><div class="collapse"><a class="reference internal" href="file_include_adi_imu_imu_full_measured_data_ros_publisher.h.html">File imu_full_measured_data_ros_publisher.h</a><label for="toctree-collapse-2-50"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_include_adi_imu_imu_full_measured_data_ros_publisher.h.html">Program Listing for File imu_full_measured_data_ros_publisher.h</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-2-51" id="toctree-collapse-2-51"/><div class="collapse"><a class="reference internal" href="file_include_adi_imu_imu_full_measured_data_ros_publisher_interface.h.html">File imu_full_measured_data_ros_publisher_interface.h</a><label for="toctree-collapse-2-51"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_include_adi_imu_imu_full_measured_data_ros_publisher_interface.h.html">Program Listing for File imu_full_measured_data_ros_publisher_interface.h</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-2-52" id="toctree-collapse-2-52"/><div class="collapse"><a class="reference internal" href="file_test_src_imu_full_measured_data_subscriber_test.cpp.html">File imu_full_measured_data_subscriber_test.cpp</a><label for="toctree-collapse-2-52"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_test_src_imu_full_measured_data_subscriber_test.cpp.html">Program Listing for File imu_full_measured_data_subscriber_test.cpp</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-2-53" id="toctree-collapse-2-53"/><div class="collapse"><a class="reference internal" href="file_src_imu_identification_data_provider.cpp.html">File imu_identification_data_provider.cpp</a><label for="toctree-collapse-2-53"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_src_imu_identification_data_provider.cpp.html">Program Listing for File imu_identification_data_provider.cpp</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-2-54" id="toctree-collapse-2-54"/><div class="collapse"><a class="reference internal" href="file_include_adi_imu_imu_identification_data_provider.h.html">File imu_identification_data_provider.h</a><label for="toctree-collapse-2-54"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_include_adi_imu_imu_identification_data_provider.h.html">Program Listing for File imu_identification_data_provider.h</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-2-55" id="toctree-collapse-2-55"/><div class="collapse"><a class="reference internal" href="file_include_adi_imu_imu_identification_data_provider_interface.h.html">File imu_identification_data_provider_interface.h</a><label for="toctree-collapse-2-55"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_include_adi_imu_imu_identification_data_provider_interface.h.html">Program Listing for File imu_identification_data_provider_interface.h</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-2-56" id="toctree-collapse-2-56"/><div class="collapse"><a class="reference internal" href="file_src_imu_identification_ros_publisher.cpp.html">File imu_identification_ros_publisher.cpp</a><label for="toctree-collapse-2-56"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_src_imu_identification_ros_publisher.cpp.html">Program Listing for File imu_identification_ros_publisher.cpp</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-2-57" id="toctree-collapse-2-57"/><div class="collapse"><a class="reference internal" href="file_include_adi_imu_imu_identification_ros_publisher.h.html">File imu_identification_ros_publisher.h</a><label for="toctree-collapse-2-57"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_include_adi_imu_imu_identification_ros_publisher.h.html">Program Listing for File imu_identification_ros_publisher.h</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-2-58" id="toctree-collapse-2-58"/><div class="collapse"><a class="reference internal" href="file_include_adi_imu_imu_identification_ros_publisher_interface.h.html">File imu_identification_ros_publisher_interface.h</a><label for="toctree-collapse-2-58"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_include_adi_imu_imu_identification_ros_publisher_interface.h.html">Program Listing for File imu_identification_ros_publisher_interface.h</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-2-59" id="toctree-collapse-2-59"/><div class="collapse"><a class="reference internal" href="file_test_src_imu_identification_subscriber_test.cpp.html">File imu_identification_subscriber_test.cpp</a><label for="toctree-collapse-2-59"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_test_src_imu_identification_subscriber_test.cpp.html">Program Listing for File imu_identification_subscriber_test.cpp</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-2-60" id="toctree-collapse-2-60"/><div class="collapse"><a class="reference internal" href="file_src_imu_ros2_node.cpp.html">File imu_ros2_node.cpp</a><label for="toctree-collapse-2-60"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_src_imu_ros2_node.cpp.html">Program Listing for File imu_ros2_node.cpp</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-2-61" id="toctree-collapse-2-61"/><div class="collapse"><a class="reference internal" href="file_src_imu_ros_publisher.cpp.html">File imu_ros_publisher.cpp</a><label for="toctree-collapse-2-61"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_src_imu_ros_publisher.cpp.html">Program Listing for File imu_ros_publisher.cpp</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-2-62" id="toctree-collapse-2-62"/><div class="collapse"><a class="reference internal" href="file_include_adi_imu_imu_ros_publisher.h.html">File imu_ros_publisher.h</a><label for="toctree-collapse-2-62"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_include_adi_imu_imu_ros_publisher.h.html">Program Listing for File imu_ros_publisher.h</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-2-63" id="toctree-collapse-2-63"/><div class="collapse"><a class="reference internal" href="file_include_adi_imu_imu_ros_publisher_interface.h.html">File imu_ros_publisher_interface.h</a><label for="toctree-collapse-2-63"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_include_adi_imu_imu_ros_publisher_interface.h.html">Program Listing for File imu_ros_publisher_interface.h</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-2-64" id="toctree-collapse-2-64"/><div class="collapse"><a class="reference internal" href="file_test_src_imu_subscriber_test.cpp.html">File imu_subscriber_test.cpp</a><label for="toctree-collapse-2-64"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_test_src_imu_subscriber_test.cpp.html">Program Listing for File imu_subscriber_test.cpp</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-2-65" id="toctree-collapse-2-65"/><div class="collapse"><a class="reference internal" href="file_src_ros_publisher_group.cpp.html">File ros_publisher_group.cpp</a><label for="toctree-collapse-2-65"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_src_ros_publisher_group.cpp.html">Program Listing for File ros_publisher_group.cpp</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-2-66" id="toctree-collapse-2-66"/><div class="collapse"><a class="reference internal" href="file_include_adi_imu_ros_publisher_group.h.html">File ros_publisher_group.h</a><label for="toctree-collapse-2-66"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_include_adi_imu_ros_publisher_group.h.html">Program Listing for File ros_publisher_group.h</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-2-67" id="toctree-collapse-2-67"/><div class="collapse"><a class="reference internal" href="file_include_adi_imu_ros_publisher_group_interface.h.html">File ros_publisher_group_interface.h</a><label for="toctree-collapse-2-67"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_include_adi_imu_ros_publisher_group_interface.h.html">Program Listing for File ros_publisher_group_interface.h</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-2-68" id="toctree-collapse-2-68"/><div class="collapse"><a class="reference internal" href="file_include_adi_imu_ros_task.h.html">File ros_task.h</a><label for="toctree-collapse-2-68"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_include_adi_imu_ros_task.h.html">Program Listing for File ros_task.h</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-2-69" id="toctree-collapse-2-69"/><div class="collapse"><a class="reference internal" href="file_test_src_utest.cpp.html">File utest.cpp</a><label for="toctree-collapse-2-69"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_test_src_utest.cpp.html">Program Listing for File utest.cpp</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-2-70" id="toctree-collapse-2-70"/><div class="collapse"><a class="reference internal" href="file_src_velangtemp_data_provider.cpp.html">File velangtemp_data_provider.cpp</a><label for="toctree-collapse-2-70"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_src_velangtemp_data_provider.cpp.html">Program Listing for File velangtemp_data_provider.cpp</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-2-71" id="toctree-collapse-2-71"/><div class="collapse"><a class="reference internal" href="file_include_adi_imu_velangtemp_data_provider.h.html">File velangtemp_data_provider.h</a><label for="toctree-collapse-2-71"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_include_adi_imu_velangtemp_data_provider.h.html">Program Listing for File velangtemp_data_provider.h</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-2-72" id="toctree-collapse-2-72"/><div class="collapse"><a class="reference internal" href="file_include_adi_imu_velangtemp_data_provider_interface.h.html">File velangtemp_data_provider_interface.h</a><label for="toctree-collapse-2-72"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_include_adi_imu_velangtemp_data_provider_interface.h.html">Program Listing for File velangtemp_data_provider_interface.h</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-2-73" id="toctree-collapse-2-73"/><div class="collapse"><a class="reference internal" href="file_src_velangtemp_ros_publisher.cpp.html">File velangtemp_ros_publisher.cpp</a><label for="toctree-collapse-2-73"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_src_velangtemp_ros_publisher.cpp.html">Program Listing for File velangtemp_ros_publisher.cpp</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-2-74" id="toctree-collapse-2-74"/><div class="collapse"><a class="reference internal" href="file_include_adi_imu_velangtemp_ros_publisher.h.html">File velangtemp_ros_publisher.h</a><label for="toctree-collapse-2-74"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_include_adi_imu_velangtemp_ros_publisher.h.html">Program Listing for File velangtemp_ros_publisher.h</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-2-75" id="toctree-collapse-2-75"/><div class="collapse"><a class="reference internal" href="file_include_adi_imu_velangtemp_ros_publisher_interface.h.html">File velangtemp_ros_publisher_interface.h</a><label for="toctree-collapse-2-75"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_include_adi_imu_velangtemp_ros_publisher_interface.h.html">Program Listing for File velangtemp_ros_publisher_interface.h</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-2-76" id="toctree-collapse-2-76"/><div class="collapse"><a class="reference internal" href="file_test_src_velangtemp_subscriber_test.cpp.html">File velangtemp_subscriber_test.cpp</a><label for="toctree-collapse-2-76"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_test_src_velangtemp_subscriber_test.cpp.html">Program Listing for File velangtemp_subscriber_test.cpp</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-2-77" id="toctree-collapse-2-77"/><div class="collapse"><a class="reference internal" href="file_src_worker_thread.cpp.html">File worker_thread.cpp</a><label for="toctree-collapse-2-77"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_src_worker_thread.cpp.html">Program Listing for File worker_thread.cpp</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-2-78" id="toctree-collapse-2-78"/><div class="collapse"><a class="reference internal" href="file_include_adi_imu_worker_thread.h.html">File worker_thread.h</a><label for="toctree-collapse-2-78"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_listing_file_include_adi_imu_worker_thread.h.html">Program Listing for File worker_thread.h</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-3" id="toctree-collapse-3"/><div class="collapse"><a class="reference internal" href="../__message_definitions.html">Message Definitions</a><label for="toctree-collapse-3"><div class="icon"></div></label></div><ul>
+<li class="toctree-l2"><a class="reference internal" href="../msg/AccelGyroTempData.html">AccelGyroTempData</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../msg/ImuDiagDataADIS1646X.html">ImuDiagDataADIS1646X</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../msg/ImuDiagDataADIS1647X.html">ImuDiagDataADIS1647X</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../msg/ImuDiagDataADIS1650X.html">ImuDiagDataADIS1650X</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../msg/ImuDiagDataADIS1654X.html">ImuDiagDataADIS1654X</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../msg/ImuDiagDataADIS1655X.html">ImuDiagDataADIS1655X</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../msg/ImuDiagDataADIS1657X.html">ImuDiagDataADIS1657X</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../msg/ImuFullMeasuredData.html">ImuFullMeasuredData</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../msg/ImuIdentificationData.html">ImuIdentificationData</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../msg/VelAngTempData.html">VelAngTempData</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-4" id="toctree-collapse-4"/><div class="collapse"><a class="reference internal" href="../__standards.html">Standard Documents</a><label for="toctree-collapse-4"><div class="icon"></div></label></div><ul>
+<li class="toctree-l2"><a class="reference internal" href="../__PACKAGE.html">PACKAGE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../__CONTRIBUTING.html">CONTRIBUTING</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../__LICENSE.html">LICENSE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../__README.html">README</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
+</ul>
+</body>
+</html>
+
+</div>
+        </div>
+      </div>
+
+  <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper" id="top-anchor">
+          <div class="body-header">
+  <nav class="breadcrumb"><ol><li><a href="index.html">C++ API</a></li></ol></nav>
+</div>
+          <div class="body" role="main">
+            
+  <section id="namespace-adi-imu">
+<span id="id1"></span><h1>Namespace adi_imu<a class="headerlink" href="#namespace-adi-imu" title="Link to this heading"></a></h1>
+<nav class="contents local" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#classes" id="id2">Classes</a></p></li>
+<li><p><a class="reference internal" href="#enums" id="id3">Enums</a></p></li>
+<li><p><a class="reference internal" href="#variables" id="id4">Variables</a></p></li>
+</ul>
+</nav>
+<section id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="classadi__imu_1_1AccelGyroTempDataProvider.html#exhale-class-classadi-imu-1-1accelgyrotempdataprovider"><span class="std std-ref">Class AccelGyroTempDataProvider</span></a></p></li>
+<li><p><a class="reference internal" href="classadi__imu_1_1AccelGyroTempDataProviderInterface.html#exhale-class-classadi-imu-1-1accelgyrotempdataproviderinterface"><span class="std std-ref">Class AccelGyroTempDataProviderInterface</span></a></p></li>
+<li><p><a class="reference internal" href="classadi__imu_1_1AccelGyroTempRosPublisher.html#exhale-class-classadi-imu-1-1accelgyrotemprospublisher"><span class="std std-ref">Class AccelGyroTempRosPublisher</span></a></p></li>
+<li><p><a class="reference internal" href="classadi__imu_1_1AccelGyroTempRosPublisherInterface.html#exhale-class-classadi-imu-1-1accelgyrotemprospublisherinterface"><span class="std std-ref">Class AccelGyroTempRosPublisherInterface</span></a></p></li>
+<li><p><a class="reference internal" href="classadi__imu_1_1Adis1646xRegisterMap.html#exhale-class-classadi-imu-1-1adis1646xregistermap"><span class="std std-ref">Class Adis1646xRegisterMap</span></a></p></li>
+<li><p><a class="reference internal" href="classadi__imu_1_1Adis1647xRegisterMap.html#exhale-class-classadi-imu-1-1adis1647xregistermap"><span class="std std-ref">Class Adis1647xRegisterMap</span></a></p></li>
+<li><p><a class="reference internal" href="classadi__imu_1_1Adis1650xRegisterMap.html#exhale-class-classadi-imu-1-1adis1650xregistermap"><span class="std std-ref">Class Adis1650xRegisterMap</span></a></p></li>
+<li><p><a class="reference internal" href="classadi__imu_1_1Adis1654xRegisterMap.html#exhale-class-classadi-imu-1-1adis1654xregistermap"><span class="std std-ref">Class Adis1654xRegisterMap</span></a></p></li>
+<li><p><a class="reference internal" href="classadi__imu_1_1Adis1655xRegisterMap.html#exhale-class-classadi-imu-1-1adis1655xregistermap"><span class="std std-ref">Class Adis1655xRegisterMap</span></a></p></li>
+<li><p><a class="reference internal" href="classadi__imu_1_1Adis1657xRegisterMap.html#exhale-class-classadi-imu-1-1adis1657xregistermap"><span class="std std-ref">Class Adis1657xRegisterMap</span></a></p></li>
+<li><p><a class="reference internal" href="classadi__imu_1_1ADISDeviceFactory.html#exhale-class-classadi-imu-1-1adisdevicefactory"><span class="std std-ref">Class ADISDeviceFactory</span></a></p></li>
+<li><p><a class="reference internal" href="classadi__imu_1_1ADISDeviceRegistry.html#exhale-class-classadi-imu-1-1adisdeviceregistry"><span class="std std-ref">Class ADISDeviceRegistry</span></a></p></li>
+<li><p><a class="reference internal" href="classadi__imu_1_1ADISRegisterMap.html#exhale-class-classadi-imu-1-1adisregistermap"><span class="std std-ref">Class ADISRegisterMap</span></a></p></li>
+<li><p><a class="reference internal" href="classadi__imu_1_1IIOWrapper.html#exhale-class-classadi-imu-1-1iiowrapper"><span class="std std-ref">Class IIOWrapper</span></a></p></li>
+<li><p><a class="reference internal" href="classadi__imu_1_1ImuControlParameters.html#exhale-class-classadi-imu-1-1imucontrolparameters"><span class="std std-ref">Class ImuControlParameters</span></a></p></li>
+<li><p><a class="reference internal" href="classadi__imu_1_1ImuDataProvider.html#exhale-class-classadi-imu-1-1imudataprovider"><span class="std std-ref">Class ImuDataProvider</span></a></p></li>
+<li><p><a class="reference internal" href="classadi__imu_1_1ImuDataProviderInterface.html#exhale-class-classadi-imu-1-1imudataproviderinterface"><span class="std std-ref">Class ImuDataProviderInterface</span></a></p></li>
+<li><p><a class="reference internal" href="classadi__imu_1_1ImuDiagDataProvider.html#exhale-class-classadi-imu-1-1imudiagdataprovider"><span class="std std-ref">Class ImuDiagDataProvider</span></a></p></li>
+<li><p><a class="reference internal" href="classadi__imu_1_1ImuDiagDataProviderInterface.html#exhale-class-classadi-imu-1-1imudiagdataproviderinterface"><span class="std std-ref">Class ImuDiagDataProviderInterface</span></a></p></li>
+<li><p><a class="reference internal" href="classadi__imu_1_1ImuDiagPublisherFactory.html#exhale-class-classadi-imu-1-1imudiagpublisherfactory"><span class="std std-ref">Class ImuDiagPublisherFactory</span></a></p></li>
+<li><p><a class="reference internal" href="classadi__imu_1_1ImuDiagRosPublisher.html#exhale-class-classadi-imu-1-1imudiagrospublisher"><span class="std std-ref">Template Class ImuDiagRosPublisher</span></a></p></li>
+<li><p><a class="reference internal" href="classadi__imu_1_1ImuDiagRosPublisherInterface.html#exhale-class-classadi-imu-1-1imudiagrospublisherinterface"><span class="std std-ref">Class ImuDiagRosPublisherInterface</span></a></p></li>
+<li><p><a class="reference internal" href="classadi__imu_1_1ImuFullMeasuredDataProvider.html#exhale-class-classadi-imu-1-1imufullmeasureddataprovider"><span class="std std-ref">Class ImuFullMeasuredDataProvider</span></a></p></li>
+<li><p><a class="reference internal" href="classadi__imu_1_1ImuFullMeasuredDataProviderInterface.html#exhale-class-classadi-imu-1-1imufullmeasureddataproviderinterface"><span class="std std-ref">Class ImuFullMeasuredDataProviderInterface</span></a></p></li>
+<li><p><a class="reference internal" href="classadi__imu_1_1ImuFullMeasuredDataRosPublisher.html#exhale-class-classadi-imu-1-1imufullmeasureddatarospublisher"><span class="std std-ref">Class ImuFullMeasuredDataRosPublisher</span></a></p></li>
+<li><p><a class="reference internal" href="classadi__imu_1_1ImuFullMeasuredDataRosPublisherInterface.html#exhale-class-classadi-imu-1-1imufullmeasureddatarospublisherinterface"><span class="std std-ref">Class ImuFullMeasuredDataRosPublisherInterface</span></a></p></li>
+<li><p><a class="reference internal" href="classadi__imu_1_1ImuIdentificationDataProvider.html#exhale-class-classadi-imu-1-1imuidentificationdataprovider"><span class="std std-ref">Class ImuIdentificationDataProvider</span></a></p></li>
+<li><p><a class="reference internal" href="classadi__imu_1_1ImuIdentificationDataProviderInterface.html#exhale-class-classadi-imu-1-1imuidentificationdataproviderinterface"><span class="std std-ref">Class ImuIdentificationDataProviderInterface</span></a></p></li>
+<li><p><a class="reference internal" href="classadi__imu_1_1ImuIdentificationRosPublisher.html#exhale-class-classadi-imu-1-1imuidentificationrospublisher"><span class="std std-ref">Class ImuIdentificationRosPublisher</span></a></p></li>
+<li><p><a class="reference internal" href="classadi__imu_1_1ImuIdentificationRosPublisherInterface.html#exhale-class-classadi-imu-1-1imuidentificationrospublisherinterface"><span class="std std-ref">Class ImuIdentificationRosPublisherInterface</span></a></p></li>
+<li><p><a class="reference internal" href="classadi__imu_1_1ImuRosPublisher.html#exhale-class-classadi-imu-1-1imurospublisher"><span class="std std-ref">Class ImuRosPublisher</span></a></p></li>
+<li><p><a class="reference internal" href="classadi__imu_1_1ImuRosPublisherInterface.html#exhale-class-classadi-imu-1-1imurospublisherinterface"><span class="std std-ref">Class ImuRosPublisherInterface</span></a></p></li>
+<li><p><a class="reference internal" href="classadi__imu_1_1RosPublisherGroup.html#exhale-class-classadi-imu-1-1rospublishergroup"><span class="std std-ref">Class RosPublisherGroup</span></a></p></li>
+<li><p><a class="reference internal" href="classadi__imu_1_1RosPublisherGroupInterface.html#exhale-class-classadi-imu-1-1rospublishergroupinterface"><span class="std std-ref">Class RosPublisherGroupInterface</span></a></p></li>
+<li><p><a class="reference internal" href="classadi__imu_1_1RosTask.html#exhale-class-classadi-imu-1-1rostask"><span class="std std-ref">Class RosTask</span></a></p></li>
+<li><p><a class="reference internal" href="classadi__imu_1_1VelAngTempDataProvider.html#exhale-class-classadi-imu-1-1velangtempdataprovider"><span class="std std-ref">Class VelAngTempDataProvider</span></a></p></li>
+<li><p><a class="reference internal" href="classadi__imu_1_1VelAngTempDataProviderInterface.html#exhale-class-classadi-imu-1-1velangtempdataproviderinterface"><span class="std std-ref">Class VelAngTempDataProviderInterface</span></a></p></li>
+<li><p><a class="reference internal" href="classadi__imu_1_1VelAngTempRosPublisher.html#exhale-class-classadi-imu-1-1velangtemprospublisher"><span class="std std-ref">Class VelAngTempRosPublisher</span></a></p></li>
+<li><p><a class="reference internal" href="classadi__imu_1_1VelAngTempRosPublisherInterface.html#exhale-class-classadi-imu-1-1velangtemprospublisherinterface"><span class="std std-ref">Class VelAngTempRosPublisherInterface</span></a></p></li>
+<li><p><a class="reference internal" href="classadi__imu_1_1WorkerThread.html#exhale-class-classadi-imu-1-1workerthread"><span class="std std-ref">Class WorkerThread</span></a></p></li>
+</ul>
+</section>
+<section id="enums">
+<h2>Enums<a class="headerlink" href="#enums" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="enum_adis__register__definitions_8h_1a90eb23ef06b4280c01e9457e425d6a6b.html#exhale-enum-adis-register-definitions-8h-1a90eb23ef06b4280c01e9457e425d6a6b"><span class="std std-ref">Enum adis_device_id</span></a></p></li>
+<li><p><a class="reference internal" href="enum_adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451d.html#exhale-enum-adis-register-definitions-8h-1a8d28c4144db6f93d2f3d16279eef451d"><span class="std std-ref">Enum ADISRegister</span></a></p></li>
+</ul>
+</section>
+<section id="variables">
+<h2>Variables<a class="headerlink" href="#variables" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="variable_adis__register__definitions_8h_1a7dfad2cb7a05467d966f48540258aba7.html#exhale-variable-adis-register-definitions-8h-1a7dfad2cb7a05467d966f48540258aba7"><span class="std std-ref">Variable adi_imu::registerNames</span></a></p></li>
+</ul>
+</section>
+</section>
+
+
+          </div>
+              <div class="related">
+                &nbsp;
+    <a href="index.html" title="Previous document (Alt+Shift+LeftArrow)" class="prev">C++ API</a>
+    <a href="namespace_std.html" title="Next document (Alt+Shift+RightArrow)" class="next">Namespace std</a>
+              </div>
+          
+        </div>
+      </div>
+  </div>
+
+  <label id="cancel-area-show-toc" for="input-show-toc"></label>
+  <label id="cancel-area-show-localtoc" for="input-show-localtoc"></label>
+    <footer>
+      &#169;2025, Analog Devices, Inc.
+      
+      |
+      Made with <a href="https://www.sphinx-doc.org/">Sphinx</a>
+      &amp; <a href="https://github.com/analogdevicesinc/doctools">Doctools</a>
+      
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,78 @@
+\doxysection{adi\+\_\+imu\+::Ros\+Task Class Reference}
+\hypertarget{classadi__imu_1_1RosTask}{}\label{classadi__imu_1_1RosTask}\index{adi\_imu::RosTask@{adi\_imu::RosTask}}
+
+
+Interface for running a task in a thread.  
+
+
+
+
+{\ttfamily \#include $<$ros\+\_\+task.\+h$>$}
+
+
+
+Inheritance diagram for adi\+\_\+imu\+::Ros\+Task\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classadi__imu_1_1RosTask__inherit__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classadi__imu_1_1RosTask_aabef10d9a1f8ec699ee8b4fdeec8f7fa}{Ros\+Task}} ()
+\begin{DoxyCompactList}\small\item\em Constructor for \doxylink{classadi__imu_1_1RosTask}{Ros\+Task}. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classadi__imu_1_1RosTask_ad36570b4d84c20ec267c433c9122c010}{\texorpdfstring{$\sim$}{\string~}\+Ros\+Task}} ()
+\begin{DoxyCompactList}\small\item\em Destructor for \doxylink{classadi__imu_1_1RosTask}{Ros\+Task}. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classadi__imu_1_1RosTask_a8750563a3003820f2a7da10dc467b055}{run}} ()=0
+\begin{DoxyCompactList}\small\item\em Method that run on a thread. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Interface for running a task in a thread. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classadi__imu_1_1RosTask_aabef10d9a1f8ec699ee8b4fdeec8f7fa}\label{classadi__imu_1_1RosTask_aabef10d9a1f8ec699ee8b4fdeec8f7fa} 
+\index{adi\_imu::RosTask@{adi\_imu::RosTask}!RosTask@{RosTask}}
+\index{RosTask@{RosTask}!adi\_imu::RosTask@{adi\_imu::RosTask}}
+\doxysubsubsection{\texorpdfstring{RosTask()}{RosTask()}}
+{\footnotesize\ttfamily adi\+\_\+imu\+::\+Ros\+Task\+::\+Ros\+Task (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor for \doxylink{classadi__imu_1_1RosTask}{Ros\+Task}. 
+
+This is the default constructor for interface \doxylink{classadi__imu_1_1RosTask}{Ros\+Task}. \Hypertarget{classadi__imu_1_1RosTask_ad36570b4d84c20ec267c433c9122c010}\label{classadi__imu_1_1RosTask_ad36570b4d84c20ec267c433c9122c010} 
+\index{adi\_imu::RosTask@{adi\_imu::RosTask}!````~RosTask@{\texorpdfstring{$\sim$}{\string~}RosTask}}
+\index{````~RosTask@{\texorpdfstring{$\sim$}{\string~}RosTask}!adi\_imu::RosTask@{adi\_imu::RosTask}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}RosTask()}{\string~RosTask()}}
+{\footnotesize\ttfamily virtual adi\+\_\+imu\+::\+Ros\+Task\+::\texorpdfstring{$\sim$}{\string~}\+Ros\+Task (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Destructor for \doxylink{classadi__imu_1_1RosTask}{Ros\+Task}. 
+
+This is a virtual destructor for \doxylink{classadi__imu_1_1RosTask}{Ros\+Task}. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classadi__imu_1_1RosTask_a8750563a3003820f2a7da10dc467b055}\label{classadi__imu_1_1RosTask_a8750563a3003820f2a7da10dc467b055} 
+\index{adi\_imu::RosTask@{adi\_imu::RosTask}!run@{run}}
+\index{run@{run}!adi\_imu::RosTask@{adi\_imu::RosTask}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily virtual void adi\+\_\+imu\+::\+Ros\+Task\+::run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Method that run on a thread. 
+
+This function will run on a thread and a class that implement this method will have concurrent support. 
+
+Implemented in \mbox{\hyperlink{classadi__imu_1_1ImuDiagRosPublisher_a7a316507121ad77cf66b5b8cd63cd6ce}{adi\+\_\+imu\+::\+Imu\+Diag\+Ros\+Publisher$<$ Diag\+Msg\+Type $>$}}, \mbox{\hyperlink{classadi__imu_1_1ImuIdentificationRosPublisher_af32c1b3d150daab45ac6672f8d75c9e1}{adi\+\_\+imu\+::\+Imu\+Identification\+Ros\+Publisher}}, and \mbox{\hyperlink{classadi__imu_1_1RosPublisherGroup_a061ea62ae21d14c58d2deb4da2aed10e}{adi\+\_\+imu\+::\+Ros\+Publisher\+Group}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/adi\+\_\+imu/ros\+\_\+task.\+h\end{DoxyCompactItemize}

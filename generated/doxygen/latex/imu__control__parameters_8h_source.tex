@@ -6,133 +6,144 @@
 \DoxyCodeLine{00002\ \textcolor{comment}{\ *\ \ \ @file\ \ \ imu\_control\_parameters.h}}
 \DoxyCodeLine{00003\ \textcolor{comment}{\ *\ \ \ @brief\ \ Set\ ros\ parameter\ in\ libiio}}
 \DoxyCodeLine{00004\ \textcolor{comment}{\ *\ \ \ @author\ Vasile\ Holonec\ (Vasile.Holonec@analog.com)}}
-\DoxyCodeLine{00005\ \textcolor{comment}{\ *******************************************************************************}}
-\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ Copyright\ 2023(c)\ Analog\ Devices,\ Inc.}}
-\DoxyCodeLine{00007\ \textcolor{comment}{\ *}}
-\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ Licensed\ under\ the\ Apache\ License,\ Version\ 2.0\ (the\ "{}License"{});}}
-\DoxyCodeLine{00009\ \textcolor{comment}{\ *\ you\ may\ not\ use\ this\ file\ except\ in\ compliance\ with\ the\ License.}}
-\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ You\ may\ obtain\ a\ copy\ of\ the\ License\ at}}
-\DoxyCodeLine{00011\ \textcolor{comment}{\ *}}
-\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ \ \ \ \ http://www.apache.org/licenses/LICENSE-\/2.0}}
-\DoxyCodeLine{00013\ \textcolor{comment}{\ *}}
-\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ Unless\ required\ by\ applicable\ law\ or\ agreed\ to\ in\ writing,\ software}}
-\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ distributed\ under\ the\ License\ is\ distributed\ on\ an\ "{}AS\ IS"{}\ BASIS,}}
-\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ WITHOUT\ WARRANTIES\ OR\ CONDITIONS\ OF\ ANY\ KIND,\ either\ express\ or\ implied.}}
-\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ See\ the\ License\ for\ the\ specific\ language\ governing\ permissions\ and}}
-\DoxyCodeLine{00018\ \textcolor{comment}{\ *\ limitations\ under\ the\ License.}}
-\DoxyCodeLine{00019\ \textcolor{comment}{\ ******************************************************************************/}}
-\DoxyCodeLine{00020\ }
-\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#ifndef\ IMU\_CONTROL\_PARAMETERS\_H}}
-\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ IMU\_CONTROL\_PARAMETERS\_H}}
-\DoxyCodeLine{00023\ }
-\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ <rclcpp/rclcpp.hpp>}}
-\DoxyCodeLine{00025\ }
-\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#include\ "{}adi\_imu/iio\_wrapper.h"{}}}
-\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#include\ "{}rcl\_interfaces/msg/set\_parameters\_result.hpp"{}}}
-\DoxyCodeLine{00028\ }
-\DoxyCodeLine{00032\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classImuControlParameters}{ImuControlParameters}}}
-\DoxyCodeLine{00033\ \{}
-\DoxyCodeLine{00034\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00039\ \ \ \mbox{\hyperlink{classImuControlParameters}{ImuControlParameters}}(std::shared\_ptr<rclcpp::Node>\ \&\ node);}
-\DoxyCodeLine{00040\ }
-\DoxyCodeLine{00044\ \ \ \mbox{\hyperlink{classImuControlParameters_a9eab68cf68a1fba0e2d0ad312e814d37}{\string~ImuControlParameters}}();}
-\DoxyCodeLine{00045\ }
-\DoxyCodeLine{00050\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classImuControlParameters_a3fdcf6864bdd68a06f712bef548acd24}{handleControlParams}}();}
-\DoxyCodeLine{00051\ }
-\DoxyCodeLine{00052\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00056\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classImuControlParameters_a7ddb2c0494555953182e42bd0078e8f2}{declareAdisAttributes}}();}
-\DoxyCodeLine{00057\ }
-\DoxyCodeLine{00063\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classImuControlParameters_acad11bd8e1ff8ef2d5bf512877ffa32f}{mapIIOUpdateFunctionsInt32}}();}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *******************************************************************************/}}
+\DoxyCodeLine{00006\ \textcolor{comment}{//\ Copyright\ 2023\ Analog\ Devices,\ Inc.}}
+\DoxyCodeLine{00007\ \textcolor{comment}{//}}
+\DoxyCodeLine{00008\ \textcolor{comment}{//\ Licensed\ under\ the\ Apache\ License,\ Version\ 2.0\ (the\ "{}License"{});}}
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ you\ may\ not\ use\ this\ file\ except\ in\ compliance\ with\ the\ License.}}
+\DoxyCodeLine{00010\ \textcolor{comment}{//\ You\ may\ obtain\ a\ copy\ of\ the\ License\ at}}
+\DoxyCodeLine{00011\ \textcolor{comment}{//}}
+\DoxyCodeLine{00012\ \textcolor{comment}{//\ \ \ \ \ http://www.apache.org/licenses/LICENSE-\/2.0}}
+\DoxyCodeLine{00013\ \textcolor{comment}{//}}
+\DoxyCodeLine{00014\ \textcolor{comment}{//\ Unless\ required\ by\ applicable\ law\ or\ agreed\ to\ in\ writing,\ software}}
+\DoxyCodeLine{00015\ \textcolor{comment}{//\ distributed\ under\ the\ License\ is\ distributed\ on\ an\ "{}AS\ IS"{}\ BASIS,}}
+\DoxyCodeLine{00016\ \textcolor{comment}{//\ WITHOUT\ WARRANTIES\ OR\ CONDITIONS\ OF\ ANY\ KIND,\ either\ express\ or\ implied.}}
+\DoxyCodeLine{00017\ \textcolor{comment}{//\ See\ the\ License\ for\ the\ specific\ language\ governing\ permissions\ and}}
+\DoxyCodeLine{00018\ \textcolor{comment}{//\ limitations\ under\ the\ License.}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#ifndef\ ADI\_IMU\_\_IMU\_CONTROL\_PARAMETERS\_H\_}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#define\ ADI\_IMU\_\_IMU\_CONTROL\_PARAMETERS\_H\_}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ <list>}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#include\ "{}adi\_imu/adis\_register\_map.h"{}}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#include\ "{}adi\_imu/iio\_wrapper.h"{}}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#include\ "{}rcl\_interfaces/msg/set\_parameters\_result.hpp"{}}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#include\ "{}rclcpp/rclcpp.hpp"{}}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{keyword}{namespace\ }adi\_imu}
+\DoxyCodeLine{00034\ \{}
+\DoxyCodeLine{00038\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classadi__imu_1_1ImuControlParameters}{ImuControlParameters}}}
+\DoxyCodeLine{00039\ \{}
+\DoxyCodeLine{00040\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00045\ \ \ \mbox{\hyperlink{classadi__imu_1_1ImuControlParameters}{ImuControlParameters}}(}
+\DoxyCodeLine{00046\ \ \ \ \ std::shared\_ptr<rclcpp::Node>\ \&\ node,\ std::shared\_ptr<ADISRegisterMap>\ \&\ device\_descriptor);}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00051\ \ \ \mbox{\hyperlink{classadi__imu_1_1ImuControlParameters_ae31bb4515b8454f1166f1bda21c382d8}{\string~ImuControlParameters}}();}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00057\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classadi__imu_1_1ImuControlParameters_a005b70e576aedfa6456e3fbdcbbcaaed}{handleControlParams}}();}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00063\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classadi__imu_1_1ImuControlParameters_a33438f1f5764543949f6bc20cc5f8242}{declareAdisAttributes}}();}
 \DoxyCodeLine{00064\ }
-\DoxyCodeLine{00070\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classImuControlParameters_ad256c1c4af60a7fe2b6b6adbf1108e30}{mapIIOGetFunctionsInt32}}();}
+\DoxyCodeLine{00070\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classadi__imu_1_1ImuControlParameters_a2e3348742ff830159f7f6ce2254c868e}{mapIIOUpdateFunctionsInt32}}();}
 \DoxyCodeLine{00071\ }
-\DoxyCodeLine{00077\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classImuControlParameters_a0839165af2a0cc50e07ad6b55806953f}{mapIIOUpdateFunctionsUint32}}();}
+\DoxyCodeLine{00077\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classadi__imu_1_1ImuControlParameters_a94ea22a29a23b00010e6c0f8a49fde1f}{mapIIOGetFunctionsInt32}}();}
 \DoxyCodeLine{00078\ }
-\DoxyCodeLine{00084\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classImuControlParameters_aff2a31343637952540bfe76a04728e51}{mapIIOGetFunctionsUint32}}();}
+\DoxyCodeLine{00084\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classadi__imu_1_1ImuControlParameters_a5539f795b1dbaaf9834b3c03644a7b64}{mapIIOUpdateFunctionsUint32}}();}
 \DoxyCodeLine{00085\ }
-\DoxyCodeLine{00091\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classImuControlParameters_ae6be8328df3865c9b057f7b6871612cd}{mapIIOUpdateFunctionsDouble}}();}
+\DoxyCodeLine{00091\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classadi__imu_1_1ImuControlParameters_a48efa853eaae5653101bcf0b84d330c0}{mapIIOGetFunctionsUint32}}();}
 \DoxyCodeLine{00092\ }
-\DoxyCodeLine{00098\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classImuControlParameters_acfe86a041e90121d3199ea7a0daaf8ac}{mapIIOGetFunctionsDouble}}();}
+\DoxyCodeLine{00098\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classadi__imu_1_1ImuControlParameters_a13332fb6677ae1a6d26207fae386b234}{mapIIOUpdateFunctionsDouble}}();}
 \DoxyCodeLine{00099\ }
-\DoxyCodeLine{00105\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classImuControlParameters_a2895734d37c7278c6df4a51cbed6aa82}{mapIIOCommandFunctions}}();}
+\DoxyCodeLine{00105\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classadi__imu_1_1ImuControlParameters_aa4cf5c2478ab7934d5c08e45cb665a98}{mapIIOGetFunctionsDouble}}();}
 \DoxyCodeLine{00106\ }
-\DoxyCodeLine{00111\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classImuControlParameters_a3c2c658b2e5fb2e2fe659501e7203054}{declareParameterDescription}}();}
-\DoxyCodeLine{00112\ }
-\DoxyCodeLine{00117\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classImuControlParameters_ab8aba305fccae66c9ad5f4a0f9e0aece}{declareParameters}}();}
-\DoxyCodeLine{00118\ }
-\DoxyCodeLine{00122\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classImuControlParameters_aa733955c32fc2253f4b14d2db1b454a2}{updateParamsFromHardware}}();}
-\DoxyCodeLine{00123\ }
-\DoxyCodeLine{00128\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classImuControlParameters_a747ae2b209292e2af2de26a8cc448c61}{handleDoubleParamChange}}();}
-\DoxyCodeLine{00129\ }
-\DoxyCodeLine{00134\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classImuControlParameters_a3cd01af35e9eae635764fac2ed0bb3e2}{handleInt32ParamChange}}();}
-\DoxyCodeLine{00135\ }
-\DoxyCodeLine{00140\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classImuControlParameters_a117d2fb3cdb9cb7ae668295a7615df94}{handleUint32ParamChange}}();}
-\DoxyCodeLine{00141\ }
-\DoxyCodeLine{00146\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classImuControlParameters_ab456afd17772314a2bdcdb611aa6fc12}{handleCommands}}();}
-\DoxyCodeLine{00147\ }
-\DoxyCodeLine{00149\ \ \ std::shared\_ptr<rclcpp::Node>\ \mbox{\hyperlink{classImuControlParameters_a550af7cb014cc2b4dec9e42342303f63}{m\_node}};}
-\DoxyCodeLine{00150\ }
-\DoxyCodeLine{00152\ \ \ \mbox{\hyperlink{classIIOWrapper}{IIOWrapper}}\ \mbox{\hyperlink{classImuControlParameters_a1116f3c4083e6dc9dbea7e8104e6cde9}{m\_iio\_wrapper}};}
-\DoxyCodeLine{00153\ }
-\DoxyCodeLine{00155\ \ \ std::string\ \mbox{\hyperlink{classImuControlParameters_abfb5fd3c8fad0ce52ac726cf135c5ebb}{m\_command\_to\_execute}};}
-\DoxyCodeLine{00156\ }
-\DoxyCodeLine{00158\ \ \ \textcolor{keyword}{typedef}\ bool\ (\mbox{\hyperlink{classIIOWrapper}{IIOWrapper}}::*\mbox{\hyperlink{classImuControlParameters_a08337927ac5d0390c065a8f8b64e11ce}{UpdateUint32Params}})(uint32\_t);}
-\DoxyCodeLine{00159\ }
-\DoxyCodeLine{00161\ \ \ \textcolor{keyword}{typedef}\ std::map<std::string,\ UpdateUint32Params>\ \mbox{\hyperlink{classImuControlParameters_add2e53a89e0f075df4a090fb28ea59d0}{UpdateUint32ParamsMapType}};}
-\DoxyCodeLine{00162\ }
-\DoxyCodeLine{00164\ \ \ \mbox{\hyperlink{classImuControlParameters_add2e53a89e0f075df4a090fb28ea59d0}{UpdateUint32ParamsMapType}}\ \mbox{\hyperlink{classImuControlParameters_af520e1d09d7b28678d5d3103cd1cb0d4}{m\_func\_map\_update\_uint32\_params}};}
-\DoxyCodeLine{00165\ }
-\DoxyCodeLine{00167\ \ \ \textcolor{keyword}{typedef}\ bool\ (\mbox{\hyperlink{classIIOWrapper}{IIOWrapper}}::*\mbox{\hyperlink{classImuControlParameters_a82802c01a3698c99b5e0bbd5117f7dd1}{GetUint32Params}})(uint32\_t\ \&);}
-\DoxyCodeLine{00168\ }
-\DoxyCodeLine{00170\ \ \ \textcolor{keyword}{typedef}\ std::map<std::string,\ GetUint32Params>\ \mbox{\hyperlink{classImuControlParameters_aca50889946b53f310ddd2cd1143c951b}{GetUint32ParamsMapType}};}
-\DoxyCodeLine{00171\ }
-\DoxyCodeLine{00173\ \ \ \mbox{\hyperlink{classImuControlParameters_aca50889946b53f310ddd2cd1143c951b}{GetUint32ParamsMapType}}\ \mbox{\hyperlink{classImuControlParameters_afd5ac3df4ab613f0b3f77775b8755c4f}{m\_func\_map\_get\_uint32\_params}};}
-\DoxyCodeLine{00174\ }
-\DoxyCodeLine{00176\ \ \ \textcolor{keyword}{typedef}\ bool\ (\mbox{\hyperlink{classIIOWrapper}{IIOWrapper}}::*\mbox{\hyperlink{classImuControlParameters_a82366b8096ef75c05b44ece86798ecce}{UpdateInt32Params}})(int32\_t);}
-\DoxyCodeLine{00177\ }
-\DoxyCodeLine{00179\ \ \ \textcolor{keyword}{typedef}\ std::map<std::string,\ UpdateInt32Params>\ \mbox{\hyperlink{classImuControlParameters_a96d9f5b54857f9de53ab8aa9e28e1433}{UpdateInt32ParamsMapType}};}
-\DoxyCodeLine{00180\ }
-\DoxyCodeLine{00182\ \ \ \mbox{\hyperlink{classImuControlParameters_a96d9f5b54857f9de53ab8aa9e28e1433}{UpdateInt32ParamsMapType}}\ \mbox{\hyperlink{classImuControlParameters_a27be5741591bf0fc60fe7167257ee112}{m\_func\_map\_update\_int32\_params}};}
-\DoxyCodeLine{00183\ }
-\DoxyCodeLine{00185\ \ \ \textcolor{keyword}{typedef}\ bool\ (\mbox{\hyperlink{classIIOWrapper}{IIOWrapper}}::*\mbox{\hyperlink{classImuControlParameters_a87949036708585beab3c05aeff113f32}{GetInt32Params}})(int32\_t\ \&);}
-\DoxyCodeLine{00186\ }
-\DoxyCodeLine{00188\ \ \ \textcolor{keyword}{typedef}\ std::map<std::string,\ GetInt32Params>\ \mbox{\hyperlink{classImuControlParameters_a54231d8005b5513dc51d079e11b88cb7}{GetInt32ParamsMapType}};}
-\DoxyCodeLine{00189\ }
-\DoxyCodeLine{00191\ \ \ \mbox{\hyperlink{classImuControlParameters_a54231d8005b5513dc51d079e11b88cb7}{GetInt32ParamsMapType}}\ \mbox{\hyperlink{classImuControlParameters_ae8b7fda4cd0053f95fcdb17cd0d845e5}{m\_func\_map\_get\_int32\_params}};}
-\DoxyCodeLine{00192\ }
-\DoxyCodeLine{00194\ \ \ \textcolor{keyword}{typedef}\ bool\ (\mbox{\hyperlink{classIIOWrapper}{IIOWrapper}}::*\mbox{\hyperlink{classImuControlParameters_ad9ec37d0885918285b76b0a01cc17ee8}{UpdateDoubleParams}})(double);}
-\DoxyCodeLine{00195\ }
-\DoxyCodeLine{00197\ \ \ \textcolor{keyword}{typedef}\ std::map<std::string,\ UpdateDoubleParams>\ \mbox{\hyperlink{classImuControlParameters_a217a4e02692f65433945b7a285b6415e}{UpdateDoubleParamsMapType}};}
-\DoxyCodeLine{00198\ }
-\DoxyCodeLine{00200\ \ \ \mbox{\hyperlink{classImuControlParameters_a217a4e02692f65433945b7a285b6415e}{UpdateDoubleParamsMapType}}\ \mbox{\hyperlink{classImuControlParameters_a56ea60d73a130a69a0dd61c1d8779e27}{m\_func\_map\_update\_double\_params}};}
-\DoxyCodeLine{00201\ }
-\DoxyCodeLine{00203\ \ \ \textcolor{keyword}{typedef}\ bool\ (\mbox{\hyperlink{classIIOWrapper}{IIOWrapper}}::*\mbox{\hyperlink{classImuControlParameters_a261cfd80e62c8a3362414fddd9f2da93}{GetDoubleParams}})(double\ *);}
-\DoxyCodeLine{00204\ }
-\DoxyCodeLine{00206\ \ \ \textcolor{keyword}{typedef}\ std::map<std::string,\ GetDoubleParams>\ \mbox{\hyperlink{classImuControlParameters_a619c7db2b3afced6b9fa7f6f770b9e17}{GetDoubleParamsMapType}};}
-\DoxyCodeLine{00207\ }
-\DoxyCodeLine{00209\ \ \ \mbox{\hyperlink{classImuControlParameters_a619c7db2b3afced6b9fa7f6f770b9e17}{GetDoubleParamsMapType}}\ \mbox{\hyperlink{classImuControlParameters_af56801333a7647590e9318db88c65e85}{m\_func\_map\_get\_double\_params}};}
-\DoxyCodeLine{00210\ }
-\DoxyCodeLine{00212\ \ \ \textcolor{keyword}{typedef}\ bool\ (\mbox{\hyperlink{classIIOWrapper}{IIOWrapper}}::*\mbox{\hyperlink{classImuControlParameters_affa8e2f00d84a5f26a69f16eaf9f9c39}{ExecuteCommands}})();}
-\DoxyCodeLine{00213\ }
-\DoxyCodeLine{00215\ \ \ \textcolor{keyword}{typedef}\ std::map<std::string,\ ExecuteCommands>\ \mbox{\hyperlink{classImuControlParameters_af395e099df244af44911518e92f4a02b}{ExecuteCommandsMapType}};}
-\DoxyCodeLine{00216\ }
-\DoxyCodeLine{00218\ \ \ \mbox{\hyperlink{classImuControlParameters_af395e099df244af44911518e92f4a02b}{ExecuteCommandsMapType}}\ \mbox{\hyperlink{classImuControlParameters_ab5a51dfd26f3cdeeb7c2d1c1de771eb7}{m\_func\_map\_execute\_commands}};}
-\DoxyCodeLine{00219\ }
-\DoxyCodeLine{00221\ \ \ std::list<std::string>\ \mbox{\hyperlink{classImuControlParameters_ab1f1a2ace21a2123c9086c6e141713da}{m\_attr\_current\_device}};}
-\DoxyCodeLine{00222\ }
-\DoxyCodeLine{00224\ \ \ std::map<std::string,\ int32\_t>\ \mbox{\hyperlink{classImuControlParameters_a30414b572a699d87f6d21e17a54a36ef}{m\_int32\_current\_params}};}
-\DoxyCodeLine{00225\ }
-\DoxyCodeLine{00227\ \ \ std::map<std::string,\ int64\_t>\ \mbox{\hyperlink{classImuControlParameters_a9bf1f32e4bbaaeba1a8d4d0bbc869ae2}{m\_uint32\_current\_params}};}
-\DoxyCodeLine{00228\ }
-\DoxyCodeLine{00230\ \ \ std::map<std::string,\ double>\ \mbox{\hyperlink{classImuControlParameters_a7027df0c4d7cde53c39f46d3438d90e2}{m\_double\_current\_params}};}
-\DoxyCodeLine{00231\ }
-\DoxyCodeLine{00233\ \ \ std::map<std::string,\ std::string>\ \mbox{\hyperlink{classImuControlParameters_a793e0ffb6bfbea341b30d74ca854a585}{m\_param\_description}};}
-\DoxyCodeLine{00234\ }
-\DoxyCodeLine{00236\ \ \ std::map<std::string,\ rcl\_interfaces::msg::IntegerRange>\ \mbox{\hyperlink{classImuControlParameters_af0387f10c79cc939f530b9458b813a7a}{m\_param\_constraints\_integer}};}
-\DoxyCodeLine{00237\ }
-\DoxyCodeLine{00239\ \ \ std::map<std::string,\ rcl\_interfaces::msg::FloatingPointRange>\ \mbox{\hyperlink{classImuControlParameters_ab64303326f426a54dd55a201d8e8d411}{m\_param\_constraints\_floating}};}
-\DoxyCodeLine{00240\ \};}
+\DoxyCodeLine{00112\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classadi__imu_1_1ImuControlParameters_ae95a27b60914a9d667232372d6a7e30d}{mapIIOCommandFunctions}}();}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00118\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classadi__imu_1_1ImuControlParameters_aa93dba6c81ad8df7c8713a0ce3084f87}{declareParameterDescription}}();}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00124\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classadi__imu_1_1ImuControlParameters_a024895b8912bd1493c247a101cd9c218}{declareParameters}}();}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00129\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classadi__imu_1_1ImuControlParameters_af6b48509c7291dd7bfddceb7e6b76db4}{updateParamsFromHardware}}();}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00135\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classadi__imu_1_1ImuControlParameters_a7a9e4c3e1caa28aa60cdeffc13c56626}{handleDoubleParamChange}}();}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00141\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classadi__imu_1_1ImuControlParameters_a1dcfed93e7d94cc4bd8c04a1a65a3d3a}{handleInt32ParamChange}}();}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00147\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classadi__imu_1_1ImuControlParameters_ad0c01f8a86dc400b6f339b67241ebf97}{handleUint32ParamChange}}();}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00153\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classadi__imu_1_1ImuControlParameters_af0d5a5e38d972582fef16a8d9aa71f49}{handleCommands}}();}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00156\ \ \ std::shared\_ptr<rclcpp::Node>\ \mbox{\hyperlink{classadi__imu_1_1ImuControlParameters_affcb8453ef0bdce2e6d79729a97210f8}{m\_node}};}
+\DoxyCodeLine{00157\ }
+\DoxyCodeLine{00159\ \ \ \mbox{\hyperlink{classadi__imu_1_1IIOWrapper}{IIOWrapper}}\ \mbox{\hyperlink{classadi__imu_1_1ImuControlParameters_a066860ee4e43de4fc6f777d7aa84bdf1}{m\_iio\_wrapper}};}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00162\ \ \ std::string\ \mbox{\hyperlink{classadi__imu_1_1ImuControlParameters_a50a8010d4dc351c557066dfbf75181f5}{m\_command\_to\_execute}};}
+\DoxyCodeLine{00163\ }
+\DoxyCodeLine{00165\ \ \ \textcolor{keyword}{typedef}\ bool\ (\mbox{\hyperlink{classadi__imu_1_1IIOWrapper}{IIOWrapper}}::*\mbox{\hyperlink{classadi__imu_1_1ImuControlParameters_af246ea4ef6d8ae5d3e02ab12ac05b0c0}{UpdateUint32Params}})(uint32\_t);}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00168\ \ \ \textcolor{keyword}{typedef}\ std::map<std::string,\ UpdateUint32Params>\ \mbox{\hyperlink{classadi__imu_1_1ImuControlParameters_a1675ca31f87a2a861c3aa4ec4c47c66c}{UpdateUint32ParamsMapType}};}
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00171\ \ \ \mbox{\hyperlink{classadi__imu_1_1ImuControlParameters_a1675ca31f87a2a861c3aa4ec4c47c66c}{UpdateUint32ParamsMapType}}\ \mbox{\hyperlink{classadi__imu_1_1ImuControlParameters_aca7d3ffb8f93f545ee1d1fc5397c759d}{m\_func\_map\_update\_uint32\_params}};}
+\DoxyCodeLine{00172\ }
+\DoxyCodeLine{00174\ \ \ \textcolor{keyword}{typedef}\ bool\ (\mbox{\hyperlink{classadi__imu_1_1IIOWrapper}{IIOWrapper}}::*\mbox{\hyperlink{classadi__imu_1_1ImuControlParameters_aa74819245d4fa96be1f2c8dec49af129}{GetUint32Params}})(uint32\_t\ \&);}
+\DoxyCodeLine{00175\ }
+\DoxyCodeLine{00177\ \ \ \textcolor{keyword}{typedef}\ std::map<std::string,\ GetUint32Params>\ \mbox{\hyperlink{classadi__imu_1_1ImuControlParameters_a2bc1073e6f3808bbe604f52b0dfdfbab}{GetUint32ParamsMapType}};}
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00180\ \ \ \mbox{\hyperlink{classadi__imu_1_1ImuControlParameters_a2bc1073e6f3808bbe604f52b0dfdfbab}{GetUint32ParamsMapType}}\ \mbox{\hyperlink{classadi__imu_1_1ImuControlParameters_aa8032262dfd78edadeda924a419d75e8}{m\_func\_map\_get\_uint32\_params}};}
+\DoxyCodeLine{00181\ }
+\DoxyCodeLine{00183\ \ \ \textcolor{keyword}{typedef}\ bool\ (\mbox{\hyperlink{classadi__imu_1_1IIOWrapper}{IIOWrapper}}::*\mbox{\hyperlink{classadi__imu_1_1ImuControlParameters_a7f0fbef7c4682f175c94465b0b5156d9}{UpdateInt32Params}})(int32\_t);}
+\DoxyCodeLine{00184\ }
+\DoxyCodeLine{00186\ \ \ \textcolor{keyword}{typedef}\ std::map<std::string,\ UpdateInt32Params>\ \mbox{\hyperlink{classadi__imu_1_1ImuControlParameters_a7e55d4d5e5e014ab81e50b072f0cf6eb}{UpdateInt32ParamsMapType}};}
+\DoxyCodeLine{00187\ }
+\DoxyCodeLine{00189\ \ \ \mbox{\hyperlink{classadi__imu_1_1ImuControlParameters_a7e55d4d5e5e014ab81e50b072f0cf6eb}{UpdateInt32ParamsMapType}}\ \mbox{\hyperlink{classadi__imu_1_1ImuControlParameters_ae91c61e5e3448e40b4e41507bebc0bd7}{m\_func\_map\_update\_int32\_params}};}
+\DoxyCodeLine{00190\ }
+\DoxyCodeLine{00192\ \ \ \textcolor{keyword}{typedef}\ bool\ (\mbox{\hyperlink{classadi__imu_1_1IIOWrapper}{IIOWrapper}}::*\mbox{\hyperlink{classadi__imu_1_1ImuControlParameters_acdabf97cc14b21a841e0e3901ff3a07a}{GetInt32Params}})(int32\_t\ \&);}
+\DoxyCodeLine{00193\ }
+\DoxyCodeLine{00195\ \ \ \textcolor{keyword}{typedef}\ std::map<std::string,\ GetInt32Params>\ \mbox{\hyperlink{classadi__imu_1_1ImuControlParameters_a61400317173d0b47dbf7e496a2cfda6e}{GetInt32ParamsMapType}};}
+\DoxyCodeLine{00196\ }
+\DoxyCodeLine{00198\ \ \ \mbox{\hyperlink{classadi__imu_1_1ImuControlParameters_a61400317173d0b47dbf7e496a2cfda6e}{GetInt32ParamsMapType}}\ \mbox{\hyperlink{classadi__imu_1_1ImuControlParameters_ae3cad00755de284847f2897e79f30b55}{m\_func\_map\_get\_int32\_params}};}
+\DoxyCodeLine{00199\ }
+\DoxyCodeLine{00201\ \ \ \textcolor{keyword}{typedef}\ bool\ (\mbox{\hyperlink{classadi__imu_1_1IIOWrapper}{IIOWrapper}}::*\mbox{\hyperlink{classadi__imu_1_1ImuControlParameters_a6b52d203c6932cdd6f2b456d950f53e5}{UpdateDoubleParams}})(double);}
+\DoxyCodeLine{00202\ }
+\DoxyCodeLine{00204\ \ \ \textcolor{keyword}{typedef}\ std::map<std::string,\ UpdateDoubleParams>\ \mbox{\hyperlink{classadi__imu_1_1ImuControlParameters_a21e60085a0660c313802edd9a5c1c924}{UpdateDoubleParamsMapType}};}
+\DoxyCodeLine{00205\ }
+\DoxyCodeLine{00207\ \ \ \mbox{\hyperlink{classadi__imu_1_1ImuControlParameters_a21e60085a0660c313802edd9a5c1c924}{UpdateDoubleParamsMapType}}\ \mbox{\hyperlink{classadi__imu_1_1ImuControlParameters_a8ef6472abdcc364fdd688a8cefc9e932}{m\_func\_map\_update\_double\_params}};}
+\DoxyCodeLine{00208\ }
+\DoxyCodeLine{00210\ \ \ \textcolor{keyword}{typedef}\ bool\ (\mbox{\hyperlink{classadi__imu_1_1IIOWrapper}{IIOWrapper}}::*\mbox{\hyperlink{classadi__imu_1_1ImuControlParameters_ad4a5f2b09130ddab16c11e8b52c62371}{GetDoubleParams}})(double\ *);}
+\DoxyCodeLine{00211\ }
+\DoxyCodeLine{00213\ \ \ \textcolor{keyword}{typedef}\ std::map<std::string,\ GetDoubleParams>\ \mbox{\hyperlink{classadi__imu_1_1ImuControlParameters_aa3fb7b4ec118ef25dcc1a6403d2013b0}{GetDoubleParamsMapType}};}
+\DoxyCodeLine{00214\ }
+\DoxyCodeLine{00216\ \ \ \mbox{\hyperlink{classadi__imu_1_1ImuControlParameters_aa3fb7b4ec118ef25dcc1a6403d2013b0}{GetDoubleParamsMapType}}\ \mbox{\hyperlink{classadi__imu_1_1ImuControlParameters_ab6f786d9ca796e7e6e86789906b8eb61}{m\_func\_map\_get\_double\_params}};}
+\DoxyCodeLine{00217\ }
+\DoxyCodeLine{00219\ \ \ \textcolor{keyword}{typedef}\ bool\ (\mbox{\hyperlink{classadi__imu_1_1IIOWrapper}{IIOWrapper}}::*\mbox{\hyperlink{classadi__imu_1_1ImuControlParameters_a3e04b37f2ba056cebdb8ff28e5821d21}{ExecuteCommands}})();}
+\DoxyCodeLine{00220\ }
+\DoxyCodeLine{00222\ \ \ \textcolor{keyword}{typedef}\ std::map<std::string,\ ExecuteCommands>\ \mbox{\hyperlink{classadi__imu_1_1ImuControlParameters_a1ae0b154d7b1b9310a76ab49ad6c2de5}{ExecuteCommandsMapType}};}
+\DoxyCodeLine{00223\ }
+\DoxyCodeLine{00225\ \ \ \mbox{\hyperlink{classadi__imu_1_1ImuControlParameters_a1ae0b154d7b1b9310a76ab49ad6c2de5}{ExecuteCommandsMapType}}\ \mbox{\hyperlink{classadi__imu_1_1ImuControlParameters_a07447b24a00aa2a1904e3a3247d49f54}{m\_func\_map\_execute\_commands}};}
+\DoxyCodeLine{00226\ }
+\DoxyCodeLine{00228\ \ \ std::list<std::string>\ \mbox{\hyperlink{classadi__imu_1_1ImuControlParameters_aedd65c4302f22cc38c7f6b94740b957f}{m\_attr\_current\_device}};}
+\DoxyCodeLine{00229\ }
+\DoxyCodeLine{00231\ \ \ std::map<std::string,\ int32\_t>\ \mbox{\hyperlink{classadi__imu_1_1ImuControlParameters_a30cc1b8beffc058a4d9dda5ca9b95831}{m\_int32\_current\_params}};}
+\DoxyCodeLine{00232\ }
+\DoxyCodeLine{00234\ \ \ std::map<std::string,\ int64\_t>\ \mbox{\hyperlink{classadi__imu_1_1ImuControlParameters_a7a3b355fa22cada87104a0afcbadc98f}{m\_uint32\_current\_params}};}
+\DoxyCodeLine{00235\ }
+\DoxyCodeLine{00237\ \ \ std::map<std::string,\ double>\ \mbox{\hyperlink{classadi__imu_1_1ImuControlParameters_acf4d6ec9b8d0c858f630ad1e5ca83b3d}{m\_double\_current\_params}};}
+\DoxyCodeLine{00238\ }
+\DoxyCodeLine{00240\ \ \ std::map<std::string,\ std::string>\ \mbox{\hyperlink{classadi__imu_1_1ImuControlParameters_a6b4daccf9290e4d0f7184dcf099722d6}{m\_param\_description}};}
 \DoxyCodeLine{00241\ }
-\DoxyCodeLine{00242\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ IMU\_CONTROL\_PARAMETERS\_H}}
+\DoxyCodeLine{00243\ \ \ std::map<std::string,\ rcl\_interfaces::msg::IntegerRange>\ \mbox{\hyperlink{classadi__imu_1_1ImuControlParameters_ab7d5d470015ddfaae3665ee6cb91465e}{m\_param\_constraints\_integer}};}
+\DoxyCodeLine{00244\ }
+\DoxyCodeLine{00246\ \ \ std::map<std::string,\ rcl\_interfaces::msg::FloatingPointRange>\ \mbox{\hyperlink{classadi__imu_1_1ImuControlParameters_a835fa3947f67357bb01c4c1310e1e515}{m\_param\_constraints\_floating}};}
+\DoxyCodeLine{00247\ }
+\DoxyCodeLine{00249\ \ \ std::shared\_ptr<ADISRegisterMap>\ \mbox{\hyperlink{classadi__imu_1_1ImuControlParameters_af3d6467d4d34259be69ddb4d78407bf2}{m\_device\_descriptor}};}
+\DoxyCodeLine{00250\ \};}
+\DoxyCodeLine{00251\ }
+\DoxyCodeLine{00252\ \}\ \ \textcolor{comment}{//\ namespace\ adi\_imu}}
+\DoxyCodeLine{00253\ }
+\DoxyCodeLine{00254\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ ADI\_IMU\_\_IMU\_CONTROL\_PARAMETERS\_H\_}}
 
 \end{DoxyCode}

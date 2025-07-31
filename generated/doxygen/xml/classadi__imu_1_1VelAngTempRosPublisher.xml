@@ -1,0 +1,196 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classadi__imu_1_1VelAngTempRosPublisher" kind="class" language="C++" prot="public">
+    <compoundname>adi_imu::VelAngTempRosPublisher</compoundname>
+    <basecompoundref refid="classadi__imu_1_1VelAngTempRosPublisherInterface" prot="public" virt="non-virtual">adi_imu::VelAngTempRosPublisherInterface</basecompoundref>
+    <includes refid="velangtemp__ros__publisher_8h" local="no">velangtemp_ros_publisher.h</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classadi__imu_1_1VelAngTempRosPublisher_1a746d90da062a25dac74924ab00152e63" prot="private" static="no" mutable="no">
+        <type><ref refid="classadi__imu_1_1VelAngTempDataProviderInterface" kindref="compound">VelAngTempDataProviderInterface</ref> *</type>
+        <definition>VelAngTempDataProviderInterface* adi_imu::VelAngTempRosPublisher::m_data_provider</definition>
+        <argsstring></argsstring>
+        <name>m_data_provider</name>
+        <qualifiedname>adi_imu::VelAngTempRosPublisher::m_data_provider</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This variable retains the data provider instance. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/velangtemp_ros_publisher.h" line="62" column="36" bodyfile="include/adi_imu/velangtemp_ros_publisher.h" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classadi__imu_1_1VelAngTempRosPublisher_1a77467118945b751b61c38e0004109a17" prot="private" static="no" mutable="no">
+        <type>rclcpp::Publisher&lt; adi_imu::msg::VelAngTempData &gt;::SharedPtr</type>
+        <definition>rclcpp::Publisher&lt;adi_imu::msg::VelAngTempData&gt;::SharedPtr adi_imu::VelAngTempRosPublisher::m_publisher</definition>
+        <argsstring></argsstring>
+        <name>m_publisher</name>
+        <qualifiedname>adi_imu::VelAngTempRosPublisher::m_publisher</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This variable retains the publisher instance. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/velangtemp_ros_publisher.h" line="65" column="33" bodyfile="include/adi_imu/velangtemp_ros_publisher.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classadi__imu_1_1VelAngTempRosPublisher_1afc9cf345d166f641bc6927711cafa081" prot="private" static="no" mutable="no">
+        <type>adi_imu::msg::VelAngTempData</type>
+        <definition>adi_imu::msg::VelAngTempData adi_imu::VelAngTempRosPublisher::m_message</definition>
+        <argsstring></argsstring>
+        <name>m_message</name>
+        <qualifiedname>adi_imu::VelAngTempRosPublisher::m_message</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This variable retains the message that is published. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/velangtemp_ros_publisher.h" line="68" column="32" bodyfile="include/adi_imu/velangtemp_ros_publisher.h" bodystart="68" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classadi__imu_1_1VelAngTempRosPublisher_1a78ca8bddb7d11ffab85519e22e2687c9" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>adi_imu::VelAngTempRosPublisher::VelAngTempRosPublisher</definition>
+        <argsstring>(std::shared_ptr&lt; rclcpp::Node &gt; &amp;node)</argsstring>
+        <name>VelAngTempRosPublisher</name>
+        <qualifiedname>adi_imu::VelAngTempRosPublisher::VelAngTempRosPublisher</qualifiedname>
+        <param>
+          <type>std::shared_ptr&lt; rclcpp::Node &gt; &amp;</type>
+          <declname>node</declname>
+        </param>
+        <briefdescription>
+<para>Constructor for <ref refid="classadi__imu_1_1VelAngTempRosPublisher" kindref="compound">VelAngTempRosPublisher</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>node</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The ros2 Node instance. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/velangtemp_ros_publisher.h" line="42" column="12" bodyfile="src/velangtemp_ros_publisher.cpp" bodystart="29" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="function" id="classadi__imu_1_1VelAngTempRosPublisher_1a3d8e8ec99a942f4a342cd5e4fca8117c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>adi_imu::VelAngTempRosPublisher::~VelAngTempRosPublisher</definition>
+        <argsstring>()</argsstring>
+        <name>~VelAngTempRosPublisher</name>
+        <qualifiedname>adi_imu::VelAngTempRosPublisher::~VelAngTempRosPublisher</qualifiedname>
+        <briefdescription>
+<para>Destructor for <ref refid="classadi__imu_1_1VelAngTempRosPublisher" kindref="compound">VelAngTempRosPublisher</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/velangtemp_ros_publisher.h" line="47" column="3" bodyfile="src/velangtemp_ros_publisher.cpp" bodystart="35" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="function" id="classadi__imu_1_1VelAngTempRosPublisher_1aa95e8ba1150f64b0a2d44a519dafca25" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void adi_imu::VelAngTempRosPublisher::setMessageProvider</definition>
+        <argsstring>(VelAngTempDataProviderInterface *dataProvider) override</argsstring>
+        <name>setMessageProvider</name>
+        <qualifiedname>adi_imu::VelAngTempRosPublisher::setMessageProvider</qualifiedname>
+        <reimplements refid="classadi__imu_1_1VelAngTempRosPublisherInterface_1ab35ef2daa721d52daf9bc5b0bea982d7">setMessageProvider</reimplements>
+        <param>
+          <type><ref refid="classadi__imu_1_1VelAngTempDataProviderInterface" kindref="compound">VelAngTempDataProviderInterface</ref> *</type>
+          <declname>dataProvider</declname>
+        </param>
+        <briefdescription>
+<para>Set the message data provider. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dataProvider</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Data provider. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/velangtemp_ros_publisher.h" line="53" column="8" bodyfile="src/velangtemp_ros_publisher.cpp" bodystart="37" bodyend="40"/>
+      </memberdef>
+      <memberdef kind="function" id="classadi__imu_1_1VelAngTempRosPublisher_1a53b7c1cc3cbc062a7b5a0a32febf3546" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void adi_imu::VelAngTempRosPublisher::publish</definition>
+        <argsstring>() override</argsstring>
+        <name>publish</name>
+        <qualifiedname>adi_imu::VelAngTempRosPublisher::publish</qualifiedname>
+        <reimplements refid="classadi__imu_1_1VelAngTempRosPublisherInterface_1ac5faa37596fc59fdade8eb202b970f64">publish</reimplements>
+        <briefdescription>
+<para>Publish the VelAngTempData message. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/velangtemp_ros_publisher.h" line="58" column="8" bodyfile="src/velangtemp_ros_publisher.cpp" bodystart="42" bodyend="55"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Class for delta velocity, delta angle and temperature publisher. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>adi_imu::VelAngTempRosPublisher</label>
+        <link refid="classadi__imu_1_1VelAngTempRosPublisher"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>adi_imu::VelAngTempRosPublisherInterface</label>
+        <link refid="classadi__imu_1_1VelAngTempRosPublisherInterface"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>adi_imu::VelAngTempDataProviderInterface</label>
+        <link refid="classadi__imu_1_1VelAngTempDataProviderInterface"/>
+      </node>
+      <node id="1">
+        <label>adi_imu::VelAngTempRosPublisher</label>
+        <link refid="classadi__imu_1_1VelAngTempRosPublisher"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>m_data_provider</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>adi_imu::VelAngTempRosPublisherInterface</label>
+        <link refid="classadi__imu_1_1VelAngTempRosPublisherInterface"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/adi_imu/velangtemp_ros_publisher.h" line="35" column="1" bodyfile="include/adi_imu/velangtemp_ros_publisher.h" bodystart="36" bodyend="69"/>
+    <listofallmembers>
+      <member refid="classadi__imu_1_1VelAngTempRosPublisher_1a746d90da062a25dac74924ab00152e63" prot="private" virt="non-virtual"><scope>adi_imu::VelAngTempRosPublisher</scope><name>m_data_provider</name></member>
+      <member refid="classadi__imu_1_1VelAngTempRosPublisher_1afc9cf345d166f641bc6927711cafa081" prot="private" virt="non-virtual"><scope>adi_imu::VelAngTempRosPublisher</scope><name>m_message</name></member>
+      <member refid="classadi__imu_1_1VelAngTempRosPublisherInterface_1af87138dded7510ac264c93a7a333b7da" prot="protected" virt="non-virtual"><scope>adi_imu::VelAngTempRosPublisher</scope><name>m_node</name></member>
+      <member refid="classadi__imu_1_1VelAngTempRosPublisher_1a77467118945b751b61c38e0004109a17" prot="private" virt="non-virtual"><scope>adi_imu::VelAngTempRosPublisher</scope><name>m_publisher</name></member>
+      <member refid="classadi__imu_1_1VelAngTempRosPublisher_1a53b7c1cc3cbc062a7b5a0a32febf3546" prot="public" virt="virtual"><scope>adi_imu::VelAngTempRosPublisher</scope><name>publish</name></member>
+      <member refid="classadi__imu_1_1VelAngTempRosPublisher_1aa95e8ba1150f64b0a2d44a519dafca25" prot="public" virt="virtual"><scope>adi_imu::VelAngTempRosPublisher</scope><name>setMessageProvider</name></member>
+      <member refid="classadi__imu_1_1VelAngTempRosPublisher_1a78ca8bddb7d11ffab85519e22e2687c9" prot="public" virt="non-virtual"><scope>adi_imu::VelAngTempRosPublisher</scope><name>VelAngTempRosPublisher</name></member>
+      <member refid="classadi__imu_1_1VelAngTempRosPublisherInterface_1a19131c5961639a683ed414a4f2c06224" prot="public" virt="non-virtual"><scope>adi_imu::VelAngTempRosPublisher</scope><name>VelAngTempRosPublisherInterface</name></member>
+      <member refid="classadi__imu_1_1VelAngTempRosPublisher_1a3d8e8ec99a942f4a342cd5e4fca8117c" prot="public" virt="non-virtual"><scope>adi_imu::VelAngTempRosPublisher</scope><name>~VelAngTempRosPublisher</name></member>
+      <member refid="classadi__imu_1_1VelAngTempRosPublisherInterface_1a1adb2af54d5748a9fe99602493539528" prot="public" virt="virtual"><scope>adi_imu::VelAngTempRosPublisher</scope><name>~VelAngTempRosPublisherInterface</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

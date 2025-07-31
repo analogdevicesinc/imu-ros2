@@ -1,0 +1,66 @@
+\doxysection{adi\+\_\+imu\+::ADISDevice\+Registry Class Reference}
+\hypertarget{classadi__imu_1_1ADISDeviceRegistry}{}\label{classadi__imu_1_1ADISDeviceRegistry}\index{adi\_imu::ADISDeviceRegistry@{adi\_imu::ADISDeviceRegistry}}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classadi__imu_1_1ADISDeviceRegistry_a636a6ec2c75194c2b934a107474493e4}\label{classadi__imu_1_1ADISDeviceRegistry_a636a6ec2c75194c2b934a107474493e4} 
+static adis\+\_\+device\+\_\+id {\bfseries get\+Device\+Id\+From\+String} (const std\+::string \&device\+\_\+name)
+\item 
+\Hypertarget{classadi__imu_1_1ADISDeviceRegistry_ade4b02c2f4559ce6df615923eb49f52a}\label{classadi__imu_1_1ADISDeviceRegistry_ade4b02c2f4559ce6df615923eb49f52a} 
+static std\+::string {\bfseries get\+Device\+Name\+From\+Id} (adis\+\_\+device\+\_\+id device\+\_\+id)
+\item 
+\Hypertarget{classadi__imu_1_1ADISDeviceRegistry_a83587f63eb135b8827cb56cb6c6649ba}\label{classadi__imu_1_1ADISDeviceRegistry_a83587f63eb135b8827cb56cb6c6649ba} 
+static std\+::vector$<$ std\+::string $>$ {\bfseries get\+Supported\+Device\+Names} ()
+\item 
+\Hypertarget{classadi__imu_1_1ADISDeviceRegistry_aaef0fca84e0f237971160ba372166d92}\label{classadi__imu_1_1ADISDeviceRegistry_aaef0fca84e0f237971160ba372166d92} 
+static std\+::vector$<$ adis\+\_\+device\+\_\+id $>$ {\bfseries get\+Supported\+Device\+Ids} ()
+\item 
+\Hypertarget{classadi__imu_1_1ADISDeviceRegistry_a21f902b4911d5f8ec7249e3009de81dd}\label{classadi__imu_1_1ADISDeviceRegistry_a21f902b4911d5f8ec7249e3009de81dd} 
+static bool {\bfseries is\+Device\+Supported} (const std\+::string \&device\+\_\+name)
+\item 
+\Hypertarget{classadi__imu_1_1ADISDeviceRegistry_adc600d1fdbfe006dbdf8d8bae4f35231}\label{classadi__imu_1_1ADISDeviceRegistry_adc600d1fdbfe006dbdf8d8bae4f35231} 
+static bool {\bfseries is\+Device\+Supported} (adis\+\_\+device\+\_\+id device\+\_\+id)
+\item 
+\Hypertarget{classadi__imu_1_1ADISDeviceRegistry_affaf5552f51475fe2d17606b180bf11b}\label{classadi__imu_1_1ADISDeviceRegistry_affaf5552f51475fe2d17606b180bf11b} 
+static std\+::string {\bfseries get\+Device\+Family} (adis\+\_\+device\+\_\+id device\+\_\+id)
+\item 
+\Hypertarget{classadi__imu_1_1ADISDeviceRegistry_a4973ffe3aad00c0edd88f569163fae55}\label{classadi__imu_1_1ADISDeviceRegistry_a4973ffe3aad00c0edd88f569163fae55} 
+static std\+::string {\bfseries get\+Device\+Family} (const std\+::string \&device\+\_\+name)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const std\+::unordered\+\_\+map$<$ std\+::string, adis\+\_\+device\+\_\+id $>$ \mbox{\hyperlink{classadi__imu_1_1ADISDeviceRegistry_a0f86615f0b0693f81f069a4da607f28c}{m\+\_\+supported\+\_\+devices}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classadi__imu_1_1ADISDeviceRegistry_a0f86615f0b0693f81f069a4da607f28c}\label{classadi__imu_1_1ADISDeviceRegistry_a0f86615f0b0693f81f069a4da607f28c} 
+\index{adi\_imu::ADISDeviceRegistry@{adi\_imu::ADISDeviceRegistry}!m\_supported\_devices@{m\_supported\_devices}}
+\index{m\_supported\_devices@{m\_supported\_devices}!adi\_imu::ADISDeviceRegistry@{adi\_imu::ADISDeviceRegistry}}
+\doxysubsubsection{\texorpdfstring{m\_supported\_devices}{m\_supported\_devices}}
+{\footnotesize\ttfamily const std\+::unordered\+\_\+map$<$ std\+::string, adis\+\_\+device\+\_\+id $>$ adi\+\_\+imu\+::\+ADISDevice\+Registry\+::m\+\_\+supported\+\_\+devices\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \{\textcolor{stringliteral}{"{}adis16465-\/1"{}},\ ADIS16465\_1\},\ \{\textcolor{stringliteral}{"{}adis16465-\/2"{}},\ ADIS16465\_2\},\ \{\textcolor{stringliteral}{"{}adis16465-\/3"{}},\ ADIS16465\_3\},}
+\DoxyCodeLine{\ \ \{\textcolor{stringliteral}{"{}adis16467-\/1"{}},\ ADIS16467\_1\},\ \{\textcolor{stringliteral}{"{}adis16467-\/2"{}},\ ADIS16467\_2\},\ \{\textcolor{stringliteral}{"{}adis16467-\/3"{}},\ ADIS16467\_3\},}
+\DoxyCodeLine{\ \ \{\textcolor{stringliteral}{"{}adis16470"{}},\ ADIS16470\},\ \ \ \ \ \{\textcolor{stringliteral}{"{}adis16475-\/1"{}},\ ADIS16475\_1\},\ \{\textcolor{stringliteral}{"{}adis16475-\/2"{}},\ ADIS16475\_2\},}
+\DoxyCodeLine{\ \ \{\textcolor{stringliteral}{"{}adis16475-\/3"{}},\ ADIS16475\_3\},\ \{\textcolor{stringliteral}{"{}adis16477-\/1"{}},\ ADIS16477\_1\},\ \{\textcolor{stringliteral}{"{}adis16477-\/2"{}},\ ADIS16477\_2\},}
+\DoxyCodeLine{\ \ \{\textcolor{stringliteral}{"{}adis16477-\/3"{}},\ ADIS16477\_3\},\ \{\textcolor{stringliteral}{"{}adis16500"{}},\ ADIS16500\},\ \ \ \ \ \{\textcolor{stringliteral}{"{}adis16501"{}},\ ADIS16501\},}
+\DoxyCodeLine{\ \ \{\textcolor{stringliteral}{"{}adis16505-\/1"{}},\ ADIS16505\_1\},\ \{\textcolor{stringliteral}{"{}adis16505-\/2"{}},\ ADIS16505\_2\},\ \{\textcolor{stringliteral}{"{}adis16505-\/3"{}},\ ADIS16505\_3\},}
+\DoxyCodeLine{\ \ \{\textcolor{stringliteral}{"{}adis16507-\/1"{}},\ ADIS16507\_1\},\ \{\textcolor{stringliteral}{"{}adis16507-\/2"{}},\ ADIS16507\_2\},\ \{\textcolor{stringliteral}{"{}adis16507-\/3"{}},\ ADIS16507\_3\},}
+\DoxyCodeLine{\ \ \{\textcolor{stringliteral}{"{}adis16545-\/1"{}},\ ADIS16545\_1\},\ \{\textcolor{stringliteral}{"{}adis16545-\/2"{}},\ ADIS16545\_2\},\ \{\textcolor{stringliteral}{"{}adis16545-\/3"{}},\ ADIS16545\_3\},}
+\DoxyCodeLine{\ \ \{\textcolor{stringliteral}{"{}adis16547-\/1"{}},\ ADIS16547\_1\},\ \{\textcolor{stringliteral}{"{}adis16547-\/2"{}},\ ADIS16547\_2\},\ \{\textcolor{stringliteral}{"{}adis16547-\/3"{}},\ ADIS16547\_3\},}
+\DoxyCodeLine{\ \ \{\textcolor{stringliteral}{"{}adis16550"{}},\ ADIS16550\},\ \ \ \ \ \{\textcolor{stringliteral}{"{}adis16575-\/2"{}},\ ADIS16575\_2\},\ \{\textcolor{stringliteral}{"{}adis16575-\/3"{}},\ ADIS16575\_3\},}
+\DoxyCodeLine{\ \ \{\textcolor{stringliteral}{"{}adis16576-\/2"{}},\ ADIS16576\_2\},\ \{\textcolor{stringliteral}{"{}adis16576-\/3"{}},\ ADIS16576\_3\},\ \{\textcolor{stringliteral}{"{}adis16577-\/2"{}},\ ADIS16577\_2\},}
+\DoxyCodeLine{\ \ \{\textcolor{stringliteral}{"{}adis16577-\/3"{}},\ ADIS16577\_3\}\}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/adi\+\_\+imu/utils/adis\+\_\+device\+\_\+registry.\+h\item 
+src/utils/adis\+\_\+device\+\_\+registry.\+cpp\end{DoxyCompactItemize}

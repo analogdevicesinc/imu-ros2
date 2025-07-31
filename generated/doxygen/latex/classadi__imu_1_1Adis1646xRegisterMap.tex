@@ -1,0 +1,98 @@
+\doxysection{adi\+\_\+imu\+::Adis1646x\+Register\+Map Class Reference}
+\hypertarget{classadi__imu_1_1Adis1646xRegisterMap}{}\label{classadi__imu_1_1Adis1646xRegisterMap}\index{adi\_imu::Adis1646xRegisterMap@{adi\_imu::Adis1646xRegisterMap}}
+
+
+Inheritance diagram for adi\+\_\+imu\+::Adis1646x\+Register\+Map\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=254pt]{classadi__imu_1_1Adis1646xRegisterMap__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for adi\+\_\+imu\+::Adis1646x\+Register\+Map\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=254pt]{classadi__imu_1_1Adis1646xRegisterMap__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classadi__imu_1_1Adis1646xRegisterMap_a12f6d68597b2114cc2eb286676077230}\label{classadi__imu_1_1Adis1646xRegisterMap_a12f6d68597b2114cc2eb286676077230} 
+{\bfseries Adis1646x\+Register\+Map} (adis\+\_\+device\+\_\+id device\+\_\+id)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classadi__imu_1_1ADISRegisterMap}{adi\+\_\+imu\+::\+ADISRegister\+Map}}}
+\begin{DoxyCompactItemize}
+\item 
+void {\bfseries initialize} ()
+\item 
+bool {\bfseries has} (ADISRegister reg) const
+\item 
+uint32\+\_\+t {\bfseries get} (ADISRegister reg) const
+\item 
+bool {\bfseries has\+Delta\+Burst} () const
+\item 
+std\+::string {\bfseries get\+Device\+Family} () const
+\item 
+std\+::string {\bfseries get\+Device\+Name} () const
+\item 
+adis\+\_\+device\+\_\+id {\bfseries get\+Device\+ID} () const
+\item 
+void {\bfseries log} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classadi__imu_1_1Adis1646xRegisterMap_af1b3b45fffe6f98242d787779a3bb384}{initialize\+Constants}} () override
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{classadi__imu_1_1ADISRegisterMap}{adi\+\_\+imu\+::\+ADISRegister\+Map}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries ADISRegister\+Map} (adis\+\_\+device\+\_\+id device\+\_\+id)
+\item 
+void {\bfseries set} (ADISRegister reg, uint32\+\_\+t value)
+\item 
+virtual void {\bfseries init\+Shared\+Registers} () final
+\item 
+virtual void {\bfseries compute\+Bit\+Masks} () final
+\item 
+virtual void {\bfseries post\+Compute\+Bitmask} () final
+\item 
+virtual void {\bfseries overwrite\+Registers} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classadi__imu_1_1ADISRegisterMap}{adi\+\_\+imu\+::\+ADISRegister\+Map}}}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unordered\+\_\+map$<$ ADISRegister, uint32\+\_\+t $>$ {\bfseries m\+\_\+register\+\_\+map}
+\item 
+adis\+\_\+device\+\_\+id {\bfseries m\+\_\+device\+\_\+id}
+\item 
+std\+::string {\bfseries m\+\_\+device\+\_\+name}
+\item 
+std\+::string {\bfseries m\+\_\+device\+\_\+family}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classadi__imu_1_1Adis1646xRegisterMap_af1b3b45fffe6f98242d787779a3bb384}\label{classadi__imu_1_1Adis1646xRegisterMap_af1b3b45fffe6f98242d787779a3bb384} 
+\index{adi\_imu::Adis1646xRegisterMap@{adi\_imu::Adis1646xRegisterMap}!initializeConstants@{initializeConstants}}
+\index{initializeConstants@{initializeConstants}!adi\_imu::Adis1646xRegisterMap@{adi\_imu::Adis1646xRegisterMap}}
+\doxysubsubsection{\texorpdfstring{initializeConstants()}{initializeConstants()}}
+{\footnotesize\ttfamily void adi\+\_\+imu\+::\+Adis1646x\+Register\+Map\+::initialize\+Constants (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [private]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classadi__imu_1_1ADISRegisterMap}{adi\+\_\+imu\+::\+ADISRegister\+Map}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/adi\+\_\+imu/adis1646x\+\_\+register\+\_\+map.\+h\item 
+src/adis1646x\+\_\+register\+\_\+map.\+cpp\end{DoxyCompactItemize}

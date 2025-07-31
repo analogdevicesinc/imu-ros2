@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classadi__imu_1_1AccelGyroTempDataProviderInterface" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>adi_imu::AccelGyroTempDataProviderInterface</compoundname>
+    <derivedcompoundref refid="classadi__imu_1_1AccelGyroTempDataProvider" prot="public" virt="non-virtual">adi_imu::AccelGyroTempDataProvider</derivedcompoundref>
+    <includes refid="accelgyrotemp__data__provider__interface_8h" local="no">accelgyrotemp_data_provider_interface.h</includes>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classadi__imu_1_1AccelGyroTempDataProviderInterface_1a350640588bfa7a2ca3fbc669be115ed1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>adi_imu::AccelGyroTempDataProviderInterface::AccelGyroTempDataProviderInterface</definition>
+        <argsstring>()</argsstring>
+        <name>AccelGyroTempDataProviderInterface</name>
+        <qualifiedname>adi_imu::AccelGyroTempDataProviderInterface::AccelGyroTempDataProviderInterface</qualifiedname>
+        <briefdescription>
+<para>Constructor for <ref refid="classadi__imu_1_1AccelGyroTempDataProviderInterface" kindref="compound">AccelGyroTempDataProviderInterface</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/accelgyrotemp_data_provider_interface.h" line="39" column="3" bodyfile="include/adi_imu/accelgyrotemp_data_provider_interface.h" bodystart="39" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="function" id="classadi__imu_1_1AccelGyroTempDataProviderInterface_1a25d2c1eb8ba0bcdc965d05ff2e5487cc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type></type>
+        <definition>virtual adi_imu::AccelGyroTempDataProviderInterface::~AccelGyroTempDataProviderInterface</definition>
+        <argsstring>()</argsstring>
+        <name>~AccelGyroTempDataProviderInterface</name>
+        <qualifiedname>adi_imu::AccelGyroTempDataProviderInterface::~AccelGyroTempDataProviderInterface</qualifiedname>
+        <briefdescription>
+<para>Destructor for <ref refid="classadi__imu_1_1AccelGyroTempDataProviderInterface" kindref="compound">AccelGyroTempDataProviderInterface</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/accelgyrotemp_data_provider_interface.h" line="44" column="11" bodyfile="include/adi_imu/accelgyrotemp_data_provider_interface.h" bodystart="44" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="function" id="classadi__imu_1_1AccelGyroTempDataProviderInterface_1a6c81453d162fcb32a7c9ab37364c195b" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>bool</type>
+        <definition>virtual bool adi_imu::AccelGyroTempDataProviderInterface::getData</definition>
+        <argsstring>(adi_imu::msg::AccelGyroTempData &amp;message)=0</argsstring>
+        <name>getData</name>
+        <qualifiedname>adi_imu::AccelGyroTempDataProviderInterface::getData</qualifiedname>
+        <reimplementedby refid="classadi__imu_1_1AccelGyroTempDataProvider_1ab0354f3fce8cf368b11df2aba7bcd12d">getData</reimplementedby>
+        <param>
+          <type>adi_imu::msg::AccelGyroTempData &amp;</type>
+          <declname>message</declname>
+        </param>
+        <briefdescription>
+<para>Populate AccelGyroTempData message with measured data. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>message</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Message containing the measured data. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Return true if the message parameter is successfully populated with measured data and false otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/accelgyrotemp_data_provider_interface.h" line="52" column="16"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Interface for acceleration, angular velocity and temperature buffered data provider. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>adi_imu::AccelGyroTempDataProvider</label>
+        <link refid="classadi__imu_1_1AccelGyroTempDataProvider"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>adi_imu::AccelGyroTempDataProviderInterface</label>
+        <link refid="classadi__imu_1_1AccelGyroTempDataProviderInterface"/>
+      </node>
+    </inheritancegraph>
+    <location file="include/adi_imu/accelgyrotemp_data_provider_interface.h" line="33" column="1" bodyfile="include/adi_imu/accelgyrotemp_data_provider_interface.h" bodystart="34" bodyend="53"/>
+    <listofallmembers>
+      <member refid="classadi__imu_1_1AccelGyroTempDataProviderInterface_1a350640588bfa7a2ca3fbc669be115ed1" prot="public" virt="non-virtual"><scope>adi_imu::AccelGyroTempDataProviderInterface</scope><name>AccelGyroTempDataProviderInterface</name></member>
+      <member refid="classadi__imu_1_1AccelGyroTempDataProviderInterface_1a6c81453d162fcb32a7c9ab37364c195b" prot="public" virt="pure-virtual"><scope>adi_imu::AccelGyroTempDataProviderInterface</scope><name>getData</name></member>
+      <member refid="classadi__imu_1_1AccelGyroTempDataProviderInterface_1a25d2c1eb8ba0bcdc965d05ff2e5487cc" prot="public" virt="virtual"><scope>adi_imu::AccelGyroTempDataProviderInterface</scope><name>~AccelGyroTempDataProviderInterface</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

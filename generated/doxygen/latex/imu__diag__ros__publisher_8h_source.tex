@@ -6,49 +6,90 @@
 \DoxyCodeLine{00002\ \textcolor{comment}{\ *\ \ \ @file\ \ \ imu\_diag\_ros\_publisher.h}}
 \DoxyCodeLine{00003\ \textcolor{comment}{\ *\ \ \ @brief\ \ Header\ for\ adis1657x\ diagnosis\ publisher.}}
 \DoxyCodeLine{00004\ \textcolor{comment}{\ *\ \ \ @author\ Vasile\ Holonec\ (Vasile.Holonec@analog.com)}}
-\DoxyCodeLine{00005\ \textcolor{comment}{\ *******************************************************************************}}
-\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ Copyright\ 2023(c)\ Analog\ Devices,\ Inc.}}
-\DoxyCodeLine{00007\ \textcolor{comment}{\ *}}
-\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ Licensed\ under\ the\ Apache\ License,\ Version\ 2.0\ (the\ "{}License"{});}}
-\DoxyCodeLine{00009\ \textcolor{comment}{\ *\ you\ may\ not\ use\ this\ file\ except\ in\ compliance\ with\ the\ License.}}
-\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ You\ may\ obtain\ a\ copy\ of\ the\ License\ at}}
-\DoxyCodeLine{00011\ \textcolor{comment}{\ *}}
-\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ \ \ \ \ http://www.apache.org/licenses/LICENSE-\/2.0}}
-\DoxyCodeLine{00013\ \textcolor{comment}{\ *}}
-\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ Unless\ required\ by\ applicable\ law\ or\ agreed\ to\ in\ writing,\ software}}
-\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ distributed\ under\ the\ License\ is\ distributed\ on\ an\ "{}AS\ IS"{}\ BASIS,}}
-\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ WITHOUT\ WARRANTIES\ OR\ CONDITIONS\ OF\ ANY\ KIND,\ either\ express\ or\ implied.}}
-\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ See\ the\ License\ for\ the\ specific\ language\ governing\ permissions\ and}}
-\DoxyCodeLine{00018\ \textcolor{comment}{\ *\ limitations\ under\ the\ License.}}
-\DoxyCodeLine{00019\ \textcolor{comment}{\ ******************************************************************************/}}
-\DoxyCodeLine{00020\ }
-\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#ifndef\ IMU\_DIAG\_ROS\_PUBLISHER\_H}}
-\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ IMU\_DIAG\_ROS\_PUBLISHER\_H}}
-\DoxyCodeLine{00023\ }
-\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ <rclcpp/rclcpp.hpp>}}
+\DoxyCodeLine{00005\ \textcolor{comment}{*******************************************************************************/}}
+\DoxyCodeLine{00006\ \textcolor{comment}{//\ Copyright\ 2023\ Analog\ Devices,\ Inc.}}
+\DoxyCodeLine{00007\ \textcolor{comment}{//}}
+\DoxyCodeLine{00008\ \textcolor{comment}{//\ Licensed\ under\ the\ Apache\ License,\ Version\ 2.0\ (the\ "{}License"{});}}
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ you\ may\ not\ use\ this\ file\ except\ in\ compliance\ with\ the\ License.}}
+\DoxyCodeLine{00010\ \textcolor{comment}{//\ You\ may\ obtain\ a\ copy\ of\ the\ License\ at}}
+\DoxyCodeLine{00011\ \textcolor{comment}{//}}
+\DoxyCodeLine{00012\ \textcolor{comment}{//\ \ \ \ \ http://www.apache.org/licenses/LICENSE-\/2.0}}
+\DoxyCodeLine{00013\ \textcolor{comment}{//}}
+\DoxyCodeLine{00014\ \textcolor{comment}{//\ Unless\ required\ by\ applicable\ law\ or\ agreed\ to\ in\ writing,\ software}}
+\DoxyCodeLine{00015\ \textcolor{comment}{//\ distributed\ under\ the\ License\ is\ distributed\ on\ an\ "{}AS\ IS"{}\ BASIS,}}
+\DoxyCodeLine{00016\ \textcolor{comment}{//\ WITHOUT\ WARRANTIES\ OR\ CONDITIONS\ OF\ ANY\ KIND,\ either\ express\ or\ implied.}}
+\DoxyCodeLine{00017\ \textcolor{comment}{//\ See\ the\ License\ for\ the\ specific\ language\ governing\ permissions\ and}}
+\DoxyCodeLine{00018\ \textcolor{comment}{//\ limitations\ under\ the\ License.}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#ifndef\ ADI\_IMU\_\_IMU\_DIAG\_ROS\_PUBLISHER\_H\_}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#define\ ADI\_IMU\_\_IMU\_DIAG\_ROS\_PUBLISHER\_H\_}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ <string>}}
 \DoxyCodeLine{00025\ }
-\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#include\ "{}imu\_diag\_data\_provider\_interface.h"{}}}
-\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#include\ "{}imu\_diag\_ros\_publisher\_interface.h"{}}}
-\DoxyCodeLine{00028\ }
-\DoxyCodeLine{00032\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classImuDiagRosPublisher}{ImuDiagRosPublisher}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classImuDiagRosPublisherInterface}{ImuDiagRosPublisherInterface}}}
-\DoxyCodeLine{00033\ \{}
-\DoxyCodeLine{00034\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00039\ \ \ \mbox{\hyperlink{classImuDiagRosPublisher}{ImuDiagRosPublisher}}(std::shared\_ptr<rclcpp::Node>\ \&\ node);}
-\DoxyCodeLine{00040\ }
-\DoxyCodeLine{00044\ \ \ \mbox{\hyperlink{classImuDiagRosPublisher_a6a4cf58c270529dcf9e02305d119e6ac}{\string~ImuDiagRosPublisher}}();}
-\DoxyCodeLine{00045\ }
-\DoxyCodeLine{00050\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classImuDiagRosPublisher_ae5233d9e51106f0f5cf7a8734db34800}{setMessageProvider}}(\mbox{\hyperlink{classImuDiagDataProviderInterface}{ImuDiagDataProviderInterface}}\ *\ dataProvider)\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00051\ }
-\DoxyCodeLine{00055\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classImuDiagRosPublisher_aaf3056416be0e688ef7d3833c3bbfbfd}{run}}()\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00056\ }
-\DoxyCodeLine{00057\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00059\ \ \ \mbox{\hyperlink{classImuDiagDataProviderInterface}{ImuDiagDataProviderInterface}}\ *\ \mbox{\hyperlink{classImuDiagRosPublisher_ae65f15d3729cdb044463a0ebdd2b4038}{m\_data\_provider}};}
-\DoxyCodeLine{00060\ }
-\DoxyCodeLine{00062\ \ \ rclcpp::Publisher<adi\_imu::msg::ImuDiagData>::SharedPtr\ \mbox{\hyperlink{classImuDiagRosPublisher_a51c437ba1557e82b847b3bf86293e256}{m\_publisher}};}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#include\ "{}adi\_imu/imu\_diag\_data\_provider\_interface.h"{}}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#include\ "{}adi\_imu/imu\_diag\_ros\_publisher\_interface.h"{}}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#include\ "{}rclcpp/rclcpp.hpp"{}}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{keyword}{namespace\ }adi\_imu}
+\DoxyCodeLine{00031\ \{}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00036\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ DiagMsgType>}
+\DoxyCodeLine{00037\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classadi__imu_1_1ImuDiagRosPublisher}{ImuDiagRosPublisher}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classadi__imu_1_1ImuDiagRosPublisherInterface}{ImuDiagRosPublisherInterface}}}
+\DoxyCodeLine{00038\ \{}
+\DoxyCodeLine{00039\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00044\ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classadi__imu_1_1ImuDiagRosPublisher_adcc4cff1a692c803570f45eeee603bb2}{ImuDiagRosPublisher}}(std::shared\_ptr<rclcpp::Node>\ \&\ node)}
+\DoxyCodeLine{00045\ \ \ \{}
+\DoxyCodeLine{00046\ \ \ \ \ \mbox{\hyperlink{classadi__imu_1_1ImuDiagRosPublisherInterface_a9e6cd4f4bfa7cb1f54b94d79e7ca2901}{m\_node}}\ =\ node;}
+\DoxyCodeLine{00047\ \ \ \ \ \mbox{\hyperlink{classadi__imu_1_1ImuDiagRosPublisher_acb58091aa9533ae6ae709e952d898c5f}{m\_publisher}}\ =\ \mbox{\hyperlink{classadi__imu_1_1ImuDiagRosPublisherInterface_a9e6cd4f4bfa7cb1f54b94d79e7ca2901}{m\_node}}-\/>create\_publisher<DiagMsgType>(\textcolor{stringliteral}{"{}imudiagdata"{}},\ 10);}
+\DoxyCodeLine{00048\ \ \ \}}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00053\ \ \ \mbox{\hyperlink{classadi__imu_1_1ImuDiagRosPublisher_a7726b7d82a177c3f9ffc2aa285b6c976}{\string~ImuDiagRosPublisher}}()\ \{\ \textcolor{keyword}{delete}\ \mbox{\hyperlink{classadi__imu_1_1ImuDiagRosPublisher_a39d6e60a057bed0f0f91fcc8ac0a5f92}{m\_data\_provider}};\ \}}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00059\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classadi__imu_1_1ImuDiagRosPublisher_a8189bd2e6eca85cdc9a6e657c45a1851}{setMessageProvider}}(\mbox{\hyperlink{classadi__imu_1_1ImuDiagDataProviderInterface}{ImuDiagDataProviderInterface}}\ *\ dataProvider)\textcolor{keyword}{\ override}}
+\DoxyCodeLine{00060\ \textcolor{keyword}{\ \ }\{}
+\DoxyCodeLine{00061\ \ \ \ \ \mbox{\hyperlink{classadi__imu_1_1ImuDiagRosPublisher_a39d6e60a057bed0f0f91fcc8ac0a5f92}{m\_data\_provider}}\ =\ dataProvider;}
+\DoxyCodeLine{00062\ \ \ \}}
 \DoxyCodeLine{00063\ }
-\DoxyCodeLine{00065\ \ \ adi\_imu::msg::ImuDiagData\ \mbox{\hyperlink{classImuDiagRosPublisher_ae77e1ee412b353b9e66d3e490c518970}{m\_message}};}
-\DoxyCodeLine{00066\ \};}
-\DoxyCodeLine{00067\ }
-\DoxyCodeLine{00068\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ IMU\_DIAG\_ROS\_PUBLISHER\_H}}
+\DoxyCodeLine{00068\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classadi__imu_1_1ImuDiagRosPublisher_ad420bc72e0b9b558b28ba0d4db22b55a}{setDeviceDescriptor}}(std::shared\_ptr<ADISRegisterMap>\ device\_descriptor)\textcolor{keyword}{\ override}}
+\DoxyCodeLine{00069\ \textcolor{keyword}{\ \ }\{}
+\DoxyCodeLine{00070\ \ \ \ \ m\_device\_descriptor\ =\ device\_descriptor;}
+\DoxyCodeLine{00071\ \ \ \ \ m\_device\_family\ =\ m\_device\_descriptor-\/>getDeviceFamily();}
+\DoxyCodeLine{00072\ \ \ \}}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00077\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classadi__imu_1_1ImuDiagRosPublisher_a7a316507121ad77cf66b5b8cd63cd6ce}{run}}()\textcolor{keyword}{\ override}}
+\DoxyCodeLine{00078\ \textcolor{keyword}{\ \ }\{}
+\DoxyCodeLine{00079\ \ \ \ \ std::thread::id\ this\_id\ =\ std::this\_thread::get\_id();}
+\DoxyCodeLine{00080\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}thread\ "{}}\ <<\ this\_id\ <<\ \textcolor{stringliteral}{"{}\ started...\(\backslash\)n"{}};}
+\DoxyCodeLine{00081\ \ \ \ \ RCLCPP\_INFO(rclcpp::get\_logger(\textcolor{stringliteral}{"{}imu\_diag\_ros\_publisher"{}}),\ \textcolor{stringliteral}{"{}startThread:\ ImuDiagRosPublisher"{}});}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordflow}{while}\ (rclcpp::ok())\ \{}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classadi__imu_1_1ImuDiagRosPublisher_acb58091aa9533ae6ae709e952d898c5f}{m\_publisher}}\ \&\&\ \mbox{\hyperlink{classadi__imu_1_1ImuDiagRosPublisher_a39d6e60a057bed0f0f91fcc8ac0a5f92}{m\_data\_provider}}\ \&\&\ \mbox{\hyperlink{classadi__imu_1_1ImuDiagRosPublisher_a39d6e60a057bed0f0f91fcc8ac0a5f92}{m\_data\_provider}}-\/>\mbox{\hyperlink{classadi__imu_1_1ImuDiagDataProviderInterface_ab0cbc77a9139a3ba30364927d3b3995d}{getData}}(\mbox{\hyperlink{classadi__imu_1_1ImuDiagRosPublisher_a912ce1f1442866b99be10b72891a0641}{m\_message}}))\ \{}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ rclcpp::Time\ now\ =\ \mbox{\hyperlink{classadi__imu_1_1ImuDiagRosPublisherInterface_a9e6cd4f4bfa7cb1f54b94d79e7ca2901}{m\_node}}-\/>get\_clock()-\/>now();}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classadi__imu_1_1ImuDiagRosPublisher_a912ce1f1442866b99be10b72891a0641}{m\_message}}.header.stamp\ =\ now;}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classadi__imu_1_1ImuDiagRosPublisher_acb58091aa9533ae6ae709e952d898c5f}{m\_publisher}}-\/>publish(\mbox{\hyperlink{classadi__imu_1_1ImuDiagRosPublisher_a912ce1f1442866b99be10b72891a0641}{m\_message}});}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ RCLCPP\_INFO(rclcpp::get\_logger(\textcolor{stringliteral}{"{}imu\_diag\_ros\_publisher"{}}),\ \textcolor{stringliteral}{"{}error\ reading\ diagnosis\ data"{}});}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00091\ \ \ \ \ \}}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \ \ \ \ this\_id\ =\ std::this\_thread::get\_id();}
+\DoxyCodeLine{00094\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}thread\ "{}}\ <<\ this\_id\ <<\ \textcolor{stringliteral}{"{}\ ended...\(\backslash\)n"{}};}
+\DoxyCodeLine{00095\ \ \ \ \ RCLCPP\_INFO(rclcpp::get\_logger(\textcolor{stringliteral}{"{}imu\_diag\_ros\_publisher"{}}),\ \textcolor{stringliteral}{"{}endThread:\ ImuDiagRosPublisher"{}});}
+\DoxyCodeLine{00096\ \ \ \}}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00100\ \ \ \mbox{\hyperlink{classadi__imu_1_1ImuDiagDataProviderInterface}{ImuDiagDataProviderInterface}}\ *\ \mbox{\hyperlink{classadi__imu_1_1ImuDiagRosPublisher_a39d6e60a057bed0f0f91fcc8ac0a5f92}{m\_data\_provider}};}
+\DoxyCodeLine{00101\ \ \ std::shared\_ptr<ADISRegisterMap>\ m\_device\_descriptor;}
+\DoxyCodeLine{00102\ \ \ std::string\ m\_device\_family;}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00105\ \ \ \textcolor{keyword}{typename}\ rclcpp::Publisher<DiagMsgType>::SharedPtr\ \mbox{\hyperlink{classadi__imu_1_1ImuDiagRosPublisher_acb58091aa9533ae6ae709e952d898c5f}{m\_publisher}};}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00108\ \ \ DiagMsgType\ \mbox{\hyperlink{classadi__imu_1_1ImuDiagRosPublisher_a912ce1f1442866b99be10b72891a0641}{m\_message}};}
+\DoxyCodeLine{00109\ \};}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \}\ \ \textcolor{comment}{//\ namespace\ adi\_imu}}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ ADI\_IMU\_\_IMU\_DIAG\_ROS\_PUBLISHER\_H\_}}
 
 \end{DoxyCode}

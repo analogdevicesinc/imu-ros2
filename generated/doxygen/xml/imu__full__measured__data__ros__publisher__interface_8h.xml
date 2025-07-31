@@ -34,7 +34,8 @@
         </childnode>
       </node>
     </invincdepgraph>
-    <innerclass refid="classImuFullMeasuredDataRosPublisherInterface" prot="public">ImuFullMeasuredDataRosPublisherInterface</innerclass>
+    <innerclass refid="classadi__imu_1_1ImuFullMeasuredDataRosPublisherInterface" prot="public">adi_imu::ImuFullMeasuredDataRosPublisherInterface</innerclass>
+    <innernamespace refid="namespaceadi__imu">adi_imu</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
@@ -45,46 +46,50 @@
 <codeline lineno="3"><highlight class="comment"><sp/>*<sp/><sp/><sp/>@brief<sp/><sp/>Interface<sp/>for<sp/>acceleration,<sp/>gyroscope,<sp/>temperature,<sp/>delta<sp/>velocity,</highlight></codeline>
 <codeline lineno="4"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>delta<sp/>angle<sp/>and<sp/>temperature<sp/>publisher.</highlight></codeline>
 <codeline lineno="5"><highlight class="comment"><sp/>*<sp/><sp/><sp/>@author<sp/>Vasile<sp/>Holonec<sp/>(Vasile.Holonec@analog.com)</highlight></codeline>
-<codeline lineno="6"><highlight class="comment"><sp/>*******************************************************************************</highlight></codeline>
-<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>2023(c)<sp/>Analog<sp/>Devices,<sp/>Inc.</highlight></codeline>
-<codeline lineno="8"><highlight class="comment"><sp/>*</highlight></codeline>
-<codeline lineno="9"><highlight class="comment"><sp/>*<sp/>Licensed<sp/>under<sp/>the<sp/>Apache<sp/>License,<sp/>Version<sp/>2.0<sp/>(the<sp/>&quot;License&quot;);</highlight></codeline>
-<codeline lineno="10"><highlight class="comment"><sp/>*<sp/>you<sp/>may<sp/>not<sp/>use<sp/>this<sp/>file<sp/>except<sp/>in<sp/>compliance<sp/>with<sp/>the<sp/>License.</highlight></codeline>
-<codeline lineno="11"><highlight class="comment"><sp/>*<sp/>You<sp/>may<sp/>obtain<sp/>a<sp/>copy<sp/>of<sp/>the<sp/>License<sp/>at</highlight></codeline>
-<codeline lineno="12"><highlight class="comment"><sp/>*</highlight></codeline>
-<codeline lineno="13"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/>http://www.apache.org/licenses/LICENSE-2.0</highlight></codeline>
-<codeline lineno="14"><highlight class="comment"><sp/>*</highlight></codeline>
-<codeline lineno="15"><highlight class="comment"><sp/>*<sp/>Unless<sp/>required<sp/>by<sp/>applicable<sp/>law<sp/>or<sp/>agreed<sp/>to<sp/>in<sp/>writing,<sp/>software</highlight></codeline>
-<codeline lineno="16"><highlight class="comment"><sp/>*<sp/>distributed<sp/>under<sp/>the<sp/>License<sp/>is<sp/>distributed<sp/>on<sp/>an<sp/>&quot;AS<sp/>IS&quot;<sp/>BASIS,</highlight></codeline>
-<codeline lineno="17"><highlight class="comment"><sp/>*<sp/>WITHOUT<sp/>WARRANTIES<sp/>OR<sp/>CONDITIONS<sp/>OF<sp/>ANY<sp/>KIND,<sp/>either<sp/>express<sp/>or<sp/>implied.</highlight></codeline>
-<codeline lineno="18"><highlight class="comment"><sp/>*<sp/>See<sp/>the<sp/>License<sp/>for<sp/>the<sp/>specific<sp/>language<sp/>governing<sp/>permissions<sp/>and</highlight></codeline>
-<codeline lineno="19"><highlight class="comment"><sp/>*<sp/>limitations<sp/>under<sp/>the<sp/>License.</highlight></codeline>
-<codeline lineno="20"><highlight class="comment"><sp/>******************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="21"><highlight class="normal"></highlight></codeline>
-<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>IMU_FULL_MEASURED_DATA_ROS_PUBLISHER_INTERFACE_H</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>IMU_FULL_MEASURED_DATA_ROS_PUBLISHER_INTERFACE_H</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="24"><highlight class="normal"></highlight></codeline>
-<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;memory&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;rclcpp/rclcpp.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="27"><highlight class="normal"></highlight></codeline>
-<codeline lineno="28"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classImuFullMeasuredDataProviderInterface" kindref="compound">ImuFullMeasuredDataProviderInterface</ref>;</highlight></codeline>
+<codeline lineno="6"><highlight class="comment">*******************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Copyright<sp/>2023<sp/>Analog<sp/>Devices,<sp/>Inc.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Licensed<sp/>under<sp/>the<sp/>Apache<sp/>License,<sp/>Version<sp/>2.0<sp/>(the<sp/>&quot;License&quot;);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="comment">//<sp/>you<sp/>may<sp/>not<sp/>use<sp/>this<sp/>file<sp/>except<sp/>in<sp/>compliance<sp/>with<sp/>the<sp/>License.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="comment">//<sp/>You<sp/>may<sp/>obtain<sp/>a<sp/>copy<sp/>of<sp/>the<sp/>License<sp/>at</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>http://www.apache.org/licenses/LICENSE-2.0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Unless<sp/>required<sp/>by<sp/>applicable<sp/>law<sp/>or<sp/>agreed<sp/>to<sp/>in<sp/>writing,<sp/>software</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="comment">//<sp/>distributed<sp/>under<sp/>the<sp/>License<sp/>is<sp/>distributed<sp/>on<sp/>an<sp/>&quot;AS<sp/>IS&quot;<sp/>BASIS,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="comment">//<sp/>WITHOUT<sp/>WARRANTIES<sp/>OR<sp/>CONDITIONS<sp/>OF<sp/>ANY<sp/>KIND,<sp/>either<sp/>express<sp/>or<sp/>implied.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="comment">//<sp/>See<sp/>the<sp/>License<sp/>for<sp/>the<sp/>specific<sp/>language<sp/>governing<sp/>permissions<sp/>and</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="comment">//<sp/>limitations<sp/>under<sp/>the<sp/>License.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>ADI_IMU__IMU_FULL_MEASURED_DATA_ROS_PUBLISHER_INTERFACE_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ADI_IMU__IMU_FULL_MEASURED_DATA_ROS_PUBLISHER_INTERFACE_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;memory&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;rclcpp/rclcpp.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">adi_imu</highlight></codeline>
+<codeline lineno="28"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="29"><highlight class="normal"></highlight></codeline>
-<codeline lineno="34" refid="classImuFullMeasuredDataRosPublisherInterface" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classImuFullMeasuredDataRosPublisherInterface" kindref="compound">ImuFullMeasuredDataRosPublisherInterface</ref></highlight></codeline>
-<codeline lineno="35"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="36"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="40" refid="classImuFullMeasuredDataRosPublisherInterface_1aa9ce565f5999ca1720fa6cefb0440e6d" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="classImuFullMeasuredDataRosPublisherInterface_1aa9ce565f5999ca1720fa6cefb0440e6d" kindref="member">ImuFullMeasuredDataRosPublisherInterface</ref>()<sp/>{}</highlight></codeline>
-<codeline lineno="41"><highlight class="normal"></highlight></codeline>
-<codeline lineno="45" refid="classImuFullMeasuredDataRosPublisherInterface_1aad746b55a627f4acb1c50392e67db426" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="classImuFullMeasuredDataRosPublisherInterface_1aad746b55a627f4acb1c50392e67db426" kindref="member">~ImuFullMeasuredDataRosPublisherInterface</ref>()<sp/>{}</highlight></codeline>
-<codeline lineno="46"><highlight class="normal"></highlight></codeline>
-<codeline lineno="51" refid="classImuFullMeasuredDataRosPublisherInterface_1a799c51c1b501e469fa1e6f0dc77edc1a" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classImuFullMeasuredDataRosPublisherInterface_1a799c51c1b501e469fa1e6f0dc77edc1a" kindref="member">setMessageProvider</ref>(<ref refid="classImuFullMeasuredDataProviderInterface" kindref="compound">ImuFullMeasuredDataProviderInterface</ref><sp/>*<sp/>dataProvider)<sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="52"><highlight class="normal"></highlight></codeline>
-<codeline lineno="56" refid="classImuFullMeasuredDataRosPublisherInterface_1a4d4fd5aa71065f6ddc52fc8cc9ae06e2" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classImuFullMeasuredDataRosPublisherInterface_1a4d4fd5aa71065f6ddc52fc8cc9ae06e2" kindref="member">publish</ref>()<sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="57"><highlight class="normal"></highlight></codeline>
-<codeline lineno="58"><highlight class="normal"></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="60" refid="classImuFullMeasuredDataRosPublisherInterface_1a2643f9390c283e53bd23bf2978c1da34" refkind="member"><highlight class="normal"><sp/><sp/>std::shared_ptr&lt;rclcpp::Node&gt;<sp/><ref refid="classImuFullMeasuredDataRosPublisherInterface_1a2643f9390c283e53bd23bf2978c1da34" kindref="member">m_node</ref>;</highlight></codeline>
-<codeline lineno="61"><highlight class="normal">};</highlight></codeline>
-<codeline lineno="62"><highlight class="normal"></highlight></codeline>
-<codeline lineno="63"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/></highlight><highlight class="comment">//<sp/>IMU_FULL_MEASURED_DATA_ROS_PUBLISHER_INTERFACE_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">ImuFullMeasuredDataProviderInterface;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36" refid="classadi__imu_1_1ImuFullMeasuredDataRosPublisherInterface" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classadi__imu_1_1ImuFullMeasuredDataRosPublisherInterface" kindref="compound">ImuFullMeasuredDataRosPublisherInterface</ref></highlight></codeline>
+<codeline lineno="37"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="42" refid="classadi__imu_1_1ImuFullMeasuredDataRosPublisherInterface_1afa113ed2f8e2550bbd75b665418eb4c5" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="classadi__imu_1_1ImuFullMeasuredDataRosPublisherInterface_1afa113ed2f8e2550bbd75b665418eb4c5" kindref="member">ImuFullMeasuredDataRosPublisherInterface</ref>()<sp/>{}</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47" refid="classadi__imu_1_1ImuFullMeasuredDataRosPublisherInterface_1ac3b110929d01b501546162887a58d0fd" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="classadi__imu_1_1ImuFullMeasuredDataRosPublisherInterface_1ac3b110929d01b501546162887a58d0fd" kindref="member">~ImuFullMeasuredDataRosPublisherInterface</ref>()<sp/>{}</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53" refid="classadi__imu_1_1ImuFullMeasuredDataRosPublisherInterface_1a17f6f20de3a88ceb8ef9ffd41cc5186a" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classadi__imu_1_1ImuFullMeasuredDataRosPublisherInterface_1a17f6f20de3a88ceb8ef9ffd41cc5186a" kindref="member">setMessageProvider</ref>(<ref refid="classadi__imu_1_1ImuFullMeasuredDataProviderInterface" kindref="compound">ImuFullMeasuredDataProviderInterface</ref><sp/>*<sp/>dataProvider)<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58" refid="classadi__imu_1_1ImuFullMeasuredDataRosPublisherInterface_1a31910b4272b89724cb1e857ee8501e34" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classadi__imu_1_1ImuFullMeasuredDataRosPublisherInterface_1a31910b4272b89724cb1e857ee8501e34" kindref="member">publish</ref>()<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="62" refid="classadi__imu_1_1ImuFullMeasuredDataRosPublisherInterface_1a501b4366c871fc5fdac4da69e2a0b9dd" refkind="member"><highlight class="normal"><sp/><sp/>std::shared_ptr&lt;rclcpp::Node&gt;<sp/><ref refid="classadi__imu_1_1ImuFullMeasuredDataRosPublisherInterface_1a501b4366c871fc5fdac4da69e2a0b9dd" kindref="member">m_node</ref>;</highlight></codeline>
+<codeline lineno="63"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>adi_imu</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/></highlight><highlight class="comment">//<sp/>ADI_IMU__IMU_FULL_MEASURED_DATA_ROS_PUBLISHER_INTERFACE_H_</highlight><highlight class="normal"></highlight></codeline>
     </programlisting>
     <location file="include/adi_imu/imu_full_measured_data_ros_publisher_interface.h"/>
   </compounddef>

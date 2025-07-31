@@ -1,0 +1,97 @@
+\doxysection{adi\+\_\+imu\+::Imu\+Full\+Measured\+Data\+Provider Class Reference}
+\hypertarget{classadi__imu_1_1ImuFullMeasuredDataProvider}{}\label{classadi__imu_1_1ImuFullMeasuredDataProvider}\index{adi\_imu::ImuFullMeasuredDataProvider@{adi\_imu::ImuFullMeasuredDataProvider}}
+
+
+Class for acceleration, angular velocity, delta angle, delta velocity and temperature data provider.  
+
+
+
+
+{\ttfamily \#include $<$imu\+\_\+full\+\_\+measured\+\_\+data\+\_\+provider.\+h$>$}
+
+
+
+Inheritance diagram for adi\+\_\+imu\+::Imu\+Full\+Measured\+Data\+Provider\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=226pt]{classadi__imu_1_1ImuFullMeasuredDataProvider__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for adi\+\_\+imu\+::Imu\+Full\+Measured\+Data\+Provider\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classadi__imu_1_1ImuFullMeasuredDataProvider__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classadi__imu_1_1ImuFullMeasuredDataProvider_a83979542ecbb766bdd9d11261dd96f20}\label{classadi__imu_1_1ImuFullMeasuredDataProvider_a83979542ecbb766bdd9d11261dd96f20} 
+{\bfseries Imu\+Full\+Measured\+Data\+Provider} ()
+\begin{DoxyCompactList}\small\item\em Constructor for \doxylink{classadi__imu_1_1ImuFullMeasuredDataProvider}{Imu\+Full\+Measured\+Data\+Provider}. \end{DoxyCompactList}\item 
+\Hypertarget{classadi__imu_1_1ImuFullMeasuredDataProvider_ab57d146c8e40d566875e2f4bd5bb962a}\label{classadi__imu_1_1ImuFullMeasuredDataProvider_ab57d146c8e40d566875e2f4bd5bb962a} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Imu\+Full\+Measured\+Data\+Provider} ()
+\begin{DoxyCompactList}\small\item\em Destructor for \doxylink{classadi__imu_1_1ImuFullMeasuredDataProvider}{Imu\+Full\+Measured\+Data\+Provider}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classadi__imu_1_1ImuFullMeasuredDataProvider_a738bf13a5794569b4826ec195b7022aa}{get\+Data}} (adi\+\_\+imu\+::msg\+::\+Imu\+Full\+Measured\+Data \&message) override
+\begin{DoxyCompactList}\small\item\em Populate Imu\+Full\+Measured\+Data message with measured data. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classadi__imu_1_1ImuFullMeasuredDataProviderInterface}{adi\+\_\+imu\+::\+Imu\+Full\+Measured\+Data\+Provider\+Interface}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Imu\+Full\+Measured\+Data\+Provider\+Interface} ()
+\begin{DoxyCompactList}\small\item\em Constructor for \doxylink{classadi__imu_1_1ImuFullMeasuredDataProviderInterface}{Imu\+Full\+Measured\+Data\+Provider\+Interface}. \end{DoxyCompactList}\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Imu\+Full\+Measured\+Data\+Provider\+Interface} ()
+\begin{DoxyCompactList}\small\item\em Destructor for \doxylink{classadi__imu_1_1ImuFullMeasuredDataProviderInterface}{Imu\+Full\+Measured\+Data\+Provider\+Interface}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classadi__imu_1_1IIOWrapper}{IIOWrapper}} \mbox{\hyperlink{classadi__imu_1_1ImuFullMeasuredDataProvider_a35372b18fd2b1e258241683dbc4d2f53}{m\+\_\+iio\+\_\+wrapper}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class for acceleration, angular velocity, delta angle, delta velocity and temperature data provider. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classadi__imu_1_1ImuFullMeasuredDataProvider_a738bf13a5794569b4826ec195b7022aa}\label{classadi__imu_1_1ImuFullMeasuredDataProvider_a738bf13a5794569b4826ec195b7022aa} 
+\index{adi\_imu::ImuFullMeasuredDataProvider@{adi\_imu::ImuFullMeasuredDataProvider}!getData@{getData}}
+\index{getData@{getData}!adi\_imu::ImuFullMeasuredDataProvider@{adi\_imu::ImuFullMeasuredDataProvider}}
+\doxysubsubsection{\texorpdfstring{getData()}{getData()}}
+{\footnotesize\ttfamily bool adi\+\_\+imu\+::\+Imu\+Full\+Measured\+Data\+Provider\+::get\+Data (\begin{DoxyParamCaption}\item[{adi\+\_\+imu\+::msg\+::\+Imu\+Full\+Measured\+Data \&}]{message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Populate Imu\+Full\+Measured\+Data message with measured data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & Message containing the measured data. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return true if the message parameter is successfully populated with measured data and false otherwise. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classadi__imu_1_1ImuFullMeasuredDataProviderInterface_a5b207286b0c3b15c4543a7e816681a00}{adi\+\_\+imu\+::\+Imu\+Full\+Measured\+Data\+Provider\+Interface}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classadi__imu_1_1ImuFullMeasuredDataProvider_a35372b18fd2b1e258241683dbc4d2f53}\label{classadi__imu_1_1ImuFullMeasuredDataProvider_a35372b18fd2b1e258241683dbc4d2f53} 
+\index{adi\_imu::ImuFullMeasuredDataProvider@{adi\_imu::ImuFullMeasuredDataProvider}!m\_iio\_wrapper@{m\_iio\_wrapper}}
+\index{m\_iio\_wrapper@{m\_iio\_wrapper}!adi\_imu::ImuFullMeasuredDataProvider@{adi\_imu::ImuFullMeasuredDataProvider}}
+\doxysubsubsection{\texorpdfstring{m\_iio\_wrapper}{m\_iio\_wrapper}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classadi__imu_1_1IIOWrapper}{IIOWrapper}} adi\+\_\+imu\+::\+Imu\+Full\+Measured\+Data\+Provider\+::m\+\_\+iio\+\_\+wrapper\hspace{0.3cm}{\ttfamily [private]}}
+
+This data member is used to access sensor information via libiio. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/adi\+\_\+imu/imu\+\_\+full\+\_\+measured\+\_\+data\+\_\+provider.\+h\item 
+src/imu\+\_\+full\+\_\+measured\+\_\+data\+\_\+provider.\+cpp\end{DoxyCompactItemize}

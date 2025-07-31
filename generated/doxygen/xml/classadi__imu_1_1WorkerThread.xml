@@ -1,0 +1,127 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classadi__imu_1_1WorkerThread" kind="class" language="C++" prot="public">
+    <compoundname>adi_imu::WorkerThread</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">std::thread</basecompoundref>
+    <includes refid="worker__thread_8h" local="no">worker_thread.h</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classadi__imu_1_1WorkerThread_1a45b31cf39c3820920b0135128390cd12" prot="private" static="no" mutable="no">
+        <type><ref refid="classadi__imu_1_1RosTask" kindref="compound">RosTask</ref> *</type>
+        <definition>RosTask* adi_imu::WorkerThread::m_rosTask</definition>
+        <argsstring></argsstring>
+        <name>m_rosTask</name>
+        <qualifiedname>adi_imu::WorkerThread::m_rosTask</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This data member will run the method run on a thread. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/worker_thread.h" line="54" column="12" bodyfile="include/adi_imu/worker_thread.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classadi__imu_1_1WorkerThread_1a037ff54439a1503153235a642af66a52" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>adi_imu::WorkerThread::WorkerThread</definition>
+        <argsstring>(RosTask *rosTask)</argsstring>
+        <name>WorkerThread</name>
+        <qualifiedname>adi_imu::WorkerThread::WorkerThread</qualifiedname>
+        <param>
+          <type><ref refid="classadi__imu_1_1RosTask" kindref="compound">RosTask</ref> *</type>
+          <declname>rosTask</declname>
+        </param>
+        <briefdescription>
+<para>Constructor for <ref refid="classadi__imu_1_1WorkerThread" kindref="compound">WorkerThread</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>rosTask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A class that implements <ref refid="classadi__imu_1_1RosTask" kindref="compound">RosTask</ref> interface. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/worker_thread.h" line="40" column="12" bodyfile="src/worker_thread.cpp" bodystart="25" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="function" id="classadi__imu_1_1WorkerThread_1a790f9870922446ef30396767bd09eabe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>adi_imu::WorkerThread::~WorkerThread</definition>
+        <argsstring>()</argsstring>
+        <name>~WorkerThread</name>
+        <qualifiedname>adi_imu::WorkerThread::~WorkerThread</qualifiedname>
+        <briefdescription>
+<para>Destructor for <ref refid="classadi__imu_1_1WorkerThread" kindref="compound">WorkerThread</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/worker_thread.h" line="45" column="3" bodyfile="src/worker_thread.cpp" bodystart="30" bodyend="30"/>
+      </memberdef>
+      <memberdef kind="function" id="classadi__imu_1_1WorkerThread_1a0143383e5fa99b1e2b49b408e60c0768" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void adi_imu::WorkerThread::runTask</definition>
+        <argsstring>()</argsstring>
+        <name>runTask</name>
+        <qualifiedname>adi_imu::WorkerThread::runTask</qualifiedname>
+        <briefdescription>
+<para>Method that runs on a thread. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/worker_thread.h" line="50" column="8" bodyfile="src/worker_thread.cpp" bodystart="32" bodyend="32"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Class for running a task in a thread. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>adi_imu::WorkerThread</label>
+        <link refid="classadi__imu_1_1WorkerThread"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>std::thread</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>adi_imu::RosTask</label>
+        <link refid="classadi__imu_1_1RosTask"/>
+      </node>
+      <node id="1">
+        <label>adi_imu::WorkerThread</label>
+        <link refid="classadi__imu_1_1WorkerThread"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>m_rosTask</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>std::thread</label>
+      </node>
+    </collaborationgraph>
+    <location file="include/adi_imu/worker_thread.h" line="33" column="1" bodyfile="include/adi_imu/worker_thread.h" bodystart="34" bodyend="55"/>
+    <listofallmembers>
+      <member refid="classadi__imu_1_1WorkerThread_1a45b31cf39c3820920b0135128390cd12" prot="private" virt="non-virtual"><scope>adi_imu::WorkerThread</scope><name>m_rosTask</name></member>
+      <member refid="classadi__imu_1_1WorkerThread_1a0143383e5fa99b1e2b49b408e60c0768" prot="public" virt="non-virtual"><scope>adi_imu::WorkerThread</scope><name>runTask</name></member>
+      <member refid="classadi__imu_1_1WorkerThread_1a037ff54439a1503153235a642af66a52" prot="public" virt="non-virtual"><scope>adi_imu::WorkerThread</scope><name>WorkerThread</name></member>
+      <member refid="classadi__imu_1_1WorkerThread_1a790f9870922446ef30396767bd09eabe" prot="public" virt="non-virtual"><scope>adi_imu::WorkerThread</scope><name>~WorkerThread</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,7 @@
+<map id="adi_imu::ImuDataProvider" name="adi_imu::ImuDataProvider">
+<area shape="rect" id="Node000001" title="Class for standard message sensor_msgs::msg::Imu data provider." alt="" coords="104,108,296,133"/>
+<area shape="rect" id="Node000002" href="$classadi__imu_1_1ImuDataProviderInterface.html" title="Interface for standard message sensor_msgs::msg::Imu data provider." alt="" coords="5,5,197,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="133,53,189,106,186,110,129,57"/>
+<area shape="rect" id="Node000003" href="$classadi__imu_1_1IIOWrapper.html" title="Wrapper class for libiio library for IMU devices." alt="" coords="221,13,376,38"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="278,49,214,110,210,106,275,46"/>
+</map>

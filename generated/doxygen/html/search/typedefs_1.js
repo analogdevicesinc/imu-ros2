@@ -1,9 +1,9 @@
 var searchData=
 [
-  ['getdoubleparams_0',['GetDoubleParams',['../classImuControlParameters.html#a261cfd80e62c8a3362414fddd9f2da93',1,'ImuControlParameters']]],
-  ['getdoubleparamsmaptype_1',['GetDoubleParamsMapType',['../classImuControlParameters.html#a619c7db2b3afced6b9fa7f6f770b9e17',1,'ImuControlParameters']]],
-  ['getint32params_2',['GetInt32Params',['../classImuControlParameters.html#a87949036708585beab3c05aeff113f32',1,'ImuControlParameters']]],
-  ['getint32paramsmaptype_3',['GetInt32ParamsMapType',['../classImuControlParameters.html#a54231d8005b5513dc51d079e11b88cb7',1,'ImuControlParameters']]],
-  ['getuint32params_4',['GetUint32Params',['../classImuControlParameters.html#a82802c01a3698c99b5e0bbd5117f7dd1',1,'ImuControlParameters']]],
-  ['getuint32paramsmaptype_5',['GetUint32ParamsMapType',['../classImuControlParameters.html#aca50889946b53f310ddd2cd1143c951b',1,'ImuControlParameters']]]
+  ['getdoubleparams_0',['GetDoubleParams',['../classadi__imu_1_1ImuControlParameters.html#ad4a5f2b09130ddab16c11e8b52c62371',1,'adi_imu::ImuControlParameters']]],
+  ['getdoubleparamsmaptype_1',['GetDoubleParamsMapType',['../classadi__imu_1_1ImuControlParameters.html#aa3fb7b4ec118ef25dcc1a6403d2013b0',1,'adi_imu::ImuControlParameters']]],
+  ['getint32params_2',['GetInt32Params',['../classadi__imu_1_1ImuControlParameters.html#acdabf97cc14b21a841e0e3901ff3a07a',1,'adi_imu::ImuControlParameters']]],
+  ['getint32paramsmaptype_3',['GetInt32ParamsMapType',['../classadi__imu_1_1ImuControlParameters.html#a61400317173d0b47dbf7e496a2cfda6e',1,'adi_imu::ImuControlParameters']]],
+  ['getuint32params_4',['GetUint32Params',['../classadi__imu_1_1ImuControlParameters.html#aa74819245d4fa96be1f2c8dec49af129',1,'adi_imu::ImuControlParameters']]],
+  ['getuint32paramsmaptype_5',['GetUint32ParamsMapType',['../classadi__imu_1_1ImuControlParameters.html#a2bc1073e6f3808bbe604f52b0dfdfbab',1,'adi_imu::ImuControlParameters']]]
 ];

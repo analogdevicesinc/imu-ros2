@@ -1,0 +1,1136 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="namespaceadi__imu" kind="namespace" language="C++">
+    <compoundname>adi_imu</compoundname>
+    <innerclass refid="classadi__imu_1_1AccelGyroTempDataProvider" prot="public">adi_imu::AccelGyroTempDataProvider</innerclass>
+    <innerclass refid="classadi__imu_1_1AccelGyroTempDataProviderInterface" prot="public">adi_imu::AccelGyroTempDataProviderInterface</innerclass>
+    <innerclass refid="classadi__imu_1_1AccelGyroTempRosPublisher" prot="public">adi_imu::AccelGyroTempRosPublisher</innerclass>
+    <innerclass refid="classadi__imu_1_1AccelGyroTempRosPublisherInterface" prot="public">adi_imu::AccelGyroTempRosPublisherInterface</innerclass>
+    <innerclass refid="classadi__imu_1_1Adis1646xRegisterMap" prot="public">adi_imu::Adis1646xRegisterMap</innerclass>
+    <innerclass refid="classadi__imu_1_1Adis1647xRegisterMap" prot="public">adi_imu::Adis1647xRegisterMap</innerclass>
+    <innerclass refid="classadi__imu_1_1Adis1650xRegisterMap" prot="public">adi_imu::Adis1650xRegisterMap</innerclass>
+    <innerclass refid="classadi__imu_1_1Adis1654xRegisterMap" prot="public">adi_imu::Adis1654xRegisterMap</innerclass>
+    <innerclass refid="classadi__imu_1_1Adis1655xRegisterMap" prot="public">adi_imu::Adis1655xRegisterMap</innerclass>
+    <innerclass refid="classadi__imu_1_1Adis1657xRegisterMap" prot="public">adi_imu::Adis1657xRegisterMap</innerclass>
+    <innerclass refid="classadi__imu_1_1ADISDeviceFactory" prot="public">adi_imu::ADISDeviceFactory</innerclass>
+    <innerclass refid="classadi__imu_1_1ADISDeviceRegistry" prot="public">adi_imu::ADISDeviceRegistry</innerclass>
+    <innerclass refid="classadi__imu_1_1ADISRegisterMap" prot="public">adi_imu::ADISRegisterMap</innerclass>
+    <innerclass refid="classadi__imu_1_1IIOWrapper" prot="public">adi_imu::IIOWrapper</innerclass>
+    <innerclass refid="classadi__imu_1_1ImuControlParameters" prot="public">adi_imu::ImuControlParameters</innerclass>
+    <innerclass refid="classadi__imu_1_1ImuDataProvider" prot="public">adi_imu::ImuDataProvider</innerclass>
+    <innerclass refid="classadi__imu_1_1ImuDataProviderInterface" prot="public">adi_imu::ImuDataProviderInterface</innerclass>
+    <innerclass refid="classadi__imu_1_1ImuDiagDataProvider" prot="public">adi_imu::ImuDiagDataProvider</innerclass>
+    <innerclass refid="classadi__imu_1_1ImuDiagDataProviderInterface" prot="public">adi_imu::ImuDiagDataProviderInterface</innerclass>
+    <innerclass refid="classadi__imu_1_1ImuDiagPublisherFactory" prot="public">adi_imu::ImuDiagPublisherFactory</innerclass>
+    <innerclass refid="classadi__imu_1_1ImuDiagRosPublisher" prot="public">adi_imu::ImuDiagRosPublisher</innerclass>
+    <innerclass refid="classadi__imu_1_1ImuDiagRosPublisherInterface" prot="public">adi_imu::ImuDiagRosPublisherInterface</innerclass>
+    <innerclass refid="classadi__imu_1_1ImuFullMeasuredDataProvider" prot="public">adi_imu::ImuFullMeasuredDataProvider</innerclass>
+    <innerclass refid="classadi__imu_1_1ImuFullMeasuredDataProviderInterface" prot="public">adi_imu::ImuFullMeasuredDataProviderInterface</innerclass>
+    <innerclass refid="classadi__imu_1_1ImuFullMeasuredDataRosPublisher" prot="public">adi_imu::ImuFullMeasuredDataRosPublisher</innerclass>
+    <innerclass refid="classadi__imu_1_1ImuFullMeasuredDataRosPublisherInterface" prot="public">adi_imu::ImuFullMeasuredDataRosPublisherInterface</innerclass>
+    <innerclass refid="classadi__imu_1_1ImuIdentificationDataProvider" prot="public">adi_imu::ImuIdentificationDataProvider</innerclass>
+    <innerclass refid="classadi__imu_1_1ImuIdentificationDataProviderInterface" prot="public">adi_imu::ImuIdentificationDataProviderInterface</innerclass>
+    <innerclass refid="classadi__imu_1_1ImuIdentificationRosPublisher" prot="public">adi_imu::ImuIdentificationRosPublisher</innerclass>
+    <innerclass refid="classadi__imu_1_1ImuIdentificationRosPublisherInterface" prot="public">adi_imu::ImuIdentificationRosPublisherInterface</innerclass>
+    <innerclass refid="classadi__imu_1_1ImuRosPublisher" prot="public">adi_imu::ImuRosPublisher</innerclass>
+    <innerclass refid="classadi__imu_1_1ImuRosPublisherInterface" prot="public">adi_imu::ImuRosPublisherInterface</innerclass>
+    <innerclass refid="classadi__imu_1_1RosPublisherGroup" prot="public">adi_imu::RosPublisherGroup</innerclass>
+    <innerclass refid="classadi__imu_1_1RosPublisherGroupInterface" prot="public">adi_imu::RosPublisherGroupInterface</innerclass>
+    <innerclass refid="classadi__imu_1_1RosTask" prot="public">adi_imu::RosTask</innerclass>
+    <innerclass refid="classadi__imu_1_1VelAngTempDataProvider" prot="public">adi_imu::VelAngTempDataProvider</innerclass>
+    <innerclass refid="classadi__imu_1_1VelAngTempDataProviderInterface" prot="public">adi_imu::VelAngTempDataProviderInterface</innerclass>
+    <innerclass refid="classadi__imu_1_1VelAngTempRosPublisher" prot="public">adi_imu::VelAngTempRosPublisher</innerclass>
+    <innerclass refid="classadi__imu_1_1VelAngTempRosPublisherInterface" prot="public">adi_imu::VelAngTempRosPublisherInterface</innerclass>
+    <innerclass refid="classadi__imu_1_1WorkerThread" prot="public">adi_imu::WorkerThread</innerclass>
+    <sectiondef kind="enum">
+      <memberdef kind="enum" id="adis__register__definitions_8h_1a90eb23ef06b4280c01e9457e425d6a6b" prot="public" static="no" strong="no">
+        <type></type>
+        <name>adis_device_id</name>
+        <qualifiedname>adi_imu::adis_device_id</qualifiedname>
+        <enumvalue id="adis__register__definitions_8h_1a90eb23ef06b4280c01e9457e425d6a6ba4f01f807d676dab4d73233dccd103e24" prot="public">
+          <name>ADIS16465_1</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a90eb23ef06b4280c01e9457e425d6a6ba16344b6bcace1cf59485896e03c4e20e" prot="public">
+          <name>ADIS16465_2</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a90eb23ef06b4280c01e9457e425d6a6ba05b07620f9ad3986bc9ed6810bd9cb66" prot="public">
+          <name>ADIS16465_3</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a90eb23ef06b4280c01e9457e425d6a6baf7ac9a39faba804a10da60d49a04de91" prot="public">
+          <name>ADIS16467_1</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a90eb23ef06b4280c01e9457e425d6a6ba92b3eda8aee8eee4915c5d4f1112d317" prot="public">
+          <name>ADIS16467_2</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a90eb23ef06b4280c01e9457e425d6a6ba75aca47cb6ae5209a4b8f928382269f3" prot="public">
+          <name>ADIS16467_3</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a90eb23ef06b4280c01e9457e425d6a6ba97847a8e311a6437fd83edc545b2568e" prot="public">
+          <name>ADIS16470</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a90eb23ef06b4280c01e9457e425d6a6baa1cdeb77ac93b569118f3c70ff64f07f" prot="public">
+          <name>ADIS16475_1</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a90eb23ef06b4280c01e9457e425d6a6ba2b65272787610052aeefe0e0b9fd3d3d" prot="public">
+          <name>ADIS16475_2</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a90eb23ef06b4280c01e9457e425d6a6ba77ed99a8bad24f21484fa2844bf751c1" prot="public">
+          <name>ADIS16475_3</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a90eb23ef06b4280c01e9457e425d6a6ba892744ece087829faaf3930a56fea7f9" prot="public">
+          <name>ADIS16477_1</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a90eb23ef06b4280c01e9457e425d6a6ba37b8e15d038f0498b58721ae8c458e2d" prot="public">
+          <name>ADIS16477_2</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a90eb23ef06b4280c01e9457e425d6a6ba36a876e8225f44b895bfca1d4149f80d" prot="public">
+          <name>ADIS16477_3</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a90eb23ef06b4280c01e9457e425d6a6ba3c5e7060acaa730319bc463886bb5089" prot="public">
+          <name>ADIS16500</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a90eb23ef06b4280c01e9457e425d6a6ba6cad0508cce0c4e7aee6a72c4cf3844f" prot="public">
+          <name>ADIS16501</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a90eb23ef06b4280c01e9457e425d6a6bac5de3693fe7775688ea28fd28857f25d" prot="public">
+          <name>ADIS16505_1</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a90eb23ef06b4280c01e9457e425d6a6ba76771609a26551b5d5154fca23df6138" prot="public">
+          <name>ADIS16505_2</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a90eb23ef06b4280c01e9457e425d6a6ba0d9c698c5fbc3fe94c84853ebfce9af9" prot="public">
+          <name>ADIS16505_3</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a90eb23ef06b4280c01e9457e425d6a6babcdf32a7568c818a6751c4b327b9b7c1" prot="public">
+          <name>ADIS16507_1</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a90eb23ef06b4280c01e9457e425d6a6ba224363743f3754daec8722d8e6d1ec6c" prot="public">
+          <name>ADIS16507_2</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a90eb23ef06b4280c01e9457e425d6a6ba397db480cf05d4c429400826f29160b2" prot="public">
+          <name>ADIS16507_3</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a90eb23ef06b4280c01e9457e425d6a6ba6c307daa4982164788d3b497d92215c3" prot="public">
+          <name>ADIS16545_1</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a90eb23ef06b4280c01e9457e425d6a6ba8584868754261cf5a2b3493d34206340" prot="public">
+          <name>ADIS16545_2</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a90eb23ef06b4280c01e9457e425d6a6ba1da5cfffb057b2eadf6756c493bfacf9" prot="public">
+          <name>ADIS16545_3</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a90eb23ef06b4280c01e9457e425d6a6baae542b9782e3c628e7f064e59a9b9e5c" prot="public">
+          <name>ADIS16547_1</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a90eb23ef06b4280c01e9457e425d6a6bac1b01680be8c22295b37e2f80df58eab" prot="public">
+          <name>ADIS16547_2</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a90eb23ef06b4280c01e9457e425d6a6bad4a1a718b6ca37797345798efc44946c" prot="public">
+          <name>ADIS16547_3</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a90eb23ef06b4280c01e9457e425d6a6baf0d5c6d54cb9a37ca0bc1a6ede4efb4d" prot="public">
+          <name>ADIS16550</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a90eb23ef06b4280c01e9457e425d6a6ba44c25cabe3d20211e1db544eb184c578" prot="public">
+          <name>ADIS16575_2</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a90eb23ef06b4280c01e9457e425d6a6ba47d1d306cec7748ce2c0720d2489e489" prot="public">
+          <name>ADIS16575_3</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a90eb23ef06b4280c01e9457e425d6a6ba8ccdc6414532204a6948d60f70fb426d" prot="public">
+          <name>ADIS16576_2</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a90eb23ef06b4280c01e9457e425d6a6ba5f5f995d9fbaef0c69fc5a42715ed20c" prot="public">
+          <name>ADIS16576_3</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a90eb23ef06b4280c01e9457e425d6a6bad51b7296d1a0f64ae7aae03ba0594ac2" prot="public">
+          <name>ADIS16577_2</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a90eb23ef06b4280c01e9457e425d6a6badb058fa0ff4a0653b246345e1f1f94f9" prot="public">
+          <name>ADIS16577_3</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/utils/adis_register_definitions.h" line="30" column="1" bodyfile="include/adi_imu/utils/adis_register_definitions.h" bodystart="31" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="enum" id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451d" prot="public" static="no" strong="yes">
+        <type>uint32_t</type>
+        <name>ADISRegister</name>
+        <qualifiedname>adi_imu::ADISRegister</qualifiedname>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451daa9ae9ac7f9cad87049b68b1a001a46ad" prot="public">
+          <name>FLS_MEM_ENDURANCE</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451dabf91e5b1367c8f5ac1eee8124302305e" prot="public">
+          <name>MAX_SAMP_FREQ</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451dadc0caae805194ecc01319d7c45989edb" prot="public">
+          <name>HAS_DELTA_BURST</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451da330b6a973a7f094ff6127246e195b6be" prot="public">
+          <name>HAS_CALIB_SCALE</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451daa577a35a0a26daae5449f5a52078c23b" prot="public">
+          <name>PAGE_ID_VAL</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451da86daa81569e076811990ab5469ebaacb" prot="public">
+          <name>GLOB_CMD_PAGE_ID</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451da0de6e0f33b9355a270182b7634f9e4ed" prot="public">
+          <name>GLOB_CMD_ADDR_WITHOUT_PAGE</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451da4a36c58915e067af7ea2e86192357696" prot="public">
+          <name>GLOB_CMD_ADDR</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451daf92950364a1cf0048912db01c7bb43cf" prot="public">
+          <name>DIAG_STAT_PAGE_ID</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451daa6613213b729be03a1cdfbaf89c5510c" prot="public">
+          <name>DIAG_STAT_ADDR_WITHOUT_PAGE</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451da9bf0b7b587b163ed821ff84b0f582e8d" prot="public">
+          <name>DIAG_STAT_ADDR</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451da7cc699ffb9bb3a39e9dfdc5109548f59" prot="public">
+          <name>CRC_ERROR_POS</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451dae809e5f58809b80ab1d9d70b369756e5" prot="public">
+          <name>DIAG_STS_PAGE_ID</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451da89adc5f4beb7670b061d277108eba55c" prot="public">
+          <name>DIAG_STS_REG_WITHOUT_PAGE</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451dafc9d02456d514789e23d2f5c17b2e20c" prot="public">
+          <name>DIAG_STS_REG</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451da1dd798e92743b22d1bad3d5fbb5ff5f3" prot="public">
+          <name>GYRO_ACCEL_FAIL_REG</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451daff021ca2da4f8ada1ca787bc5e7982a7" prot="public">
+          <name>GYRO_X_FAIL_POS</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451da06b8760ba9340c7dbef0a4357ec15294" prot="public">
+          <name>GYRO_Y_FAIL_POS</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451daf67fd74fb03b19e3c00db9912a4b876e" prot="public">
+          <name>GYRO_Z_FAIL_POS</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451da3b950c961c1a9c488ded371eab6aea70" prot="public">
+          <name>ACCEL_X_FAIL_POS</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451daa25e2006e3c380ab3a9c09638b952573" prot="public">
+          <name>ACCEL_Y_FAIL_POS</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451daea5912f39ed0adda6ac7c685d3301755" prot="public">
+          <name>ACCEL_Z_FAIL_POS</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451dad55beecfb6c036d3380ae87d1b533505" prot="public">
+          <name>ADUC_MCU_FAULT_POS</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451dac1782e8f4131ce8f7fc54d89a2608cde" prot="public">
+          <name>GYRO_X_FAIL</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451dad564705943d249f8b891f8d26dc02be0" prot="public">
+          <name>GYRO_Y_FAIL</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451dab9ab88fc2c5a69c6a21fcf95043a137b" prot="public">
+          <name>GYRO_Z_FAIL</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451dacbf8576f6a4706b1b16e16be848edc4c" prot="public">
+          <name>ACCEL_X_FAIL</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451dad01c8fe35e16bddf75fe740308cb9fbd" prot="public">
+          <name>ACCEL_Y_FAIL</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451dad8a225e959f8adcf087c39abafdea885" prot="public">
+          <name>ACCEL_Z_FAIL</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451dafeb98b2b2602471822c765a8b04228a7" prot="public">
+          <name>RANG_MDL_PAGE_ID</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451da916071bd0fa84e7554145704b28ee404" prot="public">
+          <name>RANG_MDL_ADDR_WITHOUT_PAGE</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451da65db4b5c2f570918d5cbcc68922ace5c" prot="public">
+          <name>RANG_MDL_ADDR</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451da47f47f5ae45111e3154aeba424f725b8" prot="public">
+          <name>PT_OF_PERC_PAGE_ID</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451daa5e40048932974313e7adf28e1d1218b" prot="public">
+          <name>PT_OF_PERC_REG_ADDR_WITHOUT_PAGE</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451dabc71dd20d9f307b87b330dfb78420435" prot="public">
+          <name>PT_OF_PERC_REG_ADDR</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451da5601ebc9a6ea8b20d0d1c8c74115a1ab" prot="public">
+          <name>PT_OF_PERC_ALGNMNT_POS</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451daabbc4dcb1260a4639fef799fae2b9855" prot="public">
+          <name>PT_OF_PERC_ALGNMNT</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451da95bda94ea5c9ec0bee0a0bd2843edb30" prot="public">
+          <name>NULL_CNFG_PAGE_ID</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451da4c6eb2ce669548804fb7a932f77e4e28" prot="public">
+          <name>NULL_CNFG_ADDR_WITHOUT_PAGE</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451daab345004a139e9caf033a503022ba63f" prot="public">
+          <name>NULL_CNFG_ADDR</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451daec74a24b50158b1c824411267681a0d0" prot="public">
+          <name>DELTANG_X_LOW_REG</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451da1426de813f50def64991d2849611df88" prot="public">
+          <name>DELTANG_X_OUT_REG</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451da5dcf4504638c4da24c4165fb3e2469ec" prot="public">
+          <name>DELTANG_Y_LOW_REG</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451da34b04e2053b2531b6f8174d44ec61fcf" prot="public">
+          <name>DELTANG_Y_OUT_REG</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451da0b334c01cd036abfc046e1fbfd5248dc" prot="public">
+          <name>DELTANG_Z_LOW_REG</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451dae3ed84dee7c244e566cec40548ce1eee" prot="public">
+          <name>DELTANG_Z_OUT_REG</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451dae0a754ce65ca895e19589277dc2eac1b" prot="public">
+          <name>DELTVEL_X_LOW_REG</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451daa591f484898b709fab35f74c60806b71" prot="public">
+          <name>DELTVEL_X_OUT_REG</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451dae136f75956082f7f6204f81ac956702e" prot="public">
+          <name>DELTVEL_Y_LOW_REG</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451dabfdcc85f034a8bccf9083b14c32e4292" prot="public">
+          <name>DELTVEL_Y_OUT_REG</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451da31903a05b066562ae472952dd5ed172a" prot="public">
+          <name>DELTVEL_Z_LOW_REG</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451dad519d37a9ec89eabfd0f5ed9cc250b8b" prot="public">
+          <name>DELTVEL_Z_OUT_REG</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451da0077ac8f1a6360c64dc91dfee940e221" prot="public">
+          <name>MSC_CTRL_ADDR</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451da3908fb6e0c3ce5bc8ca1a9bc5aa42199" prot="public">
+          <name>SNSR_INIT_FAIL_POS</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451da3795151b295f5120b5768610b57dd3a4" prot="public">
+          <name>SNSR_FAIL_POS</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451da9530288d92254cc329d68699f76e562b" prot="public">
+          <name>DATA_PATH_OVERRUN_POS</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451da847d50803e37b70a181f7a42de965a4f" prot="public">
+          <name>FLS_MEM_UPDATE_FAIL_POS</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451da9cb56fdd0c77d53e4a4ce614c4a71d42" prot="public">
+          <name>SPI_COMM_ERR_POS</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451dad90b5a39a8d7aed56d61844dfc9e2b0c" prot="public">
+          <name>STDBY_MODE_POS</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451da32eeb90fe0f1cc1f024c267c77ddf0e7" prot="public">
+          <name>MEM_FAIL_POS</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451da73fdd81cace265568ed83f56fa6d0516" prot="public">
+          <name>ADUC_MCU_FAULT</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451dab4665b59ca490a4ea732ace53ccd9bd8" prot="public">
+          <name>CLK_ERR_POS</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451da891ff60077e09a89b46ae0e0ed358f83" prot="public">
+          <name>WDG_TIMER_FLAG_POS</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451dae76a72983490b30d1fdee9c1e50ff947" prot="public">
+          <name>GYRO1_FAIL_POS</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451dac55b9e88c370d76a5d4edef923899641" prot="public">
+          <name>GYRO2_FAIL_POS</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451da13b139a23d4924e43641dbccc8024778" prot="public">
+          <name>ACCEL_FAIL_POS</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451da29bd05cf802d3ca18e8b62263ab08d99" prot="public">
+          <name>GYRO_MEAS_RANG_POS</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451da71366bd447bc4204976480ba6ca2ee33" prot="public">
+          <name>DR_POL_POS</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451da673ac0c9b9c2c7517facf35ec86a25c9" prot="public">
+          <name>SYNC_POL_POS</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451da1384663fa03cc9a9e7a2c3616b8a2f38" prot="public">
+          <name>SENS_BW_POS</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451da2db18b7c17841dce477c2e1db4ccbd8b" prot="public">
+          <name>LN_ACCL_COMP_POS</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451da8323d1d6a7cc44dd7c067779cc5c9429" prot="public">
+          <name>TIME_BASE_CONTROL_POS</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451da841d4fc3d9c892d68a715d24484267d2" prot="public">
+          <name>X_AXIS_GYRO_BIAS_CORR_EN_POS</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451da0d65929a452633436b6f0c5b8ca6e10b" prot="public">
+          <name>Y_AXIS_GYRO_BIAS_CORR_EN_POS</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451da3a75528f008eba66fb6f2496c8f2fe85" prot="public">
+          <name>Z_AXIS_GYRO_BIAS_CORR_EN_POS</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451da4adf001ac2b4b9a52f60c280b03ec34d" prot="public">
+          <name>X_AXIS_ACCEL_BIAS_CORR_EN_POS</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451daed96d82dda582f345024e1e86d2d964d" prot="public">
+          <name>Y_AXIS_ACCEL_BIAS_CORR_EN_POS</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451dada834aeb1222fb873cd4260f91d2f3a4" prot="public">
+          <name>Z_AXIS_ACCEL_BIAS_CORR_EN_POS</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451dafaf6b742ba8b902ee56104c8f184f63c" prot="public">
+          <name>BIAS_CORRECTION_UPDATE_POS</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451da29ac171b3cca6c08c8f0c55aaa63207c" prot="public">
+          <name>FACTORY_CALIBRATION_RESTORE_POS</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451da1b7ca8cb682e08e0eba0f2abefd18a46" prot="public">
+          <name>SENSOR_SELF_TEST_POS</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451daadddf3e8d5ae21666a3ee825dfaa961e" prot="public">
+          <name>FLASH_MEMORY_UPDATE_POS</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451da0a20d375ebae908842c024930fc9d7d2" prot="public">
+          <name>FLASH_MEMORY_TEST_POS</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451da942b3d9561926a74038b83ecdcfe9991" prot="public">
+          <name>SOFTWARE_RESET_CMD_POS</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451da9887e7b47699b32ab565b0c5ef65e9c6" prot="public">
+          <name>BIAS_CORRECTION_UPDATE</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451da1c3a035697a9306fd79420c02a3608db" prot="public">
+          <name>FACTORY_CALIBRATION_RESTORE</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451dacd865e0eeaa16bc3461a73c59d45da02" prot="public">
+          <name>SENSOR_SELF_TEST</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451da461846831277d4f8738f01c2c8f07330" prot="public">
+          <name>FLASH_MEMORY_UPDATE</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451da830a35f41079cfd39b3d0d03c4ad261f" prot="public">
+          <name>FLASH_MEMORY_TEST</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451dac5ea479ef077a96d69d6eaff98541eeb" prot="public">
+          <name>SOFTWARE_RESET_CMD</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451da389107b5081793997f0a1a49f484c957" prot="public">
+          <name>DATA_PATH_OVERRUN</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451daf2e1b601e02fb5a70aa5e5491e55b2f6" prot="public">
+          <name>WDG_TIMER_FLAG</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451da069bd7d8afcce0dcd70e3a9499b7f6f8" prot="public">
+          <name>FLS_MEM_UPDATE_FAIL</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451da82cfb03e3a1eda1ed6c93faece0447c2" prot="public">
+          <name>SPI_COMM_ERR</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451da39ef61f5a68e0c86a59fa4ad9191954e" prot="public">
+          <name>STDBY_MODE</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451da67d89defac3939232ff7eee1ff01557c" prot="public">
+          <name>SNSR_INIT_FAIL</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451da89714bbb09b2b2e041abdfa501c5f387" prot="public">
+          <name>SNSR_FAIL</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451daf2e283d71794fcfa88d50e8df48e8bee" prot="public">
+          <name>MEM_FAIL</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451dafde7dcbac92720d696e3ef02bf6435db" prot="public">
+          <name>CRC_ERROR</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451dab614021201b639f820041094fd145b23" prot="public">
+          <name>CLK_ERR</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451da87294b1492b72b26c114733cde8284e2" prot="public">
+          <name>GYRO1_FAIL</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451da58851c0a9dc9a427df5eddfe37d92576" prot="public">
+          <name>GYRO2_FAIL</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451da7a4c736d6560d06bf37c210f61894b2e" prot="public">
+          <name>ACCEL_FAIL</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451da10bc68d4e21fd99e40c88e0d01dec1f4" prot="public">
+          <name>GYRO_MEAS_RANG</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451daa9bd00921be6df546986e00e66cc82d5" prot="public">
+          <name>DR_POL</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451daedda91443dcd5736bf6d1502f4bc1828" prot="public">
+          <name>SYNC_POL</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451daaf04699b98e3e45aeb446bdf87149d7f" prot="public">
+          <name>SENS_BW</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451da7d08992e407a54b2f553752d0a90a3de" prot="public">
+          <name>LN_ACCL_COMP</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451dad6b0a0aedb1d1062a9263ebb805616cc" prot="public">
+          <name>TIME_BASE_CONTROL</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451dae8d59b7d5e8ba72aba9fff9f5d305900" prot="public">
+          <name>X_AXIS_GYRO_BIAS_CORR_EN</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451da067dda50fd81668c36ecaf248233179f" prot="public">
+          <name>Y_AXIS_GYRO_BIAS_CORR_EN</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451da896ec3e5e45469d76aff54022b013d97" prot="public">
+          <name>Z_AXIS_GYRO_BIAS_CORR_EN</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451dad22e47a014de00e8944e9ba264acd8e3" prot="public">
+          <name>X_AXIS_ACCEL_BIAS_CORR_EN</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451daafb1072a96abd626f264811ca51859d9" prot="public">
+          <name>Y_AXIS_ACCEL_BIAS_CORR_EN</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451da6fa1e02d1145886afc0e0ee5ccaa9782" prot="public">
+          <name>Z_AXIS_ACCEL_BIAS_CORR_EN</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/utils/adis_register_definitions.h" line="69" column="1" bodyfile="include/adi_imu/utils/adis_register_definitions.h" bodystart="70" bodyend="215"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="adis__register__definitions_8h_1a7dfad2cb7a05467d966f48540258aba7" prot="public" static="no" mutable="no">
+        <type>const std::unordered_map&lt; ADISRegister, std::string &gt;</type>
+        <definition>const std::unordered_map&lt; ADISRegister, std::string &gt; adi_imu::registerNames</definition>
+        <argsstring></argsstring>
+        <name>registerNames</name>
+        <qualifiedname>adi_imu::registerNames</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/utils/adis_register_definitions.h" line="217" column="26" bodyfile="include/adi_imu/utils/adis_register_definitions.h" bodystart="217" bodyend="364" declfile="src/adis_register_map.cpp" declline="24" declcolumn="33"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/adi_imu/accelgyrotemp_data_provider.h" line="27" column="1"/>
+  </compounddef>
+</doxygen>

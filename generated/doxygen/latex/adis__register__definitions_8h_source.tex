@@ -1,0 +1,374 @@
+\doxysection{adis\+\_\+register\+\_\+definitions.\+h}
+\hypertarget{adis__register__definitions_8h_source}{}\label{adis__register__definitions_8h_source}\index{include/adi\_imu/utils/adis\_register\_definitions.h@{include/adi\_imu/utils/adis\_register\_definitions.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ Copyright\ 2025\ Analog\ Devices,\ Inc.}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//\ Licensed\ under\ the\ Apache\ License,\ Version\ 2.0\ (the\ "{}License"{});}}
+\DoxyCodeLine{00004\ \textcolor{comment}{//\ you\ may\ not\ use\ this\ file\ except\ in\ compliance\ with\ the\ License.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{//\ You\ may\ obtain\ a\ copy\ of\ the\ License\ at}}
+\DoxyCodeLine{00006\ \textcolor{comment}{//}}
+\DoxyCodeLine{00007\ \textcolor{comment}{//\ \ \ \ \ http://www.apache.org/licenses/LICENSE-\/2.0}}
+\DoxyCodeLine{00008\ \textcolor{comment}{//}}
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ Unless\ required\ by\ applicable\ law\ or\ agreed\ to\ in\ writing,\ software}}
+\DoxyCodeLine{00010\ \textcolor{comment}{//\ distributed\ under\ the\ License\ is\ distributed\ on\ an\ "{}AS\ IS"{}\ BASIS,}}
+\DoxyCodeLine{00011\ \textcolor{comment}{//\ WITHOUT\ WARRANTIES\ OR\ CONDITIONS\ OF\ ANY\ KIND,\ either\ express\ or\ implied.}}
+\DoxyCodeLine{00012\ \textcolor{comment}{//\ See\ the\ License\ for\ the\ specific\ language\ governing\ permissions\ and}}
+\DoxyCodeLine{00013\ \textcolor{comment}{//\ limitations\ under\ the\ License.}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#ifndef\ ADI\_IMU\_\_UTILS\_\_ADIS\_REGISTER\_DEFINITIONS\_H\_}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#define\ ADI\_IMU\_\_UTILS\_\_ADIS\_REGISTER\_DEFINITIONS\_H\_}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <cstdint>}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <unordered\_map>}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{constexpr}\ int32\_t\ DELTAVEL\_DELTAANG\_BUFFERED\_DATA\ =\ 0;}
+\DoxyCodeLine{00023\ \textcolor{keyword}{constexpr}\ int32\_t\ ACCEL\_GYRO\_BUFFERED\_DATA\ =\ 1;}
+\DoxyCodeLine{00024\ \textcolor{keyword}{constexpr}\ int32\_t\ IMU\_STD\_MSG\_DATA\ =\ 2;}
+\DoxyCodeLine{00025\ \textcolor{keyword}{constexpr}\ int32\_t\ FULL\_MEASURED\_DATA\ =\ 3;}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{keyword}{namespace\ }adi\_imu}
+\DoxyCodeLine{00028\ \{}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{keyword}{enum}\ adis\_device\_id}
+\DoxyCodeLine{00031\ \{}
+\DoxyCodeLine{00032\ \ \ ADIS16465\_1,}
+\DoxyCodeLine{00033\ \ \ ADIS16465\_2,}
+\DoxyCodeLine{00034\ \ \ ADIS16465\_3,}
+\DoxyCodeLine{00035\ \ \ ADIS16467\_1,}
+\DoxyCodeLine{00036\ \ \ ADIS16467\_2,}
+\DoxyCodeLine{00037\ \ \ ADIS16467\_3,}
+\DoxyCodeLine{00038\ \ \ ADIS16470,}
+\DoxyCodeLine{00039\ \ \ ADIS16475\_1,}
+\DoxyCodeLine{00040\ \ \ ADIS16475\_2,}
+\DoxyCodeLine{00041\ \ \ ADIS16475\_3,}
+\DoxyCodeLine{00042\ \ \ ADIS16477\_1,}
+\DoxyCodeLine{00043\ \ \ ADIS16477\_2,}
+\DoxyCodeLine{00044\ \ \ ADIS16477\_3,}
+\DoxyCodeLine{00045\ \ \ ADIS16500,}
+\DoxyCodeLine{00046\ \ \ ADIS16501,}
+\DoxyCodeLine{00047\ \ \ ADIS16505\_1,}
+\DoxyCodeLine{00048\ \ \ ADIS16505\_2,}
+\DoxyCodeLine{00049\ \ \ ADIS16505\_3,}
+\DoxyCodeLine{00050\ \ \ ADIS16507\_1,}
+\DoxyCodeLine{00051\ \ \ ADIS16507\_2,}
+\DoxyCodeLine{00052\ \ \ ADIS16507\_3,}
+\DoxyCodeLine{00053\ \ \ ADIS16545\_1,}
+\DoxyCodeLine{00054\ \ \ ADIS16545\_2,}
+\DoxyCodeLine{00055\ \ \ ADIS16545\_3,}
+\DoxyCodeLine{00056\ \ \ ADIS16547\_1,}
+\DoxyCodeLine{00057\ \ \ ADIS16547\_2,}
+\DoxyCodeLine{00058\ \ \ ADIS16547\_3,}
+\DoxyCodeLine{00059\ \ \ ADIS16550,}
+\DoxyCodeLine{00060\ \ \ ADIS16575\_2,}
+\DoxyCodeLine{00061\ \ \ ADIS16575\_3,}
+\DoxyCodeLine{00062\ \ \ ADIS16576\_2,}
+\DoxyCodeLine{00063\ \ \ ADIS16576\_3,}
+\DoxyCodeLine{00064\ \ \ ADIS16577\_2,}
+\DoxyCodeLine{00065\ \ \ ADIS16577\_3,}
+\DoxyCodeLine{00066\ \};}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \textcolor{comment}{//\ Single\ enum\ for\ all\ possible\ registers\ and\ bits\ across\ all\ ADIS\ devices}}
+\DoxyCodeLine{00069\ \textcolor{keyword}{enum\ class}\ ADISRegister\ :\ uint32\_t}
+\DoxyCodeLine{00070\ \{}
+\DoxyCodeLine{00071\ \ \ \textcolor{comment}{//\ Device\ capabilities}}
+\DoxyCodeLine{00072\ \ \ FLS\_MEM\_ENDURANCE,}
+\DoxyCodeLine{00073\ \ \ MAX\_SAMP\_FREQ,}
+\DoxyCodeLine{00074\ \ \ HAS\_DELTA\_BURST,}
+\DoxyCodeLine{00075\ \ \ HAS\_CALIB\_SCALE,}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \ \ \textcolor{comment}{//\ Value\ to\ add\ to\ reg\ addr\ per\ page}}
+\DoxyCodeLine{00078\ \ \ PAGE\_ID\_VAL,}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \ \ \textcolor{comment}{//\ Global\ commands}}
+\DoxyCodeLine{00081\ \ \ GLOB\_CMD\_PAGE\_ID,}
+\DoxyCodeLine{00082\ \ \ GLOB\_CMD\_ADDR\_WITHOUT\_PAGE,}
+\DoxyCodeLine{00083\ \ \ GLOB\_CMD\_ADDR,}
+\DoxyCodeLine{00084\ \ \ \textcolor{comment}{//\ Status\ and\ error\ flag\ indication}}
+\DoxyCodeLine{00085\ \ \ DIAG\_STAT\_PAGE\_ID,}
+\DoxyCodeLine{00086\ \ \ DIAG\_STAT\_ADDR\_WITHOUT\_PAGE,}
+\DoxyCodeLine{00087\ \ \ DIAG\_STAT\_ADDR,}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \ \ CRC\_ERROR\_POS,}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \ \ \textcolor{comment}{//\ self\ test\ error\ flags}}
+\DoxyCodeLine{00092\ \ \ DIAG\_STS\_PAGE\_ID,}
+\DoxyCodeLine{00093\ \ \ DIAG\_STS\_REG\_WITHOUT\_PAGE,}
+\DoxyCodeLine{00094\ \ \ DIAG\_STS\_REG,}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \ \ GYRO\_ACCEL\_FAIL\_REG,}
+\DoxyCodeLine{00097\ \ \ GYRO\_X\_FAIL\_POS,}
+\DoxyCodeLine{00098\ \ \ GYRO\_Y\_FAIL\_POS,}
+\DoxyCodeLine{00099\ \ \ GYRO\_Z\_FAIL\_POS,}
+\DoxyCodeLine{00100\ \ \ ACCEL\_X\_FAIL\_POS,}
+\DoxyCodeLine{00101\ \ \ ACCEL\_Y\_FAIL\_POS,}
+\DoxyCodeLine{00102\ \ \ ACCEL\_Z\_FAIL\_POS,}
+\DoxyCodeLine{00103\ \ \ ADUC\_MCU\_FAULT\_POS,}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \ \ GYRO\_X\_FAIL,}
+\DoxyCodeLine{00106\ \ \ GYRO\_Y\_FAIL,}
+\DoxyCodeLine{00107\ \ \ GYRO\_Z\_FAIL,}
+\DoxyCodeLine{00108\ \ \ ACCEL\_X\_FAIL,}
+\DoxyCodeLine{00109\ \ \ ACCEL\_Y\_FAIL,}
+\DoxyCodeLine{00110\ \ \ ACCEL\_Z\_FAIL,}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00112\ \ \ \textcolor{comment}{//\ measurement\ range\ identifier}}
+\DoxyCodeLine{00113\ \ \ RANG\_MDL\_PAGE\_ID,}
+\DoxyCodeLine{00114\ \ \ RANG\_MDL\_ADDR\_WITHOUT\_PAGE,}
+\DoxyCodeLine{00115\ \ \ RANG\_MDL\_ADDR,}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \ \ \textcolor{comment}{//\ point\ of\ percussion}}
+\DoxyCodeLine{00118\ \ \ PT\_OF\_PERC\_PAGE\_ID,}
+\DoxyCodeLine{00119\ \ \ PT\_OF\_PERC\_REG\_ADDR\_WITHOUT\_PAGE,}
+\DoxyCodeLine{00120\ \ \ PT\_OF\_PERC\_REG\_ADDR,}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \ \ PT\_OF\_PERC\_ALGNMNT\_POS,}
+\DoxyCodeLine{00123\ \ \ PT\_OF\_PERC\_ALGNMNT,}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \ \ \textcolor{comment}{//\ continuous\ bias\ estimation}}
+\DoxyCodeLine{00126\ \ \ NULL\_CNFG\_PAGE\_ID,}
+\DoxyCodeLine{00127\ \ \ NULL\_CNFG\_ADDR\_WITHOUT\_PAGE,}
+\DoxyCodeLine{00128\ \ \ NULL\_CNFG\_ADDR,}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ \ \ \textcolor{comment}{//\ Delta\ burst\ registers}}
+\DoxyCodeLine{00131\ \ \ DELTANG\_X\_LOW\_REG,}
+\DoxyCodeLine{00132\ \ \ DELTANG\_X\_OUT\_REG,}
+\DoxyCodeLine{00133\ \ \ DELTANG\_Y\_LOW\_REG,}
+\DoxyCodeLine{00134\ \ \ DELTANG\_Y\_OUT\_REG,}
+\DoxyCodeLine{00135\ \ \ DELTANG\_Z\_LOW\_REG,}
+\DoxyCodeLine{00136\ \ \ DELTANG\_Z\_OUT\_REG,}
+\DoxyCodeLine{00137\ \ \ DELTVEL\_X\_LOW\_REG,}
+\DoxyCodeLine{00138\ \ \ DELTVEL\_X\_OUT\_REG,}
+\DoxyCodeLine{00139\ \ \ DELTVEL\_Y\_LOW\_REG,}
+\DoxyCodeLine{00140\ \ \ DELTVEL\_Y\_OUT\_REG,}
+\DoxyCodeLine{00141\ \ \ DELTVEL\_Z\_LOW\_REG,}
+\DoxyCodeLine{00142\ \ \ DELTVEL\_Z\_OUT\_REG,}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00144\ \ \ \textcolor{comment}{//\ Register\ addresses}}
+\DoxyCodeLine{00145\ \ \ MSC\_CTRL\_ADDR,}
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00147\ \ \ \textcolor{comment}{//\ Bit\ positions}}
+\DoxyCodeLine{00148\ \ \ SNSR\_INIT\_FAIL\_POS,\ \ \textcolor{comment}{//\ adis1657x}}
+\DoxyCodeLine{00149\ \ \ SNSR\_FAIL\_POS,}
+\DoxyCodeLine{00150\ \ \ DATA\_PATH\_OVERRUN\_POS,}
+\DoxyCodeLine{00151\ \ \ FLS\_MEM\_UPDATE\_FAIL\_POS,}
+\DoxyCodeLine{00152\ \ \ SPI\_COMM\_ERR\_POS,}
+\DoxyCodeLine{00153\ \ \ STDBY\_MODE\_POS,}
+\DoxyCodeLine{00154\ \ \ MEM\_FAIL\_POS,}
+\DoxyCodeLine{00155\ \ \ ADUC\_MCU\_FAULT,}
+\DoxyCodeLine{00156\ \ \ CLK\_ERR\_POS,}
+\DoxyCodeLine{00157\ \ \ WDG\_TIMER\_FLAG\_POS,}
+\DoxyCodeLine{00158\ \ \ GYRO1\_FAIL\_POS,}
+\DoxyCodeLine{00159\ \ \ GYRO2\_FAIL\_POS,}
+\DoxyCodeLine{00160\ \ \ ACCEL\_FAIL\_POS,}
+\DoxyCodeLine{00161\ \ \ GYRO\_MEAS\_RANG\_POS,}
+\DoxyCodeLine{00162\ \ \ DR\_POL\_POS,}
+\DoxyCodeLine{00163\ \ \ SYNC\_POL\_POS,}
+\DoxyCodeLine{00164\ \ \ SENS\_BW\_POS,}
+\DoxyCodeLine{00165\ \ \ LN\_ACCL\_COMP\_POS,}
+\DoxyCodeLine{00166\ \ \ TIME\_BASE\_CONTROL\_POS,}
+\DoxyCodeLine{00167\ \ \ X\_AXIS\_GYRO\_BIAS\_CORR\_EN\_POS,}
+\DoxyCodeLine{00168\ \ \ Y\_AXIS\_GYRO\_BIAS\_CORR\_EN\_POS,}
+\DoxyCodeLine{00169\ \ \ Z\_AXIS\_GYRO\_BIAS\_CORR\_EN\_POS,}
+\DoxyCodeLine{00170\ \ \ X\_AXIS\_ACCEL\_BIAS\_CORR\_EN\_POS,}
+\DoxyCodeLine{00171\ \ \ Y\_AXIS\_ACCEL\_BIAS\_CORR\_EN\_POS,}
+\DoxyCodeLine{00172\ \ \ Z\_AXIS\_ACCEL\_BIAS\_CORR\_EN\_POS,}
+\DoxyCodeLine{00173\ }
+\DoxyCodeLine{00174\ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00175\ \ \ BIAS\_CORRECTION\_UPDATE\_POS,}
+\DoxyCodeLine{00176\ \ \ FACTORY\_CALIBRATION\_RESTORE\_POS,}
+\DoxyCodeLine{00177\ \ \ SENSOR\_SELF\_TEST\_POS,}
+\DoxyCodeLine{00178\ \ \ FLASH\_MEMORY\_UPDATE\_POS,}
+\DoxyCodeLine{00179\ \ \ FLASH\_MEMORY\_TEST\_POS,\ \ \textcolor{comment}{//\ added\ by\ bogdan!!}}
+\DoxyCodeLine{00180\ \ \ SOFTWARE\_RESET\_CMD\_POS,}
+\DoxyCodeLine{00181\ }
+\DoxyCodeLine{00182\ \ \ BIAS\_CORRECTION\_UPDATE,}
+\DoxyCodeLine{00183\ \ \ FACTORY\_CALIBRATION\_RESTORE,}
+\DoxyCodeLine{00184\ \ \ SENSOR\_SELF\_TEST,}
+\DoxyCodeLine{00185\ \ \ FLASH\_MEMORY\_UPDATE,}
+\DoxyCodeLine{00186\ \ \ FLASH\_MEMORY\_TEST,}
+\DoxyCodeLine{00187\ \ \ SOFTWARE\_RESET\_CMD,}
+\DoxyCodeLine{00188\ }
+\DoxyCodeLine{00189\ \ \ \textcolor{comment}{//\ Computed\ bit\ masks}}
+\DoxyCodeLine{00190\ \ \ DATA\_PATH\_OVERRUN,}
+\DoxyCodeLine{00191\ \ \ WDG\_TIMER\_FLAG,}
+\DoxyCodeLine{00192\ \ \ FLS\_MEM\_UPDATE\_FAIL,}
+\DoxyCodeLine{00193\ \ \ SPI\_COMM\_ERR,}
+\DoxyCodeLine{00194\ \ \ STDBY\_MODE,}
+\DoxyCodeLine{00195\ \ \ SNSR\_INIT\_FAIL,\ \ \textcolor{comment}{//\ adis1657x}}
+\DoxyCodeLine{00196\ \ \ SNSR\_FAIL,}
+\DoxyCodeLine{00197\ \ \ MEM\_FAIL,}
+\DoxyCodeLine{00198\ \ \ CRC\_ERROR,}
+\DoxyCodeLine{00199\ \ \ CLK\_ERR,}
+\DoxyCodeLine{00200\ \ \ GYRO1\_FAIL,}
+\DoxyCodeLine{00201\ \ \ GYRO2\_FAIL,}
+\DoxyCodeLine{00202\ \ \ ACCEL\_FAIL,}
+\DoxyCodeLine{00203\ \ \ GYRO\_MEAS\_RANG,}
+\DoxyCodeLine{00204\ \ \ DR\_POL,}
+\DoxyCodeLine{00205\ \ \ SYNC\_POL,}
+\DoxyCodeLine{00206\ \ \ SENS\_BW,}
+\DoxyCodeLine{00207\ \ \ LN\_ACCL\_COMP,}
+\DoxyCodeLine{00208\ \ \ TIME\_BASE\_CONTROL,}
+\DoxyCodeLine{00209\ \ \ X\_AXIS\_GYRO\_BIAS\_CORR\_EN,}
+\DoxyCodeLine{00210\ \ \ Y\_AXIS\_GYRO\_BIAS\_CORR\_EN,}
+\DoxyCodeLine{00211\ \ \ Z\_AXIS\_GYRO\_BIAS\_CORR\_EN,}
+\DoxyCodeLine{00212\ \ \ X\_AXIS\_ACCEL\_BIAS\_CORR\_EN,}
+\DoxyCodeLine{00213\ \ \ Y\_AXIS\_ACCEL\_BIAS\_CORR\_EN,}
+\DoxyCodeLine{00214\ \ \ Z\_AXIS\_ACCEL\_BIAS\_CORR\_EN,}
+\DoxyCodeLine{00215\ \};}
+\DoxyCodeLine{00216\ }
+\DoxyCodeLine{00217\ \textcolor{keyword}{const}\ std::unordered\_map<ADISRegister,\ std::string>\ registerNames\ =\ \{}
+\DoxyCodeLine{00218\ \ \ \textcolor{comment}{//\ Device\ capabilities}}
+\DoxyCodeLine{00219\ \ \ \{ADISRegister::FLS\_MEM\_ENDURANCE,\ \textcolor{stringliteral}{"{}FLS\_MEM\_ENDURANCE"{}}\},}
+\DoxyCodeLine{00220\ \ \ \{ADISRegister::MAX\_SAMP\_FREQ,\ \textcolor{stringliteral}{"{}MAX\_SAMP\_FREQ"{}}\},}
+\DoxyCodeLine{00221\ \ \ \{ADISRegister::HAS\_DELTA\_BURST,\ \textcolor{stringliteral}{"{}HAS\_DELTA\_BURST"{}}\},}
+\DoxyCodeLine{00222\ \ \ \{ADISRegister::HAS\_CALIB\_SCALE,\ \textcolor{stringliteral}{"{}HAS\_CALIB\_SCALE"{}}\},}
+\DoxyCodeLine{00223\ }
+\DoxyCodeLine{00224\ \ \ \textcolor{comment}{//\ Value\ to\ add\ to\ reg\ addr\ per\ page}}
+\DoxyCodeLine{00225\ \ \ \{ADISRegister::PAGE\_ID\_VAL,\ \textcolor{stringliteral}{"{}PAGE\_ID\_VAL"{}}\},}
+\DoxyCodeLine{00226\ }
+\DoxyCodeLine{00227\ \ \ \textcolor{comment}{//\ Global\ commands}}
+\DoxyCodeLine{00228\ \ \ \{ADISRegister::GLOB\_CMD\_PAGE\_ID,\ \textcolor{stringliteral}{"{}GLOB\_CMD\_PAGE\_ID"{}}\},}
+\DoxyCodeLine{00229\ \ \ \{ADISRegister::GLOB\_CMD\_ADDR\_WITHOUT\_PAGE,\ \textcolor{stringliteral}{"{}GLOB\_CMD\_ADDR\_WITHOUT\_PAGE"{}}\},}
+\DoxyCodeLine{00230\ \ \ \{ADISRegister::GLOB\_CMD\_ADDR,\ \textcolor{stringliteral}{"{}GLOB\_CMD\_ADDR"{}}\},}
+\DoxyCodeLine{00231\ }
+\DoxyCodeLine{00232\ \ \ \textcolor{comment}{//\ Status\ and\ error\ flag\ indication}}
+\DoxyCodeLine{00233\ \ \ \{ADISRegister::DIAG\_STAT\_PAGE\_ID,\ \textcolor{stringliteral}{"{}DIAG\_STAT\_PAGE\_ID"{}}\},}
+\DoxyCodeLine{00234\ \ \ \{ADISRegister::DIAG\_STAT\_ADDR\_WITHOUT\_PAGE,\ \textcolor{stringliteral}{"{}DIAG\_STAT\_ADDR\_WITHOUT\_PAGE"{}}\},}
+\DoxyCodeLine{00235\ \ \ \{ADISRegister::DIAG\_STAT\_ADDR,\ \textcolor{stringliteral}{"{}DIAG\_STAT\_ADDR"{}}\},}
+\DoxyCodeLine{00236\ }
+\DoxyCodeLine{00237\ \ \ \{ADISRegister::CRC\_ERROR\_POS,\ \textcolor{stringliteral}{"{}CRC\_ERROR\_POS"{}}\},}
+\DoxyCodeLine{00238\ }
+\DoxyCodeLine{00239\ \ \ \textcolor{comment}{//\ Self\ test\ error\ flags}}
+\DoxyCodeLine{00240\ \ \ \{ADISRegister::DIAG\_STS\_PAGE\_ID,\ \textcolor{stringliteral}{"{}DIAG\_STS\_PAGE\_ID"{}}\},}
+\DoxyCodeLine{00241\ \ \ \{ADISRegister::DIAG\_STS\_REG\_WITHOUT\_PAGE,\ \textcolor{stringliteral}{"{}DIAG\_STS\_REG\_WITHOUT\_PAGE"{}}\},}
+\DoxyCodeLine{00242\ \ \ \{ADISRegister::DIAG\_STS\_REG,\ \textcolor{stringliteral}{"{}DIAG\_STS\_REG"{}}\},}
+\DoxyCodeLine{00243\ }
+\DoxyCodeLine{00244\ \ \ \{ADISRegister::GYRO\_ACCEL\_FAIL\_REG,\ \textcolor{stringliteral}{"{}GYRO\_ACCEL\_FAIL\_REG"{}}\},}
+\DoxyCodeLine{00245\ \ \ \{ADISRegister::GYRO\_X\_FAIL\_POS,\ \textcolor{stringliteral}{"{}GYRO\_X\_FAIL\_POS"{}}\},}
+\DoxyCodeLine{00246\ \ \ \{ADISRegister::GYRO\_Y\_FAIL\_POS,\ \textcolor{stringliteral}{"{}GYRO\_Y\_FAIL\_POS"{}}\},}
+\DoxyCodeLine{00247\ \ \ \{ADISRegister::GYRO\_Z\_FAIL\_POS,\ \textcolor{stringliteral}{"{}GYRO\_Z\_FAIL\_POS"{}}\},}
+\DoxyCodeLine{00248\ \ \ \{ADISRegister::ACCEL\_X\_FAIL\_POS,\ \textcolor{stringliteral}{"{}ACCEL\_X\_FAIL\_POS"{}}\},}
+\DoxyCodeLine{00249\ \ \ \{ADISRegister::ACCEL\_Y\_FAIL\_POS,\ \textcolor{stringliteral}{"{}ACCEL\_Y\_FAIL\_POS"{}}\},}
+\DoxyCodeLine{00250\ \ \ \{ADISRegister::ACCEL\_Z\_FAIL\_POS,\ \textcolor{stringliteral}{"{}ACCEL\_Z\_FAIL\_POS"{}}\},}
+\DoxyCodeLine{00251\ \ \ \{ADISRegister::ADUC\_MCU\_FAULT\_POS,\ \textcolor{stringliteral}{"{}ADUC\_MCU\_FAULT\_POS"{}}\},}
+\DoxyCodeLine{00252\ }
+\DoxyCodeLine{00253\ \ \ \textcolor{comment}{//\ Computed\ sensor\ failure\ bits}}
+\DoxyCodeLine{00254\ \ \ \{ADISRegister::GYRO\_X\_FAIL,\ \textcolor{stringliteral}{"{}GYRO\_X\_FAIL"{}}\},}
+\DoxyCodeLine{00255\ \ \ \{ADISRegister::GYRO\_Y\_FAIL,\ \textcolor{stringliteral}{"{}GYRO\_Y\_FAIL"{}}\},}
+\DoxyCodeLine{00256\ \ \ \{ADISRegister::GYRO\_Z\_FAIL,\ \textcolor{stringliteral}{"{}GYRO\_Z\_FAIL"{}}\},}
+\DoxyCodeLine{00257\ \ \ \{ADISRegister::ACCEL\_X\_FAIL,\ \textcolor{stringliteral}{"{}ACCEL\_X\_FAIL"{}}\},}
+\DoxyCodeLine{00258\ \ \ \{ADISRegister::ACCEL\_Y\_FAIL,\ \textcolor{stringliteral}{"{}ACCEL\_Y\_FAIL"{}}\},}
+\DoxyCodeLine{00259\ \ \ \{ADISRegister::ACCEL\_Z\_FAIL,\ \textcolor{stringliteral}{"{}ACCEL\_Z\_FAIL"{}}\},}
+\DoxyCodeLine{00260\ }
+\DoxyCodeLine{00261\ \ \ \textcolor{comment}{//\ Measurement\ range\ identifier}}
+\DoxyCodeLine{00262\ \ \ \{ADISRegister::RANG\_MDL\_PAGE\_ID,\ \textcolor{stringliteral}{"{}RANG\_MDL\_PAGE\_ID"{}}\},}
+\DoxyCodeLine{00263\ \ \ \{ADISRegister::RANG\_MDL\_ADDR\_WITHOUT\_PAGE,\ \textcolor{stringliteral}{"{}RANG\_MDL\_ADDR\_WITHOUT\_PAGE"{}}\},}
+\DoxyCodeLine{00264\ \ \ \{ADISRegister::RANG\_MDL\_ADDR,\ \textcolor{stringliteral}{"{}RANG\_MDL\_ADDR"{}}\},}
+\DoxyCodeLine{00265\ }
+\DoxyCodeLine{00266\ \ \ \textcolor{comment}{//\ Point\ of\ percussion}}
+\DoxyCodeLine{00267\ \ \ \{ADISRegister::PT\_OF\_PERC\_PAGE\_ID,\ \textcolor{stringliteral}{"{}PT\_OF\_PERC\_PAGE\_ID"{}}\},}
+\DoxyCodeLine{00268\ \ \ \{ADISRegister::PT\_OF\_PERC\_REG\_ADDR\_WITHOUT\_PAGE,\ \textcolor{stringliteral}{"{}PT\_OF\_PERC\_REG\_ADDR\_WITHOUT\_PAGE"{}}\},}
+\DoxyCodeLine{00269\ \ \ \{ADISRegister::PT\_OF\_PERC\_REG\_ADDR,\ \textcolor{stringliteral}{"{}PT\_OF\_PERC\_REG\_ADDR"{}}\},}
+\DoxyCodeLine{00270\ }
+\DoxyCodeLine{00271\ \ \ \{ADISRegister::PT\_OF\_PERC\_ALGNMNT\_POS,\ \textcolor{stringliteral}{"{}PT\_OF\_PERC\_ALGNMNT\_POS"{}}\},}
+\DoxyCodeLine{00272\ \ \ \{ADISRegister::PT\_OF\_PERC\_ALGNMNT,\ \textcolor{stringliteral}{"{}PT\_OF\_PERC\_ALGNMNT"{}}\},}
+\DoxyCodeLine{00273\ }
+\DoxyCodeLine{00274\ \ \ \textcolor{comment}{//\ Continuous\ bias\ estimation}}
+\DoxyCodeLine{00275\ \ \ \{ADISRegister::NULL\_CNFG\_PAGE\_ID,\ \textcolor{stringliteral}{"{}NULL\_CNFG\_PAGE\_ID"{}}\},}
+\DoxyCodeLine{00276\ \ \ \{ADISRegister::NULL\_CNFG\_ADDR\_WITHOUT\_PAGE,\ \textcolor{stringliteral}{"{}NULL\_CNFG\_ADDR\_WITHOUT\_PAGE"{}}\},}
+\DoxyCodeLine{00277\ \ \ \{ADISRegister::NULL\_CNFG\_ADDR,\ \textcolor{stringliteral}{"{}NULL\_CNFG\_ADDR"{}}\},}
+\DoxyCodeLine{00278\ }
+\DoxyCodeLine{00279\ \ \ \textcolor{comment}{//\ Delta\ burst\ registers}}
+\DoxyCodeLine{00280\ \ \ \{ADISRegister::DELTANG\_X\_LOW\_REG,\ \textcolor{stringliteral}{"{}DELTANG\_X\_LOW\_REG"{}}\},}
+\DoxyCodeLine{00281\ \ \ \{ADISRegister::DELTANG\_X\_OUT\_REG,\ \textcolor{stringliteral}{"{}DELTANG\_X\_OUT\_REG"{}}\},}
+\DoxyCodeLine{00282\ \ \ \{ADISRegister::DELTANG\_Y\_LOW\_REG,\ \textcolor{stringliteral}{"{}DELTANG\_Y\_LOW\_REG"{}}\},}
+\DoxyCodeLine{00283\ \ \ \{ADISRegister::DELTANG\_Y\_OUT\_REG,\ \textcolor{stringliteral}{"{}DELTANG\_Y\_OUT\_REG"{}}\},}
+\DoxyCodeLine{00284\ \ \ \{ADISRegister::DELTANG\_Z\_LOW\_REG,\ \textcolor{stringliteral}{"{}DELTANG\_Z\_LOW\_REG"{}}\},}
+\DoxyCodeLine{00285\ \ \ \{ADISRegister::DELTANG\_Z\_OUT\_REG,\ \textcolor{stringliteral}{"{}DELTANG\_Z\_OUT\_REG"{}}\},}
+\DoxyCodeLine{00286\ \ \ \{ADISRegister::DELTVEL\_X\_LOW\_REG,\ \textcolor{stringliteral}{"{}DELTVEL\_X\_LOW\_REG"{}}\},}
+\DoxyCodeLine{00287\ \ \ \{ADISRegister::DELTVEL\_X\_OUT\_REG,\ \textcolor{stringliteral}{"{}DELTVEL\_X\_OUT\_REG"{}}\},}
+\DoxyCodeLine{00288\ \ \ \{ADISRegister::DELTVEL\_Y\_LOW\_REG,\ \textcolor{stringliteral}{"{}DELTVEL\_Y\_LOW\_REG"{}}\},}
+\DoxyCodeLine{00289\ \ \ \{ADISRegister::DELTVEL\_Y\_OUT\_REG,\ \textcolor{stringliteral}{"{}DELTVEL\_Y\_OUT\_REG"{}}\},}
+\DoxyCodeLine{00290\ \ \ \{ADISRegister::DELTVEL\_Z\_LOW\_REG,\ \textcolor{stringliteral}{"{}DELTVEL\_Z\_LOW\_REG"{}}\},}
+\DoxyCodeLine{00291\ \ \ \{ADISRegister::DELTVEL\_Z\_OUT\_REG,\ \textcolor{stringliteral}{"{}DELTVEL\_Z\_OUT\_REG"{}}\},}
+\DoxyCodeLine{00292\ }
+\DoxyCodeLine{00293\ \ \ \textcolor{comment}{//\ Register\ addresses}}
+\DoxyCodeLine{00294\ \ \ \{ADISRegister::MSC\_CTRL\_ADDR,\ \textcolor{stringliteral}{"{}MSC\_CTRL\_ADDR"{}}\},}
+\DoxyCodeLine{00295\ }
+\DoxyCodeLine{00296\ \ \ \textcolor{comment}{//\ Bit\ positions}}
+\DoxyCodeLine{00297\ \ \ \{ADISRegister::SNSR\_INIT\_FAIL\_POS,\ \textcolor{stringliteral}{"{}SNSR\_INIT\_FAIL\_POS"{}}\},}
+\DoxyCodeLine{00298\ \ \ \{ADISRegister::DATA\_PATH\_OVERRUN\_POS,\ \textcolor{stringliteral}{"{}DATA\_PATH\_OVERRUN\_POS"{}}\},}
+\DoxyCodeLine{00299\ \ \ \{ADISRegister::FLS\_MEM\_UPDATE\_FAIL\_POS,\ \textcolor{stringliteral}{"{}FLS\_MEM\_UPDATE\_FAIL\_POS"{}}\},}
+\DoxyCodeLine{00300\ \ \ \{ADISRegister::SPI\_COMM\_ERR\_POS,\ \textcolor{stringliteral}{"{}SPI\_COMM\_ERR\_POS"{}}\},}
+\DoxyCodeLine{00301\ \ \ \{ADISRegister::STDBY\_MODE\_POS,\ \textcolor{stringliteral}{"{}STDBY\_MODE\_POS"{}}\},}
+\DoxyCodeLine{00302\ \ \ \{ADISRegister::SNSR\_FAIL\_POS,\ \textcolor{stringliteral}{"{}SNSR\_FAIL\_POS"{}}\},}
+\DoxyCodeLine{00303\ \ \ \{ADISRegister::MEM\_FAIL\_POS,\ \textcolor{stringliteral}{"{}MEM\_FAIL\_POS"{}}\},}
+\DoxyCodeLine{00304\ \ \ \{ADISRegister::ADUC\_MCU\_FAULT,\ \textcolor{stringliteral}{"{}ADUC\_MCU\_FAULT"{}}\},}
+\DoxyCodeLine{00305\ \ \ \{ADISRegister::CLK\_ERR\_POS,\ \textcolor{stringliteral}{"{}CLK\_ERR\_POS"{}}\},}
+\DoxyCodeLine{00306\ \ \ \{ADISRegister::WDG\_TIMER\_FLAG\_POS,\ \textcolor{stringliteral}{"{}WDG\_TIMER\_FLAG\_POS"{}}\},}
+\DoxyCodeLine{00307\ \ \ \{ADISRegister::GYRO1\_FAIL\_POS,\ \textcolor{stringliteral}{"{}GYRO1\_FAIL\_POS"{}}\},}
+\DoxyCodeLine{00308\ \ \ \{ADISRegister::GYRO2\_FAIL\_POS,\ \textcolor{stringliteral}{"{}GYRO2\_FAIL\_POS"{}}\},}
+\DoxyCodeLine{00309\ \ \ \{ADISRegister::ACCEL\_FAIL\_POS,\ \textcolor{stringliteral}{"{}ACCEL\_FAIL\_POS"{}}\},}
+\DoxyCodeLine{00310\ \ \ \{ADISRegister::GYRO\_MEAS\_RANG\_POS,\ \textcolor{stringliteral}{"{}GYRO\_MEAS\_RANG\_POS"{}}\},}
+\DoxyCodeLine{00311\ \ \ \{ADISRegister::DR\_POL\_POS,\ \textcolor{stringliteral}{"{}DR\_POL\_POS"{}}\},}
+\DoxyCodeLine{00312\ \ \ \{ADISRegister::SYNC\_POL\_POS,\ \textcolor{stringliteral}{"{}SYNC\_POL\_POS"{}}\},}
+\DoxyCodeLine{00313\ \ \ \{ADISRegister::SENS\_BW\_POS,\ \textcolor{stringliteral}{"{}SENS\_BW\_POS"{}}\},}
+\DoxyCodeLine{00314\ \ \ \{ADISRegister::LN\_ACCL\_COMP\_POS,\ \textcolor{stringliteral}{"{}LN\_ACCL\_COMP\_POS"{}}\},}
+\DoxyCodeLine{00315\ \ \ \{ADISRegister::TIME\_BASE\_CONTROL\_POS,\ \textcolor{stringliteral}{"{}TIME\_BASE\_CONTROL\_POS"{}}\},}
+\DoxyCodeLine{00316\ \ \ \{ADISRegister::X\_AXIS\_GYRO\_BIAS\_CORR\_EN\_POS,\ \textcolor{stringliteral}{"{}X\_AXIS\_GYRO\_BIAS\_CORR\_EN\_POS"{}}\},}
+\DoxyCodeLine{00317\ \ \ \{ADISRegister::Y\_AXIS\_GYRO\_BIAS\_CORR\_EN\_POS,\ \textcolor{stringliteral}{"{}Y\_AXIS\_GYRO\_BIAS\_CORR\_EN\_POS"{}}\},}
+\DoxyCodeLine{00318\ \ \ \{ADISRegister::Z\_AXIS\_GYRO\_BIAS\_CORR\_EN\_POS,\ \textcolor{stringliteral}{"{}Z\_AXIS\_GYRO\_BIAS\_CORR\_EN\_POS"{}}\},}
+\DoxyCodeLine{00319\ \ \ \{ADISRegister::X\_AXIS\_ACCEL\_BIAS\_CORR\_EN\_POS,\ \textcolor{stringliteral}{"{}X\_AXIS\_ACCEL\_BIAS\_CORR\_EN\_POS"{}}\},}
+\DoxyCodeLine{00320\ \ \ \{ADISRegister::Y\_AXIS\_ACCEL\_BIAS\_CORR\_EN\_POS,\ \textcolor{stringliteral}{"{}Y\_AXIS\_ACCEL\_BIAS\_CORR\_EN\_POS"{}}\},}
+\DoxyCodeLine{00321\ \ \ \{ADISRegister::Z\_AXIS\_ACCEL\_BIAS\_CORR\_EN\_POS,\ \textcolor{stringliteral}{"{}Z\_AXIS\_ACCEL\_BIAS\_CORR\_EN\_POS"{}}\},}
+\DoxyCodeLine{00322\ }
+\DoxyCodeLine{00323\ \ \ \textcolor{comment}{//\ Global\ command\ bit\ positions}}
+\DoxyCodeLine{00324\ \ \ \{ADISRegister::BIAS\_CORRECTION\_UPDATE\_POS,\ \textcolor{stringliteral}{"{}BIAS\_CORRECTION\_UPDATE\_POS"{}}\},}
+\DoxyCodeLine{00325\ \ \ \{ADISRegister::FACTORY\_CALIBRATION\_RESTORE\_POS,\ \textcolor{stringliteral}{"{}FACTORY\_CALIBRATION\_RESTORE\_POS"{}}\},}
+\DoxyCodeLine{00326\ \ \ \{ADISRegister::SENSOR\_SELF\_TEST\_POS,\ \textcolor{stringliteral}{"{}SENSOR\_SELF\_TEST\_POS"{}}\},}
+\DoxyCodeLine{00327\ \ \ \{ADISRegister::FLASH\_MEMORY\_UPDATE\_POS,\ \textcolor{stringliteral}{"{}FLASH\_MEMORY\_UPDATE\_POS"{}}\},}
+\DoxyCodeLine{00328\ \ \ \{ADISRegister::FLASH\_MEMORY\_TEST\_POS,\ \textcolor{stringliteral}{"{}FLASH\_MEMORY\_TEST\_POS"{}}\},}
+\DoxyCodeLine{00329\ \ \ \{ADISRegister::SOFTWARE\_RESET\_CMD\_POS,\ \textcolor{stringliteral}{"{}SOFTWARE\_RESET\_CMD\_POS"{}}\},}
+\DoxyCodeLine{00330\ }
+\DoxyCodeLine{00331\ \ \ \textcolor{comment}{//\ Global\ command\ computed\ bit\ masks}}
+\DoxyCodeLine{00332\ \ \ \{ADISRegister::BIAS\_CORRECTION\_UPDATE,\ \textcolor{stringliteral}{"{}BIAS\_CORRECTION\_UPDATE"{}}\},}
+\DoxyCodeLine{00333\ \ \ \{ADISRegister::FACTORY\_CALIBRATION\_RESTORE,\ \textcolor{stringliteral}{"{}FACTORY\_CALIBRATION\_RESTORE"{}}\},}
+\DoxyCodeLine{00334\ \ \ \{ADISRegister::SENSOR\_SELF\_TEST,\ \textcolor{stringliteral}{"{}SENSOR\_SELF\_TEST"{}}\},}
+\DoxyCodeLine{00335\ \ \ \{ADISRegister::FLASH\_MEMORY\_UPDATE,\ \textcolor{stringliteral}{"{}FLASH\_MEMORY\_UPDATE"{}}\},}
+\DoxyCodeLine{00336\ \ \ \{ADISRegister::FLASH\_MEMORY\_TEST,\ \textcolor{stringliteral}{"{}FLASH\_MEMORY\_TEST"{}}\},}
+\DoxyCodeLine{00337\ \ \ \{ADISRegister::SOFTWARE\_RESET\_CMD,\ \textcolor{stringliteral}{"{}SOFTWARE\_RESET\_CMD"{}}\},}
+\DoxyCodeLine{00338\ }
+\DoxyCodeLine{00339\ \ \ \textcolor{comment}{//\ Computed\ bit\ masks}}
+\DoxyCodeLine{00340\ \ \ \{ADISRegister::DATA\_PATH\_OVERRUN,\ \textcolor{stringliteral}{"{}DATA\_PATH\_OVERRUN"{}}\},}
+\DoxyCodeLine{00341\ \ \ \{ADISRegister::WDG\_TIMER\_FLAG,\ \textcolor{stringliteral}{"{}WDG\_TIMER\_FLAG"{}}\},}
+\DoxyCodeLine{00342\ \ \ \{ADISRegister::FLS\_MEM\_UPDATE\_FAIL,\ \textcolor{stringliteral}{"{}FLS\_MEM\_UPDATE\_FAIL"{}}\},}
+\DoxyCodeLine{00343\ \ \ \{ADISRegister::SPI\_COMM\_ERR,\ \textcolor{stringliteral}{"{}SPI\_COMM\_ERR"{}}\},}
+\DoxyCodeLine{00344\ \ \ \{ADISRegister::STDBY\_MODE,\ \textcolor{stringliteral}{"{}STDBY\_MODE"{}}\},}
+\DoxyCodeLine{00345\ \ \ \{ADISRegister::SNSR\_FAIL,\ \textcolor{stringliteral}{"{}SNSR\_FAIL"{}}\},}
+\DoxyCodeLine{00346\ \ \ \{ADISRegister::MEM\_FAIL,\ \textcolor{stringliteral}{"{}MEM\_FAIL"{}}\},}
+\DoxyCodeLine{00347\ \ \ \{ADISRegister::CRC\_ERROR,\ \textcolor{stringliteral}{"{}CRC\_ERROR"{}}\},}
+\DoxyCodeLine{00348\ \ \ \{ADISRegister::CLK\_ERR,\ \textcolor{stringliteral}{"{}CLK\_ERR"{}}\},}
+\DoxyCodeLine{00349\ \ \ \{ADISRegister::GYRO1\_FAIL,\ \textcolor{stringliteral}{"{}GYRO1\_FAIL"{}}\},}
+\DoxyCodeLine{00350\ \ \ \{ADISRegister::GYRO2\_FAIL,\ \textcolor{stringliteral}{"{}GYRO2\_FAIL"{}}\},}
+\DoxyCodeLine{00351\ \ \ \{ADISRegister::ACCEL\_FAIL,\ \textcolor{stringliteral}{"{}ACCEL\_FAIL"{}}\},}
+\DoxyCodeLine{00352\ \ \ \{ADISRegister::GYRO\_MEAS\_RANG,\ \textcolor{stringliteral}{"{}GYRO\_MEAS\_RANG"{}}\},}
+\DoxyCodeLine{00353\ \ \ \{ADISRegister::DR\_POL,\ \textcolor{stringliteral}{"{}DR\_POL"{}}\},}
+\DoxyCodeLine{00354\ \ \ \{ADISRegister::SYNC\_POL,\ \textcolor{stringliteral}{"{}SYNC\_POL"{}}\},}
+\DoxyCodeLine{00355\ \ \ \{ADISRegister::SENS\_BW,\ \textcolor{stringliteral}{"{}SENS\_BW"{}}\},}
+\DoxyCodeLine{00356\ \ \ \{ADISRegister::LN\_ACCL\_COMP,\ \textcolor{stringliteral}{"{}LN\_ACCL\_COMP"{}}\},}
+\DoxyCodeLine{00357\ \ \ \{ADISRegister::TIME\_BASE\_CONTROL,\ \textcolor{stringliteral}{"{}TIME\_BASE\_CONTROL"{}}\},}
+\DoxyCodeLine{00358\ \ \ \{ADISRegister::X\_AXIS\_GYRO\_BIAS\_CORR\_EN,\ \textcolor{stringliteral}{"{}X\_AXIS\_GYRO\_BIAS\_CORR\_EN"{}}\},}
+\DoxyCodeLine{00359\ \ \ \{ADISRegister::Y\_AXIS\_GYRO\_BIAS\_CORR\_EN,\ \textcolor{stringliteral}{"{}Y\_AXIS\_GYRO\_BIAS\_CORR\_EN"{}}\},}
+\DoxyCodeLine{00360\ \ \ \{ADISRegister::Z\_AXIS\_GYRO\_BIAS\_CORR\_EN,\ \textcolor{stringliteral}{"{}Z\_AXIS\_GYRO\_BIAS\_CORR\_EN"{}}\},}
+\DoxyCodeLine{00361\ \ \ \{ADISRegister::X\_AXIS\_ACCEL\_BIAS\_CORR\_EN,\ \textcolor{stringliteral}{"{}X\_AXIS\_ACCEL\_BIAS\_CORR\_EN"{}}\},}
+\DoxyCodeLine{00362\ \ \ \{ADISRegister::Y\_AXIS\_ACCEL\_BIAS\_CORR\_EN,\ \textcolor{stringliteral}{"{}Y\_AXIS\_ACCEL\_BIAS\_CORR\_EN"{}}\},}
+\DoxyCodeLine{00363\ \ \ \{ADISRegister::Z\_AXIS\_ACCEL\_BIAS\_CORR\_EN,\ \textcolor{stringliteral}{"{}Z\_AXIS\_ACCEL\_BIAS\_CORR\_EN"{}}\},}
+\DoxyCodeLine{00364\ \};}
+\DoxyCodeLine{00365\ }
+\DoxyCodeLine{00366\ \}\ \ \textcolor{comment}{//\ namespace\ adi\_imu}}
+\DoxyCodeLine{00367\ }
+\DoxyCodeLine{00368\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ ADI\_IMU\_\_UTILS\_\_ADIS\_REGISTER\_DEFINITIONS\_H\_}}
+
+\end{DoxyCode}

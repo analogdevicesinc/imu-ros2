@@ -1,0 +1,65 @@
+\doxysection{adi\+\_\+imu\+::Vel\+Ang\+Temp\+Data\+Provider\+Interface Class Reference}
+\hypertarget{classadi__imu_1_1VelAngTempDataProviderInterface}{}\label{classadi__imu_1_1VelAngTempDataProviderInterface}\index{adi\_imu::VelAngTempDataProviderInterface@{adi\_imu::VelAngTempDataProviderInterface}}
+
+
+Interface for delta angle, delta velocity and temperature buffered data provider.  
+
+
+
+
+{\ttfamily \#include $<$velangtemp\+\_\+data\+\_\+provider\+\_\+interface.\+h$>$}
+
+
+
+Inheritance diagram for adi\+\_\+imu\+::Vel\+Ang\+Temp\+Data\+Provider\+Interface\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=265pt]{classadi__imu_1_1VelAngTempDataProviderInterface__inherit__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classadi__imu_1_1VelAngTempDataProviderInterface_a8c619652e5600d65455384beaf019cc6}\label{classadi__imu_1_1VelAngTempDataProviderInterface_a8c619652e5600d65455384beaf019cc6} 
+{\bfseries Vel\+Ang\+Temp\+Data\+Provider\+Interface} ()
+\begin{DoxyCompactList}\small\item\em Constructor for \doxylink{classadi__imu_1_1VelAngTempDataProviderInterface}{Vel\+Ang\+Temp\+Data\+Provider\+Interface}. \end{DoxyCompactList}\item 
+\Hypertarget{classadi__imu_1_1VelAngTempDataProviderInterface_a1fe6c3fbaa4dd935daa6217d5869b995}\label{classadi__imu_1_1VelAngTempDataProviderInterface_a1fe6c3fbaa4dd935daa6217d5869b995} 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Vel\+Ang\+Temp\+Data\+Provider\+Interface} ()
+\begin{DoxyCompactList}\small\item\em Destructor for \doxylink{classadi__imu_1_1VelAngTempDataProviderInterface}{Vel\+Ang\+Temp\+Data\+Provider\+Interface}. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classadi__imu_1_1VelAngTempDataProviderInterface_a8dd4bbddf4f56e1b570798519deac35b}{get\+Data}} (adi\+\_\+imu\+::msg\+::\+Vel\+Ang\+Temp\+Data \&message)=0
+\begin{DoxyCompactList}\small\item\em Populate Vel\+Ang\+Temp\+Data message with measured data. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Interface for delta angle, delta velocity and temperature buffered data provider. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classadi__imu_1_1VelAngTempDataProviderInterface_a8dd4bbddf4f56e1b570798519deac35b}\label{classadi__imu_1_1VelAngTempDataProviderInterface_a8dd4bbddf4f56e1b570798519deac35b} 
+\index{adi\_imu::VelAngTempDataProviderInterface@{adi\_imu::VelAngTempDataProviderInterface}!getData@{getData}}
+\index{getData@{getData}!adi\_imu::VelAngTempDataProviderInterface@{adi\_imu::VelAngTempDataProviderInterface}}
+\doxysubsubsection{\texorpdfstring{getData()}{getData()}}
+{\footnotesize\ttfamily virtual bool adi\+\_\+imu\+::\+Vel\+Ang\+Temp\+Data\+Provider\+Interface\+::get\+Data (\begin{DoxyParamCaption}\item[{adi\+\_\+imu\+::msg\+::\+Vel\+Ang\+Temp\+Data \&}]{message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Populate Vel\+Ang\+Temp\+Data message with measured data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & Message containing the measured data. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return true if the message parameter is successfully populated with measured data and false otherwise. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classadi__imu_1_1VelAngTempDataProvider_afc9536d9b23029586092177e8b531aad}{adi\+\_\+imu\+::\+Vel\+Ang\+Temp\+Data\+Provider}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/adi\+\_\+imu/velangtemp\+\_\+data\+\_\+provider\+\_\+interface.\+h\end{DoxyCompactItemize}

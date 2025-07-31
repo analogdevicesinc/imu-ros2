@@ -1,0 +1,5 @@
+<map id="adi_imu::ImuControlParameters" name="adi_imu::ImuControlParameters">
+<area shape="rect" id="Node000001" title="Class for handling device parameters." alt="" coords="5,93,233,119"/>
+<area shape="rect" id="Node000002" href="$classadi__imu_1_1IIOWrapper.html" title="Wrapper class for libiio library for IMU devices." alt="" coords="42,5,197,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="122,45,122,93,117,93,117,45"/>
+</map>

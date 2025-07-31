@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classadi__imu_1_1ImuFullMeasuredDataProviderInterface" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>adi_imu::ImuFullMeasuredDataProviderInterface</compoundname>
+    <derivedcompoundref refid="classadi__imu_1_1ImuFullMeasuredDataProvider" prot="public" virt="non-virtual">adi_imu::ImuFullMeasuredDataProvider</derivedcompoundref>
+    <includes refid="imu__full__measured__data__provider__interface_8h" local="no">imu_full_measured_data_provider_interface.h</includes>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classadi__imu_1_1ImuFullMeasuredDataProviderInterface_1a031d07fcfdca4462d4cb790b1bbc9ec8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>adi_imu::ImuFullMeasuredDataProviderInterface::ImuFullMeasuredDataProviderInterface</definition>
+        <argsstring>()</argsstring>
+        <name>ImuFullMeasuredDataProviderInterface</name>
+        <qualifiedname>adi_imu::ImuFullMeasuredDataProviderInterface::ImuFullMeasuredDataProviderInterface</qualifiedname>
+        <briefdescription>
+<para>Constructor for <ref refid="classadi__imu_1_1ImuFullMeasuredDataProviderInterface" kindref="compound">ImuFullMeasuredDataProviderInterface</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/imu_full_measured_data_provider_interface.h" line="38" column="3" bodyfile="include/adi_imu/imu_full_measured_data_provider_interface.h" bodystart="38" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="classadi__imu_1_1ImuFullMeasuredDataProviderInterface_1a8a5d013b41b5f155b570d3ed64e4e19b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type></type>
+        <definition>virtual adi_imu::ImuFullMeasuredDataProviderInterface::~ImuFullMeasuredDataProviderInterface</definition>
+        <argsstring>()</argsstring>
+        <name>~ImuFullMeasuredDataProviderInterface</name>
+        <qualifiedname>adi_imu::ImuFullMeasuredDataProviderInterface::~ImuFullMeasuredDataProviderInterface</qualifiedname>
+        <briefdescription>
+<para>Destructor for <ref refid="classadi__imu_1_1ImuFullMeasuredDataProviderInterface" kindref="compound">ImuFullMeasuredDataProviderInterface</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/imu_full_measured_data_provider_interface.h" line="43" column="11" bodyfile="include/adi_imu/imu_full_measured_data_provider_interface.h" bodystart="43" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="classadi__imu_1_1ImuFullMeasuredDataProviderInterface_1a5b207286b0c3b15c4543a7e816681a00" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>bool</type>
+        <definition>virtual bool adi_imu::ImuFullMeasuredDataProviderInterface::getData</definition>
+        <argsstring>(adi_imu::msg::ImuFullMeasuredData &amp;message)=0</argsstring>
+        <name>getData</name>
+        <qualifiedname>adi_imu::ImuFullMeasuredDataProviderInterface::getData</qualifiedname>
+        <reimplementedby refid="classadi__imu_1_1ImuFullMeasuredDataProvider_1a738bf13a5794569b4826ec195b7022aa">getData</reimplementedby>
+        <param>
+          <type>adi_imu::msg::ImuFullMeasuredData &amp;</type>
+          <declname>message</declname>
+        </param>
+        <briefdescription>
+<para>Populate ImuFullMeasuredData message with measured data. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>message</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Message containing the measured data. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Return true if the message parameter is successfully populated with measured data and false otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/imu_full_measured_data_provider_interface.h" line="51" column="16"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Interface for acceleration, angular velocity, delta angle, delta velocity and temperature data provider. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>adi_imu::ImuFullMeasuredDataProvider</label>
+        <link refid="classadi__imu_1_1ImuFullMeasuredDataProvider"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>adi_imu::ImuFullMeasuredDataProviderInterface</label>
+        <link refid="classadi__imu_1_1ImuFullMeasuredDataProviderInterface"/>
+      </node>
+    </inheritancegraph>
+    <location file="include/adi_imu/imu_full_measured_data_provider_interface.h" line="32" column="1" bodyfile="include/adi_imu/imu_full_measured_data_provider_interface.h" bodystart="33" bodyend="52"/>
+    <listofallmembers>
+      <member refid="classadi__imu_1_1ImuFullMeasuredDataProviderInterface_1a5b207286b0c3b15c4543a7e816681a00" prot="public" virt="pure-virtual"><scope>adi_imu::ImuFullMeasuredDataProviderInterface</scope><name>getData</name></member>
+      <member refid="classadi__imu_1_1ImuFullMeasuredDataProviderInterface_1a031d07fcfdca4462d4cb790b1bbc9ec8" prot="public" virt="non-virtual"><scope>adi_imu::ImuFullMeasuredDataProviderInterface</scope><name>ImuFullMeasuredDataProviderInterface</name></member>
+      <member refid="classadi__imu_1_1ImuFullMeasuredDataProviderInterface_1a8a5d013b41b5f155b570d3ed64e4e19b" prot="public" virt="virtual"><scope>adi_imu::ImuFullMeasuredDataProviderInterface</scope><name>~ImuFullMeasuredDataProviderInterface</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

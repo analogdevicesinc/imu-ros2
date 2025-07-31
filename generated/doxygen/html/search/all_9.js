@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['linear_5facceleration_5fcompensation_0',['linear_acceleration_compensation',['../classIIOWrapper.html#a2352785dfb0a0324613bd6f99a27831b',1,'IIOWrapper']]]
+  ['linear_5facceleration_5fcompensation_0',['linear_acceleration_compensation',['../classadi__imu_1_1IIOWrapper.html#a62d5175896cbb37ceb6c2658e4b81ea0',1,'adi_imu::IIOWrapper']]]
 ];

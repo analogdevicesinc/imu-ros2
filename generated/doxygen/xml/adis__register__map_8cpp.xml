@@ -1,0 +1,388 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="adis__register__map_8cpp" kind="file" language="C++">
+    <compoundname>adis_register_map.cpp</compoundname>
+    <includes refid="adis__register__map_8h" local="yes">adi_imu/adis_register_map.h</includes>
+    <includes local="no">iostream</includes>
+    <includes refid="adis__device__registry_8h" local="yes">adi_imu/utils/adis_device_registry.h</includes>
+    <includes refid="adis__register__definitions_8h" local="yes">adi_imu/utils/adis_register_definitions.h</includes>
+    <incdepgraph>
+      <node id="2">
+        <label>adi_imu/adis_register_map.h</label>
+        <link refid="adis__register__map_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>adi_imu/utils/adis_device_registry.h</label>
+        <link refid="adis__device__registry_8h_source"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>adi_imu/utils/adis_register_definitions.h</label>
+        <link refid="adis__register__definitions_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>src/adis_register_map.cpp</label>
+        <link refid="adis__register__map_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>algorithm</label>
+      </node>
+      <node id="4">
+        <label>cstdint</label>
+      </node>
+      <node id="5">
+        <label>iostream</label>
+      </node>
+      <node id="6">
+        <label>memory</label>
+      </node>
+      <node id="12">
+        <label>stdexcept</label>
+      </node>
+      <node id="7">
+        <label>string</label>
+      </node>
+      <node id="8">
+        <label>unordered_map</label>
+      </node>
+      <node id="9">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <innernamespace refid="namespaceadi__imu">adi_imu</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">//<sp/>Copyright<sp/>2025<sp/>Analog<sp/>Devices,<sp/>Inc.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Licensed<sp/>under<sp/>the<sp/>Apache<sp/>License,<sp/>Version<sp/>2.0<sp/>(the<sp/>&quot;License&quot;);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="comment">//<sp/>you<sp/>may<sp/>not<sp/>use<sp/>this<sp/>file<sp/>except<sp/>in<sp/>compliance<sp/>with<sp/>the<sp/>License.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="comment">//<sp/>You<sp/>may<sp/>obtain<sp/>a<sp/>copy<sp/>of<sp/>the<sp/>License<sp/>at</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>http://www.apache.org/licenses/LICENSE-2.0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Unless<sp/>required<sp/>by<sp/>applicable<sp/>law<sp/>or<sp/>agreed<sp/>to<sp/>in<sp/>writing,<sp/>software</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="comment">//<sp/>distributed<sp/>under<sp/>the<sp/>License<sp/>is<sp/>distributed<sp/>on<sp/>an<sp/>&quot;AS<sp/>IS&quot;<sp/>BASIS,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="comment">//<sp/>WITHOUT<sp/>WARRANTIES<sp/>OR<sp/>CONDITIONS<sp/>OF<sp/>ANY<sp/>KIND,<sp/>either<sp/>express<sp/>or<sp/>implied.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="comment">//<sp/>See<sp/>the<sp/>License<sp/>for<sp/>the<sp/>specific<sp/>language<sp/>governing<sp/>permissions<sp/>and</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="comment">//<sp/>limitations<sp/>under<sp/>the<sp/>License.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;adi_imu/adis_register_map.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;iostream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;adi_imu/utils/adis_device_registry.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;adi_imu/utils/adis_register_definitions.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">adi_imu</highlight></codeline>
+<codeline lineno="23"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::unordered_map&lt;ADISRegister,<sp/>std::string&gt;<sp/>registerNames;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal">ADISRegisterMap::ADISRegisterMap(adis_device_id<sp/>device_id)</highlight></codeline>
+<codeline lineno="27"><highlight class="normal">:<sp/>m_device_id(device_id),<sp/>m_device_family(</highlight><highlight class="stringliteral">&quot;unknown&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="28"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/>m_device_name<sp/>=<sp/>ADISDeviceRegistry::getDeviceNameFromId(device_id);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/>m_device_family<sp/>=<sp/>ADISDeviceRegistry::getDeviceFamily(device_id);</highlight></codeline>
+<codeline lineno="31"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal">uint32_t<sp/>ADISRegisterMap::get(ADISRegister<sp/>reg)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="34"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>it<sp/>=<sp/>m_register_map.find(reg);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(it<sp/>==<sp/>m_register_map.end())<sp/>{</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>std::runtime_error<sp/>error(</highlight><highlight class="stringliteral">&quot;Register<sp/>not<sp/>found<sp/>in<sp/>the<sp/>register<sp/>map.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/>error;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>it-&gt;second;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>ADISRegisterMap::hasDeltaBurst()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="44"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>has(ADISRegister::HAS_DELTA_BURST)<sp/>&amp;&amp;<sp/>get(ADISRegister::HAS_DELTA_BURST);</highlight></codeline>
+<codeline lineno="46"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal">std::string<sp/>ADISRegisterMap::getDeviceFamily()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_device_family;<sp/>}</highlight></codeline>
+<codeline lineno="49"><highlight class="normal">std::string<sp/>ADISRegisterMap::getDeviceName()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_device_name;<sp/>}</highlight></codeline>
+<codeline lineno="50"><highlight class="normal">adis_device_id<sp/>ADISRegisterMap::getDeviceID()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_device_id;<sp/>}</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>ADISRegisterMap::log()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="53"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;<sp/>pair<sp/>:<sp/>m_register_map)<sp/>{</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>reg_name<sp/>=<sp/>registerNames.at(pair.first);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;[&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>reg_name<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;]:<sp/>0x&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::hex<sp/>&lt;&lt;<sp/>pair.second<sp/>&lt;&lt;<sp/>std::dec<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="58"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>ADISRegisterMap::set(ADISRegister<sp/>reg,<sp/>uint32_t<sp/>value)<sp/>{<sp/>m_register_map[reg]<sp/>=<sp/>value;<sp/>}</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>ADISRegisterMap::initialize()</highlight></codeline>
+<codeline lineno="63"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/>this-&gt;initSharedRegisters();</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/>this-&gt;initializeConstants();</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/>this-&gt;computeBitMasks();</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/>this-&gt;postComputeBitmask();</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/>this-&gt;overwriteRegisters();</highlight></codeline>
+<codeline lineno="69"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>ADISRegisterMap::initSharedRegisters()</highlight></codeline>
+<codeline lineno="72"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/>set(ADISRegister::DELTANG_X_LOW_REG,<sp/>0x24);</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/>set(ADISRegister::DELTANG_X_OUT_REG,<sp/>0x26);</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/>set(ADISRegister::DELTANG_Y_LOW_REG,<sp/>0x28);</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/>set(ADISRegister::DELTANG_Y_OUT_REG,<sp/>0x2A);</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/>set(ADISRegister::DELTANG_Z_LOW_REG,<sp/>0x2C);</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/>set(ADISRegister::DELTANG_Z_OUT_REG,<sp/>0x2E);</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/>set(ADISRegister::DELTVEL_X_LOW_REG,<sp/>0x30);</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/>set(ADISRegister::DELTVEL_X_OUT_REG,<sp/>0x32);</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/>set(ADISRegister::DELTVEL_Y_LOW_REG,<sp/>0x34);</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/>set(ADISRegister::DELTVEL_Y_OUT_REG,<sp/>0x36);</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/>set(ADISRegister::DELTVEL_Z_LOW_REG,<sp/>0x38);</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/>set(ADISRegister::DELTVEL_Z_OUT_REG,<sp/>0x3A);</highlight></codeline>
+<codeline lineno="85"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>ADISRegisterMap::computeBitMasks()</highlight></codeline>
+<codeline lineno="88"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(has(ADISRegister::DATA_PATH_OVERRUN_POS))<sp/>{</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/>set(ADISRegister::DATA_PATH_OVERRUN,<sp/>1<sp/>&lt;&lt;<sp/>get(ADISRegister::DATA_PATH_OVERRUN_POS));</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(has(ADISRegister::WDG_TIMER_FLAG_POS))<sp/>{</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/>set(ADISRegister::WDG_TIMER_FLAG,<sp/>1<sp/>&lt;&lt;<sp/>get(ADISRegister::WDG_TIMER_FLAG_POS));</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(has(ADISRegister::FLS_MEM_UPDATE_FAIL_POS))<sp/>{</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/>set(ADISRegister::FLS_MEM_UPDATE_FAIL,<sp/>1<sp/>&lt;&lt;<sp/>get(ADISRegister::FLS_MEM_UPDATE_FAIL_POS));</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(has(ADISRegister::SPI_COMM_ERR_POS))<sp/>{</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/>set(ADISRegister::SPI_COMM_ERR,<sp/>1<sp/>&lt;&lt;<sp/>get(ADISRegister::SPI_COMM_ERR_POS));</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(has(ADISRegister::STDBY_MODE_POS))<sp/>{</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/>set(ADISRegister::STDBY_MODE,<sp/>1<sp/>&lt;&lt;<sp/>get(ADISRegister::STDBY_MODE_POS));</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(has(ADISRegister::SNSR_INIT_FAIL_POS))<sp/>{</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/>set(ADISRegister::SNSR_INIT_FAIL,<sp/>1<sp/>&lt;&lt;<sp/>get(ADISRegister::SNSR_INIT_FAIL_POS));</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(has(ADISRegister::SNSR_FAIL_POS))<sp/>{</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/>set(ADISRegister::SNSR_FAIL,<sp/>1<sp/>&lt;&lt;<sp/>get(ADISRegister::SNSR_FAIL_POS));</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(has(ADISRegister::MEM_FAIL_POS))<sp/>{</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/>set(ADISRegister::MEM_FAIL,<sp/>1<sp/>&lt;&lt;<sp/>get(ADISRegister::MEM_FAIL_POS));</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(has(ADISRegister::ADUC_MCU_FAULT_POS))<sp/>{</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/>set(ADISRegister::ADUC_MCU_FAULT,<sp/>1<sp/>&lt;&lt;<sp/>get(ADISRegister::ADUC_MCU_FAULT_POS));</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(has(ADISRegister::CRC_ERROR_POS))<sp/>{</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/>set(ADISRegister::CRC_ERROR,<sp/>1<sp/>&lt;&lt;<sp/>get(ADISRegister::CRC_ERROR_POS));</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(has(ADISRegister::CLK_ERR_POS))<sp/>{</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/>set(ADISRegister::CLK_ERR,<sp/>1<sp/>&lt;&lt;<sp/>get(ADISRegister::CLK_ERR_POS));</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(has(ADISRegister::GYRO1_FAIL_POS))<sp/>{</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/>set(ADISRegister::GYRO1_FAIL,<sp/>1<sp/>&lt;&lt;<sp/>get(ADISRegister::GYRO1_FAIL_POS));</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(has(ADISRegister::GYRO2_FAIL_POS))<sp/>{</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/>set(ADISRegister::GYRO2_FAIL,<sp/>1<sp/>&lt;&lt;<sp/>get(ADISRegister::GYRO2_FAIL_POS));</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(has(ADISRegister::ACCEL_FAIL_POS))<sp/>{</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/>set(ADISRegister::ACCEL_FAIL,<sp/>1<sp/>&lt;&lt;<sp/>get(ADISRegister::ACCEL_FAIL_POS));</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(has(ADISRegister::GYRO_MEAS_RANG_POS))<sp/>{</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/>set(</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>ADISRegister::GYRO_MEAS_RANG,</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>3<sp/>&lt;&lt;<sp/>get(ADISRegister::GYRO_MEAS_RANG_POS));<sp/><sp/></highlight><highlight class="comment">//<sp/>3<sp/>was<sp/>first<sp/>seen<sp/>value</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(has(ADISRegister::DR_POL_POS))<sp/>{</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/>set(ADISRegister::DR_POL,<sp/>1<sp/>&lt;&lt;<sp/>get(ADISRegister::DR_POL_POS));</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(has(ADISRegister::SYNC_POL_POS))<sp/>{</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/>set(ADISRegister::SYNC_POL,<sp/>1<sp/>&lt;&lt;<sp/>get(ADISRegister::SYNC_POL_POS));</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(has(ADISRegister::SENS_BW_POS))<sp/>{</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/>set(ADISRegister::SENS_BW,<sp/>1<sp/>&lt;&lt;<sp/>get(ADISRegister::SENS_BW_POS));</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"></highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(has(ADISRegister::LN_ACCL_COMP_POS))<sp/>{</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/>set(ADISRegister::LN_ACCL_COMP,<sp/>1<sp/>&lt;&lt;<sp/>get(ADISRegister::LN_ACCL_COMP_POS));</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(has(ADISRegister::X_AXIS_GYRO_BIAS_CORR_EN_POS))<sp/>{</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/>set(</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>ADISRegister::X_AXIS_GYRO_BIAS_CORR_EN,<sp/>1<sp/>&lt;&lt;<sp/>get(ADISRegister::X_AXIS_GYRO_BIAS_CORR_EN_POS));</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(has(ADISRegister::Y_AXIS_GYRO_BIAS_CORR_EN_POS))<sp/>{</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/>set(</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>ADISRegister::Y_AXIS_GYRO_BIAS_CORR_EN,<sp/>1<sp/>&lt;&lt;<sp/>get(ADISRegister::Y_AXIS_GYRO_BIAS_CORR_EN_POS));</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(has(ADISRegister::Z_AXIS_GYRO_BIAS_CORR_EN_POS))<sp/>{</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/>set(</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>ADISRegister::Z_AXIS_GYRO_BIAS_CORR_EN,<sp/>1<sp/>&lt;&lt;<sp/>get(ADISRegister::Z_AXIS_GYRO_BIAS_CORR_EN_POS));</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"></highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(has(ADISRegister::X_AXIS_ACCEL_BIAS_CORR_EN_POS))<sp/>{</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/>set(</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>ADISRegister::X_AXIS_ACCEL_BIAS_CORR_EN,</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>1<sp/>&lt;&lt;<sp/>get(ADISRegister::X_AXIS_ACCEL_BIAS_CORR_EN_POS));</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(has(ADISRegister::Y_AXIS_ACCEL_BIAS_CORR_EN_POS))<sp/>{</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/>set(</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>ADISRegister::Y_AXIS_ACCEL_BIAS_CORR_EN,</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>1<sp/>&lt;&lt;<sp/>get(ADISRegister::Y_AXIS_ACCEL_BIAS_CORR_EN_POS));</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(has(ADISRegister::Z_AXIS_ACCEL_BIAS_CORR_EN_POS))<sp/>{</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/>set(</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>ADISRegister::Z_AXIS_ACCEL_BIAS_CORR_EN,</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>1<sp/>&lt;&lt;<sp/>get(ADISRegister::Z_AXIS_ACCEL_BIAS_CORR_EN_POS));</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"></highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(has(ADISRegister::PT_OF_PERC_ALGNMNT_POS))<sp/>{</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/>set(ADISRegister::PT_OF_PERC_ALGNMNT,<sp/>1<sp/>&lt;&lt;<sp/>get(ADISRegister::PT_OF_PERC_ALGNMNT_POS));</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/>has(ADISRegister::PAGE_ID_VAL)<sp/>&amp;&amp;<sp/>has(ADISRegister::PT_OF_PERC_PAGE_ID)<sp/>&amp;&amp;</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/>has(ADISRegister::GLOB_CMD_ADDR_WITHOUT_PAGE))<sp/>{</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>value<sp/>=<sp/>get(ADISRegister::PAGE_ID_VAL)<sp/>*<sp/>get(ADISRegister::PT_OF_PERC_PAGE_ID)<sp/>+</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>get(ADISRegister::GLOB_CMD_ADDR_WITHOUT_PAGE);</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/>set(ADISRegister::GLOB_CMD_ADDR,<sp/>value);</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/>has(ADISRegister::PAGE_ID_VAL)<sp/>&amp;&amp;<sp/>has(ADISRegister::PT_OF_PERC_PAGE_ID)<sp/>&amp;&amp;</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/>has(ADISRegister::PT_OF_PERC_REG_ADDR_WITHOUT_PAGE))<sp/>{</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>value<sp/>=<sp/>get(ADISRegister::PAGE_ID_VAL)<sp/>*<sp/>get(ADISRegister::PT_OF_PERC_PAGE_ID)<sp/>+</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>get(ADISRegister::PT_OF_PERC_REG_ADDR_WITHOUT_PAGE);</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/>set(ADISRegister::PT_OF_PERC_REG_ADDR,<sp/>value);</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/>has(ADISRegister::PAGE_ID_VAL)<sp/>&amp;&amp;<sp/>has(ADISRegister::NULL_CNFG_PAGE_ID)<sp/>&amp;&amp;</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/>has(ADISRegister::NULL_CNFG_ADDR_WITHOUT_PAGE))<sp/>{</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>value<sp/>=<sp/>get(ADISRegister::PAGE_ID_VAL)<sp/>*<sp/>get(ADISRegister::NULL_CNFG_PAGE_ID)<sp/>+</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>get(ADISRegister::NULL_CNFG_ADDR_WITHOUT_PAGE);</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/>set(ADISRegister::NULL_CNFG_ADDR,<sp/>value);</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"></highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(has(ADISRegister::BIAS_CORRECTION_UPDATE_POS))<sp/>{</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/>set(ADISRegister::BIAS_CORRECTION_UPDATE,<sp/>1<sp/>&lt;&lt;<sp/>get(ADISRegister::BIAS_CORRECTION_UPDATE_POS));</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(has(ADISRegister::SENSOR_SELF_TEST_POS))<sp/>{</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/>set(ADISRegister::SENSOR_SELF_TEST,<sp/>1<sp/>&lt;&lt;<sp/>get(ADISRegister::SENSOR_SELF_TEST_POS));</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(has(ADISRegister::FLASH_MEMORY_UPDATE_POS))<sp/>{</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/>set(ADISRegister::FLASH_MEMORY_UPDATE,<sp/>1<sp/>&lt;&lt;<sp/>get(ADISRegister::FLASH_MEMORY_UPDATE_POS));</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(has(ADISRegister::FLASH_MEMORY_TEST_POS))<sp/>{</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/>set(ADISRegister::FLASH_MEMORY_TEST,<sp/>1<sp/>&lt;&lt;<sp/>get(ADISRegister::FLASH_MEMORY_TEST_POS));</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(has(ADISRegister::FACTORY_CALIBRATION_RESTORE_POS))<sp/>{</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/><sp/><sp/>set(</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>ADISRegister::FACTORY_CALIBRATION_RESTORE,</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>1<sp/>&lt;&lt;<sp/>get(ADISRegister::FACTORY_CALIBRATION_RESTORE_POS));</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(has(ADISRegister::SOFTWARE_RESET_CMD_POS))<sp/>{</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/><sp/><sp/>set(ADISRegister::SOFTWARE_RESET_CMD,<sp/>1<sp/>&lt;&lt;<sp/>get(ADISRegister::SOFTWARE_RESET_CMD_POS));</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/><sp/><sp/>has(ADISRegister::PAGE_ID_VAL)<sp/>&amp;&amp;<sp/>has(ADISRegister::DIAG_STAT_PAGE_ID)<sp/>&amp;&amp;</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/><sp/><sp/>has(ADISRegister::DIAG_STAT_ADDR_WITHOUT_PAGE))<sp/>{</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>value<sp/>=<sp/>get(ADISRegister::PAGE_ID_VAL)<sp/>*<sp/>get(ADISRegister::DIAG_STAT_PAGE_ID)<sp/>+</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>get(ADISRegister::DIAG_STAT_ADDR_WITHOUT_PAGE);</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/><sp/><sp/>set(ADISRegister::DIAG_STAT_ADDR,<sp/>value);</highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/><sp/><sp/>has(ADISRegister::PAGE_ID_VAL)<sp/>&amp;&amp;<sp/>has(ADISRegister::DIAG_STS_PAGE_ID)<sp/>&amp;&amp;</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/><sp/><sp/>has(ADISRegister::DIAG_STS_REG_WITHOUT_PAGE))<sp/>{</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>value<sp/>=<sp/>get(ADISRegister::PAGE_ID_VAL)<sp/>*<sp/>get(ADISRegister::DIAG_STS_PAGE_ID)<sp/>+</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>get(ADISRegister::DIAG_STS_REG_WITHOUT_PAGE);</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/><sp/><sp/>set(ADISRegister::DIAG_STS_REG,<sp/>value);</highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"></highlight></codeline>
+<codeline lineno="243"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(has(ADISRegister::GYRO_X_FAIL_POS))<sp/>{</highlight></codeline>
+<codeline lineno="244"><highlight class="normal"><sp/><sp/><sp/><sp/>set(ADISRegister::GYRO_X_FAIL,<sp/>1<sp/>&lt;&lt;<sp/>get(ADISRegister::GYRO_X_FAIL_POS));</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="246"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(has(ADISRegister::GYRO_Y_FAIL_POS))<sp/>{</highlight></codeline>
+<codeline lineno="247"><highlight class="normal"><sp/><sp/><sp/><sp/>set(ADISRegister::GYRO_Y_FAIL,<sp/>1<sp/>&lt;&lt;<sp/>get(ADISRegister::GYRO_Y_FAIL_POS));</highlight></codeline>
+<codeline lineno="248"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(has(ADISRegister::GYRO_Z_FAIL_POS))<sp/>{</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"><sp/><sp/><sp/><sp/>set(ADISRegister::GYRO_Z_FAIL,<sp/>1<sp/>&lt;&lt;<sp/>get(ADISRegister::GYRO_Z_FAIL_POS));</highlight></codeline>
+<codeline lineno="251"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="252"><highlight class="normal"></highlight></codeline>
+<codeline lineno="253"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(has(ADISRegister::ACCEL_X_FAIL_POS))<sp/>{</highlight></codeline>
+<codeline lineno="254"><highlight class="normal"><sp/><sp/><sp/><sp/>set(ADISRegister::ACCEL_X_FAIL,<sp/>1<sp/>&lt;&lt;<sp/>get(ADISRegister::ACCEL_X_FAIL_POS));</highlight></codeline>
+<codeline lineno="255"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="256"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(has(ADISRegister::ACCEL_Y_FAIL_POS))<sp/>{</highlight></codeline>
+<codeline lineno="257"><highlight class="normal"><sp/><sp/><sp/><sp/>set(ADISRegister::ACCEL_Y_FAIL,<sp/>1<sp/>&lt;&lt;<sp/>get(ADISRegister::ACCEL_Y_FAIL_POS));</highlight></codeline>
+<codeline lineno="258"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="259"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(has(ADISRegister::ACCEL_Z_FAIL_POS))<sp/>{</highlight></codeline>
+<codeline lineno="260"><highlight class="normal"><sp/><sp/><sp/><sp/>set(ADISRegister::ACCEL_Z_FAIL,<sp/>1<sp/>&lt;&lt;<sp/>get(ADISRegister::ACCEL_Z_FAIL_POS));</highlight></codeline>
+<codeline lineno="261"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="262"><highlight class="normal"></highlight></codeline>
+<codeline lineno="263"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(</highlight></codeline>
+<codeline lineno="264"><highlight class="normal"><sp/><sp/><sp/><sp/>has(ADISRegister::PAGE_ID_VAL)<sp/>&amp;&amp;<sp/>has(ADISRegister::RANG_MDL_PAGE_ID)<sp/>&amp;&amp;</highlight></codeline>
+<codeline lineno="265"><highlight class="normal"><sp/><sp/><sp/><sp/>has(ADISRegister::RANG_MDL_ADDR_WITHOUT_PAGE))<sp/>{</highlight></codeline>
+<codeline lineno="266"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>value<sp/>=<sp/>get(ADISRegister::PAGE_ID_VAL)<sp/>*<sp/>get(ADISRegister::RANG_MDL_PAGE_ID)<sp/>+</highlight></codeline>
+<codeline lineno="267"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>get(ADISRegister::RANG_MDL_ADDR_WITHOUT_PAGE);</highlight></codeline>
+<codeline lineno="268"><highlight class="normal"><sp/><sp/><sp/><sp/>set(ADISRegister::RANG_MDL_ADDR,<sp/>value);</highlight></codeline>
+<codeline lineno="269"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="270"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="271"><highlight class="normal"></highlight></codeline>
+<codeline lineno="272"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>ADISRegisterMap::postComputeBitmask()</highlight></codeline>
+<codeline lineno="273"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="274"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(has(ADISRegister::DIAG_STS_REG))<sp/>{</highlight></codeline>
+<codeline lineno="275"><highlight class="normal"><sp/><sp/><sp/><sp/>set(ADISRegister::GYRO_ACCEL_FAIL_REG,<sp/>get(ADISRegister::DIAG_STS_REG));</highlight></codeline>
+<codeline lineno="276"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="277"><highlight class="normal"></highlight></codeline>
+<codeline lineno="278"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(has(ADISRegister::MSC_CTRL_ADDR))<sp/>{</highlight></codeline>
+<codeline lineno="279"><highlight class="normal"><sp/><sp/><sp/><sp/>set(ADISRegister::PT_OF_PERC_REG_ADDR,<sp/>get(ADISRegister::MSC_CTRL_ADDR));</highlight></codeline>
+<codeline lineno="280"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="281"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="282"><highlight class="normal"></highlight></codeline>
+<codeline lineno="283"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>ADISRegisterMap::has(ADISRegister<sp/>reg)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="284"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="285"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_register_map.find(reg)<sp/>!=<sp/>m_register_map.end();</highlight></codeline>
+<codeline lineno="286"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="287"><highlight class="normal"></highlight></codeline>
+<codeline lineno="288"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>adi_imu</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="src/adis_register_map.cpp"/>
+  </compounddef>
+</doxygen>

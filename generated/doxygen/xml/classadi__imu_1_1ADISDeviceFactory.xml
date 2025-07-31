@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classadi__imu_1_1ADISDeviceFactory" kind="class" language="C++" prot="public">
+    <compoundname>adi_imu::ADISDeviceFactory</compoundname>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classadi__imu_1_1ADISDeviceFactory_1a530a8c3768da158347e8ee0e8b547485" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; <ref refid="classadi__imu_1_1ADISRegisterMap" kindref="compound">ADISRegisterMap</ref> &gt;</type>
+        <definition>std::shared_ptr&lt; ADISRegisterMap &gt; adi_imu::ADISDeviceFactory::make</definition>
+        <argsstring>(adis_device_id device_id)</argsstring>
+        <name>make</name>
+        <qualifiedname>adi_imu::ADISDeviceFactory::make</qualifiedname>
+        <param>
+          <type>adis_device_id</type>
+          <declname>device_id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/adis_device_factory.h" line="31" column="26" bodyfile="src/adis_device_factory.cpp" bodystart="38" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="function" id="classadi__imu_1_1ADISDeviceFactory_1aa0ffb7e43831115c321b538220a55289" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; <ref refid="classadi__imu_1_1ADISRegisterMap" kindref="compound">ADISRegisterMap</ref> &gt;</type>
+        <definition>std::shared_ptr&lt; ADISRegisterMap &gt; adi_imu::ADISDeviceFactory::make</definition>
+        <argsstring>(const std::string &amp;device_name)</argsstring>
+        <name>make</name>
+        <qualifiedname>adi_imu::ADISDeviceFactory::make</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>device_name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/adis_device_factory.h" line="32" column="26" bodyfile="src/adis_device_factory.cpp" bodystart="28" bodyend="36"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/adi_imu/adis_device_factory.h" line="28" column="1" bodyfile="include/adi_imu/adis_device_factory.h" bodystart="29" bodyend="33"/>
+    <listofallmembers>
+      <member refid="classadi__imu_1_1ADISDeviceFactory_1a530a8c3768da158347e8ee0e8b547485" prot="public" virt="non-virtual"><scope>adi_imu::ADISDeviceFactory</scope><name>make</name></member>
+      <member refid="classadi__imu_1_1ADISDeviceFactory_1aa0ffb7e43831115c321b538220a55289" prot="public" virt="non-virtual"><scope>adi_imu::ADISDeviceFactory</scope><name>make</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

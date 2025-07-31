@@ -1,0 +1,15 @@
+<map id="adi_imu::ADISRegisterMap" name="adi_imu::ADISRegisterMap">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,129,200,155"/>
+<area shape="rect" id="Node000002" href="$classadi__imu_1_1Adis1646xRegisterMap.html" title=" " alt="" coords="248,5,480,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="127,118,180,78,212,57,247,40,280,28,282,33,249,44,215,62,183,82,130,122"/>
+<area shape="rect" id="Node000003" href="$classadi__imu_1_1Adis1647xRegisterMap.html" title=" " alt="" coords="248,55,480,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="148,122,247,89,294,77,295,83,249,94,150,127"/>
+<area shape="rect" id="Node000004" href="$classadi__imu_1_1Adis1650xRegisterMap.html" title=" " alt="" coords="248,104,480,129"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="214,129,248,125,248,131,214,134"/>
+<area shape="rect" id="Node000005" href="$classadi__imu_1_1Adis1654xRegisterMap.html" title=" " alt="" coords="248,153,480,179"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="214,150,248,153,248,158,214,155"/>
+<area shape="rect" id="Node000006" href="$classadi__imu_1_1Adis1655xRegisterMap.html" title=" " alt="" coords="248,203,480,228"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="153,157,249,187,300,200,299,205,247,193,151,162"/>
+<area shape="rect" id="Node000007" href="$classadi__imu_1_1Adis1657xRegisterMap.html" title=" " alt="" coords="248,252,480,277"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="131,161,184,200,249,237,287,249,285,255,247,242,181,205,128,166"/>
+</map>

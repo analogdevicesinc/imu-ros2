@@ -17,7 +17,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="test/src/imu_identification_subscriber_test.cpp" line="42" column="15" bodyfile="test/src/imu_identification_subscriber_test.cpp" bodystart="42" bodyend="42"/>
+        <location file="test/src/imu_identification_subscriber_test.cpp" line="43" column="15" bodyfile="test/src/imu_identification_subscriber_test.cpp" bodystart="43" bodyend="43"/>
       </memberdef>
       <memberdef kind="function" id="classImuIdentificationSubscriberTest_1a3fcc6269d08ee482073a68eae77229e8" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -32,7 +32,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="test/src/imu_identification_subscriber_test.cpp" line="47" column="15" bodyfile="test/src/imu_identification_subscriber_test.cpp" bodystart="47" bodyend="47"/>
+        <location file="test/src/imu_identification_subscriber_test.cpp" line="48" column="15" bodyfile="test/src/imu_identification_subscriber_test.cpp" bodystart="48" bodyend="48"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -63,7 +63,7 @@
         <label>testing::Test</label>
       </node>
     </collaborationgraph>
-    <location file="test/src/imu_identification_subscriber_test.cpp" line="36" column="1" bodyfile="test/src/imu_identification_subscriber_test.cpp" bodystart="37" bodyend="48"/>
+    <location file="test/src/imu_identification_subscriber_test.cpp" line="37" column="1" bodyfile="test/src/imu_identification_subscriber_test.cpp" bodystart="38" bodyend="49"/>
     <listofallmembers>
       <member refid="classImuIdentificationSubscriberTest_1a32056248dd3fcf21fe97f2b5b41dae8d" prot="public" virt="non-virtual"><scope>ImuIdentificationSubscriberTest</scope><name>SetUpTestCase</name></member>
       <member refid="classImuIdentificationSubscriberTest_1a3fcc6269d08ee482073a68eae77229e8" prot="public" virt="non-virtual"><scope>ImuIdentificationSubscriberTest</scope><name>TearDownTestCase</name></member>

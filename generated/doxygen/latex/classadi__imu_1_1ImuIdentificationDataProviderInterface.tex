@@ -1,0 +1,65 @@
+\doxysection{adi\+\_\+imu\+::Imu\+Identification\+Data\+Provider\+Interface Class Reference}
+\hypertarget{classadi__imu_1_1ImuIdentificationDataProviderInterface}{}\label{classadi__imu_1_1ImuIdentificationDataProviderInterface}\index{adi\_imu::ImuIdentificationDataProviderInterface@{adi\_imu::ImuIdentificationDataProviderInterface}}
+
+
+Interface for identification data provider.  
+
+
+
+
+{\ttfamily \#include $<$imu\+\_\+identification\+\_\+data\+\_\+provider\+\_\+interface.\+h$>$}
+
+
+
+Inheritance diagram for adi\+\_\+imu\+::Imu\+Identification\+Data\+Provider\+Interface\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=224pt]{classadi__imu_1_1ImuIdentificationDataProviderInterface__inherit__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classadi__imu_1_1ImuIdentificationDataProviderInterface_a56aab30deeeaa98b75cc7b3a47b9a5c7}\label{classadi__imu_1_1ImuIdentificationDataProviderInterface_a56aab30deeeaa98b75cc7b3a47b9a5c7} 
+{\bfseries Imu\+Identification\+Data\+Provider\+Interface} ()
+\begin{DoxyCompactList}\small\item\em Constructor for \doxylink{classadi__imu_1_1ImuIdentificationDataProviderInterface}{Imu\+Identification\+Data\+Provider\+Interface}. \end{DoxyCompactList}\item 
+\Hypertarget{classadi__imu_1_1ImuIdentificationDataProviderInterface_a705192a05ab2b16e491ce4874e99d44b}\label{classadi__imu_1_1ImuIdentificationDataProviderInterface_a705192a05ab2b16e491ce4874e99d44b} 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Imu\+Identification\+Data\+Provider\+Interface} ()
+\begin{DoxyCompactList}\small\item\em Destructor for \doxylink{classadi__imu_1_1ImuIdentificationDataProviderInterface}{Imu\+Identification\+Data\+Provider\+Interface}. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classadi__imu_1_1ImuIdentificationDataProviderInterface_acdac3e097ea00aa1fdab03f016f58f83}{get\+Data}} (adi\+\_\+imu\+::msg\+::\+Imu\+Identification\+Data \&message)=0
+\begin{DoxyCompactList}\small\item\em Populate Imu\+Identification\+Data message with identification data. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Interface for identification data provider. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classadi__imu_1_1ImuIdentificationDataProviderInterface_acdac3e097ea00aa1fdab03f016f58f83}\label{classadi__imu_1_1ImuIdentificationDataProviderInterface_acdac3e097ea00aa1fdab03f016f58f83} 
+\index{adi\_imu::ImuIdentificationDataProviderInterface@{adi\_imu::ImuIdentificationDataProviderInterface}!getData@{getData}}
+\index{getData@{getData}!adi\_imu::ImuIdentificationDataProviderInterface@{adi\_imu::ImuIdentificationDataProviderInterface}}
+\doxysubsubsection{\texorpdfstring{getData()}{getData()}}
+{\footnotesize\ttfamily virtual bool adi\+\_\+imu\+::\+Imu\+Identification\+Data\+Provider\+Interface\+::get\+Data (\begin{DoxyParamCaption}\item[{adi\+\_\+imu\+::msg\+::\+Imu\+Identification\+Data \&}]{message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Populate Imu\+Identification\+Data message with identification data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & Message containing the identification data. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return true if the message parameter is successfully populated with identification data and false otherwise. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classadi__imu_1_1ImuIdentificationDataProvider_ac0e4f7b3bccdaa7a0362b973607c99ac}{adi\+\_\+imu\+::\+Imu\+Identification\+Data\+Provider}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/adi\+\_\+imu/imu\+\_\+identification\+\_\+data\+\_\+provider\+\_\+interface.\+h\end{DoxyCompactItemize}

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['executecommands_0',['ExecuteCommands',['../classImuControlParameters.html#affa8e2f00d84a5f26a69f16eaf9f9c39',1,'ImuControlParameters']]],
-  ['executecommandsmaptype_1',['ExecuteCommandsMapType',['../classImuControlParameters.html#af395e099df244af44911518e92f4a02b',1,'ImuControlParameters']]]
+  ['executecommands_0',['ExecuteCommands',['../classadi__imu_1_1ImuControlParameters.html#a3e04b37f2ba056cebdb8ff28e5821d21',1,'adi_imu::ImuControlParameters']]],
+  ['executecommandsmaptype_1',['ExecuteCommandsMapType',['../classadi__imu_1_1ImuControlParameters.html#a1ae0b154d7b1b9310a76ab49ad6c2de5',1,'adi_imu::ImuControlParameters']]]
 ];

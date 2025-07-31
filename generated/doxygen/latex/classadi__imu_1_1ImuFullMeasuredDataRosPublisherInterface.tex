@@ -1,0 +1,92 @@
+\doxysection{adi\+\_\+imu\+::Imu\+Full\+Measured\+Data\+Ros\+Publisher\+Interface Class Reference}
+\hypertarget{classadi__imu_1_1ImuFullMeasuredDataRosPublisherInterface}{}\label{classadi__imu_1_1ImuFullMeasuredDataRosPublisherInterface}\index{adi\_imu::ImuFullMeasuredDataRosPublisherInterface@{adi\_imu::ImuFullMeasuredDataRosPublisherInterface}}
+
+
+Interface for acceleration, angular velocity, delta angle, delta velocity and temperature publisher.  
+
+
+
+
+{\ttfamily \#include $<$imu\+\_\+full\+\_\+measured\+\_\+data\+\_\+ros\+\_\+publisher\+\_\+interface.\+h$>$}
+
+
+
+Inheritance diagram for adi\+\_\+imu\+::Imu\+Full\+Measured\+Data\+Ros\+Publisher\+Interface\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=226pt]{classadi__imu_1_1ImuFullMeasuredDataRosPublisherInterface__inherit__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classadi__imu_1_1ImuFullMeasuredDataRosPublisherInterface_afa113ed2f8e2550bbd75b665418eb4c5}\label{classadi__imu_1_1ImuFullMeasuredDataRosPublisherInterface_afa113ed2f8e2550bbd75b665418eb4c5} 
+{\bfseries Imu\+Full\+Measured\+Data\+Ros\+Publisher\+Interface} ()
+\begin{DoxyCompactList}\small\item\em Constructor for \doxylink{classadi__imu_1_1ImuFullMeasuredDataRosPublisherInterface}{Imu\+Full\+Measured\+Data\+Ros\+Publisher\+Interface}. \end{DoxyCompactList}\item 
+\Hypertarget{classadi__imu_1_1ImuFullMeasuredDataRosPublisherInterface_ac3b110929d01b501546162887a58d0fd}\label{classadi__imu_1_1ImuFullMeasuredDataRosPublisherInterface_ac3b110929d01b501546162887a58d0fd} 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Imu\+Full\+Measured\+Data\+Ros\+Publisher\+Interface} ()
+\begin{DoxyCompactList}\small\item\em Destructor for \doxylink{classadi__imu_1_1ImuFullMeasuredDataRosPublisherInterface}{Imu\+Full\+Measured\+Data\+Ros\+Publisher\+Interface}. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classadi__imu_1_1ImuFullMeasuredDataRosPublisherInterface_a17f6f20de3a88ceb8ef9ffd41cc5186a}{set\+Message\+Provider}} (\mbox{\hyperlink{classadi__imu_1_1ImuFullMeasuredDataProviderInterface}{Imu\+Full\+Measured\+Data\+Provider\+Interface}} \texorpdfstring{$\ast$}{*}data\+Provider)=0
+\begin{DoxyCompactList}\small\item\em Set the message data provider. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classadi__imu_1_1ImuFullMeasuredDataRosPublisherInterface_a31910b4272b89724cb1e857ee8501e34}{publish}} ()=0
+\begin{DoxyCompactList}\small\item\em Publish the Imu\+Full\+Measured\+Data message. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::shared\+\_\+ptr$<$ rclcpp\+::\+Node $>$ \mbox{\hyperlink{classadi__imu_1_1ImuFullMeasuredDataRosPublisherInterface_a501b4366c871fc5fdac4da69e2a0b9dd}{m\+\_\+node}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Interface for acceleration, angular velocity, delta angle, delta velocity and temperature publisher. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classadi__imu_1_1ImuFullMeasuredDataRosPublisherInterface_a31910b4272b89724cb1e857ee8501e34}\label{classadi__imu_1_1ImuFullMeasuredDataRosPublisherInterface_a31910b4272b89724cb1e857ee8501e34} 
+\index{adi\_imu::ImuFullMeasuredDataRosPublisherInterface@{adi\_imu::ImuFullMeasuredDataRosPublisherInterface}!publish@{publish}}
+\index{publish@{publish}!adi\_imu::ImuFullMeasuredDataRosPublisherInterface@{adi\_imu::ImuFullMeasuredDataRosPublisherInterface}}
+\doxysubsubsection{\texorpdfstring{publish()}{publish()}}
+{\footnotesize\ttfamily virtual void adi\+\_\+imu\+::\+Imu\+Full\+Measured\+Data\+Ros\+Publisher\+Interface\+::publish (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Publish the Imu\+Full\+Measured\+Data message. 
+
+
+
+Implemented in \mbox{\hyperlink{classadi__imu_1_1ImuFullMeasuredDataRosPublisher_a30292e2609a200f589dbd8de7b063af0}{adi\+\_\+imu\+::\+Imu\+Full\+Measured\+Data\+Ros\+Publisher}}.
+
+\Hypertarget{classadi__imu_1_1ImuFullMeasuredDataRosPublisherInterface_a17f6f20de3a88ceb8ef9ffd41cc5186a}\label{classadi__imu_1_1ImuFullMeasuredDataRosPublisherInterface_a17f6f20de3a88ceb8ef9ffd41cc5186a} 
+\index{adi\_imu::ImuFullMeasuredDataRosPublisherInterface@{adi\_imu::ImuFullMeasuredDataRosPublisherInterface}!setMessageProvider@{setMessageProvider}}
+\index{setMessageProvider@{setMessageProvider}!adi\_imu::ImuFullMeasuredDataRosPublisherInterface@{adi\_imu::ImuFullMeasuredDataRosPublisherInterface}}
+\doxysubsubsection{\texorpdfstring{setMessageProvider()}{setMessageProvider()}}
+{\footnotesize\ttfamily virtual void adi\+\_\+imu\+::\+Imu\+Full\+Measured\+Data\+Ros\+Publisher\+Interface\+::set\+Message\+Provider (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classadi__imu_1_1ImuFullMeasuredDataProviderInterface}{Imu\+Full\+Measured\+Data\+Provider\+Interface}} \texorpdfstring{$\ast$}{*}}]{data\+Provider }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Set the message data provider. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data\+Provider} & Data provider. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classadi__imu_1_1ImuFullMeasuredDataRosPublisher_a740c69557e0fabeab49466d02971514f}{adi\+\_\+imu\+::\+Imu\+Full\+Measured\+Data\+Ros\+Publisher}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classadi__imu_1_1ImuFullMeasuredDataRosPublisherInterface_a501b4366c871fc5fdac4da69e2a0b9dd}\label{classadi__imu_1_1ImuFullMeasuredDataRosPublisherInterface_a501b4366c871fc5fdac4da69e2a0b9dd} 
+\index{adi\_imu::ImuFullMeasuredDataRosPublisherInterface@{adi\_imu::ImuFullMeasuredDataRosPublisherInterface}!m\_node@{m\_node}}
+\index{m\_node@{m\_node}!adi\_imu::ImuFullMeasuredDataRosPublisherInterface@{adi\_imu::ImuFullMeasuredDataRosPublisherInterface}}
+\doxysubsubsection{\texorpdfstring{m\_node}{m\_node}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$rclcpp\+::\+Node$>$ adi\+\_\+imu\+::\+Imu\+Full\+Measured\+Data\+Ros\+Publisher\+Interface\+::m\+\_\+node\hspace{0.3cm}{\ttfamily [protected]}}
+
+The ros2 Node data member. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/adi\+\_\+imu/imu\+\_\+full\+\_\+measured\+\_\+data\+\_\+ros\+\_\+publisher\+\_\+interface.\+h\end{DoxyCompactItemize}

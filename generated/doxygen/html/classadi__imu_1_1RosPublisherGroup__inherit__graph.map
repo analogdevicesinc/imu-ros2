@@ -1,0 +1,7 @@
+<map id="adi_imu::RosPublisherGroup" name="adi_imu::RosPublisherGroup">
+<area shape="rect" id="Node000001" title="Class ROS publisher group." alt="" coords="5,167,211,192"/>
+<area shape="rect" id="Node000002" href="$classadi__imu_1_1RosPublisherGroupInterface.html" title="Interface for publisher group." alt="" coords="5,79,211,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="111,132,111,166,105,166,105,132"/>
+<area shape="rect" id="Node000003" href="$classadi__imu_1_1RosTask.html" title="Interface for running a task in a thread." alt="" coords="41,5,175,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="111,44,111,79,105,79,105,44"/>
+</map>

@@ -1,0 +1,195 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classadi__imu_1_1ImuDiagDataProviderInterface" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>adi_imu::ImuDiagDataProviderInterface</compoundname>
+    <derivedcompoundref refid="classadi__imu_1_1ImuDiagDataProvider" prot="public" virt="non-virtual">adi_imu::ImuDiagDataProvider</derivedcompoundref>
+    <includes refid="imu__diag__data__provider__interface_8h" local="no">imu_diag_data_provider_interface.h</includes>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classadi__imu_1_1ImuDiagDataProviderInterface_1a02ffe604bc2876129d87da90580e7503" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>adi_imu::ImuDiagDataProviderInterface::ImuDiagDataProviderInterface</definition>
+        <argsstring>()</argsstring>
+        <name>ImuDiagDataProviderInterface</name>
+        <qualifiedname>adi_imu::ImuDiagDataProviderInterface::ImuDiagDataProviderInterface</qualifiedname>
+        <briefdescription>
+<para>Constructor for <ref refid="classadi__imu_1_1ImuDiagDataProviderInterface" kindref="compound">ImuDiagDataProviderInterface</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/imu_diag_data_provider_interface.h" line="42" column="3" bodyfile="include/adi_imu/imu_diag_data_provider_interface.h" bodystart="42" bodyend="42"/>
+      </memberdef>
+      <memberdef kind="function" id="classadi__imu_1_1ImuDiagDataProviderInterface_1a00982d8451ec92202e8a248069b6cbcd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type></type>
+        <definition>virtual adi_imu::ImuDiagDataProviderInterface::~ImuDiagDataProviderInterface</definition>
+        <argsstring>()</argsstring>
+        <name>~ImuDiagDataProviderInterface</name>
+        <qualifiedname>adi_imu::ImuDiagDataProviderInterface::~ImuDiagDataProviderInterface</qualifiedname>
+        <briefdescription>
+<para>Destructor for <ref refid="classadi__imu_1_1ImuDiagDataProviderInterface" kindref="compound">ImuDiagDataProviderInterface</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/imu_diag_data_provider_interface.h" line="47" column="11" bodyfile="include/adi_imu/imu_diag_data_provider_interface.h" bodystart="47" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="classadi__imu_1_1ImuDiagDataProviderInterface_1ab0cbc77a9139a3ba30364927d3b3995d" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>bool</type>
+        <definition>virtual bool adi_imu::ImuDiagDataProviderInterface::getData</definition>
+        <argsstring>(adi_imu::msg::ImuDiagDataADIS1646X &amp;message)=0</argsstring>
+        <name>getData</name>
+        <qualifiedname>adi_imu::ImuDiagDataProviderInterface::getData</qualifiedname>
+        <reimplementedby refid="classadi__imu_1_1ImuDiagDataProvider_1a6c47e14c646e62efb74d571baae0c9d0">getData</reimplementedby>
+        <param>
+          <type>adi_imu::msg::ImuDiagDataADIS1646X &amp;</type>
+          <declname>message</declname>
+        </param>
+        <briefdescription>
+<para>Populate ImuDiagData message with diagnosis data. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>message</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Message containing the diagnosis data. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Return true if the message parameter is successfully populated with diagnosis data and false otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/imu_diag_data_provider_interface.h" line="55" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classadi__imu_1_1ImuDiagDataProviderInterface_1adea11ba090971d2166236c13d1680c47" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>bool</type>
+        <definition>virtual bool adi_imu::ImuDiagDataProviderInterface::getData</definition>
+        <argsstring>(adi_imu::msg::ImuDiagDataADIS1647X &amp;message)=0</argsstring>
+        <name>getData</name>
+        <qualifiedname>adi_imu::ImuDiagDataProviderInterface::getData</qualifiedname>
+        <reimplementedby refid="classadi__imu_1_1ImuDiagDataProvider_1a1c8d0028dcb8d7a92ce0b29c72bc9a8a">getData</reimplementedby>
+        <param>
+          <type>adi_imu::msg::ImuDiagDataADIS1647X &amp;</type>
+          <declname>message</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/imu_diag_data_provider_interface.h" line="56" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classadi__imu_1_1ImuDiagDataProviderInterface_1a928e3335ca9232ebc1fbff7348fb761a" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>bool</type>
+        <definition>virtual bool adi_imu::ImuDiagDataProviderInterface::getData</definition>
+        <argsstring>(adi_imu::msg::ImuDiagDataADIS1650X &amp;message)=0</argsstring>
+        <name>getData</name>
+        <qualifiedname>adi_imu::ImuDiagDataProviderInterface::getData</qualifiedname>
+        <reimplementedby refid="classadi__imu_1_1ImuDiagDataProvider_1a21886db995509131278d6b5667052106">getData</reimplementedby>
+        <param>
+          <type>adi_imu::msg::ImuDiagDataADIS1650X &amp;</type>
+          <declname>message</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/imu_diag_data_provider_interface.h" line="57" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classadi__imu_1_1ImuDiagDataProviderInterface_1aefaff3f16005406e447f1fa4b0b4f324" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>bool</type>
+        <definition>virtual bool adi_imu::ImuDiagDataProviderInterface::getData</definition>
+        <argsstring>(adi_imu::msg::ImuDiagDataADIS1654X &amp;message)=0</argsstring>
+        <name>getData</name>
+        <qualifiedname>adi_imu::ImuDiagDataProviderInterface::getData</qualifiedname>
+        <reimplementedby refid="classadi__imu_1_1ImuDiagDataProvider_1a21ca1a12bc26106d3699c81e6ba5a64f">getData</reimplementedby>
+        <param>
+          <type>adi_imu::msg::ImuDiagDataADIS1654X &amp;</type>
+          <declname>message</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/imu_diag_data_provider_interface.h" line="58" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classadi__imu_1_1ImuDiagDataProviderInterface_1a762a37b04a14ab089a35cb21081a05e6" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>bool</type>
+        <definition>virtual bool adi_imu::ImuDiagDataProviderInterface::getData</definition>
+        <argsstring>(adi_imu::msg::ImuDiagDataADIS1655X &amp;message)=0</argsstring>
+        <name>getData</name>
+        <qualifiedname>adi_imu::ImuDiagDataProviderInterface::getData</qualifiedname>
+        <reimplementedby refid="classadi__imu_1_1ImuDiagDataProvider_1ae296991d22cfa361413745b044733095">getData</reimplementedby>
+        <param>
+          <type>adi_imu::msg::ImuDiagDataADIS1655X &amp;</type>
+          <declname>message</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/imu_diag_data_provider_interface.h" line="59" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classadi__imu_1_1ImuDiagDataProviderInterface_1a1e17f85b81dc5b72f15e9e1afa9b0fbf" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>bool</type>
+        <definition>virtual bool adi_imu::ImuDiagDataProviderInterface::getData</definition>
+        <argsstring>(adi_imu::msg::ImuDiagDataADIS1657X &amp;message)=0</argsstring>
+        <name>getData</name>
+        <qualifiedname>adi_imu::ImuDiagDataProviderInterface::getData</qualifiedname>
+        <reimplementedby refid="classadi__imu_1_1ImuDiagDataProvider_1a3e5021dfd3c8beba52c082d551531ef2">getData</reimplementedby>
+        <param>
+          <type>adi_imu::msg::ImuDiagDataADIS1657X &amp;</type>
+          <declname>message</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/imu_diag_data_provider_interface.h" line="60" column="16"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Interface for diagnosis data provider for adis chips. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>adi_imu::ImuDiagDataProvider</label>
+        <link refid="classadi__imu_1_1ImuDiagDataProvider"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>adi_imu::ImuDiagDataProviderInterface</label>
+        <link refid="classadi__imu_1_1ImuDiagDataProviderInterface"/>
+      </node>
+    </inheritancegraph>
+    <location file="include/adi_imu/imu_diag_data_provider_interface.h" line="36" column="1" bodyfile="include/adi_imu/imu_diag_data_provider_interface.h" bodystart="37" bodyend="61"/>
+    <listofallmembers>
+      <member refid="classadi__imu_1_1ImuDiagDataProviderInterface_1ab0cbc77a9139a3ba30364927d3b3995d" prot="public" virt="pure-virtual"><scope>adi_imu::ImuDiagDataProviderInterface</scope><name>getData</name></member>
+      <member refid="classadi__imu_1_1ImuDiagDataProviderInterface_1adea11ba090971d2166236c13d1680c47" prot="public" virt="pure-virtual"><scope>adi_imu::ImuDiagDataProviderInterface</scope><name>getData</name></member>
+      <member refid="classadi__imu_1_1ImuDiagDataProviderInterface_1a928e3335ca9232ebc1fbff7348fb761a" prot="public" virt="pure-virtual"><scope>adi_imu::ImuDiagDataProviderInterface</scope><name>getData</name></member>
+      <member refid="classadi__imu_1_1ImuDiagDataProviderInterface_1aefaff3f16005406e447f1fa4b0b4f324" prot="public" virt="pure-virtual"><scope>adi_imu::ImuDiagDataProviderInterface</scope><name>getData</name></member>
+      <member refid="classadi__imu_1_1ImuDiagDataProviderInterface_1a762a37b04a14ab089a35cb21081a05e6" prot="public" virt="pure-virtual"><scope>adi_imu::ImuDiagDataProviderInterface</scope><name>getData</name></member>
+      <member refid="classadi__imu_1_1ImuDiagDataProviderInterface_1a1e17f85b81dc5b72f15e9e1afa9b0fbf" prot="public" virt="pure-virtual"><scope>adi_imu::ImuDiagDataProviderInterface</scope><name>getData</name></member>
+      <member refid="classadi__imu_1_1ImuDiagDataProviderInterface_1a02ffe604bc2876129d87da90580e7503" prot="public" virt="non-virtual"><scope>adi_imu::ImuDiagDataProviderInterface</scope><name>ImuDiagDataProviderInterface</name></member>
+      <member refid="classadi__imu_1_1ImuDiagDataProviderInterface_1a00982d8451ec92202e8a248069b6cbcd" prot="public" virt="virtual"><scope>adi_imu::ImuDiagDataProviderInterface</scope><name>~ImuDiagDataProviderInterface</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

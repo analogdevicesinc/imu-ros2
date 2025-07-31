@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classadi__imu_1_1Adis1654xRegisterMap" kind="class" language="C++" prot="public">
+    <compoundname>adi_imu::Adis1654xRegisterMap</compoundname>
+    <basecompoundref refid="classadi__imu_1_1ADISRegisterMap" prot="public" virt="non-virtual">adi_imu::ADISRegisterMap</basecompoundref>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classadi__imu_1_1Adis1654xRegisterMap_1a2e523801915933b65df88d6888659375" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>adi_imu::Adis1654xRegisterMap::Adis1654xRegisterMap</definition>
+        <argsstring>(adis_device_id device_id)</argsstring>
+        <name>Adis1654xRegisterMap</name>
+        <qualifiedname>adi_imu::Adis1654xRegisterMap::Adis1654xRegisterMap</qualifiedname>
+        <param>
+          <type>adis_device_id</type>
+          <declname>device_id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/adis1654x_register_map.h" line="26" column="12" bodyfile="src/adis1654x_register_map.cpp" bodystart="20" bodyend="23"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classadi__imu_1_1Adis1654xRegisterMap_1a2cbf61ec193dc614f72d6ea3d15fdb24" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void adi_imu::Adis1654xRegisterMap::initializeConstants</definition>
+        <argsstring>() override</argsstring>
+        <name>initializeConstants</name>
+        <qualifiedname>adi_imu::Adis1654xRegisterMap::initializeConstants</qualifiedname>
+        <reimplements refid="classadi__imu_1_1ADISRegisterMap_1aa95296ba7c08b20ccec76738615e445c">initializeConstants</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/adis1654x_register_map.h" line="29" column="8" bodyfile="src/adis1654x_register_map.cpp" bodystart="25" bodyend="95"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>adi_imu::ADISRegisterMap</label>
+        <link refid="classadi__imu_1_1ADISRegisterMap"/>
+      </node>
+      <node id="1">
+        <label>adi_imu::Adis1654xRegisterMap</label>
+        <link refid="classadi__imu_1_1Adis1654xRegisterMap"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>adi_imu::ADISRegisterMap</label>
+        <link refid="classadi__imu_1_1ADISRegisterMap"/>
+      </node>
+      <node id="1">
+        <label>adi_imu::Adis1654xRegisterMap</label>
+        <link refid="classadi__imu_1_1Adis1654xRegisterMap"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="include/adi_imu/adis1654x_register_map.h" line="23" column="1" bodyfile="include/adi_imu/adis1654x_register_map.h" bodystart="24" bodyend="30"/>
+    <listofallmembers>
+      <member refid="classadi__imu_1_1Adis1654xRegisterMap_1a2e523801915933b65df88d6888659375" prot="public" virt="non-virtual"><scope>adi_imu::Adis1654xRegisterMap</scope><name>Adis1654xRegisterMap</name></member>
+      <member refid="classadi__imu_1_1ADISRegisterMap_1acc2f1d739fc5717beaa4ee1526f4b211" prot="protected" virt="non-virtual"><scope>adi_imu::Adis1654xRegisterMap</scope><name>ADISRegisterMap</name></member>
+      <member refid="classadi__imu_1_1ADISRegisterMap_1aec2aec1d205e1572a11d6fedd85bf6a6" prot="protected" virt="virtual"><scope>adi_imu::Adis1654xRegisterMap</scope><name>computeBitMasks</name></member>
+      <member refid="classadi__imu_1_1ADISRegisterMap_1ac135877d73fc7337557837ba908ad648" prot="public" virt="non-virtual"><scope>adi_imu::Adis1654xRegisterMap</scope><name>get</name></member>
+      <member refid="classadi__imu_1_1ADISRegisterMap_1a0456dad8c87334081444728031d0fb63" prot="public" virt="non-virtual"><scope>adi_imu::Adis1654xRegisterMap</scope><name>getDeviceFamily</name></member>
+      <member refid="classadi__imu_1_1ADISRegisterMap_1a4a3d03a7236386a75d3c37e24394a460" prot="public" virt="non-virtual"><scope>adi_imu::Adis1654xRegisterMap</scope><name>getDeviceID</name></member>
+      <member refid="classadi__imu_1_1ADISRegisterMap_1a6c60ee2ce0fe46bbed2bf90b70938eca" prot="public" virt="non-virtual"><scope>adi_imu::Adis1654xRegisterMap</scope><name>getDeviceName</name></member>
+      <member refid="classadi__imu_1_1ADISRegisterMap_1a50fa47d7cb75e29a16cc149b1668b8d7" prot="public" virt="non-virtual"><scope>adi_imu::Adis1654xRegisterMap</scope><name>has</name></member>
+      <member refid="classadi__imu_1_1ADISRegisterMap_1adfb5f5562523524f54b6794fc34ab271" prot="public" virt="non-virtual"><scope>adi_imu::Adis1654xRegisterMap</scope><name>hasDeltaBurst</name></member>
+      <member refid="classadi__imu_1_1ADISRegisterMap_1a21cabec4811bb12f46b0133219c4a7f7" prot="public" virt="non-virtual"><scope>adi_imu::Adis1654xRegisterMap</scope><name>initialize</name></member>
+      <member refid="classadi__imu_1_1Adis1654xRegisterMap_1a2cbf61ec193dc614f72d6ea3d15fdb24" prot="private" virt="virtual"><scope>adi_imu::Adis1654xRegisterMap</scope><name>initializeConstants</name></member>
+      <member refid="classadi__imu_1_1ADISRegisterMap_1a6746c88019158245410c202443a9d29b" prot="protected" virt="virtual"><scope>adi_imu::Adis1654xRegisterMap</scope><name>initSharedRegisters</name></member>
+      <member refid="classadi__imu_1_1ADISRegisterMap_1a1d77d9f2e19dc23c9f1358baf8bc1bc0" prot="public" virt="non-virtual"><scope>adi_imu::Adis1654xRegisterMap</scope><name>log</name></member>
+      <member refid="classadi__imu_1_1ADISRegisterMap_1aaf4133be4c8da55044642c024e3a2d02" prot="protected" virt="non-virtual"><scope>adi_imu::Adis1654xRegisterMap</scope><name>m_device_family</name></member>
+      <member refid="classadi__imu_1_1ADISRegisterMap_1a9a63a8b6c9fd37469ef415ad1274168e" prot="protected" virt="non-virtual"><scope>adi_imu::Adis1654xRegisterMap</scope><name>m_device_id</name></member>
+      <member refid="classadi__imu_1_1ADISRegisterMap_1ab9cfa168cfd97a5b209bb3f4f66cf586" prot="protected" virt="non-virtual"><scope>adi_imu::Adis1654xRegisterMap</scope><name>m_device_name</name></member>
+      <member refid="classadi__imu_1_1ADISRegisterMap_1a71ab4a5f1f7e13cdecc13642f3dc57ac" prot="protected" virt="non-virtual"><scope>adi_imu::Adis1654xRegisterMap</scope><name>m_register_map</name></member>
+      <member refid="classadi__imu_1_1ADISRegisterMap_1ad3c41cd6f10ca18bdfe7740efc57359c" prot="protected" virt="virtual"><scope>adi_imu::Adis1654xRegisterMap</scope><name>overwriteRegisters</name></member>
+      <member refid="classadi__imu_1_1ADISRegisterMap_1a65232d99e264a20c469172a4ae5a1559" prot="protected" virt="virtual"><scope>adi_imu::Adis1654xRegisterMap</scope><name>postComputeBitmask</name></member>
+      <member refid="classadi__imu_1_1ADISRegisterMap_1af6b415e1e872ee6da4ae608e7a71484d" prot="protected" virt="non-virtual"><scope>adi_imu::Adis1654xRegisterMap</scope><name>set</name></member>
+      <member refid="classadi__imu_1_1ADISRegisterMap_1a032e7ccace5f04ebfa87b906f86af850" prot="public" virt="virtual"><scope>adi_imu::Adis1654xRegisterMap</scope><name>~ADISRegisterMap</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

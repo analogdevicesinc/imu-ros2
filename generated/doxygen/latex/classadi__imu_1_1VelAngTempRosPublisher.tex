@@ -1,0 +1,149 @@
+\doxysection{adi\+\_\+imu\+::Vel\+Ang\+Temp\+Ros\+Publisher Class Reference}
+\hypertarget{classadi__imu_1_1VelAngTempRosPublisher}{}\label{classadi__imu_1_1VelAngTempRosPublisher}\index{adi\_imu::VelAngTempRosPublisher@{adi\_imu::VelAngTempRosPublisher}}
+
+
+Class for delta velocity, delta angle and temperature publisher.  
+
+
+
+
+{\ttfamily \#include $<$velangtemp\+\_\+ros\+\_\+publisher.\+h$>$}
+
+
+
+Inheritance diagram for adi\+\_\+imu\+::Vel\+Ang\+Temp\+Ros\+Publisher\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=265pt]{classadi__imu_1_1VelAngTempRosPublisher__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for adi\+\_\+imu\+::Vel\+Ang\+Temp\+Ros\+Publisher\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classadi__imu_1_1VelAngTempRosPublisher__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classadi__imu_1_1VelAngTempRosPublisher_a78ca8bddb7d11ffab85519e22e2687c9}{Vel\+Ang\+Temp\+Ros\+Publisher}} (std\+::shared\+\_\+ptr$<$ rclcpp\+::\+Node $>$ \&node)
+\begin{DoxyCompactList}\small\item\em Constructor for \doxylink{classadi__imu_1_1VelAngTempRosPublisher}{Vel\+Ang\+Temp\+Ros\+Publisher}. \end{DoxyCompactList}\item 
+\Hypertarget{classadi__imu_1_1VelAngTempRosPublisher_a3d8e8ec99a942f4a342cd5e4fca8117c}\label{classadi__imu_1_1VelAngTempRosPublisher_a3d8e8ec99a942f4a342cd5e4fca8117c} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Vel\+Ang\+Temp\+Ros\+Publisher} ()
+\begin{DoxyCompactList}\small\item\em Destructor for \doxylink{classadi__imu_1_1VelAngTempRosPublisher}{Vel\+Ang\+Temp\+Ros\+Publisher}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classadi__imu_1_1VelAngTempRosPublisher_aa95e8ba1150f64b0a2d44a519dafca25}{set\+Message\+Provider}} (\mbox{\hyperlink{classadi__imu_1_1VelAngTempDataProviderInterface}{Vel\+Ang\+Temp\+Data\+Provider\+Interface}} \texorpdfstring{$\ast$}{*}data\+Provider) override
+\begin{DoxyCompactList}\small\item\em Set the message data provider. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classadi__imu_1_1VelAngTempRosPublisher_a53b7c1cc3cbc062a7b5a0a32febf3546}{publish}} () override
+\begin{DoxyCompactList}\small\item\em Publish the Vel\+Ang\+Temp\+Data message. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classadi__imu_1_1VelAngTempRosPublisherInterface}{adi\+\_\+imu\+::\+Vel\+Ang\+Temp\+Ros\+Publisher\+Interface}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Vel\+Ang\+Temp\+Ros\+Publisher\+Interface} ()
+\begin{DoxyCompactList}\small\item\em Constructor for \doxylink{classadi__imu_1_1VelAngTempRosPublisherInterface}{Vel\+Ang\+Temp\+Ros\+Publisher\+Interface}. \end{DoxyCompactList}\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Vel\+Ang\+Temp\+Ros\+Publisher\+Interface} ()
+\begin{DoxyCompactList}\small\item\em Destructor for \doxylink{classadi__imu_1_1VelAngTempRosPublisherInterface}{Vel\+Ang\+Temp\+Ros\+Publisher\+Interface}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classadi__imu_1_1VelAngTempDataProviderInterface}{Vel\+Ang\+Temp\+Data\+Provider\+Interface}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classadi__imu_1_1VelAngTempRosPublisher_a746d90da062a25dac74924ab00152e63}{m\+\_\+data\+\_\+provider}}
+\item 
+rclcpp\+::\+Publisher$<$ adi\+\_\+imu\+::msg\+::\+Vel\+Ang\+Temp\+Data $>$\+::\+Shared\+Ptr \mbox{\hyperlink{classadi__imu_1_1VelAngTempRosPublisher_a77467118945b751b61c38e0004109a17}{m\+\_\+publisher}}
+\item 
+adi\+\_\+imu\+::msg\+::\+Vel\+Ang\+Temp\+Data \mbox{\hyperlink{classadi__imu_1_1VelAngTempRosPublisher_afc9cf345d166f641bc6927711cafa081}{m\+\_\+message}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classadi__imu_1_1VelAngTempRosPublisherInterface}{adi\+\_\+imu\+::\+Vel\+Ang\+Temp\+Ros\+Publisher\+Interface}}}
+\begin{DoxyCompactItemize}
+\item 
+std\+::shared\+\_\+ptr$<$ rclcpp\+::\+Node $>$ \mbox{\hyperlink{classadi__imu_1_1VelAngTempRosPublisherInterface_af87138dded7510ac264c93a7a333b7da}{m\+\_\+node}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class for delta velocity, delta angle and temperature publisher. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classadi__imu_1_1VelAngTempRosPublisher_a78ca8bddb7d11ffab85519e22e2687c9}\label{classadi__imu_1_1VelAngTempRosPublisher_a78ca8bddb7d11ffab85519e22e2687c9} 
+\index{adi\_imu::VelAngTempRosPublisher@{adi\_imu::VelAngTempRosPublisher}!VelAngTempRosPublisher@{VelAngTempRosPublisher}}
+\index{VelAngTempRosPublisher@{VelAngTempRosPublisher}!adi\_imu::VelAngTempRosPublisher@{adi\_imu::VelAngTempRosPublisher}}
+\doxysubsubsection{\texorpdfstring{VelAngTempRosPublisher()}{VelAngTempRosPublisher()}}
+{\footnotesize\ttfamily adi\+\_\+imu\+::\+Vel\+Ang\+Temp\+Ros\+Publisher\+::\+Vel\+Ang\+Temp\+Ros\+Publisher (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ rclcpp\+::\+Node $>$ \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Constructor for \doxylink{classadi__imu_1_1VelAngTempRosPublisher}{Vel\+Ang\+Temp\+Ros\+Publisher}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em node} & The ros2 Node instance. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classadi__imu_1_1VelAngTempRosPublisher_a53b7c1cc3cbc062a7b5a0a32febf3546}\label{classadi__imu_1_1VelAngTempRosPublisher_a53b7c1cc3cbc062a7b5a0a32febf3546} 
+\index{adi\_imu::VelAngTempRosPublisher@{adi\_imu::VelAngTempRosPublisher}!publish@{publish}}
+\index{publish@{publish}!adi\_imu::VelAngTempRosPublisher@{adi\_imu::VelAngTempRosPublisher}}
+\doxysubsubsection{\texorpdfstring{publish()}{publish()}}
+{\footnotesize\ttfamily void adi\+\_\+imu\+::\+Vel\+Ang\+Temp\+Ros\+Publisher\+::publish (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Publish the Vel\+Ang\+Temp\+Data message. 
+
+
+
+Implements \mbox{\hyperlink{classadi__imu_1_1VelAngTempRosPublisherInterface_ac5faa37596fc59fdade8eb202b970f64}{adi\+\_\+imu\+::\+Vel\+Ang\+Temp\+Ros\+Publisher\+Interface}}.
+
+\Hypertarget{classadi__imu_1_1VelAngTempRosPublisher_aa95e8ba1150f64b0a2d44a519dafca25}\label{classadi__imu_1_1VelAngTempRosPublisher_aa95e8ba1150f64b0a2d44a519dafca25} 
+\index{adi\_imu::VelAngTempRosPublisher@{adi\_imu::VelAngTempRosPublisher}!setMessageProvider@{setMessageProvider}}
+\index{setMessageProvider@{setMessageProvider}!adi\_imu::VelAngTempRosPublisher@{adi\_imu::VelAngTempRosPublisher}}
+\doxysubsubsection{\texorpdfstring{setMessageProvider()}{setMessageProvider()}}
+{\footnotesize\ttfamily void adi\+\_\+imu\+::\+Vel\+Ang\+Temp\+Ros\+Publisher\+::set\+Message\+Provider (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classadi__imu_1_1VelAngTempDataProviderInterface}{Vel\+Ang\+Temp\+Data\+Provider\+Interface}} \texorpdfstring{$\ast$}{*}}]{data\+Provider }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Set the message data provider. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data\+Provider} & Data provider. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classadi__imu_1_1VelAngTempRosPublisherInterface_ab35ef2daa721d52daf9bc5b0bea982d7}{adi\+\_\+imu\+::\+Vel\+Ang\+Temp\+Ros\+Publisher\+Interface}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classadi__imu_1_1VelAngTempRosPublisher_a746d90da062a25dac74924ab00152e63}\label{classadi__imu_1_1VelAngTempRosPublisher_a746d90da062a25dac74924ab00152e63} 
+\index{adi\_imu::VelAngTempRosPublisher@{adi\_imu::VelAngTempRosPublisher}!m\_data\_provider@{m\_data\_provider}}
+\index{m\_data\_provider@{m\_data\_provider}!adi\_imu::VelAngTempRosPublisher@{adi\_imu::VelAngTempRosPublisher}}
+\doxysubsubsection{\texorpdfstring{m\_data\_provider}{m\_data\_provider}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classadi__imu_1_1VelAngTempDataProviderInterface}{Vel\+Ang\+Temp\+Data\+Provider\+Interface}}\texorpdfstring{$\ast$}{*} adi\+\_\+imu\+::\+Vel\+Ang\+Temp\+Ros\+Publisher\+::m\+\_\+data\+\_\+provider\hspace{0.3cm}{\ttfamily [private]}}
+
+This variable retains the data provider instance. \Hypertarget{classadi__imu_1_1VelAngTempRosPublisher_afc9cf345d166f641bc6927711cafa081}\label{classadi__imu_1_1VelAngTempRosPublisher_afc9cf345d166f641bc6927711cafa081} 
+\index{adi\_imu::VelAngTempRosPublisher@{adi\_imu::VelAngTempRosPublisher}!m\_message@{m\_message}}
+\index{m\_message@{m\_message}!adi\_imu::VelAngTempRosPublisher@{adi\_imu::VelAngTempRosPublisher}}
+\doxysubsubsection{\texorpdfstring{m\_message}{m\_message}}
+{\footnotesize\ttfamily adi\+\_\+imu\+::msg\+::\+Vel\+Ang\+Temp\+Data adi\+\_\+imu\+::\+Vel\+Ang\+Temp\+Ros\+Publisher\+::m\+\_\+message\hspace{0.3cm}{\ttfamily [private]}}
+
+This variable retains the message that is published. \Hypertarget{classadi__imu_1_1VelAngTempRosPublisher_a77467118945b751b61c38e0004109a17}\label{classadi__imu_1_1VelAngTempRosPublisher_a77467118945b751b61c38e0004109a17} 
+\index{adi\_imu::VelAngTempRosPublisher@{adi\_imu::VelAngTempRosPublisher}!m\_publisher@{m\_publisher}}
+\index{m\_publisher@{m\_publisher}!adi\_imu::VelAngTempRosPublisher@{adi\_imu::VelAngTempRosPublisher}}
+\doxysubsubsection{\texorpdfstring{m\_publisher}{m\_publisher}}
+{\footnotesize\ttfamily rclcpp\+::\+Publisher$<$adi\+\_\+imu\+::msg\+::\+Vel\+Ang\+Temp\+Data$>$\+::\+Shared\+Ptr adi\+\_\+imu\+::\+Vel\+Ang\+Temp\+Ros\+Publisher\+::m\+\_\+publisher\hspace{0.3cm}{\ttfamily [private]}}
+
+This variable retains the publisher instance. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/adi\+\_\+imu/velangtemp\+\_\+ros\+\_\+publisher.\+h\item 
+src/velangtemp\+\_\+ros\+\_\+publisher.\+cpp\end{DoxyCompactItemize}

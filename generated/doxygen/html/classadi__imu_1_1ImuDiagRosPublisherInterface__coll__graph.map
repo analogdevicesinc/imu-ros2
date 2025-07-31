@@ -1,0 +1,5 @@
+<map id="adi_imu::ImuDiagRosPublisherInterface" name="adi_imu::ImuDiagRosPublisherInterface">
+<area shape="rect" id="Node000001" title="Interface for diagnosis publisher for adis chips." alt="" coords="5,79,227,119"/>
+<area shape="rect" id="Node000002" href="$classadi__imu_1_1RosTask.html" title="Interface for running a task in a thread." alt="" coords="49,5,183,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="119,44,119,79,113,79,113,44"/>
+</map>

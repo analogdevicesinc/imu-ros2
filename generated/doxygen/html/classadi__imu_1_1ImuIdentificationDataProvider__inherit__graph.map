@@ -1,0 +1,5 @@
+<map id="adi_imu::ImuIdentificationDataProvider" name="adi_imu::ImuIdentificationDataProvider">
+<area shape="rect" id="Node000001" title="Class for identification data provider." alt="" coords="5,93,197,133"/>
+<area shape="rect" id="Node000002" href="$classadi__imu_1_1ImuIdentificationDataProviderInterface.html" title="Interface for identification data provider." alt="" coords="5,5,197,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="104,59,104,93,99,93,99,59"/>
+</map>

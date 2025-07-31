@@ -1,0 +1,134 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classadi__imu_1_1ImuDataProvider" kind="class" language="C++" prot="public">
+    <compoundname>adi_imu::ImuDataProvider</compoundname>
+    <basecompoundref refid="classadi__imu_1_1ImuDataProviderInterface" prot="public" virt="non-virtual">adi_imu::ImuDataProviderInterface</basecompoundref>
+    <includes refid="imu__data__provider_8h" local="no">imu_data_provider.h</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classadi__imu_1_1ImuDataProvider_1acebed0a2e0d46dfb9bdf830faa6342ba" prot="private" static="no" mutable="no">
+        <type><ref refid="classadi__imu_1_1IIOWrapper" kindref="compound">IIOWrapper</ref></type>
+        <definition>IIOWrapper adi_imu::ImuDataProvider::m_iio_wrapper</definition>
+        <argsstring></argsstring>
+        <name>m_iio_wrapper</name>
+        <qualifiedname>adi_imu::ImuDataProvider::m_iio_wrapper</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This data member is used to access sensor information via libiio. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/imu_data_provider.h" line="55" column="14" bodyfile="include/adi_imu/imu_data_provider.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classadi__imu_1_1ImuDataProvider_1ab59782fa5f2c5ac4abd22b1942310d6f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>adi_imu::ImuDataProvider::ImuDataProvider</definition>
+        <argsstring>()</argsstring>
+        <name>ImuDataProvider</name>
+        <qualifiedname>adi_imu::ImuDataProvider::ImuDataProvider</qualifiedname>
+        <briefdescription>
+<para>Constructor for <ref refid="classadi__imu_1_1ImuDataProvider" kindref="compound">ImuDataProvider</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/imu_data_provider.h" line="38" column="3" bodyfile="src/imu_data_provider.cpp" bodystart="27" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="function" id="classadi__imu_1_1ImuDataProvider_1a55a80d1e5b5f27e9f521e6f52010d4a5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>adi_imu::ImuDataProvider::~ImuDataProvider</definition>
+        <argsstring>()</argsstring>
+        <name>~ImuDataProvider</name>
+        <qualifiedname>adi_imu::ImuDataProvider::~ImuDataProvider</qualifiedname>
+        <briefdescription>
+<para>Destructor for <ref refid="classadi__imu_1_1ImuDataProvider" kindref="compound">ImuDataProvider</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/imu_data_provider.h" line="43" column="3" bodyfile="src/imu_data_provider.cpp" bodystart="29" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="function" id="classadi__imu_1_1ImuDataProvider_1a97d76266acb17424247e5b6bf2a32c7a" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool adi_imu::ImuDataProvider::getData</definition>
+        <argsstring>(sensor_msgs::msg::Imu &amp;message) override</argsstring>
+        <name>getData</name>
+        <qualifiedname>adi_imu::ImuDataProvider::getData</qualifiedname>
+        <reimplements refid="classadi__imu_1_1ImuDataProviderInterface_1a00c66b5fcacd6e661465c6fc2126c343">getData</reimplements>
+        <param>
+          <type>sensor_msgs::msg::Imu &amp;</type>
+          <declname>message</declname>
+        </param>
+        <briefdescription>
+<para>Populate Imu message with measured data. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>message</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Message containing the measured data. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Return true if the message parameter is successfully populated with measured data and false otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/imu_data_provider.h" line="51" column="8" bodyfile="src/imu_data_provider.cpp" bodystart="31" bodyend="49"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Class for standard message sensor_msgs::msg::Imu data provider. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>adi_imu::ImuDataProvider</label>
+        <link refid="classadi__imu_1_1ImuDataProvider"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>adi_imu::ImuDataProviderInterface</label>
+        <link refid="classadi__imu_1_1ImuDataProviderInterface"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>adi_imu::IIOWrapper</label>
+        <link refid="classadi__imu_1_1IIOWrapper"/>
+      </node>
+      <node id="1">
+        <label>adi_imu::ImuDataProvider</label>
+        <link refid="classadi__imu_1_1ImuDataProvider"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>m_iio_wrapper</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>adi_imu::ImuDataProviderInterface</label>
+        <link refid="classadi__imu_1_1ImuDataProviderInterface"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/adi_imu/imu_data_provider.h" line="32" column="1" bodyfile="include/adi_imu/imu_data_provider.h" bodystart="33" bodyend="56"/>
+    <listofallmembers>
+      <member refid="classadi__imu_1_1ImuDataProvider_1a97d76266acb17424247e5b6bf2a32c7a" prot="public" virt="virtual"><scope>adi_imu::ImuDataProvider</scope><name>getData</name></member>
+      <member refid="classadi__imu_1_1ImuDataProvider_1ab59782fa5f2c5ac4abd22b1942310d6f" prot="public" virt="non-virtual"><scope>adi_imu::ImuDataProvider</scope><name>ImuDataProvider</name></member>
+      <member refid="classadi__imu_1_1ImuDataProviderInterface_1a6ff58f5752a6f6bcf3d2f5272e0daa7c" prot="public" virt="non-virtual"><scope>adi_imu::ImuDataProvider</scope><name>ImuDataProviderInterface</name></member>
+      <member refid="classadi__imu_1_1ImuDataProvider_1acebed0a2e0d46dfb9bdf830faa6342ba" prot="private" virt="non-virtual"><scope>adi_imu::ImuDataProvider</scope><name>m_iio_wrapper</name></member>
+      <member refid="classadi__imu_1_1ImuDataProvider_1a55a80d1e5b5f27e9f521e6f52010d4a5" prot="public" virt="non-virtual"><scope>adi_imu::ImuDataProvider</scope><name>~ImuDataProvider</name></member>
+      <member refid="classadi__imu_1_1ImuDataProviderInterface_1af82743bfb0238c8739d8168f3966f97e" prot="public" virt="virtual"><scope>adi_imu::ImuDataProvider</scope><name>~ImuDataProviderInterface</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

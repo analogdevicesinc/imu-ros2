@@ -1,0 +1,5 @@
+<map id="adi_imu::VelAngTempRosPublisher" name="adi_imu::VelAngTempRosPublisher">
+<area shape="rect" id="Node000001" title="Class for delta velocity, delta angle and temperature publisher." alt="" coords="5,93,252,119"/>
+<area shape="rect" id="Node000002" href="$classadi__imu_1_1VelAngTempRosPublisherInterface.html" title="Interface for delta velocity, delta angle and temperature publisher." alt="" coords="5,5,252,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="131,59,131,93,126,93,126,59"/>
+</map>

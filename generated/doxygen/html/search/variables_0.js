@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['buff_5fdata_0',['buff_data',['../iio__wrapper_8cpp.html#a9c684a2e63c59045ea4d135add263bb9',1,'iio_wrapper.cpp']]],
-  ['buff_5fread_5fidx_1',['buff_read_idx',['../iio__wrapper_8cpp.html#a1532e6c5918d0afd3d2b45eaff3f6f68',1,'iio_wrapper.cpp']]],
-  ['buff_5fwrite_5fidx_2',['buff_write_idx',['../iio__wrapper_8cpp.html#a51e5bf2f116b1e09c8b9ed29bb4e326b',1,'iio_wrapper.cpp']]]
+  ['buff_5fdata_0',['buff_data',['../classadi__imu_1_1IIOWrapper.html#a42dcdfd04ce7a72a87c69734c5ffe8d8',1,'adi_imu::IIOWrapper']]],
+  ['buff_5fread_5fidx_1',['buff_read_idx',['../classadi__imu_1_1IIOWrapper.html#a14c3d692d79bb303fcf3ee78e48ad51f',1,'adi_imu::IIOWrapper']]],
+  ['buff_5fwrite_5fidx_2',['buff_write_idx',['../classadi__imu_1_1IIOWrapper.html#a29575e5e1d5af6574ba2f738bb36fa07',1,'adi_imu::IIOWrapper']]]
 ];
