@@ -42,10 +42,22 @@ def generate_launch_description():
         default_value='2',
         choices=['0', '1', '2', '3'],
     )
+    diag_data_enable_arg = imu_device_name_arg = DeclareLaunchArgument(
+        'diag_data_enable',
+        description='Whether to enable the publisher of IMU diagnostic data.',
+        default_value='false'
+    )
+    ident_data_enable_arg = imu_device_name_arg = DeclareLaunchArgument(
+        'ident_data_enable',
+        description='Whether to enable the publisher of IMU identification data.',
+        default_value='false'
+    )
 
     iio_context_string = LaunchConfiguration('iio_context_string')
     imu_device_name = LaunchConfiguration('imu_device_name')
     measured_data_topic_selection = LaunchConfiguration('measured_data_topic_selection')
+    diag_data_enable = LaunchConfiguration('diag_data_enable')
+    ident_data_enable = LaunchConfiguration('ident_data_enable')
 
     rviz_param = launch.substitutions.LaunchConfiguration(
         'rviz_param',
@@ -61,6 +73,8 @@ def generate_launch_description():
             {'iio_context_string': iio_context_string},
             {'imu_device_name': imu_device_name},
             {'measured_data_topic_selection': measured_data_topic_selection},
+            {'diag_data_enable': diag_data_enable},
+            {'ident_data_enable': ident_data_enable},
         ],
         remappings=[('/imu', '/imu/data_raw')],
         output='screen'
@@ -85,6 +99,8 @@ def generate_launch_description():
         iio_context_string_arg,
         imu_device_name_arg,
         measured_data_topic_selection_arg,
+        diag_data_enable_arg,
+        ident_data_enable_arg,
         adi_imu_node,
         imu_filter_madgwick_node,
         rviz,
