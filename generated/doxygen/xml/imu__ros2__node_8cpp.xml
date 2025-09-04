@@ -542,7 +542,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/imu_ros2_node.cpp" line="48" column="5" bodyfile="src/imu_ros2_node.cpp" bodystart="48" bodyend="179"/>
+        <location file="src/imu_ros2_node.cpp" line="48" column="5" bodyfile="src/imu_ros2_node.cpp" bodystart="48" bodyend="233"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -551,7 +551,7 @@
     </detaileddescription>
     <programlisting>
 <codeline lineno="1"><highlight class="comment">/*******************************************************************************</highlight></codeline>
-<codeline lineno="2"><highlight class="comment"><sp/>*<sp/><sp/><sp/>@file<sp/><sp/><sp/>adi_imu_node.cpp</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/><sp/><sp/>@file<sp/><sp/><sp/>imu_ros2_node.cpp</highlight></codeline>
 <codeline lineno="3"><highlight class="comment"><sp/>*<sp/><sp/><sp/>@brief<sp/><sp/>Implementation<sp/>for<sp/>IMU<sp/>node.</highlight></codeline>
 <codeline lineno="4"><highlight class="comment"><sp/>*<sp/><sp/><sp/>@author<sp/>Vasile<sp/>Holonec<sp/>(Vasile.Holonec@analog.com)</highlight></codeline>
 <codeline lineno="5"><highlight class="comment">*******************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
@@ -617,111 +617,165 @@
 <codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>imu_node-&gt;get_parameter(</highlight><highlight class="stringliteral">&quot;imu_device_name&quot;</highlight><highlight class="normal">).get_parameter_value().get&lt;std::string&gt;();</highlight></codeline>
 <codeline lineno="73"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>device_descriptor<sp/>=<sp/>adi_imu::ADISDeviceFactory::make(imu_device_name);</highlight></codeline>
 <codeline lineno="74"><highlight class="normal"></highlight></codeline>
-<codeline lineno="75"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>First<sp/>make<sp/>sure<sp/>IIO<sp/>context<sp/>is<sp/>available<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="76"><highlight class="normal"><sp/><sp/>std::string<sp/>context<sp/>=</highlight></codeline>
-<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>imu_node-&gt;get_parameter(</highlight><highlight class="stringliteral">&quot;iio_context_string&quot;</highlight><highlight class="normal">).get_parameter_value().get&lt;std::string&gt;();</highlight></codeline>
-<codeline lineno="78"><highlight class="normal"><sp/><sp/><ref refid="classadi__imu_1_1IIOWrapper" kindref="compound">adi_imu::IIOWrapper</ref><sp/>m_iio_wrapper;</highlight></codeline>
-<codeline lineno="79"><highlight class="normal"><sp/><sp/>m_iio_wrapper.<ref refid="classadi__imu_1_1IIOWrapper_1a250ed73b89e7ddc5e6384235d8a1b05d" kindref="member">setDeviceDescriptor</ref>(device_descriptor);</highlight></codeline>
-<codeline lineno="80"><highlight class="normal"><sp/><sp/>ret<sp/>=<sp/>m_iio_wrapper.createContext(context.c_str());</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>diag_data_enable_param_desc<sp/>=<sp/>rcl_interfaces::msg::ParameterDescriptor{};</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/>diag_data_enable_param_desc.description<sp/>=</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;\nWhether<sp/>to<sp/>enable<sp/>the<sp/>publisher<sp/>of<sp/>IMU<sp/>diagnostic<sp/>data.&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;\nWhen<sp/>enabled,<sp/>the<sp/>node<sp/>will<sp/>continuously<sp/>poll<sp/>diagnostic<sp/>registers<sp/>to<sp/>read<sp/>and<sp/>publish<sp/>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;device<sp/>status.&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/>imu_node-&gt;declare_parameter(</highlight><highlight class="stringliteral">&quot;diag_data_enable&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">,<sp/>diag_data_enable_param_desc);</highlight></codeline>
 <codeline lineno="81"><highlight class="normal"></highlight></codeline>
-<codeline lineno="82"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(ret)<sp/>{</highlight></codeline>
-<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>std::runtime_error(</highlight><highlight class="stringliteral">&quot;Error<sp/>IIO<sp/>context,<sp/>exiting<sp/>ROS2<sp/>node&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>rclcpp::shutdown();</highlight></codeline>
-<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
-<codeline lineno="86"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="87"><highlight class="normal"><sp/><sp/><ref refid="classadi__imu_1_1ImuControlParameters" kindref="compound">adi_imu::ImuControlParameters</ref><sp/>*<sp/>ctrl_params<sp/>=</highlight></codeline>
-<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classadi__imu_1_1ImuControlParameters" kindref="compound">adi_imu::ImuControlParameters</ref>(imu_node,<sp/>device_descriptor);</highlight></codeline>
-<codeline lineno="89"><highlight class="normal"></highlight></codeline>
-<codeline lineno="90"><highlight class="normal"><sp/><sp/><ref refid="classadi__imu_1_1AccelGyroTempDataProviderInterface" kindref="compound">adi_imu::AccelGyroTempDataProviderInterface</ref><sp/>*<sp/>accel_gyro_data_provider<sp/>=</highlight></codeline>
-<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classadi__imu_1_1AccelGyroTempDataProvider" kindref="compound">adi_imu::AccelGyroTempDataProvider</ref>();</highlight></codeline>
-<codeline lineno="92"><highlight class="normal"><sp/><sp/><ref refid="classadi__imu_1_1AccelGyroTempRosPublisherInterface" kindref="compound">adi_imu::AccelGyroTempRosPublisherInterface</ref><sp/>*<sp/>accel_gyro_publisher<sp/>=</highlight></codeline>
-<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classadi__imu_1_1AccelGyroTempRosPublisher" kindref="compound">adi_imu::AccelGyroTempRosPublisher</ref>(imu_node);</highlight></codeline>
-<codeline lineno="94"><highlight class="normal"><sp/><sp/>accel_gyro_publisher-&gt;<ref refid="classadi__imu_1_1AccelGyroTempRosPublisherInterface_1a3a9f758da0865eb864787c8adbf8d58a" kindref="member">setMessageProvider</ref>(accel_gyro_data_provider);</highlight></codeline>
-<codeline lineno="95"><highlight class="normal"></highlight></codeline>
-<codeline lineno="96"><highlight class="normal"><sp/><sp/><ref refid="classadi__imu_1_1ImuDataProviderInterface" kindref="compound">adi_imu::ImuDataProviderInterface</ref><sp/>*<sp/>imu_std_data_provider<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classadi__imu_1_1ImuDataProvider" kindref="compound">adi_imu::ImuDataProvider</ref>();</highlight></codeline>
-<codeline lineno="97"><highlight class="normal"><sp/><sp/><ref refid="classadi__imu_1_1ImuRosPublisherInterface" kindref="compound">adi_imu::ImuRosPublisherInterface</ref><sp/>*<sp/>imu_std_publisher<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classadi__imu_1_1ImuRosPublisher" kindref="compound">adi_imu::ImuRosPublisher</ref>(imu_node);</highlight></codeline>
-<codeline lineno="98"><highlight class="normal"><sp/><sp/>imu_std_publisher-&gt;<ref refid="classadi__imu_1_1ImuRosPublisherInterface_1a2f40699e59cd1e07ba941474066a68b8" kindref="member">setMessageProvider</ref>(imu_std_data_provider);</highlight></codeline>
-<codeline lineno="99"><highlight class="normal"></highlight></codeline>
-<codeline lineno="100"><highlight class="normal"><sp/><sp/><ref refid="classadi__imu_1_1VelAngTempDataProviderInterface" kindref="compound">adi_imu::VelAngTempDataProviderInterface</ref><sp/>*<sp/>vel_ang_data_provider<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="101"><highlight class="normal"><sp/><sp/><ref refid="classadi__imu_1_1VelAngTempRosPublisherInterface" kindref="compound">adi_imu::VelAngTempRosPublisherInterface</ref><sp/>*<sp/>vel_ang_publisher<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="102"><highlight class="normal"></highlight></codeline>
-<codeline lineno="103"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(device_descriptor-&gt;has(adi_imu::ADISRegister::HAS_DELTA_BURST))<sp/>{</highlight></codeline>
-<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/>vel_ang_data_provider<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classadi__imu_1_1VelAngTempDataProvider" kindref="compound">adi_imu::VelAngTempDataProvider</ref>();</highlight></codeline>
-<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/>vel_ang_publisher<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classadi__imu_1_1VelAngTempRosPublisher" kindref="compound">adi_imu::VelAngTempRosPublisher</ref>(imu_node);</highlight></codeline>
-<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/>vel_ang_publisher-&gt;<ref refid="classadi__imu_1_1VelAngTempRosPublisherInterface_1ab35ef2daa721d52daf9bc5b0bea982d7" kindref="member">setMessageProvider</ref>(vel_ang_data_provider);</highlight></codeline>
-<codeline lineno="107"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
-<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/>RCLCPP_INFO(</highlight></codeline>
-<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>imu_node-&gt;get_logger(),</highlight></codeline>
-<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;Device<sp/>does<sp/>not<sp/>support<sp/>delta<sp/>burst,<sp/>skipping<sp/>VelAngTemp<sp/>publisher.&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="111"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="112"><highlight class="normal"></highlight></codeline>
-<codeline lineno="113"><highlight class="normal"><sp/><sp/><ref refid="classadi__imu_1_1ImuFullMeasuredDataProviderInterface" kindref="compound">adi_imu::ImuFullMeasuredDataProviderInterface</ref><sp/>*<sp/>full_data_provider<sp/>=</highlight></codeline>
-<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classadi__imu_1_1ImuFullMeasuredDataProvider" kindref="compound">adi_imu::ImuFullMeasuredDataProvider</ref>();</highlight></codeline>
-<codeline lineno="115"><highlight class="normal"><sp/><sp/><ref refid="classadi__imu_1_1ImuFullMeasuredDataRosPublisherInterface" kindref="compound">adi_imu::ImuFullMeasuredDataRosPublisherInterface</ref><sp/>*<sp/>full_data_publisher<sp/>=</highlight></codeline>
-<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classadi__imu_1_1ImuFullMeasuredDataRosPublisher" kindref="compound">adi_imu::ImuFullMeasuredDataRosPublisher</ref>(imu_node);</highlight></codeline>
-<codeline lineno="117"><highlight class="normal"><sp/><sp/>full_data_publisher-&gt;<ref refid="classadi__imu_1_1ImuFullMeasuredDataRosPublisherInterface_1a17f6f20de3a88ceb8ef9ffd41cc5186a" kindref="member">setMessageProvider</ref>(full_data_provider);</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>diag_data_enable<sp/>=</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>imu_node-&gt;get_parameter(</highlight><highlight class="stringliteral">&quot;diag_data_enable&quot;</highlight><highlight class="normal">).get_parameter_value().get&lt;</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal">&gt;();</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>ident_data_enable_param_desc<sp/>=<sp/>rcl_interfaces::msg::ParameterDescriptor{};</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/>ident_data_enable_param_desc.description<sp/>=</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;\nWhether<sp/>to<sp/>enable<sp/>the<sp/>publisher<sp/>of<sp/>IMU<sp/>identification<sp/>data.&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;\nWhen<sp/>enabled,<sp/>the<sp/>node<sp/>will<sp/>read<sp/>and<sp/>publish<sp/>device<sp/>identification&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/>imu_node-&gt;declare_parameter(</highlight><highlight class="stringliteral">&quot;ident_data_enable&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">,<sp/>ident_data_enable_param_desc);</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>ident_data_enable<sp/>=</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/>imu_node-&gt;get_parameter(</highlight><highlight class="stringliteral">&quot;ident_data_enable&quot;</highlight><highlight class="normal">).get_parameter_value().get&lt;</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal">&gt;();</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>First<sp/>make<sp/>sure<sp/>IIO<sp/>context<sp/>is<sp/>available<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/>std::string<sp/>context<sp/>=</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/>imu_node-&gt;get_parameter(</highlight><highlight class="stringliteral">&quot;iio_context_string&quot;</highlight><highlight class="normal">).get_parameter_value().get&lt;std::string&gt;();</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><ref refid="classadi__imu_1_1IIOWrapper" kindref="compound">adi_imu::IIOWrapper</ref><sp/>m_iio_wrapper;</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/>m_iio_wrapper.<ref refid="classadi__imu_1_1IIOWrapper_1a250ed73b89e7ddc5e6384235d8a1b05d" kindref="member">setDeviceDescriptor</ref>(device_descriptor);</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/>ret<sp/>=<sp/>m_iio_wrapper.createContext(context.c_str());</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(ret)<sp/>{</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/>std::runtime_error(</highlight><highlight class="stringliteral">&quot;Error<sp/>IIO<sp/>context,<sp/>exiting<sp/>ROS2<sp/>node&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/>rclcpp::shutdown();</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><ref refid="classadi__imu_1_1ImuControlParameters" kindref="compound">adi_imu::ImuControlParameters</ref><sp/>*<sp/>ctrl_params<sp/>=</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classadi__imu_1_1ImuControlParameters" kindref="compound">adi_imu::ImuControlParameters</ref>(imu_node,<sp/>device_descriptor);</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><ref refid="classadi__imu_1_1AccelGyroTempDataProviderInterface" kindref="compound">adi_imu::AccelGyroTempDataProviderInterface</ref><sp/>*<sp/>accel_gyro_data_provider<sp/>=</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classadi__imu_1_1AccelGyroTempDataProvider" kindref="compound">adi_imu::AccelGyroTempDataProvider</ref>();</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><ref refid="classadi__imu_1_1AccelGyroTempRosPublisherInterface" kindref="compound">adi_imu::AccelGyroTempRosPublisherInterface</ref><sp/>*<sp/>accel_gyro_publisher<sp/>=</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classadi__imu_1_1AccelGyroTempRosPublisher" kindref="compound">adi_imu::AccelGyroTempRosPublisher</ref>(imu_node);</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/>accel_gyro_publisher-&gt;<ref refid="classadi__imu_1_1AccelGyroTempRosPublisherInterface_1a3a9f758da0865eb864787c8adbf8d58a" kindref="member">setMessageProvider</ref>(accel_gyro_data_provider);</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><ref refid="classadi__imu_1_1ImuDataProviderInterface" kindref="compound">adi_imu::ImuDataProviderInterface</ref><sp/>*<sp/>imu_std_data_provider<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classadi__imu_1_1ImuDataProvider" kindref="compound">adi_imu::ImuDataProvider</ref>();</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><ref refid="classadi__imu_1_1ImuRosPublisherInterface" kindref="compound">adi_imu::ImuRosPublisherInterface</ref><sp/>*<sp/>imu_std_publisher<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classadi__imu_1_1ImuRosPublisher" kindref="compound">adi_imu::ImuRosPublisher</ref>(imu_node);</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/>imu_std_publisher-&gt;<ref refid="classadi__imu_1_1ImuRosPublisherInterface_1a2f40699e59cd1e07ba941474066a68b8" kindref="member">setMessageProvider</ref>(imu_std_data_provider);</highlight></codeline>
 <codeline lineno="118"><highlight class="normal"></highlight></codeline>
-<codeline lineno="119"><highlight class="normal"><sp/><sp/><ref refid="classadi__imu_1_1RosPublisherGroupInterface" kindref="compound">adi_imu::RosPublisherGroupInterface</ref><sp/>*<sp/>publisher_group<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classadi__imu_1_1RosPublisherGroup" kindref="compound">adi_imu::RosPublisherGroup</ref>(imu_node);</highlight></codeline>
-<codeline lineno="120"><highlight class="normal"><sp/><sp/>publisher_group-&gt;<ref refid="classadi__imu_1_1RosPublisherGroupInterface_1a17957c09311092a6e90c11990ae04d0b" kindref="member">setAccelGyroTempRosPublisher</ref>(accel_gyro_publisher);</highlight></codeline>
-<codeline lineno="121"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(vel_ang_publisher<sp/>!=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
-<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/>publisher_group-&gt;<ref refid="classadi__imu_1_1RosPublisherGroupInterface_1ae3ec040724937cfe3aeed66af8199528" kindref="member">setVelAngTempRosPublisher</ref>(vel_ang_publisher);</highlight></codeline>
-<codeline lineno="123"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
-<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/>RCLCPP_INFO(imu_node-&gt;get_logger(),<sp/></highlight><highlight class="stringliteral">&quot;VelAngTemp<sp/>publisher<sp/>is<sp/>null,<sp/>skipping.&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="125"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="126"><highlight class="normal"></highlight></codeline>
-<codeline lineno="127"><highlight class="normal"><sp/><sp/>publisher_group-&gt;<ref refid="classadi__imu_1_1RosPublisherGroupInterface_1ac65aa4a6e97319c086f9ee67ff584589" kindref="member">setImuRosPublisher</ref>(imu_std_publisher);</highlight></codeline>
-<codeline lineno="128"><highlight class="normal"><sp/><sp/>publisher_group-&gt;<ref refid="classadi__imu_1_1RosPublisherGroupInterface_1a3206f5b8fddf38fa2306017bc6a3561c" kindref="member">setImuFullMeasuredDataRosPublisher</ref>(full_data_publisher);</highlight></codeline>
-<codeline lineno="129"><highlight class="normal"><sp/><sp/>publisher_group-&gt;<ref refid="classadi__imu_1_1RosPublisherGroupInterface_1a517de488d98bc902b59a7b6382c500f8" kindref="member">setImuControlParameters</ref>(ctrl_params);</highlight></codeline>
-<codeline lineno="130"><highlight class="normal"></highlight></codeline>
-<codeline lineno="131"><highlight class="normal"><sp/><sp/><ref refid="classadi__imu_1_1RosTask" kindref="compound">adi_imu::RosTask</ref><sp/>*<sp/>publisher_group_task<sp/>=<sp/></highlight><highlight class="keyword">dynamic_cast&lt;</highlight><highlight class="normal"><ref refid="classadi__imu_1_1RosTask" kindref="compound">adi_imu::RosTask</ref><sp/>*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(publisher_group);</highlight></codeline>
-<codeline lineno="132"><highlight class="normal"></highlight></codeline>
-<codeline lineno="133"><highlight class="normal"><sp/><sp/><ref refid="classadi__imu_1_1ImuIdentificationDataProviderInterface" kindref="compound">adi_imu::ImuIdentificationDataProviderInterface</ref><sp/>*<sp/>ident_data_provider<sp/>=</highlight></codeline>
-<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classadi__imu_1_1ImuIdentificationDataProvider" kindref="compound">adi_imu::ImuIdentificationDataProvider</ref>();</highlight></codeline>
-<codeline lineno="135"><highlight class="normal"><sp/><sp/><ref refid="classadi__imu_1_1ImuIdentificationRosPublisherInterface" kindref="compound">adi_imu::ImuIdentificationRosPublisherInterface</ref><sp/>*<sp/>ident_publisher<sp/>=</highlight></codeline>
-<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classadi__imu_1_1ImuIdentificationRosPublisher" kindref="compound">adi_imu::ImuIdentificationRosPublisher</ref>(imu_node);</highlight></codeline>
-<codeline lineno="137"><highlight class="normal"><sp/><sp/>ident_publisher-&gt;<ref refid="classadi__imu_1_1ImuIdentificationRosPublisherInterface_1a6af884f8c710072375eeb84bf467c11d" kindref="member">setMessageProvider</ref>(ident_data_provider);</highlight></codeline>
-<codeline lineno="138"><highlight class="normal"><sp/><sp/><ref refid="classadi__imu_1_1RosTask" kindref="compound">adi_imu::RosTask</ref><sp/>*<sp/>ident_task<sp/>=<sp/></highlight><highlight class="keyword">dynamic_cast&lt;</highlight><highlight class="normal"><ref refid="classadi__imu_1_1RosTask" kindref="compound">adi_imu::RosTask</ref><sp/>*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(ident_publisher);</highlight></codeline>
-<codeline lineno="139"><highlight class="normal"></highlight></codeline>
-<codeline lineno="140"><highlight class="normal"><sp/><sp/><ref refid="classadi__imu_1_1ImuDiagDataProviderInterface" kindref="compound">adi_imu::ImuDiagDataProviderInterface</ref><sp/>*<sp/>diag_data_provider<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="141"><highlight class="normal"><sp/><sp/>std::unique_ptr&lt;adi_imu::ImuDiagRosPublisherInterface&gt;<sp/>diag_publisher<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="142"><highlight class="normal"><sp/><sp/><ref refid="classadi__imu_1_1RosTask" kindref="compound">adi_imu::RosTask</ref><sp/>*<sp/>diag_task<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="143"><highlight class="normal"></highlight></codeline>
-<codeline lineno="144"><highlight class="normal"><sp/><sp/>diag_data_provider<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classadi__imu_1_1ImuDiagDataProvider" kindref="compound">adi_imu::ImuDiagDataProvider</ref>();</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><ref refid="classadi__imu_1_1VelAngTempDataProviderInterface" kindref="compound">adi_imu::VelAngTempDataProviderInterface</ref><sp/>*<sp/>vel_ang_data_provider<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><ref refid="classadi__imu_1_1VelAngTempRosPublisherInterface" kindref="compound">adi_imu::VelAngTempRosPublisherInterface</ref><sp/>*<sp/>vel_ang_publisher<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(device_descriptor-&gt;has(adi_imu::ADISRegister::HAS_DELTA_BURST))<sp/>{</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/>vel_ang_data_provider<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classadi__imu_1_1VelAngTempDataProvider" kindref="compound">adi_imu::VelAngTempDataProvider</ref>();</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/>vel_ang_publisher<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classadi__imu_1_1VelAngTempRosPublisher" kindref="compound">adi_imu::VelAngTempRosPublisher</ref>(imu_node);</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/>vel_ang_publisher-&gt;<ref refid="classadi__imu_1_1VelAngTempRosPublisherInterface_1ab35ef2daa721d52daf9bc5b0bea982d7" kindref="member">setMessageProvider</ref>(vel_ang_data_provider);</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/>RCLCPP_INFO(</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>imu_node-&gt;get_logger(),</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;Device<sp/>does<sp/>not<sp/>support<sp/>delta<sp/>burst,<sp/>skipping<sp/>VelAngTemp<sp/>publisher.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><ref refid="classadi__imu_1_1ImuFullMeasuredDataProviderInterface" kindref="compound">adi_imu::ImuFullMeasuredDataProviderInterface</ref><sp/>*<sp/>full_data_provider<sp/>=</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classadi__imu_1_1ImuFullMeasuredDataProvider" kindref="compound">adi_imu::ImuFullMeasuredDataProvider</ref>();</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><ref refid="classadi__imu_1_1ImuFullMeasuredDataRosPublisherInterface" kindref="compound">adi_imu::ImuFullMeasuredDataRosPublisherInterface</ref><sp/>*<sp/>full_data_publisher<sp/>=</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classadi__imu_1_1ImuFullMeasuredDataRosPublisher" kindref="compound">adi_imu::ImuFullMeasuredDataRosPublisher</ref>(imu_node);</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/>full_data_publisher-&gt;<ref refid="classadi__imu_1_1ImuFullMeasuredDataRosPublisherInterface_1a17f6f20de3a88ceb8ef9ffd41cc5186a" kindref="member">setMessageProvider</ref>(full_data_provider);</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><ref refid="classadi__imu_1_1RosPublisherGroupInterface" kindref="compound">adi_imu::RosPublisherGroupInterface</ref><sp/>*<sp/>publisher_group<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classadi__imu_1_1RosPublisherGroup" kindref="compound">adi_imu::RosPublisherGroup</ref>(imu_node);</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/>publisher_group-&gt;<ref refid="classadi__imu_1_1RosPublisherGroupInterface_1a17957c09311092a6e90c11990ae04d0b" kindref="member">setAccelGyroTempRosPublisher</ref>(accel_gyro_publisher);</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(vel_ang_publisher<sp/>!=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/>publisher_group-&gt;<ref refid="classadi__imu_1_1RosPublisherGroupInterface_1ae3ec040724937cfe3aeed66af8199528" kindref="member">setVelAngTempRosPublisher</ref>(vel_ang_publisher);</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/>RCLCPP_INFO(imu_node-&gt;get_logger(),<sp/></highlight><highlight class="stringliteral">&quot;VelAngTemp<sp/>publisher<sp/>is<sp/>null,<sp/>skipping.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
 <codeline lineno="145"><highlight class="normal"></highlight></codeline>
-<codeline lineno="146"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">try</highlight><highlight class="normal"><sp/>{</highlight></codeline>
-<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/>diag_publisher<sp/>=<sp/>adi_imu::ImuDiagPublisherFactory::make(device_descriptor,<sp/>imu_node);</highlight></codeline>
-<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/>diag_publisher-&gt;setMessageProvider(diag_data_provider);</highlight></codeline>
-<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/>diag_publisher-&gt;setDeviceDescriptor(device_descriptor);</highlight></codeline>
-<codeline lineno="150"><highlight class="normal"></highlight></codeline>
-<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/>diag_task<sp/>=<sp/></highlight><highlight class="keyword">dynamic_cast&lt;</highlight><highlight class="normal"><ref refid="classadi__imu_1_1RosTask" kindref="compound">adi_imu::RosTask</ref><sp/>*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(diag_publisher.get());</highlight></codeline>
-<codeline lineno="152"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">catch</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::exception<sp/>&amp;<sp/>e)<sp/>{</highlight></codeline>
-<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/>RCLCPP_ERROR(imu_node-&gt;get_logger(),<sp/></highlight><highlight class="stringliteral">&quot;Failed<sp/>to<sp/>create<sp/>diag<sp/>publisher:<sp/>%s&quot;</highlight><highlight class="normal">,<sp/>e.what());</highlight></codeline>
-<codeline lineno="154"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="155"><highlight class="normal"></highlight></codeline>
-<codeline lineno="156"><highlight class="normal"><sp/><sp/>diag_task<sp/>=<sp/></highlight><highlight class="keyword">dynamic_cast&lt;</highlight><highlight class="normal"><ref refid="classadi__imu_1_1RosTask" kindref="compound">adi_imu::RosTask</ref><sp/>*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(diag_publisher.get());</highlight></codeline>
-<codeline lineno="157"><highlight class="normal"></highlight></codeline>
-<codeline lineno="158"><highlight class="normal"><sp/><sp/><ref refid="classadi__imu_1_1WorkerThread" kindref="compound">adi_imu::WorkerThread</ref><sp/>publisher_group_thread(publisher_group_task);</highlight></codeline>
-<codeline lineno="159"><highlight class="normal"><sp/><sp/><ref refid="classadi__imu_1_1WorkerThread" kindref="compound">adi_imu::WorkerThread</ref><sp/>ident_thread(ident_task);</highlight></codeline>
-<codeline lineno="160"><highlight class="normal"><sp/><sp/><ref refid="classadi__imu_1_1WorkerThread" kindref="compound">adi_imu::WorkerThread</ref><sp/>diag_thread(diag_task);</highlight></codeline>
-<codeline lineno="161"><highlight class="normal"></highlight></codeline>
-<codeline lineno="162"><highlight class="normal"><sp/><sp/>diag_thread.join();</highlight></codeline>
-<codeline lineno="163"><highlight class="normal"><sp/><sp/>ident_thread.join();</highlight></codeline>
-<codeline lineno="164"><highlight class="normal"><sp/><sp/>publisher_group_thread.join();</highlight></codeline>
-<codeline lineno="165"><highlight class="normal"></highlight></codeline>
-<codeline lineno="166"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal"><sp/>ctrl_params;</highlight></codeline>
-<codeline lineno="167"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal"><sp/>accel_gyro_publisher;</highlight></codeline>
-<codeline lineno="168"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(device_descriptor-&gt;has(adi_imu::ADISRegister::HAS_DELTA_BURST))<sp/>{</highlight></codeline>
-<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal"><sp/>vel_ang_publisher;</highlight></codeline>
-<codeline lineno="170"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="171"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal"><sp/>imu_std_publisher;</highlight></codeline>
-<codeline lineno="172"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal"><sp/>full_data_publisher;</highlight></codeline>
-<codeline lineno="173"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal"><sp/>ident_publisher;</highlight></codeline>
-<codeline lineno="174"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>delete<sp/>diag_publisher;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="175"><highlight class="normal"></highlight></codeline>
-<codeline lineno="176"><highlight class="normal"><sp/><sp/>rclcpp::shutdown();</highlight></codeline>
-<codeline lineno="177"><highlight class="normal"></highlight></codeline>
-<codeline lineno="178"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
-<codeline lineno="179"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/>publisher_group-&gt;<ref refid="classadi__imu_1_1RosPublisherGroupInterface_1ac65aa4a6e97319c086f9ee67ff584589" kindref="member">setImuRosPublisher</ref>(imu_std_publisher);</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/>publisher_group-&gt;<ref refid="classadi__imu_1_1RosPublisherGroupInterface_1a3206f5b8fddf38fa2306017bc6a3561c" kindref="member">setImuFullMeasuredDataRosPublisher</ref>(full_data_publisher);</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/>publisher_group-&gt;<ref refid="classadi__imu_1_1RosPublisherGroupInterface_1a517de488d98bc902b59a7b6382c500f8" kindref="member">setImuControlParameters</ref>(ctrl_params);</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"></highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><ref refid="classadi__imu_1_1RosTask" kindref="compound">adi_imu::RosTask</ref><sp/>*<sp/>publisher_group_task<sp/>=<sp/></highlight><highlight class="keyword">dynamic_cast&lt;</highlight><highlight class="normal"><ref refid="classadi__imu_1_1RosTask" kindref="compound">adi_imu::RosTask</ref><sp/>*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(publisher_group);</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><ref refid="classadi__imu_1_1ImuIdentificationDataProviderInterface" kindref="compound">adi_imu::ImuIdentificationDataProviderInterface</ref><sp/>*<sp/>ident_data_provider<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><ref refid="classadi__imu_1_1ImuIdentificationRosPublisherInterface" kindref="compound">adi_imu::ImuIdentificationRosPublisherInterface</ref><sp/>*<sp/>ident_publisher<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><ref refid="classadi__imu_1_1RosTask" kindref="compound">adi_imu::RosTask</ref><sp/>*<sp/>ident_task<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(ident_data_enable)<sp/>{</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/>ident_data_provider<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classadi__imu_1_1ImuIdentificationDataProvider" kindref="compound">adi_imu::ImuIdentificationDataProvider</ref>();</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/>ident_publisher<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classadi__imu_1_1ImuIdentificationRosPublisher" kindref="compound">adi_imu::ImuIdentificationRosPublisher</ref>(imu_node);</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/>ident_publisher-&gt;<ref refid="classadi__imu_1_1ImuIdentificationRosPublisherInterface_1a6af884f8c710072375eeb84bf467c11d" kindref="member">setMessageProvider</ref>(ident_data_provider);</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/>ident_task<sp/>=<sp/></highlight><highlight class="keyword">dynamic_cast&lt;</highlight><highlight class="normal"><ref refid="classadi__imu_1_1RosTask" kindref="compound">adi_imu::RosTask</ref><sp/>*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(ident_publisher);</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/>RCLCPP_INFO(imu_node-&gt;get_logger(),<sp/></highlight><highlight class="stringliteral">&quot;Identification<sp/>data<sp/>publishing<sp/>is<sp/>disabled.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"></highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><ref refid="classadi__imu_1_1ImuDiagDataProviderInterface" kindref="compound">adi_imu::ImuDiagDataProviderInterface</ref><sp/>*<sp/>diag_data_provider<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/>std::unique_ptr&lt;adi_imu::ImuDiagRosPublisherInterface&gt;<sp/>diag_publisher<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><ref refid="classadi__imu_1_1RosTask" kindref="compound">adi_imu::RosTask</ref><sp/>*<sp/>diag_task<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(diag_data_enable)<sp/>{</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/>diag_data_provider<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classadi__imu_1_1ImuDiagDataProvider" kindref="compound">adi_imu::ImuDiagDataProvider</ref>();</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"></highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">try</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>diag_publisher<sp/>=<sp/>adi_imu::ImuDiagPublisherFactory::make(device_descriptor,<sp/>imu_node);</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>diag_publisher-&gt;setMessageProvider(diag_data_provider);</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>diag_publisher-&gt;setDeviceDescriptor(device_descriptor);</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"></highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>diag_task<sp/>=<sp/></highlight><highlight class="keyword">dynamic_cast&lt;</highlight><highlight class="normal"><ref refid="classadi__imu_1_1RosTask" kindref="compound">adi_imu::RosTask</ref><sp/>*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(diag_publisher.get());</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">catch</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::exception<sp/>&amp;<sp/>e)<sp/>{</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>RCLCPP_ERROR(imu_node-&gt;get_logger(),<sp/></highlight><highlight class="stringliteral">&quot;Failed<sp/>to<sp/>create<sp/>diag<sp/>publisher:<sp/>%s&quot;</highlight><highlight class="normal">,<sp/>e.what());</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/>RCLCPP_INFO(imu_node-&gt;get_logger(),<sp/></highlight><highlight class="stringliteral">&quot;Diagnostic<sp/>data<sp/>publishing<sp/>is<sp/>disabled.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"></highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><ref refid="classadi__imu_1_1WorkerThread" kindref="compound">adi_imu::WorkerThread</ref><sp/>publisher_group_thread(publisher_group_task);</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/>std::unique_ptr&lt;adi_imu::WorkerThread&gt;<sp/>ident_thread<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/>std::unique_ptr&lt;adi_imu::WorkerThread&gt;<sp/>diag_thread<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(ident_task<sp/>!=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/>ident_thread<sp/>=<sp/>std::make_unique&lt;adi_imu::WorkerThread&gt;(ident_task);</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(diag_task<sp/>!=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/>diag_thread<sp/>=<sp/>std::make_unique&lt;adi_imu::WorkerThread&gt;(diag_task);</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"></highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Join<sp/>all<sp/>threads<sp/>after<sp/>they<sp/>have<sp/>started</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(ident_thread)<sp/>{</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/>ident_thread-&gt;join();</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(diag_thread)<sp/>{</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/>diag_thread-&gt;join();</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/>publisher_group_thread.join();</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"></highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Cleanup<sp/>resources</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(device_descriptor-&gt;has(adi_imu::ADISRegister::HAS_DELTA_BURST))<sp/>{</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(vel_ang_data_provider<sp/>!=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal"><sp/>vel_ang_data_provider;</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(vel_ang_publisher<sp/>!=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal"><sp/>vel_ang_publisher;</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal"><sp/>full_data_provider;</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal"><sp/>imu_std_data_provider;</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"></highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(diag_data_enable)<sp/>{</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal"><sp/>diag_data_provider;</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(ident_data_provider<sp/>!=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal"><sp/>ident_data_provider;</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(ident_publisher<sp/>!=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal"><sp/>ident_publisher;</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"></highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal"><sp/>accel_gyro_publisher;</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal"><sp/>imu_std_publisher;</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal"><sp/>full_data_publisher;</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"></highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(publisher_group<sp/>!=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal"><sp/>publisher_group;</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"></highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="233"><highlight class="normal">}</highlight></codeline>
     </programlisting>
     <location file="src/imu_ros2_node.cpp"/>
   </compounddef>

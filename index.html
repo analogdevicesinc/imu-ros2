@@ -8,9 +8,9 @@
 
     <title>adi_imu &#8212; adi_imu 0.0.1 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8e8a900e" />
-    <link rel="stylesheet" type="text/css" href="_static/app.min.css?v=04bde29a" />
+    <link rel="stylesheet" type="text/css" href="_static/app.min.css?v=37266688" />
     <link rel="stylesheet" type="text/css" href="_static/collapsible-lists/css/tree_view.css?v=a885cde7" />
-    <script async="async" src="_static/app.umd.js?v=470d438e"></script>
+    <script async="async" src="_static/app.umd.js?v=8f62bab2"></script>
     <script src="_static/collapsible-lists/js/CollapsibleLists.compressed.js?v=73120307"></script>
     <script src="_static/collapsible-lists/js/apply-collapsible-lists.js?v=660e4f45"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -84,8 +84,7 @@
   </div>
     <div class="localtoc">
       <div class="tocwrapper">
-        <div>
-          <div class="localtoc-header"></div>
+        <div class="header localtoc-header">
           <a id="scroll-up" href="#top-anchor" title="Back to top"></a>
         </div>
         <nav>
@@ -121,6 +120,8 @@
 <li><a class="reference internal" href="#imu-device-name">imu_device_name</a></li>
 <li><a class="reference internal" href="#iio-context-string">iio_context_string</a></li>
 <li><a class="reference internal" href="#measured-data-topic-selection">measured_data_topic_selection</a></li>
+<li><a class="reference internal" href="#diag-data-enable">diag_data_enable</a></li>
+<li><a class="reference internal" href="#ident-data-enable">ident_data_enable</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#imu-parameters">IMU parameters</a></li>
@@ -575,9 +576,9 @@ Content on this topic
 </ul>
 </li>
 <li class="toctree-l1"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-4" id="toctree-collapse-4"/><div class="collapse"><a class="reference internal" href="__standards.html">Standard Documents</a><label for="toctree-collapse-4"><div class="icon"></div></label></div><ul>
-<li class="toctree-l2"><a class="reference internal" href="__PACKAGE.html">PACKAGE</a></li>
-<li class="toctree-l2"><a class="reference internal" href="__CONTRIBUTING.html">CONTRIBUTING</a></li>
 <li class="toctree-l2"><a class="reference internal" href="__LICENSE.html">LICENSE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="__CONTRIBUTING.html">CONTRIBUTING</a></li>
+<li class="toctree-l2"><a class="reference internal" href="__PACKAGE.html">PACKAGE</a></li>
 <li class="toctree-l2"><a class="reference internal" href="__README.html">README</a></li>
 </ul>
 </li>
@@ -631,9 +632,9 @@ Content on this topic
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="__standards.html">Standard Documents</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="__PACKAGE.html">PACKAGE</a></li>
-<li class="toctree-l2"><a class="reference internal" href="__CONTRIBUTING.html">CONTRIBUTING</a></li>
 <li class="toctree-l2"><a class="reference internal" href="__LICENSE.html">LICENSE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="__CONTRIBUTING.html">CONTRIBUTING</a></li>
+<li class="toctree-l2"><a class="reference internal" href="__PACKAGE.html">PACKAGE</a></li>
 <li class="toctree-l2"><a class="reference internal" href="__README.html">README</a></li>
 </ul>
 </li>
@@ -1094,6 +1095,27 @@ be given when starting the adi_imu node and it should have the following format:
 <li><p>2: measured data is published on /imu topic; sampling performed on each data ready impulse</p></li>
 <li><p>3: measured data is published on /imufullmeasureddata topic (default); sampling is performed by polling the data registers without taking into consideration the data ready impulse</p></li>
 </ul>
+</section>
+<section id="diag-data-enable">
+<h4>diag_data_enable<a class="headerlink" href="#diag-data-enable" title="Link to this heading"></a></h4>
+<p><strong>Type:</strong> boolean
+<strong>Default:</strong> true</p>
+<p>Controls whether the IMU diagnostic data publisher is enabled. When enabled,
+the node will continuously poll diagnostic registers to read and publish device
+status information including status flags, error conditions, and health
+monitoring data on the <cite>/imudiagdata</cite> topic.</p>
+<p>Setting this parameter to false will disable diagnostic data publishing,
+reducing system overhead and network traffic.</p>
+</section>
+<section id="ident-data-enable">
+<h4>ident_data_enable<a class="headerlink" href="#ident-data-enable" title="Link to this heading"></a></h4>
+<p><strong>Type:</strong> boolean
+<strong>Default:</strong> true</p>
+<p>Controls whether the IMU identification data publisher is enabled. When
+enabled, the node will read and publish device identification information such
+as product ID, serial number, firmware version, and firmware date on the
+<cite>/imuidentificationdata</cite> topic.</p>
+<p>Setting this parameter to false will disable identification data publishing.</p>
 </section>
 </section>
 <section id="imu-parameters">
