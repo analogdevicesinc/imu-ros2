@@ -488,6 +488,34 @@ The adi_imu driver can publish the measured data in various mode, based on
 * 2: measured data is published on /imu topic; sampling performed on each data ready impulse
 * 3: measured data is published on /imufullmeasureddata topic (default); sampling is performed by polling the data registers without taking into consideration the data ready impulse
 
+diag_data_enable
+""""""""""""""""
+
+**Type:** boolean
+**Default:** true
+
+Controls whether the IMU diagnostic data publisher is enabled. When enabled,
+the node will continuously poll diagnostic registers to read and publish device
+status information including status flags, error conditions, and health
+monitoring data on the `/imudiagdata` topic.
+
+Setting this parameter to false will disable diagnostic data publishing,
+reducing system overhead and network traffic.
+
+ident_data_enable
+"""""""""""""""""
+
+**Type:** boolean
+**Default:** true
+
+Controls whether the IMU identification data publisher is enabled. When
+enabled, the node will read and publish device identification information such
+as product ID, serial number, firmware version, and firmware date on the
+`/imuidentificationdata` topic.
+
+Setting this parameter to false will disable identification data publishing.
+
+
 IMU parameters
 ^^^^^^^^^^^^^^
 

@@ -1,5 +1,5 @@
 /*******************************************************************************
- *   @file   adi_imu_node.cpp
+ *   @file   imu_ros2_node.cpp
  *   @brief  Implementation for IMU node.
  *   @author Vasile Holonec (Vasile.Holonec@analog.com)
 *******************************************************************************/
@@ -72,6 +72,25 @@ int main(int argc, char * argv[])
     imu_node->get_parameter("imu_device_name").get_parameter_value().get<std::string>();
   auto device_descriptor = adi_imu::ADISDeviceFactory::make(imu_device_name);
 
+  auto diag_data_enable_param_desc = rcl_interfaces::msg::ParameterDescriptor{};
+  diag_data_enable_param_desc.description =
+    "\nWhether to enable the publisher of IMU diagnostic data."
+    "\nWhen enabled, the node will continuously poll diagnostic registers to read and publish "
+    "device status.";
+  imu_node->declare_parameter("diag_data_enable", true, diag_data_enable_param_desc);
+
+  auto diag_data_enable =
+    imu_node->get_parameter("diag_data_enable").get_parameter_value().get<bool>();
+
+  auto ident_data_enable_param_desc = rcl_interfaces::msg::ParameterDescriptor{};
+  ident_data_enable_param_desc.description =
+    "\nWhether to enable the publisher of IMU identification data."
+    "\nWhen enabled, the node will read and publish device identification";
+  imu_node->declare_parameter("ident_data_enable", true, ident_data_enable_param_desc);
+
+  auto ident_data_enable =
+    imu_node->get_parameter("ident_data_enable").get_parameter_value().get<bool>();
+
   /* First make sure IIO context is available */
   std::string context =
     imu_node->get_parameter("iio_context_string").get_parameter_value().get<std::string>();
@@ -130,50 +149,85 @@ int main(int argc, char * argv[])
 
   adi_imu::RosTask * publisher_group_task = dynamic_cast<adi_imu::RosTask *>(publisher_group);
 
-  adi_imu::ImuIdentificationDataProviderInterface * ident_data_provider =
-    new adi_imu::ImuIdentificationDataProvider();
-  adi_imu::ImuIdentificationRosPublisherInterface * ident_publisher =
-    new adi_imu::ImuIdentificationRosPublisher(imu_node);
-  ident_publisher->setMessageProvider(ident_data_provider);
-  adi_imu::RosTask * ident_task = dynamic_cast<adi_imu::RosTask *>(ident_publisher);
+  adi_imu::ImuIdentificationDataProviderInterface * ident_data_provider = nullptr;
+  adi_imu::ImuIdentificationRosPublisherInterface * ident_publisher = nullptr;
+  adi_imu::RosTask * ident_task = nullptr;
+  if (ident_data_enable) {
+    ident_data_provider = new adi_imu::ImuIdentificationDataProvider();
+    ident_publisher = new adi_imu::ImuIdentificationRosPublisher(imu_node);
+    ident_publisher->setMessageProvider(ident_data_provider);
+    ident_task = dynamic_cast<adi_imu::RosTask *>(ident_publisher);
+  } else {
+    RCLCPP_INFO(imu_node->get_logger(), "Identification data publishing is disabled.");
+  }
 
   adi_imu::ImuDiagDataProviderInterface * diag_data_provider = nullptr;
   std::unique_ptr<adi_imu::ImuDiagRosPublisherInterface> diag_publisher = nullptr;
   adi_imu::RosTask * diag_task = nullptr;
+  if (diag_data_enable) {
+    diag_data_provider = new adi_imu::ImuDiagDataProvider();
 
-  diag_data_provider = new adi_imu::ImuDiagDataProvider();
+    try {
+      diag_publisher = adi_imu::ImuDiagPublisherFactory::make(device_descriptor, imu_node);
+      diag_publisher->setMessageProvider(diag_data_provider);
+      diag_publisher->setDeviceDescriptor(device_descriptor);
 
-  try {
-    diag_publisher = adi_imu::ImuDiagPublisherFactory::make(device_descriptor, imu_node);
-    diag_publisher->setMessageProvider(diag_data_provider);
-    diag_publisher->setDeviceDescriptor(device_descriptor);
-
-    diag_task = dynamic_cast<adi_imu::RosTask *>(diag_publisher.get());
-  } catch (const std::exception & e) {
-    RCLCPP_ERROR(imu_node->get_logger(), "Failed to create diag publisher: %s", e.what());
+      diag_task = dynamic_cast<adi_imu::RosTask *>(diag_publisher.get());
+    } catch (const std::exception & e) {
+      RCLCPP_ERROR(imu_node->get_logger(), "Failed to create diag publisher: %s", e.what());
+    }
+  } else {
+    RCLCPP_INFO(imu_node->get_logger(), "Diagnostic data publishing is disabled.");
   }
-
-  diag_task = dynamic_cast<adi_imu::RosTask *>(diag_publisher.get());
 
   adi_imu::WorkerThread publisher_group_thread(publisher_group_task);
-  adi_imu::WorkerThread ident_thread(ident_task);
-  adi_imu::WorkerThread diag_thread(diag_task);
+  std::unique_ptr<adi_imu::WorkerThread> ident_thread = nullptr;
+  std::unique_ptr<adi_imu::WorkerThread> diag_thread = nullptr;
+  if (ident_task != nullptr) {
+    ident_thread = std::make_unique<adi_imu::WorkerThread>(ident_task);
+  }
+  if (diag_task != nullptr) {
+    diag_thread = std::make_unique<adi_imu::WorkerThread>(diag_task);
+  }
 
-  diag_thread.join();
-  ident_thread.join();
+  // Join all threads after they have started
+  if (ident_thread) {
+    ident_thread->join();
+  }
+  if (diag_thread) {
+    diag_thread->join();
+  }
   publisher_group_thread.join();
 
-  delete ctrl_params;
-  delete accel_gyro_publisher;
+  // Cleanup resources
   if (device_descriptor->has(adi_imu::ADISRegister::HAS_DELTA_BURST)) {
-    delete vel_ang_publisher;
+    if (vel_ang_data_provider != nullptr) {
+      delete vel_ang_data_provider;
+    }
+    if (vel_ang_publisher != nullptr) {
+      delete vel_ang_publisher;
+    }
   }
+  delete full_data_provider;
+  delete imu_std_data_provider;
+
+  if (diag_data_enable) {
+    delete diag_data_provider;
+  }
+  if (ident_data_provider != nullptr) {
+    delete ident_data_provider;
+  }
+  if (ident_publisher != nullptr) {
+    delete ident_publisher;
+  }
+
+  delete accel_gyro_publisher;
   delete imu_std_publisher;
   delete full_data_publisher;
-  delete ident_publisher;
-  // delete diag_publisher;
 
-  rclcpp::shutdown();
+  if (publisher_group != nullptr) {
+    delete publisher_group;
+  }
 
   return 0;
 }
