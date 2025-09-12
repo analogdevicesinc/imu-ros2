@@ -62,7 +62,7 @@ This project is licensed under the `Apache License, Version 2.0 LICENSE <LICENSE
 Changelog
 ^^^^^^^^^
 
-Refer to our `CHANGELOG <CHANGELOG.md>`_ file for version history and release notes.
+Refer to our `CHANGELOG <CHANGELOG.rst>`_ file for version history and release notes.
 
 
 Supported Devices
