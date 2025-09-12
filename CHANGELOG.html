@@ -4,8 +4,9 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta content="Core Features:" name="description" />
 
-    <title>PACKAGE &#8212; adi_imu 1.0.0 documentation</title>
+    <title>Changelog for package adi_imu &#8212; adi_imu 1.0.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8e8a900e" />
     <link rel="stylesheet" type="text/css" href="_static/app.min.css?v=8d0b0339" />
     <link rel="stylesheet" type="text/css" href="_static/collapsible-lists/css/tree_view.css?v=a885cde7" />
@@ -14,8 +15,6 @@
     <script src="_static/collapsible-lists/js/apply-collapsible-lists.js?v=660e4f45"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="README" href="__README.html" />
-    <link rel="prev" title="CONTRIBUTING" href="__CONTRIBUTING.html" />
    
   
   
@@ -89,7 +88,10 @@
         </div>
         <nav>
           <ul>
-<li><a class="reference internal" href="#">PACKAGE</a></li>
+<li><a class="reference internal" href="#">Changelog for package adi_imu</a><ul>
+<li><a class="reference internal" href="#id1">1.0.0 (2025-09-12)</a></li>
+</ul>
+</li>
 </ul>
 
         </nav>
@@ -114,7 +116,7 @@ Content on this topic
 </div>
 <div class="toc-tree">
   <html>
-  <body><ul class="current">
+  <body><ul>
 <li class="toctree-l1"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-1" id="toctree-collapse-1"/><div class="collapse"><a class="reference internal" href="__links.html">Links</a><label for="toctree-collapse-1"><div class="icon"></div></label></div><ul>
 <li class="toctree-l2"><a class="reference external" href="https://index.ros.org/p/adi_imu">Rosindex</a></li>
 <li class="toctree-l2"><a class="reference external" href="https://github.com/analogdevicesinc/imu_ros2">Repository</a></li>
@@ -529,10 +531,10 @@ Content on this topic
 <li class="toctree-l2"><a class="reference internal" href="msg/VelAngTempData.html">VelAngTempData</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-4" id="toctree-collapse-4" checked=""/><div class="collapse"><a class="reference internal" href="__standards.html">Standard Documents</a><label for="toctree-collapse-4"><div class="icon"></div></label></div><ul class="current">
+<li class="toctree-l1"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-4" id="toctree-collapse-4"/><div class="collapse"><a class="reference internal" href="__standards.html">Standard Documents</a><label for="toctree-collapse-4"><div class="icon"></div></label></div><ul>
 <li class="toctree-l2"><a class="reference internal" href="__LICENSE.html">LICENSE</a></li>
 <li class="toctree-l2"><a class="reference internal" href="__CONTRIBUTING.html">CONTRIBUTING</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">PACKAGE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="__PACKAGE.html">PACKAGE</a></li>
 <li class="toctree-l2"><a class="reference internal" href="__README.html">README</a></li>
 <li class="toctree-l2"><a class="reference internal" href="__CHANGELOG.html">CHANGELOG</a></li>
 </ul>
@@ -552,63 +554,88 @@ Content on this topic
       <div class="documentwrapper">
         <div class="bodywrapper" id="top-anchor">
           <div class="body-header">
-  <nav class="breadcrumb"><ol><li><a href="__standards.html">Standard Documents</a></li></ol></nav>
+  <nav class="breadcrumb empty"><ol></ol></nav>
 </div>
           <div class="body" role="main">
             
-  <section id="package">
-<h1>PACKAGE<a class="headerlink" href="#package" title="Link to this heading"></a></h1>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot;?&gt;</span>
-<span class="cp">&lt;?xml-model href=&quot;http://download.ros.org/schema/package_format3.xsd&quot; schematypens=&quot;http://www.w3.org/2001/XMLSchema&quot;?&gt;</span>
-<span class="nt">&lt;package</span><span class="w"> </span><span class="na">format=</span><span class="s">&quot;3&quot;</span><span class="nt">&gt;</span>
-<span class="w">  </span><span class="nt">&lt;name&gt;</span>adi_imu<span class="nt">&lt;/name&gt;</span>
-<span class="w">  </span><span class="nt">&lt;version&gt;</span>1.0.0<span class="nt">&lt;/version&gt;</span>
-<span class="w">  </span><span class="nt">&lt;description&gt;</span>Publisher<span class="w"> </span>for<span class="w"> </span>ADI<span class="w"> </span>IMUs<span class="nt">&lt;/description&gt;</span>
-<span class="w">  </span><span class="nt">&lt;maintainer</span><span class="w"> </span><span class="na">email=</span><span class="s">&quot;Adrian.Stanea@analog.com&quot;</span><span class="nt">&gt;</span>Analog<span class="w"> </span>Devices<span class="nt">&lt;/maintainer&gt;</span>
-<span class="w">  </span><span class="nt">&lt;license&gt;</span>Apache<span class="w"> </span>License<span class="w"> </span>Version<span class="w"> </span>2.0<span class="nt">&lt;/license&gt;</span>
-
-<span class="w">  </span><span class="nt">&lt;url</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;repository&quot;</span><span class="nt">&gt;</span>https://github.com/analogdevicesinc/imu_ros2<span class="nt">&lt;/url&gt;</span>
-<span class="w">  </span><span class="nt">&lt;url</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;website&quot;</span><span class="nt">&gt;</span>https://analogdevicesinc.github.io/imu_ros2/<span class="nt">&lt;/url&gt;</span>
-<span class="w">  </span><span class="nt">&lt;url</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;bugtracker&quot;</span><span class="nt">&gt;</span>https://github.com/analogdevicesinc/imu_ros2/issues<span class="nt">&lt;/url&gt;</span>
-
-<span class="w">  </span><span class="nt">&lt;author</span><span class="w"> </span><span class="na">email=</span><span class="s">&quot;ramona.gradinariu@analog.com&quot;</span><span class="nt">&gt;</span>rbolboac<span class="nt">&lt;/author&gt;</span>
-
-<span class="w">  </span><span class="nt">&lt;depend&gt;</span>ament_cmake<span class="nt">&lt;/depend&gt;</span>
-<span class="w">  </span><span class="nt">&lt;depend&gt;</span>rclcpp<span class="nt">&lt;/depend&gt;</span>
-<span class="w">  </span><span class="nt">&lt;depend&gt;</span>std_msgs<span class="nt">&lt;/depend&gt;</span>
-<span class="w">  </span><span class="nt">&lt;depend&gt;</span>sensor_msgs<span class="nt">&lt;/depend&gt;</span>
-<span class="w">  </span><span class="nt">&lt;depend&gt;</span>geometry_msgs<span class="nt">&lt;/depend&gt;</span>
-<span class="w">  </span><span class="nt">&lt;depend&gt;</span>libiio-dev<span class="nt">&lt;/depend&gt;</span>
-
-<span class="w">  </span><span class="nt">&lt;build_depend&gt;</span>builtin_interfaces<span class="nt">&lt;/build_depend&gt;</span>
-<span class="w">  </span><span class="nt">&lt;build_depend&gt;</span>rosidl_default_generators<span class="nt">&lt;/build_depend&gt;</span>
-
-<span class="w">  </span><span class="nt">&lt;exec_depend&gt;</span>builtin_interfaces<span class="nt">&lt;/exec_depend&gt;</span>
-<span class="w">  </span><span class="nt">&lt;exec_depend&gt;</span>rosidl_default_runtime<span class="nt">&lt;/exec_depend&gt;</span>
-
-<span class="w">  </span><span class="nt">&lt;test_depend&gt;</span>ament_lint_auto<span class="nt">&lt;/test_depend&gt;</span>
-<span class="w">  </span><span class="nt">&lt;test_depend&gt;</span>ament_cmake_gtest<span class="nt">&lt;/test_depend&gt;</span>
-<span class="w">  </span><span class="nt">&lt;test_depend&gt;</span>ament_cmake_lint_cmake<span class="nt">&lt;/test_depend&gt;</span>
-<span class="w">  </span><span class="nt">&lt;test_depend&gt;</span>ament_cmake_xmllint<span class="nt">&lt;/test_depend&gt;</span>
-<span class="w">  </span><span class="nt">&lt;test_depend&gt;</span>ament_copyright<span class="nt">&lt;/test_depend&gt;</span>
-<span class="w">  </span><span class="nt">&lt;test_depend&gt;</span>ament_pep257<span class="nt">&lt;/test_depend&gt;</span>
-
-<span class="w">  </span><span class="nt">&lt;member_of_group&gt;</span>rosidl_interface_packages<span class="nt">&lt;/member_of_group&gt;</span>
-
-<span class="w">  </span><span class="nt">&lt;export&gt;</span>
-<span class="w">    </span><span class="nt">&lt;build_type&gt;</span>ament_cmake<span class="nt">&lt;/build_type&gt;</span>
-<span class="w">  </span><span class="nt">&lt;/export&gt;</span>
-<span class="nt">&lt;/package&gt;</span>
-</pre></div>
-</div>
+  <section id="changelog-for-package-adi-imu">
+<h1>Changelog for package adi_imu<a class="headerlink" href="#changelog-for-package-adi-imu" title="Link to this heading"></a></h1>
+<section id="id1">
+<h2>1.0.0 (2025-09-12)<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>Core Features:</strong></p>
+<ul>
+<li><p>Support for multiple ADIS IMU devices including:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">adis16465-1</span></code>, <code class="docutils literal notranslate"><span class="pre">adis16465-2</span></code>, <code class="docutils literal notranslate"><span class="pre">adis16465-3</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">adis16467-1</span></code>, <code class="docutils literal notranslate"><span class="pre">adis16467-2</span></code>, <code class="docutils literal notranslate"><span class="pre">adis16467-3</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">adis16470</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">adis16475-1</span></code>, <code class="docutils literal notranslate"><span class="pre">adis16475-2</span></code>, <code class="docutils literal notranslate"><span class="pre">adis16475-3</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">adis16477-1</span></code>, <code class="docutils literal notranslate"><span class="pre">adis16477-2</span></code>, <code class="docutils literal notranslate"><span class="pre">adis16477-3</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">adis16500</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">adis16501</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">adis16505-1</span></code>, <code class="docutils literal notranslate"><span class="pre">adis16505-2</span></code>, <code class="docutils literal notranslate"><span class="pre">adis16505-3</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">adis16507-1</span></code>, <code class="docutils literal notranslate"><span class="pre">adis16507-2</span></code>, <code class="docutils literal notranslate"><span class="pre">adis16507-3</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">adis16545-1</span></code>, <code class="docutils literal notranslate"><span class="pre">adis16545-2</span></code>, <code class="docutils literal notranslate"><span class="pre">adis16545-3</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">adis16547-1</span></code>, <code class="docutils literal notranslate"><span class="pre">adis16547-2</span></code>, <code class="docutils literal notranslate"><span class="pre">adis16547-3</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">adis16550</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">adis16575-2</span></code>, <code class="docutils literal notranslate"><span class="pre">adis16575-3</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">adis16576-2</span></code>, <code class="docutils literal notranslate"><span class="pre">adis16576-3</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">adis16577-2</span></code>, <code class="docutils literal notranslate"><span class="pre">adis16577-3</span></code></p></li>
+</ul>
+</li>
+<li><p>Supported ROS distribution: Humble Hawksbill (Ubuntu 22.04)</p></li>
+<li><p>Supported platforms: x86_64, ARM64</p></li>
+<li><p>Dynamic ADIS device detection and configuration at runtime</p></li>
+<li><p>Real-time data publishing via ROS 2 topics:</p>
+<ul>
+<li><p>IMU data (acceleration, angular velocity, temperature)</p></li>
+<li><p>Diagnostics data with device-specific error flags</p></li>
+<li><p>Device identification information</p></li>
+</ul>
+</li>
+<li><p>Dynamic parameter configuration via ROS 2 parameters</p></li>
+<li><p>Configurable options to enable/disable diagnostic and identification publishers</p></li>
+</ul>
+</li>
+<li><p><strong>Integration:</strong></p>
+<ul>
+<li><p>Launch files for common use cases:</p>
+<ul>
+<li><p>IMU with Madgwick filter and RViz visualization</p></li>
+<li><p>ToF and IMU sensor fusion with RViz</p></li>
+</ul>
+</li>
+<li><p>Buffer-based sensor data acquisition for efficient processing</p></li>
+<li><p>Proper timestamp handling from device when available</p></li>
+</ul>
+</li>
+<li><p><strong>Documentation and Testing</strong></p>
+<ul>
+<li><p>Comprehensive user documentation</p></li>
+<li><p>Integration tests for data publishers</p></li>
+<li><p>System tests for device functionality</p></li>
+<li><p>API documentation with doxygen</p></li>
+</ul>
+</li>
+<li><p><strong>Infrastructure</strong></p>
+<ul>
+<li><p>CI/CD workflows for multiple ROS 2 distributions (Humble, Jazzy, Rolling)</p></li>
+<li><p>Code quality enforcement with linting tools</p></li>
+<li><p>Contributor guidelines and communication standards</p></li>
+</ul>
+</li>
+<li><p>Contributors: Adrian-Stanea, Budai Robert, Dan Nechita, Ramona Bolboaca, Ramona Gradinariu, Robert, Robert Budai, VHolonec, Vasile Holonec, rbudai</p></li>
+</ul>
+</section>
 </section>
 
 
           </div>
               <div class="related">
                 &nbsp;
-    <a href="__CONTRIBUTING.html" title="Previous document (Alt+Shift+LeftArrow)" class="prev">CONTRIBUTING</a>
-    <a href="__README.html" title="Next document (Alt+Shift+RightArrow)" class="next">README</a>
+    <div></div>
+    <div></div>
               </div>
           
         </div>
