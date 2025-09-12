@@ -2,8 +2,8 @@
 Changelog for package adi_imu
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+1.0.0 (2025-09-12)
+------------------
 * **Core Features:**
 
   * Support for multiple ADIS IMU devices including:
