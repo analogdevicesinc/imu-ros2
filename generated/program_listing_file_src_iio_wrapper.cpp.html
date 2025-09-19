@@ -10,7 +10,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8e8a900e" />
     <link rel="stylesheet" type="text/css" href="../_static/app.min.css?v=8d0b0339" />
     <link rel="stylesheet" type="text/css" href="../_static/collapsible-lists/css/tree_view.css?v=a885cde7" />
-    <script async="async" src="../_static/app.umd.js?v=1a06b6a7"></script>
+    <script async="async" src="../_static/app.umd.js?v=2f9373fc"></script>
     <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js?v=73120307"></script>
     <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js?v=660e4f45"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -24,6 +24,7 @@
   <meta name="version" content="1.0">
   
     <meta name="page_source_suffix" content=".rst">
+  
   
   
 
@@ -777,7 +778,13 @@ Content on this topic
 <span class="w">  </span><span class="c1">// Initialize has_delta_channels</span>
 <span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">m_channel_deltaangl_x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">nullptr</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="n">m_channel_deltaangl_x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">iio_device_find_channel</span><span class="p">(</span><span class="n">m_dev</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;deltaangl_x&quot;</span><span class="p">,</span><span class="w"> </span><span class="nb">false</span><span class="p">);</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">m_channel_deltaangl_x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">nullptr</span><span class="p">)</span><span class="w"> </span><span class="n">has_delta_channels</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">m_channel_deltaangl_x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">nullptr</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="c1">// channel not found</span>
+<span class="w">      </span><span class="n">has_delta_channels</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="c1">// channel can&#39;t be included in buffered reading</span>
+<span class="w">      </span><span class="n">has_delta_channels</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">iio_channel_is_scan_element</span><span class="p">(</span><span class="n">m_channel_deltaangl_x</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
 <span class="w">  </span><span class="p">}</span>
 
 <span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">has_delta_channels</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>

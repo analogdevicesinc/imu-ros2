@@ -965,7 +965,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="65" column="7" bodyfile="src/iio_wrapper.cpp" bodystart="119" bodyend="321"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="65" column="7" bodyfile="src/iio_wrapper.cpp" bodystart="119" bodyend="327"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1af8d7480b3372bbe60162678179cebe99" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -996,7 +996,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="75" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="496" bodyend="575"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="75" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="502" bodyend="581"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1a7c4493da6ce8775c05a9ce0d46c8cd5d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1011,7 +1011,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="80" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="454" bodyend="460"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="80" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="460" bodyend="466"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1a942884b4879f2880372c036b402090eb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>double</type>
@@ -1029,7 +1029,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="88" column="10" bodyfile="src/iio_wrapper.cpp" bodystart="577" bodyend="580"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="88" column="10" bodyfile="src/iio_wrapper.cpp" bodystart="583" bodyend="586"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1aad735d96e2cb2b72edffba846cc3cbdd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>double</type>
@@ -1047,7 +1047,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="96" column="10" bodyfile="src/iio_wrapper.cpp" bodystart="582" bodyend="585"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="96" column="10" bodyfile="src/iio_wrapper.cpp" bodystart="588" bodyend="591"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1a9ac41732a91463fc653ba1f747857f46" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>double</type>
@@ -1065,7 +1065,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="104" column="10" bodyfile="src/iio_wrapper.cpp" bodystart="587" bodyend="590"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="104" column="10" bodyfile="src/iio_wrapper.cpp" bodystart="593" bodyend="596"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1a922fa1b16df69f89f81ff481630eb15b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>double</type>
@@ -1083,7 +1083,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="112" column="10" bodyfile="src/iio_wrapper.cpp" bodystart="592" bodyend="595"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="112" column="10" bodyfile="src/iio_wrapper.cpp" bodystart="598" bodyend="601"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1a8e07ce559d0f884d5bd20f42cb5656eb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>double</type>
@@ -1101,7 +1101,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="120" column="10" bodyfile="src/iio_wrapper.cpp" bodystart="597" bodyend="600"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="120" column="10" bodyfile="src/iio_wrapper.cpp" bodystart="603" bodyend="606"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1ada08f53c79ad7b276378e1aca209c466" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>double</type>
@@ -1119,7 +1119,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="128" column="10" bodyfile="src/iio_wrapper.cpp" bodystart="602" bodyend="605"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="128" column="10" bodyfile="src/iio_wrapper.cpp" bodystart="608" bodyend="611"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1a0bb94b79b440601656ded7760ae885ef" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>double</type>
@@ -1137,7 +1137,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="136" column="10" bodyfile="src/iio_wrapper.cpp" bodystart="643" bodyend="653"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="136" column="10" bodyfile="src/iio_wrapper.cpp" bodystart="649" bodyend="659"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1abb2002fa4c32a8b7ccacf4ef838ebb4e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>double</type>
@@ -1155,7 +1155,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="144" column="10" bodyfile="src/iio_wrapper.cpp" bodystart="655" bodyend="665"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="144" column="10" bodyfile="src/iio_wrapper.cpp" bodystart="661" bodyend="671"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1a1d7cffbbeb5bed9b472bb79abcda5820" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>double</type>
@@ -1173,7 +1173,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="152" column="10" bodyfile="src/iio_wrapper.cpp" bodystart="667" bodyend="677"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="152" column="10" bodyfile="src/iio_wrapper.cpp" bodystart="673" bodyend="683"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1aac81a38d455e1591de67ec8dab277a57" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>double</type>
@@ -1191,7 +1191,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="160" column="10" bodyfile="src/iio_wrapper.cpp" bodystart="607" bodyend="617"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="160" column="10" bodyfile="src/iio_wrapper.cpp" bodystart="613" bodyend="623"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1ac7c21a78fba5c68932f7e06ff9f09601" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>double</type>
@@ -1209,7 +1209,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="168" column="10" bodyfile="src/iio_wrapper.cpp" bodystart="619" bodyend="629"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="168" column="10" bodyfile="src/iio_wrapper.cpp" bodystart="625" bodyend="635"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1ae5c229e8808f9c41ba18c6a71255e695" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>double</type>
@@ -1227,7 +1227,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="176" column="10" bodyfile="src/iio_wrapper.cpp" bodystart="631" bodyend="641"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="176" column="10" bodyfile="src/iio_wrapper.cpp" bodystart="637" bodyend="647"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1a754483b36d623d88af1a89b83d27cc04" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>double</type>
@@ -1245,7 +1245,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="184" column="10" bodyfile="src/iio_wrapper.cpp" bodystart="679" bodyend="682"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="184" column="10" bodyfile="src/iio_wrapper.cpp" bodystart="685" bodyend="688"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1a03cacaeb38ee3df0b6dac3be369b3ef9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1286,7 +1286,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="193" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="684" bodyend="701"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="193" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="690" bodyend="707"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1ac8ae8162d8d0b4ea46871a8c06e959c7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -1317,7 +1317,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="202" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="703" bodyend="713"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="202" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="709" bodyend="719"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1a95bfba2f093abc41fd6b4850f9a7bc45" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -1348,7 +1348,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="211" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="715" bodyend="725"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="211" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="721" bodyend="731"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1a127cc7abd87d2b0283ed4a047e3595b5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -1379,7 +1379,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="220" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="727" bodyend="737"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="220" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="733" bodyend="743"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1af084ac4640bcd6284dc3e09fecf14042" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -1410,7 +1410,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="229" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="739" bodyend="749"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="229" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="745" bodyend="755"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1adb3c808cc553e063d329c42ec4b7aa88" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -1441,7 +1441,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="238" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="751" bodyend="761"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="238" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="757" bodyend="767"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1a129ac37d3df127b8971952fa269ad467" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -1472,7 +1472,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="247" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="763" bodyend="773"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="247" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="769" bodyend="779"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1af01bd45df04139f1f0ec551748948ccf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -1503,7 +1503,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="256" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="806" bodyend="816"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="256" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="812" bodyend="822"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1abc619ae556e746200f7195ebd412817c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -1534,7 +1534,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="265" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="849" bodyend="859"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="265" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="855" bodyend="865"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1a3ca9443d17623ca6ab66635b3a6ddc45" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -1565,7 +1565,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="274" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="892" bodyend="902"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="274" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="898" bodyend="908"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1aa2940fe66d0e3439c63c80fa44a10ddb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -1596,7 +1596,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="283" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="935" bodyend="945"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="283" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="941" bodyend="951"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1afc627f787aca37937d4af7ab4ebdb910" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -1627,7 +1627,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="292" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="978" bodyend="988"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="292" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="984" bodyend="994"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1a212b22599d909baf66f5d608efaac66a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -1658,7 +1658,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="301" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1021" bodyend="1031"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="301" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1027" bodyend="1037"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1abb405d9d4dc0723cfdc563a7d402ba95" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -1689,7 +1689,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="310" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1033" bodyend="1043"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="310" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1039" bodyend="1049"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1a6171bb87e271b31656a05418d087d1e0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -1720,7 +1720,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="318" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1045" bodyend="1055"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="318" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1051" bodyend="1061"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1a8511cbbafba62c2af53a475816ec04b2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -1751,7 +1751,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="326" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1057" bodyend="1062"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="326" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1063" bodyend="1068"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1a38563c97835874f0f394ae3c17531981" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -1782,7 +1782,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="334" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1064" bodyend="1074"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="334" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1070" bodyend="1080"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1afb36d451e3c9d9a190afeba946ee66f6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -1813,7 +1813,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="342" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1076" bodyend="1081"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="342" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1082" bodyend="1087"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1ac1ef5a5e222021049fbaa1a63d93c670" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -1844,7 +1844,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="350" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1083" bodyend="1093"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="350" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1089" bodyend="1099"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1a3fd7719cc0d8b9514987017470c64bbf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -1875,7 +1875,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="358" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1095" bodyend="1100"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="358" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1101" bodyend="1106"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1a5e7520019943220e596822b6ffe25327" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -1906,7 +1906,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="366" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1102" bodyend="1112"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="366" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1108" bodyend="1118"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1a07e9353509196f895f3fe912b797fe72" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -1937,7 +1937,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="374" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1114" bodyend="1119"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="374" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1120" bodyend="1125"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1ab53cc9a4c40009cbc2f218c673caedcf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -1968,7 +1968,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="382" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1121" bodyend="1131"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="382" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1127" bodyend="1137"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1afd7add882617386b5a7332b12f393222" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -1999,7 +1999,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="390" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1133" bodyend="1138"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="390" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1139" bodyend="1144"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1aaaba3aea3f37c55916e2ff043e96adf3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -2030,7 +2030,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="398" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1140" bodyend="1150"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="398" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1146" bodyend="1156"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1ab73edade6388423f78d8b7f150ed0cb2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -2061,7 +2061,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="406" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1152" bodyend="1157"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="406" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1158" bodyend="1163"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1afd224821513b63e6d91cb6a41ebbb295" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -2092,7 +2092,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="414" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1187" bodyend="1198"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="414" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1193" bodyend="1204"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1a70471e4dcf0cc7fa9d3b83df54809b29" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -2123,7 +2123,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="421" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1200" bodyend="1207"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="421" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1206" bodyend="1213"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1a7a78d44693dd9fe0a015ca63c0560ee6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -2154,7 +2154,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="429" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1209" bodyend="1220"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="429" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1215" bodyend="1226"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1a5685c918fdb51fb57e989b0f95226526" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -2185,7 +2185,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="436" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1221" bodyend="1228"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="436" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1227" bodyend="1234"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1a04c0b620a8764758adcc8d09aa08f4fe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -2216,7 +2216,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="444" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1230" bodyend="1241"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="444" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1236" bodyend="1247"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1a2c7f40149961e45d5a3c20054a46da6b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -2247,7 +2247,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="451" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1242" bodyend="1249"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="451" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1248" bodyend="1255"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1a93e82f911c588b1d2a67026baea810e7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -2278,7 +2278,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="459" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1251" bodyend="1262"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="459" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1257" bodyend="1268"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1aec51d9faf7f8fe107cb7a73e746d080e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -2309,7 +2309,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="466" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1263" bodyend="1269"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="466" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1269" bodyend="1275"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1ac7dbc0490cb70ed2f4c9e87b03dcec48" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -2340,7 +2340,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="474" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1271" bodyend="1282"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="474" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1277" bodyend="1288"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1a01de4f4945b704578a0996dfbbb7ab39" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -2371,7 +2371,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="481" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1283" bodyend="1289"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="481" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1289" bodyend="1295"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1a2a80a31272bd170eacc79e7733556dba" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -2402,7 +2402,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="489" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1291" bodyend="1302"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="489" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1297" bodyend="1308"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1a1c5554266196dcaf4f928e0e64cc3b85" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -2433,7 +2433,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="496" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1303" bodyend="1309"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="496" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1309" bodyend="1315"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1a45411a358175371f8fac0c4cbb4be3e2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -2464,7 +2464,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="504" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1311" bodyend="1322"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="504" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1317" bodyend="1328"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1a00b0c9db656e7a03fb64d42724767208" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -2495,7 +2495,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="512" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1324" bodyend="1329"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="512" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1330" bodyend="1335"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1a594cd8ddecea7b46ab3ba17239beba5f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -2526,7 +2526,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="520" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1331" bodyend="1341"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="520" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1337" bodyend="1347"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1aa514e1b6c4a49884b3828abe0ce20ee0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -2557,7 +2557,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="527" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1343" bodyend="1353"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="527" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1349" bodyend="1359"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1ab6062360d1051b00ef1ad5deddbcfb70" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -2588,7 +2588,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="534" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1355" bodyend="1365"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="534" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1361" bodyend="1371"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1ab3eec0ad69076605ac84b6f8e9141eae" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -2619,7 +2619,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="541" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1367" bodyend="1377"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="541" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1373" bodyend="1383"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1a2b158e5236250cf36ac66ae81a9933f0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -2650,7 +2650,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="548" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1379" bodyend="1389"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="548" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1385" bodyend="1395"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1aba3d8bdca87b483ba8dc0946226f37c8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -2681,7 +2681,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="555" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1391" bodyend="1401"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="555" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1397" bodyend="1407"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1a97c1e131c865f15e625d327b35b460e1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -2712,7 +2712,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="563" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1403" bodyend="1408"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="563" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1409" bodyend="1414"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1a17eacbf64bd26ccf8b2d524c5abaa565" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -2743,7 +2743,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="570" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1410" bodyend="1415"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="570" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1416" bodyend="1421"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1af488a9fac2373e80407b737f5d7cca82" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -2774,7 +2774,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="577" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1417" bodyend="1422"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="577" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1423" bodyend="1428"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1af09465ae110a9584820fcf20276145b2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -2805,7 +2805,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="584" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1424" bodyend="1429"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="584" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1430" bodyend="1435"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1a335ad3cfaac66041d2157640d878c7fc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -2836,7 +2836,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="591" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1431" bodyend="1436"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="591" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1437" bodyend="1442"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1af97f7baefdc0c01d1f6e4ebfe08aa519" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -2867,7 +2867,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="598" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1438" bodyend="1443"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="598" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1444" bodyend="1449"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1a0c0a937542d69b7448bf7230d710f4f0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -2898,7 +2898,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="606" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1159" bodyend="1171"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="606" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1165" bodyend="1177"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1a0d6c450a1ac2b8dbde4592bc311f29c3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -2929,7 +2929,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="614" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1173" bodyend="1185"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="614" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1179" bodyend="1191"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1abca18848f050647f213fb8c51745db8b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -2960,7 +2960,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="622" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1445" bodyend="1461"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="622" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1451" bodyend="1467"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1a93b5eebe38ebadd4aba1431771097188" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -2991,7 +2991,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="630" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1463" bodyend="1478"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="630" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1469" bodyend="1484"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1a59b878c5b0e55877f544830ab16c1fab" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -3022,7 +3022,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="638" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1480" bodyend="1495"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="638" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1486" bodyend="1501"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1ad1bea0105e626897a7738bbbdf22e3c6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -3053,7 +3053,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="646" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1497" bodyend="1512"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="646" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1503" bodyend="1518"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1ab2b7290458b29cd020269dd9ce53ad92" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -3084,7 +3084,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="654" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1514" bodyend="1529"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="654" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1520" bodyend="1535"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1ada96236f0c0a09fbd35fa575a3d1048d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -3115,7 +3115,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="662" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1531" bodyend="1546"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="662" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1537" bodyend="1552"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1a2fb5bdf71bb3b138a1c910560e619f8e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -3146,7 +3146,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="670" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1548" bodyend="1563"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="670" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1554" bodyend="1569"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1add78686902476e6bb0798e39fe5e5e05" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -3177,7 +3177,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="678" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1565" bodyend="1580"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="678" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1571" bodyend="1586"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1abb5db9cef417d8914efad3f3b14dde39" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -3208,7 +3208,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="686" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1582" bodyend="1597"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="686" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1588" bodyend="1603"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1a705334d453f4204e6efcd6cdcf624c4c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -3239,7 +3239,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="694" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1599" bodyend="1614"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="694" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1605" bodyend="1620"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1a7bc754da843132a7ede91f0e517fc66f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -3270,7 +3270,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="702" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1616" bodyend="1631"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="702" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1622" bodyend="1637"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1a58a64401a07cadd636b73c427de18c7c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -3301,7 +3301,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="710" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1633" bodyend="1648"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="710" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1639" bodyend="1654"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1af4d7afbff5904f840d846d7bb195b533" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -3332,7 +3332,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="718" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1650" bodyend="1665"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="718" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1656" bodyend="1671"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1ae06a2253519b7da21e48fa02228e4870" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -3363,7 +3363,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="726" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1667" bodyend="1682"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="726" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1673" bodyend="1688"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1ae9eb1d8c8164ee01a4759eefac4c3e0b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -3394,7 +3394,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="734" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1684" bodyend="1699"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="734" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1690" bodyend="1705"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1aada937da8bc7c4d4cf8041977e415f9f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -3425,7 +3425,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="742" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1701" bodyend="1716"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="742" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1707" bodyend="1722"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1a1af58e833e23588e05edef6f51371fc3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -3456,7 +3456,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="750" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1718" bodyend="1733"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="750" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1724" bodyend="1739"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1a3604f94044488e3b76e2a0105a956ecd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -3487,7 +3487,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="758" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1735" bodyend="1750"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="758" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1741" bodyend="1756"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1add0f460dc4f577c3894514d017b354a4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -3518,7 +3518,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="766" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1752" bodyend="1767"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="766" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1758" bodyend="1773"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1a09b63665e29322623937154c307e1a91" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -3549,7 +3549,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="774" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1769" bodyend="1784"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="774" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1775" bodyend="1790"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1a5fda4931fdb9fc91f5adb48fac5e2ece" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -3580,7 +3580,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="782" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1786" bodyend="1794"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="782" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1792" bodyend="1800"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1a44e9bd65c44b369015681c95dd072229" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -3611,7 +3611,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="790" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1796" bodyend="1831"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="790" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1802" bodyend="1837"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1a1bb53bfa102423d7f9797534212ecfe9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -3642,7 +3642,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="798" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1833" bodyend="1844"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="798" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1839" bodyend="1850"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1aed9c9786bcc89abbc66166c296808682" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -3673,7 +3673,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="806" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1846" bodyend="1852"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="806" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1852" bodyend="1858"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1ae35f53220c836a6b902b1af3e6b29350" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -3704,7 +3704,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="814" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1854" bodyend="1865"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="814" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1860" bodyend="1871"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1ae05f9c9588cff7f16f86791f1719365a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -3735,7 +3735,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="822" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1867" bodyend="1873"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="822" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1873" bodyend="1879"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1a62d5175896cbb37ceb6c2658e4b81ea0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -3766,7 +3766,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="830" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1875" bodyend="1886"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="830" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1881" bodyend="1892"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1aa387c9c3dabf8fa37e804c28d00e35d1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -3797,7 +3797,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="838" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1888" bodyend="1894"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="838" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1894" bodyend="1900"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1ac7bbff84095a3aef133c2e320216e5eb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -3828,7 +3828,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="846" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1896" bodyend="1907"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="846" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1902" bodyend="1913"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1a8c99ce2ea68fd85af6d02db1e1ff65b1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -3859,7 +3859,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="854" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1909" bodyend="1915"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="854" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1915" bodyend="1921"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1a2dbda34c91a4bc5e66e4c3c1c6fa3f4b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -3890,7 +3890,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="862" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1917" bodyend="1928"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="862" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1923" bodyend="1934"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1a590e1c671011e96e5e3f2aec53fa3e09" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -3921,7 +3921,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="870" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1930" bodyend="1936"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="870" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1936" bodyend="1942"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1a93d504e8557cb86abdd0be020d32e608" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -3952,7 +3952,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="878" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1938" bodyend="1949"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="878" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1944" bodyend="1955"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1a1a9f8b34a3ccfa6e00e932d5ab4c8af1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -3983,7 +3983,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="886" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1951" bodyend="1957"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="886" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1957" bodyend="1963"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1af46ebc82a3b4a5953ff99c0096cf670b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -4014,7 +4014,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="894" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1959" bodyend="1970"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="894" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1965" bodyend="1976"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1aa2fa9bd24ebef35c9b86bd719b58890e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -4045,7 +4045,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="902" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1972" bodyend="1978"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="902" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1978" bodyend="1984"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1aa3e97962189ec360b41dad7ecb85b98c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -4076,7 +4076,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="910" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1980" bodyend="1991"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="910" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1986" bodyend="1997"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1a5e307c67ed3955a88515c71977bebadf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -4107,7 +4107,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="918" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1993" bodyend="1999"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="918" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1999" bodyend="2005"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1a486919fad39f28c3bf0302a42afeaaff" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -4138,7 +4138,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="926" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="2001" bodyend="2012"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="926" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="2007" bodyend="2018"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1a854f6da48a9b0eaa16ae6091d757f485" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -4169,7 +4169,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="934" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="2014" bodyend="2020"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="934" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="2020" bodyend="2026"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1ab8c092c4c84ea318e588103f1ccb06c7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -4200,7 +4200,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="942" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="2022" bodyend="2033"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="942" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="2028" bodyend="2039"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1aa69d01ffb884402a1d9e4d3f3a8e5a1b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -4231,7 +4231,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="950" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="2035" bodyend="2041"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="950" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="2041" bodyend="2047"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1a8570be1bcfc6e406db889356df69d39a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -4249,7 +4249,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="957" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="2043" bodyend="2050"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="957" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="2049" bodyend="2056"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1a52ebe692aa17e496b67fb02244a53852" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -4267,7 +4267,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="964" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="2052" bodyend="2059"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="964" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="2058" bodyend="2065"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1a8b9a4a1e97aff28bce9693235474ab42" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -4285,7 +4285,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="971" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="2061" bodyend="2068"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="971" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="2067" bodyend="2074"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1ae7e71a1567c6cdfeaf78d39a31fa43cb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -4303,7 +4303,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="978" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="2070" bodyend="2077"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="978" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="2076" bodyend="2083"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1a415958c4738db5779eb562db27f5d59b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -4321,7 +4321,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="985" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="2079" bodyend="2086"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="985" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="2085" bodyend="2092"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1a1ff778a8a82c490d617743be4e68e032" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -4339,7 +4339,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="992" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="2088" bodyend="2095"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="992" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="2094" bodyend="2101"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1a99dfab008fa5618c5ddbc2fd66725ee1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -4370,7 +4370,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="1000" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="2097" bodyend="2107"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="1000" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="2103" bodyend="2113"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1aa964105ded1aee0307bae2b9d67c7496" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -4401,7 +4401,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="1008" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="2109" bodyend="2119"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="1008" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="2115" bodyend="2125"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1a5d978a738046b4dd971e4427ce28e8a4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -4432,7 +4432,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="1016" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="2121" bodyend="2131"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="1016" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="2127" bodyend="2137"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1a966fe86e585fa6476fad1d076089d216" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -4463,7 +4463,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="1024" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="2133" bodyend="2143"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="1024" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="2139" bodyend="2149"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1a2fa5982358d2c391f8126a711c4dbd8a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -4494,7 +4494,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="1032" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="2145" bodyend="2155"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="1032" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="2151" bodyend="2161"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1a72ec08bf510bb536e73bae2e978250a9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>double</type>
@@ -4512,7 +4512,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="1038" column="10" bodyfile="src/iio_wrapper.cpp" bodystart="2157" bodyend="2157"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="1038" column="10" bodyfile="src/iio_wrapper.cpp" bodystart="2163" bodyend="2163"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1a7e3d2c234e0e3448376c99d629e27e15" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>double</type>
@@ -4530,7 +4530,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="1044" column="10" bodyfile="src/iio_wrapper.cpp" bodystart="2159" bodyend="2159"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="1044" column="10" bodyfile="src/iio_wrapper.cpp" bodystart="2165" bodyend="2165"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1a73d5f7d40ed2064828769c67687ff191" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>double</type>
@@ -4548,7 +4548,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="1050" column="10" bodyfile="src/iio_wrapper.cpp" bodystart="2161" bodyend="2161"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="1050" column="10" bodyfile="src/iio_wrapper.cpp" bodystart="2167" bodyend="2167"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1ab1275be989b72da2776adb0bfa7cc46e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>double</type>
@@ -4566,7 +4566,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="1056" column="10" bodyfile="src/iio_wrapper.cpp" bodystart="2163" bodyend="2163"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="1056" column="10" bodyfile="src/iio_wrapper.cpp" bodystart="2169" bodyend="2169"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1a6da39b748a2bddcecc399cb48db17ab3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>double</type>
@@ -4584,7 +4584,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="1062" column="10" bodyfile="src/iio_wrapper.cpp" bodystart="2165" bodyend="2165"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="1062" column="10" bodyfile="src/iio_wrapper.cpp" bodystart="2171" bodyend="2171"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="private-func">
@@ -4615,7 +4615,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="1069" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="338" bodyend="398"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="1069" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="344" bodyend="404"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1adb96d076e0d6d85b07d696cb61f092f7" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -4644,7 +4644,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="1074" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="400" bodyend="452"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="1074" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="406" bodyend="458"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1ae4b0b02acb4497d4e025f83a84f42266" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -4699,7 +4699,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="1082" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="323" bodyend="336"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="1082" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="329" bodyend="342"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1a73acc52a805b31ac9c3ba0c59da6fb35" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -4730,7 +4730,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="1091" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="775" bodyend="793"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="1091" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="781" bodyend="799"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1a8c9bbdecd3b6dc34b52d851ad3dba864" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -4761,7 +4761,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="1100" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="818" bodyend="836"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="1100" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="824" bodyend="842"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1a0136b1cee75b7d04387340cd484945cd" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -4792,7 +4792,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="1109" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="861" bodyend="879"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="1109" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="867" bodyend="885"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1a7b7e6674673e7c8dd5470196c845f45d" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -4823,7 +4823,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="1118" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="904" bodyend="922"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="1118" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="910" bodyend="928"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1ab800b398e8b77b5c71a8930ec8080c26" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -4854,7 +4854,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="1127" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="947" bodyend="965"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="1127" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="953" bodyend="971"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1af7d3c2f1e35b7594aa765842b0371caf" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -4885,7 +4885,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="1136" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="990" bodyend="1008"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="1136" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="996" bodyend="1014"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1a9c962a79dbb9f6b63906847d7e2cbbb1" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -4916,7 +4916,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="1145" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="795" bodyend="804"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="1145" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="801" bodyend="810"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1aff6b2b733f877979f12c807eb221ac32" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -4947,7 +4947,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="1154" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="838" bodyend="847"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="1154" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="844" bodyend="853"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1aec63b7635d3c61862cd81ff688d6af02" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -4978,7 +4978,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="1163" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="881" bodyend="890"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="1163" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="887" bodyend="896"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1a3ce5956ca6aa7b57cae3bb391c8ca191" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -5009,7 +5009,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="1172" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="924" bodyend="933"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="1172" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="930" bodyend="939"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1aa0d2c7c7369cbabccd4f29b6fe30b568" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -5040,7 +5040,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="1181" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="967" bodyend="976"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="1181" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="973" bodyend="982"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1IIOWrapper_1ac5d005783d54ebe6cebe4bc91ef566b3" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -5071,7 +5071,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="1190" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1010" bodyend="1019"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="1190" column="8" bodyfile="src/iio_wrapper.cpp" bodystart="1016" bodyend="1025"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-static-func">
@@ -5103,7 +5103,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/iio_wrapper.h" line="1330" column="18" bodyfile="src/iio_wrapper.cpp" bodystart="462" bodyend="494"/>
+        <location file="include/adi_imu/iio_wrapper.h" line="1330" column="18" bodyfile="src/iio_wrapper.cpp" bodystart="468" bodyend="500"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
