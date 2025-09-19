@@ -216,7 +216,13 @@ int IIOWrapper::createContext(const char * context)
   // Initialize has_delta_channels
   if (m_channel_deltaangl_x == nullptr) {
     m_channel_deltaangl_x = iio_device_find_channel(m_dev, "deltaangl_x", false);
-    if (m_channel_deltaangl_x == nullptr) has_delta_channels = false;
+    if (m_channel_deltaangl_x == nullptr) {
+      // channel not found
+      has_delta_channels = false;
+    } else {
+      // channel can't be included in buffered reading
+      has_delta_channels = iio_channel_is_scan_element(m_channel_deltaangl_x);
+    }
   }
 
   if (has_delta_channels) {
