@@ -42,12 +42,12 @@ def generate_launch_description():
         default_value='2',
         choices=['0', '1', '2', '3'],
     )
-    diag_data_enable_arg = imu_device_name_arg = DeclareLaunchArgument(
+    diag_data_enable_arg = DeclareLaunchArgument(
         'diag_data_enable',
         description='Whether to enable the publisher of IMU diagnostic data.',
         default_value='false'
     )
-    ident_data_enable_arg = imu_device_name_arg = DeclareLaunchArgument(
+    ident_data_enable_arg = DeclareLaunchArgument(
         'ident_data_enable',
         description='Whether to enable the publisher of IMU identification data.',
         default_value='false'
