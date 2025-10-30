@@ -93,11 +93,11 @@ int main(int argc, char * argv[])
 
   auto frame_id_param_desc = rcl_interfaces::msg::ParameterDescriptor{};
   frame_id_param_desc.description =
-    "\nThe TF frame ID for the IMU sensor (e.g., source_x/imu). Useful when multiple IMUs are used.";
+    "\nThe TF frame ID for the IMU sensor (e.g., source_x/imu). Useful when multiple IMUs are "
+    "used.";
   imu_node->declare_parameter("frame_id", "imu", frame_id_param_desc);
 
-  auto frame_id =
-    imu_node->get_parameter("frame_id").get_parameter_value().get<std::string>();
+  auto frame_id = imu_node->get_parameter("frame_id").get_parameter_value().get<std::string>();
 
   /* First make sure IIO context is available */
   std::string context =

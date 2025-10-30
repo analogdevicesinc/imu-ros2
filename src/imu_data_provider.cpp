@@ -28,10 +28,7 @@ ImuDataProvider::ImuDataProvider() : m_frame_id("imu") {}
 
 ImuDataProvider::~ImuDataProvider() {}
 
-void ImuDataProvider::setFrameId(const std::string & frame_id)
-{
-  m_frame_id = frame_id;
-}
+void ImuDataProvider::setFrameId(const std::string & frame_id) { m_frame_id = frame_id; }
 
 bool ImuDataProvider::getData(sensor_msgs::msg::Imu & message)
 {

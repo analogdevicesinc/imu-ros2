@@ -20,9 +20,8 @@
 #ifndef ADI_IMU__IMU_DATA_PROVIDER_INTERFACE_H_
 #define ADI_IMU__IMU_DATA_PROVIDER_INTERFACE_H_
 
-#include <string>
-
 #include <sensor_msgs/msg/imu.hpp>
+#include <string>
 
 namespace adi_imu
 {
