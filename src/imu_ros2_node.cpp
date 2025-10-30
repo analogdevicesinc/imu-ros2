@@ -91,6 +91,14 @@ int main(int argc, char * argv[])
   auto ident_data_enable =
     imu_node->get_parameter("ident_data_enable").get_parameter_value().get<bool>();
 
+  auto frame_id_param_desc = rcl_interfaces::msg::ParameterDescriptor{};
+  frame_id_param_desc.description =
+    "\nThe TF frame ID for the IMU sensor (e.g., source_x/imu). Useful when multiple IMUs are used.";
+  imu_node->declare_parameter("frame_id", "imu", frame_id_param_desc);
+
+  auto frame_id =
+    imu_node->get_parameter("frame_id").get_parameter_value().get<std::string>();
+
   /* First make sure IIO context is available */
   std::string context =
     imu_node->get_parameter("iio_context_string").get_parameter_value().get<std::string>();
@@ -113,6 +121,7 @@ int main(int argc, char * argv[])
   accel_gyro_publisher->setMessageProvider(accel_gyro_data_provider);
 
   adi_imu::ImuDataProviderInterface * imu_std_data_provider = new adi_imu::ImuDataProvider();
+  imu_std_data_provider->setFrameId(frame_id);
   adi_imu::ImuRosPublisherInterface * imu_std_publisher = new adi_imu::ImuRosPublisher(imu_node);
   imu_std_publisher->setMessageProvider(imu_std_data_provider);
 

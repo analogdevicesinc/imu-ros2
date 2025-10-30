@@ -52,12 +52,18 @@ def generate_launch_description():
         description='Whether to enable the publisher of IMU identification data.',
         default_value='false'
     )
+    frame_id_arg = DeclareLaunchArgument(
+        'frame_id',
+        description='The TF frame ID for the IMU sensor (e.g., source_x/imu).',
+        default_value='imu'
+    )
 
     iio_context_string = LaunchConfiguration('iio_context_string')
     imu_device_name = LaunchConfiguration('imu_device_name')
     measured_data_topic_selection = LaunchConfiguration('measured_data_topic_selection')
     diag_data_enable = LaunchConfiguration('diag_data_enable')
     ident_data_enable = LaunchConfiguration('ident_data_enable')
+    frame_id = LaunchConfiguration('frame_id')
 
     rviz_param = launch.substitutions.LaunchConfiguration(
         'rviz_param',
@@ -75,6 +81,7 @@ def generate_launch_description():
             {'measured_data_topic_selection': measured_data_topic_selection},
             {'diag_data_enable': diag_data_enable},
             {'ident_data_enable': ident_data_enable},
+            {'frame_id': frame_id},
         ],
         remappings=[('/imu', '/imu/data_raw')],
         output='screen'
@@ -101,6 +108,7 @@ def generate_launch_description():
         measured_data_topic_selection_arg,
         diag_data_enable_arg,
         ident_data_enable_arg,
+        frame_id_arg,
         adi_imu_node,
         imu_filter_madgwick_node,
         rviz,
