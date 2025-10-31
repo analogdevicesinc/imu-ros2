@@ -25,22 +25,25 @@
 \DoxyCodeLine{00021\ \textcolor{preprocessor}{\#define\ ADI\_IMU\_\_IMU\_DATA\_PROVIDER\_INTERFACE\_H\_}}
 \DoxyCodeLine{00022\ }
 \DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ <sensor\_msgs/msg/imu.hpp>}}
-\DoxyCodeLine{00024\ }
-\DoxyCodeLine{00025\ \textcolor{keyword}{namespace\ }adi\_imu}
-\DoxyCodeLine{00026\ \{}
-\DoxyCodeLine{00027\ }
-\DoxyCodeLine{00031\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classadi__imu_1_1ImuDataProviderInterface}{ImuDataProviderInterface}}}
-\DoxyCodeLine{00032\ \{}
-\DoxyCodeLine{00033\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00037\ \ \ \mbox{\hyperlink{classadi__imu_1_1ImuDataProviderInterface_a6ff58f5752a6f6bcf3d2f5272e0daa7c}{ImuDataProviderInterface}}()\ \{\}}
-\DoxyCodeLine{00038\ }
-\DoxyCodeLine{00042\ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classadi__imu_1_1ImuDataProviderInterface_af82743bfb0238c8739d8168f3966f97e}{\string~ImuDataProviderInterface}}()\ \{\}}
-\DoxyCodeLine{00043\ }
-\DoxyCodeLine{00050\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classadi__imu_1_1ImuDataProviderInterface_a00c66b5fcacd6e661465c6fc2126c343}{getData}}(sensor\_msgs::msg::Imu\ \&\ message)\ =\ 0;}
-\DoxyCodeLine{00051\ \};}
-\DoxyCodeLine{00052\ }
-\DoxyCodeLine{00053\ \}\ \ \textcolor{comment}{//\ namespace\ adi\_imu}}
-\DoxyCodeLine{00054\ }
-\DoxyCodeLine{00055\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ ADI\_IMU\_\_IMU\_DATA\_PROVIDER\_INTERFACE\_H\_}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{keyword}{namespace\ }adi\_imu}
+\DoxyCodeLine{00027\ \{}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00032\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classadi__imu_1_1ImuDataProviderInterface}{ImuDataProviderInterface}}}
+\DoxyCodeLine{00033\ \{}
+\DoxyCodeLine{00034\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00038\ \ \ \mbox{\hyperlink{classadi__imu_1_1ImuDataProviderInterface_a6ff58f5752a6f6bcf3d2f5272e0daa7c}{ImuDataProviderInterface}}()\ \{\}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00043\ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classadi__imu_1_1ImuDataProviderInterface_af82743bfb0238c8739d8168f3966f97e}{\string~ImuDataProviderInterface}}()\ \{\}}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00049\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classadi__imu_1_1ImuDataProviderInterface_a6cafb1701967196ca7ea0e67d7ba4957}{setFrameId}}(\textcolor{keyword}{const}\ std::string\ \&\ frame\_id)\ =\ 0;}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00057\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classadi__imu_1_1ImuDataProviderInterface_a00c66b5fcacd6e661465c6fc2126c343}{getData}}(sensor\_msgs::msg::Imu\ \&\ message)\ =\ 0;}
+\DoxyCodeLine{00058\ \};}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \}\ \ \textcolor{comment}{//\ namespace\ adi\_imu}}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ ADI\_IMU\_\_IMU\_DATA\_PROVIDER\_INTERFACE\_H\_}}
 
 \end{DoxyCode}

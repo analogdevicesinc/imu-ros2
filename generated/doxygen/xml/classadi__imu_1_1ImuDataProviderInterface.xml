@@ -18,7 +18,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/imu_data_provider_interface.h" line="37" column="3" bodyfile="include/adi_imu/imu_data_provider_interface.h" bodystart="37" bodyend="37"/>
+        <location file="include/adi_imu/imu_data_provider_interface.h" line="38" column="3" bodyfile="include/adi_imu/imu_data_provider_interface.h" bodystart="38" bodyend="38"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1ImuDataProviderInterface_1af82743bfb0238c8739d8168f3966f97e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
         <type></type>
@@ -33,7 +33,37 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/imu_data_provider_interface.h" line="42" column="11" bodyfile="include/adi_imu/imu_data_provider_interface.h" bodystart="42" bodyend="42"/>
+        <location file="include/adi_imu/imu_data_provider_interface.h" line="43" column="11" bodyfile="include/adi_imu/imu_data_provider_interface.h" bodystart="43" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="classadi__imu_1_1ImuDataProviderInterface_1a6cafb1701967196ca7ea0e67d7ba4957" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void adi_imu::ImuDataProviderInterface::setFrameId</definition>
+        <argsstring>(const std::string &amp;frame_id)=0</argsstring>
+        <name>setFrameId</name>
+        <qualifiedname>adi_imu::ImuDataProviderInterface::setFrameId</qualifiedname>
+        <reimplementedby refid="classadi__imu_1_1ImuDataProvider_1a69fe1e1d7a99ad8e2b936244d5dd83c9">setFrameId</reimplementedby>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>frame_id</declname>
+        </param>
+        <briefdescription>
+<para>Set the frame ID for the IMU messages. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>frame_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The TF frame ID to use for the IMU messages. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/imu_data_provider_interface.h" line="49" column="16"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1ImuDataProviderInterface_1a00c66b5fcacd6e661465c6fc2126c343" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
         <type>bool</type>
@@ -65,7 +95,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/imu_data_provider_interface.h" line="50" column="16"/>
+        <location file="include/adi_imu/imu_data_provider_interface.h" line="57" column="16"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -85,10 +115,11 @@
         <link refid="classadi__imu_1_1ImuDataProviderInterface"/>
       </node>
     </inheritancegraph>
-    <location file="include/adi_imu/imu_data_provider_interface.h" line="31" column="1" bodyfile="include/adi_imu/imu_data_provider_interface.h" bodystart="32" bodyend="51"/>
+    <location file="include/adi_imu/imu_data_provider_interface.h" line="32" column="1" bodyfile="include/adi_imu/imu_data_provider_interface.h" bodystart="33" bodyend="58"/>
     <listofallmembers>
       <member refid="classadi__imu_1_1ImuDataProviderInterface_1a00c66b5fcacd6e661465c6fc2126c343" prot="public" virt="pure-virtual"><scope>adi_imu::ImuDataProviderInterface</scope><name>getData</name></member>
       <member refid="classadi__imu_1_1ImuDataProviderInterface_1a6ff58f5752a6f6bcf3d2f5272e0daa7c" prot="public" virt="non-virtual"><scope>adi_imu::ImuDataProviderInterface</scope><name>ImuDataProviderInterface</name></member>
+      <member refid="classadi__imu_1_1ImuDataProviderInterface_1a6cafb1701967196ca7ea0e67d7ba4957" prot="public" virt="pure-virtual"><scope>adi_imu::ImuDataProviderInterface</scope><name>setFrameId</name></member>
       <member refid="classadi__imu_1_1ImuDataProviderInterface_1af82743bfb0238c8739d8168f3966f97e" prot="public" virt="virtual"><scope>adi_imu::ImuDataProviderInterface</scope><name>~ImuDataProviderInterface</name></member>
     </listofallmembers>
   </compounddef>

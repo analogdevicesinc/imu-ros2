@@ -28,6 +28,8 @@ Inheritance diagram for adi\+\_\+imu\+::Imu\+Data\+Provider\+Interface\+:
 \Hypertarget{classadi__imu_1_1ImuDataProviderInterface_af82743bfb0238c8739d8168f3966f97e}\label{classadi__imu_1_1ImuDataProviderInterface_af82743bfb0238c8739d8168f3966f97e} 
 virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Imu\+Data\+Provider\+Interface} ()
 \begin{DoxyCompactList}\small\item\em Destructor for \doxylink{classadi__imu_1_1ImuDataProviderInterface}{Imu\+Data\+Provider\+Interface}. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classadi__imu_1_1ImuDataProviderInterface_a6cafb1701967196ca7ea0e67d7ba4957}{set\+Frame\+Id}} (const std\+::string \&frame\+\_\+id)=0
+\begin{DoxyCompactList}\small\item\em Set the frame ID for the IMU messages. \end{DoxyCompactList}\item 
 virtual bool \mbox{\hyperlink{classadi__imu_1_1ImuDataProviderInterface_a00c66b5fcacd6e661465c6fc2126c343}{get\+Data}} (sensor\+\_\+msgs\+::msg\+::\+Imu \&message)=0
 \begin{DoxyCompactList}\small\item\em Populate Imu message with measured data. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
@@ -57,6 +59,25 @@ Return true if the message parameter is successfully populated with measured dat
 
 
 Implemented in \mbox{\hyperlink{classadi__imu_1_1ImuDataProvider_a97d76266acb17424247e5b6bf2a32c7a}{adi\+\_\+imu\+::\+Imu\+Data\+Provider}}.
+
+\Hypertarget{classadi__imu_1_1ImuDataProviderInterface_a6cafb1701967196ca7ea0e67d7ba4957}\label{classadi__imu_1_1ImuDataProviderInterface_a6cafb1701967196ca7ea0e67d7ba4957} 
+\index{adi\_imu::ImuDataProviderInterface@{adi\_imu::ImuDataProviderInterface}!setFrameId@{setFrameId}}
+\index{setFrameId@{setFrameId}!adi\_imu::ImuDataProviderInterface@{adi\_imu::ImuDataProviderInterface}}
+\doxysubsubsection{\texorpdfstring{setFrameId()}{setFrameId()}}
+{\footnotesize\ttfamily virtual void adi\+\_\+imu\+::\+Imu\+Data\+Provider\+Interface\+::set\+Frame\+Id (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{frame\+\_\+id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Set the frame ID for the IMU messages. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em frame\+\_\+id} & The TF frame ID to use for the IMU messages. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classadi__imu_1_1ImuDataProvider_a69fe1e1d7a99ad8e2b936244d5dd83c9}{adi\+\_\+imu\+::\+Imu\+Data\+Provider}}.
 
 
 

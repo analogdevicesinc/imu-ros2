@@ -8,7 +8,7 @@
 
     <title>Program Listing for File imu_data_provider.h &#8212; adi_imu 1.0.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8e8a900e" />
-    <link rel="stylesheet" type="text/css" href="../_static/app.min.css?v=85dade36" />
+    <link rel="stylesheet" type="text/css" href="../_static/app.min.css?v=31a9e0ba" />
     <link rel="stylesheet" type="text/css" href="../_static/collapsible-lists/css/tree_view.css?v=a885cde7" />
     <script async="async" src="../_static/app.umd.js?v=3a4867e9"></script>
     <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js?v=73120307"></script>
@@ -586,6 +586,8 @@ Content on this topic
 <span class="cp">#ifndef ADI_IMU__IMU_DATA_PROVIDER_H_</span>
 <span class="cp">#define ADI_IMU__IMU_DATA_PROVIDER_H_</span>
 
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string&gt;</span>
+
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;adi_imu/iio_wrapper.h&quot;</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;adi_imu/imu_data_provider_interface.h&quot;</span>
 
@@ -599,10 +601,14 @@ Content on this topic
 
 <span class="w">  </span><span class="o">~</span><span class="n">ImuDataProvider</span><span class="p">();</span>
 
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">setFrameId</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">frame_id</span><span class="p">)</span><span class="w"> </span><span class="k">override</span><span class="p">;</span>
+
 <span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="nf">getData</span><span class="p">(</span><span class="n">sensor_msgs</span><span class="o">::</span><span class="n">msg</span><span class="o">::</span><span class="n">Imu</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">message</span><span class="p">)</span><span class="w"> </span><span class="k">override</span><span class="p">;</span>
 
 <span class="k">private</span><span class="o">:</span>
 <span class="w">  </span><span class="n">IIOWrapper</span><span class="w"> </span><span class="n">m_iio_wrapper</span><span class="p">;</span>
+
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">m_frame_id</span><span class="p">;</span>
 <span class="p">};</span>
 
 <span class="p">}</span><span class="w">  </span><span class="c1">// namespace adi_imu</span>

@@ -8,7 +8,7 @@
 
     <title>Program Listing for File imu_ros2_node.cpp &#8212; adi_imu 1.0.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8e8a900e" />
-    <link rel="stylesheet" type="text/css" href="../_static/app.min.css?v=85dade36" />
+    <link rel="stylesheet" type="text/css" href="../_static/app.min.css?v=31a9e0ba" />
     <link rel="stylesheet" type="text/css" href="../_static/collapsible-lists/css/tree_view.css?v=a885cde7" />
     <script async="async" src="../_static/app.umd.js?v=3a4867e9"></script>
     <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js?v=73120307"></script>
@@ -650,6 +650,14 @@ Content on this topic
 <span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">ident_data_enable</span><span class="w"> </span><span class="o">=</span>
 <span class="w">    </span><span class="n">imu_node</span><span class="o">-&gt;</span><span class="n">get_parameter</span><span class="p">(</span><span class="s">&quot;ident_data_enable&quot;</span><span class="p">).</span><span class="n">get_parameter_value</span><span class="p">().</span><span class="n">get</span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span><span class="p">();</span>
 
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">frame_id_param_desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rcl_interfaces</span><span class="o">::</span><span class="n">msg</span><span class="o">::</span><span class="n">ParameterDescriptor</span><span class="p">{};</span>
+<span class="w">  </span><span class="n">frame_id_param_desc</span><span class="p">.</span><span class="n">description</span><span class="w"> </span><span class="o">=</span>
+<span class="w">    </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">The TF frame ID for the IMU sensor (e.g., source_x/imu). Useful when multiple IMUs are &quot;</span>
+<span class="w">    </span><span class="s">&quot;used.&quot;</span><span class="p">;</span>
+<span class="w">  </span><span class="n">imu_node</span><span class="o">-&gt;</span><span class="n">declare_parameter</span><span class="p">(</span><span class="s">&quot;frame_id&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;imu&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">frame_id_param_desc</span><span class="p">);</span>
+
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">frame_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">imu_node</span><span class="o">-&gt;</span><span class="n">get_parameter</span><span class="p">(</span><span class="s">&quot;frame_id&quot;</span><span class="p">).</span><span class="n">get_parameter_value</span><span class="p">().</span><span class="n">get</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span><span class="p">();</span>
+
 <span class="w">  </span><span class="cm">/* First make sure IIO context is available */</span>
 <span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">context</span><span class="w"> </span><span class="o">=</span>
 <span class="w">    </span><span class="n">imu_node</span><span class="o">-&gt;</span><span class="n">get_parameter</span><span class="p">(</span><span class="s">&quot;iio_context_string&quot;</span><span class="p">).</span><span class="n">get_parameter_value</span><span class="p">().</span><span class="n">get</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span><span class="p">();</span>
@@ -672,6 +680,7 @@ Content on this topic
 <span class="w">  </span><span class="n">accel_gyro_publisher</span><span class="o">-&gt;</span><span class="n">setMessageProvider</span><span class="p">(</span><span class="n">accel_gyro_data_provider</span><span class="p">);</span>
 
 <span class="w">  </span><span class="n">adi_imu</span><span class="o">::</span><span class="n">ImuDataProviderInterface</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">imu_std_data_provider</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">adi_imu</span><span class="o">::</span><span class="n">ImuDataProvider</span><span class="p">();</span>
+<span class="w">  </span><span class="n">imu_std_data_provider</span><span class="o">-&gt;</span><span class="n">setFrameId</span><span class="p">(</span><span class="n">frame_id</span><span class="p">);</span>
 <span class="w">  </span><span class="n">adi_imu</span><span class="o">::</span><span class="n">ImuRosPublisherInterface</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">imu_std_publisher</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">adi_imu</span><span class="o">::</span><span class="n">ImuRosPublisher</span><span class="p">(</span><span class="n">imu_node</span><span class="p">);</span>
 <span class="w">  </span><span class="n">imu_std_publisher</span><span class="o">-&gt;</span><span class="n">setMessageProvider</span><span class="p">(</span><span class="n">imu_std_data_provider</span><span class="p">);</span>
 

@@ -38,6 +38,8 @@ Collaboration diagram for adi\+\_\+imu\+::Imu\+Data\+Provider\+:
 \Hypertarget{classadi__imu_1_1ImuDataProvider_a55a80d1e5b5f27e9f521e6f52010d4a5}\label{classadi__imu_1_1ImuDataProvider_a55a80d1e5b5f27e9f521e6f52010d4a5} 
 {\bfseries \texorpdfstring{$\sim$}{\string~}\+Imu\+Data\+Provider} ()
 \begin{DoxyCompactList}\small\item\em Destructor for \doxylink{classadi__imu_1_1ImuDataProvider}{Imu\+Data\+Provider}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classadi__imu_1_1ImuDataProvider_a69fe1e1d7a99ad8e2b936244d5dd83c9}{set\+Frame\+Id}} (const std\+::string \&frame\+\_\+id) override
+\begin{DoxyCompactList}\small\item\em Set the frame ID for the IMU messages. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classadi__imu_1_1ImuDataProvider_a97d76266acb17424247e5b6bf2a32c7a}{get\+Data}} (sensor\+\_\+msgs\+::msg\+::\+Imu \&message) override
 \begin{DoxyCompactList}\small\item\em Populate Imu message with measured data. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classadi__imu_1_1ImuDataProviderInterface}{adi\+\_\+imu\+::\+Imu\+Data\+Provider\+Interface}}}
@@ -51,6 +53,8 @@ virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Imu\+Data\+Provider\+Inter
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classadi__imu_1_1IIOWrapper}{IIOWrapper}} \mbox{\hyperlink{classadi__imu_1_1ImuDataProvider_acebed0a2e0d46dfb9bdf830faa6342ba}{m\+\_\+iio\+\_\+wrapper}}
+\item 
+std\+::string \mbox{\hyperlink{classadi__imu_1_1ImuDataProvider_a0513c5e03aa3180703c38ebdc38e7d9e}{m\+\_\+frame\+\_\+id}}
 \end{DoxyCompactItemize}
 
 
@@ -80,10 +84,35 @@ Return true if the message parameter is successfully populated with measured dat
 
 Implements \mbox{\hyperlink{classadi__imu_1_1ImuDataProviderInterface_a00c66b5fcacd6e661465c6fc2126c343}{adi\+\_\+imu\+::\+Imu\+Data\+Provider\+Interface}}.
 
+\Hypertarget{classadi__imu_1_1ImuDataProvider_a69fe1e1d7a99ad8e2b936244d5dd83c9}\label{classadi__imu_1_1ImuDataProvider_a69fe1e1d7a99ad8e2b936244d5dd83c9} 
+\index{adi\_imu::ImuDataProvider@{adi\_imu::ImuDataProvider}!setFrameId@{setFrameId}}
+\index{setFrameId@{setFrameId}!adi\_imu::ImuDataProvider@{adi\_imu::ImuDataProvider}}
+\doxysubsubsection{\texorpdfstring{setFrameId()}{setFrameId()}}
+{\footnotesize\ttfamily void adi\+\_\+imu\+::\+Imu\+Data\+Provider\+::set\+Frame\+Id (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{frame\+\_\+id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Set the frame ID for the IMU messages. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em frame\+\_\+id} & The TF frame ID to use for the IMU messages. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classadi__imu_1_1ImuDataProviderInterface_a6cafb1701967196ca7ea0e67d7ba4957}{adi\+\_\+imu\+::\+Imu\+Data\+Provider\+Interface}}.
+
 
 
 \doxysubsection{Member Data Documentation}
-\Hypertarget{classadi__imu_1_1ImuDataProvider_acebed0a2e0d46dfb9bdf830faa6342ba}\label{classadi__imu_1_1ImuDataProvider_acebed0a2e0d46dfb9bdf830faa6342ba} 
+\Hypertarget{classadi__imu_1_1ImuDataProvider_a0513c5e03aa3180703c38ebdc38e7d9e}\label{classadi__imu_1_1ImuDataProvider_a0513c5e03aa3180703c38ebdc38e7d9e} 
+\index{adi\_imu::ImuDataProvider@{adi\_imu::ImuDataProvider}!m\_frame\_id@{m\_frame\_id}}
+\index{m\_frame\_id@{m\_frame\_id}!adi\_imu::ImuDataProvider@{adi\_imu::ImuDataProvider}}
+\doxysubsubsection{\texorpdfstring{m\_frame\_id}{m\_frame\_id}}
+{\footnotesize\ttfamily std\+::string adi\+\_\+imu\+::\+Imu\+Data\+Provider\+::m\+\_\+frame\+\_\+id\hspace{0.3cm}{\ttfamily [private]}}
+
+The TF frame ID for the IMU sensor. \Hypertarget{classadi__imu_1_1ImuDataProvider_acebed0a2e0d46dfb9bdf830faa6342ba}\label{classadi__imu_1_1ImuDataProvider_acebed0a2e0d46dfb9bdf830faa6342ba} 
 \index{adi\_imu::ImuDataProvider@{adi\_imu::ImuDataProvider}!m\_iio\_wrapper@{m\_iio\_wrapper}}
 \index{m\_iio\_wrapper@{m\_iio\_wrapper}!adi\_imu::ImuDataProvider@{adi\_imu::ImuDataProvider}}
 \doxysubsubsection{\texorpdfstring{m\_iio\_wrapper}{m\_iio\_wrapper}}

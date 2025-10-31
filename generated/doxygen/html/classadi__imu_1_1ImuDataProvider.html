@@ -118,6 +118,9 @@ Public Member Functions</h2></td></tr>
 &#160;</td><td class="memItemRight" valign="bottom"><b>~ImuDataProvider</b> ()</td></tr>
 <tr class="memdesc:a55a80d1e5b5f27e9f521e6f52010d4a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor for <a class="el" href="classadi__imu_1_1ImuDataProvider.html" title="Class for standard message sensor_msgs::msg::Imu data provider.">ImuDataProvider</a>. <br /></td></tr>
 <tr class="separator:a55a80d1e5b5f27e9f521e6f52010d4a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69fe1e1d7a99ad8e2b936244d5dd83c9" id="r_a69fe1e1d7a99ad8e2b936244d5dd83c9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadi__imu_1_1ImuDataProvider.html#a69fe1e1d7a99ad8e2b936244d5dd83c9">setFrameId</a> (const std::string &amp;frame_id) override</td></tr>
+<tr class="memdesc:a69fe1e1d7a99ad8e2b936244d5dd83c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the frame ID for the IMU messages.  <br /></td></tr>
+<tr class="separator:a69fe1e1d7a99ad8e2b936244d5dd83c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a97d76266acb17424247e5b6bf2a32c7a" id="r_a97d76266acb17424247e5b6bf2a32c7a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadi__imu_1_1ImuDataProvider.html#a97d76266acb17424247e5b6bf2a32c7a">getData</a> (sensor_msgs::msg::Imu &amp;message) override</td></tr>
 <tr class="memdesc:a97d76266acb17424247e5b6bf2a32c7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Populate Imu message with measured data.  <br /></td></tr>
 <tr class="separator:a97d76266acb17424247e5b6bf2a32c7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -135,6 +138,8 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><b>~ImuDataProviderIn
 Private Attributes</h2></td></tr>
 <tr class="memitem:acebed0a2e0d46dfb9bdf830faa6342ba" id="r_acebed0a2e0d46dfb9bdf830faa6342ba"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classadi__imu_1_1IIOWrapper.html">IIOWrapper</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadi__imu_1_1ImuDataProvider.html#acebed0a2e0d46dfb9bdf830faa6342ba">m_iio_wrapper</a></td></tr>
 <tr class="separator:acebed0a2e0d46dfb9bdf830faa6342ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0513c5e03aa3180703c38ebdc38e7d9e" id="r_a0513c5e03aa3180703c38ebdc38e7d9e"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadi__imu_1_1ImuDataProvider.html#a0513c5e03aa3180703c38ebdc38e7d9e">m_frame_id</a></td></tr>
+<tr class="separator:a0513c5e03aa3180703c38ebdc38e7d9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Class for standard message sensor_msgs::msg::Imu data provider. </p>
@@ -176,7 +181,66 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a69fe1e1d7a99ad8e2b936244d5dd83c9" name="a69fe1e1d7a99ad8e2b936244d5dd83c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a69fe1e1d7a99ad8e2b936244d5dd83c9">&#9670;&#160;</a></span>setFrameId()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void adi_imu::ImuDataProvider::setFrameId </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>frame_id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Set the frame ID for the IMU messages. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">frame_id</td><td>The TF frame ID to use for the IMU messages. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="classadi__imu_1_1ImuDataProviderInterface.html#a6cafb1701967196ca7ea0e67d7ba4957">adi_imu::ImuDataProviderInterface</a>.</p>
+
+</div>
+</div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="a0513c5e03aa3180703c38ebdc38e7d9e" name="a0513c5e03aa3180703c38ebdc38e7d9e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0513c5e03aa3180703c38ebdc38e7d9e">&#9670;&#160;</a></span>m_frame_id</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string adi_imu::ImuDataProvider::m_frame_id</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>The TF frame ID for the IMU sensor. </p>
+
+</div>
+</div>
 <a id="acebed0a2e0d46dfb9bdf830faa6342ba" name="acebed0a2e0d46dfb9bdf830faa6342ba"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#acebed0a2e0d46dfb9bdf830faa6342ba">&#9670;&#160;</a></span>m_iio_wrapper</h2>
 

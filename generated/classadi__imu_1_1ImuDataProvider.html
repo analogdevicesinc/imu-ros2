@@ -8,7 +8,7 @@
 
     <title>Class ImuDataProvider &#8212; adi_imu 1.0.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8e8a900e" />
-    <link rel="stylesheet" type="text/css" href="../_static/app.min.css?v=85dade36" />
+    <link rel="stylesheet" type="text/css" href="../_static/app.min.css?v=31a9e0ba" />
     <link rel="stylesheet" type="text/css" href="../_static/collapsible-lists/css/tree_view.css?v=a885cde7" />
     <script async="async" src="../_static/app.umd.js?v=3a4867e9"></script>
     <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js?v=73120307"></script>
@@ -103,6 +103,7 @@
 <li><a class="reference internal" href="#_CPPv4N7adi_imu15ImuDataProviderE"><code class="docutils literal notranslate"><span class="pre">adi_imu::ImuDataProvider</span></code></a><ul>
 <li><a class="reference internal" href="#_CPPv4N7adi_imu15ImuDataProvider15ImuDataProviderEv"><code class="docutils literal notranslate"><span class="pre">ImuDataProvider()</span></code></a></li>
 <li><a class="reference internal" href="#_CPPv4N7adi_imu15ImuDataProviderD0Ev"><code class="docutils literal notranslate"><span class="pre">~ImuDataProvider()</span></code></a></li>
+<li><a class="reference internal" href="#_CPPv4N7adi_imu15ImuDataProvider10setFrameIdERKNSt6stringE"><code class="docutils literal notranslate"><span class="pre">setFrameId()</span></code></a></li>
 <li><a class="reference internal" href="#_CPPv4N7adi_imu15ImuDataProvider7getDataERN11sensor_msgs3msg3ImuE"><code class="docutils literal notranslate"><span class="pre">getData()</span></code></a></li>
 </ul>
 </li>
@@ -608,6 +609,17 @@ Content on this topic
 <dt class="sig sig-object cpp" id="_CPPv4N7adi_imu15ImuDataProviderD0Ev">
 <span id="_CPPv3N7adi_imu15ImuDataProviderD0Ev"></span><span id="_CPPv2N7adi_imu15ImuDataProviderD0Ev"></span><span id="adi_imu::ImuDataProvider::~ImuDataProvider"></span><span class="target" id="classadi__imu_1_1ImuDataProvider_1a55a80d1e5b5f27e9f521e6f52010d4a5"></span><span class="sig-name descname"><span class="n"><span class="pre">~ImuDataProvider</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N7adi_imu15ImuDataProviderD0Ev" title="Link to this definition"></a><br /></dt>
 <dd><p>Destructor for <a class="reference internal" href="#classadi__imu_1_1ImuDataProvider"><span class="std std-ref">ImuDataProvider</span></a>. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7adi_imu15ImuDataProvider10setFrameIdERKNSt6stringE">
+<span id="_CPPv3N7adi_imu15ImuDataProvider10setFrameIdERKNSt6stringE"></span><span id="_CPPv2N7adi_imu15ImuDataProvider10setFrameIdERKNSt6stringE"></span><span id="adi_imu::ImuDataProvider::setFrameId__ssCR"></span><span class="target" id="classadi__imu_1_1ImuDataProvider_1a69fe1e1d7a99ad8e2b936244d5dd83c9"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setFrameId</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">frame_id</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N7adi_imu15ImuDataProvider10setFrameIdERKNSt6stringE" title="Link to this definition"></a><br /></dt>
+<dd><p>Set the frame ID for the IMU messages. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>frame_id</strong> – The TF frame ID to use for the IMU messages. </p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="cpp function">

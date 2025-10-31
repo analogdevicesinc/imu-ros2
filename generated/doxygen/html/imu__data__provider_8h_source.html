@@ -103,37 +103,45 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#ifndef ADI_IMU__IMU_DATA_PROVIDER_H_</span></div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#define ADI_IMU__IMU_DATA_PROVIDER_H_</span></div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;adi_imu/iio_wrapper.h&quot;</span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;adi_imu/imu_data_provider_interface.h&quot;</span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="keyword">namespace </span>adi_imu</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>{</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
-<div class="foldopen" id="foldopen00032" data-start="{" data-end="};">
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="classadi__imu_1_1ImuDataProvider.html">   32</a></span><span class="keyword">class </span><a class="code hl_class" href="classadi__imu_1_1ImuDataProvider.html">ImuDataProvider</a> : <span class="keyword">public</span> <a class="code hl_class" href="classadi__imu_1_1ImuDataProviderInterface.html">ImuDataProviderInterface</a></div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>{</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>  <a class="code hl_function" href="classadi__imu_1_1ImuDataProvider.html#ab59782fa5f2c5ac4abd22b1942310d6f">ImuDataProvider</a>();</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>  <a class="code hl_function" href="classadi__imu_1_1ImuDataProvider.html#a55a80d1e5b5f27e9f521e6f52010d4a5">~ImuDataProvider</a>();</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>  <span class="keywordtype">bool</span> <a class="code hl_function" href="classadi__imu_1_1ImuDataProvider.html#a97d76266acb17424247e5b6bf2a32c7a">getData</a>(sensor_msgs::msg::Imu &amp; message) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &quot;adi_imu/iio_wrapper.h&quot;</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &quot;adi_imu/imu_data_provider_interface.h&quot;</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="keyword">namespace </span>adi_imu</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>{</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="foldopen" id="foldopen00034" data-start="{" data-end="};">
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="classadi__imu_1_1ImuDataProvider.html">   34</a></span><span class="keyword">class </span><a class="code hl_class" href="classadi__imu_1_1ImuDataProvider.html">ImuDataProvider</a> : <span class="keyword">public</span> <a class="code hl_class" href="classadi__imu_1_1ImuDataProviderInterface.html">ImuDataProviderInterface</a></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>{</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>  <a class="code hl_function" href="classadi__imu_1_1ImuDataProvider.html#ab59782fa5f2c5ac4abd22b1942310d6f">ImuDataProvider</a>();</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>  <a class="code hl_function" href="classadi__imu_1_1ImuDataProvider.html#a55a80d1e5b5f27e9f521e6f52010d4a5">~ImuDataProvider</a>();</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classadi__imu_1_1ImuDataProvider.html#a69fe1e1d7a99ad8e2b936244d5dd83c9">setFrameId</a>(<span class="keyword">const</span> std::string &amp; frame_id) <span class="keyword">override</span>;</div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="classadi__imu_1_1ImuDataProvider.html#acebed0a2e0d46dfb9bdf830faa6342ba">   55</a></span>  <a class="code hl_class" href="classadi__imu_1_1IIOWrapper.html">IIOWrapper</a> <a class="code hl_variable" href="classadi__imu_1_1ImuDataProvider.html#acebed0a2e0d46dfb9bdf830faa6342ba">m_iio_wrapper</a>;</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>};</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>  <span class="keywordtype">bool</span> <a class="code hl_function" href="classadi__imu_1_1ImuDataProvider.html#a97d76266acb17424247e5b6bf2a32c7a">getData</a>(sensor_msgs::msg::Imu &amp; message) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="classadi__imu_1_1ImuDataProvider.html#acebed0a2e0d46dfb9bdf830faa6342ba">   63</a></span>  <a class="code hl_class" href="classadi__imu_1_1IIOWrapper.html">IIOWrapper</a> <a class="code hl_variable" href="classadi__imu_1_1ImuDataProvider.html#acebed0a2e0d46dfb9bdf830faa6342ba">m_iio_wrapper</a>;</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="classadi__imu_1_1ImuDataProvider.html#a0513c5e03aa3180703c38ebdc38e7d9e">   66</a></span>  std::string <a class="code hl_variable" href="classadi__imu_1_1ImuDataProvider.html#a0513c5e03aa3180703c38ebdc38e7d9e">m_frame_id</a>;</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>};</div>
 </div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>}  <span class="comment">// namespace adi_imu</span></div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="preprocessor">#endif  </span><span class="comment">// ADI_IMU__IMU_DATA_PROVIDER_H_</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>}  <span class="comment">// namespace adi_imu</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="preprocessor">#endif  </span><span class="comment">// ADI_IMU__IMU_DATA_PROVIDER_H_</span></div>
 <div class="ttc" id="aclassadi__imu_1_1IIOWrapper_html"><div class="ttname"><a href="classadi__imu_1_1IIOWrapper.html">adi_imu::IIOWrapper</a></div><div class="ttdoc">Wrapper class for libiio library for IMU devices.</div><div class="ttdef"><b>Definition</b> iio_wrapper.h:40</div></div>
-<div class="ttc" id="aclassadi__imu_1_1ImuDataProviderInterface_html"><div class="ttname"><a href="classadi__imu_1_1ImuDataProviderInterface.html">adi_imu::ImuDataProviderInterface</a></div><div class="ttdoc">Interface for standard message sensor_msgs::msg::Imu data provider.</div><div class="ttdef"><b>Definition</b> imu_data_provider_interface.h:32</div></div>
-<div class="ttc" id="aclassadi__imu_1_1ImuDataProvider_html"><div class="ttname"><a href="classadi__imu_1_1ImuDataProvider.html">adi_imu::ImuDataProvider</a></div><div class="ttdoc">Class for standard message sensor_msgs::msg::Imu data provider.</div><div class="ttdef"><b>Definition</b> imu_data_provider.h:33</div></div>
+<div class="ttc" id="aclassadi__imu_1_1ImuDataProviderInterface_html"><div class="ttname"><a href="classadi__imu_1_1ImuDataProviderInterface.html">adi_imu::ImuDataProviderInterface</a></div><div class="ttdoc">Interface for standard message sensor_msgs::msg::Imu data provider.</div><div class="ttdef"><b>Definition</b> imu_data_provider_interface.h:33</div></div>
+<div class="ttc" id="aclassadi__imu_1_1ImuDataProvider_html"><div class="ttname"><a href="classadi__imu_1_1ImuDataProvider.html">adi_imu::ImuDataProvider</a></div><div class="ttdoc">Class for standard message sensor_msgs::msg::Imu data provider.</div><div class="ttdef"><b>Definition</b> imu_data_provider.h:35</div></div>
+<div class="ttc" id="aclassadi__imu_1_1ImuDataProvider_html_a0513c5e03aa3180703c38ebdc38e7d9e"><div class="ttname"><a href="classadi__imu_1_1ImuDataProvider.html#a0513c5e03aa3180703c38ebdc38e7d9e">adi_imu::ImuDataProvider::m_frame_id</a></div><div class="ttdeci">std::string m_frame_id</div><div class="ttdef"><b>Definition</b> imu_data_provider.h:66</div></div>
 <div class="ttc" id="aclassadi__imu_1_1ImuDataProvider_html_a55a80d1e5b5f27e9f521e6f52010d4a5"><div class="ttname"><a href="classadi__imu_1_1ImuDataProvider.html#a55a80d1e5b5f27e9f521e6f52010d4a5">adi_imu::ImuDataProvider::~ImuDataProvider</a></div><div class="ttdeci">~ImuDataProvider()</div><div class="ttdoc">Destructor for ImuDataProvider.</div><div class="ttdef"><b>Definition</b> imu_data_provider.cpp:29</div></div>
-<div class="ttc" id="aclassadi__imu_1_1ImuDataProvider_html_a97d76266acb17424247e5b6bf2a32c7a"><div class="ttname"><a href="classadi__imu_1_1ImuDataProvider.html#a97d76266acb17424247e5b6bf2a32c7a">adi_imu::ImuDataProvider::getData</a></div><div class="ttdeci">bool getData(sensor_msgs::msg::Imu &amp;message) override</div><div class="ttdoc">Populate Imu message with measured data.</div><div class="ttdef"><b>Definition</b> imu_data_provider.cpp:31</div></div>
+<div class="ttc" id="aclassadi__imu_1_1ImuDataProvider_html_a69fe1e1d7a99ad8e2b936244d5dd83c9"><div class="ttname"><a href="classadi__imu_1_1ImuDataProvider.html#a69fe1e1d7a99ad8e2b936244d5dd83c9">adi_imu::ImuDataProvider::setFrameId</a></div><div class="ttdeci">void setFrameId(const std::string &amp;frame_id) override</div><div class="ttdoc">Set the frame ID for the IMU messages.</div><div class="ttdef"><b>Definition</b> imu_data_provider.cpp:31</div></div>
+<div class="ttc" id="aclassadi__imu_1_1ImuDataProvider_html_a97d76266acb17424247e5b6bf2a32c7a"><div class="ttname"><a href="classadi__imu_1_1ImuDataProvider.html#a97d76266acb17424247e5b6bf2a32c7a">adi_imu::ImuDataProvider::getData</a></div><div class="ttdeci">bool getData(sensor_msgs::msg::Imu &amp;message) override</div><div class="ttdoc">Populate Imu message with measured data.</div><div class="ttdef"><b>Definition</b> imu_data_provider.cpp:33</div></div>
 <div class="ttc" id="aclassadi__imu_1_1ImuDataProvider_html_ab59782fa5f2c5ac4abd22b1942310d6f"><div class="ttname"><a href="classadi__imu_1_1ImuDataProvider.html#ab59782fa5f2c5ac4abd22b1942310d6f">adi_imu::ImuDataProvider::ImuDataProvider</a></div><div class="ttdeci">ImuDataProvider()</div><div class="ttdoc">Constructor for ImuDataProvider.</div><div class="ttdef"><b>Definition</b> imu_data_provider.cpp:27</div></div>
-<div class="ttc" id="aclassadi__imu_1_1ImuDataProvider_html_acebed0a2e0d46dfb9bdf830faa6342ba"><div class="ttname"><a href="classadi__imu_1_1ImuDataProvider.html#acebed0a2e0d46dfb9bdf830faa6342ba">adi_imu::ImuDataProvider::m_iio_wrapper</a></div><div class="ttdeci">IIOWrapper m_iio_wrapper</div><div class="ttdef"><b>Definition</b> imu_data_provider.h:55</div></div>
+<div class="ttc" id="aclassadi__imu_1_1ImuDataProvider_html_acebed0a2e0d46dfb9bdf830faa6342ba"><div class="ttname"><a href="classadi__imu_1_1ImuDataProvider.html#acebed0a2e0d46dfb9bdf830faa6342ba">adi_imu::ImuDataProvider::m_iio_wrapper</a></div><div class="ttdeci">IIOWrapper m_iio_wrapper</div><div class="ttdef"><b>Definition</b> imu_data_provider.h:63</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

@@ -353,13 +353,16 @@
   </compound>
   <compound refid="classadi__imu_1_1ImuDataProvider" kind="class"><name>adi_imu::ImuDataProvider</name>
     <member refid="classadi__imu_1_1ImuDataProvider_1acebed0a2e0d46dfb9bdf830faa6342ba" kind="variable"><name>m_iio_wrapper</name></member>
+    <member refid="classadi__imu_1_1ImuDataProvider_1a0513c5e03aa3180703c38ebdc38e7d9e" kind="variable"><name>m_frame_id</name></member>
     <member refid="classadi__imu_1_1ImuDataProvider_1ab59782fa5f2c5ac4abd22b1942310d6f" kind="function"><name>ImuDataProvider</name></member>
     <member refid="classadi__imu_1_1ImuDataProvider_1a55a80d1e5b5f27e9f521e6f52010d4a5" kind="function"><name>~ImuDataProvider</name></member>
+    <member refid="classadi__imu_1_1ImuDataProvider_1a69fe1e1d7a99ad8e2b936244d5dd83c9" kind="function"><name>setFrameId</name></member>
     <member refid="classadi__imu_1_1ImuDataProvider_1a97d76266acb17424247e5b6bf2a32c7a" kind="function"><name>getData</name></member>
   </compound>
   <compound refid="classadi__imu_1_1ImuDataProviderInterface" kind="class"><name>adi_imu::ImuDataProviderInterface</name>
     <member refid="classadi__imu_1_1ImuDataProviderInterface_1a6ff58f5752a6f6bcf3d2f5272e0daa7c" kind="function"><name>ImuDataProviderInterface</name></member>
     <member refid="classadi__imu_1_1ImuDataProviderInterface_1af82743bfb0238c8739d8168f3966f97e" kind="function"><name>~ImuDataProviderInterface</name></member>
+    <member refid="classadi__imu_1_1ImuDataProviderInterface_1a6cafb1701967196ca7ea0e67d7ba4957" kind="function"><name>setFrameId</name></member>
     <member refid="classadi__imu_1_1ImuDataProviderInterface_1a00c66b5fcacd6e661465c6fc2126c343" kind="function"><name>getData</name></member>
   </compound>
   <compound refid="classadi__imu_1_1ImuDiagDataProvider" kind="class"><name>adi_imu::ImuDiagDataProvider</name>

@@ -14,9 +14,9 @@
         </childnode>
         <childnode refid="11" relation="include">
         </childnode>
-        <childnode refid="5" relation="include">
-        </childnode>
         <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
         </childnode>
         <childnode refid="12" relation="include">
         </childnode>
@@ -25,14 +25,14 @@
         <childnode refid="13" relation="include">
         </childnode>
       </node>
-      <node id="3">
+      <node id="4">
         <label>adi_imu/iio_wrapper.h</label>
         <link refid="iio__wrapper_8h_source"/>
-        <childnode refid="4" relation="include">
-        </childnode>
         <childnode refid="5" relation="include">
         </childnode>
         <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
         </childnode>
         <childnode refid="7" relation="include">
         </childnode>
@@ -44,6 +44,8 @@
         <link refid="imu__data__provider_8h_source"/>
         <childnode refid="3" relation="include">
         </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
         <childnode refid="14" relation="include">
         </childnode>
       </node>
@@ -52,13 +54,15 @@
         <link refid="imu__data__provider__interface_8h_source"/>
         <childnode refid="15" relation="include">
         </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
       </node>
       <node id="13">
         <label>adi_imu/utils/adis_register_definitions.h</label>
         <link refid="adis__register__definitions_8h_source"/>
         <childnode refid="10" relation="include">
         </childnode>
-        <childnode refid="6" relation="include">
+        <childnode refid="3" relation="include">
         </childnode>
         <childnode refid="12" relation="include">
         </childnode>
@@ -77,19 +81,19 @@
       <node id="10">
         <label>cstdint</label>
       </node>
-      <node id="4">
+      <node id="5">
         <label>iio.h</label>
       </node>
       <node id="11">
         <label>iostream</label>
       </node>
-      <node id="5">
+      <node id="6">
         <label>memory</label>
       </node>
       <node id="15">
         <label>sensor_msgs/msg/imu.hpp</label>
       </node>
-      <node id="6">
+      <node id="3">
         <label>string</label>
       </node>
       <node id="12">
@@ -131,31 +135,33 @@
 <codeline lineno="24"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">adi_imu</highlight></codeline>
 <codeline lineno="25"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="26"><highlight class="normal"></highlight></codeline>
-<codeline lineno="27"><highlight class="normal"><ref refid="classadi__imu_1_1ImuDataProvider_1ab59782fa5f2c5ac4abd22b1942310d6f" kindref="member">ImuDataProvider::ImuDataProvider</ref>()<sp/>{}</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><ref refid="classadi__imu_1_1ImuDataProvider_1ab59782fa5f2c5ac4abd22b1942310d6f" kindref="member">ImuDataProvider::ImuDataProvider</ref>()<sp/>:<sp/>m_frame_id(</highlight><highlight class="stringliteral">&quot;imu&quot;</highlight><highlight class="normal">)<sp/>{}</highlight></codeline>
 <codeline lineno="28"><highlight class="normal"></highlight></codeline>
-<codeline lineno="29"><highlight class="normal"><ref refid="classadi__imu_1_1ImuDataProvider_1a55a80d1e5b5f27e9f521e6f52010d4a5" kindref="member">ImuDataProvider::~ImuDataProvider</ref>()<sp/>{}</highlight></codeline>
+<codeline lineno="29"><highlight class="normal">ImuDataProvider::~ImuDataProvider()<sp/>{}</highlight></codeline>
 <codeline lineno="30"><highlight class="normal"></highlight></codeline>
-<codeline lineno="31"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classadi__imu_1_1ImuDataProvider_1a97d76266acb17424247e5b6bf2a32c7a" kindref="member">ImuDataProvider::getData</ref>(sensor_msgs::msg::Imu<sp/>&amp;<sp/>message)</highlight></codeline>
-<codeline lineno="32"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="33"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!<ref refid="classadi__imu_1_1ImuDataProvider_1acebed0a2e0d46dfb9bdf830faa6342ba" kindref="member">m_iio_wrapper</ref>.<ref refid="classadi__imu_1_1IIOWrapper_1af8d7480b3372bbe60162678179cebe99" kindref="member">updateBuffer</ref>(ACCEL_GYRO_BUFFERED_DATA))<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="34"><highlight class="normal"></highlight></codeline>
-<codeline lineno="35"><highlight class="normal"><sp/><sp/>message.linear_acceleration.x<sp/>=<sp/><ref refid="classadi__imu_1_1ImuDataProvider_1acebed0a2e0d46dfb9bdf830faa6342ba" kindref="member">m_iio_wrapper</ref>.<ref refid="classadi__imu_1_1IIOWrapper_1a942884b4879f2880372c036b402090eb" kindref="member">getBuffLinearAccelerationX</ref>();</highlight></codeline>
-<codeline lineno="36"><highlight class="normal"><sp/><sp/>message.linear_acceleration.y<sp/>=<sp/><ref refid="classadi__imu_1_1ImuDataProvider_1acebed0a2e0d46dfb9bdf830faa6342ba" kindref="member">m_iio_wrapper</ref>.<ref refid="classadi__imu_1_1IIOWrapper_1aad735d96e2cb2b72edffba846cc3cbdd" kindref="member">getBuffLinearAccelerationY</ref>();</highlight></codeline>
-<codeline lineno="37"><highlight class="normal"><sp/><sp/>message.linear_acceleration.z<sp/>=<sp/><ref refid="classadi__imu_1_1ImuDataProvider_1acebed0a2e0d46dfb9bdf830faa6342ba" kindref="member">m_iio_wrapper</ref>.<ref refid="classadi__imu_1_1IIOWrapper_1a9ac41732a91463fc653ba1f747857f46" kindref="member">getBuffLinearAccelerationZ</ref>();</highlight></codeline>
-<codeline lineno="38"><highlight class="normal"></highlight></codeline>
-<codeline lineno="39"><highlight class="normal"><sp/><sp/>message.angular_velocity.x<sp/>=<sp/><ref refid="classadi__imu_1_1ImuDataProvider_1acebed0a2e0d46dfb9bdf830faa6342ba" kindref="member">m_iio_wrapper</ref>.<ref refid="classadi__imu_1_1IIOWrapper_1a922fa1b16df69f89f81ff481630eb15b" kindref="member">getBuffAngularVelocityX</ref>();</highlight></codeline>
-<codeline lineno="40"><highlight class="normal"><sp/><sp/>message.angular_velocity.y<sp/>=<sp/><ref refid="classadi__imu_1_1ImuDataProvider_1acebed0a2e0d46dfb9bdf830faa6342ba" kindref="member">m_iio_wrapper</ref>.<ref refid="classadi__imu_1_1IIOWrapper_1a8e07ce559d0f884d5bd20f42cb5656eb" kindref="member">getBuffAngularVelocityY</ref>();</highlight></codeline>
-<codeline lineno="41"><highlight class="normal"><sp/><sp/>message.angular_velocity.z<sp/>=<sp/><ref refid="classadi__imu_1_1ImuDataProvider_1acebed0a2e0d46dfb9bdf830faa6342ba" kindref="member">m_iio_wrapper</ref>.<ref refid="classadi__imu_1_1IIOWrapper_1ada08f53c79ad7b276378e1aca209c466" kindref="member">getBuffAngularVelocityZ</ref>();</highlight></codeline>
-<codeline lineno="42"><highlight class="normal"></highlight></codeline>
-<codeline lineno="43"><highlight class="normal"><sp/><sp/>message.header.frame_id<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;imu&quot;</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="44"><highlight class="normal"><sp/><sp/><ref refid="classadi__imu_1_1ImuDataProvider_1acebed0a2e0d46dfb9bdf830faa6342ba" kindref="member">m_iio_wrapper</ref>.<ref refid="classadi__imu_1_1IIOWrapper_1a03cacaeb38ee3df0b6dac3be369b3ef9" kindref="member">getBuffSampleTimestamp</ref>(message.header.stamp.sec,<sp/>message.header.stamp.nanosec);</highlight></codeline>
-<codeline lineno="45"><highlight class="normal"></highlight></codeline>
-<codeline lineno="46"><highlight class="normal"><sp/><sp/>message.orientation_covariance[0]<sp/>=<sp/>-1;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>ImuDataProvider::setFrameId(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/>&amp;<sp/>frame_id)<sp/>{<sp/>m_frame_id<sp/>=<sp/>frame_id;<sp/>}</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>ImuDataProvider::getData(sensor_msgs::msg::Imu<sp/>&amp;<sp/>message)</highlight></codeline>
+<codeline lineno="34"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!m_iio_wrapper.updateBuffer(ACCEL_GYRO_BUFFERED_DATA))<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/>message.linear_acceleration.x<sp/>=<sp/>m_iio_wrapper.getBuffLinearAccelerationX();</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/>message.linear_acceleration.y<sp/>=<sp/>m_iio_wrapper.getBuffLinearAccelerationY();</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/>message.linear_acceleration.z<sp/>=<sp/>m_iio_wrapper.getBuffLinearAccelerationZ();</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/>message.angular_velocity.x<sp/>=<sp/>m_iio_wrapper.getBuffAngularVelocityX();</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/>message.angular_velocity.y<sp/>=<sp/>m_iio_wrapper.getBuffAngularVelocityY();</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/>message.angular_velocity.z<sp/>=<sp/>m_iio_wrapper.getBuffAngularVelocityZ();</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/>message.header.frame_id<sp/>=<sp/>m_frame_id;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/>m_iio_wrapper.getBuffSampleTimestamp(message.header.stamp.sec,<sp/>message.header.stamp.nanosec);</highlight></codeline>
 <codeline lineno="47"><highlight class="normal"></highlight></codeline>
-<codeline lineno="48"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="49"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="50"><highlight class="normal"></highlight></codeline>
-<codeline lineno="51"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>adi_imu</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/>message.orientation_covariance[0]<sp/>=<sp/>-1;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>adi_imu</highlight><highlight class="normal"></highlight></codeline>
     </programlisting>
     <location file="src/imu_data_provider.cpp"/>
   </compounddef>

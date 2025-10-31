@@ -8,7 +8,7 @@
 
     <title>README &#8212; adi_imu 1.0.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8e8a900e" />
-    <link rel="stylesheet" type="text/css" href="_static/app.min.css?v=85dade36" />
+    <link rel="stylesheet" type="text/css" href="_static/app.min.css?v=31a9e0ba" />
     <link rel="stylesheet" type="text/css" href="_static/collapsible-lists/css/tree_view.css?v=a885cde7" />
     <script async="async" src="_static/app.umd.js?v=3a4867e9"></script>
     <script src="_static/collapsible-lists/js/CollapsibleLists.compressed.js?v=73120307"></script>
@@ -126,6 +126,7 @@
 <li><a class="reference internal" href="#measured-data-topic-selection">measured_data_topic_selection</a></li>
 <li><a class="reference internal" href="#diag-data-enable">diag_data_enable</a></li>
 <li><a class="reference internal" href="#ident-data-enable">ident_data_enable</a></li>
+<li><a class="reference internal" href="#frame-id">frame_id</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#imu-parameters">IMU parameters</a></li>
@@ -1074,6 +1075,13 @@ enabled, the node will read and publish device identification information such
 as product ID, serial number, firmware version, and firmware date on the
 <cite>/imuidentificationdata</cite> topic.</p>
 <p>Setting this parameter to false will disable identification data publishing.</p>
+</section>
+<section id="frame-id">
+<h5>frame_id<a class="headerlink" href="#frame-id" title="Link to this heading"></a></h5>
+<p><strong>Type:</strong> string
+<strong>Default:</strong> “imu”</p>
+<p>The TF frame ID for the IMU sensor (e.g., <cite>source_x/imu</cite>). Useful when multiple
+IMUs are used in the same system to uniquely identify each sensor’s data.</p>
 </section>
 </section>
 <section id="imu-parameters">

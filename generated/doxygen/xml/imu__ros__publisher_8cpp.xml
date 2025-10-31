@@ -11,6 +11,8 @@
         <link refid="imu__data__provider__interface_8h_source"/>
         <childnode refid="6" relation="include">
         </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
       </node>
       <node id="2">
         <label>adi_imu/imu_ros_publisher.h</label>
@@ -21,10 +23,10 @@
         </childnode>
         <childnode refid="5" relation="include">
         </childnode>
-        <childnode refid="7" relation="include">
+        <childnode refid="8" relation="include">
         </childnode>
       </node>
-      <node id="7">
+      <node id="8">
         <label>adi_imu/imu_ros_publisher_interface.h</label>
         <link refid="imu__ros__publisher__interface_8h_source"/>
         <childnode refid="3" relation="include">
@@ -37,12 +39,12 @@
         <link refid="imu__ros__publisher_8cpp"/>
         <childnode refid="2" relation="include">
         </childnode>
-        <childnode refid="8" relation="include">
-        </childnode>
         <childnode refid="9" relation="include">
         </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
       </node>
-      <node id="8">
+      <node id="9">
         <label>chrono</label>
       </node>
       <node id="3">
@@ -54,7 +56,10 @@
       <node id="6">
         <label>sensor_msgs/msg/imu.hpp</label>
       </node>
-      <node id="9">
+      <node id="7">
+        <label>string</label>
+      </node>
+      <node id="10">
         <label>thread</label>
       </node>
     </incdepgraph>

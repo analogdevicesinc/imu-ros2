@@ -1883,6 +1883,13 @@
       <arglist>()</arglist>
     </member>
     <member kind="function">
+      <type>void</type>
+      <name>setFrameId</name>
+      <anchorfile>classadi__imu_1_1ImuDataProvider.html</anchorfile>
+      <anchor>a69fe1e1d7a99ad8e2b936244d5dd83c9</anchor>
+      <arglist>(const std::string &amp;frame_id) override</arglist>
+    </member>
+    <member kind="function">
       <type>bool</type>
       <name>getData</name>
       <anchorfile>classadi__imu_1_1ImuDataProvider.html</anchorfile>
@@ -1894,6 +1901,13 @@
       <name>m_iio_wrapper</name>
       <anchorfile>classadi__imu_1_1ImuDataProvider.html</anchorfile>
       <anchor>acebed0a2e0d46dfb9bdf830faa6342ba</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>std::string</type>
+      <name>m_frame_id</name>
+      <anchorfile>classadi__imu_1_1ImuDataProvider.html</anchorfile>
+      <anchor>a0513c5e03aa3180703c38ebdc38e7d9e</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -1913,6 +1927,13 @@
       <anchorfile>classadi__imu_1_1ImuDataProviderInterface.html</anchorfile>
       <anchor>af82743bfb0238c8739d8168f3966f97e</anchor>
       <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="pure">
+      <type>virtual void</type>
+      <name>setFrameId</name>
+      <anchorfile>classadi__imu_1_1ImuDataProviderInterface.html</anchorfile>
+      <anchor>a6cafb1701967196ca7ea0e67d7ba4957</anchor>
+      <arglist>(const std::string &amp;frame_id)=0</arglist>
     </member>
     <member kind="function" virtualness="pure">
       <type>virtual bool</type>

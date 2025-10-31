@@ -2,6 +2,7 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
   <compounddef id="imu__data__provider_8h" kind="file" language="C++">
     <compoundname>imu_data_provider.h</compoundname>
+    <includes local="no">string</includes>
     <includes refid="iio__wrapper_8h" local="yes">adi_imu/iio_wrapper.h</includes>
     <includes refid="imu__data__provider__interface_8h" local="yes">adi_imu/imu_data_provider_interface.h</includes>
     <includedby refid="imu__data__provider_8cpp" local="yes">src/imu_data_provider.cpp</includedby>
@@ -16,9 +17,9 @@
         </childnode>
         <childnode refid="10" relation="include">
         </childnode>
-        <childnode refid="4" relation="include">
-        </childnode>
         <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
         </childnode>
         <childnode refid="11" relation="include">
         </childnode>
@@ -27,14 +28,14 @@
         <childnode refid="12" relation="include">
         </childnode>
       </node>
-      <node id="2">
+      <node id="3">
         <label>adi_imu/iio_wrapper.h</label>
         <link refid="iio__wrapper_8h_source"/>
-        <childnode refid="3" relation="include">
-        </childnode>
         <childnode refid="4" relation="include">
         </childnode>
         <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
         </childnode>
         <childnode refid="6" relation="include">
         </childnode>
@@ -46,6 +47,8 @@
         <link refid="imu__data__provider_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
         <childnode refid="13" relation="include">
         </childnode>
       </node>
@@ -54,13 +57,15 @@
         <link refid="imu__data__provider__interface_8h_source"/>
         <childnode refid="14" relation="include">
         </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
       </node>
       <node id="12">
         <label>adi_imu/utils/adis_register_definitions.h</label>
         <link refid="adis__register__definitions_8h_source"/>
         <childnode refid="9" relation="include">
         </childnode>
-        <childnode refid="5" relation="include">
+        <childnode refid="2" relation="include">
         </childnode>
         <childnode refid="11" relation="include">
         </childnode>
@@ -71,19 +76,19 @@
       <node id="9">
         <label>cstdint</label>
       </node>
-      <node id="3">
+      <node id="4">
         <label>iio.h</label>
       </node>
       <node id="10">
         <label>iostream</label>
       </node>
-      <node id="4">
+      <node id="5">
         <label>memory</label>
       </node>
       <node id="14">
         <label>sensor_msgs/msg/imu.hpp</label>
       </node>
-      <node id="5">
+      <node id="2">
         <label>string</label>
       </node>
       <node id="11">
@@ -122,28 +127,34 @@
 <codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>ADI_IMU__IMU_DATA_PROVIDER_H_</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ADI_IMU__IMU_DATA_PROVIDER_H_</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="22"><highlight class="normal"></highlight></codeline>
-<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;adi_imu/iio_wrapper.h&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;adi_imu/imu_data_provider_interface.h&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="25"><highlight class="normal"></highlight></codeline>
-<codeline lineno="26"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">adi_imu</highlight></codeline>
-<codeline lineno="27"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="28"><highlight class="normal"></highlight></codeline>
-<codeline lineno="32" refid="classadi__imu_1_1ImuDataProvider" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classadi__imu_1_1ImuDataProvider" kindref="compound">ImuDataProvider</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classadi__imu_1_1ImuDataProviderInterface" kindref="compound">ImuDataProviderInterface</ref></highlight></codeline>
-<codeline lineno="33"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="34"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="38"><highlight class="normal"><sp/><sp/><ref refid="classadi__imu_1_1ImuDataProvider_1ab59782fa5f2c5ac4abd22b1942310d6f" kindref="member">ImuDataProvider</ref>();</highlight></codeline>
-<codeline lineno="39"><highlight class="normal"></highlight></codeline>
-<codeline lineno="43"><highlight class="normal"><sp/><sp/><ref refid="classadi__imu_1_1ImuDataProvider_1a55a80d1e5b5f27e9f521e6f52010d4a5" kindref="member">~ImuDataProvider</ref>();</highlight></codeline>
-<codeline lineno="44"><highlight class="normal"></highlight></codeline>
-<codeline lineno="51"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classadi__imu_1_1ImuDataProvider_1a97d76266acb17424247e5b6bf2a32c7a" kindref="member">getData</ref>(sensor_msgs::msg::Imu<sp/>&amp;<sp/>message)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;adi_imu/iio_wrapper.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;adi_imu/imu_data_provider_interface.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">adi_imu</highlight></codeline>
+<codeline lineno="29"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34" refid="classadi__imu_1_1ImuDataProvider" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classadi__imu_1_1ImuDataProvider" kindref="compound">ImuDataProvider</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classadi__imu_1_1ImuDataProviderInterface" kindref="compound">ImuDataProviderInterface</ref></highlight></codeline>
+<codeline lineno="35"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><ref refid="classadi__imu_1_1ImuDataProvider_1ab59782fa5f2c5ac4abd22b1942310d6f" kindref="member">ImuDataProvider</ref>();</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><ref refid="classadi__imu_1_1ImuDataProvider_1a55a80d1e5b5f27e9f521e6f52010d4a5" kindref="member">~ImuDataProvider</ref>();</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classadi__imu_1_1ImuDataProvider_1a69fe1e1d7a99ad8e2b936244d5dd83c9" kindref="member">setFrameId</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/>&amp;<sp/>frame_id)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="52"><highlight class="normal"></highlight></codeline>
-<codeline lineno="53"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="55" refid="classadi__imu_1_1ImuDataProvider_1acebed0a2e0d46dfb9bdf830faa6342ba" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="classadi__imu_1_1IIOWrapper" kindref="compound">IIOWrapper</ref><sp/><ref refid="classadi__imu_1_1ImuDataProvider_1acebed0a2e0d46dfb9bdf830faa6342ba" kindref="member">m_iio_wrapper</ref>;</highlight></codeline>
-<codeline lineno="56"><highlight class="normal">};</highlight></codeline>
-<codeline lineno="57"><highlight class="normal"></highlight></codeline>
-<codeline lineno="58"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>adi_imu</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="59"><highlight class="normal"></highlight></codeline>
-<codeline lineno="60"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/></highlight><highlight class="comment">//<sp/>ADI_IMU__IMU_DATA_PROVIDER_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classadi__imu_1_1ImuDataProvider_1a97d76266acb17424247e5b6bf2a32c7a" kindref="member">getData</ref>(sensor_msgs::msg::Imu<sp/>&amp;<sp/>message)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="63" refid="classadi__imu_1_1ImuDataProvider_1acebed0a2e0d46dfb9bdf830faa6342ba" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="classadi__imu_1_1IIOWrapper" kindref="compound">IIOWrapper</ref><sp/><ref refid="classadi__imu_1_1ImuDataProvider_1acebed0a2e0d46dfb9bdf830faa6342ba" kindref="member">m_iio_wrapper</ref>;</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66" refid="classadi__imu_1_1ImuDataProvider_1a0513c5e03aa3180703c38ebdc38e7d9e" refkind="member"><highlight class="normal"><sp/><sp/>std::string<sp/><ref refid="classadi__imu_1_1ImuDataProvider_1a0513c5e03aa3180703c38ebdc38e7d9e" kindref="member">m_frame_id</ref>;</highlight></codeline>
+<codeline lineno="67"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>adi_imu</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/></highlight><highlight class="comment">//<sp/>ADI_IMU__IMU_DATA_PROVIDER_H_</highlight><highlight class="normal"></highlight></codeline>
     </programlisting>
     <location file="include/adi_imu/imu_data_provider.h"/>
   </compounddef>
