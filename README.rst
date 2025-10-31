@@ -518,6 +518,15 @@ as product ID, serial number, firmware version, and firmware date on the
 
 Setting this parameter to false will disable identification data publishing.
 
+frame_id
+""""""""
+
+**Type:** string
+**Default:** "imu"
+
+The TF frame ID for the IMU sensor (e.g., `source_x/imu`). Useful when multiple
+IMUs are used in the same system to uniquely identify each sensor's data.
+
 
 IMU parameters
 ^^^^^^^^^^^^^^
