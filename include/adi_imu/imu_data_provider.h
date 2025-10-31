@@ -20,6 +20,8 @@
 #ifndef ADI_IMU__IMU_DATA_PROVIDER_H_
 #define ADI_IMU__IMU_DATA_PROVIDER_H_
 
+#include <string>
+
 #include "adi_imu/iio_wrapper.h"
 #include "adi_imu/imu_data_provider_interface.h"
 
@@ -43,6 +45,12 @@ public:
   ~ImuDataProvider();
 
   /**
+   * @brief Set the frame ID for the IMU messages.
+   * @param frame_id The TF frame ID to use for the IMU messages.
+   */
+  void setFrameId(const std::string & frame_id) override;
+
+  /**
    * @brief Populate Imu message with measured data.
    * @param message Message containing the measured data.
    * @return Return true if the message parameter is successfully populated with
@@ -53,6 +61,9 @@ public:
 private:
   /*! This data member is used to access sensor information via libiio. */
   IIOWrapper m_iio_wrapper;
+
+  /*! The TF frame ID for the IMU sensor. */
+  std::string m_frame_id;
 };
 
 }  // namespace adi_imu

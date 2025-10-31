@@ -24,9 +24,11 @@
 namespace adi_imu
 {
 
-ImuDataProvider::ImuDataProvider() {}
+ImuDataProvider::ImuDataProvider() : m_frame_id("imu") {}
 
 ImuDataProvider::~ImuDataProvider() {}
+
+void ImuDataProvider::setFrameId(const std::string & frame_id) { m_frame_id = frame_id; }
 
 bool ImuDataProvider::getData(sensor_msgs::msg::Imu & message)
 {
@@ -40,7 +42,7 @@ bool ImuDataProvider::getData(sensor_msgs::msg::Imu & message)
   message.angular_velocity.y = m_iio_wrapper.getBuffAngularVelocityY();
   message.angular_velocity.z = m_iio_wrapper.getBuffAngularVelocityZ();
 
-  message.header.frame_id = "imu";
+  message.header.frame_id = m_frame_id;
   m_iio_wrapper.getBuffSampleTimestamp(message.header.stamp.sec, message.header.stamp.nanosec);
 
   message.orientation_covariance[0] = -1;

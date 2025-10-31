@@ -21,6 +21,7 @@
 #define ADI_IMU__IMU_DATA_PROVIDER_INTERFACE_H_
 
 #include <sensor_msgs/msg/imu.hpp>
+#include <string>
 
 namespace adi_imu
 {
@@ -40,6 +41,12 @@ public:
    * @brief Destructor for ImuDataProviderInterface.
    */
   virtual ~ImuDataProviderInterface() {}
+
+  /**
+   * @brief Set the frame ID for the IMU messages.
+   * @param frame_id The TF frame ID to use for the IMU messages.
+   */
+  virtual void setFrameId(const std::string & frame_id) = 0;
 
   /**
    * @brief Populate Imu message with measured data.
