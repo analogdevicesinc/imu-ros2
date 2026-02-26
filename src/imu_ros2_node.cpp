@@ -22,6 +22,7 @@
 #include "adi_imu/adis_device_factory.h"
 #include "adi_imu/adis_register_map.h"
 #include "adi_imu/imu_control_parameters.h"
+#include "adi_imu/imu_covariance_factory.h"  // New covariance feature
 #include "adi_imu/imu_data_provider.h"
 #include "adi_imu/imu_diag_data_provider.h"
 #include "adi_imu/imu_diag_ros_publisher.h"
@@ -124,6 +125,22 @@ int main(int argc, char * argv[])
   imu_std_data_provider->setFrameId(frame_id);
   adi_imu::ImuRosPublisherInterface * imu_std_publisher = new adi_imu::ImuRosPublisher(imu_node);
   imu_std_publisher->setMessageProvider(imu_std_data_provider);
+
+  //==============Covariance provider setup================
+  // Create covariance provider from ROS2 parameters.
+  // The factory declares parameters and creates the appropriate provider
+  std::unique_ptr<adi_imu::ImuCovarianceInterface> covariance_provider =
+    adi_imu::ImuCovarianceFactory::createFromParameters(imu_node);
+
+  // Inject covariance provider into IMU data provider if enabled
+  if (covariance_provider) {
+    imu_std_data_provider->setCovarianceProvider(covariance_provider.get());
+    RCLCPP_INFO(imu_node->get_logger(), "Covariance provider attached to ImuDataProvider.");
+  } else {
+    RCLCPP_INFO(
+      imu_node->get_logger(), "Covariance computation disabled (covariance.enable = false).");
+  }
+  //=======================================================
 
   adi_imu::VelAngTempDataProviderInterface * vel_ang_data_provider = nullptr;
   adi_imu::VelAngTempRosPublisherInterface * vel_ang_publisher = nullptr;

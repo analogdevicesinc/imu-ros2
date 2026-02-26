@@ -45,9 +45,43 @@ bool ImuDataProvider::getData(sensor_msgs::msg::Imu & message)
   message.header.frame_id = m_frame_id;
   m_iio_wrapper.getBuffSampleTimestamp(message.header.stamp.sec, message.header.stamp.nanosec);
 
+  // No orientation provided direclty by the IMU
   message.orientation_covariance[0] = -1;
 
+  // Handle covariance if provider is set
+  if (m_covariance_provider) {
+    //Feed sample for calibration/adaptation
+    adi_imu::Vec3 accel = {
+      message.linear_acceleration.x, message.linear_acceleration.y, message.linear_acceleration.z};
+    adi_imu::Vec3 gyro = {
+      message.angular_velocity.x, message.angular_velocity.y, message.angular_velocity.z};
+
+    m_covariance_provider->addSample(accel, gyro);
+    if (m_covariance_provider->isReady()) {
+      // Copy covariance to message
+      auto accel_cov = m_covariance_provider->getAccelCovariance();
+      auto gyro_cov = m_covariance_provider->getGyroCovariance();
+
+      std::copy(accel_cov.begin(), accel_cov.end(), message.linear_acceleration_covariance.begin());
+      std::copy(gyro_cov.begin(), gyro_cov.end(), message.angular_velocity_covariance.begin());
+    } else {
+      // Set to -1 to indicate unknown during calibration
+      message.linear_acceleration_covariance[0] = -1;
+      message.angular_velocity_covariance[0] = -1;
+    }
+  } else {
+    // No covariance provider - set to unknown
+    message.linear_acceleration_covariance[0] = -1;
+    message.angular_velocity_covariance[0] = -1;
+  }
+
   return true;
+}
+
+// Method for setting the covariance provider
+void ImuDataProvider::setCovarianceProvider(ImuCovarianceInterface * provider)
+{
+  m_covariance_provider = provider;
 }
 
 }  // namespace adi_imu

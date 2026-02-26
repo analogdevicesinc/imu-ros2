@@ -26,6 +26,9 @@
 namespace adi_imu
 {
 
+// Forward declaration of covariance interface
+class ImuCovarianceInterface;
+
 /**
  * @brief Interface for standard message sensor_msgs::msg::Imu data provider.
  */
@@ -55,6 +58,12 @@ public:
    * measured data and false otherwise.
    */
   virtual bool getData(sensor_msgs::msg::Imu & message) = 0;
+
+  /**
+  * @brief Method to set the desired covariance algorithm
+  * @param provider The provider can be an instance of: Static, Welford or SlidingWindow providers
+   */
+  virtual void setCovarianceProvider(ImuCovarianceInterface * provider) = 0;
 };
 
 }  // namespace adi_imu
