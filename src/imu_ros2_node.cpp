@@ -208,24 +208,11 @@ int main(int argc, char * argv[])
   }
   publisher_group_thread.join();
 
-  // Cleanup resources
-  if (device_descriptor->has(adi_imu::ADISRegister::HAS_DELTA_BURST)) {
-    if (vel_ang_data_provider != nullptr) {
-      delete vel_ang_data_provider;
-    }
-    if (vel_ang_publisher != nullptr) {
-      delete vel_ang_publisher;
-    }
+  // Cleanup resources. Deleting publishers also deletes their respective providers
+  if (vel_ang_publisher != nullptr) {
+    delete vel_ang_publisher;
   }
-  delete full_data_provider;
-  delete imu_std_data_provider;
 
-  if (diag_data_enable) {
-    delete diag_data_provider;
-  }
-  if (ident_data_provider != nullptr) {
-    delete ident_data_provider;
-  }
   if (ident_publisher != nullptr) {
     delete ident_publisher;
   }
