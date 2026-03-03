@@ -23,6 +23,7 @@
 #include <cstddef>
 
 #include "adi_imu/imu_covariance_interface.h"
+#include "adi_imu/motion_detector.h"
 
 namespace adi_imu
 {
@@ -67,12 +68,14 @@ public:
    * @param initial_variance Initial variance estimate for all axes
    * @param warmup_samples Number of samples before estimates are valid
    * @param min_variance Minimum variance floor
+   * @param motion_detector Optional motion detector for stationary filtering
    */
   KalmanCovarianceProvider(
     double process_noise_q = DEFAULT_PROCESS_NOISE_Q,
     double measurement_noise_r = DEFAULT_MEASUREMENT_NOISE_R,
     double initial_variance = DEFAULT_INITIAL_VARIANCE,
-    size_t warmup_samples = DEFAULT_WARMUP_SAMPLES, double min_variance = DEFAULT_MIN_VARIANCE);
+    size_t warmup_samples = DEFAULT_WARMUP_SAMPLES, double min_variance = DEFAULT_MIN_VARIANCE,
+    MotionDetector motion_detector = MotionDetector());
 
   ~KalmanCovarianceProvider() override = default;
 
@@ -117,6 +120,9 @@ private:
   double m_measurement_noise_r;  // R: measurement noise covariance
   double m_initial_variance;     // Initial variance estimate
   double m_min_variance;         // Minimum variance floor
+
+  // Motion detector for stationary filtering
+  MotionDetector m_motion_detector;
 
   // Per-axis filters
   AxisFilter m_accel_x;

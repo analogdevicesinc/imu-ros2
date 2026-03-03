@@ -1,14 +1,12 @@
 /adi_imu_node:
   ros__parameters:
     # Core parameters
-    iio_context_string: "ip:192.168.0.1"
-    imu_device_name: "adis16545-3"
     measured_data_topic_selection: 2
     
     # Covariance settings
     covariance:
       enable: true
-      algorithm: "kalman"
+      algorithm: "ewma"
       
       static:
         accel_variance_x: 0.01
@@ -38,3 +36,10 @@
         initial_variance: 1.0e-4
         warmup_samples: 100
         min_variance: 1.0e-9
+
+      # Motion detection: only update covariance when sensor is stationary
+      # This prevents motion-induced variance inflation
+      motion_detection:
+        enable: true
+        gyro_threshold: 0.05      # Max angular velocity magnitude (rad/s)
+        accel_threshold: 0.5      # Max deviation from gravity (m/s^2)

@@ -527,6 +527,80 @@ frame_id
 The TF frame ID for the IMU sensor (e.g., `source_x/imu`). Useful when multiple
 IMUs are used in the same system to uniquely identify each sensor's data.
 
+IMU covariance parameters
+""""""""""""""""""""""""""
+
+The adi_imu ROS2 node allows for data-driven, IMU noise covariance estimation.
+The following algorithms are available:
+
+* **Static**: Covariances are preset by the user and do not change during IMU operation time.
+* **Welford**: IMU should be static while the node computes covariances using the Welford's algorithm. After the calibration completes, variances are frozen.
+* **Sliding Window**: Maintains a fixed-size buffer of recent samples and continuously recomputes variance over that window. Adapts to changing noise characteristics while the IMU operates.
+* **Exponentially Weighted Moving Average (EWMA)**: Continuously updates variance estimates using exponential smoothing, where recent samples have higher weight. Provides smooth adaptation with O(1) memory usage.
+* **Kalman**: Uses a scalar Kalman filter to estimate variance as a hidden state, treating squared residuals (between current IMU measurement and the estimated mean) as noisy measurements. Provides optimally smoothed, adaptive variance estimates.
+
+To avoid covariance inflation caused by dynamic changes in the measurement mean, a motion detection mechanism is used. 
+Adaptive covariance algorithms (Sliding Window, EWMA, Kalman) only update their estimates when the sensor is stationary. 
+The sensor is considered stationary when:
+
+* Gyroscope magnitude is below gyro_threshold (rad/s)
+* Accelerometer magnitude deviation from gravity is below accel_threshold (m/s²)
+
+During motion, covariance estimates are frozen at their last stationary values.
+
+Parameters which are used in configuring and fine-tunning the covariance estimation are listed in the table below:
+
++---------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+----------------+-------------+
+|Parameter Name                               |Parameter Description                                                                                                                            |Parameter type  |Default      | 
++---------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+----------------+-------------+
+|covariance.enable                            |Enable/Disable covariance estimation and publishing inside the ROS2 sensor_msgs::msg::Imu **/imu** topic (**measured_data_topic_selection**=2).  |bool            |false        |
++---------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+----------------+-------------+
+|covariance.algorithm                         |Desired algorithm used for covariance estimation. Available choices: "static", "welford", "sliding_window", "ewma", "kalman".                    |string          |"welford"    |
++---------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+----------------+-------------+
+|covariance.static.accel_variance_x           |Static accelerometer X-axis variance (m/s^2)^2.                                                                                                  |double          |0.01         |
++---------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+----------------+-------------+
+|covariance.static.accel_variance_y           |Static accelerometer Y-axis variance (m/s^2)^2.                                                                                                  |double          |0.01         |
++---------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+----------------+-------------+
+|covariance.static.accel_variance_z           |Static accelerometer Z-axis variance (m/s^2)^2.                                                                                                  |double          |0.01         |
++---------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+----------------+-------------+
+|covariance.static.gyro_variance_x            |Static gyroscope  X-axis variance (rad/s)^2.                                                                                                     |double          |0.001        |
++---------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+----------------+-------------+
+|covariance.static.gyro_variance_y            |Static gyroscope  Y-axis variance (rad/s)^2.                                                                                                     |double          |0.001        |
++---------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+----------------+-------------+
+|covariance.static.gyro_variance_z            |Static gyroscope  Z-axis variance (rad/s)^2.                                                                                                     |double          |0.001        |
++---------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+----------------+-------------+
+|covariance.welford.calibration_samples       |Number of samples used when estimating gyroscope and accelerometer covariances. Value must be > 0.                                               |int             |1000         |
++---------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+----------------+-------------+
+|covariance.welford.min_variance              |Minimum variance floor for Welford algorithm.                                                                                                    |double          |1e-9         |
++---------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+----------------+-------------+
+|covariance.sliding_window.window_size        |Number of samples in sliding window. Value must be > 0.                                                                                          |int             |500          |
++---------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+----------------+-------------+
+|covariance.sliding_window.min_samples        |Minimum samples before covariance is valid. Value must be > 0.                                                                                   |int             |100          |
++---------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+----------------+-------------+
+|covariance.sliding_window.min_variance       |Minimum variance floor for Sliding Window algorithm.                                                                                             |double          |1e-9         |
++---------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+----------------+-------------+
+|covariance.ewma.alpha                        |EWMA smoothing factor (0 < alpha < 1). Higher = faster adaptation.                                                                               |double          |0.02         |
++---------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+----------------+-------------+
+|covariance.ewma.warmup_samples               |Warmup samples berfore EWMA covariance is valid. Value must be > 0.                                                                              |int             |100          |
++---------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+----------------+-------------+
+|covariance.ewma.min_variance                 |Minimum variance floor for EWMA algorithm.                                                                                                       |double          |1e-9         |
++---------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+----------------+-------------+
+|covariance.kalman.process_noise_q            |Kalman process noise Q (variance change rate). Larger = more adaptive.                                                                           |double          |1e-6         |
++---------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+----------------+-------------+
+|covariance.kalman.measurement_noise_r        |Kalman measurement noise R (noise in variance observations).                                                                                     |double          |1e-4         |
++---------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+----------------+-------------+
+|covariance.kalman.initial_variance           |Initial variance estimate for Kalman filter.                                                                                                     |double          |1e-4         |
++---------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+----------------+-------------+
+|covariance.kalman.warmup_samples             |Warmup samples before Kalman covariance estimates are valid. Value must be > 0.                                                                  |int             |100          |
++---------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+----------------+-------------+
+|covariance.kalman.min_variance               |Minimum variance floor for Kalman filter.                                                                                                        |double          |1e-9         |
++---------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+----------------+-------------+
+|covariance.motion_detection.enable           |Enable/Disable motion detection for adaptive covariance algorithms. (enable is recommended)                                                      |bool            |true         |
++---------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+----------------+-------------+
+|covariance.motion_detection.gyro_threshold   |Maximum gyroscope magnitude (rad/s) for stationary detection. Samples with higher angular rates are ignored during covariance estimation.        |double          |0.05         |
++---------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+----------------+-------------+
+|covariance.motion_detection.accel_threshold  |Maximum accelerometer magnitude (m/s^2) for stationary detection. Samples with higher values are ignored during covariance estimation.           |double          |0.5          |
++---------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+----------------+-------------+
 
 IMU parameters
 ^^^^^^^^^^^^^^
@@ -1148,6 +1222,59 @@ EVAL-ADISIMU1-RPIZ using Mounting Slot I with P7 Connector:
         diag_gyroscope2_self_test_error: false
         diag_flash_memory_write_count_exceeded_error: false
         flash_counter: 22
+
+
+Publishing IMU data with covariances
+-------------------------------------
+
+Identify the IP address of the processing unit to which the IMU is connected to
+(e.g. Raspberry Pi) and determine your specific ADIS device name. There are two ways of
+starting publishing IMU + covariance data.
+
+1) Using adi_imu node:
+
+.. code-block:: bash
+
+        ros2 run adi_imu adi_imu_node --ros-args \
+                -p imu_device_name:="adis16545-3" \
+                -p iio_context_string:="ip:192.168.0.1" \
+                -p measured_data_topic_selection:=2 \
+                -p covariance.enable:=true \
+                -p covariance.algorithm:="sliding_window" \
+                -p covariance.sliding_window.window_size:=1500 \
+                -p covariance.sliding_window.min_samples:=300
+
+.. note::
+   Covariance is only published on the **/imu** topic, so ``measured_data_topic_selection`` must be set to 2.
+
+2) Using the imu_and_covariance.launch.py launch file:
+
+imu_ros2 repository offers a launch file to easily start publishing IMU data and 
+measurement variances through imu_and_covariance.launch.py:
+
+.. code-block:: bash
+
+        ros2 launch adi_imu imu_and_covariance.launch.py \
+            iio_context_string:="ip:192.168.0.1" \
+            imu_device_name:="adis16545-3"
+
+The ``config_file`` parameter is optional and defaults to ``config/imu_covariance_config.yaml``.
+To use a custom configuration:
+
+.. code-block:: bash
+
+        ros2 launch adi_imu imu_and_covariance.launch.py \
+            iio_context_string:="ip:192.168.0.1" \
+            imu_device_name:="adis16545-3" \
+            config_file:="/path/to/your/custom_config.yaml"
+
+.. tip::
+    You can see all available launch arguments by running:
+
+    .. code-block:: bash
+
+        ros2 launch adi_imu imu_and_covariance.launch.py --show-args
+
 
 Using adi_imu node with imu-tools
 ----------------------------------

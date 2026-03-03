@@ -21,17 +21,19 @@
 
 #include <algorithm>
 #include <cmath>
+#include <utility>
 
 namespace adi_imu
 {
 
 KalmanCovarianceProvider::KalmanCovarianceProvider(
   double process_noise_q, double measurement_noise_r, double initial_variance,
-  size_t warmup_samples, double min_variance)
+  size_t warmup_samples, double min_variance, MotionDetector motion_detector)
 : m_process_noise_q(process_noise_q),
   m_measurement_noise_r(measurement_noise_r),
   m_initial_variance(initial_variance),
   m_min_variance(min_variance),
+  m_motion_detector(std::move(motion_detector)),
   m_warmup_samples(warmup_samples),
   m_sample_count(0)
 {
@@ -102,6 +104,11 @@ void KalmanCovarianceProvider::updateAxisFilter(AxisFilter & filter, double samp
 
 void KalmanCovarianceProvider::addSample(const Vec3 & accel, const Vec3 & gyro)
 {
+  // Skip non-stationary samples to avoid motion-induced variance inflation
+  if (!m_motion_detector.isStationary(accel, gyro)) {
+    return;
+  }
+
   // Update each axis filter
   updateAxisFilter(m_accel_x, accel.x);
   updateAxisFilter(m_accel_y, accel.y);

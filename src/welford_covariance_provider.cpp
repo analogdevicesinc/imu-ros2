@@ -24,10 +24,10 @@ WelfordCovarianceProvider::WelfordCovarianceProvider(
 : m_target_samples(calibration_samples),
   m_sample_count(0),
   m_min_variance(min_variance),
-  m_accel_mean{0.0, 0.0, 0.0},
-  m_accel_M2{0.0, 0.0, 0.0},
-  m_gyro_mean{0.0, 0.0, 0.0},
-  m_gyro_M2{0.0, 0.0, 0.0},
+  m_accel_mean{},
+  m_accel_M2{},
+  m_gyro_mean{},
+  m_gyro_M2{},
   m_accel_covariance{},
   m_gyro_covariance{},
   m_calibration_complete(false)
@@ -109,10 +109,10 @@ CovarianceMatrix WelfordCovarianceProvider::getGyroCovariance() const { return m
 void WelfordCovarianceProvider::reset()
 {
   m_sample_count = 0;
-  m_accel_mean = {0.0, 0.0, 0.0};
-  m_accel_M2 = {0.0, 0.0, 0.0};
-  m_gyro_mean = {0.0, 0.0, 0.0};
-  m_gyro_M2 = {0.0, 0.0, 0.0};
+  m_accel_mean = Vec3();
+  m_accel_M2 = Vec3();
+  m_gyro_mean = Vec3();
+  m_gyro_M2 = Vec3();
   m_accel_covariance = {};
   m_gyro_covariance = {};
   m_calibration_complete = false;

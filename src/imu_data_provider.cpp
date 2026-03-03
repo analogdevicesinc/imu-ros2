@@ -51,10 +51,8 @@ bool ImuDataProvider::getData(sensor_msgs::msg::Imu & message)
   // Handle covariance if provider is set
   if (m_covariance_provider) {
     //Feed sample for calibration/adaptation
-    adi_imu::Vec3 accel = {
-      message.linear_acceleration.x, message.linear_acceleration.y, message.linear_acceleration.z};
-    adi_imu::Vec3 gyro = {
-      message.angular_velocity.x, message.angular_velocity.y, message.angular_velocity.z};
+    adi_imu::Vec3 accel = message.linear_acceleration;
+    adi_imu::Vec3 gyro = message.angular_velocity;
 
     m_covariance_provider->addSample(accel, gyro);
     if (m_covariance_provider->isReady()) {

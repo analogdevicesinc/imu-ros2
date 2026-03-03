@@ -17,14 +17,16 @@
 #include <algorithm>
 #include <cmath>
 #include <numeric>
+#include <utility>
 
 namespace adi_imu
 {
 SlidingWindowCovarianceProvider::SlidingWindowCovarianceProvider(
-  size_t window_size, size_t min_samples, double min_variance)
+  size_t window_size, size_t min_samples, double min_variance, MotionDetector motion_detector)
 : m_window_size(window_size),
   m_min_samples(min_samples),
   m_min_variance(min_variance),
+  m_motion_detector(std::move(motion_detector)),
   m_accel_covariance{},
   m_gyro_covariance{},
   m_update_interval(50),
@@ -38,6 +40,11 @@ void SlidingWindowCovarianceProvider::addSample(const Vec3 & accel, const Vec3 &
   if (
     std::isnan(accel.x) || std::isnan(accel.y) || std::isnan(accel.z) || std::isnan(gyro.x) ||
     std::isnan(gyro.y) || std::isnan(gyro.z)) {
+    return;
+  }
+
+  // Skip non-stationary samples to avoid motion-induced variance inflation
+  if (!m_motion_detector.isStationary(accel, gyro)) {
     return;
   }
 
@@ -72,8 +79,8 @@ void SlidingWindowCovarianceProvider::recomputeCovariance()
   }
 
   // Compute means
-  Vec3 accel_mean = {0.0, 0.0, 0.0};
-  Vec3 gyro_mean = {0.0, 0.0, 0.0};
+  Vec3 accel_mean{};
+  Vec3 gyro_mean{};
 
   for (const auto & s : m_accel_samples) {
     accel_mean.x += s.x;
@@ -96,8 +103,8 @@ void SlidingWindowCovarianceProvider::recomputeCovariance()
   gyro_mean.z /= dn;
 
   // Compute variances
-  Vec3 accel_var = {0.0, 0.0, 0.0};
-  Vec3 gyro_var = {0.0, 0.0, 0.0};
+  Vec3 accel_var{};
+  Vec3 gyro_var{};
 
   for (const auto & s : m_accel_samples) {
     accel_var.x += (s.x - accel_mean.x) * (s.x - accel_mean.x);

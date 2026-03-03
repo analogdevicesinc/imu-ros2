@@ -16,19 +16,21 @@
 
 #include <algorithm>
 #include <cmath>
+#include <utility>
 
 namespace adi_imu
 {
 EwmaCovarianceProvider::EwmaCovarianceProvider(
-  double alpha, size_t warmup_samples, double min_variance)
+  double alpha, size_t warmup_samples, double min_variance, MotionDetector motion_detector)
 : m_alpha(alpha),
   m_warmup_samples(warmup_samples),
   m_sample_count(0),
   m_min_variance(min_variance),
-  m_accel_mean{0.0, 0.0, 0.0},
-  m_accel_var{0.0, 0.0, 0.0},
-  m_gyro_mean{0.0, 0.0, 0.0},
-  m_gyro_var{0.0, 0.0, 0.0}
+  m_motion_detector(std::move(motion_detector)),
+  m_accel_mean{},
+  m_accel_var{},
+  m_gyro_mean{},
+  m_gyro_var{}
 {
 }
 
@@ -40,24 +42,30 @@ void EwmaCovarianceProvider::addSample(const Vec3 & accel, const Vec3 & gyro)
     std::isnan(gyro.y) || std::isnan(gyro.z)) {
     return;
   }
+
+  // Skip non-stationary samples to avoid motion-induced variance inflation
+  if (!m_motion_detector.isStationary(accel, gyro)) {
+    return;
+  }
+
   // Only increment until warmup completes - prevents overflow
   if (m_sample_count < m_warmup_samples) {
     m_sample_count++;
   }
 
   if (m_sample_count == 1) {
-    //Initialize with first sample
+    // Initialize with first sample
     m_accel_mean = accel;
     m_gyro_mean = gyro;
     return;
   }
 
-  //EWMA mean update : mean_t = alpha * x_t + (1-alpha) * mean_{t-1}
+  // EWMA mean update: mean_t = alpha * x_t + (1-alpha) * mean_{t-1}
   auto updateMean = [this](double x, double & mean) {
     mean = m_alpha * x + (1.0 - m_alpha) * mean;
   };
 
-  //EWMA variance update: var_t = alpha * (x_t - mean_t)^2 + (1-alpha) * var_{t-1}
+  // EWMA variance update: var_t = alpha * (x_t - mean_t)^2 + (1-alpha) * var_{t-1}
   auto updateVar = [this](double x, double mean, double & var) {
     double diff = x - mean;
     var = m_alpha * (diff * diff) + (1.0 - m_alpha) * var;
@@ -99,10 +107,10 @@ CovarianceMatrix EwmaCovarianceProvider::getGyroCovariance() const
 void EwmaCovarianceProvider::reset()
 {
   m_sample_count = 0;
-  m_accel_mean = {0.0, 0.0, 0.0};
-  m_accel_var = {0.0, 0.0, 0.0};
-  m_gyro_mean = {0.0, 0.0, 0.0};
-  m_gyro_var = {0.0, 0.0, 0.0};
+  m_accel_mean = Vec3();
+  m_accel_var = Vec3();
+  m_gyro_mean = Vec3();
+  m_gyro_var = Vec3();
 }
 
 double EwmaCovarianceProvider::getCalibrationProgress() const
