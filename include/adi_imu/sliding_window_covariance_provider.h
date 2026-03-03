@@ -19,6 +19,7 @@
 #include <deque>
 
 #include "adi_imu/imu_covariance_interface.h"
+#include "adi_imu/motion_detector.h"
 
 namespace adi_imu
 {
@@ -41,15 +42,15 @@ public:
   inline static constexpr double DEFAULT_MIN_VARIANCE = 1e-9;
 
   /**
-            * @brief Construct sliding window covariance estimator.
-            * @param window_size Number of samples to keep in window.
-            * @param min_samples Minimum samples befor covariance is valid.
-            * @param min_variance Minimum variance floor.
-             */
-
+   * @brief Construct sliding window covariance estimator.
+   * @param window_size Number of samples to keep in window.
+   * @param min_samples Minimum samples before covariance is valid.
+   * @param min_variance Minimum variance floor.
+   * @param motion_detector Optional motion detector for stationary filtering.
+   */
   explicit SlidingWindowCovarianceProvider(
     size_t window_size = DEFAULT_WINDOW_SIZE, size_t min_samples = DEFAULT_MIN_SAMPLES,
-    double min_variance = DEFAULT_MIN_VARIANCE);
+    double min_variance = DEFAULT_MIN_VARIANCE, MotionDetector motion_detector = MotionDetector());
 
   void addSample(const Vec3 & accel, const Vec3 & gyro) override;
   bool isReady() const override;
@@ -60,11 +61,13 @@ public:
 
 private:
   void recomputeCovariance();
-  double computeVariance(const std::deque<double> & samples, double mean) const;
 
   size_t m_window_size;
   size_t m_min_samples;
   double m_min_variance;
+
+  // Motion detector for stationary filtering
+  MotionDetector m_motion_detector;
 
   // Circular buffers for samples
   std::deque<Vec3> m_accel_samples;
@@ -74,10 +77,10 @@ private:
   CovarianceMatrix m_accel_covariance;
   CovarianceMatrix m_gyro_covariance;
 
-  //Recompute every N samples for efficiency
+  // Recompute every N samples for efficiency
   size_t m_update_interval;
   size_t m_samples_since_update;
 };
 }  // namespace adi_imu
 
-#endif  // ADI_IMU__SLIDING_WINDOW_PROVIDER_H_
+#endif  // ADI_IMU__SLIDING_WINDOW_COVARIANCE_PROVIDER_H_

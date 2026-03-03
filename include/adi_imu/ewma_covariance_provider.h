@@ -18,6 +18,7 @@
 #include <cstddef>
 
 #include "adi_imu/imu_covariance_interface.h"
+#include "adi_imu/motion_detector.h"
 
 namespace adi_imu
 {
@@ -35,21 +36,21 @@ namespace adi_imu
 class EwmaCovarianceProvider : public ImuCovarianceInterface
 {
 public:
-  //Default EWMA covariance estimator parameters
+  // Default EWMA covariance estimator parameters
   inline static constexpr double DEFAULT_ALPHA = 0.02;
   inline static constexpr size_t DEFAULT_WARMUP_SAMPLES = 100;
   inline static constexpr double DEFAULT_MIN_VARIANCE = 1e-9;
 
   /**
-        * @brief Construct EWMA covariance estimator.
-        * @param alpha Smoothing factor (0 < alpha < 1). Typical 0.01-0.1
-        * @param warmup_samples Samples before covariance is considered valid.
-        * @param min_variance Minimum variance floor.
-        */
-
+   * @brief Construct EWMA covariance estimator.
+   * @param alpha Smoothing factor (0 < alpha < 1). Typical 0.01-0.1
+   * @param warmup_samples Samples before covariance is considered valid.
+   * @param min_variance Minimum variance floor.
+   * @param motion_detector Optional motion detector for stationary filtering.
+   */
   explicit EwmaCovarianceProvider(
     double alpha = DEFAULT_ALPHA, size_t warmup_samples = DEFAULT_WARMUP_SAMPLES,
-    double min_variance = DEFAULT_MIN_VARIANCE);
+    double min_variance = DEFAULT_MIN_VARIANCE, MotionDetector motion_detector = MotionDetector());
 
   void addSample(const Vec3 & accel, const Vec3 & gyro) override;
   bool isReady() const override;
@@ -64,7 +65,10 @@ private:
   size_t m_sample_count;
   double m_min_variance;
 
-  //EWMA state (mean and variance for each axis)
+  // Motion detector for stationary filtering
+  MotionDetector m_motion_detector;
+
+  // EWMA state (mean and variance for each axis)
   Vec3 m_accel_mean;
   Vec3 m_accel_var;
   Vec3 m_gyro_mean;
