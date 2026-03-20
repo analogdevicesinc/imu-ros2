@@ -1,26 +1,4 @@
 var searchData=
 [
-  ['iiowrapper_0',['IIOWrapper',['../classadi__imu_1_1IIOWrapper.html',1,'adi_imu']]],
-  ['imucontrolparameters_1',['ImuControlParameters',['../classadi__imu_1_1ImuControlParameters.html',1,'adi_imu']]],
-  ['imudataprovider_2',['ImuDataProvider',['../classadi__imu_1_1ImuDataProvider.html',1,'adi_imu']]],
-  ['imudataproviderinterface_3',['ImuDataProviderInterface',['../classadi__imu_1_1ImuDataProviderInterface.html',1,'adi_imu']]],
-  ['imudiagdataprovider_4',['ImuDiagDataProvider',['../classadi__imu_1_1ImuDiagDataProvider.html',1,'adi_imu']]],
-  ['imudiagdataproviderinterface_5',['ImuDiagDataProviderInterface',['../classadi__imu_1_1ImuDiagDataProviderInterface.html',1,'adi_imu']]],
-  ['imudiagpublisherfactory_6',['ImuDiagPublisherFactory',['../classadi__imu_1_1ImuDiagPublisherFactory.html',1,'adi_imu']]],
-  ['imudiagrospublisher_7',['ImuDiagRosPublisher',['../classadi__imu_1_1ImuDiagRosPublisher.html',1,'adi_imu']]],
-  ['imudiagrospublisherinterface_8',['ImuDiagRosPublisherInterface',['../classadi__imu_1_1ImuDiagRosPublisherInterface.html',1,'adi_imu']]],
-  ['imudiagsubscribertest_9',['ImuDiagSubscriberTest',['../classImuDiagSubscriberTest.html',1,'']]],
-  ['imufullmeasureddataprovider_10',['ImuFullMeasuredDataProvider',['../classadi__imu_1_1ImuFullMeasuredDataProvider.html',1,'adi_imu']]],
-  ['imufullmeasureddataproviderinterface_11',['ImuFullMeasuredDataProviderInterface',['../classadi__imu_1_1ImuFullMeasuredDataProviderInterface.html',1,'adi_imu']]],
-  ['imufullmeasureddatarospublisher_12',['ImuFullMeasuredDataRosPublisher',['../classadi__imu_1_1ImuFullMeasuredDataRosPublisher.html',1,'adi_imu']]],
-  ['imufullmeasureddatarospublisherinterface_13',['ImuFullMeasuredDataRosPublisherInterface',['../classadi__imu_1_1ImuFullMeasuredDataRosPublisherInterface.html',1,'adi_imu']]],
-  ['imufullmeasureddatasubscribertest_14',['ImuFullMeasuredDataSubscriberTest',['../classImuFullMeasuredDataSubscriberTest.html',1,'']]],
-  ['imuidentificationdataprovider_15',['ImuIdentificationDataProvider',['../classadi__imu_1_1ImuIdentificationDataProvider.html',1,'adi_imu']]],
-  ['imuidentificationdataproviderinterface_16',['ImuIdentificationDataProviderInterface',['../classadi__imu_1_1ImuIdentificationDataProviderInterface.html',1,'adi_imu']]],
-  ['imuidentificationrospublisher_17',['ImuIdentificationRosPublisher',['../classadi__imu_1_1ImuIdentificationRosPublisher.html',1,'adi_imu']]],
-  ['imuidentificationrospublisherinterface_18',['ImuIdentificationRosPublisherInterface',['../classadi__imu_1_1ImuIdentificationRosPublisherInterface.html',1,'adi_imu']]],
-  ['imuidentificationsubscribertest_19',['ImuIdentificationSubscriberTest',['../classImuIdentificationSubscriberTest.html',1,'']]],
-  ['imurospublisher_20',['ImuRosPublisher',['../classadi__imu_1_1ImuRosPublisher.html',1,'adi_imu']]],
-  ['imurospublisherinterface_21',['ImuRosPublisherInterface',['../classadi__imu_1_1ImuRosPublisherInterface.html',1,'adi_imu']]],
-  ['imusubscribertest_22',['ImuSubscriberTest',['../classImuSubscriberTest.html',1,'']]]
+  ['ewmacovarianceprovider_0',['EwmaCovarianceProvider',['../classadi__imu_1_1EwmaCovarianceProvider.html',1,'adi_imu']]]
 ];

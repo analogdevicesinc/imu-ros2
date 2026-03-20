@@ -211,6 +211,64 @@
     <name>adi_imu::ADISRegisterMap</name>
     <filename>classadi__imu_1_1ADISRegisterMap.html</filename>
   </compound>
+  <compound kind="struct">
+    <name>adi_imu::KalmanCovarianceProvider::AxisFilter</name>
+    <filename>structadi__imu_1_1KalmanCovarianceProvider_1_1AxisFilter.html</filename>
+  </compound>
+  <compound kind="class">
+    <name>adi_imu::EwmaCovarianceProvider</name>
+    <filename>classadi__imu_1_1EwmaCovarianceProvider.html</filename>
+    <base>adi_imu::ImuCovarianceInterface</base>
+    <member kind="function">
+      <type></type>
+      <name>EwmaCovarianceProvider</name>
+      <anchorfile>classadi__imu_1_1EwmaCovarianceProvider.html</anchorfile>
+      <anchor>a0573e13bb3f9d209838fa6ebf6d8e779</anchor>
+      <arglist>(double alpha=DEFAULT_ALPHA, size_t warmup_samples=DEFAULT_WARMUP_SAMPLES, double min_variance=DEFAULT_MIN_VARIANCE, MotionDetector motion_detector=MotionDetector())</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>addSample</name>
+      <anchorfile>classadi__imu_1_1EwmaCovarianceProvider.html</anchorfile>
+      <anchor>afc7bff70c89176d2879bb9cc10734eb6</anchor>
+      <arglist>(const Vec3 &amp;accel, const Vec3 &amp;gyro) override</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isReady</name>
+      <anchorfile>classadi__imu_1_1EwmaCovarianceProvider.html</anchorfile>
+      <anchor>ab6eb9d97d41eb28b08c8cc0c75af93e5</anchor>
+      <arglist>() const override</arglist>
+    </member>
+    <member kind="function">
+      <type>CovarianceMatrix</type>
+      <name>getAccelCovariance</name>
+      <anchorfile>classadi__imu_1_1EwmaCovarianceProvider.html</anchorfile>
+      <anchor>afdfecf9f0066634a5ca7647b86843ed5</anchor>
+      <arglist>() const override</arglist>
+    </member>
+    <member kind="function">
+      <type>CovarianceMatrix</type>
+      <name>getGyroCovariance</name>
+      <anchorfile>classadi__imu_1_1EwmaCovarianceProvider.html</anchorfile>
+      <anchor>aa48d50b67558ff4a7e09f53d37d358f4</anchor>
+      <arglist>() const override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>reset</name>
+      <anchorfile>classadi__imu_1_1EwmaCovarianceProvider.html</anchorfile>
+      <anchor>aebb0727b904d5922adc6e0ece4bbe91a</anchor>
+      <arglist>() override</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>getCalibrationProgress</name>
+      <anchorfile>classadi__imu_1_1EwmaCovarianceProvider.html</anchorfile>
+      <anchor>a0f0a9fb3e29e498a4799a34a2f16d0e4</anchor>
+      <arglist>() const override</arglist>
+    </member>
+  </compound>
   <compound kind="class">
     <name>adi_imu::IIOWrapper</name>
     <filename>classadi__imu_1_1IIOWrapper.html</filename>
@@ -1865,6 +1923,77 @@
     </member>
   </compound>
   <compound kind="class">
+    <name>adi_imu::ImuCovarianceFactory</name>
+    <filename>classadi__imu_1_1ImuCovarianceFactory.html</filename>
+    <member kind="function" static="yes">
+      <type>static std::unique_ptr&lt; ImuCovarianceInterface &gt;</type>
+      <name>createFromParameters</name>
+      <anchorfile>classadi__imu_1_1ImuCovarianceFactory.html</anchorfile>
+      <anchor>a05684adb63dd9d00da3e11f3072d4bed</anchor>
+      <arglist>(const std::shared_ptr&lt; rclcpp::Node &gt; &amp;node)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static std::unique_ptr&lt; ImuCovarianceInterface &gt;</type>
+      <name>create</name>
+      <anchorfile>classadi__imu_1_1ImuCovarianceFactory.html</anchorfile>
+      <anchor>aca468e3f58caf8a94320e60e8a2dce46</anchor>
+      <arglist>(CovarianceAlgorithm algorithm, const std::shared_ptr&lt; rclcpp::Node &gt; &amp;node)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static CovarianceAlgorithm</type>
+      <name>parseAlgorithm</name>
+      <anchorfile>classadi__imu_1_1ImuCovarianceFactory.html</anchorfile>
+      <anchor>a25522945cbdc51f0616abab4598581ae</anchor>
+      <arglist>(const std::string &amp;algorithm_str)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>adi_imu::ImuCovarianceInterface</name>
+    <filename>classadi__imu_1_1ImuCovarianceInterface.html</filename>
+    <member kind="function" virtualness="pure">
+      <type>virtual void</type>
+      <name>addSample</name>
+      <anchorfile>classadi__imu_1_1ImuCovarianceInterface.html</anchorfile>
+      <anchor>a49a5d97536e4e924ef63b1c0469d192a</anchor>
+      <arglist>(const Vec3 &amp;accel, const Vec3 &amp;gyro)=0</arglist>
+    </member>
+    <member kind="function" virtualness="pure">
+      <type>virtual bool</type>
+      <name>isReady</name>
+      <anchorfile>classadi__imu_1_1ImuCovarianceInterface.html</anchorfile>
+      <anchor>a0c90bb03aecbb0dd8b287eb72997349e</anchor>
+      <arglist>() const =0</arglist>
+    </member>
+    <member kind="function" virtualness="pure">
+      <type>virtual CovarianceMatrix</type>
+      <name>getAccelCovariance</name>
+      <anchorfile>classadi__imu_1_1ImuCovarianceInterface.html</anchorfile>
+      <anchor>a1303843896fc4a4dd8f03d494bd7cf70</anchor>
+      <arglist>() const =0</arglist>
+    </member>
+    <member kind="function" virtualness="pure">
+      <type>virtual CovarianceMatrix</type>
+      <name>getGyroCovariance</name>
+      <anchorfile>classadi__imu_1_1ImuCovarianceInterface.html</anchorfile>
+      <anchor>acb6a8d1f4720979ea3d0a9d27ba720fb</anchor>
+      <arglist>() const =0</arglist>
+    </member>
+    <member kind="function" virtualness="pure">
+      <type>virtual void</type>
+      <name>reset</name>
+      <anchorfile>classadi__imu_1_1ImuCovarianceInterface.html</anchorfile>
+      <anchor>ad97804c3f9796f1d57019cced43679df</anchor>
+      <arglist>()=0</arglist>
+    </member>
+    <member kind="function" virtualness="pure">
+      <type>virtual double</type>
+      <name>getCalibrationProgress</name>
+      <anchorfile>classadi__imu_1_1ImuCovarianceInterface.html</anchorfile>
+      <anchor>a06e908d31a427fb4e7320b746c92e91b</anchor>
+      <arglist>() const =0</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
     <name>adi_imu::ImuDataProvider</name>
     <filename>classadi__imu_1_1ImuDataProvider.html</filename>
     <base>adi_imu::ImuDataProviderInterface</base>
@@ -1896,6 +2025,13 @@
       <anchor>a97d76266acb17424247e5b6bf2a32c7a</anchor>
       <arglist>(sensor_msgs::msg::Imu &amp;message) override</arglist>
     </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setCovarianceProvider</name>
+      <anchorfile>classadi__imu_1_1ImuDataProvider.html</anchorfile>
+      <anchor>ab50483b19cd9162dca75feb7527bd623</anchor>
+      <arglist>(ImuCovarianceInterface *provider) override</arglist>
+    </member>
     <member kind="variable" protection="private">
       <type>IIOWrapper</type>
       <name>m_iio_wrapper</name>
@@ -1908,6 +2044,13 @@
       <name>m_frame_id</name>
       <anchorfile>classadi__imu_1_1ImuDataProvider.html</anchorfile>
       <anchor>a0513c5e03aa3180703c38ebdc38e7d9e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>ImuCovarianceInterface *</type>
+      <name>m_covariance_provider</name>
+      <anchorfile>classadi__imu_1_1ImuDataProvider.html</anchorfile>
+      <anchor>a07aac7879c17886cf5292ff4012df908</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -1941,6 +2084,13 @@
       <anchorfile>classadi__imu_1_1ImuDataProviderInterface.html</anchorfile>
       <anchor>a00c66b5fcacd6e661465c6fc2126c343</anchor>
       <arglist>(sensor_msgs::msg::Imu &amp;message)=0</arglist>
+    </member>
+    <member kind="function" virtualness="pure">
+      <type>virtual void</type>
+      <name>setCovarianceProvider</name>
+      <anchorfile>classadi__imu_1_1ImuDataProviderInterface.html</anchorfile>
+      <anchor>aa40da7f1f2223a8e6492681207113258</anchor>
+      <arglist>(ImuCovarianceInterface *provider)=0</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -2639,6 +2789,135 @@
     </member>
   </compound>
   <compound kind="class">
+    <name>adi_imu::KalmanCovarianceProvider</name>
+    <filename>classadi__imu_1_1KalmanCovarianceProvider.html</filename>
+    <base>adi_imu::ImuCovarianceInterface</base>
+    <class kind="struct">adi_imu::KalmanCovarianceProvider::AxisFilter</class>
+    <member kind="function">
+      <type></type>
+      <name>KalmanCovarianceProvider</name>
+      <anchorfile>classadi__imu_1_1KalmanCovarianceProvider.html</anchorfile>
+      <anchor>a0be55a6318fd2062db0940b8d49c8c83</anchor>
+      <arglist>(double process_noise_q=DEFAULT_PROCESS_NOISE_Q, double measurement_noise_r=DEFAULT_MEASUREMENT_NOISE_R, double initial_variance=DEFAULT_INITIAL_VARIANCE, size_t warmup_samples=DEFAULT_WARMUP_SAMPLES, double min_variance=DEFAULT_MIN_VARIANCE, MotionDetector motion_detector=MotionDetector())</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>addSample</name>
+      <anchorfile>classadi__imu_1_1KalmanCovarianceProvider.html</anchorfile>
+      <anchor>a974795db7be684ccd6de826d4de560f8</anchor>
+      <arglist>(const Vec3 &amp;accel, const Vec3 &amp;gyro) override</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isReady</name>
+      <anchorfile>classadi__imu_1_1KalmanCovarianceProvider.html</anchorfile>
+      <anchor>ad962f9275d06965c89e2d6a8a93ab937</anchor>
+      <arglist>() const override</arglist>
+    </member>
+    <member kind="function">
+      <type>CovarianceMatrix</type>
+      <name>getAccelCovariance</name>
+      <anchorfile>classadi__imu_1_1KalmanCovarianceProvider.html</anchorfile>
+      <anchor>a1794940e4a919f3cde65581907e48cca</anchor>
+      <arglist>() const override</arglist>
+    </member>
+    <member kind="function">
+      <type>CovarianceMatrix</type>
+      <name>getGyroCovariance</name>
+      <anchorfile>classadi__imu_1_1KalmanCovarianceProvider.html</anchorfile>
+      <anchor>ad3c36e84893270ad5c38b6ef61472d8f</anchor>
+      <arglist>() const override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>reset</name>
+      <anchorfile>classadi__imu_1_1KalmanCovarianceProvider.html</anchorfile>
+      <anchor>a22f569200ac35bb5ea7dde02eaa283b1</anchor>
+      <arglist>() override</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>getCalibrationProgress</name>
+      <anchorfile>classadi__imu_1_1KalmanCovarianceProvider.html</anchorfile>
+      <anchor>a72b1a87c9306f671030d0949f7d00bcd</anchor>
+      <arglist>() const override</arglist>
+    </member>
+    <member kind="function" protection="private">
+      <type>void</type>
+      <name>updateAxisFilter</name>
+      <anchorfile>classadi__imu_1_1KalmanCovarianceProvider.html</anchorfile>
+      <anchor>a3e4f873eddf699feeee5a6843e957e5b</anchor>
+      <arglist>(AxisFilter &amp;filter, double sample)</arglist>
+    </member>
+    <member kind="function" protection="private">
+      <type>CovarianceMatrix</type>
+      <name>buildCovarianceMatrix</name>
+      <anchorfile>classadi__imu_1_1KalmanCovarianceProvider.html</anchorfile>
+      <anchor>ae813ee5dda346a8bb4b8ef35df733b00</anchor>
+      <arglist>(double var_x, double var_y, double var_z) const</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>adi_imu::MotionDetector</name>
+    <filename>classadi__imu_1_1MotionDetector.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>MotionDetector</name>
+      <anchorfile>classadi__imu_1_1MotionDetector.html</anchorfile>
+      <anchor>a46422d3aa268d7e611f5ca1327d46e2e</anchor>
+      <arglist>(double gyro_threshold=DEFAULT_GYRO_THRESHOLD, double accel_threshold=DEFAULT_ACCEL_THRESHOLD)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isStationary</name>
+      <anchorfile>classadi__imu_1_1MotionDetector.html</anchorfile>
+      <anchor>a3e27c17508e48553d83254c219ded69e</anchor>
+      <arglist>(const Vec3 &amp;accel, const Vec3 &amp;gyro) const</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setGyroThreshold</name>
+      <anchorfile>classadi__imu_1_1MotionDetector.html</anchorfile>
+      <anchor>a6265dfecb8ed3bc1789f49e7bafd6e67</anchor>
+      <arglist>(double threshold)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setAccelThreshold</name>
+      <anchorfile>classadi__imu_1_1MotionDetector.html</anchorfile>
+      <anchor>a83f0c6469d33a627238ba075bf9a00d8</anchor>
+      <arglist>(double threshold)</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>getGyroThreshold</name>
+      <anchorfile>classadi__imu_1_1MotionDetector.html</anchorfile>
+      <anchor>a8f3d7e6da2f30d5c5b254c0a26fe7845</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>getAccelThreshold</name>
+      <anchorfile>classadi__imu_1_1MotionDetector.html</anchorfile>
+      <anchor>ac44c58da1b93d1471f43349ecd3aa1ae</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setEnabled</name>
+      <anchorfile>classadi__imu_1_1MotionDetector.html</anchorfile>
+      <anchor>a84c04cfa16235bde44efd44bbbec6bc3</anchor>
+      <arglist>(bool enabled)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isEnabled</name>
+      <anchorfile>classadi__imu_1_1MotionDetector.html</anchorfile>
+      <anchor>abf5ba1678b2e60f5ca3d52bd24fbf671</anchor>
+      <arglist>() const</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
     <name>adi_imu::RosPublisherGroup</name>
     <filename>classadi__imu_1_1RosPublisherGroup.html</filename>
     <base>adi_imu::RosPublisherGroupInterface</base>
@@ -2821,6 +3100,128 @@
     </member>
   </compound>
   <compound kind="class">
+    <name>adi_imu::SlidingWindowCovarianceProvider</name>
+    <filename>classadi__imu_1_1SlidingWindowCovarianceProvider.html</filename>
+    <base>adi_imu::ImuCovarianceInterface</base>
+    <member kind="function">
+      <type></type>
+      <name>SlidingWindowCovarianceProvider</name>
+      <anchorfile>classadi__imu_1_1SlidingWindowCovarianceProvider.html</anchorfile>
+      <anchor>ac27964da919d4dceb8822675b83c4408</anchor>
+      <arglist>(size_t window_size=DEFAULT_WINDOW_SIZE, size_t min_samples=DEFAULT_MIN_SAMPLES, double min_variance=DEFAULT_MIN_VARIANCE, MotionDetector motion_detector=MotionDetector())</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>addSample</name>
+      <anchorfile>classadi__imu_1_1SlidingWindowCovarianceProvider.html</anchorfile>
+      <anchor>a4d64ae41a05aca575a840e71d910efda</anchor>
+      <arglist>(const Vec3 &amp;accel, const Vec3 &amp;gyro) override</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isReady</name>
+      <anchorfile>classadi__imu_1_1SlidingWindowCovarianceProvider.html</anchorfile>
+      <anchor>ae45e7f0eb472fc84fc1b206f2909035d</anchor>
+      <arglist>() const override</arglist>
+    </member>
+    <member kind="function">
+      <type>CovarianceMatrix</type>
+      <name>getAccelCovariance</name>
+      <anchorfile>classadi__imu_1_1SlidingWindowCovarianceProvider.html</anchorfile>
+      <anchor>a06992407f4ff5996a9345c797a9033ce</anchor>
+      <arglist>() const override</arglist>
+    </member>
+    <member kind="function">
+      <type>CovarianceMatrix</type>
+      <name>getGyroCovariance</name>
+      <anchorfile>classadi__imu_1_1SlidingWindowCovarianceProvider.html</anchorfile>
+      <anchor>acfa82309681eadad10668b03356e1cdc</anchor>
+      <arglist>() const override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>reset</name>
+      <anchorfile>classadi__imu_1_1SlidingWindowCovarianceProvider.html</anchorfile>
+      <anchor>a8b4b3501760655f772f13dd9549f0c51</anchor>
+      <arglist>() override</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>getCalibrationProgress</name>
+      <anchorfile>classadi__imu_1_1SlidingWindowCovarianceProvider.html</anchorfile>
+      <anchor>ac99f884edde4070a6f82902a9c9970f8</anchor>
+      <arglist>() const override</arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>static constexpr size_t</type>
+      <name>DEFAULT_WINDOW_SIZE</name>
+      <anchorfile>classadi__imu_1_1SlidingWindowCovarianceProvider.html</anchorfile>
+      <anchor>a6b082d2e86d6e5f0d54b81a6c5a3fe7d</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>adi_imu::StaticCovarianceProvider</name>
+    <filename>classadi__imu_1_1StaticCovarianceProvider.html</filename>
+    <base>adi_imu::ImuCovarianceInterface</base>
+    <member kind="function">
+      <type></type>
+      <name>StaticCovarianceProvider</name>
+      <anchorfile>classadi__imu_1_1StaticCovarianceProvider.html</anchorfile>
+      <anchor>a4f52e2271dce510e38d72cd9eb933ee4</anchor>
+      <arglist>(const Vec3 &amp;accel_variance, const Vec3 &amp;gyro_variance)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>StaticCovarianceProvider</name>
+      <anchorfile>classadi__imu_1_1StaticCovarianceProvider.html</anchorfile>
+      <anchor>a5cdd2c13a74e2497cac6be88b6c8508e</anchor>
+      <arglist>(const CovarianceMatrix &amp;accel_cov, const CovarianceMatrix &amp;gyro_cov)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>addSample</name>
+      <anchorfile>classadi__imu_1_1StaticCovarianceProvider.html</anchorfile>
+      <anchor>a9d787d478c325c20997435657c4a3fd6</anchor>
+      <arglist>(const Vec3 &amp;accel, const Vec3 &amp;gyro) override</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isReady</name>
+      <anchorfile>classadi__imu_1_1StaticCovarianceProvider.html</anchorfile>
+      <anchor>a5a165c52ba20f885ea8cee0bc4cd0ad5</anchor>
+      <arglist>() const override</arglist>
+    </member>
+    <member kind="function">
+      <type>CovarianceMatrix</type>
+      <name>getAccelCovariance</name>
+      <anchorfile>classadi__imu_1_1StaticCovarianceProvider.html</anchorfile>
+      <anchor>af27a571759fa3e48c3482f2f5028d6dd</anchor>
+      <arglist>() const override</arglist>
+    </member>
+    <member kind="function">
+      <type>CovarianceMatrix</type>
+      <name>getGyroCovariance</name>
+      <anchorfile>classadi__imu_1_1StaticCovarianceProvider.html</anchorfile>
+      <anchor>a9c03f07dd393f7070028dac909ea4596</anchor>
+      <arglist>() const override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>reset</name>
+      <anchorfile>classadi__imu_1_1StaticCovarianceProvider.html</anchorfile>
+      <anchor>a9e4018ab01503988f7048599f3f6bf41</anchor>
+      <arglist>() override</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>getCalibrationProgress</name>
+      <anchorfile>classadi__imu_1_1StaticCovarianceProvider.html</anchorfile>
+      <anchor>ae37f394f2857f47e391bafd1d5626281</anchor>
+      <arglist>() const override</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
     <name>adi_imu::VelAngTempDataProvider</name>
     <filename>classadi__imu_1_1VelAngTempDataProvider.html</filename>
     <base>adi_imu::VelAngTempDataProviderInterface</base>
@@ -2987,6 +3388,53 @@
       <anchorfile>classVelAngTempSubscriberTest.html</anchorfile>
       <anchor>abfd9acc8721263a9c7106e1b2d69886f</anchor>
       <arglist>()</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>adi_imu::WelfordCovarianceProvider</name>
+    <filename>classadi__imu_1_1WelfordCovarianceProvider.html</filename>
+    <base>adi_imu::ImuCovarianceInterface</base>
+    <member kind="function">
+      <type>void</type>
+      <name>addSample</name>
+      <anchorfile>classadi__imu_1_1WelfordCovarianceProvider.html</anchorfile>
+      <anchor>a33930c203336bda3d64f615352a792a0</anchor>
+      <arglist>(const Vec3 &amp;accel, const Vec3 &amp;gyro) override</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isReady</name>
+      <anchorfile>classadi__imu_1_1WelfordCovarianceProvider.html</anchorfile>
+      <anchor>aeff261c58db444635cbe422777e9d81c</anchor>
+      <arglist>() const override</arglist>
+    </member>
+    <member kind="function">
+      <type>CovarianceMatrix</type>
+      <name>getAccelCovariance</name>
+      <anchorfile>classadi__imu_1_1WelfordCovarianceProvider.html</anchorfile>
+      <anchor>ab612f236810ecb3e57230be447d4bcae</anchor>
+      <arglist>() const override</arglist>
+    </member>
+    <member kind="function">
+      <type>CovarianceMatrix</type>
+      <name>getGyroCovariance</name>
+      <anchorfile>classadi__imu_1_1WelfordCovarianceProvider.html</anchorfile>
+      <anchor>a86996c49dcf701e89df380add7214301</anchor>
+      <arglist>() const override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>reset</name>
+      <anchorfile>classadi__imu_1_1WelfordCovarianceProvider.html</anchorfile>
+      <anchor>ac9dff586ad4eff9c0675502ada24aa89</anchor>
+      <arglist>() override</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>getCalibrationProgress</name>
+      <anchorfile>classadi__imu_1_1WelfordCovarianceProvider.html</anchorfile>
+      <anchor>aef321fbb71c87d73e2ce2b32642bf21b</anchor>
+      <arglist>() const override</arglist>
     </member>
   </compound>
   <compound kind="class">

@@ -1,0 +1,153 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="imu__covariance__interface_8h" kind="file" language="C++">
+    <compoundname>imu_covariance_interface.h</compoundname>
+    <includes local="no">array</includes>
+    <includes local="no">geometry_msgs/msg/vector3.hpp</includes>
+    <includedby refid="ewma__covariance__provider_8h" local="yes">include/adi_imu/ewma_covariance_provider.h</includedby>
+    <includedby refid="imu__covariance__factory_8h" local="yes">include/adi_imu/imu_covariance_factory.h</includedby>
+    <includedby refid="imu__data__provider_8h" local="yes">include/adi_imu/imu_data_provider.h</includedby>
+    <includedby refid="kalman__covariance__provider_8h" local="yes">include/adi_imu/kalman_covariance_provider.h</includedby>
+    <includedby refid="motion__detector_8h" local="yes">include/adi_imu/motion_detector.h</includedby>
+    <includedby refid="sliding__window__covariance__provider_8h" local="yes">include/adi_imu/sliding_window_covariance_provider.h</includedby>
+    <includedby refid="static__covariance__provider_8h" local="yes">include/adi_imu/static_covariance_provider.h</includedby>
+    <includedby refid="welford__covariance__provider_8h" local="yes">include/adi_imu/welford_covariance_provider.h</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>include/adi_imu/imu_covariance_interface.h</label>
+        <link refid="imu__covariance__interface_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>array</label>
+      </node>
+      <node id="3">
+        <label>geometry_msgs/msg/vector3.hpp</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>include/adi_imu/ewma_covariance_provider.h</label>
+        <link refid="ewma__covariance__provider_8h_source"/>
+      </node>
+      <node id="3">
+        <label>include/adi_imu/imu_covariance_factory.h</label>
+        <link refid="imu__covariance__factory_8h_source"/>
+      </node>
+      <node id="1">
+        <label>include/adi_imu/imu_covariance_interface.h</label>
+        <link refid="imu__covariance__interface_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>include/adi_imu/imu_data_provider.h</label>
+        <link refid="imu__data__provider_8h_source"/>
+      </node>
+      <node id="5">
+        <label>include/adi_imu/kalman_covariance_provider.h</label>
+        <link refid="kalman__covariance__provider_8h_source"/>
+      </node>
+      <node id="6">
+        <label>include/adi_imu/motion_detector.h</label>
+        <link refid="motion__detector_8h_source"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>include/adi_imu/sliding_window_covariance_provider.h</label>
+        <link refid="sliding__window__covariance__provider_8h_source"/>
+      </node>
+      <node id="8">
+        <label>include/adi_imu/static_covariance_provider.h</label>
+        <link refid="static__covariance__provider_8h_source"/>
+      </node>
+      <node id="9">
+        <label>include/adi_imu/welford_covariance_provider.h</label>
+        <link refid="welford__covariance__provider_8h_source"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classadi__imu_1_1ImuCovarianceInterface" prot="public">adi_imu::ImuCovarianceInterface</innerclass>
+    <innernamespace refid="namespaceadi__imu">adi_imu</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">//<sp/>Copyright<sp/>2025<sp/>Analog<sp/>Devices,<sp/>Inc.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Licensed<sp/>under<sp/>the<sp/>Apache<sp/>License,<sp/>Version<sp/>2.0<sp/>(the<sp/>&quot;License&quot;);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="comment">//<sp/>you<sp/>may<sp/>not<sp/>use<sp/>this<sp/>file<sp/>except<sp/>in<sp/>compliance<sp/>with<sp/>the<sp/>License.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="comment">//<sp/>You<sp/>may<sp/>obtain<sp/>a<sp/>copy<sp/>of<sp/>the<sp/>License<sp/>at</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>http://www.apache.org/licenses/LICENSE-2.0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Unless<sp/>required<sp/>by<sp/>applicable<sp/>law<sp/>or<sp/>agreed<sp/>to<sp/>in<sp/>writing,<sp/>software</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="comment">//<sp/>distributed<sp/>under<sp/>the<sp/>License<sp/>is<sp/>distributed<sp/>on<sp/>an<sp/>&quot;AS<sp/>IS&quot;<sp/>BASIS,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="comment">//<sp/>WITHOUT<sp/>WARRANTIES<sp/>OR<sp/>CONDITIONS<sp/>OF<sp/>ANY<sp/>KIND,<sp/>either<sp/>express<sp/>or<sp/>implied.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="comment">//<sp/>See<sp/>the<sp/>License<sp/>for<sp/>the<sp/>specific<sp/>language<sp/>governing<sp/>permissions<sp/>and</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="comment">//<sp/>limitations<sp/>under<sp/>the<sp/>License.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>ADI_IMU__IMU_COVARIANCE_INTERFACE_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ADI_IMU__IMU_COVARIANCE_INTERFACE_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;array&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;geometry_msgs/msg/vector3.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">adi_imu</highlight></codeline>
+<codeline lineno="22"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal">CovarianceMatrix<sp/>=<sp/>std::array&lt;double,<sp/>9&gt;;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal">Vec3<sp/>=<sp/>geometry_msgs::msg::Vector3;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41" refid="classadi__imu_1_1ImuCovarianceInterface" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classadi__imu_1_1ImuCovarianceInterface" kindref="compound">ImuCovarianceInterface</ref></highlight></codeline>
+<codeline lineno="42"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><ref refid="classadi__imu_1_1ImuCovarianceInterface" kindref="compound">ImuCovarianceInterface</ref>()<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="classadi__imu_1_1ImuCovarianceInterface" kindref="compound">~ImuCovarianceInterface</ref>()<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Prevent<sp/>copying</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><ref refid="classadi__imu_1_1ImuCovarianceInterface" kindref="compound">ImuCovarianceInterface</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classadi__imu_1_1ImuCovarianceInterface" kindref="compound">ImuCovarianceInterface</ref><sp/>&amp;)<sp/>=<sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><ref refid="classadi__imu_1_1ImuCovarianceInterface" kindref="compound">ImuCovarianceInterface</ref><sp/>&amp;<sp/>operator=(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classadi__imu_1_1ImuCovarianceInterface" kindref="compound">ImuCovarianceInterface</ref><sp/>&amp;)<sp/>=<sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56" refid="classadi__imu_1_1ImuCovarianceInterface_1a49a5d97536e4e924ef63b1c0469d192a" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classadi__imu_1_1ImuCovarianceInterface_1a49a5d97536e4e924ef63b1c0469d192a" kindref="member">addSample</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Vec3<sp/>&amp;<sp/>accel,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Vec3<sp/>&amp;<sp/>gyro)<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62" refid="classadi__imu_1_1ImuCovarianceInterface_1a0c90bb03aecbb0dd8b287eb72997349e" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classadi__imu_1_1ImuCovarianceInterface_1a0c90bb03aecbb0dd8b287eb72997349e" kindref="member">isReady</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68" refid="classadi__imu_1_1ImuCovarianceInterface_1a1303843896fc4a4dd8f03d494bd7cf70" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>CovarianceMatrix<sp/><ref refid="classadi__imu_1_1ImuCovarianceInterface_1a1303843896fc4a4dd8f03d494bd7cf70" kindref="member">getAccelCovariance</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74" refid="classadi__imu_1_1ImuCovarianceInterface_1acb6a8d1f4720979ea3d0a9d27ba720fb" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>CovarianceMatrix<sp/><ref refid="classadi__imu_1_1ImuCovarianceInterface_1acb6a8d1f4720979ea3d0a9d27ba720fb" kindref="member">getGyroCovariance</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79" refid="classadi__imu_1_1ImuCovarianceInterface_1ad97804c3f9796f1d57019cced43679df" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classadi__imu_1_1ImuCovarianceInterface_1ad97804c3f9796f1d57019cced43679df" kindref="member">reset</ref>()<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85" refid="classadi__imu_1_1ImuCovarianceInterface_1a06e908d31a427fb4e7320b746c92e91b" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classadi__imu_1_1ImuCovarianceInterface_1a06e908d31a427fb4e7320b746c92e91b" kindref="member">getCalibrationProgress</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>adi_imu</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/></highlight><highlight class="comment">//<sp/>ADI_IMU__IMU_COVARIANCE_INTERFACE_H_</highlight></codeline>
+    </programlisting>
+    <location file="include/adi_imu/imu_covariance_interface.h"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,456 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classadi__imu_1_1EwmaCovarianceProvider" kind="class" language="C++" prot="public">
+    <compoundname>adi_imu::EwmaCovarianceProvider</compoundname>
+    <basecompoundref refid="classadi__imu_1_1ImuCovarianceInterface" prot="public" virt="non-virtual">adi_imu::ImuCovarianceInterface</basecompoundref>
+    <includes refid="ewma__covariance__provider_8h" local="no">ewma_covariance_provider.h</includes>
+    <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classadi__imu_1_1EwmaCovarianceProvider_1acce2729783e1c11b896900aba49c4cc0" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr double</type>
+        <definition>constexpr double adi_imu::EwmaCovarianceProvider::DEFAULT_ALPHA</definition>
+        <argsstring></argsstring>
+        <name>DEFAULT_ALPHA</name>
+        <qualifiedname>adi_imu::EwmaCovarianceProvider::DEFAULT_ALPHA</qualifiedname>
+        <initializer>= 0.02</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/ewma_covariance_provider.h" line="40" column="34" bodyfile="include/adi_imu/ewma_covariance_provider.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classadi__imu_1_1EwmaCovarianceProvider_1acbb979ca05dd4e176ef537b2b48c1b5b" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr size_t</type>
+        <definition>constexpr size_t adi_imu::EwmaCovarianceProvider::DEFAULT_WARMUP_SAMPLES</definition>
+        <argsstring></argsstring>
+        <name>DEFAULT_WARMUP_SAMPLES</name>
+        <qualifiedname>adi_imu::EwmaCovarianceProvider::DEFAULT_WARMUP_SAMPLES</qualifiedname>
+        <initializer>= 100</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/ewma_covariance_provider.h" line="41" column="34" bodyfile="include/adi_imu/ewma_covariance_provider.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classadi__imu_1_1EwmaCovarianceProvider_1a044a73d16e06da634576b02e46d7a4bc" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr double</type>
+        <definition>constexpr double adi_imu::EwmaCovarianceProvider::DEFAULT_MIN_VARIANCE</definition>
+        <argsstring></argsstring>
+        <name>DEFAULT_MIN_VARIANCE</name>
+        <qualifiedname>adi_imu::EwmaCovarianceProvider::DEFAULT_MIN_VARIANCE</qualifiedname>
+        <initializer>= 1e-9</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/ewma_covariance_provider.h" line="42" column="34" bodyfile="include/adi_imu/ewma_covariance_provider.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classadi__imu_1_1EwmaCovarianceProvider_1aeb4aeac399ed83127588fe63c31c63b8" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double adi_imu::EwmaCovarianceProvider::m_alpha</definition>
+        <argsstring></argsstring>
+        <name>m_alpha</name>
+        <qualifiedname>adi_imu::EwmaCovarianceProvider::m_alpha</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/ewma_covariance_provider.h" line="63" column="10" bodyfile="include/adi_imu/ewma_covariance_provider.h" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classadi__imu_1_1EwmaCovarianceProvider_1a6322d06d38ca32691b32deb486f2b890" prot="private" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t adi_imu::EwmaCovarianceProvider::m_warmup_samples</definition>
+        <argsstring></argsstring>
+        <name>m_warmup_samples</name>
+        <qualifiedname>adi_imu::EwmaCovarianceProvider::m_warmup_samples</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/ewma_covariance_provider.h" line="64" column="10" bodyfile="include/adi_imu/ewma_covariance_provider.h" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classadi__imu_1_1EwmaCovarianceProvider_1a39f2085b869905bb866e57eeb277af6a" prot="private" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t adi_imu::EwmaCovarianceProvider::m_sample_count</definition>
+        <argsstring></argsstring>
+        <name>m_sample_count</name>
+        <qualifiedname>adi_imu::EwmaCovarianceProvider::m_sample_count</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/ewma_covariance_provider.h" line="65" column="10" bodyfile="include/adi_imu/ewma_covariance_provider.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classadi__imu_1_1EwmaCovarianceProvider_1adee39a390f2a2ff3b257b5251e727317" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double adi_imu::EwmaCovarianceProvider::m_min_variance</definition>
+        <argsstring></argsstring>
+        <name>m_min_variance</name>
+        <qualifiedname>adi_imu::EwmaCovarianceProvider::m_min_variance</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/ewma_covariance_provider.h" line="66" column="10" bodyfile="include/adi_imu/ewma_covariance_provider.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classadi__imu_1_1EwmaCovarianceProvider_1ae50ff875e3e5c7e53931e9422d624b2c" prot="private" static="no" mutable="no">
+        <type><ref refid="classadi__imu_1_1MotionDetector" kindref="compound">MotionDetector</ref></type>
+        <definition>MotionDetector adi_imu::EwmaCovarianceProvider::m_motion_detector</definition>
+        <argsstring></argsstring>
+        <name>m_motion_detector</name>
+        <qualifiedname>adi_imu::EwmaCovarianceProvider::m_motion_detector</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/ewma_covariance_provider.h" line="69" column="18" bodyfile="include/adi_imu/ewma_covariance_provider.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classadi__imu_1_1EwmaCovarianceProvider_1ab20cba26145595ae45246ecca3031dbc" prot="private" static="no" mutable="no">
+        <type>Vec3</type>
+        <definition>Vec3 adi_imu::EwmaCovarianceProvider::m_accel_mean</definition>
+        <argsstring></argsstring>
+        <name>m_accel_mean</name>
+        <qualifiedname>adi_imu::EwmaCovarianceProvider::m_accel_mean</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/ewma_covariance_provider.h" line="72" column="8" bodyfile="include/adi_imu/ewma_covariance_provider.h" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classadi__imu_1_1EwmaCovarianceProvider_1a59e77d6755a172e456890269a4adb0eb" prot="private" static="no" mutable="no">
+        <type>Vec3</type>
+        <definition>Vec3 adi_imu::EwmaCovarianceProvider::m_accel_var</definition>
+        <argsstring></argsstring>
+        <name>m_accel_var</name>
+        <qualifiedname>adi_imu::EwmaCovarianceProvider::m_accel_var</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/ewma_covariance_provider.h" line="73" column="8" bodyfile="include/adi_imu/ewma_covariance_provider.h" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classadi__imu_1_1EwmaCovarianceProvider_1af49ffcd6468015dc45f07e401ea19b36" prot="private" static="no" mutable="no">
+        <type>Vec3</type>
+        <definition>Vec3 adi_imu::EwmaCovarianceProvider::m_gyro_mean</definition>
+        <argsstring></argsstring>
+        <name>m_gyro_mean</name>
+        <qualifiedname>adi_imu::EwmaCovarianceProvider::m_gyro_mean</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/ewma_covariance_provider.h" line="74" column="8" bodyfile="include/adi_imu/ewma_covariance_provider.h" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classadi__imu_1_1EwmaCovarianceProvider_1abbf4bd65b8463821a8c86d93cbafea72" prot="private" static="no" mutable="no">
+        <type>Vec3</type>
+        <definition>Vec3 adi_imu::EwmaCovarianceProvider::m_gyro_var</definition>
+        <argsstring></argsstring>
+        <name>m_gyro_var</name>
+        <qualifiedname>adi_imu::EwmaCovarianceProvider::m_gyro_var</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/ewma_covariance_provider.h" line="75" column="8" bodyfile="include/adi_imu/ewma_covariance_provider.h" bodystart="75" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classadi__imu_1_1EwmaCovarianceProvider_1a0573e13bb3f9d209838fa6ebf6d8e779" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>adi_imu::EwmaCovarianceProvider::EwmaCovarianceProvider</definition>
+        <argsstring>(double alpha=DEFAULT_ALPHA, size_t warmup_samples=DEFAULT_WARMUP_SAMPLES, double min_variance=DEFAULT_MIN_VARIANCE, MotionDetector motion_detector=MotionDetector())</argsstring>
+        <name>EwmaCovarianceProvider</name>
+        <qualifiedname>adi_imu::EwmaCovarianceProvider::EwmaCovarianceProvider</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>alpha</declname>
+          <defval>DEFAULT_ALPHA</defval>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>warmup_samples</declname>
+          <defval>DEFAULT_WARMUP_SAMPLES</defval>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>min_variance</declname>
+          <defval>DEFAULT_MIN_VARIANCE</defval>
+        </param>
+        <param>
+          <type><ref refid="classadi__imu_1_1MotionDetector" kindref="compound">MotionDetector</ref></type>
+          <declname>motion_detector</declname>
+          <defval><ref refid="classadi__imu_1_1MotionDetector" kindref="compound">MotionDetector</ref>()</defval>
+        </param>
+        <briefdescription>
+<para>Construct EWMA covariance estimator. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>alpha</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Smoothing factor (0 &lt; alpha &lt; 1). Typical 0.01-0.1 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>warmup_samples</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Samples before covariance is considered valid. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>min_variance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Minimum variance floor. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>motion_detector</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Optional motion detector for stationary filtering. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/ewma_covariance_provider.h" line="51" column="12" bodyfile="src/ewma_covariance_provider.cpp" bodystart="23" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="function" id="classadi__imu_1_1EwmaCovarianceProvider_1afc7bff70c89176d2879bb9cc10734eb6" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void adi_imu::EwmaCovarianceProvider::addSample</definition>
+        <argsstring>(const Vec3 &amp;accel, const Vec3 &amp;gyro) override</argsstring>
+        <name>addSample</name>
+        <qualifiedname>adi_imu::EwmaCovarianceProvider::addSample</qualifiedname>
+        <reimplements refid="classadi__imu_1_1ImuCovarianceInterface_1a49a5d97536e4e924ef63b1c0469d192a">addSample</reimplements>
+        <param>
+          <type>const Vec3 &amp;</type>
+          <declname>accel</declname>
+        </param>
+        <param>
+          <type>const Vec3 &amp;</type>
+          <declname>gyro</declname>
+        </param>
+        <briefdescription>
+<para>Process a new IMU sample for covariance estimation. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>accel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Linear acceleration sample (m/s^2) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>gyro</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Angular velocity sample (rad/s) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/ewma_covariance_provider.h" line="55" column="8" bodyfile="src/ewma_covariance_provider.cpp" bodystart="37" bodyend="89"/>
+      </memberdef>
+      <memberdef kind="function" id="classadi__imu_1_1EwmaCovarianceProvider_1ab6eb9d97d41eb28b08c8cc0c75af93e5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool adi_imu::EwmaCovarianceProvider::isReady</definition>
+        <argsstring>() const override</argsstring>
+        <name>isReady</name>
+        <qualifiedname>adi_imu::EwmaCovarianceProvider::isReady</qualifiedname>
+        <reimplements refid="classadi__imu_1_1ImuCovarianceInterface_1a0c90bb03aecbb0dd8b287eb72997349e">isReady</reimplements>
+        <briefdescription>
+<para>Check if covariance estimation is ready (calibration complete). </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>true if covariance values are valid and ready to use. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/ewma_covariance_provider.h" line="56" column="8" bodyfile="src/ewma_covariance_provider.cpp" bodystart="91" bodyend="91"/>
+      </memberdef>
+      <memberdef kind="function" id="classadi__imu_1_1EwmaCovarianceProvider_1afdfecf9f0066634a5ca7647b86843ed5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>CovarianceMatrix</type>
+        <definition>CovarianceMatrix adi_imu::EwmaCovarianceProvider::getAccelCovariance</definition>
+        <argsstring>() const override</argsstring>
+        <name>getAccelCovariance</name>
+        <qualifiedname>adi_imu::EwmaCovarianceProvider::getAccelCovariance</qualifiedname>
+        <reimplements refid="classadi__imu_1_1ImuCovarianceInterface_1a1303843896fc4a4dd8f03d494bd7cf70">getAccelCovariance</reimplements>
+        <briefdescription>
+<para>Get the linear acceleration covariance matrix. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>3x3 covariance matrix row-major order. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/ewma_covariance_provider.h" line="57" column="20" bodyfile="src/ewma_covariance_provider.cpp" bodystart="93" bodyend="98"/>
+      </memberdef>
+      <memberdef kind="function" id="classadi__imu_1_1EwmaCovarianceProvider_1aa48d50b67558ff4a7e09f53d37d358f4" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>CovarianceMatrix</type>
+        <definition>CovarianceMatrix adi_imu::EwmaCovarianceProvider::getGyroCovariance</definition>
+        <argsstring>() const override</argsstring>
+        <name>getGyroCovariance</name>
+        <qualifiedname>adi_imu::EwmaCovarianceProvider::getGyroCovariance</qualifiedname>
+        <reimplements refid="classadi__imu_1_1ImuCovarianceInterface_1acb6a8d1f4720979ea3d0a9d27ba720fb">getGyroCovariance</reimplements>
+        <briefdescription>
+<para>Get the angular velocity covariance matrix. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>3x3 covariance matrix row-major order. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/ewma_covariance_provider.h" line="58" column="20" bodyfile="src/ewma_covariance_provider.cpp" bodystart="100" bodyend="105"/>
+      </memberdef>
+      <memberdef kind="function" id="classadi__imu_1_1EwmaCovarianceProvider_1aebb0727b904d5922adc6e0ece4bbe91a" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void adi_imu::EwmaCovarianceProvider::reset</definition>
+        <argsstring>() override</argsstring>
+        <name>reset</name>
+        <qualifiedname>adi_imu::EwmaCovarianceProvider::reset</qualifiedname>
+        <reimplements refid="classadi__imu_1_1ImuCovarianceInterface_1ad97804c3f9796f1d57019cced43679df">reset</reimplements>
+        <briefdescription>
+<para>Reset the covariance extimator to initial state. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/ewma_covariance_provider.h" line="59" column="8" bodyfile="src/ewma_covariance_provider.cpp" bodystart="107" bodyend="114"/>
+      </memberdef>
+      <memberdef kind="function" id="classadi__imu_1_1EwmaCovarianceProvider_1a0f0a9fb3e29e498a4799a34a2f16d0e4" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>double</type>
+        <definition>double adi_imu::EwmaCovarianceProvider::getCalibrationProgress</definition>
+        <argsstring>() const override</argsstring>
+        <name>getCalibrationProgress</name>
+        <qualifiedname>adi_imu::EwmaCovarianceProvider::getCalibrationProgress</qualifiedname>
+        <reimplements refid="classadi__imu_1_1ImuCovarianceInterface_1a06e908d31a427fb4e7320b746c92e91b">getCalibrationProgress</reimplements>
+        <briefdescription>
+<para>Get the current calibration progress (0.0 to 1.0). </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Progress ratio, 1.0 when calibration is complete. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/ewma_covariance_provider.h" line="60" column="10" bodyfile="src/ewma_covariance_provider.cpp" bodystart="116" bodyend="122"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Exponentially Weighted Moving Average covariance estimator. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Computes variance using exponential smoothing: variance_t = alpha * (x_t - mean_t)^2 + (1-alpha) * variance_{t-1}</para>
+<para>Adapts continuously with O(1) memory. Alpha controls responsiveness:<itemizedlist>
+<listitem><para>Higher alpha (0.1): Fast adaptation, more sensitivity</para>
+</listitem><listitem><para>Lower alpha (0.01): Slow adaptation, smoother estimates </para>
+</listitem></itemizedlist>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>adi_imu::EwmaCovarianceProvider</label>
+        <link refid="classadi__imu_1_1EwmaCovarianceProvider"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>adi_imu::ImuCovarianceInterface</label>
+        <link refid="classadi__imu_1_1ImuCovarianceInterface"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>adi_imu::EwmaCovarianceProvider</label>
+        <link refid="classadi__imu_1_1EwmaCovarianceProvider"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>m_motion_detector</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>adi_imu::ImuCovarianceInterface</label>
+        <link refid="classadi__imu_1_1ImuCovarianceInterface"/>
+      </node>
+      <node id="3">
+        <label>adi_imu::MotionDetector</label>
+        <link refid="classadi__imu_1_1MotionDetector"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/adi_imu/ewma_covariance_provider.h" line="36" column="1" bodyfile="include/adi_imu/ewma_covariance_provider.h" bodystart="37" bodyend="76"/>
+    <listofallmembers>
+      <member refid="classadi__imu_1_1EwmaCovarianceProvider_1afc7bff70c89176d2879bb9cc10734eb6" prot="public" virt="virtual"><scope>adi_imu::EwmaCovarianceProvider</scope><name>addSample</name></member>
+      <member refid="classadi__imu_1_1EwmaCovarianceProvider_1acce2729783e1c11b896900aba49c4cc0" prot="public" virt="non-virtual"><scope>adi_imu::EwmaCovarianceProvider</scope><name>DEFAULT_ALPHA</name></member>
+      <member refid="classadi__imu_1_1EwmaCovarianceProvider_1a044a73d16e06da634576b02e46d7a4bc" prot="public" virt="non-virtual"><scope>adi_imu::EwmaCovarianceProvider</scope><name>DEFAULT_MIN_VARIANCE</name></member>
+      <member refid="classadi__imu_1_1EwmaCovarianceProvider_1acbb979ca05dd4e176ef537b2b48c1b5b" prot="public" virt="non-virtual"><scope>adi_imu::EwmaCovarianceProvider</scope><name>DEFAULT_WARMUP_SAMPLES</name></member>
+      <member refid="classadi__imu_1_1EwmaCovarianceProvider_1a0573e13bb3f9d209838fa6ebf6d8e779" prot="public" virt="non-virtual"><scope>adi_imu::EwmaCovarianceProvider</scope><name>EwmaCovarianceProvider</name></member>
+      <member refid="classadi__imu_1_1EwmaCovarianceProvider_1afdfecf9f0066634a5ca7647b86843ed5" prot="public" virt="virtual"><scope>adi_imu::EwmaCovarianceProvider</scope><name>getAccelCovariance</name></member>
+      <member refid="classadi__imu_1_1EwmaCovarianceProvider_1a0f0a9fb3e29e498a4799a34a2f16d0e4" prot="public" virt="virtual"><scope>adi_imu::EwmaCovarianceProvider</scope><name>getCalibrationProgress</name></member>
+      <member refid="classadi__imu_1_1EwmaCovarianceProvider_1aa48d50b67558ff4a7e09f53d37d358f4" prot="public" virt="virtual"><scope>adi_imu::EwmaCovarianceProvider</scope><name>getGyroCovariance</name></member>
+      <member refid="classadi__imu_1_1ImuCovarianceInterface_1a850023b9161f664a74e54702d9bc4170" prot="public" virt="non-virtual"><scope>adi_imu::EwmaCovarianceProvider</scope><name>ImuCovarianceInterface</name></member>
+      <member refid="classadi__imu_1_1ImuCovarianceInterface_1a278f17e65cfd182db16dc36a988aa4ee" prot="public" virt="non-virtual"><scope>adi_imu::EwmaCovarianceProvider</scope><name>ImuCovarianceInterface</name></member>
+      <member refid="classadi__imu_1_1EwmaCovarianceProvider_1ab6eb9d97d41eb28b08c8cc0c75af93e5" prot="public" virt="virtual"><scope>adi_imu::EwmaCovarianceProvider</scope><name>isReady</name></member>
+      <member refid="classadi__imu_1_1EwmaCovarianceProvider_1ab20cba26145595ae45246ecca3031dbc" prot="private" virt="non-virtual"><scope>adi_imu::EwmaCovarianceProvider</scope><name>m_accel_mean</name></member>
+      <member refid="classadi__imu_1_1EwmaCovarianceProvider_1a59e77d6755a172e456890269a4adb0eb" prot="private" virt="non-virtual"><scope>adi_imu::EwmaCovarianceProvider</scope><name>m_accel_var</name></member>
+      <member refid="classadi__imu_1_1EwmaCovarianceProvider_1aeb4aeac399ed83127588fe63c31c63b8" prot="private" virt="non-virtual"><scope>adi_imu::EwmaCovarianceProvider</scope><name>m_alpha</name></member>
+      <member refid="classadi__imu_1_1EwmaCovarianceProvider_1af49ffcd6468015dc45f07e401ea19b36" prot="private" virt="non-virtual"><scope>adi_imu::EwmaCovarianceProvider</scope><name>m_gyro_mean</name></member>
+      <member refid="classadi__imu_1_1EwmaCovarianceProvider_1abbf4bd65b8463821a8c86d93cbafea72" prot="private" virt="non-virtual"><scope>adi_imu::EwmaCovarianceProvider</scope><name>m_gyro_var</name></member>
+      <member refid="classadi__imu_1_1EwmaCovarianceProvider_1adee39a390f2a2ff3b257b5251e727317" prot="private" virt="non-virtual"><scope>adi_imu::EwmaCovarianceProvider</scope><name>m_min_variance</name></member>
+      <member refid="classadi__imu_1_1EwmaCovarianceProvider_1ae50ff875e3e5c7e53931e9422d624b2c" prot="private" virt="non-virtual"><scope>adi_imu::EwmaCovarianceProvider</scope><name>m_motion_detector</name></member>
+      <member refid="classadi__imu_1_1EwmaCovarianceProvider_1a39f2085b869905bb866e57eeb277af6a" prot="private" virt="non-virtual"><scope>adi_imu::EwmaCovarianceProvider</scope><name>m_sample_count</name></member>
+      <member refid="classadi__imu_1_1EwmaCovarianceProvider_1a6322d06d38ca32691b32deb486f2b890" prot="private" virt="non-virtual"><scope>adi_imu::EwmaCovarianceProvider</scope><name>m_warmup_samples</name></member>
+      <member refid="classadi__imu_1_1ImuCovarianceInterface_1a7b5c6ffb0977318c3749b70d7dcd258b" prot="public" virt="non-virtual"><scope>adi_imu::EwmaCovarianceProvider</scope><name>operator=</name></member>
+      <member refid="classadi__imu_1_1EwmaCovarianceProvider_1aebb0727b904d5922adc6e0ece4bbe91a" prot="public" virt="virtual"><scope>adi_imu::EwmaCovarianceProvider</scope><name>reset</name></member>
+      <member refid="classadi__imu_1_1ImuCovarianceInterface_1aa1546bd17d8127e2e8e3d675815ed1ab" prot="public" virt="virtual"><scope>adi_imu::EwmaCovarianceProvider</scope><name>~ImuCovarianceInterface</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

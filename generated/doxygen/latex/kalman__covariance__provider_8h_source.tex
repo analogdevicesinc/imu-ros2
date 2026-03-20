@@ -1,0 +1,104 @@
+\doxysection{kalman\+\_\+covariance\+\_\+provider.\+h}
+\hypertarget{kalman__covariance__provider_8h_source}{}\label{kalman__covariance__provider_8h_source}\index{include/adi\_imu/kalman\_covariance\_provider.h@{include/adi\_imu/kalman\_covariance\_provider.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*******************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ \ \ @file\ \ \ kalman\_covariance\_provider.h}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ \ \ @brief\ \ Kalman\ filter-\/based\ covariance\ estimation\ for\ IMU\ data.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ \ \ @author\ Tudor\ Alinei}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *******************************************************************************/}}
+\DoxyCodeLine{00006\ \textcolor{comment}{//\ Copyright\ 2026\ Analog\ Devices,\ Inc.}}
+\DoxyCodeLine{00007\ \textcolor{comment}{//}}
+\DoxyCodeLine{00008\ \textcolor{comment}{//\ Licensed\ under\ the\ Apache\ License,\ Version\ 2.0\ (the\ "{}License"{});}}
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ you\ may\ not\ use\ this\ file\ except\ in\ compliance\ with\ the\ License.}}
+\DoxyCodeLine{00010\ \textcolor{comment}{//\ You\ may\ obtain\ a\ copy\ of\ the\ License\ at}}
+\DoxyCodeLine{00011\ \textcolor{comment}{//}}
+\DoxyCodeLine{00012\ \textcolor{comment}{//\ \ \ \ \ http://www.apache.org/licenses/LICENSE-\/2.0}}
+\DoxyCodeLine{00013\ \textcolor{comment}{//}}
+\DoxyCodeLine{00014\ \textcolor{comment}{//\ Unless\ required\ by\ applicable\ law\ or\ agreed\ to\ in\ writing,\ software}}
+\DoxyCodeLine{00015\ \textcolor{comment}{//\ distributed\ under\ the\ License\ is\ distributed\ on\ an\ "{}AS\ IS"{}\ BASIS,}}
+\DoxyCodeLine{00016\ \textcolor{comment}{//\ WITHOUT\ WARRANTIES\ OR\ CONDITIONS\ OF\ ANY\ KIND,\ either\ express\ or\ implied.}}
+\DoxyCodeLine{00017\ \textcolor{comment}{//\ See\ the\ License\ for\ the\ specific\ language\ governing\ permissions\ and}}
+\DoxyCodeLine{00018\ \textcolor{comment}{//\ limitations\ under\ the\ License.}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#ifndef\ ADI\_IMU\_\_KALMAN\_COVARIANCE\_PROVIDER\_H\_}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#define\ ADI\_IMU\_\_KALMAN\_COVARIANCE\_PROVIDER\_H\_}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ <cstddef>}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#include\ "{}adi\_imu/imu\_covariance\_interface.h"{}}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#include\ "{}adi\_imu/motion\_detector.h"{}}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{keyword}{namespace\ }adi\_imu}
+\DoxyCodeLine{00029\ \{}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00054\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classadi__imu_1_1KalmanCovarianceProvider}{KalmanCovarianceProvider}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classadi__imu_1_1ImuCovarianceInterface}{ImuCovarianceInterface}}}
+\DoxyCodeLine{00055\ \{}
+\DoxyCodeLine{00056\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00057\ \ \ \textcolor{comment}{//\ Default\ Kalman\ filter\ covariance\ algorithm\ parameters}}
+\DoxyCodeLine{00058\ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{double}\ DEFAULT\_PROCESS\_NOISE\_Q\ =\ 1e-\/6;}
+\DoxyCodeLine{00059\ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{double}\ DEFAULT\_MEASUREMENT\_NOISE\_R\ =\ 1e-\/4;}
+\DoxyCodeLine{00060\ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{double}\ DEFAULT\_INITIAL\_VARIANCE\ =\ 1e-\/4;}
+\DoxyCodeLine{00061\ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{size\_t}\ DEFAULT\_WARMUP\_SAMPLES\ =\ 100;}
+\DoxyCodeLine{00062\ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{double}\ DEFAULT\_MIN\_VARIANCE\ =\ 1e-\/9;}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00073\ \ \ \mbox{\hyperlink{classadi__imu_1_1KalmanCovarianceProvider}{KalmanCovarianceProvider}}(}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordtype}{double}\ process\_noise\_q\ =\ DEFAULT\_PROCESS\_NOISE\_Q,}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordtype}{double}\ measurement\_noise\_r\ =\ DEFAULT\_MEASUREMENT\_NOISE\_R,}
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordtype}{double}\ initial\_variance\ =\ DEFAULT\_INITIAL\_VARIANCE,}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ warmup\_samples\ =\ DEFAULT\_WARMUP\_SAMPLES,\ \textcolor{keywordtype}{double}\ min\_variance\ =\ DEFAULT\_MIN\_VARIANCE,}
+\DoxyCodeLine{00078\ \ \ \ \ \mbox{\hyperlink{classadi__imu_1_1MotionDetector}{MotionDetector}}\ motion\_detector\ =\ \mbox{\hyperlink{classadi__imu_1_1MotionDetector}{MotionDetector}}());}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \ \ \mbox{\hyperlink{classadi__imu_1_1KalmanCovarianceProvider}{\string~KalmanCovarianceProvider}}()\ \textcolor{keyword}{override}\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classadi__imu_1_1KalmanCovarianceProvider_a974795db7be684ccd6de826d4de560f8}{addSample}}(\textcolor{keyword}{const}\ Vec3\ \&\ accel,\ \textcolor{keyword}{const}\ Vec3\ \&\ gyro)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00083\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classadi__imu_1_1KalmanCovarianceProvider_ad962f9275d06965c89e2d6a8a93ab937}{isReady}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00084\ \ \ CovarianceMatrix\ \mbox{\hyperlink{classadi__imu_1_1KalmanCovarianceProvider_a1794940e4a919f3cde65581907e48cca}{getAccelCovariance}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00085\ \ \ CovarianceMatrix\ \mbox{\hyperlink{classadi__imu_1_1KalmanCovarianceProvider_ad3c36e84893270ad5c38b6ef61472d8f}{getGyroCovariance}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00086\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classadi__imu_1_1KalmanCovarianceProvider_a22f569200ac35bb5ea7dde02eaa283b1}{reset}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00087\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classadi__imu_1_1KalmanCovarianceProvider_a72b1a87c9306f671030d0949f7d00bcd}{getCalibrationProgress}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00093\ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structadi__imu_1_1KalmanCovarianceProvider_1_1AxisFilter}{AxisFilter}}}
+\DoxyCodeLine{00094\ \ \ \{}
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keywordtype}{double}\ mean;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Running\ mean\ estimate}}
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keywordtype}{double}\ variance;\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Kalman\ state:\ estimated\ variance}}
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keywordtype}{double}\ error\_covariance;\ \ \textcolor{comment}{//\ Kalman\ error\ covariance\ (P)}}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \ \ \ \ \mbox{\hyperlink{structadi__imu_1_1KalmanCovarianceProvider_1_1AxisFilter}{AxisFilter}}()\ :\ mean(0.0),\ variance(0.0),\ error\_covariance(1.0)\ \{\}}
+\DoxyCodeLine{00100\ \ \ \};}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00107\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classadi__imu_1_1KalmanCovarianceProvider_a3e4f873eddf699feeee5a6843e957e5b}{updateAxisFilter}}(\mbox{\hyperlink{structadi__imu_1_1KalmanCovarianceProvider_1_1AxisFilter}{AxisFilter}}\ \&\ filter,\ \textcolor{keywordtype}{double}\ sample);}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00116\ \ \ CovarianceMatrix\ \mbox{\hyperlink{classadi__imu_1_1KalmanCovarianceProvider_ae813ee5dda346a8bb4b8ef35df733b00}{buildCovarianceMatrix}}(\textcolor{keywordtype}{double}\ var\_x,\ \textcolor{keywordtype}{double}\ var\_y,\ \textcolor{keywordtype}{double}\ var\_z)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00118\ \ \ \textcolor{comment}{//\ Kalman\ filter\ parameters}}
+\DoxyCodeLine{00119\ \ \ \textcolor{keywordtype}{double}\ m\_process\_noise\_q;\ \ \ \ \ \ \textcolor{comment}{//\ Q:\ process\ noise\ covariance}}
+\DoxyCodeLine{00120\ \ \ \textcolor{keywordtype}{double}\ m\_measurement\_noise\_r;\ \ \textcolor{comment}{//\ R:\ measurement\ noise\ covariance}}
+\DoxyCodeLine{00121\ \ \ \textcolor{keywordtype}{double}\ m\_initial\_variance;\ \ \ \ \ \textcolor{comment}{//\ Initial\ variance\ estimate}}
+\DoxyCodeLine{00122\ \ \ \textcolor{keywordtype}{double}\ m\_min\_variance;\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Minimum\ variance\ floor}}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \ \ \textcolor{comment}{//\ Motion\ detector\ for\ stationary\ filtering}}
+\DoxyCodeLine{00125\ \ \ \mbox{\hyperlink{classadi__imu_1_1MotionDetector}{MotionDetector}}\ m\_motion\_detector;}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00127\ \ \ \textcolor{comment}{//\ Per-\/axis\ filters}}
+\DoxyCodeLine{00128\ \ \ \mbox{\hyperlink{structadi__imu_1_1KalmanCovarianceProvider_1_1AxisFilter}{AxisFilter}}\ m\_accel\_x;}
+\DoxyCodeLine{00129\ \ \ \mbox{\hyperlink{structadi__imu_1_1KalmanCovarianceProvider_1_1AxisFilter}{AxisFilter}}\ m\_accel\_y;}
+\DoxyCodeLine{00130\ \ \ \mbox{\hyperlink{structadi__imu_1_1KalmanCovarianceProvider_1_1AxisFilter}{AxisFilter}}\ m\_accel\_z;}
+\DoxyCodeLine{00131\ \ \ \mbox{\hyperlink{structadi__imu_1_1KalmanCovarianceProvider_1_1AxisFilter}{AxisFilter}}\ m\_gyro\_x;}
+\DoxyCodeLine{00132\ \ \ \mbox{\hyperlink{structadi__imu_1_1KalmanCovarianceProvider_1_1AxisFilter}{AxisFilter}}\ m\_gyro\_y;}
+\DoxyCodeLine{00133\ \ \ \mbox{\hyperlink{structadi__imu_1_1KalmanCovarianceProvider_1_1AxisFilter}{AxisFilter}}\ m\_gyro\_z;}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00135\ \ \ \textcolor{comment}{//\ Sample\ tracking}}
+\DoxyCodeLine{00136\ \ \ \textcolor{keywordtype}{size\_t}\ m\_warmup\_samples;}
+\DoxyCodeLine{00137\ \ \ \textcolor{keywordtype}{size\_t}\ m\_sample\_count;}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00139\ \ \ \textcolor{comment}{//\ Mean\ estimation\ parameters\ (for\ computing\ residuals)}}
+\DoxyCodeLine{00140\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{double}\ MEAN\_ALPHA\ =\ 0.01;\ \ \textcolor{comment}{//\ EMA\ factor\ for\ mean\ tracking}}
+\DoxyCodeLine{00141\ \};}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00143\ \}\ \ \textcolor{comment}{//\ namespace\ adi\_imu}}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00145\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ ADI\_IMU\_\_KALMAN\_COVARIANCE\_PROVIDER\_H\_}}
+
+\end{DoxyCode}

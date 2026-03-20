@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['workerthread_0',['WorkerThread',['../classadi__imu_1_1WorkerThread.html',1,'adi_imu']]]
+  ['motiondetector_0',['MotionDetector',['../classadi__imu_1_1MotionDetector.html',1,'adi_imu']]]
 ];

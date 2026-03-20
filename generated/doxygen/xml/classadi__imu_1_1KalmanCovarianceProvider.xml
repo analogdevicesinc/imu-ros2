@@ -1,0 +1,725 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classadi__imu_1_1KalmanCovarianceProvider" kind="class" language="C++" prot="public">
+    <compoundname>adi_imu::KalmanCovarianceProvider</compoundname>
+    <basecompoundref refid="classadi__imu_1_1ImuCovarianceInterface" prot="public" virt="non-virtual">adi_imu::ImuCovarianceInterface</basecompoundref>
+    <includes refid="kalman__covariance__provider_8h" local="no">kalman_covariance_provider.h</includes>
+    <innerclass refid="structadi__imu_1_1KalmanCovarianceProvider_1_1AxisFilter" prot="private">adi_imu::KalmanCovarianceProvider::AxisFilter</innerclass>
+    <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classadi__imu_1_1KalmanCovarianceProvider_1add00b78deac1fadfb66986d9e996162c" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr double</type>
+        <definition>constexpr double adi_imu::KalmanCovarianceProvider::DEFAULT_PROCESS_NOISE_Q</definition>
+        <argsstring></argsstring>
+        <name>DEFAULT_PROCESS_NOISE_Q</name>
+        <qualifiedname>adi_imu::KalmanCovarianceProvider::DEFAULT_PROCESS_NOISE_Q</qualifiedname>
+        <initializer>= 1e-6</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/kalman_covariance_provider.h" line="58" column="34" bodyfile="include/adi_imu/kalman_covariance_provider.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classadi__imu_1_1KalmanCovarianceProvider_1ae2331505fd61e29ed22c574b9c51912d" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr double</type>
+        <definition>constexpr double adi_imu::KalmanCovarianceProvider::DEFAULT_MEASUREMENT_NOISE_R</definition>
+        <argsstring></argsstring>
+        <name>DEFAULT_MEASUREMENT_NOISE_R</name>
+        <qualifiedname>adi_imu::KalmanCovarianceProvider::DEFAULT_MEASUREMENT_NOISE_R</qualifiedname>
+        <initializer>= 1e-4</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/kalman_covariance_provider.h" line="59" column="34" bodyfile="include/adi_imu/kalman_covariance_provider.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classadi__imu_1_1KalmanCovarianceProvider_1ad3135b6c54eeb0c693d063f213efe857" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr double</type>
+        <definition>constexpr double adi_imu::KalmanCovarianceProvider::DEFAULT_INITIAL_VARIANCE</definition>
+        <argsstring></argsstring>
+        <name>DEFAULT_INITIAL_VARIANCE</name>
+        <qualifiedname>adi_imu::KalmanCovarianceProvider::DEFAULT_INITIAL_VARIANCE</qualifiedname>
+        <initializer>= 1e-4</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/kalman_covariance_provider.h" line="60" column="34" bodyfile="include/adi_imu/kalman_covariance_provider.h" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classadi__imu_1_1KalmanCovarianceProvider_1ad0a9376a88979314ac2b6294b6c3631d" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr size_t</type>
+        <definition>constexpr size_t adi_imu::KalmanCovarianceProvider::DEFAULT_WARMUP_SAMPLES</definition>
+        <argsstring></argsstring>
+        <name>DEFAULT_WARMUP_SAMPLES</name>
+        <qualifiedname>adi_imu::KalmanCovarianceProvider::DEFAULT_WARMUP_SAMPLES</qualifiedname>
+        <initializer>= 100</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/kalman_covariance_provider.h" line="61" column="34" bodyfile="include/adi_imu/kalman_covariance_provider.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classadi__imu_1_1KalmanCovarianceProvider_1a6c2ef1c8f6f2e74e33570d1770dece0f" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr double</type>
+        <definition>constexpr double adi_imu::KalmanCovarianceProvider::DEFAULT_MIN_VARIANCE</definition>
+        <argsstring></argsstring>
+        <name>DEFAULT_MIN_VARIANCE</name>
+        <qualifiedname>adi_imu::KalmanCovarianceProvider::DEFAULT_MIN_VARIANCE</qualifiedname>
+        <initializer>= 1e-9</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/kalman_covariance_provider.h" line="62" column="34" bodyfile="include/adi_imu/kalman_covariance_provider.h" bodystart="62" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classadi__imu_1_1KalmanCovarianceProvider_1a03e095be3427f330fa88eae90efb8915" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double adi_imu::KalmanCovarianceProvider::m_process_noise_q</definition>
+        <argsstring></argsstring>
+        <name>m_process_noise_q</name>
+        <qualifiedname>adi_imu::KalmanCovarianceProvider::m_process_noise_q</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/kalman_covariance_provider.h" line="119" column="10" bodyfile="include/adi_imu/kalman_covariance_provider.h" bodystart="119" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classadi__imu_1_1KalmanCovarianceProvider_1a6766e57e72499f79f151889557aaf1f9" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double adi_imu::KalmanCovarianceProvider::m_measurement_noise_r</definition>
+        <argsstring></argsstring>
+        <name>m_measurement_noise_r</name>
+        <qualifiedname>adi_imu::KalmanCovarianceProvider::m_measurement_noise_r</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/kalman_covariance_provider.h" line="120" column="10" bodyfile="include/adi_imu/kalman_covariance_provider.h" bodystart="120" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classadi__imu_1_1KalmanCovarianceProvider_1a503179aed259d3f17bbbf45852aad5ea" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double adi_imu::KalmanCovarianceProvider::m_initial_variance</definition>
+        <argsstring></argsstring>
+        <name>m_initial_variance</name>
+        <qualifiedname>adi_imu::KalmanCovarianceProvider::m_initial_variance</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/kalman_covariance_provider.h" line="121" column="10" bodyfile="include/adi_imu/kalman_covariance_provider.h" bodystart="121" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classadi__imu_1_1KalmanCovarianceProvider_1a3ff77272233fe58f7b733a6c8b0874e5" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double adi_imu::KalmanCovarianceProvider::m_min_variance</definition>
+        <argsstring></argsstring>
+        <name>m_min_variance</name>
+        <qualifiedname>adi_imu::KalmanCovarianceProvider::m_min_variance</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/kalman_covariance_provider.h" line="122" column="10" bodyfile="include/adi_imu/kalman_covariance_provider.h" bodystart="122" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classadi__imu_1_1KalmanCovarianceProvider_1a036ffab207923831e79249f5525c8e52" prot="private" static="no" mutable="no">
+        <type><ref refid="classadi__imu_1_1MotionDetector" kindref="compound">MotionDetector</ref></type>
+        <definition>MotionDetector adi_imu::KalmanCovarianceProvider::m_motion_detector</definition>
+        <argsstring></argsstring>
+        <name>m_motion_detector</name>
+        <qualifiedname>adi_imu::KalmanCovarianceProvider::m_motion_detector</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/kalman_covariance_provider.h" line="125" column="18" bodyfile="include/adi_imu/kalman_covariance_provider.h" bodystart="125" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classadi__imu_1_1KalmanCovarianceProvider_1a174648d38e22e9ec5f9aecba4ae2ef21" prot="private" static="no" mutable="no">
+        <type><ref refid="structadi__imu_1_1KalmanCovarianceProvider_1_1AxisFilter" kindref="compound">AxisFilter</ref></type>
+        <definition>AxisFilter adi_imu::KalmanCovarianceProvider::m_accel_x</definition>
+        <argsstring></argsstring>
+        <name>m_accel_x</name>
+        <qualifiedname>adi_imu::KalmanCovarianceProvider::m_accel_x</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/kalman_covariance_provider.h" line="128" column="14" bodyfile="include/adi_imu/kalman_covariance_provider.h" bodystart="128" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classadi__imu_1_1KalmanCovarianceProvider_1afe88b9a2489a06b2d998fc890f22b94e" prot="private" static="no" mutable="no">
+        <type><ref refid="structadi__imu_1_1KalmanCovarianceProvider_1_1AxisFilter" kindref="compound">AxisFilter</ref></type>
+        <definition>AxisFilter adi_imu::KalmanCovarianceProvider::m_accel_y</definition>
+        <argsstring></argsstring>
+        <name>m_accel_y</name>
+        <qualifiedname>adi_imu::KalmanCovarianceProvider::m_accel_y</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/kalman_covariance_provider.h" line="129" column="14" bodyfile="include/adi_imu/kalman_covariance_provider.h" bodystart="129" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classadi__imu_1_1KalmanCovarianceProvider_1a3d4814188a0fbf1d04fc1a1148e329d7" prot="private" static="no" mutable="no">
+        <type><ref refid="structadi__imu_1_1KalmanCovarianceProvider_1_1AxisFilter" kindref="compound">AxisFilter</ref></type>
+        <definition>AxisFilter adi_imu::KalmanCovarianceProvider::m_accel_z</definition>
+        <argsstring></argsstring>
+        <name>m_accel_z</name>
+        <qualifiedname>adi_imu::KalmanCovarianceProvider::m_accel_z</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/kalman_covariance_provider.h" line="130" column="14" bodyfile="include/adi_imu/kalman_covariance_provider.h" bodystart="130" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classadi__imu_1_1KalmanCovarianceProvider_1a4be282f6e31bbdda598f77f9d352754e" prot="private" static="no" mutable="no">
+        <type><ref refid="structadi__imu_1_1KalmanCovarianceProvider_1_1AxisFilter" kindref="compound">AxisFilter</ref></type>
+        <definition>AxisFilter adi_imu::KalmanCovarianceProvider::m_gyro_x</definition>
+        <argsstring></argsstring>
+        <name>m_gyro_x</name>
+        <qualifiedname>adi_imu::KalmanCovarianceProvider::m_gyro_x</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/kalman_covariance_provider.h" line="131" column="14" bodyfile="include/adi_imu/kalman_covariance_provider.h" bodystart="131" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classadi__imu_1_1KalmanCovarianceProvider_1a18b5a9683bbb6a7a0d23968224b81652" prot="private" static="no" mutable="no">
+        <type><ref refid="structadi__imu_1_1KalmanCovarianceProvider_1_1AxisFilter" kindref="compound">AxisFilter</ref></type>
+        <definition>AxisFilter adi_imu::KalmanCovarianceProvider::m_gyro_y</definition>
+        <argsstring></argsstring>
+        <name>m_gyro_y</name>
+        <qualifiedname>adi_imu::KalmanCovarianceProvider::m_gyro_y</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/kalman_covariance_provider.h" line="132" column="14" bodyfile="include/adi_imu/kalman_covariance_provider.h" bodystart="132" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classadi__imu_1_1KalmanCovarianceProvider_1ac3e806e9a11a07ee8c5a411d7a93a523" prot="private" static="no" mutable="no">
+        <type><ref refid="structadi__imu_1_1KalmanCovarianceProvider_1_1AxisFilter" kindref="compound">AxisFilter</ref></type>
+        <definition>AxisFilter adi_imu::KalmanCovarianceProvider::m_gyro_z</definition>
+        <argsstring></argsstring>
+        <name>m_gyro_z</name>
+        <qualifiedname>adi_imu::KalmanCovarianceProvider::m_gyro_z</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/kalman_covariance_provider.h" line="133" column="14" bodyfile="include/adi_imu/kalman_covariance_provider.h" bodystart="133" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classadi__imu_1_1KalmanCovarianceProvider_1a4497df4ad9b708b43b6faf7f5847359b" prot="private" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t adi_imu::KalmanCovarianceProvider::m_warmup_samples</definition>
+        <argsstring></argsstring>
+        <name>m_warmup_samples</name>
+        <qualifiedname>adi_imu::KalmanCovarianceProvider::m_warmup_samples</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/kalman_covariance_provider.h" line="136" column="10" bodyfile="include/adi_imu/kalman_covariance_provider.h" bodystart="136" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classadi__imu_1_1KalmanCovarianceProvider_1a999bb306bce528646e2861c5698006f3" prot="private" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t adi_imu::KalmanCovarianceProvider::m_sample_count</definition>
+        <argsstring></argsstring>
+        <name>m_sample_count</name>
+        <qualifiedname>adi_imu::KalmanCovarianceProvider::m_sample_count</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/kalman_covariance_provider.h" line="137" column="10" bodyfile="include/adi_imu/kalman_covariance_provider.h" bodystart="137" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classadi__imu_1_1KalmanCovarianceProvider_1af3cf8c82cce2a8a5c2bb523030882926" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr double</type>
+        <definition>constexpr double adi_imu::KalmanCovarianceProvider::MEAN_ALPHA</definition>
+        <argsstring></argsstring>
+        <name>MEAN_ALPHA</name>
+        <qualifiedname>adi_imu::KalmanCovarianceProvider::MEAN_ALPHA</qualifiedname>
+        <initializer>= 0.01</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/kalman_covariance_provider.h" line="140" column="27" bodyfile="include/adi_imu/kalman_covariance_provider.h" bodystart="140" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classadi__imu_1_1KalmanCovarianceProvider_1a0be55a6318fd2062db0940b8d49c8c83" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>adi_imu::KalmanCovarianceProvider::KalmanCovarianceProvider</definition>
+        <argsstring>(double process_noise_q=DEFAULT_PROCESS_NOISE_Q, double measurement_noise_r=DEFAULT_MEASUREMENT_NOISE_R, double initial_variance=DEFAULT_INITIAL_VARIANCE, size_t warmup_samples=DEFAULT_WARMUP_SAMPLES, double min_variance=DEFAULT_MIN_VARIANCE, MotionDetector motion_detector=MotionDetector())</argsstring>
+        <name>KalmanCovarianceProvider</name>
+        <qualifiedname>adi_imu::KalmanCovarianceProvider::KalmanCovarianceProvider</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>process_noise_q</declname>
+          <defval>DEFAULT_PROCESS_NOISE_Q</defval>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>measurement_noise_r</declname>
+          <defval>DEFAULT_MEASUREMENT_NOISE_R</defval>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>initial_variance</declname>
+          <defval>DEFAULT_INITIAL_VARIANCE</defval>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>warmup_samples</declname>
+          <defval>DEFAULT_WARMUP_SAMPLES</defval>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>min_variance</declname>
+          <defval>DEFAULT_MIN_VARIANCE</defval>
+        </param>
+        <param>
+          <type><ref refid="classadi__imu_1_1MotionDetector" kindref="compound">MotionDetector</ref></type>
+          <declname>motion_detector</declname>
+          <defval><ref refid="classadi__imu_1_1MotionDetector" kindref="compound">MotionDetector</ref>()</defval>
+        </param>
+        <briefdescription>
+<para>Construct a Kalman filter covariance provider. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>process_noise_q</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Process noise covariance (variance change rate) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>measurement_noise_r</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Measurement noise covariance </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>initial_variance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Initial variance estimate for all axes </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>warmup_samples</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of samples before estimates are valid </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>min_variance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Minimum variance floor </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>motion_detector</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Optional motion detector for stationary filtering </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/kalman_covariance_provider.h" line="73" column="3" bodyfile="src/kalman_covariance_provider.cpp" bodystart="29" bodyend="41"/>
+      </memberdef>
+      <memberdef kind="function" id="classadi__imu_1_1KalmanCovarianceProvider_1a6d8a0967df3840bcbaddaa3643eec6f6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>adi_imu::KalmanCovarianceProvider::~KalmanCovarianceProvider</definition>
+        <argsstring>() override=default</argsstring>
+        <name>~KalmanCovarianceProvider</name>
+        <qualifiedname>adi_imu::KalmanCovarianceProvider::~KalmanCovarianceProvider</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/kalman_covariance_provider.h" line="80" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="classadi__imu_1_1KalmanCovarianceProvider_1a974795db7be684ccd6de826d4de560f8" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void adi_imu::KalmanCovarianceProvider::addSample</definition>
+        <argsstring>(const Vec3 &amp;accel, const Vec3 &amp;gyro) override</argsstring>
+        <name>addSample</name>
+        <qualifiedname>adi_imu::KalmanCovarianceProvider::addSample</qualifiedname>
+        <reimplements refid="classadi__imu_1_1ImuCovarianceInterface_1a49a5d97536e4e924ef63b1c0469d192a">addSample</reimplements>
+        <param>
+          <type>const Vec3 &amp;</type>
+          <declname>accel</declname>
+        </param>
+        <param>
+          <type>const Vec3 &amp;</type>
+          <declname>gyro</declname>
+        </param>
+        <briefdescription>
+<para>Process a new IMU sample for covariance estimation. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>accel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Linear acceleration sample (m/s^2) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>gyro</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Angular velocity sample (rad/s) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/kalman_covariance_provider.h" line="82" column="8" bodyfile="src/kalman_covariance_provider.cpp" bodystart="105" bodyend="124"/>
+      </memberdef>
+      <memberdef kind="function" id="classadi__imu_1_1KalmanCovarianceProvider_1ad962f9275d06965c89e2d6a8a93ab937" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool adi_imu::KalmanCovarianceProvider::isReady</definition>
+        <argsstring>() const override</argsstring>
+        <name>isReady</name>
+        <qualifiedname>adi_imu::KalmanCovarianceProvider::isReady</qualifiedname>
+        <reimplements refid="classadi__imu_1_1ImuCovarianceInterface_1a0c90bb03aecbb0dd8b287eb72997349e">isReady</reimplements>
+        <briefdescription>
+<para>Check if covariance estimation is ready (calibration complete). </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>true if covariance values are valid and ready to use. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/kalman_covariance_provider.h" line="83" column="8" bodyfile="src/kalman_covariance_provider.cpp" bodystart="126" bodyend="126"/>
+      </memberdef>
+      <memberdef kind="function" id="classadi__imu_1_1KalmanCovarianceProvider_1a1794940e4a919f3cde65581907e48cca" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>CovarianceMatrix</type>
+        <definition>CovarianceMatrix adi_imu::KalmanCovarianceProvider::getAccelCovariance</definition>
+        <argsstring>() const override</argsstring>
+        <name>getAccelCovariance</name>
+        <qualifiedname>adi_imu::KalmanCovarianceProvider::getAccelCovariance</qualifiedname>
+        <reimplements refid="classadi__imu_1_1ImuCovarianceInterface_1a1303843896fc4a4dd8f03d494bd7cf70">getAccelCovariance</reimplements>
+        <briefdescription>
+<para>Get the linear acceleration covariance matrix. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>3x3 covariance matrix row-major order. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/kalman_covariance_provider.h" line="84" column="20" bodyfile="src/kalman_covariance_provider.cpp" bodystart="144" bodyend="147"/>
+      </memberdef>
+      <memberdef kind="function" id="classadi__imu_1_1KalmanCovarianceProvider_1ad3c36e84893270ad5c38b6ef61472d8f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>CovarianceMatrix</type>
+        <definition>CovarianceMatrix adi_imu::KalmanCovarianceProvider::getGyroCovariance</definition>
+        <argsstring>() const override</argsstring>
+        <name>getGyroCovariance</name>
+        <qualifiedname>adi_imu::KalmanCovarianceProvider::getGyroCovariance</qualifiedname>
+        <reimplements refid="classadi__imu_1_1ImuCovarianceInterface_1acb6a8d1f4720979ea3d0a9d27ba720fb">getGyroCovariance</reimplements>
+        <briefdescription>
+<para>Get the angular velocity covariance matrix. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>3x3 covariance matrix row-major order. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/kalman_covariance_provider.h" line="85" column="20" bodyfile="src/kalman_covariance_provider.cpp" bodystart="149" bodyend="152"/>
+      </memberdef>
+      <memberdef kind="function" id="classadi__imu_1_1KalmanCovarianceProvider_1a22f569200ac35bb5ea7dde02eaa283b1" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void adi_imu::KalmanCovarianceProvider::reset</definition>
+        <argsstring>() override</argsstring>
+        <name>reset</name>
+        <qualifiedname>adi_imu::KalmanCovarianceProvider::reset</qualifiedname>
+        <reimplements refid="classadi__imu_1_1ImuCovarianceInterface_1ad97804c3f9796f1d57019cced43679df">reset</reimplements>
+        <briefdescription>
+<para>Reset the covariance extimator to initial state. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/kalman_covariance_provider.h" line="86" column="8" bodyfile="src/kalman_covariance_provider.cpp" bodystart="43" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="function" id="classadi__imu_1_1KalmanCovarianceProvider_1a72b1a87c9306f671030d0949f7d00bcd" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>double</type>
+        <definition>double adi_imu::KalmanCovarianceProvider::getCalibrationProgress</definition>
+        <argsstring>() const override</argsstring>
+        <name>getCalibrationProgress</name>
+        <qualifiedname>adi_imu::KalmanCovarianceProvider::getCalibrationProgress</qualifiedname>
+        <reimplements refid="classadi__imu_1_1ImuCovarianceInterface_1a06e908d31a427fb4e7320b746c92e91b">getCalibrationProgress</reimplements>
+        <briefdescription>
+<para>Get the current calibration progress (0.0 to 1.0). </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Progress ratio, 1.0 when calibration is complete. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/kalman_covariance_provider.h" line="87" column="10" bodyfile="src/kalman_covariance_provider.cpp" bodystart="128" bodyend="134"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classadi__imu_1_1KalmanCovarianceProvider_1a3e4f873eddf699feeee5a6843e957e5b" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void adi_imu::KalmanCovarianceProvider::updateAxisFilter</definition>
+        <argsstring>(AxisFilter &amp;filter, double sample)</argsstring>
+        <name>updateAxisFilter</name>
+        <qualifiedname>adi_imu::KalmanCovarianceProvider::updateAxisFilter</qualifiedname>
+        <param>
+          <type><ref refid="structadi__imu_1_1KalmanCovarianceProvider_1_1AxisFilter" kindref="compound">AxisFilter</ref> &amp;</type>
+          <declname>filter</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>sample</declname>
+        </param>
+        <briefdescription>
+<para>Update a single axis filter with a new sample. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>filter</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The axis filter to update </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>sample</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The new measurement </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/kalman_covariance_provider.h" line="107" column="8" bodyfile="src/kalman_covariance_provider.cpp" bodystart="62" bodyend="103"/>
+      </memberdef>
+      <memberdef kind="function" id="classadi__imu_1_1KalmanCovarianceProvider_1ae813ee5dda346a8bb4b8ef35df733b00" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>CovarianceMatrix</type>
+        <definition>CovarianceMatrix adi_imu::KalmanCovarianceProvider::buildCovarianceMatrix</definition>
+        <argsstring>(double var_x, double var_y, double var_z) const</argsstring>
+        <name>buildCovarianceMatrix</name>
+        <qualifiedname>adi_imu::KalmanCovarianceProvider::buildCovarianceMatrix</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>var_x</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>var_y</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>var_z</declname>
+        </param>
+        <briefdescription>
+<para>Build diagonal covariance matrix from axis variances. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>var_x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Variance for x-axis </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>var_y</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Variance for y-axis </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>var_z</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Variance for z-axis </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>3x3 diagonal covariance matrix </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/kalman_covariance_provider.h" line="116" column="20" bodyfile="src/kalman_covariance_provider.cpp" bodystart="136" bodyend="142"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Kalman filter-based covariance estimator for IMU data. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>This provider uses a scalar Kalman filter for each axis to estimate the measurement variance. The approach treats variance as a slowly-varying state and uses squared residuals from the running mean as noisy measurements of the true variance.</para>
+<para>State model: variance_k = variance_{k-1} + w_k, where w_k ~ N(0, Q) Measurement model: z_k = variance_k + v_k, where v_k ~ N(0, R) True variance measurement: y_k = (sample - mean)^2</para>
+<para>The filter provides adaptive, smoothed variance estimates that respond to changes in sensor noise characteristics while filtering out spurious variations.</para>
+<para>Parameters:<itemizedlist>
+<listitem><para>process_noise_q: How fast the variance can change (larger = more adaptive)</para>
+</listitem><listitem><para>measurement_noise_r: How noisy our variance observations are</para>
+</listitem><listitem><para>initial_variance: Starting estimate for variance</para>
+</listitem><listitem><para>warmup_samples: Samples needed before estimates are considered valid</para>
+</listitem><listitem><para>min_variance: Minimum variance floor to prevent numerical issues </para>
+</listitem></itemizedlist>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>adi_imu::ImuCovarianceInterface</label>
+        <link refid="classadi__imu_1_1ImuCovarianceInterface"/>
+      </node>
+      <node id="1">
+        <label>adi_imu::KalmanCovarianceProvider</label>
+        <link refid="classadi__imu_1_1KalmanCovarianceProvider"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>adi_imu::ImuCovarianceInterface</label>
+        <link refid="classadi__imu_1_1ImuCovarianceInterface"/>
+      </node>
+      <node id="1">
+        <label>adi_imu::KalmanCovarianceProvider</label>
+        <link refid="classadi__imu_1_1KalmanCovarianceProvider"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>m_motion_detector</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>m_accel_x</edgelabel>
+          <edgelabel>m_accel_y</edgelabel>
+          <edgelabel>m_accel_z</edgelabel>
+          <edgelabel>m_gyro_x</edgelabel>
+          <edgelabel>m_gyro_y</edgelabel>
+          <edgelabel>m_gyro_z</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>adi_imu::KalmanCovarianceProvider::AxisFilter</label>
+        <link refid="structadi__imu_1_1KalmanCovarianceProvider_1_1AxisFilter"/>
+      </node>
+      <node id="3">
+        <label>adi_imu::MotionDetector</label>
+        <link refid="classadi__imu_1_1MotionDetector"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/adi_imu/kalman_covariance_provider.h" line="54" column="1" bodyfile="include/adi_imu/kalman_covariance_provider.h" bodystart="55" bodyend="141"/>
+    <listofallmembers>
+      <member refid="classadi__imu_1_1KalmanCovarianceProvider_1a974795db7be684ccd6de826d4de560f8" prot="public" virt="virtual"><scope>adi_imu::KalmanCovarianceProvider</scope><name>addSample</name></member>
+      <member refid="classadi__imu_1_1KalmanCovarianceProvider_1ae813ee5dda346a8bb4b8ef35df733b00" prot="private" virt="non-virtual"><scope>adi_imu::KalmanCovarianceProvider</scope><name>buildCovarianceMatrix</name></member>
+      <member refid="classadi__imu_1_1KalmanCovarianceProvider_1ad3135b6c54eeb0c693d063f213efe857" prot="public" virt="non-virtual"><scope>adi_imu::KalmanCovarianceProvider</scope><name>DEFAULT_INITIAL_VARIANCE</name></member>
+      <member refid="classadi__imu_1_1KalmanCovarianceProvider_1ae2331505fd61e29ed22c574b9c51912d" prot="public" virt="non-virtual"><scope>adi_imu::KalmanCovarianceProvider</scope><name>DEFAULT_MEASUREMENT_NOISE_R</name></member>
+      <member refid="classadi__imu_1_1KalmanCovarianceProvider_1a6c2ef1c8f6f2e74e33570d1770dece0f" prot="public" virt="non-virtual"><scope>adi_imu::KalmanCovarianceProvider</scope><name>DEFAULT_MIN_VARIANCE</name></member>
+      <member refid="classadi__imu_1_1KalmanCovarianceProvider_1add00b78deac1fadfb66986d9e996162c" prot="public" virt="non-virtual"><scope>adi_imu::KalmanCovarianceProvider</scope><name>DEFAULT_PROCESS_NOISE_Q</name></member>
+      <member refid="classadi__imu_1_1KalmanCovarianceProvider_1ad0a9376a88979314ac2b6294b6c3631d" prot="public" virt="non-virtual"><scope>adi_imu::KalmanCovarianceProvider</scope><name>DEFAULT_WARMUP_SAMPLES</name></member>
+      <member refid="classadi__imu_1_1KalmanCovarianceProvider_1a1794940e4a919f3cde65581907e48cca" prot="public" virt="virtual"><scope>adi_imu::KalmanCovarianceProvider</scope><name>getAccelCovariance</name></member>
+      <member refid="classadi__imu_1_1KalmanCovarianceProvider_1a72b1a87c9306f671030d0949f7d00bcd" prot="public" virt="virtual"><scope>adi_imu::KalmanCovarianceProvider</scope><name>getCalibrationProgress</name></member>
+      <member refid="classadi__imu_1_1KalmanCovarianceProvider_1ad3c36e84893270ad5c38b6ef61472d8f" prot="public" virt="virtual"><scope>adi_imu::KalmanCovarianceProvider</scope><name>getGyroCovariance</name></member>
+      <member refid="classadi__imu_1_1ImuCovarianceInterface_1a850023b9161f664a74e54702d9bc4170" prot="public" virt="non-virtual"><scope>adi_imu::KalmanCovarianceProvider</scope><name>ImuCovarianceInterface</name></member>
+      <member refid="classadi__imu_1_1ImuCovarianceInterface_1a278f17e65cfd182db16dc36a988aa4ee" prot="public" virt="non-virtual"><scope>adi_imu::KalmanCovarianceProvider</scope><name>ImuCovarianceInterface</name></member>
+      <member refid="classadi__imu_1_1KalmanCovarianceProvider_1ad962f9275d06965c89e2d6a8a93ab937" prot="public" virt="virtual"><scope>adi_imu::KalmanCovarianceProvider</scope><name>isReady</name></member>
+      <member refid="classadi__imu_1_1KalmanCovarianceProvider_1a0be55a6318fd2062db0940b8d49c8c83" prot="public" virt="non-virtual"><scope>adi_imu::KalmanCovarianceProvider</scope><name>KalmanCovarianceProvider</name></member>
+      <member refid="classadi__imu_1_1KalmanCovarianceProvider_1a174648d38e22e9ec5f9aecba4ae2ef21" prot="private" virt="non-virtual"><scope>adi_imu::KalmanCovarianceProvider</scope><name>m_accel_x</name></member>
+      <member refid="classadi__imu_1_1KalmanCovarianceProvider_1afe88b9a2489a06b2d998fc890f22b94e" prot="private" virt="non-virtual"><scope>adi_imu::KalmanCovarianceProvider</scope><name>m_accel_y</name></member>
+      <member refid="classadi__imu_1_1KalmanCovarianceProvider_1a3d4814188a0fbf1d04fc1a1148e329d7" prot="private" virt="non-virtual"><scope>adi_imu::KalmanCovarianceProvider</scope><name>m_accel_z</name></member>
+      <member refid="classadi__imu_1_1KalmanCovarianceProvider_1a4be282f6e31bbdda598f77f9d352754e" prot="private" virt="non-virtual"><scope>adi_imu::KalmanCovarianceProvider</scope><name>m_gyro_x</name></member>
+      <member refid="classadi__imu_1_1KalmanCovarianceProvider_1a18b5a9683bbb6a7a0d23968224b81652" prot="private" virt="non-virtual"><scope>adi_imu::KalmanCovarianceProvider</scope><name>m_gyro_y</name></member>
+      <member refid="classadi__imu_1_1KalmanCovarianceProvider_1ac3e806e9a11a07ee8c5a411d7a93a523" prot="private" virt="non-virtual"><scope>adi_imu::KalmanCovarianceProvider</scope><name>m_gyro_z</name></member>
+      <member refid="classadi__imu_1_1KalmanCovarianceProvider_1a503179aed259d3f17bbbf45852aad5ea" prot="private" virt="non-virtual"><scope>adi_imu::KalmanCovarianceProvider</scope><name>m_initial_variance</name></member>
+      <member refid="classadi__imu_1_1KalmanCovarianceProvider_1a6766e57e72499f79f151889557aaf1f9" prot="private" virt="non-virtual"><scope>adi_imu::KalmanCovarianceProvider</scope><name>m_measurement_noise_r</name></member>
+      <member refid="classadi__imu_1_1KalmanCovarianceProvider_1a3ff77272233fe58f7b733a6c8b0874e5" prot="private" virt="non-virtual"><scope>adi_imu::KalmanCovarianceProvider</scope><name>m_min_variance</name></member>
+      <member refid="classadi__imu_1_1KalmanCovarianceProvider_1a036ffab207923831e79249f5525c8e52" prot="private" virt="non-virtual"><scope>adi_imu::KalmanCovarianceProvider</scope><name>m_motion_detector</name></member>
+      <member refid="classadi__imu_1_1KalmanCovarianceProvider_1a03e095be3427f330fa88eae90efb8915" prot="private" virt="non-virtual"><scope>adi_imu::KalmanCovarianceProvider</scope><name>m_process_noise_q</name></member>
+      <member refid="classadi__imu_1_1KalmanCovarianceProvider_1a999bb306bce528646e2861c5698006f3" prot="private" virt="non-virtual"><scope>adi_imu::KalmanCovarianceProvider</scope><name>m_sample_count</name></member>
+      <member refid="classadi__imu_1_1KalmanCovarianceProvider_1a4497df4ad9b708b43b6faf7f5847359b" prot="private" virt="non-virtual"><scope>adi_imu::KalmanCovarianceProvider</scope><name>m_warmup_samples</name></member>
+      <member refid="classadi__imu_1_1KalmanCovarianceProvider_1af3cf8c82cce2a8a5c2bb523030882926" prot="private" virt="non-virtual"><scope>adi_imu::KalmanCovarianceProvider</scope><name>MEAN_ALPHA</name></member>
+      <member refid="classadi__imu_1_1ImuCovarianceInterface_1a7b5c6ffb0977318c3749b70d7dcd258b" prot="public" virt="non-virtual"><scope>adi_imu::KalmanCovarianceProvider</scope><name>operator=</name></member>
+      <member refid="classadi__imu_1_1KalmanCovarianceProvider_1a22f569200ac35bb5ea7dde02eaa283b1" prot="public" virt="virtual"><scope>adi_imu::KalmanCovarianceProvider</scope><name>reset</name></member>
+      <member refid="classadi__imu_1_1KalmanCovarianceProvider_1a3e4f873eddf699feeee5a6843e957e5b" prot="private" virt="non-virtual"><scope>adi_imu::KalmanCovarianceProvider</scope><name>updateAxisFilter</name></member>
+      <member refid="classadi__imu_1_1ImuCovarianceInterface_1aa1546bd17d8127e2e8e3d675815ed1ab" prot="public" virt="virtual"><scope>adi_imu::KalmanCovarianceProvider</scope><name>~ImuCovarianceInterface</name></member>
+      <member refid="classadi__imu_1_1KalmanCovarianceProvider_1a6d8a0967df3840bcbaddaa3643eec6f6" prot="public" virt="non-virtual"><scope>adi_imu::KalmanCovarianceProvider</scope><name>~KalmanCovarianceProvider</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

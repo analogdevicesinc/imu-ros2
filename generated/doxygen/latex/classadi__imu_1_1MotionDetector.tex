@@ -1,0 +1,142 @@
+\doxysection{adi\+\_\+imu\+::Motion\+Detector Class Reference}
+\hypertarget{classadi__imu_1_1MotionDetector}{}\label{classadi__imu_1_1MotionDetector}\index{adi\_imu::MotionDetector@{adi\_imu::MotionDetector}}
+
+
+Detects whether the IMU is stationary based on sensor readings.  
+
+
+
+
+{\ttfamily \#include $<$motion\+\_\+detector.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classadi__imu_1_1MotionDetector_a46422d3aa268d7e611f5ca1327d46e2e}{Motion\+Detector}} (double gyro\+\_\+threshold=DEFAULT\+\_\+\+GYRO\+\_\+\+THRESHOLD, double accel\+\_\+threshold=DEFAULT\+\_\+\+ACCEL\+\_\+\+THRESHOLD)
+\begin{DoxyCompactList}\small\item\em Construct motion detector with configurable thresholds. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classadi__imu_1_1MotionDetector_a3e27c17508e48553d83254c219ded69e}{is\+Stationary}} (const Vec3 \&accel, const Vec3 \&gyro) const
+\begin{DoxyCompactList}\small\item\em Check if the sensor is stationary based on current readings. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classadi__imu_1_1MotionDetector_a6265dfecb8ed3bc1789f49e7bafd6e67}{set\+Gyro\+Threshold}} (double threshold)
+\begin{DoxyCompactList}\small\item\em Set the gyroscope threshold for stationarity. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classadi__imu_1_1MotionDetector_a83f0c6469d33a627238ba075bf9a00d8}{set\+Accel\+Threshold}} (double threshold)
+\begin{DoxyCompactList}\small\item\em Set the accelerometer threshold for stationarity. \end{DoxyCompactList}\item 
+\Hypertarget{classadi__imu_1_1MotionDetector_a8f3d7e6da2f30d5c5b254c0a26fe7845}\label{classadi__imu_1_1MotionDetector_a8f3d7e6da2f30d5c5b254c0a26fe7845} 
+double {\bfseries get\+Gyro\+Threshold} () const
+\begin{DoxyCompactList}\small\item\em Get current gyroscope threshold. \end{DoxyCompactList}\item 
+\Hypertarget{classadi__imu_1_1MotionDetector_ac44c58da1b93d1471f43349ecd3aa1ae}\label{classadi__imu_1_1MotionDetector_ac44c58da1b93d1471f43349ecd3aa1ae} 
+double {\bfseries get\+Accel\+Threshold} () const
+\begin{DoxyCompactList}\small\item\em Get current accelerometer threshold. \end{DoxyCompactList}\item 
+\Hypertarget{classadi__imu_1_1MotionDetector_a84c04cfa16235bde44efd44bbbec6bc3}\label{classadi__imu_1_1MotionDetector_a84c04cfa16235bde44efd44bbbec6bc3} 
+void {\bfseries set\+Enabled} (bool enabled)
+\begin{DoxyCompactList}\small\item\em Enable or disable motion detection. When disabled, \doxylink{classadi__imu_1_1MotionDetector_a3e27c17508e48553d83254c219ded69e}{is\+Stationary()} always returns true. \end{DoxyCompactList}\item 
+\Hypertarget{classadi__imu_1_1MotionDetector_abf5ba1678b2e60f5ca3d52bd24fbf671}\label{classadi__imu_1_1MotionDetector_abf5ba1678b2e60f5ca3d52bd24fbf671} 
+bool {\bfseries is\+Enabled} () const
+\begin{DoxyCompactList}\small\item\em Check if motion detection is enabled. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classadi__imu_1_1MotionDetector_ac23a5d25c08c4eb1ed2124bcfa8eddab}\label{classadi__imu_1_1MotionDetector_ac23a5d25c08c4eb1ed2124bcfa8eddab} 
+static constexpr double {\bfseries DEFAULT\+\_\+\+GYRO\+\_\+\+THRESHOLD} = 0.\+05
+\item 
+\Hypertarget{classadi__imu_1_1MotionDetector_a79adcbc33f72833c0fa9a8fd7d7b3e2d}\label{classadi__imu_1_1MotionDetector_a79adcbc33f72833c0fa9a8fd7d7b3e2d} 
+static constexpr double {\bfseries DEFAULT\+\_\+\+ACCEL\+\_\+\+THRESHOLD} = 0.\+5
+\item 
+\Hypertarget{classadi__imu_1_1MotionDetector_a9b7444a14fb6277529664fe710f3f2cf}\label{classadi__imu_1_1MotionDetector_a9b7444a14fb6277529664fe710f3f2cf} 
+static constexpr double {\bfseries GRAVITY\+\_\+\+MAGNITUDE} = 9.\+81
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classadi__imu_1_1MotionDetector_a599df9dd58a57c90773768cd4fa052b3}\label{classadi__imu_1_1MotionDetector_a599df9dd58a57c90773768cd4fa052b3} 
+double {\bfseries m\+\_\+gyro\+\_\+threshold}
+\item 
+\Hypertarget{classadi__imu_1_1MotionDetector_a584f818f199f370ec09596770c7f66ca}\label{classadi__imu_1_1MotionDetector_a584f818f199f370ec09596770c7f66ca} 
+double {\bfseries m\+\_\+accel\+\_\+threshold}
+\item 
+\Hypertarget{classadi__imu_1_1MotionDetector_a25424ea47bde2096ec59e4990fd0359b}\label{classadi__imu_1_1MotionDetector_a25424ea47bde2096ec59e4990fd0359b} 
+bool {\bfseries m\+\_\+enabled}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Detects whether the IMU is stationary based on sensor readings. 
+
+Uses simple thresholding on gyroscope magnitude and accelerometer deviation from gravity to determine stationarity. This allows covariance estimators to only update during stationary periods, avoiding motion-\/induced variance inflation. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classadi__imu_1_1MotionDetector_a46422d3aa268d7e611f5ca1327d46e2e}\label{classadi__imu_1_1MotionDetector_a46422d3aa268d7e611f5ca1327d46e2e} 
+\index{adi\_imu::MotionDetector@{adi\_imu::MotionDetector}!MotionDetector@{MotionDetector}}
+\index{MotionDetector@{MotionDetector}!adi\_imu::MotionDetector@{adi\_imu::MotionDetector}}
+\doxysubsubsection{\texorpdfstring{MotionDetector()}{MotionDetector()}}
+{\footnotesize\ttfamily adi\+\_\+imu\+::\+Motion\+Detector\+::\+Motion\+Detector (\begin{DoxyParamCaption}\item[{double}]{gyro\+\_\+threshold = {\ttfamily DEFAULT\+\_\+GYRO\+\_\+THRESHOLD},  }\item[{double}]{accel\+\_\+threshold = {\ttfamily DEFAULT\+\_\+ACCEL\+\_\+THRESHOLD} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Construct motion detector with configurable thresholds. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em gyro\+\_\+threshold} & Max gyro magnitude to consider stationary (rad/s) \\
+\hline
+{\em accel\+\_\+threshold} & Max accel deviation from gravity (m/s\texorpdfstring{$^\wedge$}{\string^}2) \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classadi__imu_1_1MotionDetector_a3e27c17508e48553d83254c219ded69e}\label{classadi__imu_1_1MotionDetector_a3e27c17508e48553d83254c219ded69e} 
+\index{adi\_imu::MotionDetector@{adi\_imu::MotionDetector}!isStationary@{isStationary}}
+\index{isStationary@{isStationary}!adi\_imu::MotionDetector@{adi\_imu::MotionDetector}}
+\doxysubsubsection{\texorpdfstring{isStationary()}{isStationary()}}
+{\footnotesize\ttfamily bool adi\+\_\+imu\+::\+Motion\+Detector\+::is\+Stationary (\begin{DoxyParamCaption}\item[{const Vec3 \&}]{accel,  }\item[{const Vec3 \&}]{gyro }\end{DoxyParamCaption}) const}
+
+
+
+Check if the sensor is stationary based on current readings. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em accel} & Linear acceleration sample (m/s\texorpdfstring{$^\wedge$}{\string^}2) \\
+\hline
+{\em gyro} & Angular velocity sample (rad/s) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if sensor appears stationary 
+\end{DoxyReturn}
+\Hypertarget{classadi__imu_1_1MotionDetector_a83f0c6469d33a627238ba075bf9a00d8}\label{classadi__imu_1_1MotionDetector_a83f0c6469d33a627238ba075bf9a00d8} 
+\index{adi\_imu::MotionDetector@{adi\_imu::MotionDetector}!setAccelThreshold@{setAccelThreshold}}
+\index{setAccelThreshold@{setAccelThreshold}!adi\_imu::MotionDetector@{adi\_imu::MotionDetector}}
+\doxysubsubsection{\texorpdfstring{setAccelThreshold()}{setAccelThreshold()}}
+{\footnotesize\ttfamily void adi\+\_\+imu\+::\+Motion\+Detector\+::set\+Accel\+Threshold (\begin{DoxyParamCaption}\item[{double}]{threshold }\end{DoxyParamCaption})}
+
+
+
+Set the accelerometer threshold for stationarity. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em threshold} & Max deviation from gravity (m/s\texorpdfstring{$^\wedge$}{\string^}2) \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classadi__imu_1_1MotionDetector_a6265dfecb8ed3bc1789f49e7bafd6e67}\label{classadi__imu_1_1MotionDetector_a6265dfecb8ed3bc1789f49e7bafd6e67} 
+\index{adi\_imu::MotionDetector@{adi\_imu::MotionDetector}!setGyroThreshold@{setGyroThreshold}}
+\index{setGyroThreshold@{setGyroThreshold}!adi\_imu::MotionDetector@{adi\_imu::MotionDetector}}
+\doxysubsubsection{\texorpdfstring{setGyroThreshold()}{setGyroThreshold()}}
+{\footnotesize\ttfamily void adi\+\_\+imu\+::\+Motion\+Detector\+::set\+Gyro\+Threshold (\begin{DoxyParamCaption}\item[{double}]{threshold }\end{DoxyParamCaption})}
+
+
+
+Set the gyroscope threshold for stationarity. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em threshold} & Max angular velocity magnitude (rad/s) \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/adi\+\_\+imu/motion\+\_\+detector.\+h\item 
+src/motion\+\_\+detector.\+cpp\end{DoxyCompactItemize}

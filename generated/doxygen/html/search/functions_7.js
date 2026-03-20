@@ -1,22 +1,8 @@
 var searchData=
 [
-  ['iiowrapper_0',['IIOWrapper',['../classadi__imu_1_1IIOWrapper.html#ab5131a6020614c13c22814a1ccc6c662',1,'adi_imu::IIOWrapper']]],
-  ['imucontrolparameters_1',['ImuControlParameters',['../classadi__imu_1_1ImuControlParameters.html#a61a05aada69aa51ef4eef9f7d1fa0d84',1,'adi_imu::ImuControlParameters']]],
-  ['imudataprovider_2',['ImuDataProvider',['../classadi__imu_1_1ImuDataProvider.html#ab59782fa5f2c5ac4abd22b1942310d6f',1,'adi_imu::ImuDataProvider']]],
-  ['imudataproviderinterface_3',['ImuDataProviderInterface',['../classadi__imu_1_1ImuDataProviderInterface.html#a6ff58f5752a6f6bcf3d2f5272e0daa7c',1,'adi_imu::ImuDataProviderInterface']]],
-  ['imudiagdataprovider_4',['ImuDiagDataProvider',['../classadi__imu_1_1ImuDiagDataProvider.html#a52c913e911ebb3c696b4d4ed50480ecc',1,'adi_imu::ImuDiagDataProvider']]],
-  ['imudiagdataproviderinterface_5',['ImuDiagDataProviderInterface',['../classadi__imu_1_1ImuDiagDataProviderInterface.html#a02ffe604bc2876129d87da90580e7503',1,'adi_imu::ImuDiagDataProviderInterface']]],
-  ['imudiagrospublisher_6',['ImuDiagRosPublisher',['../classadi__imu_1_1ImuDiagRosPublisher.html#adcc4cff1a692c803570f45eeee603bb2',1,'adi_imu::ImuDiagRosPublisher']]],
-  ['imudiagrospublisherinterface_7',['ImuDiagRosPublisherInterface',['../classadi__imu_1_1ImuDiagRosPublisherInterface.html#a04b193e20a1b33f37ea0eed12353010e',1,'adi_imu::ImuDiagRosPublisherInterface']]],
-  ['imufullmeasureddataprovider_8',['ImuFullMeasuredDataProvider',['../classadi__imu_1_1ImuFullMeasuredDataProvider.html#a83979542ecbb766bdd9d11261dd96f20',1,'adi_imu::ImuFullMeasuredDataProvider']]],
-  ['imufullmeasureddataproviderinterface_9',['ImuFullMeasuredDataProviderInterface',['../classadi__imu_1_1ImuFullMeasuredDataProviderInterface.html#a031d07fcfdca4462d4cb790b1bbc9ec8',1,'adi_imu::ImuFullMeasuredDataProviderInterface']]],
-  ['imufullmeasureddatarospublisher_10',['ImuFullMeasuredDataRosPublisher',['../classadi__imu_1_1ImuFullMeasuredDataRosPublisher.html#aa603c0e2326496037367ee33a5e451c1',1,'adi_imu::ImuFullMeasuredDataRosPublisher']]],
-  ['imufullmeasureddatarospublisherinterface_11',['ImuFullMeasuredDataRosPublisherInterface',['../classadi__imu_1_1ImuFullMeasuredDataRosPublisherInterface.html#afa113ed2f8e2550bbd75b665418eb4c5',1,'adi_imu::ImuFullMeasuredDataRosPublisherInterface']]],
-  ['imuidentificationdataprovider_12',['ImuIdentificationDataProvider',['../classadi__imu_1_1ImuIdentificationDataProvider.html#acdfb512789a4a762be6cb48fc2f9d808',1,'adi_imu::ImuIdentificationDataProvider']]],
-  ['imuidentificationdataproviderinterface_13',['ImuIdentificationDataProviderInterface',['../classadi__imu_1_1ImuIdentificationDataProviderInterface.html#a56aab30deeeaa98b75cc7b3a47b9a5c7',1,'adi_imu::ImuIdentificationDataProviderInterface']]],
-  ['imuidentificationrospublisher_14',['ImuIdentificationRosPublisher',['../classadi__imu_1_1ImuIdentificationRosPublisher.html#a22406ab0959b7802b09647aac3594af1',1,'adi_imu::ImuIdentificationRosPublisher']]],
-  ['imuidentificationrospublisherinterface_15',['ImuIdentificationRosPublisherInterface',['../classadi__imu_1_1ImuIdentificationRosPublisherInterface.html#ac7630f8094ef600488f22448da251204',1,'adi_imu::ImuIdentificationRosPublisherInterface']]],
-  ['imurospublisher_16',['ImuRosPublisher',['../classadi__imu_1_1ImuRosPublisher.html#a85c7d89db9a57fe00cdcf32670994246',1,'adi_imu::ImuRosPublisher']]],
-  ['imurospublisherinterface_17',['ImuRosPublisherInterface',['../classadi__imu_1_1ImuRosPublisherInterface.html#a20d877a91d58a0573247891ade1f8b4d',1,'adi_imu::ImuRosPublisherInterface']]],
-  ['internal_5fsensor_5fbandwidth_18',['internal_sensor_bandwidth',['../classadi__imu_1_1IIOWrapper.html#a1bb53bfa102423d7f9797534212ecfe9',1,'adi_imu::IIOWrapper']]]
+  ['handlecommands_0',['handleCommands',['../classadi__imu_1_1ImuControlParameters.html#af0d5a5e38d972582fef16a8d9aa71f49',1,'adi_imu::ImuControlParameters']]],
+  ['handlecontrolparams_1',['handleControlParams',['../classadi__imu_1_1ImuControlParameters.html#a005b70e576aedfa6456e3fbdcbbcaaed',1,'adi_imu::ImuControlParameters']]],
+  ['handledoubleparamchange_2',['handleDoubleParamChange',['../classadi__imu_1_1ImuControlParameters.html#a7a9e4c3e1caa28aa60cdeffc13c56626',1,'adi_imu::ImuControlParameters']]],
+  ['handleint32paramchange_3',['handleInt32ParamChange',['../classadi__imu_1_1ImuControlParameters.html#a1dcfed93e7d94cc4bd8c04a1a65a3d3a',1,'adi_imu::ImuControlParameters']]],
+  ['handleuint32paramchange_4',['handleUint32ParamChange',['../classadi__imu_1_1ImuControlParameters.html#ad0c01f8a86dc400b6f339b67241ebf97',1,'adi_imu::ImuControlParameters']]]
 ];

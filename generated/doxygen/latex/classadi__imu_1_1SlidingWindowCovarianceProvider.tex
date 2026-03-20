@@ -1,0 +1,247 @@
+\doxysection{adi\+\_\+imu\+::Sliding\+Window\+Covariance\+Provider Class Reference}
+\hypertarget{classadi__imu_1_1SlidingWindowCovarianceProvider}{}\label{classadi__imu_1_1SlidingWindowCovarianceProvider}\index{adi\_imu::SlidingWindowCovarianceProvider@{adi\_imu::SlidingWindowCovarianceProvider}}
+
+
+Computes covariances over a sliding window of recent samples.  
+
+
+
+
+{\ttfamily \#include $<$sliding\+\_\+window\+\_\+covariance\+\_\+provider.\+h$>$}
+
+
+
+Inheritance diagram for adi\+\_\+imu\+::Sliding\+Window\+Covariance\+Provider\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=268pt]{classadi__imu_1_1SlidingWindowCovarianceProvider__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for adi\+\_\+imu\+::Sliding\+Window\+Covariance\+Provider\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classadi__imu_1_1SlidingWindowCovarianceProvider__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classadi__imu_1_1SlidingWindowCovarianceProvider_ac27964da919d4dceb8822675b83c4408}{Sliding\+Window\+Covariance\+Provider}} (size\+\_\+t window\+\_\+size=\mbox{\hyperlink{classadi__imu_1_1SlidingWindowCovarianceProvider_a6b082d2e86d6e5f0d54b81a6c5a3fe7d}{DEFAULT\+\_\+\+WINDOW\+\_\+\+SIZE}}, size\+\_\+t min\+\_\+samples=DEFAULT\+\_\+\+MIN\+\_\+\+SAMPLES, double min\+\_\+variance=DEFAULT\+\_\+\+MIN\+\_\+\+VARIANCE, \mbox{\hyperlink{classadi__imu_1_1MotionDetector}{Motion\+Detector}} motion\+\_\+detector=\mbox{\hyperlink{classadi__imu_1_1MotionDetector}{Motion\+Detector}}())
+\begin{DoxyCompactList}\small\item\em Construct sliding window covariance estimator. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classadi__imu_1_1SlidingWindowCovarianceProvider_a4d64ae41a05aca575a840e71d910efda}{add\+Sample}} (const Vec3 \&accel, const Vec3 \&gyro) override
+\begin{DoxyCompactList}\small\item\em Process a new IMU sample for covariance estimation. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classadi__imu_1_1SlidingWindowCovarianceProvider_ae45e7f0eb472fc84fc1b206f2909035d}{is\+Ready}} () const override
+\begin{DoxyCompactList}\small\item\em Check if covariance estimation is ready (calibration complete). \end{DoxyCompactList}\item 
+Covariance\+Matrix \mbox{\hyperlink{classadi__imu_1_1SlidingWindowCovarianceProvider_a06992407f4ff5996a9345c797a9033ce}{get\+Accel\+Covariance}} () const override
+\begin{DoxyCompactList}\small\item\em Get the linear acceleration covariance matrix. \end{DoxyCompactList}\item 
+Covariance\+Matrix \mbox{\hyperlink{classadi__imu_1_1SlidingWindowCovarianceProvider_acfa82309681eadad10668b03356e1cdc}{get\+Gyro\+Covariance}} () const override
+\begin{DoxyCompactList}\small\item\em Get the angular velocity covariance matrix. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classadi__imu_1_1SlidingWindowCovarianceProvider_a8b4b3501760655f772f13dd9549f0c51}{reset}} () override
+\begin{DoxyCompactList}\small\item\em Reset the covariance extimator to initial state. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classadi__imu_1_1SlidingWindowCovarianceProvider_ac99f884edde4070a6f82902a9c9970f8}{get\+Calibration\+Progress}} () const override
+\begin{DoxyCompactList}\small\item\em Get the current calibration progress (0.\+0 to 1.\+0). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classadi__imu_1_1ImuCovarianceInterface}{adi\+\_\+imu\+::\+Imu\+Covariance\+Interface}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Imu\+Covariance\+Interface} (const \mbox{\hyperlink{classadi__imu_1_1ImuCovarianceInterface}{Imu\+Covariance\+Interface}} \&)=delete
+\item 
+\mbox{\hyperlink{classadi__imu_1_1ImuCovarianceInterface}{Imu\+Covariance\+Interface}} \& {\bfseries operator=} (const \mbox{\hyperlink{classadi__imu_1_1ImuCovarianceInterface}{Imu\+Covariance\+Interface}} \&)=delete
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classadi__imu_1_1SlidingWindowCovarianceProvider_a6b082d2e86d6e5f0d54b81a6c5a3fe7d}\label{classadi__imu_1_1SlidingWindowCovarianceProvider_a6b082d2e86d6e5f0d54b81a6c5a3fe7d} 
+static constexpr size\+\_\+t {\bfseries DEFAULT\+\_\+\+WINDOW\+\_\+\+SIZE} = 500
+\begin{DoxyCompactList}\small\item\em Default Sliding-\/window covariance algorithm parameters. \end{DoxyCompactList}\item 
+\Hypertarget{classadi__imu_1_1SlidingWindowCovarianceProvider_a072bb120ac080bca53ca20eb8ba018f3}\label{classadi__imu_1_1SlidingWindowCovarianceProvider_a072bb120ac080bca53ca20eb8ba018f3} 
+static constexpr size\+\_\+t {\bfseries DEFAULT\+\_\+\+MIN\+\_\+\+SAMPLES} = 100
+\item 
+\Hypertarget{classadi__imu_1_1SlidingWindowCovarianceProvider_a1ab83c12f560b9675a91312009e1ed3b}\label{classadi__imu_1_1SlidingWindowCovarianceProvider_a1ab83c12f560b9675a91312009e1ed3b} 
+static constexpr double {\bfseries DEFAULT\+\_\+\+MIN\+\_\+\+VARIANCE} = 1e-\/9
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classadi__imu_1_1SlidingWindowCovarianceProvider_a465d4d3e9530c8528babd131a9f7a355}\label{classadi__imu_1_1SlidingWindowCovarianceProvider_a465d4d3e9530c8528babd131a9f7a355} 
+void {\bfseries recompute\+Covariance} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classadi__imu_1_1SlidingWindowCovarianceProvider_a2add3c93906f49ffce167f42e7b76a2a}\label{classadi__imu_1_1SlidingWindowCovarianceProvider_a2add3c93906f49ffce167f42e7b76a2a} 
+size\+\_\+t {\bfseries m\+\_\+window\+\_\+size}
+\item 
+\Hypertarget{classadi__imu_1_1SlidingWindowCovarianceProvider_a7217d9bbd13e3c42918409a6d97e231f}\label{classadi__imu_1_1SlidingWindowCovarianceProvider_a7217d9bbd13e3c42918409a6d97e231f} 
+size\+\_\+t {\bfseries m\+\_\+min\+\_\+samples}
+\item 
+\Hypertarget{classadi__imu_1_1SlidingWindowCovarianceProvider_a183222af5db82f68e65f0f5eaed2faa1}\label{classadi__imu_1_1SlidingWindowCovarianceProvider_a183222af5db82f68e65f0f5eaed2faa1} 
+double {\bfseries m\+\_\+min\+\_\+variance}
+\item 
+\Hypertarget{classadi__imu_1_1SlidingWindowCovarianceProvider_a1e1d6282d0241d8b6875c0847d7b6ec3}\label{classadi__imu_1_1SlidingWindowCovarianceProvider_a1e1d6282d0241d8b6875c0847d7b6ec3} 
+\mbox{\hyperlink{classadi__imu_1_1MotionDetector}{Motion\+Detector}} {\bfseries m\+\_\+motion\+\_\+detector}
+\item 
+\Hypertarget{classadi__imu_1_1SlidingWindowCovarianceProvider_ad071f3e4be2737e3c5f842ce8e02479d}\label{classadi__imu_1_1SlidingWindowCovarianceProvider_ad071f3e4be2737e3c5f842ce8e02479d} 
+std\+::deque$<$ Vec3 $>$ {\bfseries m\+\_\+accel\+\_\+samples}
+\item 
+\Hypertarget{classadi__imu_1_1SlidingWindowCovarianceProvider_abdc8c0db78e3fa61e8eeff6b63dd19ad}\label{classadi__imu_1_1SlidingWindowCovarianceProvider_abdc8c0db78e3fa61e8eeff6b63dd19ad} 
+std\+::deque$<$ Vec3 $>$ {\bfseries m\+\_\+gyro\+\_\+samples}
+\item 
+\Hypertarget{classadi__imu_1_1SlidingWindowCovarianceProvider_a83e5dcec05cd8b71253e07caf8faf65d}\label{classadi__imu_1_1SlidingWindowCovarianceProvider_a83e5dcec05cd8b71253e07caf8faf65d} 
+Covariance\+Matrix {\bfseries m\+\_\+accel\+\_\+covariance}
+\item 
+\Hypertarget{classadi__imu_1_1SlidingWindowCovarianceProvider_a4a6714315719a67dd585af181d957f4c}\label{classadi__imu_1_1SlidingWindowCovarianceProvider_a4a6714315719a67dd585af181d957f4c} 
+Covariance\+Matrix {\bfseries m\+\_\+gyro\+\_\+covariance}
+\item 
+\Hypertarget{classadi__imu_1_1SlidingWindowCovarianceProvider_a44bc6e7cc9ed9e61e78360ff8d7eb3f8}\label{classadi__imu_1_1SlidingWindowCovarianceProvider_a44bc6e7cc9ed9e61e78360ff8d7eb3f8} 
+size\+\_\+t {\bfseries m\+\_\+update\+\_\+interval}
+\item 
+\Hypertarget{classadi__imu_1_1SlidingWindowCovarianceProvider_a849b83ef8acd465aa7e0145938b178a1}\label{classadi__imu_1_1SlidingWindowCovarianceProvider_a849b83ef8acd465aa7e0145938b178a1} 
+size\+\_\+t {\bfseries m\+\_\+samples\+\_\+since\+\_\+update}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Computes covariances over a sliding window of recent samples. 
+
+This provider maintains a fixed-\/size window of samples and continuously updates the covariance estimate. Useful for adaptive covariance that responds to changing sensor noise characteristics. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classadi__imu_1_1SlidingWindowCovarianceProvider_ac27964da919d4dceb8822675b83c4408}\label{classadi__imu_1_1SlidingWindowCovarianceProvider_ac27964da919d4dceb8822675b83c4408} 
+\index{adi\_imu::SlidingWindowCovarianceProvider@{adi\_imu::SlidingWindowCovarianceProvider}!SlidingWindowCovarianceProvider@{SlidingWindowCovarianceProvider}}
+\index{SlidingWindowCovarianceProvider@{SlidingWindowCovarianceProvider}!adi\_imu::SlidingWindowCovarianceProvider@{adi\_imu::SlidingWindowCovarianceProvider}}
+\doxysubsubsection{\texorpdfstring{SlidingWindowCovarianceProvider()}{SlidingWindowCovarianceProvider()}}
+{\footnotesize\ttfamily adi\+\_\+imu\+::\+Sliding\+Window\+Covariance\+Provider\+::\+Sliding\+Window\+Covariance\+Provider (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{window\+\_\+size = {\ttfamily \mbox{\hyperlink{classadi__imu_1_1SlidingWindowCovarianceProvider_a6b082d2e86d6e5f0d54b81a6c5a3fe7d}{DEFAULT\+\_\+\+WINDOW\+\_\+\+SIZE}}},  }\item[{size\+\_\+t}]{min\+\_\+samples = {\ttfamily DEFAULT\+\_\+MIN\+\_\+SAMPLES},  }\item[{double}]{min\+\_\+variance = {\ttfamily DEFAULT\+\_\+MIN\+\_\+VARIANCE},  }\item[{\mbox{\hyperlink{classadi__imu_1_1MotionDetector}{Motion\+Detector}}}]{motion\+\_\+detector = {\ttfamily \mbox{\hyperlink{classadi__imu_1_1MotionDetector}{Motion\+Detector}}()} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Construct sliding window covariance estimator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window\+\_\+size} & Number of samples to keep in window. \\
+\hline
+{\em min\+\_\+samples} & Minimum samples before covariance is valid. \\
+\hline
+{\em min\+\_\+variance} & Minimum variance floor. \\
+\hline
+{\em motion\+\_\+detector} & Optional motion detector for stationary filtering. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classadi__imu_1_1SlidingWindowCovarianceProvider_a4d64ae41a05aca575a840e71d910efda}\label{classadi__imu_1_1SlidingWindowCovarianceProvider_a4d64ae41a05aca575a840e71d910efda} 
+\index{adi\_imu::SlidingWindowCovarianceProvider@{adi\_imu::SlidingWindowCovarianceProvider}!addSample@{addSample}}
+\index{addSample@{addSample}!adi\_imu::SlidingWindowCovarianceProvider@{adi\_imu::SlidingWindowCovarianceProvider}}
+\doxysubsubsection{\texorpdfstring{addSample()}{addSample()}}
+{\footnotesize\ttfamily void adi\+\_\+imu\+::\+Sliding\+Window\+Covariance\+Provider\+::add\+Sample (\begin{DoxyParamCaption}\item[{const Vec3 \&}]{accel,  }\item[{const Vec3 \&}]{gyro }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Process a new IMU sample for covariance estimation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em accel} & Linear acceleration sample (m/s\texorpdfstring{$^\wedge$}{\string^}2) \\
+\hline
+{\em gyro} & Angular velocity sample (rad/s) \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classadi__imu_1_1ImuCovarianceInterface_a49a5d97536e4e924ef63b1c0469d192a}{adi\+\_\+imu\+::\+Imu\+Covariance\+Interface}}.
+
+\Hypertarget{classadi__imu_1_1SlidingWindowCovarianceProvider_a06992407f4ff5996a9345c797a9033ce}\label{classadi__imu_1_1SlidingWindowCovarianceProvider_a06992407f4ff5996a9345c797a9033ce} 
+\index{adi\_imu::SlidingWindowCovarianceProvider@{adi\_imu::SlidingWindowCovarianceProvider}!getAccelCovariance@{getAccelCovariance}}
+\index{getAccelCovariance@{getAccelCovariance}!adi\_imu::SlidingWindowCovarianceProvider@{adi\_imu::SlidingWindowCovarianceProvider}}
+\doxysubsubsection{\texorpdfstring{getAccelCovariance()}{getAccelCovariance()}}
+{\footnotesize\ttfamily Covariance\+Matrix adi\+\_\+imu\+::\+Sliding\+Window\+Covariance\+Provider\+::get\+Accel\+Covariance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Get the linear acceleration covariance matrix. 
+
+\begin{DoxyReturn}{Returns}
+3x3 covariance matrix row-\/major order. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classadi__imu_1_1ImuCovarianceInterface_a1303843896fc4a4dd8f03d494bd7cf70}{adi\+\_\+imu\+::\+Imu\+Covariance\+Interface}}.
+
+\Hypertarget{classadi__imu_1_1SlidingWindowCovarianceProvider_ac99f884edde4070a6f82902a9c9970f8}\label{classadi__imu_1_1SlidingWindowCovarianceProvider_ac99f884edde4070a6f82902a9c9970f8} 
+\index{adi\_imu::SlidingWindowCovarianceProvider@{adi\_imu::SlidingWindowCovarianceProvider}!getCalibrationProgress@{getCalibrationProgress}}
+\index{getCalibrationProgress@{getCalibrationProgress}!adi\_imu::SlidingWindowCovarianceProvider@{adi\_imu::SlidingWindowCovarianceProvider}}
+\doxysubsubsection{\texorpdfstring{getCalibrationProgress()}{getCalibrationProgress()}}
+{\footnotesize\ttfamily double adi\+\_\+imu\+::\+Sliding\+Window\+Covariance\+Provider\+::get\+Calibration\+Progress (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Get the current calibration progress (0.\+0 to 1.\+0). 
+
+\begin{DoxyReturn}{Returns}
+Progress ratio, 1.\+0 when calibration is complete. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classadi__imu_1_1ImuCovarianceInterface_a06e908d31a427fb4e7320b746c92e91b}{adi\+\_\+imu\+::\+Imu\+Covariance\+Interface}}.
+
+\Hypertarget{classadi__imu_1_1SlidingWindowCovarianceProvider_acfa82309681eadad10668b03356e1cdc}\label{classadi__imu_1_1SlidingWindowCovarianceProvider_acfa82309681eadad10668b03356e1cdc} 
+\index{adi\_imu::SlidingWindowCovarianceProvider@{adi\_imu::SlidingWindowCovarianceProvider}!getGyroCovariance@{getGyroCovariance}}
+\index{getGyroCovariance@{getGyroCovariance}!adi\_imu::SlidingWindowCovarianceProvider@{adi\_imu::SlidingWindowCovarianceProvider}}
+\doxysubsubsection{\texorpdfstring{getGyroCovariance()}{getGyroCovariance()}}
+{\footnotesize\ttfamily Covariance\+Matrix adi\+\_\+imu\+::\+Sliding\+Window\+Covariance\+Provider\+::get\+Gyro\+Covariance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Get the angular velocity covariance matrix. 
+
+\begin{DoxyReturn}{Returns}
+3x3 covariance matrix row-\/major order. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classadi__imu_1_1ImuCovarianceInterface_acb6a8d1f4720979ea3d0a9d27ba720fb}{adi\+\_\+imu\+::\+Imu\+Covariance\+Interface}}.
+
+\Hypertarget{classadi__imu_1_1SlidingWindowCovarianceProvider_ae45e7f0eb472fc84fc1b206f2909035d}\label{classadi__imu_1_1SlidingWindowCovarianceProvider_ae45e7f0eb472fc84fc1b206f2909035d} 
+\index{adi\_imu::SlidingWindowCovarianceProvider@{adi\_imu::SlidingWindowCovarianceProvider}!isReady@{isReady}}
+\index{isReady@{isReady}!adi\_imu::SlidingWindowCovarianceProvider@{adi\_imu::SlidingWindowCovarianceProvider}}
+\doxysubsubsection{\texorpdfstring{isReady()}{isReady()}}
+{\footnotesize\ttfamily bool adi\+\_\+imu\+::\+Sliding\+Window\+Covariance\+Provider\+::is\+Ready (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Check if covariance estimation is ready (calibration complete). 
+
+\begin{DoxyReturn}{Returns}
+true if covariance values are valid and ready to use. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classadi__imu_1_1ImuCovarianceInterface_a0c90bb03aecbb0dd8b287eb72997349e}{adi\+\_\+imu\+::\+Imu\+Covariance\+Interface}}.
+
+\Hypertarget{classadi__imu_1_1SlidingWindowCovarianceProvider_a8b4b3501760655f772f13dd9549f0c51}\label{classadi__imu_1_1SlidingWindowCovarianceProvider_a8b4b3501760655f772f13dd9549f0c51} 
+\index{adi\_imu::SlidingWindowCovarianceProvider@{adi\_imu::SlidingWindowCovarianceProvider}!reset@{reset}}
+\index{reset@{reset}!adi\_imu::SlidingWindowCovarianceProvider@{adi\_imu::SlidingWindowCovarianceProvider}}
+\doxysubsubsection{\texorpdfstring{reset()}{reset()}}
+{\footnotesize\ttfamily void adi\+\_\+imu\+::\+Sliding\+Window\+Covariance\+Provider\+::reset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reset the covariance extimator to initial state. 
+
+
+
+Implements \mbox{\hyperlink{classadi__imu_1_1ImuCovarianceInterface_ad97804c3f9796f1d57019cced43679df}{adi\+\_\+imu\+::\+Imu\+Covariance\+Interface}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/adi\+\_\+imu/sliding\+\_\+window\+\_\+covariance\+\_\+provider.\+h\item 
+src/sliding\+\_\+window\+\_\+covariance\+\_\+provider.\+cpp\end{DoxyCompactItemize}

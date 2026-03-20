@@ -1,0 +1,5 @@
+<map id="adi_imu::SlidingWindowCovarianceProvider" name="adi_imu::SlidingWindowCovarianceProvider">
+<area shape="rect" id="Node000001" title="Computes covariances over a sliding window of recent samples." alt="" coords="5,79,256,119"/>
+<area shape="rect" id="Node000002" href="$classadi__imu_1_1ImuCovarianceInterface.html" title="Interface for IMU covariance computation strategies." alt="" coords="11,5,250,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="133,44,133,79,128,79,128,44"/>
+</map>

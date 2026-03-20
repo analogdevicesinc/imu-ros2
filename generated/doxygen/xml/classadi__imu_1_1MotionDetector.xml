@@ -1,0 +1,331 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classadi__imu_1_1MotionDetector" kind="class" language="C++" prot="public">
+    <compoundname>adi_imu::MotionDetector</compoundname>
+    <includes refid="motion__detector_8h" local="no">motion_detector.h</includes>
+    <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classadi__imu_1_1MotionDetector_1ac23a5d25c08c4eb1ed2124bcfa8eddab" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr double</type>
+        <definition>constexpr double adi_imu::MotionDetector::DEFAULT_GYRO_THRESHOLD</definition>
+        <argsstring></argsstring>
+        <name>DEFAULT_GYRO_THRESHOLD</name>
+        <qualifiedname>adi_imu::MotionDetector::DEFAULT_GYRO_THRESHOLD</qualifiedname>
+        <initializer>= 0.05</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/motion_detector.h" line="38" column="34" bodyfile="include/adi_imu/motion_detector.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classadi__imu_1_1MotionDetector_1a79adcbc33f72833c0fa9a8fd7d7b3e2d" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr double</type>
+        <definition>constexpr double adi_imu::MotionDetector::DEFAULT_ACCEL_THRESHOLD</definition>
+        <argsstring></argsstring>
+        <name>DEFAULT_ACCEL_THRESHOLD</name>
+        <qualifiedname>adi_imu::MotionDetector::DEFAULT_ACCEL_THRESHOLD</qualifiedname>
+        <initializer>= 0.5</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/motion_detector.h" line="40" column="34" bodyfile="include/adi_imu/motion_detector.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classadi__imu_1_1MotionDetector_1a9b7444a14fb6277529664fe710f3f2cf" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr double</type>
+        <definition>constexpr double adi_imu::MotionDetector::GRAVITY_MAGNITUDE</definition>
+        <argsstring></argsstring>
+        <name>GRAVITY_MAGNITUDE</name>
+        <qualifiedname>adi_imu::MotionDetector::GRAVITY_MAGNITUDE</qualifiedname>
+        <initializer>= 9.81</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/motion_detector.h" line="42" column="34" bodyfile="include/adi_imu/motion_detector.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classadi__imu_1_1MotionDetector_1a599df9dd58a57c90773768cd4fa052b3" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double adi_imu::MotionDetector::m_gyro_threshold</definition>
+        <argsstring></argsstring>
+        <name>m_gyro_threshold</name>
+        <qualifiedname>adi_imu::MotionDetector::m_gyro_threshold</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/motion_detector.h" line="95" column="10" bodyfile="include/adi_imu/motion_detector.h" bodystart="95" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classadi__imu_1_1MotionDetector_1a584f818f199f370ec09596770c7f66ca" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double adi_imu::MotionDetector::m_accel_threshold</definition>
+        <argsstring></argsstring>
+        <name>m_accel_threshold</name>
+        <qualifiedname>adi_imu::MotionDetector::m_accel_threshold</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/motion_detector.h" line="96" column="10" bodyfile="include/adi_imu/motion_detector.h" bodystart="96" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classadi__imu_1_1MotionDetector_1a25424ea47bde2096ec59e4990fd0359b" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool adi_imu::MotionDetector::m_enabled</definition>
+        <argsstring></argsstring>
+        <name>m_enabled</name>
+        <qualifiedname>adi_imu::MotionDetector::m_enabled</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/motion_detector.h" line="97" column="8" bodyfile="include/adi_imu/motion_detector.h" bodystart="97" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classadi__imu_1_1MotionDetector_1a46422d3aa268d7e611f5ca1327d46e2e" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>adi_imu::MotionDetector::MotionDetector</definition>
+        <argsstring>(double gyro_threshold=DEFAULT_GYRO_THRESHOLD, double accel_threshold=DEFAULT_ACCEL_THRESHOLD)</argsstring>
+        <name>MotionDetector</name>
+        <qualifiedname>adi_imu::MotionDetector::MotionDetector</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>gyro_threshold</declname>
+          <defval>DEFAULT_GYRO_THRESHOLD</defval>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>accel_threshold</declname>
+          <defval>DEFAULT_ACCEL_THRESHOLD</defval>
+        </param>
+        <briefdescription>
+<para>Construct motion detector with configurable thresholds. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>gyro_threshold</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Max gyro magnitude to consider stationary (rad/s) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>accel_threshold</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Max accel deviation from gravity (m/s^2) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/motion_detector.h" line="49" column="12" bodyfile="src/motion_detector.cpp" bodystart="22" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="function" id="classadi__imu_1_1MotionDetector_1a3e27c17508e48553d83254c219ded69e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool adi_imu::MotionDetector::isStationary</definition>
+        <argsstring>(const Vec3 &amp;accel, const Vec3 &amp;gyro) const</argsstring>
+        <name>isStationary</name>
+        <qualifiedname>adi_imu::MotionDetector::isStationary</qualifiedname>
+        <param>
+          <type>const Vec3 &amp;</type>
+          <declname>accel</declname>
+        </param>
+        <param>
+          <type>const Vec3 &amp;</type>
+          <declname>gyro</declname>
+        </param>
+        <briefdescription>
+<para>Check if the sensor is stationary based on current readings. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>accel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Linear acceleration sample (m/s^2) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>gyro</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Angular velocity sample (rad/s) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if sensor appears stationary </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/motion_detector.h" line="59" column="8" bodyfile="src/motion_detector.cpp" bodystart="27" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="function" id="classadi__imu_1_1MotionDetector_1a6265dfecb8ed3bc1789f49e7bafd6e67" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void adi_imu::MotionDetector::setGyroThreshold</definition>
+        <argsstring>(double threshold)</argsstring>
+        <name>setGyroThreshold</name>
+        <qualifiedname>adi_imu::MotionDetector::setGyroThreshold</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>threshold</declname>
+        </param>
+        <briefdescription>
+<para>Set the gyroscope threshold for stationarity. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>threshold</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Max angular velocity magnitude (rad/s) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/motion_detector.h" line="65" column="8" bodyfile="src/motion_detector.cpp" bodystart="51" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="function" id="classadi__imu_1_1MotionDetector_1a83f0c6469d33a627238ba075bf9a00d8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void adi_imu::MotionDetector::setAccelThreshold</definition>
+        <argsstring>(double threshold)</argsstring>
+        <name>setAccelThreshold</name>
+        <qualifiedname>adi_imu::MotionDetector::setAccelThreshold</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>threshold</declname>
+        </param>
+        <briefdescription>
+<para>Set the accelerometer threshold for stationarity. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>threshold</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Max deviation from gravity (m/s^2) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/motion_detector.h" line="71" column="8" bodyfile="src/motion_detector.cpp" bodystart="53" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="classadi__imu_1_1MotionDetector_1a8f3d7e6da2f30d5c5b254c0a26fe7845" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double adi_imu::MotionDetector::getGyroThreshold</definition>
+        <argsstring>() const</argsstring>
+        <name>getGyroThreshold</name>
+        <qualifiedname>adi_imu::MotionDetector::getGyroThreshold</qualifiedname>
+        <briefdescription>
+<para>Get current gyroscope threshold. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/motion_detector.h" line="76" column="10" bodyfile="include/adi_imu/motion_detector.h" bodystart="76" bodyend="76"/>
+      </memberdef>
+      <memberdef kind="function" id="classadi__imu_1_1MotionDetector_1ac44c58da1b93d1471f43349ecd3aa1ae" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double adi_imu::MotionDetector::getAccelThreshold</definition>
+        <argsstring>() const</argsstring>
+        <name>getAccelThreshold</name>
+        <qualifiedname>adi_imu::MotionDetector::getAccelThreshold</qualifiedname>
+        <briefdescription>
+<para>Get current accelerometer threshold. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/motion_detector.h" line="81" column="10" bodyfile="include/adi_imu/motion_detector.h" bodystart="81" bodyend="81"/>
+      </memberdef>
+      <memberdef kind="function" id="classadi__imu_1_1MotionDetector_1a84c04cfa16235bde44efd44bbbec6bc3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void adi_imu::MotionDetector::setEnabled</definition>
+        <argsstring>(bool enabled)</argsstring>
+        <name>setEnabled</name>
+        <qualifiedname>adi_imu::MotionDetector::setEnabled</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>enabled</declname>
+        </param>
+        <briefdescription>
+<para>Enable or disable motion detection. When disabled, <ref refid="classadi__imu_1_1MotionDetector_1a3e27c17508e48553d83254c219ded69e" kindref="member">isStationary()</ref> always returns true. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/motion_detector.h" line="87" column="8" bodyfile="include/adi_imu/motion_detector.h" bodystart="87" bodyend="87"/>
+      </memberdef>
+      <memberdef kind="function" id="classadi__imu_1_1MotionDetector_1abf5ba1678b2e60f5ca3d52bd24fbf671" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool adi_imu::MotionDetector::isEnabled</definition>
+        <argsstring>() const</argsstring>
+        <name>isEnabled</name>
+        <qualifiedname>adi_imu::MotionDetector::isEnabled</qualifiedname>
+        <briefdescription>
+<para>Check if motion detection is enabled. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/motion_detector.h" line="92" column="8" bodyfile="include/adi_imu/motion_detector.h" bodystart="92" bodyend="92"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Detects whether the IMU is stationary based on sensor readings. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Uses simple thresholding on gyroscope magnitude and accelerometer deviation from gravity to determine stationarity. This allows covariance estimators to only update during stationary periods, avoiding motion-induced variance inflation. </para>
+    </detaileddescription>
+    <location file="include/adi_imu/motion_detector.h" line="33" column="1" bodyfile="include/adi_imu/motion_detector.h" bodystart="34" bodyend="98"/>
+    <listofallmembers>
+      <member refid="classadi__imu_1_1MotionDetector_1a79adcbc33f72833c0fa9a8fd7d7b3e2d" prot="public" virt="non-virtual"><scope>adi_imu::MotionDetector</scope><name>DEFAULT_ACCEL_THRESHOLD</name></member>
+      <member refid="classadi__imu_1_1MotionDetector_1ac23a5d25c08c4eb1ed2124bcfa8eddab" prot="public" virt="non-virtual"><scope>adi_imu::MotionDetector</scope><name>DEFAULT_GYRO_THRESHOLD</name></member>
+      <member refid="classadi__imu_1_1MotionDetector_1ac44c58da1b93d1471f43349ecd3aa1ae" prot="public" virt="non-virtual"><scope>adi_imu::MotionDetector</scope><name>getAccelThreshold</name></member>
+      <member refid="classadi__imu_1_1MotionDetector_1a8f3d7e6da2f30d5c5b254c0a26fe7845" prot="public" virt="non-virtual"><scope>adi_imu::MotionDetector</scope><name>getGyroThreshold</name></member>
+      <member refid="classadi__imu_1_1MotionDetector_1a9b7444a14fb6277529664fe710f3f2cf" prot="public" virt="non-virtual"><scope>adi_imu::MotionDetector</scope><name>GRAVITY_MAGNITUDE</name></member>
+      <member refid="classadi__imu_1_1MotionDetector_1abf5ba1678b2e60f5ca3d52bd24fbf671" prot="public" virt="non-virtual"><scope>adi_imu::MotionDetector</scope><name>isEnabled</name></member>
+      <member refid="classadi__imu_1_1MotionDetector_1a3e27c17508e48553d83254c219ded69e" prot="public" virt="non-virtual"><scope>adi_imu::MotionDetector</scope><name>isStationary</name></member>
+      <member refid="classadi__imu_1_1MotionDetector_1a584f818f199f370ec09596770c7f66ca" prot="private" virt="non-virtual"><scope>adi_imu::MotionDetector</scope><name>m_accel_threshold</name></member>
+      <member refid="classadi__imu_1_1MotionDetector_1a25424ea47bde2096ec59e4990fd0359b" prot="private" virt="non-virtual"><scope>adi_imu::MotionDetector</scope><name>m_enabled</name></member>
+      <member refid="classadi__imu_1_1MotionDetector_1a599df9dd58a57c90773768cd4fa052b3" prot="private" virt="non-virtual"><scope>adi_imu::MotionDetector</scope><name>m_gyro_threshold</name></member>
+      <member refid="classadi__imu_1_1MotionDetector_1a46422d3aa268d7e611f5ca1327d46e2e" prot="public" virt="non-virtual"><scope>adi_imu::MotionDetector</scope><name>MotionDetector</name></member>
+      <member refid="classadi__imu_1_1MotionDetector_1a83f0c6469d33a627238ba075bf9a00d8" prot="public" virt="non-virtual"><scope>adi_imu::MotionDetector</scope><name>setAccelThreshold</name></member>
+      <member refid="classadi__imu_1_1MotionDetector_1a84c04cfa16235bde44efd44bbbec6bc3" prot="public" virt="non-virtual"><scope>adi_imu::MotionDetector</scope><name>setEnabled</name></member>
+      <member refid="classadi__imu_1_1MotionDetector_1a6265dfecb8ed3bc1789f49e7bafd6e67" prot="public" virt="non-virtual"><scope>adi_imu::MotionDetector</scope><name>setGyroThreshold</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

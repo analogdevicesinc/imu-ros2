@@ -1,0 +1,230 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="kalman__covariance__provider_8cpp" kind="file" language="C++">
+    <compoundname>kalman_covariance_provider.cpp</compoundname>
+    <includes refid="kalman__covariance__provider_8h" local="yes">adi_imu/kalman_covariance_provider.h</includes>
+    <includes local="no">algorithm</includes>
+    <includes local="no">cmath</includes>
+    <includes local="no">utility</includes>
+    <incdepgraph>
+      <node id="4">
+        <label>adi_imu/imu_covariance_interface.h</label>
+        <link refid="imu__covariance__interface_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>adi_imu/kalman_covariance_provider.h</label>
+        <link refid="kalman__covariance__provider_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>adi_imu/motion_detector.h</label>
+        <link refid="motion__detector_8h_source"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>src/kalman_covariance_provider.cpp</label>
+        <link refid="kalman__covariance__provider_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>algorithm</label>
+      </node>
+      <node id="5">
+        <label>array</label>
+      </node>
+      <node id="8">
+        <label>cmath</label>
+      </node>
+      <node id="3">
+        <label>cstddef</label>
+      </node>
+      <node id="6">
+        <label>geometry_msgs/msg/vector3.hpp</label>
+      </node>
+      <node id="10">
+        <label>utility</label>
+      </node>
+    </incdepgraph>
+    <innernamespace refid="namespaceadi__imu">adi_imu</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*******************************************************************************</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/><sp/><sp/>@file<sp/><sp/><sp/>kalman_covariance_provider.cpp</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/><sp/><sp/>@brief<sp/><sp/>Implementation<sp/>of<sp/>Kalman<sp/>filter-based<sp/>covariance<sp/>estimation.</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*<sp/><sp/><sp/>@author<sp/>Tudor<sp/>Alinei</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*******************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Copyright<sp/>2026<sp/>Analog<sp/>Devices,<sp/>Inc.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Licensed<sp/>under<sp/>the<sp/>Apache<sp/>License,<sp/>Version<sp/>2.0<sp/>(the<sp/>&quot;License&quot;);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="comment">//<sp/>you<sp/>may<sp/>not<sp/>use<sp/>this<sp/>file<sp/>except<sp/>in<sp/>compliance<sp/>with<sp/>the<sp/>License.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="comment">//<sp/>You<sp/>may<sp/>obtain<sp/>a<sp/>copy<sp/>of<sp/>the<sp/>License<sp/>at</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>http://www.apache.org/licenses/LICENSE-2.0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Unless<sp/>required<sp/>by<sp/>applicable<sp/>law<sp/>or<sp/>agreed<sp/>to<sp/>in<sp/>writing,<sp/>software</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="comment">//<sp/>distributed<sp/>under<sp/>the<sp/>License<sp/>is<sp/>distributed<sp/>on<sp/>an<sp/>&quot;AS<sp/>IS&quot;<sp/>BASIS,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="comment">//<sp/>WITHOUT<sp/>WARRANTIES<sp/>OR<sp/>CONDITIONS<sp/>OF<sp/>ANY<sp/>KIND,<sp/>either<sp/>express<sp/>or<sp/>implied.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="comment">//<sp/>See<sp/>the<sp/>License<sp/>for<sp/>the<sp/>specific<sp/>language<sp/>governing<sp/>permissions<sp/>and</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="comment">//<sp/>limitations<sp/>under<sp/>the<sp/>License.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;adi_imu/kalman_covariance_provider.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;algorithm&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cmath&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;utility&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">adi_imu</highlight></codeline>
+<codeline lineno="27"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><ref refid="classadi__imu_1_1KalmanCovarianceProvider_1a0be55a6318fd2062db0940b8d49c8c83" kindref="member">KalmanCovarianceProvider::KalmanCovarianceProvider</ref>(</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>process_noise_q,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>measurement_noise_r,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>initial_variance,</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>warmup_samples,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>min_variance,<sp/>MotionDetector<sp/>motion_detector)</highlight></codeline>
+<codeline lineno="32"><highlight class="normal">:<sp/>m_process_noise_q(process_noise_q),</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/>m_measurement_noise_r(measurement_noise_r),</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/>m_initial_variance(initial_variance),</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/>m_min_variance(min_variance),</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/>m_motion_detector(std::move(motion_detector)),</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/>m_warmup_samples(warmup_samples),</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/>m_sample_count(0)</highlight></codeline>
+<codeline lineno="39"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/>reset();</highlight></codeline>
+<codeline lineno="41"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>KalmanCovarianceProvider::reset()</highlight></codeline>
+<codeline lineno="44"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/>m_sample_count<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Initialize<sp/>all<sp/>axis<sp/>filters</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>initFilter<sp/>=<sp/>[</highlight><highlight class="keyword">this</highlight><highlight class="normal">](AxisFilter<sp/>&amp;<sp/>f)<sp/>{</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/>f.mean<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>f.variance<sp/>=<sp/>m_initial_variance;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>f.error_covariance<sp/>=<sp/>m_initial_variance;<sp/><sp/></highlight><highlight class="comment">//<sp/>Initial<sp/>uncertainty<sp/>in<sp/>variance<sp/>estimate</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/>initFilter(m_accel_x);</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/>initFilter(m_accel_y);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/>initFilter(m_accel_z);</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/>initFilter(m_gyro_x);</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/>initFilter(m_gyro_y);</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/>initFilter(m_gyro_z);</highlight></codeline>
+<codeline lineno="60"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>KalmanCovarianceProvider::updateAxisFilter(AxisFilter<sp/>&amp;<sp/>filter,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>sample)</highlight></codeline>
+<codeline lineno="63"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Guard<sp/>against<sp/>NaN/Inf<sp/>inputs</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!std::isfinite(sample))<sp/>{</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Update<sp/>running<sp/>mean<sp/>using<sp/>exponential<sp/>moving<sp/>average</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>For<sp/>first<sp/>sample,<sp/>initialize<sp/>mean<sp/>directly</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(m_sample_count<sp/>==<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>filter.mean<sp/>=<sp/>sample;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/>filter.mean<sp/>=<sp/>(1.0<sp/>-<sp/>MEAN_ALPHA)<sp/>*<sp/>filter.mean<sp/>+<sp/>MEAN_ALPHA<sp/>*<sp/>sample;</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Compute<sp/>squared<sp/>residual<sp/>as<sp/>measurement<sp/>of<sp/>variance</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>residual<sp/>=<sp/>sample<sp/>-<sp/>filter.mean;</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>measurement<sp/>=<sp/>residual<sp/>*<sp/>residual;</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>===<sp/>Kalman<sp/>Filter<sp/>Update<sp/>===</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Prediction<sp/>step:</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>State<sp/>prediction:<sp/>variance_predicted<sp/>=<sp/>variance<sp/>(no<sp/>change<sp/>model)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Error<sp/>covariance<sp/>prediction:<sp/>P_predicted<sp/>=<sp/>P<sp/>+<sp/>Q</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>P_predicted<sp/>=<sp/>filter.error_covariance<sp/>+<sp/>m_process_noise_q;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Update<sp/>step:</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Kalman<sp/>gain:<sp/>K<sp/>=<sp/>P_predicted<sp/>/<sp/>(P_predicted<sp/>+<sp/>R)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>K<sp/>=<sp/>P_predicted<sp/>/<sp/>(P_predicted<sp/>+<sp/>m_measurement_noise_r);</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>State<sp/>update:<sp/>variance<sp/>=<sp/>variance<sp/>+<sp/>K<sp/>*<sp/>(measurement<sp/>-<sp/>variance)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/>filter.variance<sp/>=<sp/>filter.variance<sp/>+<sp/>K<sp/>*<sp/>(measurement<sp/>-<sp/>filter.variance);</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Error<sp/>covariance<sp/>update:<sp/>P<sp/>=<sp/>(1<sp/>-<sp/>K)<sp/>*<sp/>P_predicted<sp/>(is<sp/>equiv<sp/>to<sp/>the<sp/>bellow<sp/>form<sp/>=<sp/>Joseph<sp/>form<sp/>--more<sp/>stable--)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/>filter.error_covariance<sp/>=<sp/>(1.0<sp/>-<sp/>K)<sp/>*<sp/>P_predicted<sp/>*<sp/>(1.0<sp/>-<sp/>K)<sp/>+<sp/>K<sp/>*<sp/>m_measurement_noise_r<sp/>*<sp/>K;</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Enforce<sp/>minimum<sp/>variance<sp/>floor</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/>filter.variance<sp/>=<sp/>std::max(filter.variance,<sp/>m_min_variance);</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Ensure<sp/>error<sp/>covariance<sp/>stays<sp/>positive</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/>filter.error_covariance<sp/>=<sp/>std::max(filter.error_covariance,<sp/>m_min_variance);</highlight></codeline>
+<codeline lineno="103"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>KalmanCovarianceProvider::addSample(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Vec3<sp/>&amp;<sp/>accel,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Vec3<sp/>&amp;<sp/>gyro)</highlight></codeline>
+<codeline lineno="106"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Skip<sp/>non-stationary<sp/>samples<sp/>to<sp/>avoid<sp/>motion-induced<sp/>variance<sp/>inflation</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!m_motion_detector.isStationary(accel,<sp/>gyro))<sp/>{</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Update<sp/>each<sp/>axis<sp/>filter</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/>updateAxisFilter(m_accel_x,<sp/>accel.x);</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/>updateAxisFilter(m_accel_y,<sp/>accel.y);</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/>updateAxisFilter(m_accel_z,<sp/>accel.z);</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/>updateAxisFilter(m_gyro_x,<sp/>gyro.x);</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/>updateAxisFilter(m_gyro_y,<sp/>gyro.y);</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/>updateAxisFilter(m_gyro_z,<sp/>gyro.z);</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Increment<sp/>sample<sp/>count<sp/>(cap<sp/>to<sp/>prevent<sp/>overflow)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(m_sample_count<sp/>&lt;<sp/>m_warmup_samples)<sp/>{</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/>++m_sample_count;</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="124"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>KalmanCovarianceProvider::isReady()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_sample_count<sp/>&gt;=<sp/>m_warmup_samples;<sp/>}</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>KalmanCovarianceProvider::getCalibrationProgress()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="129"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(m_warmup_samples<sp/>==<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>1.0;</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>std::min(1.0,<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">double</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(m_sample_count)<sp/>/<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">double</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(m_warmup_samples));</highlight></codeline>
+<codeline lineno="134"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"></highlight></codeline>
+<codeline lineno="136"><highlight class="normal">CovarianceMatrix<sp/>KalmanCovarianceProvider::buildCovarianceMatrix(</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>var_x,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>var_y,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>var_z)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="138"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Build<sp/>diagonal<sp/>covariance<sp/>matrix<sp/>(assuming<sp/>independent<sp/>axes)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Layout:<sp/>[xx,<sp/>xy,<sp/>xz,<sp/>yx,<sp/>yy,<sp/>yz,<sp/>zx,<sp/>zy,<sp/>zz]</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>{var_x,<sp/>0.0,<sp/>0.0,<sp/>0.0,<sp/>var_y,<sp/>0.0,<sp/>0.0,<sp/>0.0,<sp/>var_z};</highlight></codeline>
+<codeline lineno="142"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"></highlight></codeline>
+<codeline lineno="144"><highlight class="normal">CovarianceMatrix<sp/>KalmanCovarianceProvider::getAccelCovariance()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="145"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>buildCovarianceMatrix(m_accel_x.variance,<sp/>m_accel_y.variance,<sp/>m_accel_z.variance);</highlight></codeline>
+<codeline lineno="147"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"></highlight></codeline>
+<codeline lineno="149"><highlight class="normal">CovarianceMatrix<sp/>KalmanCovarianceProvider::getGyroCovariance()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="150"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>buildCovarianceMatrix(m_gyro_x.variance,<sp/>m_gyro_y.variance,<sp/>m_gyro_z.variance);</highlight></codeline>
+<codeline lineno="152"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"></highlight></codeline>
+<codeline lineno="154"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>adi_imu</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="src/kalman_covariance_provider.cpp"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,5 @@
+<map id="adi_imu::KalmanCovarianceProvider" name="adi_imu::KalmanCovarianceProvider">
+<area shape="rect" id="Node000001" title="Kalman filter&#45;based covariance estimator for IMU data." alt="" coords="22,79,227,119"/>
+<area shape="rect" id="Node000002" href="$classadi__imu_1_1ImuCovarianceInterface.html" title="Interface for IMU covariance computation strategies." alt="" coords="5,5,244,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="127,44,127,79,122,79,122,44"/>
+</map>

@@ -1,0 +1,58 @@
+\doxysection{imu\+\_\+covariance\+\_\+interface.\+h}
+\hypertarget{imu__covariance__interface_8h_source}{}\label{imu__covariance__interface_8h_source}\index{include/adi\_imu/imu\_covariance\_interface.h@{include/adi\_imu/imu\_covariance\_interface.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ Copyright\ 2025\ Analog\ Devices,\ Inc.}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//\ Licensed\ under\ the\ Apache\ License,\ Version\ 2.0\ (the\ "{}License"{});}}
+\DoxyCodeLine{00004\ \textcolor{comment}{//\ you\ may\ not\ use\ this\ file\ except\ in\ compliance\ with\ the\ License.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{//\ You\ may\ obtain\ a\ copy\ of\ the\ License\ at}}
+\DoxyCodeLine{00006\ \textcolor{comment}{//}}
+\DoxyCodeLine{00007\ \textcolor{comment}{//\ \ \ \ \ http://www.apache.org/licenses/LICENSE-\/2.0}}
+\DoxyCodeLine{00008\ \textcolor{comment}{//}}
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ Unless\ required\ by\ applicable\ law\ or\ agreed\ to\ in\ writing,\ software}}
+\DoxyCodeLine{00010\ \textcolor{comment}{//\ distributed\ under\ the\ License\ is\ distributed\ on\ an\ "{}AS\ IS"{}\ BASIS,}}
+\DoxyCodeLine{00011\ \textcolor{comment}{//\ WITHOUT\ WARRANTIES\ OR\ CONDITIONS\ OF\ ANY\ KIND,\ either\ express\ or\ implied.}}
+\DoxyCodeLine{00012\ \textcolor{comment}{//\ See\ the\ License\ for\ the\ specific\ language\ governing\ permissions\ and}}
+\DoxyCodeLine{00013\ \textcolor{comment}{//\ limitations\ under\ the\ License.}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#ifndef\ ADI\_IMU\_\_IMU\_COVARIANCE\_INTERFACE\_H\_}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#define\ ADI\_IMU\_\_IMU\_COVARIANCE\_INTERFACE\_H\_}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <array>}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <geometry\_msgs/msg/vector3.hpp>}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{namespace\ }adi\_imu}
+\DoxyCodeLine{00022\ \{}
+\DoxyCodeLine{00027\ \textcolor{keyword}{using\ }CovarianceMatrix\ =\ std::array<double,\ 9>;}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00032\ \textcolor{keyword}{using\ }Vec3\ =\ geometry\_msgs::msg::Vector3;}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00041\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classadi__imu_1_1ImuCovarianceInterface}{ImuCovarianceInterface}}}
+\DoxyCodeLine{00042\ \{}
+\DoxyCodeLine{00043\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00044\ \ \ \mbox{\hyperlink{classadi__imu_1_1ImuCovarianceInterface}{ImuCovarianceInterface}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00045\ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classadi__imu_1_1ImuCovarianceInterface}{\string~ImuCovarianceInterface}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \textcolor{comment}{//\ Prevent\ copying}}
+\DoxyCodeLine{00048\ \ \ \mbox{\hyperlink{classadi__imu_1_1ImuCovarianceInterface}{ImuCovarianceInterface}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classadi__imu_1_1ImuCovarianceInterface}{ImuCovarianceInterface}}\ \&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00049\ \ \ \mbox{\hyperlink{classadi__imu_1_1ImuCovarianceInterface}{ImuCovarianceInterface}}\ \&\ operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{classadi__imu_1_1ImuCovarianceInterface}{ImuCovarianceInterface}}\ \&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00056\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classadi__imu_1_1ImuCovarianceInterface_a49a5d97536e4e924ef63b1c0469d192a}{addSample}}(\textcolor{keyword}{const}\ Vec3\ \&\ accel,\ \textcolor{keyword}{const}\ Vec3\ \&\ gyro)\ =\ 0;}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00062\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classadi__imu_1_1ImuCovarianceInterface_a0c90bb03aecbb0dd8b287eb72997349e}{isReady}}()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00068\ \ \ \textcolor{keyword}{virtual}\ CovarianceMatrix\ \mbox{\hyperlink{classadi__imu_1_1ImuCovarianceInterface_a1303843896fc4a4dd8f03d494bd7cf70}{getAccelCovariance}}()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00074\ \ \ \textcolor{keyword}{virtual}\ CovarianceMatrix\ \mbox{\hyperlink{classadi__imu_1_1ImuCovarianceInterface_acb6a8d1f4720979ea3d0a9d27ba720fb}{getGyroCovariance}}()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00079\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classadi__imu_1_1ImuCovarianceInterface_ad97804c3f9796f1d57019cced43679df}{reset}}()\ =\ 0;}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00085\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classadi__imu_1_1ImuCovarianceInterface_a06e908d31a427fb4e7320b746c92e91b}{getCalibrationProgress}}()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00086\ \};}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \}\ \ \textcolor{comment}{//\ namespace\ adi\_imu}}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ ADI\_IMU\_\_IMU\_COVARIANCE\_INTERFACE\_H\_}}
+
+\end{DoxyCode}

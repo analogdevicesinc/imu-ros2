@@ -94,6 +94,33 @@
     <member refid="classadi__imu_1_1ADISRegisterMap_1a4a3d03a7236386a75d3c37e24394a460" kind="function"><name>getDeviceID</name></member>
     <member refid="classadi__imu_1_1ADISRegisterMap_1a1d77d9f2e19dc23c9f1358baf8bc1bc0" kind="function"><name>log</name></member>
   </compound>
+  <compound refid="structadi__imu_1_1KalmanCovarianceProvider_1_1AxisFilter" kind="struct"><name>adi_imu::KalmanCovarianceProvider::AxisFilter</name>
+    <member refid="structadi__imu_1_1KalmanCovarianceProvider_1_1AxisFilter_1aaa09fdc2634071b206c79998eab5f523" kind="variable"><name>mean</name></member>
+    <member refid="structadi__imu_1_1KalmanCovarianceProvider_1_1AxisFilter_1abf0ac2f0fb9819d23917d1d22fb41197" kind="variable"><name>variance</name></member>
+    <member refid="structadi__imu_1_1KalmanCovarianceProvider_1_1AxisFilter_1abb31ac7b1ee29f2469ad6a8a33e5886a" kind="variable"><name>error_covariance</name></member>
+    <member refid="structadi__imu_1_1KalmanCovarianceProvider_1_1AxisFilter_1aee9153cca57a178a61e60665c6d2ef6b" kind="function"><name>AxisFilter</name></member>
+  </compound>
+  <compound refid="classadi__imu_1_1EwmaCovarianceProvider" kind="class"><name>adi_imu::EwmaCovarianceProvider</name>
+    <member refid="classadi__imu_1_1EwmaCovarianceProvider_1acce2729783e1c11b896900aba49c4cc0" kind="variable"><name>DEFAULT_ALPHA</name></member>
+    <member refid="classadi__imu_1_1EwmaCovarianceProvider_1acbb979ca05dd4e176ef537b2b48c1b5b" kind="variable"><name>DEFAULT_WARMUP_SAMPLES</name></member>
+    <member refid="classadi__imu_1_1EwmaCovarianceProvider_1a044a73d16e06da634576b02e46d7a4bc" kind="variable"><name>DEFAULT_MIN_VARIANCE</name></member>
+    <member refid="classadi__imu_1_1EwmaCovarianceProvider_1aeb4aeac399ed83127588fe63c31c63b8" kind="variable"><name>m_alpha</name></member>
+    <member refid="classadi__imu_1_1EwmaCovarianceProvider_1a6322d06d38ca32691b32deb486f2b890" kind="variable"><name>m_warmup_samples</name></member>
+    <member refid="classadi__imu_1_1EwmaCovarianceProvider_1a39f2085b869905bb866e57eeb277af6a" kind="variable"><name>m_sample_count</name></member>
+    <member refid="classadi__imu_1_1EwmaCovarianceProvider_1adee39a390f2a2ff3b257b5251e727317" kind="variable"><name>m_min_variance</name></member>
+    <member refid="classadi__imu_1_1EwmaCovarianceProvider_1ae50ff875e3e5c7e53931e9422d624b2c" kind="variable"><name>m_motion_detector</name></member>
+    <member refid="classadi__imu_1_1EwmaCovarianceProvider_1ab20cba26145595ae45246ecca3031dbc" kind="variable"><name>m_accel_mean</name></member>
+    <member refid="classadi__imu_1_1EwmaCovarianceProvider_1a59e77d6755a172e456890269a4adb0eb" kind="variable"><name>m_accel_var</name></member>
+    <member refid="classadi__imu_1_1EwmaCovarianceProvider_1af49ffcd6468015dc45f07e401ea19b36" kind="variable"><name>m_gyro_mean</name></member>
+    <member refid="classadi__imu_1_1EwmaCovarianceProvider_1abbf4bd65b8463821a8c86d93cbafea72" kind="variable"><name>m_gyro_var</name></member>
+    <member refid="classadi__imu_1_1EwmaCovarianceProvider_1a0573e13bb3f9d209838fa6ebf6d8e779" kind="function"><name>EwmaCovarianceProvider</name></member>
+    <member refid="classadi__imu_1_1EwmaCovarianceProvider_1afc7bff70c89176d2879bb9cc10734eb6" kind="function"><name>addSample</name></member>
+    <member refid="classadi__imu_1_1EwmaCovarianceProvider_1ab6eb9d97d41eb28b08c8cc0c75af93e5" kind="function"><name>isReady</name></member>
+    <member refid="classadi__imu_1_1EwmaCovarianceProvider_1afdfecf9f0066634a5ca7647b86843ed5" kind="function"><name>getAccelCovariance</name></member>
+    <member refid="classadi__imu_1_1EwmaCovarianceProvider_1aa48d50b67558ff4a7e09f53d37d358f4" kind="function"><name>getGyroCovariance</name></member>
+    <member refid="classadi__imu_1_1EwmaCovarianceProvider_1aebb0727b904d5922adc6e0ece4bbe91a" kind="function"><name>reset</name></member>
+    <member refid="classadi__imu_1_1EwmaCovarianceProvider_1a0f0a9fb3e29e498a4799a34a2f16d0e4" kind="function"><name>getCalibrationProgress</name></member>
+  </compound>
   <compound refid="classadi__imu_1_1IIOWrapper" kind="class"><name>adi_imu::IIOWrapper</name>
     <member refid="classadi__imu_1_1IIOWrapper_1a443f81cd816e3bbf887db2f26c419c97" kind="variable"><name>m_iio_context</name></member>
     <member refid="classadi__imu_1_1IIOWrapper_1aa0f6c1e70210dd5cc976e6a8f59ce94f" kind="variable"><name>m_dev</name></member>
@@ -351,19 +378,39 @@
     <member refid="classadi__imu_1_1ImuControlParameters_1ad0c01f8a86dc400b6f339b67241ebf97" kind="function"><name>handleUint32ParamChange</name></member>
     <member refid="classadi__imu_1_1ImuControlParameters_1af0d5a5e38d972582fef16a8d9aa71f49" kind="function"><name>handleCommands</name></member>
   </compound>
+  <compound refid="classadi__imu_1_1ImuCovarianceFactory" kind="class"><name>adi_imu::ImuCovarianceFactory</name>
+    <member refid="classadi__imu_1_1ImuCovarianceFactory_1a05684adb63dd9d00da3e11f3072d4bed" kind="function"><name>createFromParameters</name></member>
+    <member refid="classadi__imu_1_1ImuCovarianceFactory_1aca468e3f58caf8a94320e60e8a2dce46" kind="function"><name>create</name></member>
+    <member refid="classadi__imu_1_1ImuCovarianceFactory_1a25522945cbdc51f0616abab4598581ae" kind="function"><name>parseAlgorithm</name></member>
+  </compound>
+  <compound refid="classadi__imu_1_1ImuCovarianceInterface" kind="class"><name>adi_imu::ImuCovarianceInterface</name>
+    <member refid="classadi__imu_1_1ImuCovarianceInterface_1a850023b9161f664a74e54702d9bc4170" kind="function"><name>ImuCovarianceInterface</name></member>
+    <member refid="classadi__imu_1_1ImuCovarianceInterface_1aa1546bd17d8127e2e8e3d675815ed1ab" kind="function"><name>~ImuCovarianceInterface</name></member>
+    <member refid="classadi__imu_1_1ImuCovarianceInterface_1a278f17e65cfd182db16dc36a988aa4ee" kind="function"><name>ImuCovarianceInterface</name></member>
+    <member refid="classadi__imu_1_1ImuCovarianceInterface_1a7b5c6ffb0977318c3749b70d7dcd258b" kind="function"><name>operator=</name></member>
+    <member refid="classadi__imu_1_1ImuCovarianceInterface_1a49a5d97536e4e924ef63b1c0469d192a" kind="function"><name>addSample</name></member>
+    <member refid="classadi__imu_1_1ImuCovarianceInterface_1a0c90bb03aecbb0dd8b287eb72997349e" kind="function"><name>isReady</name></member>
+    <member refid="classadi__imu_1_1ImuCovarianceInterface_1a1303843896fc4a4dd8f03d494bd7cf70" kind="function"><name>getAccelCovariance</name></member>
+    <member refid="classadi__imu_1_1ImuCovarianceInterface_1acb6a8d1f4720979ea3d0a9d27ba720fb" kind="function"><name>getGyroCovariance</name></member>
+    <member refid="classadi__imu_1_1ImuCovarianceInterface_1ad97804c3f9796f1d57019cced43679df" kind="function"><name>reset</name></member>
+    <member refid="classadi__imu_1_1ImuCovarianceInterface_1a06e908d31a427fb4e7320b746c92e91b" kind="function"><name>getCalibrationProgress</name></member>
+  </compound>
   <compound refid="classadi__imu_1_1ImuDataProvider" kind="class"><name>adi_imu::ImuDataProvider</name>
     <member refid="classadi__imu_1_1ImuDataProvider_1acebed0a2e0d46dfb9bdf830faa6342ba" kind="variable"><name>m_iio_wrapper</name></member>
     <member refid="classadi__imu_1_1ImuDataProvider_1a0513c5e03aa3180703c38ebdc38e7d9e" kind="variable"><name>m_frame_id</name></member>
+    <member refid="classadi__imu_1_1ImuDataProvider_1a07aac7879c17886cf5292ff4012df908" kind="variable"><name>m_covariance_provider</name></member>
     <member refid="classadi__imu_1_1ImuDataProvider_1ab59782fa5f2c5ac4abd22b1942310d6f" kind="function"><name>ImuDataProvider</name></member>
     <member refid="classadi__imu_1_1ImuDataProvider_1a55a80d1e5b5f27e9f521e6f52010d4a5" kind="function"><name>~ImuDataProvider</name></member>
     <member refid="classadi__imu_1_1ImuDataProvider_1a69fe1e1d7a99ad8e2b936244d5dd83c9" kind="function"><name>setFrameId</name></member>
     <member refid="classadi__imu_1_1ImuDataProvider_1a97d76266acb17424247e5b6bf2a32c7a" kind="function"><name>getData</name></member>
+    <member refid="classadi__imu_1_1ImuDataProvider_1ab50483b19cd9162dca75feb7527bd623" kind="function"><name>setCovarianceProvider</name></member>
   </compound>
   <compound refid="classadi__imu_1_1ImuDataProviderInterface" kind="class"><name>adi_imu::ImuDataProviderInterface</name>
     <member refid="classadi__imu_1_1ImuDataProviderInterface_1a6ff58f5752a6f6bcf3d2f5272e0daa7c" kind="function"><name>ImuDataProviderInterface</name></member>
     <member refid="classadi__imu_1_1ImuDataProviderInterface_1af82743bfb0238c8739d8168f3966f97e" kind="function"><name>~ImuDataProviderInterface</name></member>
     <member refid="classadi__imu_1_1ImuDataProviderInterface_1a6cafb1701967196ca7ea0e67d7ba4957" kind="function"><name>setFrameId</name></member>
     <member refid="classadi__imu_1_1ImuDataProviderInterface_1a00c66b5fcacd6e661465c6fc2126c343" kind="function"><name>getData</name></member>
+    <member refid="classadi__imu_1_1ImuDataProviderInterface_1aa40da7f1f2223a8e6492681207113258" kind="function"><name>setCovarianceProvider</name></member>
   </compound>
   <compound refid="classadi__imu_1_1ImuDiagDataProvider" kind="class"><name>adi_imu::ImuDiagDataProvider</name>
     <member refid="classadi__imu_1_1ImuDiagDataProvider_1aab67309b2d57202c1efc8ffe936d43f3" kind="variable"><name>m_iio_wrapper</name></member>
@@ -505,6 +552,53 @@
     <member refid="classImuSubscriberTest_1a5013c2c26c6e8af50ecf54af5be5274f" kind="function"><name>SetUpTestCase</name></member>
     <member refid="classImuSubscriberTest_1a15eebc7f09bb8a928e69c24fd64a43cc" kind="function"><name>TearDownTestCase</name></member>
   </compound>
+  <compound refid="classadi__imu_1_1KalmanCovarianceProvider" kind="class"><name>adi_imu::KalmanCovarianceProvider</name>
+    <member refid="classadi__imu_1_1KalmanCovarianceProvider_1add00b78deac1fadfb66986d9e996162c" kind="variable"><name>DEFAULT_PROCESS_NOISE_Q</name></member>
+    <member refid="classadi__imu_1_1KalmanCovarianceProvider_1ae2331505fd61e29ed22c574b9c51912d" kind="variable"><name>DEFAULT_MEASUREMENT_NOISE_R</name></member>
+    <member refid="classadi__imu_1_1KalmanCovarianceProvider_1ad3135b6c54eeb0c693d063f213efe857" kind="variable"><name>DEFAULT_INITIAL_VARIANCE</name></member>
+    <member refid="classadi__imu_1_1KalmanCovarianceProvider_1ad0a9376a88979314ac2b6294b6c3631d" kind="variable"><name>DEFAULT_WARMUP_SAMPLES</name></member>
+    <member refid="classadi__imu_1_1KalmanCovarianceProvider_1a6c2ef1c8f6f2e74e33570d1770dece0f" kind="variable"><name>DEFAULT_MIN_VARIANCE</name></member>
+    <member refid="classadi__imu_1_1KalmanCovarianceProvider_1a03e095be3427f330fa88eae90efb8915" kind="variable"><name>m_process_noise_q</name></member>
+    <member refid="classadi__imu_1_1KalmanCovarianceProvider_1a6766e57e72499f79f151889557aaf1f9" kind="variable"><name>m_measurement_noise_r</name></member>
+    <member refid="classadi__imu_1_1KalmanCovarianceProvider_1a503179aed259d3f17bbbf45852aad5ea" kind="variable"><name>m_initial_variance</name></member>
+    <member refid="classadi__imu_1_1KalmanCovarianceProvider_1a3ff77272233fe58f7b733a6c8b0874e5" kind="variable"><name>m_min_variance</name></member>
+    <member refid="classadi__imu_1_1KalmanCovarianceProvider_1a036ffab207923831e79249f5525c8e52" kind="variable"><name>m_motion_detector</name></member>
+    <member refid="classadi__imu_1_1KalmanCovarianceProvider_1a174648d38e22e9ec5f9aecba4ae2ef21" kind="variable"><name>m_accel_x</name></member>
+    <member refid="classadi__imu_1_1KalmanCovarianceProvider_1afe88b9a2489a06b2d998fc890f22b94e" kind="variable"><name>m_accel_y</name></member>
+    <member refid="classadi__imu_1_1KalmanCovarianceProvider_1a3d4814188a0fbf1d04fc1a1148e329d7" kind="variable"><name>m_accel_z</name></member>
+    <member refid="classadi__imu_1_1KalmanCovarianceProvider_1a4be282f6e31bbdda598f77f9d352754e" kind="variable"><name>m_gyro_x</name></member>
+    <member refid="classadi__imu_1_1KalmanCovarianceProvider_1a18b5a9683bbb6a7a0d23968224b81652" kind="variable"><name>m_gyro_y</name></member>
+    <member refid="classadi__imu_1_1KalmanCovarianceProvider_1ac3e806e9a11a07ee8c5a411d7a93a523" kind="variable"><name>m_gyro_z</name></member>
+    <member refid="classadi__imu_1_1KalmanCovarianceProvider_1a4497df4ad9b708b43b6faf7f5847359b" kind="variable"><name>m_warmup_samples</name></member>
+    <member refid="classadi__imu_1_1KalmanCovarianceProvider_1a999bb306bce528646e2861c5698006f3" kind="variable"><name>m_sample_count</name></member>
+    <member refid="classadi__imu_1_1KalmanCovarianceProvider_1af3cf8c82cce2a8a5c2bb523030882926" kind="variable"><name>MEAN_ALPHA</name></member>
+    <member refid="classadi__imu_1_1KalmanCovarianceProvider_1a0be55a6318fd2062db0940b8d49c8c83" kind="function"><name>KalmanCovarianceProvider</name></member>
+    <member refid="classadi__imu_1_1KalmanCovarianceProvider_1a6d8a0967df3840bcbaddaa3643eec6f6" kind="function"><name>~KalmanCovarianceProvider</name></member>
+    <member refid="classadi__imu_1_1KalmanCovarianceProvider_1a974795db7be684ccd6de826d4de560f8" kind="function"><name>addSample</name></member>
+    <member refid="classadi__imu_1_1KalmanCovarianceProvider_1ad962f9275d06965c89e2d6a8a93ab937" kind="function"><name>isReady</name></member>
+    <member refid="classadi__imu_1_1KalmanCovarianceProvider_1a1794940e4a919f3cde65581907e48cca" kind="function"><name>getAccelCovariance</name></member>
+    <member refid="classadi__imu_1_1KalmanCovarianceProvider_1ad3c36e84893270ad5c38b6ef61472d8f" kind="function"><name>getGyroCovariance</name></member>
+    <member refid="classadi__imu_1_1KalmanCovarianceProvider_1a22f569200ac35bb5ea7dde02eaa283b1" kind="function"><name>reset</name></member>
+    <member refid="classadi__imu_1_1KalmanCovarianceProvider_1a72b1a87c9306f671030d0949f7d00bcd" kind="function"><name>getCalibrationProgress</name></member>
+    <member refid="classadi__imu_1_1KalmanCovarianceProvider_1a3e4f873eddf699feeee5a6843e957e5b" kind="function"><name>updateAxisFilter</name></member>
+    <member refid="classadi__imu_1_1KalmanCovarianceProvider_1ae813ee5dda346a8bb4b8ef35df733b00" kind="function"><name>buildCovarianceMatrix</name></member>
+  </compound>
+  <compound refid="classadi__imu_1_1MotionDetector" kind="class"><name>adi_imu::MotionDetector</name>
+    <member refid="classadi__imu_1_1MotionDetector_1ac23a5d25c08c4eb1ed2124bcfa8eddab" kind="variable"><name>DEFAULT_GYRO_THRESHOLD</name></member>
+    <member refid="classadi__imu_1_1MotionDetector_1a79adcbc33f72833c0fa9a8fd7d7b3e2d" kind="variable"><name>DEFAULT_ACCEL_THRESHOLD</name></member>
+    <member refid="classadi__imu_1_1MotionDetector_1a9b7444a14fb6277529664fe710f3f2cf" kind="variable"><name>GRAVITY_MAGNITUDE</name></member>
+    <member refid="classadi__imu_1_1MotionDetector_1a599df9dd58a57c90773768cd4fa052b3" kind="variable"><name>m_gyro_threshold</name></member>
+    <member refid="classadi__imu_1_1MotionDetector_1a584f818f199f370ec09596770c7f66ca" kind="variable"><name>m_accel_threshold</name></member>
+    <member refid="classadi__imu_1_1MotionDetector_1a25424ea47bde2096ec59e4990fd0359b" kind="variable"><name>m_enabled</name></member>
+    <member refid="classadi__imu_1_1MotionDetector_1a46422d3aa268d7e611f5ca1327d46e2e" kind="function"><name>MotionDetector</name></member>
+    <member refid="classadi__imu_1_1MotionDetector_1a3e27c17508e48553d83254c219ded69e" kind="function"><name>isStationary</name></member>
+    <member refid="classadi__imu_1_1MotionDetector_1a6265dfecb8ed3bc1789f49e7bafd6e67" kind="function"><name>setGyroThreshold</name></member>
+    <member refid="classadi__imu_1_1MotionDetector_1a83f0c6469d33a627238ba075bf9a00d8" kind="function"><name>setAccelThreshold</name></member>
+    <member refid="classadi__imu_1_1MotionDetector_1a8f3d7e6da2f30d5c5b254c0a26fe7845" kind="function"><name>getGyroThreshold</name></member>
+    <member refid="classadi__imu_1_1MotionDetector_1ac44c58da1b93d1471f43349ecd3aa1ae" kind="function"><name>getAccelThreshold</name></member>
+    <member refid="classadi__imu_1_1MotionDetector_1a84c04cfa16235bde44efd44bbbec6bc3" kind="function"><name>setEnabled</name></member>
+    <member refid="classadi__imu_1_1MotionDetector_1abf5ba1678b2e60f5ca3d52bd24fbf671" kind="function"><name>isEnabled</name></member>
+  </compound>
   <compound refid="classadi__imu_1_1RosPublisherGroup" kind="class"><name>adi_imu::RosPublisherGroup</name>
     <member refid="classadi__imu_1_1RosPublisherGroup_1a1e8390831ef3806eb82459847bb51517" kind="variable"><name>m_accelGyroTempRosPublisher</name></member>
     <member refid="classadi__imu_1_1RosPublisherGroup_1a5a1763a78e806d718a1a34ae08b12ead" kind="variable"><name>m_velAngTempRosPublisher</name></member>
@@ -534,6 +628,43 @@
     <member refid="classadi__imu_1_1RosTask_1aabef10d9a1f8ec699ee8b4fdeec8f7fa" kind="function"><name>RosTask</name></member>
     <member refid="classadi__imu_1_1RosTask_1ad36570b4d84c20ec267c433c9122c010" kind="function"><name>~RosTask</name></member>
     <member refid="classadi__imu_1_1RosTask_1a8750563a3003820f2a7da10dc467b055" kind="function"><name>run</name></member>
+  </compound>
+  <compound refid="classadi__imu_1_1SlidingWindowCovarianceProvider" kind="class"><name>adi_imu::SlidingWindowCovarianceProvider</name>
+    <member refid="classadi__imu_1_1SlidingWindowCovarianceProvider_1a6b082d2e86d6e5f0d54b81a6c5a3fe7d" kind="variable"><name>DEFAULT_WINDOW_SIZE</name></member>
+    <member refid="classadi__imu_1_1SlidingWindowCovarianceProvider_1a072bb120ac080bca53ca20eb8ba018f3" kind="variable"><name>DEFAULT_MIN_SAMPLES</name></member>
+    <member refid="classadi__imu_1_1SlidingWindowCovarianceProvider_1a1ab83c12f560b9675a91312009e1ed3b" kind="variable"><name>DEFAULT_MIN_VARIANCE</name></member>
+    <member refid="classadi__imu_1_1SlidingWindowCovarianceProvider_1a2add3c93906f49ffce167f42e7b76a2a" kind="variable"><name>m_window_size</name></member>
+    <member refid="classadi__imu_1_1SlidingWindowCovarianceProvider_1a7217d9bbd13e3c42918409a6d97e231f" kind="variable"><name>m_min_samples</name></member>
+    <member refid="classadi__imu_1_1SlidingWindowCovarianceProvider_1a183222af5db82f68e65f0f5eaed2faa1" kind="variable"><name>m_min_variance</name></member>
+    <member refid="classadi__imu_1_1SlidingWindowCovarianceProvider_1a1e1d6282d0241d8b6875c0847d7b6ec3" kind="variable"><name>m_motion_detector</name></member>
+    <member refid="classadi__imu_1_1SlidingWindowCovarianceProvider_1ad071f3e4be2737e3c5f842ce8e02479d" kind="variable"><name>m_accel_samples</name></member>
+    <member refid="classadi__imu_1_1SlidingWindowCovarianceProvider_1abdc8c0db78e3fa61e8eeff6b63dd19ad" kind="variable"><name>m_gyro_samples</name></member>
+    <member refid="classadi__imu_1_1SlidingWindowCovarianceProvider_1a83e5dcec05cd8b71253e07caf8faf65d" kind="variable"><name>m_accel_covariance</name></member>
+    <member refid="classadi__imu_1_1SlidingWindowCovarianceProvider_1a4a6714315719a67dd585af181d957f4c" kind="variable"><name>m_gyro_covariance</name></member>
+    <member refid="classadi__imu_1_1SlidingWindowCovarianceProvider_1a44bc6e7cc9ed9e61e78360ff8d7eb3f8" kind="variable"><name>m_update_interval</name></member>
+    <member refid="classadi__imu_1_1SlidingWindowCovarianceProvider_1a849b83ef8acd465aa7e0145938b178a1" kind="variable"><name>m_samples_since_update</name></member>
+    <member refid="classadi__imu_1_1SlidingWindowCovarianceProvider_1ac27964da919d4dceb8822675b83c4408" kind="function"><name>SlidingWindowCovarianceProvider</name></member>
+    <member refid="classadi__imu_1_1SlidingWindowCovarianceProvider_1a4d64ae41a05aca575a840e71d910efda" kind="function"><name>addSample</name></member>
+    <member refid="classadi__imu_1_1SlidingWindowCovarianceProvider_1ae45e7f0eb472fc84fc1b206f2909035d" kind="function"><name>isReady</name></member>
+    <member refid="classadi__imu_1_1SlidingWindowCovarianceProvider_1a06992407f4ff5996a9345c797a9033ce" kind="function"><name>getAccelCovariance</name></member>
+    <member refid="classadi__imu_1_1SlidingWindowCovarianceProvider_1acfa82309681eadad10668b03356e1cdc" kind="function"><name>getGyroCovariance</name></member>
+    <member refid="classadi__imu_1_1SlidingWindowCovarianceProvider_1a8b4b3501760655f772f13dd9549f0c51" kind="function"><name>reset</name></member>
+    <member refid="classadi__imu_1_1SlidingWindowCovarianceProvider_1ac99f884edde4070a6f82902a9c9970f8" kind="function"><name>getCalibrationProgress</name></member>
+    <member refid="classadi__imu_1_1SlidingWindowCovarianceProvider_1a465d4d3e9530c8528babd131a9f7a355" kind="function"><name>recomputeCovariance</name></member>
+  </compound>
+  <compound refid="classadi__imu_1_1StaticCovarianceProvider" kind="class"><name>adi_imu::StaticCovarianceProvider</name>
+    <member refid="classadi__imu_1_1StaticCovarianceProvider_1a4ff9ac30aeacb38f3156674faaa29687" kind="variable"><name>DEFAULT_STATIC_ACCEL_COVARIANCE</name></member>
+    <member refid="classadi__imu_1_1StaticCovarianceProvider_1abdd13ec14776409ed965af2112d1bcba" kind="variable"><name>DEFAULT_STATIC_GYRO_COVARIANCE</name></member>
+    <member refid="classadi__imu_1_1StaticCovarianceProvider_1a96325f7b357fd3e747034edd33add7f2" kind="variable"><name>m_accel_covariance</name></member>
+    <member refid="classadi__imu_1_1StaticCovarianceProvider_1a136b03a4b03ca8fe1781d8805613dec4" kind="variable"><name>m_gyro_covariance</name></member>
+    <member refid="classadi__imu_1_1StaticCovarianceProvider_1a4f52e2271dce510e38d72cd9eb933ee4" kind="function"><name>StaticCovarianceProvider</name></member>
+    <member refid="classadi__imu_1_1StaticCovarianceProvider_1a5cdd2c13a74e2497cac6be88b6c8508e" kind="function"><name>StaticCovarianceProvider</name></member>
+    <member refid="classadi__imu_1_1StaticCovarianceProvider_1a9d787d478c325c20997435657c4a3fd6" kind="function"><name>addSample</name></member>
+    <member refid="classadi__imu_1_1StaticCovarianceProvider_1a5a165c52ba20f885ea8cee0bc4cd0ad5" kind="function"><name>isReady</name></member>
+    <member refid="classadi__imu_1_1StaticCovarianceProvider_1af27a571759fa3e48c3482f2f5028d6dd" kind="function"><name>getAccelCovariance</name></member>
+    <member refid="classadi__imu_1_1StaticCovarianceProvider_1a9c03f07dd393f7070028dac909ea4596" kind="function"><name>getGyroCovariance</name></member>
+    <member refid="classadi__imu_1_1StaticCovarianceProvider_1a9e4018ab01503988f7048599f3f6bf41" kind="function"><name>reset</name></member>
+    <member refid="classadi__imu_1_1StaticCovarianceProvider_1ae37f394f2857f47e391bafd1d5626281" kind="function"><name>getCalibrationProgress</name></member>
   </compound>
   <compound refid="classadi__imu_1_1VelAngTempDataProvider" kind="class"><name>adi_imu::VelAngTempDataProvider</name>
     <member refid="classadi__imu_1_1VelAngTempDataProvider_1a5dd4dec8be1993f0fa81cf3a0b9a9066" kind="variable"><name>m_iio_wrapper</name></member>
@@ -566,6 +697,29 @@
     <member refid="classVelAngTempSubscriberTest_1a6644c917bb2f0286416a9f4295028977" kind="function"><name>SetUpTestCase</name></member>
     <member refid="classVelAngTempSubscriberTest_1abfd9acc8721263a9c7106e1b2d69886f" kind="function"><name>TearDownTestCase</name></member>
   </compound>
+  <compound refid="classadi__imu_1_1WelfordCovarianceProvider" kind="class"><name>adi_imu::WelfordCovarianceProvider</name>
+    <member refid="classadi__imu_1_1WelfordCovarianceProvider_1ac7fe7a1595dc49effd745e607034840f" kind="variable"><name>DEFAULT_CALIBRATION_SAMPLES</name></member>
+    <member refid="classadi__imu_1_1WelfordCovarianceProvider_1a1e14573a6a89161f679873317de94058" kind="variable"><name>DEFAULT_MIN_VARIANCE</name></member>
+    <member refid="classadi__imu_1_1WelfordCovarianceProvider_1ad4a8e26af4044b8154c27c06cc9b0c79" kind="variable"><name>m_target_samples</name></member>
+    <member refid="classadi__imu_1_1WelfordCovarianceProvider_1a5bf3ddc9f4f150ac1c7e423502c10fbf" kind="variable"><name>m_sample_count</name></member>
+    <member refid="classadi__imu_1_1WelfordCovarianceProvider_1a048d4dab9e1d2bf6cc31b8f4a214854c" kind="variable"><name>m_min_variance</name></member>
+    <member refid="classadi__imu_1_1WelfordCovarianceProvider_1ac92f07dec29365a2ac81d34e332351ae" kind="variable"><name>m_accel_mean</name></member>
+    <member refid="classadi__imu_1_1WelfordCovarianceProvider_1a17bd3f7ea1d7f5d89bffac92137d94a1" kind="variable"><name>m_accel_M2</name></member>
+    <member refid="classadi__imu_1_1WelfordCovarianceProvider_1ab0358815a4b6ee253839afc3eaa2c2e9" kind="variable"><name>m_gyro_mean</name></member>
+    <member refid="classadi__imu_1_1WelfordCovarianceProvider_1afaa3c97d85d727508190878c067e5f78" kind="variable"><name>m_gyro_M2</name></member>
+    <member refid="classadi__imu_1_1WelfordCovarianceProvider_1ac73ece252a9387093a7239530d7f9593" kind="variable"><name>m_accel_covariance</name></member>
+    <member refid="classadi__imu_1_1WelfordCovarianceProvider_1a1d163f0a87d324e4cc333ba2d55810b9" kind="variable"><name>m_gyro_covariance</name></member>
+    <member refid="classadi__imu_1_1WelfordCovarianceProvider_1a645a76bcf61bba2c62cdb389aeb2168b" kind="variable"><name>m_calibration_complete</name></member>
+    <member refid="classadi__imu_1_1WelfordCovarianceProvider_1a848532637a7472e6ef83fc5a6453797f" kind="function"><name>WelfordCovarianceProvider</name></member>
+    <member refid="classadi__imu_1_1WelfordCovarianceProvider_1a33930c203336bda3d64f615352a792a0" kind="function"><name>addSample</name></member>
+    <member refid="classadi__imu_1_1WelfordCovarianceProvider_1aeff261c58db444635cbe422777e9d81c" kind="function"><name>isReady</name></member>
+    <member refid="classadi__imu_1_1WelfordCovarianceProvider_1ab612f236810ecb3e57230be447d4bcae" kind="function"><name>getAccelCovariance</name></member>
+    <member refid="classadi__imu_1_1WelfordCovarianceProvider_1a86996c49dcf701e89df380add7214301" kind="function"><name>getGyroCovariance</name></member>
+    <member refid="classadi__imu_1_1WelfordCovarianceProvider_1ac9dff586ad4eff9c0675502ada24aa89" kind="function"><name>reset</name></member>
+    <member refid="classadi__imu_1_1WelfordCovarianceProvider_1aef321fbb71c87d73e2ce2b32642bf21b" kind="function"><name>getCalibrationProgress</name></member>
+    <member refid="classadi__imu_1_1WelfordCovarianceProvider_1a8ca2fbc3df2243491a47fcf2407fc73a" kind="function"><name>updateWelford</name></member>
+    <member refid="classadi__imu_1_1WelfordCovarianceProvider_1a5d1b3677ab0aa34759675daad8ac8c5b" kind="function"><name>computeVariance</name></member>
+  </compound>
   <compound refid="classadi__imu_1_1WorkerThread" kind="class"><name>adi_imu::WorkerThread</name>
     <member refid="classadi__imu_1_1WorkerThread_1a45b31cf39c3820920b0135128390cd12" kind="variable"><name>m_rosTask</name></member>
     <member refid="classadi__imu_1_1WorkerThread_1a037ff54439a1503153235a642af66a52" kind="function"><name>WorkerThread</name></member>
@@ -573,6 +727,12 @@
     <member refid="classadi__imu_1_1WorkerThread_1a0143383e5fa99b1e2b49b408e60c0768" kind="function"><name>runTask</name></member>
   </compound>
   <compound refid="namespaceadi__imu" kind="namespace"><name>adi_imu</name>
+    <member refid="imu__covariance__factory_8h_1ad5ce0c38fc9981e3ec90aecd49c0d2ac" kind="enum"><name>CovarianceAlgorithm</name></member>
+    <member refid="imu__covariance__factory_8h_1ad5ce0c38fc9981e3ec90aecd49c0d2acafe6f99ef1ec99efbdc19a9786cf1facc" kind="enumvalue"><name>STATIC</name></member>
+    <member refid="imu__covariance__factory_8h_1ad5ce0c38fc9981e3ec90aecd49c0d2aca9f7be9edce4b65aeda3bee012eaf4919" kind="enumvalue"><name>WELFORD_ONLINE</name></member>
+    <member refid="imu__covariance__factory_8h_1ad5ce0c38fc9981e3ec90aecd49c0d2aca1909dcfa25e1c1f3aba6cb473cf1526e" kind="enumvalue"><name>SLIDING_WINDOW</name></member>
+    <member refid="imu__covariance__factory_8h_1ad5ce0c38fc9981e3ec90aecd49c0d2aca91de4eed35ac6674cb8e6017cb44222d" kind="enumvalue"><name>EWMA</name></member>
+    <member refid="imu__covariance__factory_8h_1ad5ce0c38fc9981e3ec90aecd49c0d2acaa0739c5983d75f6550ab0421cf67b760" kind="enumvalue"><name>KALMAN</name></member>
     <member refid="adis__register__definitions_8h_1a90eb23ef06b4280c01e9457e425d6a6b" kind="enum"><name>adis_device_id</name></member>
     <member refid="adis__register__definitions_8h_1a90eb23ef06b4280c01e9457e425d6a6ba4f01f807d676dab4d73233dccd103e24" kind="enumvalue"><name>ADIS16465_1</name></member>
     <member refid="adis__register__definitions_8h_1a90eb23ef06b4280c01e9457e425d6a6ba16344b6bcace1cf59485896e03c4e20e" kind="enumvalue"><name>ADIS16465_2</name></member>
@@ -724,6 +884,8 @@
     <member refid="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451dad22e47a014de00e8944e9ba264acd8e3" kind="enumvalue"><name>X_AXIS_ACCEL_BIAS_CORR_EN</name></member>
     <member refid="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451daafb1072a96abd626f264811ca51859d9" kind="enumvalue"><name>Y_AXIS_ACCEL_BIAS_CORR_EN</name></member>
     <member refid="adis__register__definitions_8h_1a8d28c4144db6f93d2f3d16279eef451da6fa1e02d1145886afc0e0ee5ccaa9782" kind="enumvalue"><name>Z_AXIS_ACCEL_BIAS_CORR_EN</name></member>
+    <member refid="imu__covariance__interface_8h_1ac636472a617af1f4f39b5691ab083b4d" kind="typedef"><name>CovarianceMatrix</name></member>
+    <member refid="imu__covariance__interface_8h_1adc5e99c136980b15dae55cbb2068d9cd" kind="typedef"><name>Vec3</name></member>
     <member refid="adis__register__definitions_8h_1a7dfad2cb7a05467d966f48540258aba7" kind="variable"><name>registerNames</name></member>
   </compound>
   <compound refid="namespacestd" kind="namespace"><name>std</name>
@@ -754,10 +916,16 @@
   </compound>
   <compound refid="adis__register__map_8h" kind="file"><name>adis_register_map.h</name>
   </compound>
+  <compound refid="ewma__covariance__provider_8h" kind="file"><name>ewma_covariance_provider.h</name>
+  </compound>
   <compound refid="iio__wrapper_8h" kind="file"><name>iio_wrapper.h</name>
     <member refid="iio__wrapper_8h_1ab70d8c3d394df58fe73a31949cee087d" kind="define"><name>IIO_CONTEXT_ERROR</name></member>
   </compound>
   <compound refid="imu__control__parameters_8h" kind="file"><name>imu_control_parameters.h</name>
+  </compound>
+  <compound refid="imu__covariance__factory_8h" kind="file"><name>imu_covariance_factory.h</name>
+  </compound>
+  <compound refid="imu__covariance__interface_8h" kind="file"><name>imu_covariance_interface.h</name>
   </compound>
   <compound refid="imu__data__provider_8h" kind="file"><name>imu_data_provider.h</name>
   </compound>
@@ -793,11 +961,19 @@
   </compound>
   <compound refid="imu__ros__publisher__interface_8h" kind="file"><name>imu_ros_publisher_interface.h</name>
   </compound>
+  <compound refid="kalman__covariance__provider_8h" kind="file"><name>kalman_covariance_provider.h</name>
+  </compound>
+  <compound refid="motion__detector_8h" kind="file"><name>motion_detector.h</name>
+  </compound>
   <compound refid="ros__publisher__group_8h" kind="file"><name>ros_publisher_group.h</name>
   </compound>
   <compound refid="ros__publisher__group__interface_8h" kind="file"><name>ros_publisher_group_interface.h</name>
   </compound>
   <compound refid="ros__task_8h" kind="file"><name>ros_task.h</name>
+  </compound>
+  <compound refid="sliding__window__covariance__provider_8h" kind="file"><name>sliding_window_covariance_provider.h</name>
+  </compound>
+  <compound refid="static__covariance__provider_8h" kind="file"><name>static_covariance_provider.h</name>
   </compound>
   <compound refid="adis__device__registry_8h" kind="file"><name>adis_device_registry.h</name>
   </compound>
@@ -814,6 +990,8 @@
   <compound refid="velangtemp__ros__publisher_8h" kind="file"><name>velangtemp_ros_publisher.h</name>
   </compound>
   <compound refid="velangtemp__ros__publisher__interface_8h" kind="file"><name>velangtemp_ros_publisher_interface.h</name>
+  </compound>
+  <compound refid="welford__covariance__provider_8h" kind="file"><name>welford_covariance_provider.h</name>
   </compound>
   <compound refid="worker__thread_8h" kind="file"><name>worker_thread.h</name>
   </compound>
@@ -837,10 +1015,14 @@
   </compound>
   <compound refid="adis__register__map_8cpp" kind="file"><name>adis_register_map.cpp</name>
   </compound>
+  <compound refid="ewma__covariance__provider_8cpp" kind="file"><name>ewma_covariance_provider.cpp</name>
+  </compound>
   <compound refid="iio__wrapper_8cpp" kind="file"><name>iio_wrapper.cpp</name>
     <member refid="iio__wrapper_8cpp_1a2caa0716e56afb87d491d87fb4460b62" kind="define"><name>MAX_NO_OF_SAMPLES</name></member>
   </compound>
   <compound refid="imu__control__parameters_8cpp" kind="file"><name>imu_control_parameters.cpp</name>
+  </compound>
+  <compound refid="imu__covariance__factory_8cpp" kind="file"><name>imu_covariance_factory.cpp</name>
   </compound>
   <compound refid="imu__data__provider_8cpp" kind="file"><name>imu_data_provider.cpp</name>
   </compound>
@@ -859,13 +1041,23 @@
   </compound>
   <compound refid="imu__ros__publisher_8cpp" kind="file"><name>imu_ros_publisher.cpp</name>
   </compound>
+  <compound refid="kalman__covariance__provider_8cpp" kind="file"><name>kalman_covariance_provider.cpp</name>
+  </compound>
+  <compound refid="motion__detector_8cpp" kind="file"><name>motion_detector.cpp</name>
+  </compound>
   <compound refid="ros__publisher__group_8cpp" kind="file"><name>ros_publisher_group.cpp</name>
+  </compound>
+  <compound refid="sliding__window__covariance__provider_8cpp" kind="file"><name>sliding_window_covariance_provider.cpp</name>
+  </compound>
+  <compound refid="static__covariance__provider_8cpp" kind="file"><name>static_covariance_provider.cpp</name>
   </compound>
   <compound refid="adis__device__registry_8cpp" kind="file"><name>adis_device_registry.cpp</name>
   </compound>
   <compound refid="velangtemp__data__provider_8cpp" kind="file"><name>velangtemp_data_provider.cpp</name>
   </compound>
   <compound refid="velangtemp__ros__publisher_8cpp" kind="file"><name>velangtemp_ros_publisher.cpp</name>
+  </compound>
+  <compound refid="welford__covariance__provider_8cpp" kind="file"><name>welford_covariance_provider.cpp</name>
   </compound>
   <compound refid="worker__thread_8cpp" kind="file"><name>worker_thread.cpp</name>
   </compound>

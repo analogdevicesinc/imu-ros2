@@ -13,5 +13,6 @@ var searchData=
   ['adis1657xregistermap_10',['Adis1657xRegisterMap',['../classadi__imu_1_1Adis1657xRegisterMap.html',1,'adi_imu']]],
   ['adisdevicefactory_11',['ADISDeviceFactory',['../classadi__imu_1_1ADISDeviceFactory.html',1,'adi_imu']]],
   ['adisdeviceregistry_12',['ADISDeviceRegistry',['../classadi__imu_1_1ADISDeviceRegistry.html',1,'adi_imu']]],
-  ['adisregistermap_13',['ADISRegisterMap',['../classadi__imu_1_1ADISRegisterMap.html',1,'adi_imu']]]
+  ['adisregistermap_13',['ADISRegisterMap',['../classadi__imu_1_1ADISRegisterMap.html',1,'adi_imu']]],
+  ['axisfilter_14',['AxisFilter',['../structadi__imu_1_1KalmanCovarianceProvider_1_1AxisFilter.html',1,'adi_imu::KalmanCovarianceProvider']]]
 ];

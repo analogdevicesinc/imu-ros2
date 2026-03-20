@@ -111,6 +111,9 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><b>~ImuDataProviderIn
 <tr class="memitem:a00c66b5fcacd6e661465c6fc2126c343" id="r_a00c66b5fcacd6e661465c6fc2126c343"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadi__imu_1_1ImuDataProviderInterface.html#a00c66b5fcacd6e661465c6fc2126c343">getData</a> (sensor_msgs::msg::Imu &amp;message)=0</td></tr>
 <tr class="memdesc:a00c66b5fcacd6e661465c6fc2126c343"><td class="mdescLeft">&#160;</td><td class="mdescRight">Populate Imu message with measured data.  <br /></td></tr>
 <tr class="separator:a00c66b5fcacd6e661465c6fc2126c343"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa40da7f1f2223a8e6492681207113258" id="r_aa40da7f1f2223a8e6492681207113258"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadi__imu_1_1ImuDataProviderInterface.html#aa40da7f1f2223a8e6492681207113258">setCovarianceProvider</a> (<a class="el" href="classadi__imu_1_1ImuCovarianceInterface.html">ImuCovarianceInterface</a> *provider)=0</td></tr>
+<tr class="memdesc:aa40da7f1f2223a8e6492681207113258"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method to set the desired covariance algorithm.  <br /></td></tr>
+<tr class="separator:aa40da7f1f2223a8e6492681207113258"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Interface for standard message sensor_msgs::msg::Imu data provider. </p>
@@ -149,6 +152,42 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><b>~ImuDataProviderIn
 <dl class="section return"><dt>Returns</dt><dd>Return true if the message parameter is successfully populated with measured data and false otherwise. </dd></dl>
 
 <p>Implemented in <a class="el" href="classadi__imu_1_1ImuDataProvider.html#a97d76266acb17424247e5b6bf2a32c7a">adi_imu::ImuDataProvider</a>.</p>
+
+</div>
+</div>
+<a id="aa40da7f1f2223a8e6492681207113258" name="aa40da7f1f2223a8e6492681207113258"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa40da7f1f2223a8e6492681207113258">&#9670;&#160;</a></span>setCovarianceProvider()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void adi_imu::ImuDataProviderInterface::setCovarianceProvider </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classadi__imu_1_1ImuCovarianceInterface.html">ImuCovarianceInterface</a> *&#160;</td>
+          <td class="paramname"><em>provider</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Method to set the desired covariance algorithm. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">provider</td><td>The provider can be an instance of: Static, Welford or SlidingWindow providers </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="classadi__imu_1_1ImuDataProvider.html#ab50483b19cd9162dca75feb7527bd623">adi_imu::ImuDataProvider</a>.</p>
 
 </div>
 </div>

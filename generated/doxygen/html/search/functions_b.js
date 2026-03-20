@@ -1,8 +1,11 @@
 var searchData=
 [
-  ['rospublishergroup_0',['RosPublisherGroup',['../classadi__imu_1_1RosPublisherGroup.html#abc68b4fd204a1d2d35aeaa559322be81',1,'adi_imu::RosPublisherGroup']]],
-  ['rospublishergroupinterface_1',['RosPublisherGroupInterface',['../classadi__imu_1_1RosPublisherGroupInterface.html#a2ca919139293ef8f66a261b95754e7ae',1,'adi_imu::RosPublisherGroupInterface']]],
-  ['rostask_2',['RosTask',['../classadi__imu_1_1RosTask.html#aabef10d9a1f8ec699ee8b4fdeec8f7fa',1,'adi_imu::RosTask']]],
-  ['run_3',['run',['../classadi__imu_1_1ImuDiagRosPublisher.html#a7a316507121ad77cf66b5b8cd63cd6ce',1,'adi_imu::ImuDiagRosPublisher::run()'],['../classadi__imu_1_1ImuIdentificationRosPublisher.html#af32c1b3d150daab45ac6672f8d75c9e1',1,'adi_imu::ImuIdentificationRosPublisher::run()'],['../classadi__imu_1_1RosPublisherGroup.html#a061ea62ae21d14c58d2deb4da2aed10e',1,'adi_imu::RosPublisherGroup::run()'],['../classadi__imu_1_1RosTask.html#a8750563a3003820f2a7da10dc467b055',1,'adi_imu::RosTask::run()']]],
-  ['runtask_4',['runTask',['../classadi__imu_1_1WorkerThread.html#a0143383e5fa99b1e2b49b408e60c0768',1,'adi_imu::WorkerThread']]]
+  ['mapiiocommandfunctions_0',['mapIIOCommandFunctions',['../classadi__imu_1_1ImuControlParameters.html#ae95a27b60914a9d667232372d6a7e30d',1,'adi_imu::ImuControlParameters']]],
+  ['mapiiogetfunctionsdouble_1',['mapIIOGetFunctionsDouble',['../classadi__imu_1_1ImuControlParameters.html#aa4cf5c2478ab7934d5c08e45cb665a98',1,'adi_imu::ImuControlParameters']]],
+  ['mapiiogetfunctionsint32_2',['mapIIOGetFunctionsInt32',['../classadi__imu_1_1ImuControlParameters.html#a94ea22a29a23b00010e6c0f8a49fde1f',1,'adi_imu::ImuControlParameters']]],
+  ['mapiiogetfunctionsuint32_3',['mapIIOGetFunctionsUint32',['../classadi__imu_1_1ImuControlParameters.html#a48efa853eaae5653101bcf0b84d330c0',1,'adi_imu::ImuControlParameters']]],
+  ['mapiioupdatefunctionsdouble_4',['mapIIOUpdateFunctionsDouble',['../classadi__imu_1_1ImuControlParameters.html#a13332fb6677ae1a6d26207fae386b234',1,'adi_imu::ImuControlParameters']]],
+  ['mapiioupdatefunctionsint32_5',['mapIIOUpdateFunctionsInt32',['../classadi__imu_1_1ImuControlParameters.html#a2e3348742ff830159f7f6ce2254c868e',1,'adi_imu::ImuControlParameters']]],
+  ['mapiioupdatefunctionsuint32_6',['mapIIOUpdateFunctionsUint32',['../classadi__imu_1_1ImuControlParameters.html#a5539f795b1dbaaf9834b3c03644a7b64',1,'adi_imu::ImuControlParameters']]],
+  ['motiondetector_7',['MotionDetector',['../classadi__imu_1_1MotionDetector.html#a46422d3aa268d7e611f5ca1327d46e2e',1,'adi_imu::MotionDetector']]]
 ];

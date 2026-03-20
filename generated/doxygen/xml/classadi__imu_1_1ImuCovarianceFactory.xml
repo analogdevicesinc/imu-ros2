@@ -1,0 +1,117 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classadi__imu_1_1ImuCovarianceFactory" kind="class" language="C++" prot="public">
+    <compoundname>adi_imu::ImuCovarianceFactory</compoundname>
+    <includes refid="imu__covariance__factory_8h" local="no">imu_covariance_factory.h</includes>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classadi__imu_1_1ImuCovarianceFactory_1a05684adb63dd9d00da3e11f3072d4bed" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::unique_ptr&lt; <ref refid="classadi__imu_1_1ImuCovarianceInterface" kindref="compound">ImuCovarianceInterface</ref> &gt;</type>
+        <definition>std::unique_ptr&lt; ImuCovarianceInterface &gt; adi_imu::ImuCovarianceFactory::createFromParameters</definition>
+        <argsstring>(const std::shared_ptr&lt; rclcpp::Node &gt; &amp;node)</argsstring>
+        <name>createFromParameters</name>
+        <qualifiedname>adi_imu::ImuCovarianceFactory::createFromParameters</qualifiedname>
+        <param>
+          <type>const std::shared_ptr&lt; rclcpp::Node &gt; &amp;</type>
+          <declname>node</declname>
+        </param>
+        <briefdescription>
+<para>Create a covariance provider from ROS2 parameters. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>node</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ROS2 node for parameter access. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Unique pointer to covariance provider, or nullptr if disabled </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/imu_covariance_factory.h" line="50" column="26" bodyfile="src/imu_covariance_factory.cpp" bodystart="39" bodyend="122"/>
+      </memberdef>
+      <memberdef kind="function" id="classadi__imu_1_1ImuCovarianceFactory_1aca468e3f58caf8a94320e60e8a2dce46" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::unique_ptr&lt; <ref refid="classadi__imu_1_1ImuCovarianceInterface" kindref="compound">ImuCovarianceInterface</ref> &gt;</type>
+        <definition>std::unique_ptr&lt; ImuCovarianceInterface &gt; adi_imu::ImuCovarianceFactory::create</definition>
+        <argsstring>(CovarianceAlgorithm algorithm, const std::shared_ptr&lt; rclcpp::Node &gt; &amp;node)</argsstring>
+        <name>create</name>
+        <qualifiedname>adi_imu::ImuCovarianceFactory::create</qualifiedname>
+        <param>
+          <type>CovarianceAlgorithm</type>
+          <declname>algorithm</declname>
+        </param>
+        <param>
+          <type>const std::shared_ptr&lt; rclcpp::Node &gt; &amp;</type>
+          <declname>node</declname>
+        </param>
+        <briefdescription>
+<para>Create a covariance provider by algorithm type. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>params</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Algorithm-specific parameters. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Unique pointer to covariance provider. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/imu_covariance_factory.h" line="58" column="26" bodyfile="src/imu_covariance_factory.cpp" bodystart="124" bodyend="197"/>
+      </memberdef>
+      <memberdef kind="function" id="classadi__imu_1_1ImuCovarianceFactory_1a25522945cbdc51f0616abab4598581ae" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>CovarianceAlgorithm</type>
+        <definition>CovarianceAlgorithm adi_imu::ImuCovarianceFactory::parseAlgorithm</definition>
+        <argsstring>(const std::string &amp;algorithm_str)</argsstring>
+        <name>parseAlgorithm</name>
+        <qualifiedname>adi_imu::ImuCovarianceFactory::parseAlgorithm</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>algorithm_str</declname>
+        </param>
+        <briefdescription>
+<para>Parse algorithm type from string. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>algorithm_str</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>String representation (&quot;static, welford&quot;, &quot;sliding_window&quot;, &quot;ewma&quot;, &quot;kalman&quot;). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Corresponding enum value. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/imu_covariance_factory.h" line="66" column="30" bodyfile="src/imu_covariance_factory.cpp" bodystart="28" bodyend="37"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Factory for creating covariance providers based on configuration. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/adi_imu/imu_covariance_factory.h" line="42" column="1" bodyfile="include/adi_imu/imu_covariance_factory.h" bodystart="43" bodyend="67"/>
+    <listofallmembers>
+      <member refid="classadi__imu_1_1ImuCovarianceFactory_1aca468e3f58caf8a94320e60e8a2dce46" prot="public" virt="non-virtual"><scope>adi_imu::ImuCovarianceFactory</scope><name>create</name></member>
+      <member refid="classadi__imu_1_1ImuCovarianceFactory_1a05684adb63dd9d00da3e11f3072d4bed" prot="public" virt="non-virtual"><scope>adi_imu::ImuCovarianceFactory</scope><name>createFromParameters</name></member>
+      <member refid="classadi__imu_1_1ImuCovarianceFactory_1a25522945cbdc51f0616abab4598581ae" prot="public" virt="non-virtual"><scope>adi_imu::ImuCovarianceFactory</scope><name>parseAlgorithm</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

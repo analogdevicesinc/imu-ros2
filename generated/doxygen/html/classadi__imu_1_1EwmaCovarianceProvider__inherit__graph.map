@@ -1,0 +1,5 @@
+<map id="adi_imu::EwmaCovarianceProvider" name="adi_imu::EwmaCovarianceProvider">
+<area shape="rect" id="Node000001" title="Exponentially Weighted Moving Average covariance estimator." alt="" coords="5,79,255,104"/>
+<area shape="rect" id="Node000002" href="$classadi__imu_1_1ImuCovarianceInterface.html" title="Interface for IMU covariance computation strategies." alt="" coords="11,5,249,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="133,44,133,79,127,79,127,44"/>
+</map>

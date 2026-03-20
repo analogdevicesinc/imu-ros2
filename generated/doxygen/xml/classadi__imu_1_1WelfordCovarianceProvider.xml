@@ -1,0 +1,456 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classadi__imu_1_1WelfordCovarianceProvider" kind="class" language="C++" prot="public">
+    <compoundname>adi_imu::WelfordCovarianceProvider</compoundname>
+    <basecompoundref refid="classadi__imu_1_1ImuCovarianceInterface" prot="public" virt="non-virtual">adi_imu::ImuCovarianceInterface</basecompoundref>
+    <includes refid="welford__covariance__provider_8h" local="no">welford_covariance_provider.h</includes>
+    <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classadi__imu_1_1WelfordCovarianceProvider_1ac7fe7a1595dc49effd745e607034840f" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr size_t</type>
+        <definition>constexpr size_t adi_imu::WelfordCovarianceProvider::DEFAULT_CALIBRATION_SAMPLES</definition>
+        <argsstring></argsstring>
+        <name>DEFAULT_CALIBRATION_SAMPLES</name>
+        <qualifiedname>adi_imu::WelfordCovarianceProvider::DEFAULT_CALIBRATION_SAMPLES</qualifiedname>
+        <initializer>= 1000</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/welford_covariance_provider.h" line="40" column="34" bodyfile="include/adi_imu/welford_covariance_provider.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classadi__imu_1_1WelfordCovarianceProvider_1a1e14573a6a89161f679873317de94058" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr double</type>
+        <definition>constexpr double adi_imu::WelfordCovarianceProvider::DEFAULT_MIN_VARIANCE</definition>
+        <argsstring></argsstring>
+        <name>DEFAULT_MIN_VARIANCE</name>
+        <qualifiedname>adi_imu::WelfordCovarianceProvider::DEFAULT_MIN_VARIANCE</qualifiedname>
+        <initializer>= 1e-9</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/welford_covariance_provider.h" line="41" column="34" bodyfile="include/adi_imu/welford_covariance_provider.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classadi__imu_1_1WelfordCovarianceProvider_1ad4a8e26af4044b8154c27c06cc9b0c79" prot="private" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t adi_imu::WelfordCovarianceProvider::m_target_samples</definition>
+        <argsstring></argsstring>
+        <name>m_target_samples</name>
+        <qualifiedname>adi_imu::WelfordCovarianceProvider::m_target_samples</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/welford_covariance_provider.h" line="58" column="10" bodyfile="include/adi_imu/welford_covariance_provider.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classadi__imu_1_1WelfordCovarianceProvider_1a5bf3ddc9f4f150ac1c7e423502c10fbf" prot="private" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t adi_imu::WelfordCovarianceProvider::m_sample_count</definition>
+        <argsstring></argsstring>
+        <name>m_sample_count</name>
+        <qualifiedname>adi_imu::WelfordCovarianceProvider::m_sample_count</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/welford_covariance_provider.h" line="59" column="10" bodyfile="include/adi_imu/welford_covariance_provider.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classadi__imu_1_1WelfordCovarianceProvider_1a048d4dab9e1d2bf6cc31b8f4a214854c" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double adi_imu::WelfordCovarianceProvider::m_min_variance</definition>
+        <argsstring></argsstring>
+        <name>m_min_variance</name>
+        <qualifiedname>adi_imu::WelfordCovarianceProvider::m_min_variance</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/welford_covariance_provider.h" line="60" column="10" bodyfile="include/adi_imu/welford_covariance_provider.h" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classadi__imu_1_1WelfordCovarianceProvider_1ac92f07dec29365a2ac81d34e332351ae" prot="private" static="no" mutable="no">
+        <type>Vec3</type>
+        <definition>Vec3 adi_imu::WelfordCovarianceProvider::m_accel_mean</definition>
+        <argsstring></argsstring>
+        <name>m_accel_mean</name>
+        <qualifiedname>adi_imu::WelfordCovarianceProvider::m_accel_mean</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/welford_covariance_provider.h" line="63" column="8" bodyfile="include/adi_imu/welford_covariance_provider.h" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classadi__imu_1_1WelfordCovarianceProvider_1a17bd3f7ea1d7f5d89bffac92137d94a1" prot="private" static="no" mutable="no">
+        <type>Vec3</type>
+        <definition>Vec3 adi_imu::WelfordCovarianceProvider::m_accel_M2</definition>
+        <argsstring></argsstring>
+        <name>m_accel_M2</name>
+        <qualifiedname>adi_imu::WelfordCovarianceProvider::m_accel_M2</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/welford_covariance_provider.h" line="64" column="8" bodyfile="include/adi_imu/welford_covariance_provider.h" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classadi__imu_1_1WelfordCovarianceProvider_1ab0358815a4b6ee253839afc3eaa2c2e9" prot="private" static="no" mutable="no">
+        <type>Vec3</type>
+        <definition>Vec3 adi_imu::WelfordCovarianceProvider::m_gyro_mean</definition>
+        <argsstring></argsstring>
+        <name>m_gyro_mean</name>
+        <qualifiedname>adi_imu::WelfordCovarianceProvider::m_gyro_mean</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/welford_covariance_provider.h" line="67" column="8" bodyfile="include/adi_imu/welford_covariance_provider.h" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classadi__imu_1_1WelfordCovarianceProvider_1afaa3c97d85d727508190878c067e5f78" prot="private" static="no" mutable="no">
+        <type>Vec3</type>
+        <definition>Vec3 adi_imu::WelfordCovarianceProvider::m_gyro_M2</definition>
+        <argsstring></argsstring>
+        <name>m_gyro_M2</name>
+        <qualifiedname>adi_imu::WelfordCovarianceProvider::m_gyro_M2</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/welford_covariance_provider.h" line="68" column="8" bodyfile="include/adi_imu/welford_covariance_provider.h" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classadi__imu_1_1WelfordCovarianceProvider_1ac73ece252a9387093a7239530d7f9593" prot="private" static="no" mutable="no">
+        <type>CovarianceMatrix</type>
+        <definition>CovarianceMatrix adi_imu::WelfordCovarianceProvider::m_accel_covariance</definition>
+        <argsstring></argsstring>
+        <name>m_accel_covariance</name>
+        <qualifiedname>adi_imu::WelfordCovarianceProvider::m_accel_covariance</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/welford_covariance_provider.h" line="71" column="20" bodyfile="include/adi_imu/welford_covariance_provider.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classadi__imu_1_1WelfordCovarianceProvider_1a1d163f0a87d324e4cc333ba2d55810b9" prot="private" static="no" mutable="no">
+        <type>CovarianceMatrix</type>
+        <definition>CovarianceMatrix adi_imu::WelfordCovarianceProvider::m_gyro_covariance</definition>
+        <argsstring></argsstring>
+        <name>m_gyro_covariance</name>
+        <qualifiedname>adi_imu::WelfordCovarianceProvider::m_gyro_covariance</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/welford_covariance_provider.h" line="72" column="20" bodyfile="include/adi_imu/welford_covariance_provider.h" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classadi__imu_1_1WelfordCovarianceProvider_1a645a76bcf61bba2c62cdb389aeb2168b" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool adi_imu::WelfordCovarianceProvider::m_calibration_complete</definition>
+        <argsstring></argsstring>
+        <name>m_calibration_complete</name>
+        <qualifiedname>adi_imu::WelfordCovarianceProvider::m_calibration_complete</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/welford_covariance_provider.h" line="73" column="8" bodyfile="include/adi_imu/welford_covariance_provider.h" bodystart="73" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classadi__imu_1_1WelfordCovarianceProvider_1a848532637a7472e6ef83fc5a6453797f" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>adi_imu::WelfordCovarianceProvider::WelfordCovarianceProvider</definition>
+        <argsstring>(size_t calibration_samples=DEFAULT_CALIBRATION_SAMPLES, double min_variance=DEFAULT_MIN_VARIANCE)</argsstring>
+        <name>WelfordCovarianceProvider</name>
+        <qualifiedname>adi_imu::WelfordCovarianceProvider::WelfordCovarianceProvider</qualifiedname>
+        <param>
+          <type>size_t</type>
+          <declname>calibration_samples</declname>
+          <defval>DEFAULT_CALIBRATION_SAMPLES</defval>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>min_variance</declname>
+          <defval>DEFAULT_MIN_VARIANCE</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/welford_covariance_provider.h" line="43" column="12" bodyfile="src/welford_covariance_provider.cpp" bodystart="22" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="function" id="classadi__imu_1_1WelfordCovarianceProvider_1a33930c203336bda3d64f615352a792a0" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void adi_imu::WelfordCovarianceProvider::addSample</definition>
+        <argsstring>(const Vec3 &amp;accel, const Vec3 &amp;gyro) override</argsstring>
+        <name>addSample</name>
+        <qualifiedname>adi_imu::WelfordCovarianceProvider::addSample</qualifiedname>
+        <reimplements refid="classadi__imu_1_1ImuCovarianceInterface_1a49a5d97536e4e924ef63b1c0469d192a">addSample</reimplements>
+        <param>
+          <type>const Vec3 &amp;</type>
+          <declname>accel</declname>
+        </param>
+        <param>
+          <type>const Vec3 &amp;</type>
+          <declname>gyro</declname>
+        </param>
+        <briefdescription>
+<para>Process a new IMU sample for covariance estimation. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>accel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Linear acceleration sample (m/s^2) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>gyro</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Angular velocity sample (rad/s) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/welford_covariance_provider.h" line="47" column="8" bodyfile="src/welford_covariance_provider.cpp" bodystart="55" bodyend="98"/>
+      </memberdef>
+      <memberdef kind="function" id="classadi__imu_1_1WelfordCovarianceProvider_1aeff261c58db444635cbe422777e9d81c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool adi_imu::WelfordCovarianceProvider::isReady</definition>
+        <argsstring>() const override</argsstring>
+        <name>isReady</name>
+        <qualifiedname>adi_imu::WelfordCovarianceProvider::isReady</qualifiedname>
+        <reimplements refid="classadi__imu_1_1ImuCovarianceInterface_1a0c90bb03aecbb0dd8b287eb72997349e">isReady</reimplements>
+        <briefdescription>
+<para>Check if covariance estimation is ready (calibration complete). </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>true if covariance values are valid and ready to use. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/welford_covariance_provider.h" line="48" column="8" bodyfile="src/welford_covariance_provider.cpp" bodystart="100" bodyend="100"/>
+      </memberdef>
+      <memberdef kind="function" id="classadi__imu_1_1WelfordCovarianceProvider_1ab612f236810ecb3e57230be447d4bcae" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>CovarianceMatrix</type>
+        <definition>CovarianceMatrix adi_imu::WelfordCovarianceProvider::getAccelCovariance</definition>
+        <argsstring>() const override</argsstring>
+        <name>getAccelCovariance</name>
+        <qualifiedname>adi_imu::WelfordCovarianceProvider::getAccelCovariance</qualifiedname>
+        <reimplements refid="classadi__imu_1_1ImuCovarianceInterface_1a1303843896fc4a4dd8f03d494bd7cf70">getAccelCovariance</reimplements>
+        <briefdescription>
+<para>Get the linear acceleration covariance matrix. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>3x3 covariance matrix row-major order. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/welford_covariance_provider.h" line="49" column="20" bodyfile="src/welford_covariance_provider.cpp" bodystart="102" bodyend="105"/>
+      </memberdef>
+      <memberdef kind="function" id="classadi__imu_1_1WelfordCovarianceProvider_1a86996c49dcf701e89df380add7214301" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>CovarianceMatrix</type>
+        <definition>CovarianceMatrix adi_imu::WelfordCovarianceProvider::getGyroCovariance</definition>
+        <argsstring>() const override</argsstring>
+        <name>getGyroCovariance</name>
+        <qualifiedname>adi_imu::WelfordCovarianceProvider::getGyroCovariance</qualifiedname>
+        <reimplements refid="classadi__imu_1_1ImuCovarianceInterface_1acb6a8d1f4720979ea3d0a9d27ba720fb">getGyroCovariance</reimplements>
+        <briefdescription>
+<para>Get the angular velocity covariance matrix. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>3x3 covariance matrix row-major order. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/welford_covariance_provider.h" line="50" column="20" bodyfile="src/welford_covariance_provider.cpp" bodystart="107" bodyend="107"/>
+      </memberdef>
+      <memberdef kind="function" id="classadi__imu_1_1WelfordCovarianceProvider_1ac9dff586ad4eff9c0675502ada24aa89" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void adi_imu::WelfordCovarianceProvider::reset</definition>
+        <argsstring>() override</argsstring>
+        <name>reset</name>
+        <qualifiedname>adi_imu::WelfordCovarianceProvider::reset</qualifiedname>
+        <reimplements refid="classadi__imu_1_1ImuCovarianceInterface_1ad97804c3f9796f1d57019cced43679df">reset</reimplements>
+        <briefdescription>
+<para>Reset the covariance extimator to initial state. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/welford_covariance_provider.h" line="51" column="8" bodyfile="src/welford_covariance_provider.cpp" bodystart="109" bodyend="119"/>
+      </memberdef>
+      <memberdef kind="function" id="classadi__imu_1_1WelfordCovarianceProvider_1aef321fbb71c87d73e2ce2b32642bf21b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>double</type>
+        <definition>double adi_imu::WelfordCovarianceProvider::getCalibrationProgress</definition>
+        <argsstring>() const override</argsstring>
+        <name>getCalibrationProgress</name>
+        <qualifiedname>adi_imu::WelfordCovarianceProvider::getCalibrationProgress</qualifiedname>
+        <reimplements refid="classadi__imu_1_1ImuCovarianceInterface_1a06e908d31a427fb4e7320b746c92e91b">getCalibrationProgress</reimplements>
+        <briefdescription>
+<para>Get the current calibration progress (0.0 to 1.0). </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Progress ratio, 1.0 when calibration is complete. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/welford_covariance_provider.h" line="52" column="10" bodyfile="src/welford_covariance_provider.cpp" bodystart="121" bodyend="127"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classadi__imu_1_1WelfordCovarianceProvider_1a8ca2fbc3df2243491a47fcf2407fc73a" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void adi_imu::WelfordCovarianceProvider::updateWelford</definition>
+        <argsstring>(double value, double &amp;mean, double &amp;M2, size_t n)</argsstring>
+        <name>updateWelford</name>
+        <qualifiedname>adi_imu::WelfordCovarianceProvider::updateWelford</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>value</declname>
+        </param>
+        <param>
+          <type>double &amp;</type>
+          <declname>mean</declname>
+        </param>
+        <param>
+          <type>double &amp;</type>
+          <declname>M2</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>n</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/welford_covariance_provider.h" line="55" column="8" bodyfile="src/welford_covariance_provider.cpp" bodystart="37" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="classadi__imu_1_1WelfordCovarianceProvider_1a5d1b3677ab0aa34759675daad8ac8c5b" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double adi_imu::WelfordCovarianceProvider::computeVariance</definition>
+        <argsstring>(double M2, size_t n) const</argsstring>
+        <name>computeVariance</name>
+        <qualifiedname>adi_imu::WelfordCovarianceProvider::computeVariance</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>M2</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>n</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/welford_covariance_provider.h" line="56" column="10" bodyfile="src/welford_covariance_provider.cpp" bodystart="45" bodyend="53"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Computes covariance online using Welford&apos;s algorithm. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>This provider collects samples during the calibration phrase (IMU should be stationary) and computes variance using Welford&apos;s numerically stable online algorithm. After calibration_samples are collected, the covariance is frozen and returned for all subsequent queries.</para>
+<para>Reference: Welford, B. P. (1962). &quot;Note on method for calculating
+corrected sum of squares and products&quot; </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>adi_imu::ImuCovarianceInterface</label>
+        <link refid="classadi__imu_1_1ImuCovarianceInterface"/>
+      </node>
+      <node id="1">
+        <label>adi_imu::WelfordCovarianceProvider</label>
+        <link refid="classadi__imu_1_1WelfordCovarianceProvider"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>adi_imu::ImuCovarianceInterface</label>
+        <link refid="classadi__imu_1_1ImuCovarianceInterface"/>
+      </node>
+      <node id="1">
+        <label>adi_imu::WelfordCovarianceProvider</label>
+        <link refid="classadi__imu_1_1WelfordCovarianceProvider"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="include/adi_imu/welford_covariance_provider.h" line="36" column="1" bodyfile="include/adi_imu/welford_covariance_provider.h" bodystart="37" bodyend="74"/>
+    <listofallmembers>
+      <member refid="classadi__imu_1_1WelfordCovarianceProvider_1a33930c203336bda3d64f615352a792a0" prot="public" virt="virtual"><scope>adi_imu::WelfordCovarianceProvider</scope><name>addSample</name></member>
+      <member refid="classadi__imu_1_1WelfordCovarianceProvider_1a5d1b3677ab0aa34759675daad8ac8c5b" prot="private" virt="non-virtual"><scope>adi_imu::WelfordCovarianceProvider</scope><name>computeVariance</name></member>
+      <member refid="classadi__imu_1_1WelfordCovarianceProvider_1ac7fe7a1595dc49effd745e607034840f" prot="public" virt="non-virtual"><scope>adi_imu::WelfordCovarianceProvider</scope><name>DEFAULT_CALIBRATION_SAMPLES</name></member>
+      <member refid="classadi__imu_1_1WelfordCovarianceProvider_1a1e14573a6a89161f679873317de94058" prot="public" virt="non-virtual"><scope>adi_imu::WelfordCovarianceProvider</scope><name>DEFAULT_MIN_VARIANCE</name></member>
+      <member refid="classadi__imu_1_1WelfordCovarianceProvider_1ab612f236810ecb3e57230be447d4bcae" prot="public" virt="virtual"><scope>adi_imu::WelfordCovarianceProvider</scope><name>getAccelCovariance</name></member>
+      <member refid="classadi__imu_1_1WelfordCovarianceProvider_1aef321fbb71c87d73e2ce2b32642bf21b" prot="public" virt="virtual"><scope>adi_imu::WelfordCovarianceProvider</scope><name>getCalibrationProgress</name></member>
+      <member refid="classadi__imu_1_1WelfordCovarianceProvider_1a86996c49dcf701e89df380add7214301" prot="public" virt="virtual"><scope>adi_imu::WelfordCovarianceProvider</scope><name>getGyroCovariance</name></member>
+      <member refid="classadi__imu_1_1ImuCovarianceInterface_1a850023b9161f664a74e54702d9bc4170" prot="public" virt="non-virtual"><scope>adi_imu::WelfordCovarianceProvider</scope><name>ImuCovarianceInterface</name></member>
+      <member refid="classadi__imu_1_1ImuCovarianceInterface_1a278f17e65cfd182db16dc36a988aa4ee" prot="public" virt="non-virtual"><scope>adi_imu::WelfordCovarianceProvider</scope><name>ImuCovarianceInterface</name></member>
+      <member refid="classadi__imu_1_1WelfordCovarianceProvider_1aeff261c58db444635cbe422777e9d81c" prot="public" virt="virtual"><scope>adi_imu::WelfordCovarianceProvider</scope><name>isReady</name></member>
+      <member refid="classadi__imu_1_1WelfordCovarianceProvider_1ac73ece252a9387093a7239530d7f9593" prot="private" virt="non-virtual"><scope>adi_imu::WelfordCovarianceProvider</scope><name>m_accel_covariance</name></member>
+      <member refid="classadi__imu_1_1WelfordCovarianceProvider_1a17bd3f7ea1d7f5d89bffac92137d94a1" prot="private" virt="non-virtual"><scope>adi_imu::WelfordCovarianceProvider</scope><name>m_accel_M2</name></member>
+      <member refid="classadi__imu_1_1WelfordCovarianceProvider_1ac92f07dec29365a2ac81d34e332351ae" prot="private" virt="non-virtual"><scope>adi_imu::WelfordCovarianceProvider</scope><name>m_accel_mean</name></member>
+      <member refid="classadi__imu_1_1WelfordCovarianceProvider_1a645a76bcf61bba2c62cdb389aeb2168b" prot="private" virt="non-virtual"><scope>adi_imu::WelfordCovarianceProvider</scope><name>m_calibration_complete</name></member>
+      <member refid="classadi__imu_1_1WelfordCovarianceProvider_1a1d163f0a87d324e4cc333ba2d55810b9" prot="private" virt="non-virtual"><scope>adi_imu::WelfordCovarianceProvider</scope><name>m_gyro_covariance</name></member>
+      <member refid="classadi__imu_1_1WelfordCovarianceProvider_1afaa3c97d85d727508190878c067e5f78" prot="private" virt="non-virtual"><scope>adi_imu::WelfordCovarianceProvider</scope><name>m_gyro_M2</name></member>
+      <member refid="classadi__imu_1_1WelfordCovarianceProvider_1ab0358815a4b6ee253839afc3eaa2c2e9" prot="private" virt="non-virtual"><scope>adi_imu::WelfordCovarianceProvider</scope><name>m_gyro_mean</name></member>
+      <member refid="classadi__imu_1_1WelfordCovarianceProvider_1a048d4dab9e1d2bf6cc31b8f4a214854c" prot="private" virt="non-virtual"><scope>adi_imu::WelfordCovarianceProvider</scope><name>m_min_variance</name></member>
+      <member refid="classadi__imu_1_1WelfordCovarianceProvider_1a5bf3ddc9f4f150ac1c7e423502c10fbf" prot="private" virt="non-virtual"><scope>adi_imu::WelfordCovarianceProvider</scope><name>m_sample_count</name></member>
+      <member refid="classadi__imu_1_1WelfordCovarianceProvider_1ad4a8e26af4044b8154c27c06cc9b0c79" prot="private" virt="non-virtual"><scope>adi_imu::WelfordCovarianceProvider</scope><name>m_target_samples</name></member>
+      <member refid="classadi__imu_1_1ImuCovarianceInterface_1a7b5c6ffb0977318c3749b70d7dcd258b" prot="public" virt="non-virtual"><scope>adi_imu::WelfordCovarianceProvider</scope><name>operator=</name></member>
+      <member refid="classadi__imu_1_1WelfordCovarianceProvider_1ac9dff586ad4eff9c0675502ada24aa89" prot="public" virt="virtual"><scope>adi_imu::WelfordCovarianceProvider</scope><name>reset</name></member>
+      <member refid="classadi__imu_1_1WelfordCovarianceProvider_1a8ca2fbc3df2243491a47fcf2407fc73a" prot="private" virt="non-virtual"><scope>adi_imu::WelfordCovarianceProvider</scope><name>updateWelford</name></member>
+      <member refid="classadi__imu_1_1WelfordCovarianceProvider_1a848532637a7472e6ef83fc5a6453797f" prot="public" virt="non-virtual"><scope>adi_imu::WelfordCovarianceProvider</scope><name>WelfordCovarianceProvider</name></member>
+      <member refid="classadi__imu_1_1ImuCovarianceInterface_1aa1546bd17d8127e2e8e3d675815ed1ab" prot="public" virt="virtual"><scope>adi_imu::WelfordCovarianceProvider</scope><name>~ImuCovarianceInterface</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

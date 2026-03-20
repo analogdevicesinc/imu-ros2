@@ -15,8 +15,11 @@
     <innerclass refid="classadi__imu_1_1ADISDeviceFactory" prot="public">adi_imu::ADISDeviceFactory</innerclass>
     <innerclass refid="classadi__imu_1_1ADISDeviceRegistry" prot="public">adi_imu::ADISDeviceRegistry</innerclass>
     <innerclass refid="classadi__imu_1_1ADISRegisterMap" prot="public">adi_imu::ADISRegisterMap</innerclass>
+    <innerclass refid="classadi__imu_1_1EwmaCovarianceProvider" prot="public">adi_imu::EwmaCovarianceProvider</innerclass>
     <innerclass refid="classadi__imu_1_1IIOWrapper" prot="public">adi_imu::IIOWrapper</innerclass>
     <innerclass refid="classadi__imu_1_1ImuControlParameters" prot="public">adi_imu::ImuControlParameters</innerclass>
+    <innerclass refid="classadi__imu_1_1ImuCovarianceFactory" prot="public">adi_imu::ImuCovarianceFactory</innerclass>
+    <innerclass refid="classadi__imu_1_1ImuCovarianceInterface" prot="public">adi_imu::ImuCovarianceInterface</innerclass>
     <innerclass refid="classadi__imu_1_1ImuDataProvider" prot="public">adi_imu::ImuDataProvider</innerclass>
     <innerclass refid="classadi__imu_1_1ImuDataProviderInterface" prot="public">adi_imu::ImuDataProviderInterface</innerclass>
     <innerclass refid="classadi__imu_1_1ImuDiagDataProvider" prot="public">adi_imu::ImuDiagDataProvider</innerclass>
@@ -34,15 +37,68 @@
     <innerclass refid="classadi__imu_1_1ImuIdentificationRosPublisherInterface" prot="public">adi_imu::ImuIdentificationRosPublisherInterface</innerclass>
     <innerclass refid="classadi__imu_1_1ImuRosPublisher" prot="public">adi_imu::ImuRosPublisher</innerclass>
     <innerclass refid="classadi__imu_1_1ImuRosPublisherInterface" prot="public">adi_imu::ImuRosPublisherInterface</innerclass>
+    <innerclass refid="classadi__imu_1_1KalmanCovarianceProvider" prot="public">adi_imu::KalmanCovarianceProvider</innerclass>
+    <innerclass refid="classadi__imu_1_1MotionDetector" prot="public">adi_imu::MotionDetector</innerclass>
     <innerclass refid="classadi__imu_1_1RosPublisherGroup" prot="public">adi_imu::RosPublisherGroup</innerclass>
     <innerclass refid="classadi__imu_1_1RosPublisherGroupInterface" prot="public">adi_imu::RosPublisherGroupInterface</innerclass>
     <innerclass refid="classadi__imu_1_1RosTask" prot="public">adi_imu::RosTask</innerclass>
+    <innerclass refid="classadi__imu_1_1SlidingWindowCovarianceProvider" prot="public">adi_imu::SlidingWindowCovarianceProvider</innerclass>
+    <innerclass refid="classadi__imu_1_1StaticCovarianceProvider" prot="public">adi_imu::StaticCovarianceProvider</innerclass>
     <innerclass refid="classadi__imu_1_1VelAngTempDataProvider" prot="public">adi_imu::VelAngTempDataProvider</innerclass>
     <innerclass refid="classadi__imu_1_1VelAngTempDataProviderInterface" prot="public">adi_imu::VelAngTempDataProviderInterface</innerclass>
     <innerclass refid="classadi__imu_1_1VelAngTempRosPublisher" prot="public">adi_imu::VelAngTempRosPublisher</innerclass>
     <innerclass refid="classadi__imu_1_1VelAngTempRosPublisherInterface" prot="public">adi_imu::VelAngTempRosPublisherInterface</innerclass>
+    <innerclass refid="classadi__imu_1_1WelfordCovarianceProvider" prot="public">adi_imu::WelfordCovarianceProvider</innerclass>
     <innerclass refid="classadi__imu_1_1WorkerThread" prot="public">adi_imu::WorkerThread</innerclass>
     <sectiondef kind="enum">
+      <memberdef kind="enum" id="imu__covariance__factory_8h_1ad5ce0c38fc9981e3ec90aecd49c0d2ac" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>CovarianceAlgorithm</name>
+        <qualifiedname>adi_imu::CovarianceAlgorithm</qualifiedname>
+        <enumvalue id="imu__covariance__factory_8h_1ad5ce0c38fc9981e3ec90aecd49c0d2acafe6f99ef1ec99efbdc19a9786cf1facc" prot="public">
+          <name>STATIC</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="imu__covariance__factory_8h_1ad5ce0c38fc9981e3ec90aecd49c0d2aca9f7be9edce4b65aeda3bee012eaf4919" prot="public">
+          <name>WELFORD_ONLINE</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="imu__covariance__factory_8h_1ad5ce0c38fc9981e3ec90aecd49c0d2aca1909dcfa25e1c1f3aba6cb473cf1526e" prot="public">
+          <name>SLIDING_WINDOW</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="imu__covariance__factory_8h_1ad5ce0c38fc9981e3ec90aecd49c0d2aca91de4eed35ac6674cb8e6017cb44222d" prot="public">
+          <name>EWMA</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="imu__covariance__factory_8h_1ad5ce0c38fc9981e3ec90aecd49c0d2acaa0739c5983d75f6550ab0421cf67b760" prot="public">
+          <name>KALMAN</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Covariance computation algorithm types. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/imu_covariance_factory.h" line="30" column="1" bodyfile="include/adi_imu/imu_covariance_factory.h" bodystart="31" bodyend="37"/>
+      </memberdef>
       <memberdef kind="enum" id="adis__register__definitions_8h_1a90eb23ef06b4280c01e9457e425d6a6b" prot="public" static="no" strong="no">
         <type></type>
         <name>adis_device_id</name>
@@ -1109,6 +1165,38 @@
         <inbodydescription>
         </inbodydescription>
         <location file="include/adi_imu/utils/adis_register_definitions.h" line="69" column="1" bodyfile="include/adi_imu/utils/adis_register_definitions.h" bodystart="70" bodyend="215"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="imu__covariance__interface_8h_1ac636472a617af1f4f39b5691ab083b4d" prot="public" static="no">
+        <type>std::array&lt; double, 9 &gt;</type>
+        <definition>using adi_imu::CovarianceMatrix = typedef std::array&lt;double, 9&gt;</definition>
+        <argsstring></argsstring>
+        <name>CovarianceMatrix</name>
+        <qualifiedname>adi_imu::CovarianceMatrix</qualifiedname>
+        <briefdescription>
+<para>3x3 covariance matrix stored as row-major array Layout: [xx ,xy, xz, yx, yy, yz, zx, zy, zz] </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/imu_covariance_interface.h" line="27" column="1" bodyfile="include/adi_imu/imu_covariance_interface.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="imu__covariance__interface_8h_1adc5e99c136980b15dae55cbb2068d9cd" prot="public" static="no">
+        <type>geometry_msgs::msg::Vector3</type>
+        <definition>using adi_imu::Vec3 = typedef geometry_msgs::msg::Vector3</definition>
+        <argsstring></argsstring>
+        <name>Vec3</name>
+        <qualifiedname>adi_imu::Vec3</qualifiedname>
+        <briefdescription>
+<para>3D vector for acceleration or angular velocity samples using ROS2 built-in geometry_msgs::msg::Vector3 interface. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/imu_covariance_interface.h" line="32" column="1" bodyfile="include/adi_imu/imu_covariance_interface.h" bodystart="32" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="var">

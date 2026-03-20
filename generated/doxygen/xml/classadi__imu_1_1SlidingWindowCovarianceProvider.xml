@@ -1,0 +1,484 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classadi__imu_1_1SlidingWindowCovarianceProvider" kind="class" language="C++" prot="public">
+    <compoundname>adi_imu::SlidingWindowCovarianceProvider</compoundname>
+    <basecompoundref refid="classadi__imu_1_1ImuCovarianceInterface" prot="public" virt="non-virtual">adi_imu::ImuCovarianceInterface</basecompoundref>
+    <includes refid="sliding__window__covariance__provider_8h" local="no">sliding_window_covariance_provider.h</includes>
+    <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classadi__imu_1_1SlidingWindowCovarianceProvider_1a6b082d2e86d6e5f0d54b81a6c5a3fe7d" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr size_t</type>
+        <definition>constexpr size_t adi_imu::SlidingWindowCovarianceProvider::DEFAULT_WINDOW_SIZE</definition>
+        <argsstring></argsstring>
+        <name>DEFAULT_WINDOW_SIZE</name>
+        <qualifiedname>adi_imu::SlidingWindowCovarianceProvider::DEFAULT_WINDOW_SIZE</qualifiedname>
+        <initializer>= 500</initializer>
+        <briefdescription>
+<para>Default Sliding-window covariance algorithm parameters. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/sliding_window_covariance_provider.h" line="40" column="34" bodyfile="include/adi_imu/sliding_window_covariance_provider.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classadi__imu_1_1SlidingWindowCovarianceProvider_1a072bb120ac080bca53ca20eb8ba018f3" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr size_t</type>
+        <definition>constexpr size_t adi_imu::SlidingWindowCovarianceProvider::DEFAULT_MIN_SAMPLES</definition>
+        <argsstring></argsstring>
+        <name>DEFAULT_MIN_SAMPLES</name>
+        <qualifiedname>adi_imu::SlidingWindowCovarianceProvider::DEFAULT_MIN_SAMPLES</qualifiedname>
+        <initializer>= 100</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/sliding_window_covariance_provider.h" line="41" column="34" bodyfile="include/adi_imu/sliding_window_covariance_provider.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classadi__imu_1_1SlidingWindowCovarianceProvider_1a1ab83c12f560b9675a91312009e1ed3b" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr double</type>
+        <definition>constexpr double adi_imu::SlidingWindowCovarianceProvider::DEFAULT_MIN_VARIANCE</definition>
+        <argsstring></argsstring>
+        <name>DEFAULT_MIN_VARIANCE</name>
+        <qualifiedname>adi_imu::SlidingWindowCovarianceProvider::DEFAULT_MIN_VARIANCE</qualifiedname>
+        <initializer>= 1e-9</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/sliding_window_covariance_provider.h" line="42" column="34" bodyfile="include/adi_imu/sliding_window_covariance_provider.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classadi__imu_1_1SlidingWindowCovarianceProvider_1a2add3c93906f49ffce167f42e7b76a2a" prot="private" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t adi_imu::SlidingWindowCovarianceProvider::m_window_size</definition>
+        <argsstring></argsstring>
+        <name>m_window_size</name>
+        <qualifiedname>adi_imu::SlidingWindowCovarianceProvider::m_window_size</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/sliding_window_covariance_provider.h" line="65" column="10" bodyfile="include/adi_imu/sliding_window_covariance_provider.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classadi__imu_1_1SlidingWindowCovarianceProvider_1a7217d9bbd13e3c42918409a6d97e231f" prot="private" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t adi_imu::SlidingWindowCovarianceProvider::m_min_samples</definition>
+        <argsstring></argsstring>
+        <name>m_min_samples</name>
+        <qualifiedname>adi_imu::SlidingWindowCovarianceProvider::m_min_samples</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/sliding_window_covariance_provider.h" line="66" column="10" bodyfile="include/adi_imu/sliding_window_covariance_provider.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classadi__imu_1_1SlidingWindowCovarianceProvider_1a183222af5db82f68e65f0f5eaed2faa1" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double adi_imu::SlidingWindowCovarianceProvider::m_min_variance</definition>
+        <argsstring></argsstring>
+        <name>m_min_variance</name>
+        <qualifiedname>adi_imu::SlidingWindowCovarianceProvider::m_min_variance</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/sliding_window_covariance_provider.h" line="67" column="10" bodyfile="include/adi_imu/sliding_window_covariance_provider.h" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classadi__imu_1_1SlidingWindowCovarianceProvider_1a1e1d6282d0241d8b6875c0847d7b6ec3" prot="private" static="no" mutable="no">
+        <type><ref refid="classadi__imu_1_1MotionDetector" kindref="compound">MotionDetector</ref></type>
+        <definition>MotionDetector adi_imu::SlidingWindowCovarianceProvider::m_motion_detector</definition>
+        <argsstring></argsstring>
+        <name>m_motion_detector</name>
+        <qualifiedname>adi_imu::SlidingWindowCovarianceProvider::m_motion_detector</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/sliding_window_covariance_provider.h" line="70" column="18" bodyfile="include/adi_imu/sliding_window_covariance_provider.h" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classadi__imu_1_1SlidingWindowCovarianceProvider_1ad071f3e4be2737e3c5f842ce8e02479d" prot="private" static="no" mutable="no">
+        <type>std::deque&lt; Vec3 &gt;</type>
+        <definition>std::deque&lt;Vec3&gt; adi_imu::SlidingWindowCovarianceProvider::m_accel_samples</definition>
+        <argsstring></argsstring>
+        <name>m_accel_samples</name>
+        <qualifiedname>adi_imu::SlidingWindowCovarianceProvider::m_accel_samples</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/sliding_window_covariance_provider.h" line="73" column="14" bodyfile="include/adi_imu/sliding_window_covariance_provider.h" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classadi__imu_1_1SlidingWindowCovarianceProvider_1abdc8c0db78e3fa61e8eeff6b63dd19ad" prot="private" static="no" mutable="no">
+        <type>std::deque&lt; Vec3 &gt;</type>
+        <definition>std::deque&lt;Vec3&gt; adi_imu::SlidingWindowCovarianceProvider::m_gyro_samples</definition>
+        <argsstring></argsstring>
+        <name>m_gyro_samples</name>
+        <qualifiedname>adi_imu::SlidingWindowCovarianceProvider::m_gyro_samples</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/sliding_window_covariance_provider.h" line="74" column="14" bodyfile="include/adi_imu/sliding_window_covariance_provider.h" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classadi__imu_1_1SlidingWindowCovarianceProvider_1a83e5dcec05cd8b71253e07caf8faf65d" prot="private" static="no" mutable="no">
+        <type>CovarianceMatrix</type>
+        <definition>CovarianceMatrix adi_imu::SlidingWindowCovarianceProvider::m_accel_covariance</definition>
+        <argsstring></argsstring>
+        <name>m_accel_covariance</name>
+        <qualifiedname>adi_imu::SlidingWindowCovarianceProvider::m_accel_covariance</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/sliding_window_covariance_provider.h" line="77" column="20" bodyfile="include/adi_imu/sliding_window_covariance_provider.h" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classadi__imu_1_1SlidingWindowCovarianceProvider_1a4a6714315719a67dd585af181d957f4c" prot="private" static="no" mutable="no">
+        <type>CovarianceMatrix</type>
+        <definition>CovarianceMatrix adi_imu::SlidingWindowCovarianceProvider::m_gyro_covariance</definition>
+        <argsstring></argsstring>
+        <name>m_gyro_covariance</name>
+        <qualifiedname>adi_imu::SlidingWindowCovarianceProvider::m_gyro_covariance</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/sliding_window_covariance_provider.h" line="78" column="20" bodyfile="include/adi_imu/sliding_window_covariance_provider.h" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classadi__imu_1_1SlidingWindowCovarianceProvider_1a44bc6e7cc9ed9e61e78360ff8d7eb3f8" prot="private" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t adi_imu::SlidingWindowCovarianceProvider::m_update_interval</definition>
+        <argsstring></argsstring>
+        <name>m_update_interval</name>
+        <qualifiedname>adi_imu::SlidingWindowCovarianceProvider::m_update_interval</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/sliding_window_covariance_provider.h" line="81" column="10" bodyfile="include/adi_imu/sliding_window_covariance_provider.h" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classadi__imu_1_1SlidingWindowCovarianceProvider_1a849b83ef8acd465aa7e0145938b178a1" prot="private" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t adi_imu::SlidingWindowCovarianceProvider::m_samples_since_update</definition>
+        <argsstring></argsstring>
+        <name>m_samples_since_update</name>
+        <qualifiedname>adi_imu::SlidingWindowCovarianceProvider::m_samples_since_update</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/sliding_window_covariance_provider.h" line="82" column="10" bodyfile="include/adi_imu/sliding_window_covariance_provider.h" bodystart="82" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classadi__imu_1_1SlidingWindowCovarianceProvider_1ac27964da919d4dceb8822675b83c4408" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>adi_imu::SlidingWindowCovarianceProvider::SlidingWindowCovarianceProvider</definition>
+        <argsstring>(size_t window_size=DEFAULT_WINDOW_SIZE, size_t min_samples=DEFAULT_MIN_SAMPLES, double min_variance=DEFAULT_MIN_VARIANCE, MotionDetector motion_detector=MotionDetector())</argsstring>
+        <name>SlidingWindowCovarianceProvider</name>
+        <qualifiedname>adi_imu::SlidingWindowCovarianceProvider::SlidingWindowCovarianceProvider</qualifiedname>
+        <param>
+          <type>size_t</type>
+          <declname>window_size</declname>
+          <defval><ref refid="classadi__imu_1_1SlidingWindowCovarianceProvider_1a6b082d2e86d6e5f0d54b81a6c5a3fe7d" kindref="member">DEFAULT_WINDOW_SIZE</ref></defval>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>min_samples</declname>
+          <defval>DEFAULT_MIN_SAMPLES</defval>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>min_variance</declname>
+          <defval>DEFAULT_MIN_VARIANCE</defval>
+        </param>
+        <param>
+          <type><ref refid="classadi__imu_1_1MotionDetector" kindref="compound">MotionDetector</ref></type>
+          <declname>motion_detector</declname>
+          <defval><ref refid="classadi__imu_1_1MotionDetector" kindref="compound">MotionDetector</ref>()</defval>
+        </param>
+        <briefdescription>
+<para>Construct sliding window covariance estimator. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>window_size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of samples to keep in window. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>min_samples</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Minimum samples before covariance is valid. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>min_variance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Minimum variance floor. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>motion_detector</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Optional motion detector for stationary filtering. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/sliding_window_covariance_provider.h" line="51" column="12" bodyfile="src/sliding_window_covariance_provider.cpp" bodystart="24" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="function" id="classadi__imu_1_1SlidingWindowCovarianceProvider_1a4d64ae41a05aca575a840e71d910efda" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void adi_imu::SlidingWindowCovarianceProvider::addSample</definition>
+        <argsstring>(const Vec3 &amp;accel, const Vec3 &amp;gyro) override</argsstring>
+        <name>addSample</name>
+        <qualifiedname>adi_imu::SlidingWindowCovarianceProvider::addSample</qualifiedname>
+        <reimplements refid="classadi__imu_1_1ImuCovarianceInterface_1a49a5d97536e4e924ef63b1c0469d192a">addSample</reimplements>
+        <param>
+          <type>const Vec3 &amp;</type>
+          <declname>accel</declname>
+        </param>
+        <param>
+          <type>const Vec3 &amp;</type>
+          <declname>gyro</declname>
+        </param>
+        <briefdescription>
+<para>Process a new IMU sample for covariance estimation. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>accel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Linear acceleration sample (m/s^2) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>gyro</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Angular velocity sample (rad/s) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/sliding_window_covariance_provider.h" line="55" column="8" bodyfile="src/sliding_window_covariance_provider.cpp" bodystart="37" bodyend="67"/>
+      </memberdef>
+      <memberdef kind="function" id="classadi__imu_1_1SlidingWindowCovarianceProvider_1ae45e7f0eb472fc84fc1b206f2909035d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool adi_imu::SlidingWindowCovarianceProvider::isReady</definition>
+        <argsstring>() const override</argsstring>
+        <name>isReady</name>
+        <qualifiedname>adi_imu::SlidingWindowCovarianceProvider::isReady</qualifiedname>
+        <reimplements refid="classadi__imu_1_1ImuCovarianceInterface_1a0c90bb03aecbb0dd8b287eb72997349e">isReady</reimplements>
+        <briefdescription>
+<para>Check if covariance estimation is ready (calibration complete). </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>true if covariance values are valid and ready to use. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/sliding_window_covariance_provider.h" line="56" column="8" bodyfile="src/sliding_window_covariance_provider.cpp" bodystart="69" bodyend="72"/>
+      </memberdef>
+      <memberdef kind="function" id="classadi__imu_1_1SlidingWindowCovarianceProvider_1a06992407f4ff5996a9345c797a9033ce" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>CovarianceMatrix</type>
+        <definition>CovarianceMatrix adi_imu::SlidingWindowCovarianceProvider::getAccelCovariance</definition>
+        <argsstring>() const override</argsstring>
+        <name>getAccelCovariance</name>
+        <qualifiedname>adi_imu::SlidingWindowCovarianceProvider::getAccelCovariance</qualifiedname>
+        <reimplements refid="classadi__imu_1_1ImuCovarianceInterface_1a1303843896fc4a4dd8f03d494bd7cf70">getAccelCovariance</reimplements>
+        <briefdescription>
+<para>Get the linear acceleration covariance matrix. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>3x3 covariance matrix row-major order. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/sliding_window_covariance_provider.h" line="57" column="20" bodyfile="src/sliding_window_covariance_provider.cpp" bodystart="135" bodyend="138"/>
+      </memberdef>
+      <memberdef kind="function" id="classadi__imu_1_1SlidingWindowCovarianceProvider_1acfa82309681eadad10668b03356e1cdc" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>CovarianceMatrix</type>
+        <definition>CovarianceMatrix adi_imu::SlidingWindowCovarianceProvider::getGyroCovariance</definition>
+        <argsstring>() const override</argsstring>
+        <name>getGyroCovariance</name>
+        <qualifiedname>adi_imu::SlidingWindowCovarianceProvider::getGyroCovariance</qualifiedname>
+        <reimplements refid="classadi__imu_1_1ImuCovarianceInterface_1acb6a8d1f4720979ea3d0a9d27ba720fb">getGyroCovariance</reimplements>
+        <briefdescription>
+<para>Get the angular velocity covariance matrix. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>3x3 covariance matrix row-major order. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/sliding_window_covariance_provider.h" line="58" column="20" bodyfile="src/sliding_window_covariance_provider.cpp" bodystart="140" bodyend="143"/>
+      </memberdef>
+      <memberdef kind="function" id="classadi__imu_1_1SlidingWindowCovarianceProvider_1a8b4b3501760655f772f13dd9549f0c51" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void adi_imu::SlidingWindowCovarianceProvider::reset</definition>
+        <argsstring>() override</argsstring>
+        <name>reset</name>
+        <qualifiedname>adi_imu::SlidingWindowCovarianceProvider::reset</qualifiedname>
+        <reimplements refid="classadi__imu_1_1ImuCovarianceInterface_1ad97804c3f9796f1d57019cced43679df">reset</reimplements>
+        <briefdescription>
+<para>Reset the covariance extimator to initial state. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/sliding_window_covariance_provider.h" line="59" column="8" bodyfile="src/sliding_window_covariance_provider.cpp" bodystart="145" bodyend="152"/>
+      </memberdef>
+      <memberdef kind="function" id="classadi__imu_1_1SlidingWindowCovarianceProvider_1ac99f884edde4070a6f82902a9c9970f8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>double</type>
+        <definition>double adi_imu::SlidingWindowCovarianceProvider::getCalibrationProgress</definition>
+        <argsstring>() const override</argsstring>
+        <name>getCalibrationProgress</name>
+        <qualifiedname>adi_imu::SlidingWindowCovarianceProvider::getCalibrationProgress</qualifiedname>
+        <reimplements refid="classadi__imu_1_1ImuCovarianceInterface_1a06e908d31a427fb4e7320b746c92e91b">getCalibrationProgress</reimplements>
+        <briefdescription>
+<para>Get the current calibration progress (0.0 to 1.0). </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Progress ratio, 1.0 when calibration is complete. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/sliding_window_covariance_provider.h" line="60" column="10" bodyfile="src/sliding_window_covariance_provider.cpp" bodystart="154" bodyend="160"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classadi__imu_1_1SlidingWindowCovarianceProvider_1a465d4d3e9530c8528babd131a9f7a355" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void adi_imu::SlidingWindowCovarianceProvider::recomputeCovariance</definition>
+        <argsstring>()</argsstring>
+        <name>recomputeCovariance</name>
+        <qualifiedname>adi_imu::SlidingWindowCovarianceProvider::recomputeCovariance</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/adi_imu/sliding_window_covariance_provider.h" line="63" column="8" bodyfile="src/sliding_window_covariance_provider.cpp" bodystart="74" bodyend="133"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Computes covariances over a sliding window of recent samples. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>This provider maintains a fixed-size window of samples and continuously updates the covariance estimate. Useful for adaptive covariance that responds to changing sensor noise characteristics. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>adi_imu::ImuCovarianceInterface</label>
+        <link refid="classadi__imu_1_1ImuCovarianceInterface"/>
+      </node>
+      <node id="1">
+        <label>adi_imu::SlidingWindowCovarianceProvider</label>
+        <link refid="classadi__imu_1_1SlidingWindowCovarianceProvider"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>adi_imu::ImuCovarianceInterface</label>
+        <link refid="classadi__imu_1_1ImuCovarianceInterface"/>
+      </node>
+      <node id="3">
+        <label>adi_imu::MotionDetector</label>
+        <link refid="classadi__imu_1_1MotionDetector"/>
+      </node>
+      <node id="1">
+        <label>adi_imu::SlidingWindowCovarianceProvider</label>
+        <link refid="classadi__imu_1_1SlidingWindowCovarianceProvider"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>m_motion_detector</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="include/adi_imu/sliding_window_covariance_provider.h" line="34" column="1" bodyfile="include/adi_imu/sliding_window_covariance_provider.h" bodystart="35" bodyend="83"/>
+    <listofallmembers>
+      <member refid="classadi__imu_1_1SlidingWindowCovarianceProvider_1a4d64ae41a05aca575a840e71d910efda" prot="public" virt="virtual"><scope>adi_imu::SlidingWindowCovarianceProvider</scope><name>addSample</name></member>
+      <member refid="classadi__imu_1_1SlidingWindowCovarianceProvider_1a072bb120ac080bca53ca20eb8ba018f3" prot="public" virt="non-virtual"><scope>adi_imu::SlidingWindowCovarianceProvider</scope><name>DEFAULT_MIN_SAMPLES</name></member>
+      <member refid="classadi__imu_1_1SlidingWindowCovarianceProvider_1a1ab83c12f560b9675a91312009e1ed3b" prot="public" virt="non-virtual"><scope>adi_imu::SlidingWindowCovarianceProvider</scope><name>DEFAULT_MIN_VARIANCE</name></member>
+      <member refid="classadi__imu_1_1SlidingWindowCovarianceProvider_1a6b082d2e86d6e5f0d54b81a6c5a3fe7d" prot="public" virt="non-virtual"><scope>adi_imu::SlidingWindowCovarianceProvider</scope><name>DEFAULT_WINDOW_SIZE</name></member>
+      <member refid="classadi__imu_1_1SlidingWindowCovarianceProvider_1a06992407f4ff5996a9345c797a9033ce" prot="public" virt="virtual"><scope>adi_imu::SlidingWindowCovarianceProvider</scope><name>getAccelCovariance</name></member>
+      <member refid="classadi__imu_1_1SlidingWindowCovarianceProvider_1ac99f884edde4070a6f82902a9c9970f8" prot="public" virt="virtual"><scope>adi_imu::SlidingWindowCovarianceProvider</scope><name>getCalibrationProgress</name></member>
+      <member refid="classadi__imu_1_1SlidingWindowCovarianceProvider_1acfa82309681eadad10668b03356e1cdc" prot="public" virt="virtual"><scope>adi_imu::SlidingWindowCovarianceProvider</scope><name>getGyroCovariance</name></member>
+      <member refid="classadi__imu_1_1ImuCovarianceInterface_1a850023b9161f664a74e54702d9bc4170" prot="public" virt="non-virtual"><scope>adi_imu::SlidingWindowCovarianceProvider</scope><name>ImuCovarianceInterface</name></member>
+      <member refid="classadi__imu_1_1ImuCovarianceInterface_1a278f17e65cfd182db16dc36a988aa4ee" prot="public" virt="non-virtual"><scope>adi_imu::SlidingWindowCovarianceProvider</scope><name>ImuCovarianceInterface</name></member>
+      <member refid="classadi__imu_1_1SlidingWindowCovarianceProvider_1ae45e7f0eb472fc84fc1b206f2909035d" prot="public" virt="virtual"><scope>adi_imu::SlidingWindowCovarianceProvider</scope><name>isReady</name></member>
+      <member refid="classadi__imu_1_1SlidingWindowCovarianceProvider_1a83e5dcec05cd8b71253e07caf8faf65d" prot="private" virt="non-virtual"><scope>adi_imu::SlidingWindowCovarianceProvider</scope><name>m_accel_covariance</name></member>
+      <member refid="classadi__imu_1_1SlidingWindowCovarianceProvider_1ad071f3e4be2737e3c5f842ce8e02479d" prot="private" virt="non-virtual"><scope>adi_imu::SlidingWindowCovarianceProvider</scope><name>m_accel_samples</name></member>
+      <member refid="classadi__imu_1_1SlidingWindowCovarianceProvider_1a4a6714315719a67dd585af181d957f4c" prot="private" virt="non-virtual"><scope>adi_imu::SlidingWindowCovarianceProvider</scope><name>m_gyro_covariance</name></member>
+      <member refid="classadi__imu_1_1SlidingWindowCovarianceProvider_1abdc8c0db78e3fa61e8eeff6b63dd19ad" prot="private" virt="non-virtual"><scope>adi_imu::SlidingWindowCovarianceProvider</scope><name>m_gyro_samples</name></member>
+      <member refid="classadi__imu_1_1SlidingWindowCovarianceProvider_1a7217d9bbd13e3c42918409a6d97e231f" prot="private" virt="non-virtual"><scope>adi_imu::SlidingWindowCovarianceProvider</scope><name>m_min_samples</name></member>
+      <member refid="classadi__imu_1_1SlidingWindowCovarianceProvider_1a183222af5db82f68e65f0f5eaed2faa1" prot="private" virt="non-virtual"><scope>adi_imu::SlidingWindowCovarianceProvider</scope><name>m_min_variance</name></member>
+      <member refid="classadi__imu_1_1SlidingWindowCovarianceProvider_1a1e1d6282d0241d8b6875c0847d7b6ec3" prot="private" virt="non-virtual"><scope>adi_imu::SlidingWindowCovarianceProvider</scope><name>m_motion_detector</name></member>
+      <member refid="classadi__imu_1_1SlidingWindowCovarianceProvider_1a849b83ef8acd465aa7e0145938b178a1" prot="private" virt="non-virtual"><scope>adi_imu::SlidingWindowCovarianceProvider</scope><name>m_samples_since_update</name></member>
+      <member refid="classadi__imu_1_1SlidingWindowCovarianceProvider_1a44bc6e7cc9ed9e61e78360ff8d7eb3f8" prot="private" virt="non-virtual"><scope>adi_imu::SlidingWindowCovarianceProvider</scope><name>m_update_interval</name></member>
+      <member refid="classadi__imu_1_1SlidingWindowCovarianceProvider_1a2add3c93906f49ffce167f42e7b76a2a" prot="private" virt="non-virtual"><scope>adi_imu::SlidingWindowCovarianceProvider</scope><name>m_window_size</name></member>
+      <member refid="classadi__imu_1_1ImuCovarianceInterface_1a7b5c6ffb0977318c3749b70d7dcd258b" prot="public" virt="non-virtual"><scope>adi_imu::SlidingWindowCovarianceProvider</scope><name>operator=</name></member>
+      <member refid="classadi__imu_1_1SlidingWindowCovarianceProvider_1a465d4d3e9530c8528babd131a9f7a355" prot="private" virt="non-virtual"><scope>adi_imu::SlidingWindowCovarianceProvider</scope><name>recomputeCovariance</name></member>
+      <member refid="classadi__imu_1_1SlidingWindowCovarianceProvider_1a8b4b3501760655f772f13dd9549f0c51" prot="public" virt="virtual"><scope>adi_imu::SlidingWindowCovarianceProvider</scope><name>reset</name></member>
+      <member refid="classadi__imu_1_1SlidingWindowCovarianceProvider_1ac27964da919d4dceb8822675b83c4408" prot="public" virt="non-virtual"><scope>adi_imu::SlidingWindowCovarianceProvider</scope><name>SlidingWindowCovarianceProvider</name></member>
+      <member refid="classadi__imu_1_1ImuCovarianceInterface_1aa1546bd17d8127e2e8e3d675815ed1ab" prot="public" virt="virtual"><scope>adi_imu::SlidingWindowCovarianceProvider</scope><name>~ImuCovarianceInterface</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

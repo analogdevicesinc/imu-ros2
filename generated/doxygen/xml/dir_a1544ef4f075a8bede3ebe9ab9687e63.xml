@@ -15,8 +15,11 @@
     <innerfile refid="adis1657x__register__map_8h">adis1657x_register_map.h</innerfile>
     <innerfile refid="adis__device__factory_8h">adis_device_factory.h</innerfile>
     <innerfile refid="adis__register__map_8h">adis_register_map.h</innerfile>
+    <innerfile refid="ewma__covariance__provider_8h">ewma_covariance_provider.h</innerfile>
     <innerfile refid="iio__wrapper_8h">iio_wrapper.h</innerfile>
     <innerfile refid="imu__control__parameters_8h">imu_control_parameters.h</innerfile>
+    <innerfile refid="imu__covariance__factory_8h">imu_covariance_factory.h</innerfile>
+    <innerfile refid="imu__covariance__interface_8h">imu_covariance_interface.h</innerfile>
     <innerfile refid="imu__data__provider_8h">imu_data_provider.h</innerfile>
     <innerfile refid="imu__data__provider__interface_8h">imu_data_provider_interface.h</innerfile>
     <innerfile refid="imu__diag__data__provider_8h">imu_diag_data_provider.h</innerfile>
@@ -34,13 +37,18 @@
     <innerfile refid="imu__identification__ros__publisher__interface_8h">imu_identification_ros_publisher_interface.h</innerfile>
     <innerfile refid="imu__ros__publisher_8h">imu_ros_publisher.h</innerfile>
     <innerfile refid="imu__ros__publisher__interface_8h">imu_ros_publisher_interface.h</innerfile>
+    <innerfile refid="kalman__covariance__provider_8h">kalman_covariance_provider.h</innerfile>
+    <innerfile refid="motion__detector_8h">motion_detector.h</innerfile>
     <innerfile refid="ros__publisher__group_8h">ros_publisher_group.h</innerfile>
     <innerfile refid="ros__publisher__group__interface_8h">ros_publisher_group_interface.h</innerfile>
     <innerfile refid="ros__task_8h">ros_task.h</innerfile>
+    <innerfile refid="sliding__window__covariance__provider_8h">sliding_window_covariance_provider.h</innerfile>
+    <innerfile refid="static__covariance__provider_8h">static_covariance_provider.h</innerfile>
     <innerfile refid="velangtemp__data__provider_8h">velangtemp_data_provider.h</innerfile>
     <innerfile refid="velangtemp__data__provider__interface_8h">velangtemp_data_provider_interface.h</innerfile>
     <innerfile refid="velangtemp__ros__publisher_8h">velangtemp_ros_publisher.h</innerfile>
     <innerfile refid="velangtemp__ros__publisher__interface_8h">velangtemp_ros_publisher_interface.h</innerfile>
+    <innerfile refid="welford__covariance__provider_8h">welford_covariance_provider.h</innerfile>
     <innerfile refid="worker__thread_8h">worker_thread.h</innerfile>
     <briefdescription>
     </briefdescription>
