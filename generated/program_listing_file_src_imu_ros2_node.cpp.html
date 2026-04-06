@@ -8,7 +8,7 @@
 
     <title>Program Listing for File imu_ros2_node.cpp &#8212; adi_imu 1.0.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8e8a900e" />
-    <link rel="stylesheet" type="text/css" href="../_static/app.min.css?v=5c8d5ce8" />
+    <link rel="stylesheet" type="text/css" href="../_static/app.min.css?v=833c9372" />
     <link rel="stylesheet" type="text/css" href="../_static/collapsible-lists/css/tree_view.css?v=a885cde7" />
     <script async="async" src="../_static/app.umd.js?v=f78f54ff"></script>
     <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js?v=73120307"></script>
@@ -609,11 +609,11 @@ Content on this topic
 </ul>
 </li>
 <li class="toctree-l1"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-4" id="toctree-collapse-4"/><div class="collapse"><a class="reference internal" href="../__standards.html">Standard Documents</a><label for="toctree-collapse-4"><div class="icon"></div></label></div><ul>
+<li class="toctree-l2"><a class="reference internal" href="../__README.html">README</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../__LICENSE.html">LICENSE</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../__PACKAGE.html">PACKAGE</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../__CHANGELOG.html">CHANGELOG</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../__CONTRIBUTING.html">CONTRIBUTING</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../__README.html">README</a></li>
 </ul>
 </li>
 </ul>
@@ -775,8 +775,8 @@ Content on this topic
 <span class="w">  </span><span class="p">}</span>
 <span class="w">  </span><span class="c1">//=======================================================</span>
 
-<span class="w">  </span><span class="n">adi_imu</span><span class="o">::</span><span class="n">VelAngTempDataProviderInterface</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">vel_ang_data_provider</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span>
-<span class="w">  </span><span class="n">adi_imu</span><span class="o">::</span><span class="n">VelAngTempRosPublisherInterface</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">vel_ang_publisher</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span>
+<span class="w">  </span><span class="n">adi_imu</span><span class="o">::</span><span class="n">VelAngTempDataProviderInterface</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">vel_ang_data_provider</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">nullptr</span><span class="p">;</span>
+<span class="w">  </span><span class="n">adi_imu</span><span class="o">::</span><span class="n">VelAngTempRosPublisherInterface</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">vel_ang_publisher</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">nullptr</span><span class="p">;</span>
 
 <span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">device_descriptor</span><span class="o">-&gt;</span><span class="n">has</span><span class="p">(</span><span class="n">adi_imu</span><span class="o">::</span><span class="n">ADISRegister</span><span class="o">::</span><span class="n">HAS_DELTA_BURST</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="n">vel_ang_data_provider</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">adi_imu</span><span class="o">::</span><span class="n">VelAngTempDataProvider</span><span class="p">();</span>
@@ -796,7 +796,7 @@ Content on this topic
 
 <span class="w">  </span><span class="n">adi_imu</span><span class="o">::</span><span class="n">RosPublisherGroupInterface</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">publisher_group</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">adi_imu</span><span class="o">::</span><span class="n">RosPublisherGroup</span><span class="p">(</span><span class="n">imu_node</span><span class="p">);</span>
 <span class="w">  </span><span class="n">publisher_group</span><span class="o">-&gt;</span><span class="n">setAccelGyroTempRosPublisher</span><span class="p">(</span><span class="n">accel_gyro_publisher</span><span class="p">);</span>
-<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">vel_ang_publisher</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">vel_ang_publisher</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">nullptr</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="n">publisher_group</span><span class="o">-&gt;</span><span class="n">setVelAngTempRosPublisher</span><span class="p">(</span><span class="n">vel_ang_publisher</span><span class="p">);</span>
 <span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="n">RCLCPP_INFO</span><span class="p">(</span><span class="n">imu_node</span><span class="o">-&gt;</span><span class="n">get_logger</span><span class="p">(),</span><span class="w"> </span><span class="s">&quot;VelAngTemp publisher is null, skipping.&quot;</span><span class="p">);</span>
@@ -808,9 +808,9 @@ Content on this topic
 
 <span class="w">  </span><span class="n">adi_imu</span><span class="o">::</span><span class="n">RosTask</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">publisher_group_task</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">adi_imu</span><span class="o">::</span><span class="n">RosTask</span><span class="w"> </span><span class="o">*&gt;</span><span class="p">(</span><span class="n">publisher_group</span><span class="p">);</span>
 
-<span class="w">  </span><span class="n">adi_imu</span><span class="o">::</span><span class="n">ImuIdentificationDataProviderInterface</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">ident_data_provider</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span>
-<span class="w">  </span><span class="n">adi_imu</span><span class="o">::</span><span class="n">ImuIdentificationRosPublisherInterface</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">ident_publisher</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span>
-<span class="w">  </span><span class="n">adi_imu</span><span class="o">::</span><span class="n">RosTask</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">ident_task</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span>
+<span class="w">  </span><span class="n">adi_imu</span><span class="o">::</span><span class="n">ImuIdentificationDataProviderInterface</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">ident_data_provider</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">nullptr</span><span class="p">;</span>
+<span class="w">  </span><span class="n">adi_imu</span><span class="o">::</span><span class="n">ImuIdentificationRosPublisherInterface</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">ident_publisher</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">nullptr</span><span class="p">;</span>
+<span class="w">  </span><span class="n">adi_imu</span><span class="o">::</span><span class="n">RosTask</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">ident_task</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">nullptr</span><span class="p">;</span>
 <span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ident_data_enable</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="n">ident_data_provider</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">adi_imu</span><span class="o">::</span><span class="n">ImuIdentificationDataProvider</span><span class="p">();</span>
 <span class="w">    </span><span class="n">ident_publisher</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">adi_imu</span><span class="o">::</span><span class="n">ImuIdentificationRosPublisher</span><span class="p">(</span><span class="n">imu_node</span><span class="p">);</span>
@@ -820,9 +820,9 @@ Content on this topic
 <span class="w">    </span><span class="n">RCLCPP_INFO</span><span class="p">(</span><span class="n">imu_node</span><span class="o">-&gt;</span><span class="n">get_logger</span><span class="p">(),</span><span class="w"> </span><span class="s">&quot;Identification data publishing is disabled.&quot;</span><span class="p">);</span>
 <span class="w">  </span><span class="p">}</span>
 
-<span class="w">  </span><span class="n">adi_imu</span><span class="o">::</span><span class="n">ImuDiagDataProviderInterface</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">diag_data_provider</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span>
-<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">adi_imu</span><span class="o">::</span><span class="n">ImuDiagRosPublisherInterface</span><span class="o">&gt;</span><span class="w"> </span><span class="n">diag_publisher</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span>
-<span class="w">  </span><span class="n">adi_imu</span><span class="o">::</span><span class="n">RosTask</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">diag_task</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span>
+<span class="w">  </span><span class="n">adi_imu</span><span class="o">::</span><span class="n">ImuDiagDataProviderInterface</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">diag_data_provider</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">nullptr</span><span class="p">;</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">adi_imu</span><span class="o">::</span><span class="n">ImuDiagRosPublisherInterface</span><span class="o">&gt;</span><span class="w"> </span><span class="n">diag_publisher</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">nullptr</span><span class="p">;</span>
+<span class="w">  </span><span class="n">adi_imu</span><span class="o">::</span><span class="n">RosTask</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">diag_task</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">nullptr</span><span class="p">;</span>
 <span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">diag_data_enable</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="n">diag_data_provider</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">adi_imu</span><span class="o">::</span><span class="n">ImuDiagDataProvider</span><span class="p">();</span>
 
@@ -840,12 +840,12 @@ Content on this topic
 <span class="w">  </span><span class="p">}</span>
 
 <span class="w">  </span><span class="n">adi_imu</span><span class="o">::</span><span class="n">WorkerThread</span><span class="w"> </span><span class="n">publisher_group_thread</span><span class="p">(</span><span class="n">publisher_group_task</span><span class="p">);</span>
-<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">adi_imu</span><span class="o">::</span><span class="n">WorkerThread</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ident_thread</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span>
-<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">adi_imu</span><span class="o">::</span><span class="n">WorkerThread</span><span class="o">&gt;</span><span class="w"> </span><span class="n">diag_thread</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span>
-<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ident_task</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">adi_imu</span><span class="o">::</span><span class="n">WorkerThread</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ident_thread</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">nullptr</span><span class="p">;</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">adi_imu</span><span class="o">::</span><span class="n">WorkerThread</span><span class="o">&gt;</span><span class="w"> </span><span class="n">diag_thread</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">nullptr</span><span class="p">;</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ident_task</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">nullptr</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="n">ident_thread</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">make_unique</span><span class="o">&lt;</span><span class="n">adi_imu</span><span class="o">::</span><span class="n">WorkerThread</span><span class="o">&gt;</span><span class="p">(</span><span class="n">ident_task</span><span class="p">);</span>
 <span class="w">  </span><span class="p">}</span>
-<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">diag_task</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">diag_task</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">nullptr</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="n">diag_thread</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">make_unique</span><span class="o">&lt;</span><span class="n">adi_imu</span><span class="o">::</span><span class="n">WorkerThread</span><span class="o">&gt;</span><span class="p">(</span><span class="n">diag_task</span><span class="p">);</span>
 <span class="w">  </span><span class="p">}</span>
 
@@ -859,11 +859,11 @@ Content on this topic
 <span class="w">  </span><span class="n">publisher_group_thread</span><span class="p">.</span><span class="n">join</span><span class="p">();</span>
 
 <span class="w">  </span><span class="c1">// Cleanup resources. Deleting publishers also deletes their respective providers</span>
-<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">vel_ang_publisher</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">vel_ang_publisher</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">nullptr</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">delete</span><span class="w"> </span><span class="n">vel_ang_publisher</span><span class="p">;</span>
 <span class="w">  </span><span class="p">}</span>
 
-<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ident_publisher</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ident_publisher</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">nullptr</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">delete</span><span class="w"> </span><span class="n">ident_publisher</span><span class="p">;</span>
 <span class="w">  </span><span class="p">}</span>
 
@@ -871,7 +871,7 @@ Content on this topic
 <span class="w">  </span><span class="k">delete</span><span class="w"> </span><span class="n">imu_std_publisher</span><span class="p">;</span>
 <span class="w">  </span><span class="k">delete</span><span class="w"> </span><span class="n">full_data_publisher</span><span class="p">;</span>
 
-<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">publisher_group</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">publisher_group</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">nullptr</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">delete</span><span class="w"> </span><span class="n">publisher_group</span><span class="p">;</span>
 <span class="w">  </span><span class="p">}</span>
 
