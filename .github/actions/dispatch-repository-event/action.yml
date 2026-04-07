@@ -1,0 +1,55 @@
+name: Dispatch Repository Event
+description: >
+  Emits a repository_dispatch event to a downstream GitHub repository.
+  The downstream listener filters on the event-type to decide what to do.
+
+inputs:
+  owner:
+    description: GitHub owner (org or user) of the target repository.
+    required: true
+  repo:
+    description: Target repository name.
+    required: true
+  event-type:
+    description: Custom event type string (max 100 chars).
+    required: true
+  branch:
+    description: Value forwarded as client_payload.branch in the dispatch event.
+    required: true
+  token:
+    description: GitHub token with repo scope on the target repository.
+    required: true
+
+runs:
+  using: composite
+  steps:
+    - name: Emit repository dispatch event
+      shell: bash
+      env:
+        GH_TOKEN: ${{ inputs.token }}
+        DISPATCH_OWNER: ${{ inputs.owner }}
+        DISPATCH_REPO: ${{ inputs.repo }}
+        DISPATCH_EVENT_TYPE: ${{ inputs.event-type }}
+        DISPATCH_BRANCH: ${{ inputs.branch }}
+      run: |
+        set -euo pipefail
+
+        if [[ -z "${DISPATCH_OWNER}" ]]; then
+          echo "::error::owner input is empty — verify that vars.PRIVATE_ORG is configured in this repository's settings" >&2
+          exit 1
+        fi
+        if [[ -z "${DISPATCH_REPO}" ]]; then
+          echo "::error::repo input is empty" >&2
+          exit 1
+        fi
+
+        TARGET="/repos/${DISPATCH_OWNER}/${DISPATCH_REPO}/dispatches"
+        echo "Dispatching '${DISPATCH_EVENT_TYPE}' to ${TARGET}"
+
+        gh api \
+          --method POST \
+          -H "Accept: application/vnd.github+json" \
+          -H "X-GitHub-Api-Version: 2022-11-28" \
+          "${TARGET}" \
+          -f "event_type=${DISPATCH_EVENT_TYPE}" \
+          -f "client_payload[branch]=${DISPATCH_BRANCH}"

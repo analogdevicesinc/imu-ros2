@@ -1,0 +1,33 @@
+name: Dispatch Branch Sync
+
+on:
+  push:
+    branches:
+      - humble
+      # - jazzy
+      # - rolling
+
+env:
+  DISPATCH_EVENT_TYPE: branch-sync
+
+concurrency:
+  group: dispatch-branch-sync-${{ github.ref_name }}
+  cancel-in-progress: true
+
+jobs:
+  dispatch:
+    # Only the public organization should emit this trigger when configured.
+    if: github.repository_owner == 'analogdevicesinc'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Emit branch sync event
+        uses: ./.github/actions/dispatch-repository-event
+        with:
+          owner: ${{ vars.PRIVATE_ORG }}
+          repo: ${{ github.event.repository.name }}
+          event-type: ${{ env.DISPATCH_EVENT_TYPE }}
+          branch: ${{ github.ref_name }}
+          token: ${{ secrets.ADI_INNERSOURCE_PAT }}
