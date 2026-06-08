@@ -63,14 +63,20 @@ bool ImuDataProvider::getData(sensor_msgs::msg::Imu & message)
       std::copy(accel_cov.begin(), accel_cov.end(), message.linear_acceleration_covariance.begin());
       std::copy(gyro_cov.begin(), gyro_cov.end(), message.angular_velocity_covariance.begin());
     } else {
-      // Set to -1 to indicate unknown during calibration
-      message.linear_acceleration_covariance[0] = -1;
-      message.angular_velocity_covariance[0] = -1;
+      // Set to zero to indicate unknown covariance during calibration
+      std::fill(
+        message.linear_acceleration_covariance.begin(),
+        message.linear_acceleration_covariance.end(), 0);
+      std::fill(
+        message.angular_velocity_covariance.begin(), message.angular_velocity_covariance.end(), 0);
     }
   } else {
     // No covariance provider - set to unknown
-    message.linear_acceleration_covariance[0] = -1;
-    message.angular_velocity_covariance[0] = -1;
+    std::fill(
+      message.linear_acceleration_covariance.begin(), message.linear_acceleration_covariance.end(),
+      0);
+    std::fill(
+      message.angular_velocity_covariance.begin(), message.angular_velocity_covariance.end(), 0);
   }
 
   return true;
