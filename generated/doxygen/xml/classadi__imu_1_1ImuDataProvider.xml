@@ -143,7 +143,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/imu_data_provider.h" line="60" column="8" bodyfile="src/imu_data_provider.cpp" bodystart="33" bodyend="77"/>
+        <location file="include/adi_imu/imu_data_provider.h" line="60" column="8" bodyfile="src/imu_data_provider.cpp" bodystart="33" bodyend="83"/>
       </memberdef>
       <memberdef kind="function" id="classadi__imu_1_1ImuDataProvider_1ab50483b19cd9162dca75feb7527bd623" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -173,7 +173,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/adi_imu/imu_data_provider.h" line="66" column="8" bodyfile="src/imu_data_provider.cpp" bodystart="80" bodyend="83"/>
+        <location file="include/adi_imu/imu_data_provider.h" line="66" column="8" bodyfile="src/imu_data_provider.cpp" bodystart="86" bodyend="89"/>
       </memberdef>
     </sectiondef>
     <briefdescription>

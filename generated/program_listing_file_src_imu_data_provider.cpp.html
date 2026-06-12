@@ -8,9 +8,9 @@
 
     <title>Program Listing for File imu_data_provider.cpp &#8212; adi_imu 1.0.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8e8a900e" />
-    <link rel="stylesheet" type="text/css" href="../_static/app.min.css?v=833c9372" />
+    <link rel="stylesheet" type="text/css" href="../_static/app.min.css?v=ac863bf0" />
     <link rel="stylesheet" type="text/css" href="../_static/collapsible-lists/css/tree_view.css?v=a885cde7" />
-    <script async="async" src="../_static/app.umd.js?v=f78f54ff"></script>
+    <script async="async" src="../_static/app.umd.js?v=09b0c6bc"></script>
     <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js?v=73120307"></script>
     <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js?v=660e4f45"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -609,11 +609,11 @@ Content on this topic
 </ul>
 </li>
 <li class="toctree-l1"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-4" id="toctree-collapse-4"/><div class="collapse"><a class="reference internal" href="../__standards.html">Standard Documents</a><label for="toctree-collapse-4"><div class="icon"></div></label></div><ul>
-<li class="toctree-l2"><a class="reference internal" href="../__README.html">README</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../__LICENSE.html">LICENSE</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../__PACKAGE.html">PACKAGE</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../__CHANGELOG.html">CHANGELOG</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../__CONTRIBUTING.html">CONTRIBUTING</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../__README.html">README</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../__PACKAGE.html">PACKAGE</a></li>
 </ul>
 </li>
 </ul>
@@ -703,14 +703,20 @@ Content on this topic
 <span class="w">      </span><span class="n">std</span><span class="o">::</span><span class="n">copy</span><span class="p">(</span><span class="n">accel_cov</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">accel_cov</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span><span class="w"> </span><span class="n">message</span><span class="p">.</span><span class="n">linear_acceleration_covariance</span><span class="p">.</span><span class="n">begin</span><span class="p">());</span>
 <span class="w">      </span><span class="n">std</span><span class="o">::</span><span class="n">copy</span><span class="p">(</span><span class="n">gyro_cov</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">gyro_cov</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span><span class="w"> </span><span class="n">message</span><span class="p">.</span><span class="n">angular_velocity_covariance</span><span class="p">.</span><span class="n">begin</span><span class="p">());</span>
 <span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="c1">// Set to -1 to indicate unknown during calibration</span>
-<span class="w">      </span><span class="n">message</span><span class="p">.</span><span class="n">linear_acceleration_covariance</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
-<span class="w">      </span><span class="n">message</span><span class="p">.</span><span class="n">angular_velocity_covariance</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
+<span class="w">      </span><span class="c1">// Set to zero to indicate unknown covariance during calibration</span>
+<span class="w">      </span><span class="n">std</span><span class="o">::</span><span class="n">fill</span><span class="p">(</span>
+<span class="w">        </span><span class="n">message</span><span class="p">.</span><span class="n">linear_acceleration_covariance</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span>
+<span class="w">        </span><span class="n">message</span><span class="p">.</span><span class="n">linear_acceleration_covariance</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<span class="w">      </span><span class="n">std</span><span class="o">::</span><span class="n">fill</span><span class="p">(</span>
+<span class="w">        </span><span class="n">message</span><span class="p">.</span><span class="n">angular_velocity_covariance</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">message</span><span class="p">.</span><span class="n">angular_velocity_covariance</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="c1">// No covariance provider - set to unknown</span>
-<span class="w">    </span><span class="n">message</span><span class="p">.</span><span class="n">linear_acceleration_covariance</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
-<span class="w">    </span><span class="n">message</span><span class="p">.</span><span class="n">angular_velocity_covariance</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">fill</span><span class="p">(</span>
+<span class="w">      </span><span class="n">message</span><span class="p">.</span><span class="n">linear_acceleration_covariance</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">message</span><span class="p">.</span><span class="n">linear_acceleration_covariance</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span>
+<span class="w">      </span><span class="mi">0</span><span class="p">);</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">fill</span><span class="p">(</span>
+<span class="w">      </span><span class="n">message</span><span class="p">.</span><span class="n">angular_velocity_covariance</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">message</span><span class="p">.</span><span class="n">angular_velocity_covariance</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
 <span class="w">  </span><span class="p">}</span>
 
 <span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
