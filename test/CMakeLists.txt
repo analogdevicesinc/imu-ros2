@@ -44,18 +44,21 @@ ament_add_gtest(adi_imu_test_node utest_launch.test src/utest.cpp
                                       ${FILES_H} ${FILES_CPP})
 
 target_include_directories(adi_imu_test_node PUBLIC
+  ${LIBIIO_INCLUDE_DIRS}
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:include>)
 target_compile_features(adi_imu_test_node PUBLIC cxx_std_17)  # Require C++17
 
-ament_target_dependencies(adi_imu_test_node
-  rclcpp
-  geometry_msgs
-  std_msgs
-  sensor_msgs
-  ament_cmake
-  ament_cmake_gtest
-  ament_lint_auto
+target_link_libraries(adi_imu_test_node
+  "${adi_imu_node}"
+  ${LIBIIO_LIBRARIES}
+  ${rclcpp_TARGETS}
+  ${geometry_msgs_TARGETS}
+  ${std_msgs_TARGETS}
+  ${sensor_msgs_TARGETS}
+  ${ament_cmake_TARGETS}
+  ${ament_cmake_gtest_TARGETS}
+  ${ament_lint_auto_TARGETS}
 )
 
 install(
@@ -64,5 +67,3 @@ install(
 )
 
 rosidl_get_typesupport_target(adi_imu_test_node adi_imu "rosidl_typesupport_cpp")
-
-target_link_libraries(adi_imu_test_node "${adi_imu_node}" iio)

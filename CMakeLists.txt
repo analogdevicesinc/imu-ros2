@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.8)
 project(adi_imu)
 
-#Default to C++17 - ROS2 Humble
+#Default to C++17
 if(NOT CMAKE_CXX_STANDARD)
   set(CMAKE_CXX_STANDARD 17)
 endif()
@@ -40,19 +40,18 @@ file(GLOB FILES_CPP ${CMAKE_SOURCE_DIR}/src/*.cpp
 add_executable(${NODE_NAME} ${FILES_H} ${FILES_CPP})
 
 target_include_directories(${NODE_NAME} PUBLIC
+  ${LIBIIO_INCLUDE_DIRS}
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:include>)
 target_compile_features(${NODE_NAME} PUBLIC cxx_std_17)
 
-ament_target_dependencies(${NODE_NAME}
-  rclcpp
-  geometry_msgs
-  std_msgs
-  sensor_msgs
-  ament_cmake
+target_link_libraries(${NODE_NAME}
+  ${LIBIIO_LIBRARIES}
+  ${rclcpp_TARGETS}
+  ${geometry_msgs_TARGETS}
+  ${std_msgs_TARGETS}
+  ${sensor_msgs_TARGETS}
 )
-
-target_link_libraries(${NODE_NAME} iio)
 
 install(TARGETS ${NODE_NAME}
   DESTINATION lib/${PROJECT_NAME}
