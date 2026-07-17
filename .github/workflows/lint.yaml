@@ -6,9 +6,15 @@ on:
   pull_request:
     branches:
       - "*humble*"
+      - "*jazzy*"
+      - "*lyrical*"
+      - "*rolling*"
   push:
     branches:
       - "*humble*"
+      - "*jazzy*"
+      - "*lyrical*"
+      - "*rolling*"
 
 env:
   PACKAGE_NAME: "adi_imu"
@@ -19,19 +25,26 @@ permissions:
 
 jobs:
   ament_lint:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
         ros_distribution:
-          # Humble Hawksbill (May 2022 - May 2027) - Ubuntu 22.04 (Jammy)
-          - humble
+          - lyrical
         linter:
           - copyright
           - pep257
           - xmllint
           - cppcheck
           - lint_cmake
+        include:
+          # Lyrical Luth (May 2026 - May 2031)
+          - docker_image: ubuntu:resolute
+            ros_distribution: lyrical
+            ros_version: 2
+
+    container:
+      image: ${{ matrix.docker_image }}
 
     steps:
       - name: Checkout code
@@ -55,7 +68,7 @@ jobs:
             ${{ matrix.linter == 'cppcheck' && ' --language=c++ ' || '' }}
 
   formatting-check:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
 
     steps:
     - name: Checkout code
