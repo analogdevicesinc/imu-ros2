@@ -2,6 +2,26 @@
 Changelog for package adi_imu
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Add IMU covariance estimation framework with selectable algorithms:
+  Static, Welford, Sliding Window, EWMA, and Kalman.
+* Add covariance-enabled launch/config support, including algorithm and
+  motion-detection parameters.
+* Add motion-aware covariance updates via `MotionDetector` integration in
+  adaptive estimators (EWMA, Sliding Window, Kalman).
+* Fix IMU covariance semantics in published messages: keep orientation
+  covariance invalid (`-1`) and use all-zero defaults for unknown linear
+  acceleration and angular velocity covariance (Fixes #80).
+* Fix double-free in `imu_ros2_node` data-provider lifecycle handling
+  (prevents SIGSEGV).
+* Add configurable IMU `frame_id` parameter (#77).
+* Improve robustness and maintenance:
+  update CI to ROS 2 Humble only, fix launch variable typo, improve
+  buffered delta-channel handling in `IIOWrapper`, and update documentation
+  (including 3rd-party license references).
+* Contributors: Adrian-Stanea, Ioan Dragomir, Tudor-Alinei-poiana_adi, laurent-19
+
 1.0.0 (2025-09-12)
 ------------------
 * **Core Features:**
