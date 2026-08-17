@@ -7,15 +7,15 @@
 
     <title>PACKAGE &#8212; adi_imu 1.0.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8e8a900e" />
-    <link rel="stylesheet" type="text/css" href="_static/app.min.css?v=d3f78147" />
+    <link rel="stylesheet" type="text/css" href="_static/app.min.css?v=cae2157c" />
     <link rel="stylesheet" type="text/css" href="_static/collapsible-lists/css/tree_view.css?v=a885cde7" />
     <script async="async" src="_static/app.umd.js?v=26d0298f"></script>
     <script src="_static/collapsible-lists/js/CollapsibleLists.compressed.js?v=73120307"></script>
     <script src="_static/collapsible-lists/js/apply-collapsible-lists.js?v=660e4f45"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Index" href="genindex.html" />
-    <link rel="prev" title="README" href="__README.html" />
+    <link rel="next" title="LICENSE" href="__LICENSE.html" />
+    <link rel="prev" title="CONTRIBUTING" href="__CONTRIBUTING.html" />
    
   
   
@@ -67,10 +67,10 @@
     </div>
     <div id="right">
       <span>
-        <a id="logo-org" href="https://analog.com" aria-label="Analog Devices Inc. landing page"></a>
+        <a id="logo-org" href="https://developer.analog.com/" aria-label="Analog Devices Inc. landing page"></a>
         <div class="vertical-divider"></div>
         
-        <label id="show-repotoc" for="input-show-repotoc" title="Show/hide docs">Docs</label>
+        <label id="show-repotoc" for="input-show-repotoc" title="Show/hide docs">Documentation</label>
         
         <a id="logo" href="index.html">
           <div>adi_imu</div>
@@ -609,11 +609,11 @@ Content on this topic
 </ul>
 </li>
 <li class="toctree-l1 current"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-4" id="toctree-collapse-4" checked=""/><div class="collapse"><a class="reference internal" href="__standards.html">Standard Documents</a><label for="toctree-collapse-4"><div class="icon"></div></label></div><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="__CONTRIBUTING.html">CONTRIBUTING</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">PACKAGE</a></li>
 <li class="toctree-l2"><a class="reference internal" href="__LICENSE.html">LICENSE</a></li>
 <li class="toctree-l2"><a class="reference internal" href="__CHANGELOG.html">CHANGELOG</a></li>
-<li class="toctree-l2"><a class="reference internal" href="__CONTRIBUTING.html">CONTRIBUTING</a></li>
 <li class="toctree-l2"><a class="reference internal" href="__README.html">README</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">PACKAGE</a></li>
 </ul>
 </li>
 </ul>
@@ -637,20 +637,20 @@ Content on this topic
             
   <section id="package">
 <h1>PACKAGE<a class="headerlink" href="#package" title="Link to this heading"></a></h1>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot;?&gt;</span>
-<span class="cp">&lt;?xml-model href=&quot;http://download.ros.org/schema/package_format3.xsd&quot; schematypens=&quot;http://www.w3.org/2001/XMLSchema&quot;?&gt;</span>
-<span class="nt">&lt;package</span><span class="w"> </span><span class="na">format=</span><span class="s">&quot;3&quot;</span><span class="nt">&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version="1.0"?&gt;</span>
+<span class="cp">&lt;?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?&gt;</span>
+<span class="nt">&lt;package</span><span class="w"> </span><span class="na">format=</span><span class="s">"3"</span><span class="nt">&gt;</span>
 <span class="w">  </span><span class="nt">&lt;name&gt;</span>adi_imu<span class="nt">&lt;/name&gt;</span>
 <span class="w">  </span><span class="nt">&lt;version&gt;</span>1.0.0<span class="nt">&lt;/version&gt;</span>
 <span class="w">  </span><span class="nt">&lt;description&gt;</span>Publisher<span class="w"> </span>for<span class="w"> </span>ADI<span class="w"> </span>IMUs<span class="nt">&lt;/description&gt;</span>
-<span class="w">  </span><span class="nt">&lt;maintainer</span><span class="w"> </span><span class="na">email=</span><span class="s">&quot;Adrian.Stanea@analog.com&quot;</span><span class="nt">&gt;</span>Analog<span class="w"> </span>Devices<span class="nt">&lt;/maintainer&gt;</span>
+<span class="w">  </span><span class="nt">&lt;maintainer</span><span class="w"> </span><span class="na">email=</span><span class="s">"Adrian.Stanea@analog.com"</span><span class="nt">&gt;</span>Analog<span class="w"> </span>Devices<span class="nt">&lt;/maintainer&gt;</span>
 <span class="w">  </span><span class="nt">&lt;license&gt;</span>Apache<span class="w"> </span>License<span class="w"> </span>Version<span class="w"> </span>2.0<span class="nt">&lt;/license&gt;</span>
 
-<span class="w">  </span><span class="nt">&lt;url</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;repository&quot;</span><span class="nt">&gt;</span>https://github.com/analogdevicesinc/imu_ros2<span class="nt">&lt;/url&gt;</span>
-<span class="w">  </span><span class="nt">&lt;url</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;website&quot;</span><span class="nt">&gt;</span>https://analogdevicesinc.github.io/imu_ros2/<span class="nt">&lt;/url&gt;</span>
-<span class="w">  </span><span class="nt">&lt;url</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;bugtracker&quot;</span><span class="nt">&gt;</span>https://github.com/analogdevicesinc/imu_ros2/issues<span class="nt">&lt;/url&gt;</span>
+<span class="w">  </span><span class="nt">&lt;url</span><span class="w"> </span><span class="na">type=</span><span class="s">"repository"</span><span class="nt">&gt;</span>https://github.com/analogdevicesinc/imu_ros2<span class="nt">&lt;/url&gt;</span>
+<span class="w">  </span><span class="nt">&lt;url</span><span class="w"> </span><span class="na">type=</span><span class="s">"website"</span><span class="nt">&gt;</span>https://analogdevicesinc.github.io/imu_ros2/<span class="nt">&lt;/url&gt;</span>
+<span class="w">  </span><span class="nt">&lt;url</span><span class="w"> </span><span class="na">type=</span><span class="s">"bugtracker"</span><span class="nt">&gt;</span>https://github.com/analogdevicesinc/imu_ros2/issues<span class="nt">&lt;/url&gt;</span>
 
-<span class="w">  </span><span class="nt">&lt;author</span><span class="w"> </span><span class="na">email=</span><span class="s">&quot;ramona.gradinariu@analog.com&quot;</span><span class="nt">&gt;</span>rbolboac<span class="nt">&lt;/author&gt;</span>
+<span class="w">  </span><span class="nt">&lt;author</span><span class="w"> </span><span class="na">email=</span><span class="s">"ramona.gradinariu@analog.com"</span><span class="nt">&gt;</span>rbolboac<span class="nt">&lt;/author&gt;</span>
 
 <span class="w">  </span><span class="nt">&lt;depend&gt;</span>ament_cmake<span class="nt">&lt;/depend&gt;</span>
 <span class="w">  </span><span class="nt">&lt;depend&gt;</span>rclcpp<span class="nt">&lt;/depend&gt;</span>
@@ -686,8 +686,8 @@ Content on this topic
           </div>
               <div class="related">
                 &nbsp;
-    <a href="__README.html" title="Previous document (Alt+Shift+LeftArrow)" class="prev">README</a>
-    <a href="genindex.html" title="Next document (Alt+Shift+RightArrow)" class="next">Index</a>
+    <a href="__CONTRIBUTING.html" title="Previous document (Alt+Shift+LeftArrow)" class="prev">CONTRIBUTING</a>
+    <a href="__LICENSE.html" title="Next document (Alt+Shift+RightArrow)" class="next">LICENSE</a>
               </div>
           
         </div>

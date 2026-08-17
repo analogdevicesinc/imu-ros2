@@ -4,11 +4,11 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta content="Core Features:" name="description" />
+<meta content="Add IMU covariance estimation framework with selectable algorithms: Static, Welford, Sliding Window, EWMA, and Kalman." name="description" />
 
     <title>Changelog for package adi_imu &#8212; adi_imu 1.0.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8e8a900e" />
-    <link rel="stylesheet" type="text/css" href="_static/app.min.css?v=d3f78147" />
+    <link rel="stylesheet" type="text/css" href="_static/app.min.css?v=cae2157c" />
     <link rel="stylesheet" type="text/css" href="_static/collapsible-lists/css/tree_view.css?v=a885cde7" />
     <script async="async" src="_static/app.umd.js?v=26d0298f"></script>
     <script src="_static/collapsible-lists/js/CollapsibleLists.compressed.js?v=73120307"></script>
@@ -66,10 +66,10 @@
     </div>
     <div id="right">
       <span>
-        <a id="logo-org" href="https://analog.com" aria-label="Analog Devices Inc. landing page"></a>
+        <a id="logo-org" href="https://developer.analog.com/" aria-label="Analog Devices Inc. landing page"></a>
         <div class="vertical-divider"></div>
         
-        <label id="show-repotoc" for="input-show-repotoc" title="Show/hide docs">Docs</label>
+        <label id="show-repotoc" for="input-show-repotoc" title="Show/hide docs">Documentation</label>
         
         <a id="logo" href="index.html">
           <div>adi_imu</div>
@@ -94,6 +94,7 @@
         <nav>
           <ul>
 <li><a class="reference internal" href="#">Changelog for package adi_imu</a><ul>
+<li><a class="reference internal" href="#forthcoming">Forthcoming</a></li>
 <li><a class="reference internal" href="#id1">1.0.0 (2025-09-12)</a></li>
 </ul>
 </li>
@@ -611,11 +612,11 @@ Content on this topic
 </ul>
 </li>
 <li class="toctree-l1"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-4" id="toctree-collapse-4"/><div class="collapse"><a class="reference internal" href="__standards.html">Standard Documents</a><label for="toctree-collapse-4"><div class="icon"></div></label></div><ul>
+<li class="toctree-l2"><a class="reference internal" href="__CONTRIBUTING.html">CONTRIBUTING</a></li>
+<li class="toctree-l2"><a class="reference internal" href="__PACKAGE.html">PACKAGE</a></li>
 <li class="toctree-l2"><a class="reference internal" href="__LICENSE.html">LICENSE</a></li>
 <li class="toctree-l2"><a class="reference internal" href="__CHANGELOG.html">CHANGELOG</a></li>
-<li class="toctree-l2"><a class="reference internal" href="__CONTRIBUTING.html">CONTRIBUTING</a></li>
 <li class="toctree-l2"><a class="reference internal" href="__README.html">README</a></li>
-<li class="toctree-l2"><a class="reference internal" href="__PACKAGE.html">PACKAGE</a></li>
 </ul>
 </li>
 </ul>
@@ -639,6 +640,28 @@ Content on this topic
             
   <section id="changelog-for-package-adi-imu">
 <h1>Changelog for package adi_imu<a class="headerlink" href="#changelog-for-package-adi-imu" title="Link to this heading"></a></h1>
+<section id="forthcoming">
+<h2>Forthcoming<a class="headerlink" href="#forthcoming" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Add IMU covariance estimation framework with selectable algorithms:
+Static, Welford, Sliding Window, EWMA, and Kalman.</p></li>
+<li><p>Add covariance-enabled launch/config support, including algorithm and
+motion-detection parameters.</p></li>
+<li><p>Add motion-aware covariance updates via <cite>MotionDetector</cite> integration in
+adaptive estimators (EWMA, Sliding Window, Kalman).</p></li>
+<li><p>Fix IMU covariance semantics in published messages: keep orientation
+covariance invalid (<cite>-1</cite>) and use all-zero defaults for unknown linear
+acceleration and angular velocity covariance (Fixes #80).</p></li>
+<li><p>Fix double-free in <cite>imu_ros2_node</cite> data-provider lifecycle handling
+(prevents SIGSEGV).</p></li>
+<li><p>Add configurable IMU <cite>frame_id</cite> parameter (#77).</p></li>
+<li><p>Improve robustness and maintenance:
+update CI to ROS 2 Humble only, fix launch variable typo, improve
+buffered delta-channel handling in <cite>IIOWrapper</cite>, and update documentation
+(including 3rd-party license references).</p></li>
+<li><p>Contributors: Adrian-Stanea, Ioan Dragomir, Tudor-Alinei-poiana_adi, laurent-19</p></li>
+</ul>
+</section>
 <section id="id1">
 <h2>1.0.0 (2025-09-12)<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
 <ul class="simple">

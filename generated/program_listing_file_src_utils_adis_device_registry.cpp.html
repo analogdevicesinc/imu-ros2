@@ -8,7 +8,7 @@
 
     <title>Program Listing for File adis_device_registry.cpp &#8212; adi_imu 1.0.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8e8a900e" />
-    <link rel="stylesheet" type="text/css" href="../_static/app.min.css?v=d3f78147" />
+    <link rel="stylesheet" type="text/css" href="../_static/app.min.css?v=cae2157c" />
     <link rel="stylesheet" type="text/css" href="../_static/collapsible-lists/css/tree_view.css?v=a885cde7" />
     <script async="async" src="../_static/app.umd.js?v=26d0298f"></script>
     <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js?v=73120307"></script>
@@ -68,10 +68,10 @@
     </div>
     <div id="right">
       <span>
-        <a id="logo-org" href="https://analog.com" aria-label="Analog Devices Inc. landing page"></a>
+        <a id="logo-org" href="https://developer.analog.com/" aria-label="Analog Devices Inc. landing page"></a>
         <div class="vertical-divider"></div>
         
-        <label id="show-repotoc" for="input-show-repotoc" title="Show/hide docs">Docs</label>
+        <label id="show-repotoc" for="input-show-repotoc" title="Show/hide docs">Documentation</label>
         
         <a id="logo" href="../index.html">
           <div>adi_imu</div>
@@ -610,11 +610,11 @@ Content on this topic
 </ul>
 </li>
 <li class="toctree-l1"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-4" id="toctree-collapse-4"/><div class="collapse"><a class="reference internal" href="../__standards.html">Standard Documents</a><label for="toctree-collapse-4"><div class="icon"></div></label></div><ul>
+<li class="toctree-l2"><a class="reference internal" href="../__CONTRIBUTING.html">CONTRIBUTING</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../__PACKAGE.html">PACKAGE</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../__LICENSE.html">LICENSE</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../__CHANGELOG.html">CHANGELOG</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../__CONTRIBUTING.html">CONTRIBUTING</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../__README.html">README</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../__PACKAGE.html">PACKAGE</a></li>
 </ul>
 </li>
 </ul>
@@ -641,19 +641,19 @@ Content on this topic
 <p>↰ <a class="reference internal" href="file_src_utils_adis_device_registry.cpp.html#file-src-utils-adis-device-registry-cpp"><span class="std std-ref">Return to documentation for file</span></a> (<code class="docutils literal notranslate"><span class="pre">src/utils/adis_device_registry.cpp</span></code>)</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// Copyright 2025 Analog Devices, Inc.</span>
 <span class="c1">//</span>
-<span class="c1">// Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1">// Licensed under the Apache License, Version 2.0 (the "License");</span>
 <span class="c1">// you may not use this file except in compliance with the License.</span>
 <span class="c1">// You may obtain a copy of the License at</span>
 <span class="c1">//</span>
 <span class="c1">//     http://www.apache.org/licenses/LICENSE-2.0</span>
 <span class="c1">//</span>
 <span class="c1">// Unless required by applicable law or agreed to in writing, software</span>
-<span class="c1">// distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1">// distributed under the License is distributed on an "AS IS" BASIS,</span>
 <span class="c1">// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
 <span class="c1">// See the License for the specific language governing permissions and</span>
 <span class="c1">// limitations under the License.</span>
 
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;adi_imu/utils/adis_device_registry.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">"adi_imu/utils/adis_device_registry.h"</span>
 
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;algorithm&gt;</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
@@ -662,18 +662,18 @@ Content on this topic
 <span class="p">{</span>
 
 <span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">unordered_map</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span><span class="w"> </span><span class="n">adis_device_id</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ADISDeviceRegistry</span><span class="o">::</span><span class="n">m_supported_devices</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="p">{</span><span class="s">&quot;adis16465-1&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ADIS16465_1</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;adis16465-2&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ADIS16465_2</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;adis16465-3&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ADIS16465_3</span><span class="p">},</span>
-<span class="w">  </span><span class="p">{</span><span class="s">&quot;adis16467-1&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ADIS16467_1</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;adis16467-2&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ADIS16467_2</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;adis16467-3&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ADIS16467_3</span><span class="p">},</span>
-<span class="w">  </span><span class="p">{</span><span class="s">&quot;adis16470&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ADIS16470</span><span class="p">},</span><span class="w">     </span><span class="p">{</span><span class="s">&quot;adis16475-1&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ADIS16475_1</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;adis16475-2&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ADIS16475_2</span><span class="p">},</span>
-<span class="w">  </span><span class="p">{</span><span class="s">&quot;adis16475-3&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ADIS16475_3</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;adis16477-1&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ADIS16477_1</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;adis16477-2&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ADIS16477_2</span><span class="p">},</span>
-<span class="w">  </span><span class="p">{</span><span class="s">&quot;adis16477-3&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ADIS16477_3</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;adis16500&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ADIS16500</span><span class="p">},</span><span class="w">     </span><span class="p">{</span><span class="s">&quot;adis16501&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ADIS16501</span><span class="p">},</span>
-<span class="w">  </span><span class="p">{</span><span class="s">&quot;adis16505-1&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ADIS16505_1</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;adis16505-2&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ADIS16505_2</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;adis16505-3&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ADIS16505_3</span><span class="p">},</span>
-<span class="w">  </span><span class="p">{</span><span class="s">&quot;adis16507-1&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ADIS16507_1</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;adis16507-2&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ADIS16507_2</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;adis16507-3&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ADIS16507_3</span><span class="p">},</span>
-<span class="w">  </span><span class="p">{</span><span class="s">&quot;adis16545-1&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ADIS16545_1</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;adis16545-2&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ADIS16545_2</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;adis16545-3&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ADIS16545_3</span><span class="p">},</span>
-<span class="w">  </span><span class="p">{</span><span class="s">&quot;adis16547-1&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ADIS16547_1</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;adis16547-2&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ADIS16547_2</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;adis16547-3&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ADIS16547_3</span><span class="p">},</span>
-<span class="w">  </span><span class="p">{</span><span class="s">&quot;adis16550&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ADIS16550</span><span class="p">},</span><span class="w">     </span><span class="p">{</span><span class="s">&quot;adis16575-2&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ADIS16575_2</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;adis16575-3&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ADIS16575_3</span><span class="p">},</span>
-<span class="w">  </span><span class="p">{</span><span class="s">&quot;adis16576-2&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ADIS16576_2</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;adis16576-3&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ADIS16576_3</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;adis16577-2&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ADIS16577_2</span><span class="p">},</span>
-<span class="w">  </span><span class="p">{</span><span class="s">&quot;adis16577-3&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ADIS16577_3</span><span class="p">}};</span>
+<span class="w">  </span><span class="p">{</span><span class="s">"adis16465-1"</span><span class="p">,</span><span class="w"> </span><span class="n">ADIS16465_1</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="s">"adis16465-2"</span><span class="p">,</span><span class="w"> </span><span class="n">ADIS16465_2</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="s">"adis16465-3"</span><span class="p">,</span><span class="w"> </span><span class="n">ADIS16465_3</span><span class="p">},</span>
+<span class="w">  </span><span class="p">{</span><span class="s">"adis16467-1"</span><span class="p">,</span><span class="w"> </span><span class="n">ADIS16467_1</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="s">"adis16467-2"</span><span class="p">,</span><span class="w"> </span><span class="n">ADIS16467_2</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="s">"adis16467-3"</span><span class="p">,</span><span class="w"> </span><span class="n">ADIS16467_3</span><span class="p">},</span>
+<span class="w">  </span><span class="p">{</span><span class="s">"adis16470"</span><span class="p">,</span><span class="w"> </span><span class="n">ADIS16470</span><span class="p">},</span><span class="w">     </span><span class="p">{</span><span class="s">"adis16475-1"</span><span class="p">,</span><span class="w"> </span><span class="n">ADIS16475_1</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="s">"adis16475-2"</span><span class="p">,</span><span class="w"> </span><span class="n">ADIS16475_2</span><span class="p">},</span>
+<span class="w">  </span><span class="p">{</span><span class="s">"adis16475-3"</span><span class="p">,</span><span class="w"> </span><span class="n">ADIS16475_3</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="s">"adis16477-1"</span><span class="p">,</span><span class="w"> </span><span class="n">ADIS16477_1</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="s">"adis16477-2"</span><span class="p">,</span><span class="w"> </span><span class="n">ADIS16477_2</span><span class="p">},</span>
+<span class="w">  </span><span class="p">{</span><span class="s">"adis16477-3"</span><span class="p">,</span><span class="w"> </span><span class="n">ADIS16477_3</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="s">"adis16500"</span><span class="p">,</span><span class="w"> </span><span class="n">ADIS16500</span><span class="p">},</span><span class="w">     </span><span class="p">{</span><span class="s">"adis16501"</span><span class="p">,</span><span class="w"> </span><span class="n">ADIS16501</span><span class="p">},</span>
+<span class="w">  </span><span class="p">{</span><span class="s">"adis16505-1"</span><span class="p">,</span><span class="w"> </span><span class="n">ADIS16505_1</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="s">"adis16505-2"</span><span class="p">,</span><span class="w"> </span><span class="n">ADIS16505_2</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="s">"adis16505-3"</span><span class="p">,</span><span class="w"> </span><span class="n">ADIS16505_3</span><span class="p">},</span>
+<span class="w">  </span><span class="p">{</span><span class="s">"adis16507-1"</span><span class="p">,</span><span class="w"> </span><span class="n">ADIS16507_1</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="s">"adis16507-2"</span><span class="p">,</span><span class="w"> </span><span class="n">ADIS16507_2</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="s">"adis16507-3"</span><span class="p">,</span><span class="w"> </span><span class="n">ADIS16507_3</span><span class="p">},</span>
+<span class="w">  </span><span class="p">{</span><span class="s">"adis16545-1"</span><span class="p">,</span><span class="w"> </span><span class="n">ADIS16545_1</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="s">"adis16545-2"</span><span class="p">,</span><span class="w"> </span><span class="n">ADIS16545_2</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="s">"adis16545-3"</span><span class="p">,</span><span class="w"> </span><span class="n">ADIS16545_3</span><span class="p">},</span>
+<span class="w">  </span><span class="p">{</span><span class="s">"adis16547-1"</span><span class="p">,</span><span class="w"> </span><span class="n">ADIS16547_1</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="s">"adis16547-2"</span><span class="p">,</span><span class="w"> </span><span class="n">ADIS16547_2</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="s">"adis16547-3"</span><span class="p">,</span><span class="w"> </span><span class="n">ADIS16547_3</span><span class="p">},</span>
+<span class="w">  </span><span class="p">{</span><span class="s">"adis16550"</span><span class="p">,</span><span class="w"> </span><span class="n">ADIS16550</span><span class="p">},</span><span class="w">     </span><span class="p">{</span><span class="s">"adis16575-2"</span><span class="p">,</span><span class="w"> </span><span class="n">ADIS16575_2</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="s">"adis16575-3"</span><span class="p">,</span><span class="w"> </span><span class="n">ADIS16575_3</span><span class="p">},</span>
+<span class="w">  </span><span class="p">{</span><span class="s">"adis16576-2"</span><span class="p">,</span><span class="w"> </span><span class="n">ADIS16576_2</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="s">"adis16576-3"</span><span class="p">,</span><span class="w"> </span><span class="n">ADIS16576_3</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="s">"adis16577-2"</span><span class="p">,</span><span class="w"> </span><span class="n">ADIS16577_2</span><span class="p">},</span>
+<span class="w">  </span><span class="p">{</span><span class="s">"adis16577-3"</span><span class="p">,</span><span class="w"> </span><span class="n">ADIS16577_3</span><span class="p">}};</span>
 
 <span class="n">adis_device_id</span><span class="w"> </span><span class="nf">ADISDeviceRegistry::getDeviceIdFromString</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">device_name</span><span class="p">)</span>
 <span class="p">{</span>
@@ -682,7 +682,7 @@ Content on this topic
 
 <span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m_supported_devices</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="n">lower_name</span><span class="p">);</span>
 <span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">it</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">m_supported_devices</span><span class="p">.</span><span class="n">end</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">throw</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">invalid_argument</span><span class="p">(</span><span class="s">&quot;Unsupported device name: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">device_name</span><span class="p">);</span>
+<span class="w">    </span><span class="k">throw</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">invalid_argument</span><span class="p">(</span><span class="s">"Unsupported device name: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">device_name</span><span class="p">);</span>
 <span class="w">  </span><span class="p">}</span>
 <span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">it</span><span class="o">-&gt;</span><span class="n">second</span><span class="p">;</span>
 <span class="p">}</span>
@@ -695,7 +695,7 @@ Content on this topic
 <span class="w">    </span><span class="p">}</span>
 <span class="w">  </span><span class="p">}</span>
 <span class="w">  </span><span class="k">throw</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">invalid_argument</span><span class="p">(</span>
-<span class="w">    </span><span class="s">&quot;Unsupported device ID: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">to_string</span><span class="p">(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">device_id</span><span class="p">)));</span>
+<span class="w">    </span><span class="s">"Unsupported device ID: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">to_string</span><span class="p">(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">device_id</span><span class="p">)));</span>
 <span class="p">}</span>
 
 <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ADISDeviceRegistry</span><span class="o">::</span><span class="n">getSupportedDeviceNames</span><span class="p">()</span>
@@ -744,13 +744,13 @@ Content on this topic
 <span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">ADIS16475_1</span><span class="p">:</span>
 <span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">ADIS16475_2</span><span class="p">:</span>
 <span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">ADIS16475_3</span><span class="p">:</span>
-<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;adis1646x&quot;</span><span class="p">;</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="s">"adis1646x"</span><span class="p">;</span>
 
 <span class="w">    </span><span class="c1">// ADIS1647x family</span>
 <span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">ADIS16477_1</span><span class="p">:</span>
 <span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">ADIS16477_2</span><span class="p">:</span>
 <span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">ADIS16477_3</span><span class="p">:</span>
-<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;adis1647x&quot;</span><span class="p">;</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="s">"adis1647x"</span><span class="p">;</span>
 
 <span class="w">    </span><span class="c1">// ADIS1650x family</span>
 <span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">ADIS16500</span><span class="p">:</span>
@@ -761,7 +761,7 @@ Content on this topic
 <span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">ADIS16507_1</span><span class="p">:</span>
 <span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">ADIS16507_2</span><span class="p">:</span>
 <span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">ADIS16507_3</span><span class="p">:</span>
-<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;adis1650x&quot;</span><span class="p">;</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="s">"adis1650x"</span><span class="p">;</span>
 
 <span class="w">    </span><span class="c1">// ADIS1654x family</span>
 <span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">ADIS16545_1</span><span class="p">:</span>
@@ -770,11 +770,11 @@ Content on this topic
 <span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">ADIS16547_1</span><span class="p">:</span>
 <span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">ADIS16547_2</span><span class="p">:</span>
 <span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">ADIS16547_3</span><span class="p">:</span>
-<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;adis1654x&quot;</span><span class="p">;</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="s">"adis1654x"</span><span class="p">;</span>
 
 <span class="w">    </span><span class="c1">// ADIS1655x family</span>
 <span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">ADIS16550</span><span class="p">:</span>
-<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;adis1655x&quot;</span><span class="p">;</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="s">"adis1655x"</span><span class="p">;</span>
 
 <span class="w">    </span><span class="c1">// ADIS1657x family</span>
 <span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">ADIS16575_2</span><span class="p">:</span>
@@ -783,7 +783,7 @@ Content on this topic
 <span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">ADIS16576_3</span><span class="p">:</span>
 <span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">ADIS16577_2</span><span class="p">:</span>
 <span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">ADIS16577_3</span><span class="p">:</span>
-<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;adis1657x&quot;</span><span class="p">;</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="s">"adis1657x"</span><span class="p">;</span>
 
 <span class="w">    </span><span class="c1">// Unknown device</span>
 <span class="w">    </span><span class="k">default</span><span class="o">:</span>

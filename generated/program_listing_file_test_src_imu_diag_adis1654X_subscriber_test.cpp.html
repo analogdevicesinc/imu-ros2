@@ -8,7 +8,7 @@
 
     <title>Program Listing for File imu_diag_adis1654X_subscriber_test.cpp &#8212; adi_imu 1.0.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8e8a900e" />
-    <link rel="stylesheet" type="text/css" href="../_static/app.min.css?v=d3f78147" />
+    <link rel="stylesheet" type="text/css" href="../_static/app.min.css?v=cae2157c" />
     <link rel="stylesheet" type="text/css" href="../_static/collapsible-lists/css/tree_view.css?v=a885cde7" />
     <script async="async" src="../_static/app.umd.js?v=26d0298f"></script>
     <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js?v=73120307"></script>
@@ -68,10 +68,10 @@
     </div>
     <div id="right">
       <span>
-        <a id="logo-org" href="https://analog.com" aria-label="Analog Devices Inc. landing page"></a>
+        <a id="logo-org" href="https://developer.analog.com/" aria-label="Analog Devices Inc. landing page"></a>
         <div class="vertical-divider"></div>
         
-        <label id="show-repotoc" for="input-show-repotoc" title="Show/hide docs">Docs</label>
+        <label id="show-repotoc" for="input-show-repotoc" title="Show/hide docs">Documentation</label>
         
         <a id="logo" href="../index.html">
           <div>adi_imu</div>
@@ -610,11 +610,11 @@ Content on this topic
 </ul>
 </li>
 <li class="toctree-l1"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-4" id="toctree-collapse-4"/><div class="collapse"><a class="reference internal" href="../__standards.html">Standard Documents</a><label for="toctree-collapse-4"><div class="icon"></div></label></div><ul>
+<li class="toctree-l2"><a class="reference internal" href="../__CONTRIBUTING.html">CONTRIBUTING</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../__PACKAGE.html">PACKAGE</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../__LICENSE.html">LICENSE</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../__CHANGELOG.html">CHANGELOG</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../__CONTRIBUTING.html">CONTRIBUTING</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../__README.html">README</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../__PACKAGE.html">PACKAGE</a></li>
 </ul>
 </li>
 </ul>
@@ -646,14 +646,14 @@ Content on this topic
 <span class="cm">*******************************************************************************/</span>
 <span class="c1">// Copyright 2023 Analog Devices, Inc.</span>
 <span class="c1">//</span>
-<span class="c1">// Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1">// Licensed under the Apache License, Version 2.0 (the "License");</span>
 <span class="c1">// you may not use this file except in compliance with the License.</span>
 <span class="c1">// You may obtain a copy of the License at</span>
 <span class="c1">//</span>
 <span class="c1">//     http://www.apache.org/licenses/LICENSE-2.0</span>
 <span class="c1">//</span>
 <span class="c1">// Unless required by applicable law or agreed to in writing, software</span>
-<span class="c1">// distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1">// distributed under the License is distributed on an "AS IS" BASIS,</span>
 <span class="c1">// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
 <span class="c1">// See the License for the specific language governing permissions and</span>
 <span class="c1">// limitations under the License.</span>
@@ -663,10 +663,10 @@ Content on this topic
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;chrono&gt;</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;rclcpp/rclcpp.hpp&gt;</span>
 
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;adi_imu/adis_device_factory.h&quot;</span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;adi_imu/adis_register_map.h&quot;</span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;adi_imu/iio_wrapper.h&quot;</span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;adi_imu/msg/imu_diag_data_adis1654_x.hpp&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">"adi_imu/adis_device_factory.h"</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">"adi_imu/adis_register_map.h"</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">"adi_imu/iio_wrapper.h"</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">"adi_imu/msg/imu_diag_data_adis1654_x.hpp"</span>
 
 <span class="k">class</span><span class="w"> </span><span class="nc">ImuDiagSubscriberTest</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="o">::</span><span class="n">testing</span><span class="o">::</span><span class="n">Test</span>
 <span class="p">{</span>
@@ -678,23 +678,23 @@ Content on this topic
 
 <span class="n">TEST</span><span class="p">(</span><span class="n">ImuDiagSubscriberTest</span><span class="p">,</span><span class="w"> </span><span class="n">test_imu_diag_data_publisher_adis1654x</span><span class="p">)</span>
 <span class="p">{</span>
-<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">node</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rclcpp</span><span class="o">::</span><span class="n">Node</span><span class="o">::</span><span class="n">make_shared</span><span class="p">(</span><span class="s">&quot;test_imudiagdata_publisher&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">node</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rclcpp</span><span class="o">::</span><span class="n">Node</span><span class="o">::</span><span class="n">make_shared</span><span class="p">(</span><span class="s">"test_imudiagdata_publisher"</span><span class="p">);</span>
 
-<span class="w">  </span><span class="n">node</span><span class="o">-&gt;</span><span class="n">declare_parameter</span><span class="p">(</span><span class="s">&quot;iio_context_string&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;local:&quot;</span><span class="p">);</span>
-<span class="w">  </span><span class="n">node</span><span class="o">-&gt;</span><span class="n">declare_parameter</span><span class="p">(</span><span class="s">&quot;imu_device_name&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;unknown&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="n">node</span><span class="o">-&gt;</span><span class="n">declare_parameter</span><span class="p">(</span><span class="s">"iio_context_string"</span><span class="p">,</span><span class="w"> </span><span class="s">"local:"</span><span class="p">);</span>
+<span class="w">  </span><span class="n">node</span><span class="o">-&gt;</span><span class="n">declare_parameter</span><span class="p">(</span><span class="s">"imu_device_name"</span><span class="p">,</span><span class="w"> </span><span class="s">"unknown"</span><span class="p">);</span>
 
 <span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">context</span><span class="w"> </span><span class="o">=</span>
-<span class="w">    </span><span class="n">node</span><span class="o">-&gt;</span><span class="n">get_parameter</span><span class="p">(</span><span class="s">&quot;iio_context_string&quot;</span><span class="p">).</span><span class="n">get_parameter_value</span><span class="p">().</span><span class="n">get</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="w">    </span><span class="n">node</span><span class="o">-&gt;</span><span class="n">get_parameter</span><span class="p">(</span><span class="s">"iio_context_string"</span><span class="p">).</span><span class="n">get_parameter_value</span><span class="p">().</span><span class="n">get</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span><span class="p">();</span>
 <span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">device_name</span><span class="w"> </span><span class="o">=</span>
-<span class="w">    </span><span class="n">node</span><span class="o">-&gt;</span><span class="n">get_parameter</span><span class="p">(</span><span class="s">&quot;imu_device_name&quot;</span><span class="p">).</span><span class="n">get_parameter_value</span><span class="p">().</span><span class="n">get</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="w">    </span><span class="n">node</span><span class="o">-&gt;</span><span class="n">get_parameter</span><span class="p">(</span><span class="s">"imu_device_name"</span><span class="p">).</span><span class="n">get_parameter_value</span><span class="p">().</span><span class="n">get</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span><span class="p">();</span>
 
 <span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">device_descriptor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">adi_imu</span><span class="o">::</span><span class="n">ADISDeviceFactory</span><span class="o">::</span><span class="n">make</span><span class="p">(</span><span class="n">device_name</span><span class="p">);</span>
-<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">device_descriptor</span><span class="o">-&gt;</span><span class="n">getDeviceFamily</span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="s">&quot;adis1654x&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">GTEST_SKIP</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Test skipped, device is not &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">device_descriptor</span><span class="o">-&gt;</span><span class="n">getDeviceFamily</span><span class="p">()</span>
-<span class="w">                 </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;family.&quot;</span><span class="p">;</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">device_descriptor</span><span class="o">-&gt;</span><span class="n">getDeviceFamily</span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="s">"adis1654x"</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">GTEST_SKIP</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"Test skipped, device is not "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">device_descriptor</span><span class="o">-&gt;</span><span class="n">getDeviceFamily</span><span class="p">()</span>
+<span class="w">                 </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"family."</span><span class="p">;</span>
 <span class="w">  </span><span class="p">}</span>
 
-<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">topic</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;imudiagdata&quot;</span><span class="p">;</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">topic</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"imudiagdata"</span><span class="p">;</span>
 <span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="n">callbackExecuted</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
 
 <span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">callback</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="o">&amp;</span><span class="n">callbackExecuted</span><span class="p">,</span>

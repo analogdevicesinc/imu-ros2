@@ -8,7 +8,7 @@
 
     <title>Program Listing for File imu_full_measured_data_ros_publisher.cpp &#8212; adi_imu 1.0.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8e8a900e" />
-    <link rel="stylesheet" type="text/css" href="../_static/app.min.css?v=d3f78147" />
+    <link rel="stylesheet" type="text/css" href="../_static/app.min.css?v=cae2157c" />
     <link rel="stylesheet" type="text/css" href="../_static/collapsible-lists/css/tree_view.css?v=a885cde7" />
     <script async="async" src="../_static/app.umd.js?v=26d0298f"></script>
     <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js?v=73120307"></script>
@@ -68,10 +68,10 @@
     </div>
     <div id="right">
       <span>
-        <a id="logo-org" href="https://analog.com" aria-label="Analog Devices Inc. landing page"></a>
+        <a id="logo-org" href="https://developer.analog.com/" aria-label="Analog Devices Inc. landing page"></a>
         <div class="vertical-divider"></div>
         
-        <label id="show-repotoc" for="input-show-repotoc" title="Show/hide docs">Docs</label>
+        <label id="show-repotoc" for="input-show-repotoc" title="Show/hide docs">Documentation</label>
         
         <a id="logo" href="../index.html">
           <div>adi_imu</div>
@@ -610,11 +610,11 @@ Content on this topic
 </ul>
 </li>
 <li class="toctree-l1"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-4" id="toctree-collapse-4"/><div class="collapse"><a class="reference internal" href="../__standards.html">Standard Documents</a><label for="toctree-collapse-4"><div class="icon"></div></label></div><ul>
+<li class="toctree-l2"><a class="reference internal" href="../__CONTRIBUTING.html">CONTRIBUTING</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../__PACKAGE.html">PACKAGE</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../__LICENSE.html">LICENSE</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../__CHANGELOG.html">CHANGELOG</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../__CONTRIBUTING.html">CONTRIBUTING</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../__README.html">README</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../__PACKAGE.html">PACKAGE</a></li>
 </ul>
 </li>
 </ul>
@@ -647,19 +647,19 @@ Content on this topic
 <span class="cm">*******************************************************************************/</span>
 <span class="c1">// Copyright 2023 Analog Devices, Inc.</span>
 <span class="c1">//</span>
-<span class="c1">// Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1">// Licensed under the Apache License, Version 2.0 (the "License");</span>
 <span class="c1">// you may not use this file except in compliance with the License.</span>
 <span class="c1">// You may obtain a copy of the License at</span>
 <span class="c1">//</span>
 <span class="c1">//     http://www.apache.org/licenses/LICENSE-2.0</span>
 <span class="c1">//</span>
 <span class="c1">// Unless required by applicable law or agreed to in writing, software</span>
-<span class="c1">// distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1">// distributed under the License is distributed on an "AS IS" BASIS,</span>
 <span class="c1">// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
 <span class="c1">// See the License for the specific language governing permissions and</span>
 <span class="c1">// limitations under the License.</span>
 
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;adi_imu/imu_full_measured_data_ros_publisher.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">"adi_imu/imu_full_measured_data_ros_publisher.h"</span>
 
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;chrono&gt;</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;thread&gt;</span>
@@ -672,7 +672,7 @@ Content on this topic
 <span class="p">{</span>
 <span class="w">  </span><span class="n">m_node</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">node</span><span class="p">;</span>
 <span class="w">  </span><span class="n">m_publisher</span><span class="w"> </span><span class="o">=</span>
-<span class="w">    </span><span class="n">node</span><span class="o">-&gt;</span><span class="n">create_publisher</span><span class="o">&lt;</span><span class="n">adi_imu</span><span class="o">::</span><span class="n">msg</span><span class="o">::</span><span class="n">ImuFullMeasuredData</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;imufullmeasureddata&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">);</span>
+<span class="w">    </span><span class="n">node</span><span class="o">-&gt;</span><span class="n">create_publisher</span><span class="o">&lt;</span><span class="n">adi_imu</span><span class="o">::</span><span class="n">msg</span><span class="o">::</span><span class="n">ImuFullMeasuredData</span><span class="o">&gt;</span><span class="p">(</span><span class="s">"imufullmeasureddata"</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">);</span>
 <span class="p">}</span>
 
 <span class="n">ImuFullMeasuredDataRosPublisher</span><span class="o">::~</span><span class="n">ImuFullMeasuredDataRosPublisher</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">delete</span><span class="w"> </span><span class="n">m_data_provider</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
@@ -691,8 +691,8 @@ Content on this topic
 <span class="w">    </span><span class="n">m_publisher</span><span class="o">-&gt;</span><span class="n">publish</span><span class="p">(</span><span class="n">m_message</span><span class="p">);</span>
 <span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="n">RCLCPP_INFO</span><span class="p">(</span>
-<span class="w">      </span><span class="n">rclcpp</span><span class="o">::</span><span class="n">get_logger</span><span class="p">(</span><span class="s">&quot;imu_full_measured_data_ros_publisher&quot;</span><span class="p">),</span>
-<span class="w">      </span><span class="s">&quot;error reading full measured data&quot;</span><span class="p">);</span>
+<span class="w">      </span><span class="n">rclcpp</span><span class="o">::</span><span class="n">get_logger</span><span class="p">(</span><span class="s">"imu_full_measured_data_ros_publisher"</span><span class="p">),</span>
+<span class="w">      </span><span class="s">"error reading full measured data"</span><span class="p">);</span>
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 
