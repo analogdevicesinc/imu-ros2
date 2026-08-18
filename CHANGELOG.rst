@@ -2,8 +2,8 @@
 Changelog for package adi_imu
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+1.1.0 (2026-08-18)
+------------------
 * CMake: raise minimum required version to 3.14 and remove deprecated ament dependency usage.
 * Contributors: Adrian-Stanea
 
