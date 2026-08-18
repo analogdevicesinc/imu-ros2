@@ -2,6 +2,11 @@
 Changelog for package adi_imu
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* CMake: raise minimum required version to 3.14 and remove deprecated ament dependency usage.
+* Contributors: Adrian-Stanea
+
 1.0.1 (2026-08-17)
 ------------------
 * Add IMU covariance estimation framework with selectable algorithms:
