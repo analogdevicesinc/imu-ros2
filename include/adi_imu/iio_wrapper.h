@@ -22,7 +22,11 @@
 
 #define IIO_CONTEXT_ERROR -1
 
+#if defined(LIBIIO_V1)
+#include <iio/iio.h>
+#else
 #include <iio.h>
+#endif
 
 #include <memory>
 #include <string>
@@ -1062,6 +1066,18 @@ public:
   double get_scale_temp();
 
 private:
+  // libiio attribute access helpers
+  static int read_channel_double(struct iio_channel * chn, const char * attr, double * dest);
+  static int read_channel_ll(struct iio_channel * chn, const char * attr, long long * dest);
+  static int write_channel_ll(struct iio_channel * chn, const char * attr, long long val);
+  static int read_device_double(struct iio_device * dev, const char * attr, double * dest);
+  static int write_device_double(struct iio_device * dev, const char * attr, double val);
+  static int read_device_ll(struct iio_device * dev, const char * attr, long long * dest);
+  static int write_device_ll(struct iio_device * dev, const char * attr, long long val);
+  static ssize_t read_debug_raw(
+    struct iio_device * dev, const char * attr, char * dest, size_t len);
+  static int read_debug_ll(struct iio_device * dev, const char * attr, long long * dest);
+
   /**
    * @brief Sets manually the delta angle scales based on the device id.
    * @param dev Device id for which the scales are set.
@@ -1200,6 +1216,14 @@ private:
 
   /*! This variable retains device buffer instance */
   static struct iio_buffer * m_dev_buffer;
+
+#if defined(LIBIIO_V1)
+  /*! This variable retains the IIO channels mask  */
+  static struct iio_channels_mask * m_mask;
+
+  /*! This variable retains the IIO stream instance  */
+  static struct iio_stream * m_stream;
+#endif
 
   /*! This variable retains the linear acceleration x channel */
   static struct iio_channel * m_channel_accel_x;
