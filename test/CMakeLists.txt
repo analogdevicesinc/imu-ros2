@@ -13,9 +13,8 @@ find_package(sensor_msgs REQUIRED)
 find_package(geometry_msgs REQUIRED)
 find_package(ament_lint_auto REQUIRED)
 find_package(ament_cmake_gtest REQUIRED)
-
-find_library(LIBIIO_LIBRARIES iio)
-find_path(LIBIIO_INCLUDE_DIRS iio.h)
+find_package(PkgConfig REQUIRED)
+pkg_search_module(IIO REQUIRED IMPORTED_TARGET libiio iio)
 
 # Include all source files from the main project (including utils subdirectory)
 file(GLOB FILES_H ${CMAKE_SOURCE_DIR}/include/adi_imu/*.h
@@ -43,15 +42,18 @@ ament_add_gtest(adi_imu_test_node utest_launch.test src/utest.cpp
                                       src/accelgyrotemp_subscriber_test.cpp
                                       ${FILES_H} ${FILES_CPP})
 
+if(LIBIIO_RESOLVED_API STREQUAL "v1")
+  target_compile_definitions(adi_imu_test_node PRIVATE LIBIIO_V1)
+endif()
+
 target_include_directories(adi_imu_test_node PUBLIC
-  ${LIBIIO_INCLUDE_DIRS}
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:include>)
 target_compile_features(adi_imu_test_node PUBLIC cxx_std_17)  # Require C++17
 
 target_link_libraries(adi_imu_test_node
   "${adi_imu_node}"
-  ${LIBIIO_LIBRARIES}
+  PkgConfig::IIO
   ${rclcpp_TARGETS}
   ${geometry_msgs_TARGETS}
   ${std_msgs_TARGETS}

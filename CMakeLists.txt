@@ -22,8 +22,27 @@ find_package(geometry_msgs REQUIRED)
 find_package(builtin_interfaces REQUIRED)
 find_package(rosidl_default_generators REQUIRED)
 
-find_library(LIBIIO_LIBRARIES iio)
-find_path(LIBIIO_INCLUDE_DIRS iio.h)
+find_package(PkgConfig REQUIRED)
+pkg_search_module(IIO REQUIRED IMPORTED_TARGET libiio iio)
+
+set(LIBIIO_API_VERSION "AUTO" CACHE STRING "libiio API to target: AUTO, v0 or v1")
+set_property(CACHE LIBIIO_API_VERSION PROPERTY STRINGS AUTO v0 v1)
+
+if(IIO_VERSION VERSION_LESS 1.0)
+  set(LIBIIO_DETECTED_API v0)
+else()
+  set(LIBIIO_DETECTED_API v1)
+endif()
+
+if(LIBIIO_API_VERSION STREQUAL "AUTO")
+  set(LIBIIO_RESOLVED_API ${LIBIIO_DETECTED_API})
+elseif(NOT LIBIIO_API_VERSION STREQUAL LIBIIO_DETECTED_API)
+  message(FATAL_ERROR "LIBIIO_API_VERSION=${LIBIIO_API_VERSION} but found libiio ${IIO_VERSION} ")
+else()
+  set(LIBIIO_RESOLVED_API ${LIBIIO_API_VERSION})
+endif()
+
+message(STATUS "Using libiio ${IIO_VERSION} (${LIBIIO_RESOLVED_API} API)")
 
 # ==============================================================================
 # Create executable
@@ -39,14 +58,17 @@ file(GLOB FILES_CPP ${CMAKE_SOURCE_DIR}/src/*.cpp
 
 add_executable(${NODE_NAME} ${FILES_H} ${FILES_CPP})
 
+if(LIBIIO_RESOLVED_API STREQUAL "v1")
+  target_compile_definitions(${NODE_NAME} PRIVATE LIBIIO_V1)
+endif()
+
 target_include_directories(${NODE_NAME} PUBLIC
-  ${LIBIIO_INCLUDE_DIRS}
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:include>)
 target_compile_features(${NODE_NAME} PUBLIC cxx_std_17)
 
 target_link_libraries(${NODE_NAME}
-  ${LIBIIO_LIBRARIES}
+  PkgConfig::IIO
   ${rclcpp_TARGETS}
   ${geometry_msgs_TARGETS}
   ${std_msgs_TARGETS}
