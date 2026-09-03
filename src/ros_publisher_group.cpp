@@ -39,6 +39,7 @@ RosPublisherGroup::RosPublisherGroup(std::shared_ptr<rclcpp::Node> & node)
   m_imuRosPublisher = nullptr;
   m_imuFullMeasuredDataRosPublisher = nullptr;
   m_imuControlParameters = nullptr;
+  m_executor.add_node(m_node);
 }
 
 RosPublisherGroup::~RosPublisherGroup() {}
@@ -114,7 +115,7 @@ void RosPublisherGroup::run()
 
     m_imuControlParameters->handleControlParams();
 
-    rclcpp::spin_some(m_node);
+    m_executor.spin_some();
   }
 
   this_id = std::this_thread::get_id();

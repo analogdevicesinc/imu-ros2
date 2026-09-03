@@ -97,6 +97,8 @@ private:
   ImuFullMeasuredDataRosPublisherInterface * m_imuFullMeasuredDataRosPublisher;
   /*! Variable to retain m_imuControlParameters instance. */
   ImuControlParameters * m_imuControlParameters;
+  /*! Executor used to service callbacks. */
+  rclcpp::executors::SingleThreadedExecutor m_executor;
 };
 
 }  // namespace adi_imu

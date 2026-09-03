@@ -19,6 +19,7 @@
 
 #include "adi_imu/iio_wrapper.h"
 
+#include <cerrno>
 #include <rclcpp/rclcpp.hpp>
 
 #include "adi_imu/adis_register_map.h"
@@ -36,6 +37,11 @@ struct iio_context * IIOWrapper::m_iio_context = nullptr;
 struct iio_device * IIOWrapper::m_dev = nullptr;
 struct iio_device * IIOWrapper::m_dev_trigger = nullptr;
 struct iio_buffer * IIOWrapper::m_dev_buffer = nullptr;
+
+#if defined(LIBIIO_V1)
+struct iio_channels_mask * IIOWrapper::m_mask = nullptr;
+struct iio_stream * IIOWrapper::m_stream = nullptr;
+#endif
 
 struct iio_channel * IIOWrapper::m_channel_accel_x = nullptr;
 struct iio_channel * IIOWrapper::m_channel_accel_y = nullptr;
@@ -106,10 +112,21 @@ void IIOWrapper::setDeviceDescriptor(std::shared_ptr<ADISRegisterMap> device_des
 
 IIOWrapper::~IIOWrapper()
 {
+#if defined(LIBIIO_V1)
+  if (m_stream != nullptr) {
+    iio_stream_destroy(m_stream);
+    m_stream = nullptr;
+  }
+  if (m_mask != nullptr) {
+    iio_channels_mask_destroy(m_mask);
+    m_mask = nullptr;
+  }
+#else
   if (m_dev_buffer != nullptr) {
     iio_buffer_destroy(m_dev_buffer);
     m_dev_buffer = nullptr;
   }
+#endif
   if (m_iio_context != nullptr) {
     iio_context_destroy(m_iio_context);
     m_iio_context = nullptr;
@@ -123,19 +140,33 @@ int IIOWrapper::createContext(const char * context)
     return IIO_CONTEXT_ERROR;
   }
 
+#if defined(LIBIIO_V1)
+  m_iio_context = iio_create_context(NULL, context);
+#else
   if (!strcmp(context, "local:"))
     m_iio_context = iio_create_local_context();
   else
     m_iio_context = iio_create_context_from_uri(context);
+#endif
 
+#if defined(LIBIIO_V1)
+  if (iio_err(m_iio_context)) {
+#else
   if (!m_iio_context) {
+#endif
     RCLCPP_INFO(rclcpp::get_logger("rclcpp_iiowrapper"), "IIO context is null");
     return IIO_CONTEXT_ERROR;
   }
   RCLCPP_INFO(
     rclcpp::get_logger("rclcpp_iiowrapper"), "IIO context created successfully from: %s", context);
 
+#if defined(LIBIIO_V1)
+  if (iio_context_set_timeout(m_iio_context, 5000)) {
+    RCLCPP_WARN(rclcpp::get_logger("rclcpp_iiowrapper"), "Failed to set IIO context timeout.");
+  }
+#else
   iio_context_set_timeout(m_iio_context, 5000);
+#endif
 
   auto supported_devices = ADISDeviceRegistry::getSupportedDeviceNames();
 
@@ -286,31 +317,47 @@ int IIOWrapper::createContext(const char * context)
   }
   buff_data.resize(NO_OF_CHANS, std::vector<uint32_t>(MAX_NO_OF_SAMPLES, 0));
 
+#if defined(LIBIIO_V1)
+  m_mask = iio_create_channels_mask(iio_device_get_channels_count(m_dev));
+  if (!m_mask) {
+    iio_context_destroy(m_iio_context);
+    m_iio_context = nullptr;
+
+    RCLCPP_WARN(rclcpp::get_logger("rclcpp_iiowrapper"), "Failed to create IIO channels mask.");
+    return IIO_CONTEXT_ERROR;
+  }
+#endif
+
+#if defined(LIBIIO_V1)
+  if (m_channel_temp) iio_channel_enable(m_channel_temp, m_mask);
+  if (m_channel_timestamp) {
+    iio_channel_enable(m_channel_timestamp, m_mask);
+    has_timestamp_channel = true;
+  }
+#else
   if (m_channel_temp) iio_channel_enable(m_channel_temp);
   if (m_channel_timestamp) {
     iio_channel_enable(m_channel_timestamp);
     has_timestamp_channel = true;
   }
+#endif
 
   // Initialize channel scales
-  if (m_channel_accel_x) iio_channel_attr_read_double(m_channel_accel_x, "scale", &m_scale_accel_x);
-  if (m_channel_accel_y) iio_channel_attr_read_double(m_channel_accel_y, "scale", &m_scale_accel_y);
-  if (m_channel_accel_z) iio_channel_attr_read_double(m_channel_accel_z, "scale", &m_scale_accel_z);
+  if (m_channel_accel_x) read_channel_double(m_channel_accel_x, "scale", &m_scale_accel_x);
+  if (m_channel_accel_y) read_channel_double(m_channel_accel_y, "scale", &m_scale_accel_y);
+  if (m_channel_accel_z) read_channel_double(m_channel_accel_z, "scale", &m_scale_accel_z);
 
-  if (m_channel_anglvel_x)
-    iio_channel_attr_read_double(m_channel_anglvel_x, "scale", &m_scale_anglvel_x);
-  if (m_channel_anglvel_y)
-    iio_channel_attr_read_double(m_channel_anglvel_y, "scale", &m_scale_anglvel_y);
-  if (m_channel_anglvel_z)
-    iio_channel_attr_read_double(m_channel_anglvel_z, "scale", &m_scale_anglvel_z);
+  if (m_channel_anglvel_x) read_channel_double(m_channel_anglvel_x, "scale", &m_scale_anglvel_x);
+  if (m_channel_anglvel_y) read_channel_double(m_channel_anglvel_y, "scale", &m_scale_anglvel_y);
+  if (m_channel_anglvel_z) read_channel_double(m_channel_anglvel_z, "scale", &m_scale_anglvel_z);
 
   if (has_delta_channels) {
-    iio_channel_attr_read_double(m_channel_deltaangl_x, "scale", &m_scale_deltaangl_x);
-    iio_channel_attr_read_double(m_channel_deltaangl_y, "scale", &m_scale_deltaangl_y);
-    iio_channel_attr_read_double(m_channel_deltaangl_z, "scale", &m_scale_deltaangl_z);
-    iio_channel_attr_read_double(m_channel_deltavelocity_x, "scale", &m_scale_deltavelocity_x);
-    iio_channel_attr_read_double(m_channel_deltavelocity_y, "scale", &m_scale_deltavelocity_y);
-    iio_channel_attr_read_double(m_channel_deltavelocity_z, "scale", &m_scale_deltavelocity_z);
+    read_channel_double(m_channel_deltaangl_x, "scale", &m_scale_deltaangl_x);
+    read_channel_double(m_channel_deltaangl_y, "scale", &m_scale_deltaangl_y);
+    read_channel_double(m_channel_deltaangl_z, "scale", &m_scale_deltaangl_z);
+    read_channel_double(m_channel_deltavelocity_x, "scale", &m_scale_deltavelocity_x);
+    read_channel_double(m_channel_deltavelocity_y, "scale", &m_scale_deltavelocity_y);
+    read_channel_double(m_channel_deltavelocity_z, "scale", &m_scale_deltavelocity_z);
   } else {
     /* Set scale manually in case delta channels are not available in the
        * linux driver. */
@@ -319,11 +366,133 @@ int IIOWrapper::createContext(const char * context)
   }
 
   if (m_channel_temp) {
-    iio_channel_attr_read_double(m_channel_temp, "scale", &m_scale_temp);
-    iio_channel_attr_read_longlong(m_channel_temp, "offset", &m_offset_temp);
+    read_channel_double(m_channel_temp, "scale", &m_scale_temp);
+    read_channel_ll(m_channel_temp, "offset", &m_offset_temp);
   }
 
   return 0;
+}
+
+// ---------------------------------------------------------------------------
+// libiio attribute access helpers
+// ---------------------------------------------------------------------------
+
+int IIOWrapper::read_channel_double(struct iio_channel * chn, const char * attr, double * dest)
+{
+#if defined(LIBIIO_V1)
+  const struct iio_attr * iio_attr = iio_channel_find_attr(chn, attr);
+  if (!iio_attr) {
+    return -ENOENT;
+  }
+  return iio_attr_read_double(iio_attr, dest);
+#else
+  return iio_channel_attr_read_double(chn, attr, dest);
+#endif
+}
+
+int IIOWrapper::read_channel_ll(struct iio_channel * chn, const char * attr, long long * dest)
+{
+#if defined(LIBIIO_V1)
+  const struct iio_attr * iio_attr = iio_channel_find_attr(chn, attr);
+  if (!iio_attr) {
+    return -ENOENT;
+  }
+  return iio_attr_read_longlong(iio_attr, dest);
+#else
+  return iio_channel_attr_read_longlong(chn, attr, dest);
+#endif
+}
+
+int IIOWrapper::write_channel_ll(struct iio_channel * chn, const char * attr, long long val)
+{
+#if defined(LIBIIO_V1)
+  const struct iio_attr * iio_attr = iio_channel_find_attr(chn, attr);
+  if (!iio_attr) {
+    return -ENOENT;
+  }
+  return iio_attr_write_longlong(iio_attr, val);
+#else
+  return iio_channel_attr_write_longlong(chn, attr, val);
+#endif
+}
+
+int IIOWrapper::read_device_double(struct iio_device * dev, const char * attr, double * dest)
+{
+#if defined(LIBIIO_V1)
+  const struct iio_attr * iio_attr = iio_device_find_attr(dev, attr);
+  if (!iio_attr) {
+    return -ENOENT;
+  }
+  return iio_attr_read_double(iio_attr, dest);
+#else
+  return iio_device_attr_read_double(dev, attr, dest);
+#endif
+}
+
+int IIOWrapper::write_device_double(struct iio_device * dev, const char * attr, double val)
+{
+#if defined(LIBIIO_V1)
+  const struct iio_attr * iio_attr = iio_device_find_attr(dev, attr);
+  if (!iio_attr) {
+    return -ENOENT;
+  }
+  return iio_attr_write_double(iio_attr, val);
+#else
+  return iio_device_attr_write_double(dev, attr, val);
+#endif
+}
+
+int IIOWrapper::read_device_ll(struct iio_device * dev, const char * attr, long long * dest)
+{
+#if defined(LIBIIO_V1)
+  const struct iio_attr * iio_attr = iio_device_find_attr(dev, attr);
+  if (!iio_attr) {
+    return -ENOENT;
+  }
+  return iio_attr_read_longlong(iio_attr, dest);
+#else
+  return iio_device_attr_read_longlong(dev, attr, dest);
+#endif
+}
+
+int IIOWrapper::write_device_ll(struct iio_device * dev, const char * attr, long long val)
+{
+#if defined(LIBIIO_V1)
+  const struct iio_attr * iio_attr = iio_device_find_attr(dev, attr);
+  if (!iio_attr) {
+    return -ENOENT;
+  }
+  return iio_attr_write_longlong(iio_attr, val);
+#else
+  return iio_device_attr_write_longlong(dev, attr, val);
+#endif
+}
+
+ssize_t IIOWrapper::read_debug_raw(
+  struct iio_device * dev, const char * attr, char * dest, size_t len)
+{
+#if defined(LIBIIO_V1)
+  const struct iio_attr * iio_attr = iio_device_find_debug_attr(dev, attr);
+  if (!iio_attr) {
+    return -ENOENT;
+  }
+  return iio_attr_read_raw(iio_attr, dest, len);
+#else
+  return iio_device_debug_attr_read(dev, attr, dest, len);
+#endif
+}
+
+int IIOWrapper::read_debug_ll(struct iio_device * dev, const char * attr, long long * dest)
+{
+#if defined(LIBIIO_V1)
+  const struct iio_attr * iio_attr = iio_device_find_debug_attr(dev, attr);
+  if (!iio_attr) {
+    return -ENOENT;
+  }
+  return iio_attr_read_longlong(iio_attr, dest);
+#else
+  return iio_device_debug_attr_read_longlong(dev, attr, dest);
+#endif
 }
 
 bool IIOWrapper::updateField(uint32_t reg, uint32_t val, uint32_t mask)
@@ -459,10 +628,21 @@ void IIOWrapper::setDeltaVelocityScales(adis_device_id id)
 
 void IIOWrapper::stopBufferAcquisition()
 {
+#if defined(LIBIIO_V1)
+  if (m_stream != nullptr) {
+    iio_stream_destroy(m_stream);
+    m_stream = nullptr;
+  }
+  if (m_mask != nullptr) {
+    iio_channels_mask_destroy(m_mask);
+    m_mask = nullptr;
+  }
+#else
   if (m_dev_buffer != nullptr) {
     iio_buffer_destroy(m_dev_buffer);
     m_dev_buffer = nullptr;
   }
+#endif
 }
 
 ssize_t IIOWrapper::demux_sample(
@@ -505,6 +685,63 @@ bool IIOWrapper::updateBuffer(uint32_t data_selection)
 
   if (current_data_selection != data_selection) {
     stopBufferAcquisition();
+#if defined(LIBIIO_V1)
+    // stopBufferAcquisition() destroyed m_mask, so it must be rebuilt
+    // here before any iio_channel_enable/disable call below
+    m_mask = iio_create_channels_mask(iio_device_get_channels_count(m_dev));
+    if (!m_mask) throw std::runtime_error("Exception: device buffer/stream creation failed");
+
+    // Re-apply the fixed temp / timestamp enables
+    if (m_channel_temp) iio_channel_enable(m_channel_temp, m_mask);
+    if (m_channel_timestamp) iio_channel_enable(m_channel_timestamp, m_mask);
+
+    if (data_selection == ACCEL_GYRO_BUFFERED_DATA) {
+      if (m_device_descriptor->has(ADISRegister::HAS_DELTA_BURST)) {
+        if (has_delta_channels) {
+          iio_channel_disable(m_channel_deltaangl_x, m_mask);
+          iio_channel_disable(m_channel_deltaangl_y, m_mask);
+          iio_channel_disable(m_channel_deltaangl_z, m_mask);
+          iio_channel_disable(m_channel_deltavelocity_x, m_mask);
+          iio_channel_disable(m_channel_deltavelocity_y, m_mask);
+          iio_channel_disable(m_channel_deltavelocity_z, m_mask);
+        }
+      }
+      iio_channel_enable(m_channel_accel_x, m_mask);
+      iio_channel_enable(m_channel_accel_y, m_mask);
+      iio_channel_enable(m_channel_accel_z, m_mask);
+      iio_channel_enable(m_channel_anglvel_x, m_mask);
+      iio_channel_enable(m_channel_anglvel_y, m_mask);
+      iio_channel_enable(m_channel_anglvel_z, m_mask);
+    } else {
+      iio_channel_disable(m_channel_accel_x, m_mask);
+      iio_channel_disable(m_channel_accel_y, m_mask);
+      iio_channel_disable(m_channel_accel_z, m_mask);
+      iio_channel_disable(m_channel_anglvel_x, m_mask);
+      iio_channel_disable(m_channel_anglvel_y, m_mask);
+      iio_channel_disable(m_channel_anglvel_z, m_mask);
+      if (m_device_descriptor->has(ADISRegister::HAS_DELTA_BURST)) {
+        if (has_delta_channels) {
+          iio_channel_enable(m_channel_deltaangl_x, m_mask);
+          iio_channel_enable(m_channel_deltaangl_y, m_mask);
+          iio_channel_enable(m_channel_deltaangl_z, m_mask);
+          iio_channel_enable(m_channel_deltavelocity_x, m_mask);
+          iio_channel_enable(m_channel_deltavelocity_y, m_mask);
+          iio_channel_enable(m_channel_deltavelocity_z, m_mask);
+        } else {
+          // NOTE: intentionally not calling the full stopBufferAcquisition()
+          // here (as the V0 branch below does) — that would also destroy
+          // the m_mask just rebuilt above, losing the disable/enable state
+          // already applied to it. Only the stream is torn down, forcing
+          // the stream-recreate block below to run against the current
+          // (already-correct) mask.
+          if (m_stream != nullptr) {
+            iio_stream_destroy(m_stream);
+            m_stream = nullptr;
+          }
+        }
+      }
+    }
+#else
     if (data_selection == ACCEL_GYRO_BUFFERED_DATA) {
       if (m_device_descriptor->has(ADISRegister::HAS_DELTA_BURST)) {
         if (has_delta_channels) {
@@ -542,10 +779,34 @@ bool IIOWrapper::updateBuffer(uint32_t data_selection)
         }
       }
     }
+#endif
 
     current_data_selection = data_selection;
   }
 
+#if defined(LIBIIO_V1)
+  if (m_stream == nullptr) {
+    sampling_frequency(&samp_freq);
+    no_of_samp = MAX_NO_OF_SAMPLES;
+    if (no_of_samp > samp_freq)
+      /* Overwrite number of samples based on sampling frequency, to avoid
+         * timeout errors from LibIIO */
+      no_of_samp = samp_freq;
+
+    m_dev_buffer = iio_device_get_buffer(m_dev, 0);
+    if (!m_dev_buffer) throw std::runtime_error("Exception: device buffer/stream creation failed");
+
+    m_stream = iio_buffer_create_stream(m_dev_buffer, 4, no_of_samp, m_mask);
+    if (iio_err(m_stream))
+      throw std::runtime_error("Exception: device buffer/stream creation failed");
+
+    buff_read_idx = 0;
+    buff_write_idx = 0;
+  } else {
+    buff_read_idx++;
+    if (buff_read_idx < no_of_samp) return true;  // buffer still contains unread samples
+  }
+#else
   if (m_dev_buffer == nullptr) {
     sampling_frequency(&samp_freq);
     no_of_samp = MAX_NO_OF_SAMPLES;
@@ -563,7 +824,28 @@ bool IIOWrapper::updateBuffer(uint32_t data_selection)
     buff_read_idx++;
     if (buff_read_idx < no_of_samp) return true;
   }
+#endif
 
+#if defined(LIBIIO_V1)
+  {
+    const struct iio_block * block = iio_stream_get_next_block(m_stream);
+    ret = iio_err(block);
+    if (ret == 0) {
+      iio_block_foreach_sample(block, m_mask, demux_sample, NULL);
+      buff_read_idx = 0;
+      return true;
+    }
+    if (ret == -ETIMEDOUT) {
+      RCLCPP_INFO(
+        rclcpp::get_logger("rclcpp_iiowrapper"), "no samples available yet, retrying ret = %ld",
+        ret);
+      return false;
+    }
+    RCLCPP_INFO(rclcpp::get_logger("rclcpp_iiowrapper"), "buffer refill error status %ld", ret);
+    stopBufferAcquisition();
+    return false;
+  }
+#else
   ret = iio_buffer_refill(m_dev_buffer);
   if ((ret == 0) || (ret == -110)) {
     RCLCPP_INFO(
@@ -578,6 +860,7 @@ bool IIOWrapper::updateBuffer(uint32_t data_selection)
   iio_buffer_foreach_sample(m_dev_buffer, demux_sample, NULL);
   buff_read_idx = 0;
   return true;
+#endif
 }
 
 double IIOWrapper::getBuffLinearAccelerationX()
@@ -712,7 +995,7 @@ bool IIOWrapper::getConvertedLinearAccelerationX(double & result)
 
   if (!m_channel_accel_x) return false;
 
-  int ret = iio_channel_attr_read_longlong(m_channel_accel_x, "raw", &valueRaw);
+  int ret = read_channel_ll(m_channel_accel_x, "raw", &valueRaw);
 
   result = valueRaw * m_scale_accel_x;
   return (ret == 0);
@@ -724,7 +1007,7 @@ bool IIOWrapper::getConvertedLinearAccelerationY(double & result)
 
   if (!m_channel_accel_y) return false;
 
-  int ret = iio_channel_attr_read_longlong(m_channel_accel_y, "raw", &valueRaw);
+  int ret = read_channel_ll(m_channel_accel_y, "raw", &valueRaw);
 
   result = valueRaw * m_scale_accel_y;
   return (ret == 0);
@@ -736,7 +1019,7 @@ bool IIOWrapper::getConvertedLinearAccelerationZ(double & result)
 
   if (!m_channel_accel_z) return false;
 
-  int ret = iio_channel_attr_read_longlong(m_channel_accel_z, "raw", &valueRaw);
+  int ret = read_channel_ll(m_channel_accel_z, "raw", &valueRaw);
 
   result = valueRaw * m_scale_accel_z;
   return (ret == 0);
@@ -748,7 +1031,7 @@ bool IIOWrapper::getConvertedAngularVelocityX(double & result)
 
   if (!m_channel_anglvel_x) return false;
 
-  int ret = iio_channel_attr_read_longlong(m_channel_anglvel_x, "raw", &valueRaw);
+  int ret = read_channel_ll(m_channel_anglvel_x, "raw", &valueRaw);
 
   result = valueRaw * m_scale_anglvel_x;
   return (ret == 0);
@@ -760,7 +1043,7 @@ bool IIOWrapper::getConvertedAngularVelocityY(double & result)
 
   if (!m_channel_anglvel_y) return false;
 
-  int ret = iio_channel_attr_read_longlong(m_channel_anglvel_y, "raw", &valueRaw);
+  int ret = read_channel_ll(m_channel_anglvel_y, "raw", &valueRaw);
 
   result = valueRaw * m_scale_anglvel_y;
   return (ret == 0);
@@ -772,7 +1055,7 @@ bool IIOWrapper::getConvertedAngularVelocityZ(double & result)
 
   if (!m_channel_anglvel_z) return false;
 
-  int ret = iio_channel_attr_read_longlong(m_channel_anglvel_z, "raw", &valueRaw);
+  int ret = read_channel_ll(m_channel_anglvel_z, "raw", &valueRaw);
 
   result = valueRaw * m_scale_anglvel_z;
   return (ret == 0);
@@ -815,7 +1098,7 @@ bool IIOWrapper::getConvertedDeltaAngleX(double & result)
 
   if (!m_channel_deltaangl_x) return getConvertedDeltaAngleXFromDebug(result);
 
-  int ret = iio_channel_attr_read_longlong(m_channel_deltaangl_x, "raw", &valueRaw);
+  int ret = read_channel_ll(m_channel_deltaangl_x, "raw", &valueRaw);
 
   result = valueRaw * m_scale_deltaangl_x;
   return (ret == 0);
@@ -858,7 +1141,7 @@ bool IIOWrapper::getConvertedDeltaAngleY(double & result)
 
   if (!m_channel_deltaangl_y) return getConvertedDeltaAngleYFromDebug(result);
 
-  int ret = iio_channel_attr_read_longlong(m_channel_deltaangl_y, "raw", &valueRaw);
+  int ret = read_channel_ll(m_channel_deltaangl_y, "raw", &valueRaw);
 
   result = valueRaw * m_scale_deltaangl_y;
   return (ret == 0);
@@ -901,7 +1184,7 @@ bool IIOWrapper::getConvertedDeltaAngleZ(double & result)
 
   if (!m_channel_deltaangl_z) return getConvertedDeltaAngleZFromDebug(result);
 
-  int ret = iio_channel_attr_read_longlong(m_channel_deltaangl_z, "raw", &valueRaw);
+  int ret = read_channel_ll(m_channel_deltaangl_z, "raw", &valueRaw);
 
   result = valueRaw * m_scale_deltaangl_z;
   return (ret == 0);
@@ -944,7 +1227,7 @@ bool IIOWrapper::getConvertedDeltaVelocityX(double & result)
 
   if (!m_channel_deltavelocity_x) return getConvertedDeltaVelocityXFromDebug(result);
 
-  int ret = iio_channel_attr_read_longlong(m_channel_deltavelocity_x, "raw", &valueRaw);
+  int ret = read_channel_ll(m_channel_deltavelocity_x, "raw", &valueRaw);
 
   result = valueRaw * m_scale_deltavelocity_x;
   return (ret == 0);
@@ -987,7 +1270,7 @@ bool IIOWrapper::getConvertedDeltaVelocityY(double & result)
 
   if (!m_channel_deltavelocity_y) return getConvertedDeltaVelocityYFromDebug(result);
 
-  int ret = iio_channel_attr_read_longlong(m_channel_deltavelocity_y, "raw", &valueRaw);
+  int ret = read_channel_ll(m_channel_deltavelocity_y, "raw", &valueRaw);
 
   result = valueRaw * m_scale_deltavelocity_y;
   return (ret == 0);
@@ -1030,7 +1313,7 @@ bool IIOWrapper::getConvertedDeltaVelocityZ(double & result)
 
   if (!m_channel_deltavelocity_z) return getConvertedDeltaVelocityZFromDebug(result);
 
-  int ret = iio_channel_attr_read_longlong(m_channel_deltavelocity_z, "raw", &valueRaw);
+  int ret = read_channel_ll(m_channel_deltavelocity_z, "raw", &valueRaw);
 
   result = valueRaw * m_scale_deltavelocity_z;
   return (ret == 0);
@@ -1042,7 +1325,7 @@ bool IIOWrapper::getConvertedTemperature(double & result)
 
   if (!m_channel_temp) return false;
 
-  int ret = iio_channel_attr_read_longlong(m_channel_temp, "raw", &valueRaw);
+  int ret = read_channel_ll(m_channel_temp, "raw", &valueRaw);
 
   result = (valueRaw + m_offset_temp) * m_scale_temp / 1000.0;
   return (ret == 0);
@@ -1054,7 +1337,7 @@ bool IIOWrapper::anglvel_x_calibbias(int32_t & result)
 
   if (!m_channel_anglvel_x) return false;
 
-  int ret = iio_channel_attr_read_longlong(m_channel_anglvel_x, "calibbias", &valuel);
+  int ret = read_channel_ll(m_channel_anglvel_x, "calibbias", &valuel);
 
   result = valuel;
   return (ret == 0);
@@ -1064,7 +1347,7 @@ bool IIOWrapper::update_anglvel_calibbias_x(int32_t val)
 {
   if (!m_channel_anglvel_x) return false;
 
-  return (iio_channel_attr_write_longlong(m_channel_anglvel_x, "calibbias", val) == 0);
+  return (write_channel_ll(m_channel_anglvel_x, "calibbias", val) == 0);
 }
 
 bool IIOWrapper::anglvel_y_calibbias(int32_t & result)
@@ -1073,7 +1356,7 @@ bool IIOWrapper::anglvel_y_calibbias(int32_t & result)
 
   if (!m_channel_anglvel_y) return false;
 
-  int ret = iio_channel_attr_read_longlong(m_channel_anglvel_y, "calibbias", &valuel);
+  int ret = read_channel_ll(m_channel_anglvel_y, "calibbias", &valuel);
 
   result = valuel;
   return (ret == 0);
@@ -1083,7 +1366,7 @@ bool IIOWrapper::update_anglvel_calibbias_y(int32_t val)
 {
   if (!m_channel_anglvel_y) return false;
 
-  return (iio_channel_attr_write_longlong(m_channel_anglvel_y, "calibbias", val) == 0);
+  return (write_channel_ll(m_channel_anglvel_y, "calibbias", val) == 0);
 }
 
 bool IIOWrapper::anglvel_z_calibbias(int32_t & result)
@@ -1092,7 +1375,7 @@ bool IIOWrapper::anglvel_z_calibbias(int32_t & result)
 
   if (!m_channel_anglvel_z) return false;
 
-  int ret = iio_channel_attr_read_longlong(m_channel_anglvel_z, "calibbias", &valuel);
+  int ret = read_channel_ll(m_channel_anglvel_z, "calibbias", &valuel);
 
   result = valuel;
   return (ret == 0);
@@ -1102,7 +1385,7 @@ bool IIOWrapper::update_anglvel_calibbias_z(int32_t val)
 {
   if (!m_channel_anglvel_z) return false;
 
-  return (iio_channel_attr_write_longlong(m_channel_anglvel_z, "calibbias", val) == 0);
+  return (write_channel_ll(m_channel_anglvel_z, "calibbias", val) == 0);
 }
 
 bool IIOWrapper::accel_x_calibbias(int32_t & result)
@@ -1111,7 +1394,7 @@ bool IIOWrapper::accel_x_calibbias(int32_t & result)
 
   if (!m_channel_accel_x) return false;
 
-  int ret = iio_channel_attr_read_longlong(m_channel_accel_x, "calibbias", &valuel);
+  int ret = read_channel_ll(m_channel_accel_x, "calibbias", &valuel);
 
   result = valuel;
   return (ret == 0);
@@ -1121,7 +1404,7 @@ bool IIOWrapper::update_accel_calibbias_x(int32_t val)
 {
   if (!m_channel_accel_x) return false;
 
-  return (iio_channel_attr_write_longlong(m_channel_accel_x, "calibbias", val) == 0);
+  return (write_channel_ll(m_channel_accel_x, "calibbias", val) == 0);
 }
 
 bool IIOWrapper::accel_y_calibbias(int32_t & result)
@@ -1130,7 +1413,7 @@ bool IIOWrapper::accel_y_calibbias(int32_t & result)
 
   if (!m_channel_accel_y) return false;
 
-  int ret = iio_channel_attr_read_longlong(m_channel_accel_y, "calibbias", &valuel);
+  int ret = read_channel_ll(m_channel_accel_y, "calibbias", &valuel);
 
   result = valuel;
   return (ret == 0);
@@ -1140,7 +1423,7 @@ bool IIOWrapper::update_accel_calibbias_y(int32_t val)
 {
   if (!m_channel_accel_y) return false;
 
-  return (iio_channel_attr_write_longlong(m_channel_accel_y, "calibbias", val) == 0);
+  return (write_channel_ll(m_channel_accel_y, "calibbias", val) == 0);
 }
 
 bool IIOWrapper::accel_z_calibbias(int32_t & result)
@@ -1149,7 +1432,7 @@ bool IIOWrapper::accel_z_calibbias(int32_t & result)
 
   if (!m_channel_accel_z) return false;
 
-  int ret = iio_channel_attr_read_longlong(m_channel_accel_z, "calibbias", &valuel);
+  int ret = read_channel_ll(m_channel_accel_z, "calibbias", &valuel);
 
   result = valuel;
   return (ret == 0);
@@ -1159,7 +1442,7 @@ bool IIOWrapper::update_accel_calibbias_z(int32_t val)
 {
   if (!m_channel_accel_z) return false;
 
-  return (iio_channel_attr_write_longlong(m_channel_accel_z, "calibbias", val) == 0);
+  return (write_channel_ll(m_channel_accel_z, "calibbias", val) == 0);
 }
 
 bool IIOWrapper::sampling_frequency(double * result)
@@ -1168,7 +1451,7 @@ bool IIOWrapper::sampling_frequency(double * result)
 
   if (!m_dev) return false;
 
-  ret = iio_device_attr_read_double(m_dev, "sampling_frequency", result);
+  ret = read_device_double(m_dev, "sampling_frequency", result);
   if (ret) return false;
 
   samp_freq = *result;
@@ -1182,7 +1465,7 @@ bool IIOWrapper::update_sampling_frequency(double val)
 
   if (!m_dev) return false;
 
-  ret = iio_device_attr_write_double(m_dev, "sampling_frequency", val);
+  ret = write_device_double(m_dev, "sampling_frequency", val);
   if (ret) return false;
 
   samp_freq = val;
@@ -1196,8 +1479,7 @@ bool IIOWrapper::angvel_x_filter_low_pass_3db(uint32_t & result)
 
   if (!m_channel_anglvel_x) return false;
 
-  int ret =
-    iio_channel_attr_read_longlong(m_channel_anglvel_x, "filter_low_pass_3db_frequency", &valuel);
+  int ret = read_channel_ll(m_channel_anglvel_x, "filter_low_pass_3db_frequency", &valuel);
 
   result = valuel;
   return (ret == 0);
@@ -1207,9 +1489,7 @@ bool IIOWrapper::update_angvel_x_filter_low_pass_3db(uint32_t val)
 {
   if (!m_channel_anglvel_x) return false;
 
-  return (
-    iio_channel_attr_write_longlong(m_channel_anglvel_x, "filter_low_pass_3db_frequency", val) ==
-    0);
+  return (write_channel_ll(m_channel_anglvel_x, "filter_low_pass_3db_frequency", val) == 0);
 }
 
 bool IIOWrapper::angvel_y_filter_low_pass_3db(uint32_t & result)
@@ -1218,8 +1498,7 @@ bool IIOWrapper::angvel_y_filter_low_pass_3db(uint32_t & result)
 
   if (!m_channel_anglvel_y) return false;
 
-  int ret =
-    iio_channel_attr_read_longlong(m_channel_anglvel_y, "filter_low_pass_3db_frequency", &valuel);
+  int ret = read_channel_ll(m_channel_anglvel_y, "filter_low_pass_3db_frequency", &valuel);
 
   result = valuel;
   return (ret == 0);
@@ -1228,9 +1507,7 @@ bool IIOWrapper::update_angvel_y_filter_low_pass_3db(uint32_t val)
 {
   if (!m_channel_anglvel_y) return false;
 
-  return (
-    iio_channel_attr_write_longlong(m_channel_anglvel_y, "filter_low_pass_3db_frequency", val) ==
-    0);
+  return (write_channel_ll(m_channel_anglvel_y, "filter_low_pass_3db_frequency", val) == 0);
 }
 
 bool IIOWrapper::angvel_z_filter_low_pass_3db(uint32_t & result)
@@ -1239,8 +1516,7 @@ bool IIOWrapper::angvel_z_filter_low_pass_3db(uint32_t & result)
 
   if (!m_channel_anglvel_z) return false;
 
-  int ret =
-    iio_channel_attr_read_longlong(m_channel_anglvel_z, "filter_low_pass_3db_frequency", &valuel);
+  int ret = read_channel_ll(m_channel_anglvel_z, "filter_low_pass_3db_frequency", &valuel);
 
   result = valuel;
   return (ret == 0);
@@ -1249,9 +1525,7 @@ bool IIOWrapper::update_angvel_z_filter_low_pass_3db(uint32_t val)
 {
   if (!m_channel_anglvel_z) return false;
 
-  return (
-    iio_channel_attr_write_longlong(m_channel_anglvel_z, "filter_low_pass_3db_frequency", val) ==
-    0);
+  return (write_channel_ll(m_channel_anglvel_z, "filter_low_pass_3db_frequency", val) == 0);
 }
 
 bool IIOWrapper::accel_x_filter_low_pass_3db(uint32_t & result)
@@ -1260,8 +1534,7 @@ bool IIOWrapper::accel_x_filter_low_pass_3db(uint32_t & result)
 
   if (!m_channel_accel_x) return false;
 
-  int ret =
-    iio_channel_attr_read_longlong(m_channel_accel_x, "filter_low_pass_3db_frequency", &valuel);
+  int ret = read_channel_ll(m_channel_accel_x, "filter_low_pass_3db_frequency", &valuel);
 
   result = valuel;
   return (ret == 0);
@@ -1270,8 +1543,7 @@ bool IIOWrapper::update_accel_x_filter_low_pass_3db(uint32_t val)
 {
   if (!m_channel_accel_x) return false;
 
-  return (
-    iio_channel_attr_write_longlong(m_channel_accel_x, "filter_low_pass_3db_frequency", val) == 0);
+  return (write_channel_ll(m_channel_accel_x, "filter_low_pass_3db_frequency", val) == 0);
 }
 
 bool IIOWrapper::accel_y_filter_low_pass_3db(uint32_t & result)
@@ -1280,8 +1552,7 @@ bool IIOWrapper::accel_y_filter_low_pass_3db(uint32_t & result)
 
   if (!m_channel_accel_y) return false;
 
-  int ret =
-    iio_channel_attr_read_longlong(m_channel_accel_y, "filter_low_pass_3db_frequency", &valuel);
+  int ret = read_channel_ll(m_channel_accel_y, "filter_low_pass_3db_frequency", &valuel);
 
   result = valuel;
   return (ret == 0);
@@ -1290,8 +1561,7 @@ bool IIOWrapper::update_accel_y_filter_low_pass_3db(uint32_t val)
 {
   if (!m_channel_accel_y) return false;
 
-  return (
-    iio_channel_attr_write_longlong(m_channel_accel_y, "filter_low_pass_3db_frequency", val) == 0);
+  return (write_channel_ll(m_channel_accel_y, "filter_low_pass_3db_frequency", val) == 0);
 }
 
 bool IIOWrapper::accel_z_filter_low_pass_3db(uint32_t & result)
@@ -1300,8 +1570,7 @@ bool IIOWrapper::accel_z_filter_low_pass_3db(uint32_t & result)
 
   if (!m_channel_accel_z) return false;
 
-  int ret =
-    iio_channel_attr_read_longlong(m_channel_accel_z, "filter_low_pass_3db_frequency", &valuel);
+  int ret = read_channel_ll(m_channel_accel_z, "filter_low_pass_3db_frequency", &valuel);
 
   result = valuel;
   return (ret == 0);
@@ -1310,8 +1579,7 @@ bool IIOWrapper::update_accel_z_filter_low_pass_3db(uint32_t val)
 {
   if (!m_channel_accel_z) return false;
 
-  return (
-    iio_channel_attr_write_longlong(m_channel_accel_z, "filter_low_pass_3db_frequency", val) == 0);
+  return (write_channel_ll(m_channel_accel_z, "filter_low_pass_3db_frequency", val) == 0);
 }
 
 bool IIOWrapper::filter_low_pass_3db_frequency(uint32_t & result)
@@ -1320,7 +1588,7 @@ bool IIOWrapper::filter_low_pass_3db_frequency(uint32_t & result)
 
   if (!m_dev) return false;
 
-  int ret = iio_device_attr_read_longlong(m_dev, "filter_low_pass_3db_frequency", &valuel);
+  int ret = read_device_ll(m_dev, "filter_low_pass_3db_frequency", &valuel);
   if (ret) return false;
 
   result = valuel;
@@ -1331,7 +1599,7 @@ bool IIOWrapper::update_filter_low_pass_3db_frequency(uint32_t val)
 {
   if (!m_dev) return false;
 
-  return (iio_device_attr_write_longlong(m_dev, "filter_low_pass_3db_frequency", val) == 0);
+  return (write_device_ll(m_dev, "filter_low_pass_3db_frequency", val) == 0);
 }
 
 bool IIOWrapper::accel_x_calibscale(int32_t & result)
@@ -1340,7 +1608,7 @@ bool IIOWrapper::accel_x_calibscale(int32_t & result)
 
   if (!m_channel_accel_x) return false;
 
-  int ret = iio_channel_attr_read_longlong(m_channel_accel_x, "calibscale", &valuel);
+  int ret = read_channel_ll(m_channel_accel_x, "calibscale", &valuel);
 
   result = valuel;
   return (ret == 0);
@@ -1352,7 +1620,7 @@ bool IIOWrapper::accel_y_calibscale(int32_t & result)
 
   if (!m_channel_accel_y) return false;
 
-  int ret = iio_channel_attr_read_longlong(m_channel_accel_y, "calibscale", &valuel);
+  int ret = read_channel_ll(m_channel_accel_y, "calibscale", &valuel);
 
   result = valuel;
   return (ret == 0);
@@ -1364,7 +1632,7 @@ bool IIOWrapper::accel_z_calibscale(int32_t & result)
 
   if (!m_channel_accel_z) return false;
 
-  int ret = iio_channel_attr_read_longlong(m_channel_accel_z, "calibscale", &valuel);
+  int ret = read_channel_ll(m_channel_accel_z, "calibscale", &valuel);
 
   result = valuel;
   return (ret == 0);
@@ -1376,7 +1644,7 @@ bool IIOWrapper::anglvel_x_calibscale(int32_t & result)
 
   if (!m_channel_anglvel_x) return false;
 
-  int ret = iio_channel_attr_read_longlong(m_channel_anglvel_x, "calibscale", &valuel);
+  int ret = read_channel_ll(m_channel_anglvel_x, "calibscale", &valuel);
 
   result = valuel;
   return (ret == 0);
@@ -1388,7 +1656,7 @@ bool IIOWrapper::anglvel_y_calibscale(int32_t & result)
 
   if (!m_channel_anglvel_y) return false;
 
-  int ret = iio_channel_attr_read_longlong(m_channel_anglvel_y, "calibscale", &valuel);
+  int ret = read_channel_ll(m_channel_anglvel_y, "calibscale", &valuel);
 
   result = valuel;
   return (ret == 0);
@@ -1400,7 +1668,7 @@ bool IIOWrapper::anglvel_z_calibscale(int32_t & result)
 
   if (!m_channel_anglvel_z) return false;
 
-  int ret = iio_channel_attr_read_longlong(m_channel_anglvel_z, "calibscale", &valuel);
+  int ret = read_channel_ll(m_channel_anglvel_z, "calibscale", &valuel);
 
   result = valuel;
   return (ret == 0);
@@ -1410,42 +1678,42 @@ bool IIOWrapper::update_accel_calibscale_x(int32_t val)
 {
   if (!m_channel_accel_x) return false;
 
-  return (iio_channel_attr_write_longlong(m_channel_accel_x, "calibscale", val) == 0);
+  return (write_channel_ll(m_channel_accel_x, "calibscale", val) == 0);
 }
 
 bool IIOWrapper::update_accel_calibscale_y(int32_t val)
 {
   if (!m_channel_accel_y) return false;
 
-  return (iio_channel_attr_write_longlong(m_channel_accel_y, "calibscale", val) == 0);
+  return (write_channel_ll(m_channel_accel_y, "calibscale", val) == 0);
 }
 
 bool IIOWrapper::update_accel_calibscale_z(int32_t val)
 {
   if (!m_channel_accel_z) return false;
 
-  return (iio_channel_attr_write_longlong(m_channel_accel_z, "calibscale", val) == 0);
+  return (write_channel_ll(m_channel_accel_z, "calibscale", val) == 0);
 }
 
 bool IIOWrapper::update_anglvel_calibscale_x(int32_t val)
 {
   if (!m_channel_anglvel_x) return false;
 
-  return (iio_channel_attr_write_longlong(m_channel_anglvel_x, "calibscale", val) == 0);
+  return (write_channel_ll(m_channel_anglvel_x, "calibscale", val) == 0);
 }
 
 bool IIOWrapper::update_anglvel_calibscale_y(int32_t val)
 {
   if (!m_channel_anglvel_y) return false;
 
-  return (iio_channel_attr_write_longlong(m_channel_anglvel_y, "calibscale", val) == 0);
+  return (write_channel_ll(m_channel_anglvel_y, "calibscale", val) == 0);
 }
 
 bool IIOWrapper::update_anglvel_calibscale_z(int32_t val)
 {
   if (!m_channel_anglvel_z) return false;
 
-  return (iio_channel_attr_write_longlong(m_channel_anglvel_z, "calibscale", val) == 0);
+  return (write_channel_ll(m_channel_anglvel_z, "calibscale", val) == 0);
 }
 
 bool IIOWrapper::diag_sensor_initialization_failure(bool & result)
@@ -2105,7 +2373,7 @@ bool IIOWrapper::firmware_revision(std::string & result)
   if (!m_dev) return false;
 
   char valuec[32];
-  int ret = iio_device_debug_attr_read(m_dev, "firmware_revision", valuec, 32);
+  int ret = read_debug_raw(m_dev, "firmware_revision", valuec, 32);
   if (ret < 0) return false;
 
   result = valuec;
@@ -2117,7 +2385,7 @@ bool IIOWrapper::firmware_date(std::string & result)
   if (!m_dev) return false;
 
   char valuec[32];
-  int ret = iio_device_debug_attr_read(m_dev, "firmware_date", valuec, 32);
+  int ret = read_debug_raw(m_dev, "firmware_date", valuec, 32);
   if (ret < 0) return false;
 
   result = valuec;
@@ -2129,7 +2397,7 @@ bool IIOWrapper::product_id(uint32_t & result)
   if (!m_dev) return false;
 
   long long valuel;
-  int ret = iio_device_debug_attr_read_longlong(m_dev, "product_id", &valuel);
+  int ret = read_debug_ll(m_dev, "product_id", &valuel);
   if (ret) return false;
 
   result = valuel;
@@ -2141,7 +2409,7 @@ bool IIOWrapper::serial_number(uint32_t & result)
   if (!m_dev) return false;
 
   long long valuel;
-  int ret = iio_device_debug_attr_read_longlong(m_dev, "serial_number", &valuel);
+  int ret = read_debug_ll(m_dev, "serial_number", &valuel);
   if (ret) return false;
 
   result = valuel;
@@ -2153,7 +2421,7 @@ bool IIOWrapper::flash_counter(uint32_t & result)
   if (!m_dev) return false;
 
   long long valuel;
-  int ret = iio_device_debug_attr_read_longlong(m_dev, "flash_count", &valuel);
+  int ret = read_debug_ll(m_dev, "flash_count", &valuel);
   if (ret) return false;
 
   result = valuel;
